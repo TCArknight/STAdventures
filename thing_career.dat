@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Career -->
+  <thing
+    id="caYoungOff"
+    name="Young Officer"
+    compset="Career"
+    isunique="yes"
+    description="The character is defined by their potential more than their skill. Their raw talent and their expectations of what the universe is like have not yet been tempered by reality."> 
+	<bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Experience - Young"/>
+	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
+      </bootstrap>	
+    <bootstrap thing="talUnPot">
+      </bootstrap>
+	</thing>
+  <thing
+    id="caExper"
+    name="Experienced"
+    compset="Career"
+    isunique="yes"
+    description="The character has several years of experience in service of Starfleet, and is enjoying a promising career. This is the default assumption for characters created using these rules."> 
+	<bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Experience - Experienced"/>
+	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s experience in some way."/>
+      </bootstrap>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resTalent] += 1
+      ]]></eval>	  
+	</thing>
+  <thing
+    id="caVeteran"
+    name="Veteran Officer"
+    compset="Career"
+    isunique="yes"
+    description="The character has decades of experience in the service of Starfleet, and has served on many ships, and starbases. The character’s judgement and opinions are highly-regarded by subordinates, peers, and even superiors."> 
+	<bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Experience - Veteran"/>
+	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
+      </bootstrap>	
+    <bootstrap thing="talVeteran">
+      </bootstrap>
+	</thing>
+  </document>

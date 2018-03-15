@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Damage Effects -->
+  <thing
+    id="deArea"
+    name="Area"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="0"/>
+    </thing>
+  <thing
+    id="deInten"
+    name="Intense"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="0"/>
+    </thing>
+  <thing
+    id="deKnock"
+    name="Knockdown"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="0"/>
+    </thing>
+  <thing
+    id="dePierce1"
+    name="Piercing"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="1"/>
+    </thing>
+  <thing
+    id="dePierce2"
+    name="Piercing"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="2"/>
+    </thing>
+  <thing
+    id="deVicious1"
+    name="Vicious"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="1"/>
+    </thing>
+  <thing
+    id="deVicious2"
+    name="Vicious"
+    compset="DamEffect"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="deValue" value="2"/>
+    </thing>
+
+	</document>

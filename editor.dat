@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definitions of how the Editor should handle all the
+      various publicly accessible objects (i.e. component sets) within the game
+      system. A separate "editthing" elemenet is defined for each component set,
+      along with the appropriate details for how to configure each facet via
+      "inputthing" elements.
+-->
+
+<document signature="Hero Lab Data">
+  <inputthinggroup
+    id="SourceInfo">
+	<inputthing
+      name="Source Info"
+      helptext="Entries related to the source material are below..">
+      <it_separator/>
+      </inputthing>
+    </inputthinggroup>
+
+  <inputthinggroup
+    id="WeaponGrp">
+    <inputthing
+      name="Damage"
+      helptext="Damage traits">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Weapon Damage"
+      helptext="Specify the damage rating of the weapon.">
+      <it_field field="wpDamage"/>
+      </inputthing>
+    <inputthing
+      name="Damage Effects"
+      helptext="Select additional damage effects.">
+      <it_taglist group="DmgEffect" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Qualities"
+      helptext="Weapon Qualities">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Qualities"
+      helptext="Select additional qualities.">
+      <it_taglist group="GearQual" tag="?"/>
+      </inputthing>
+    </inputthinggroup>	 
+	
+  <inputthinggroup
+    id="CostGrp">
+    <inputthing
+      name="Costs"
+      helptext="Weapon Costs">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Cost"
+      helptext="Select Esclation/Opportunity costs.">
+      <it_taglist group="GearCost" tag="?"/>
+      </inputthing>
+    </inputthinggroup>
+	
+  <inputthinggroup
+    id="WeightGrp">
+    <inputthing
+      name="Weight"
+      helptext="Weights">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Weight"
+      helptext="Specify the weight of the item.">
+      <it_field field="gearWeight"/>
+      </inputthing>
+    </inputthinggroup>
+	
+  <inputthinggroup
+    id="DomainGrp">
+    <inputthing
+      name="User Entry"
+      helptext="User Entry">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Disable Auto-Naming?"
+      helptext="Specify whether the automatic synthesis of names for this edge should be disabled.">
+      <it_tagcheck group="User" tag="NoAutoName"/>
+      </inputthing>
+    <inputthing
+      name="Require Domain Specification?"
+      helptext="Specify whether the edge requires the user to specify a domain.">
+      <it_tagcheck group="User" tag="NeedDomain"/>
+      </inputthing>
+    <inputthing
+      name="Domain Term"
+      helptext="Specify the term to use as a label for the domain. If empty, the term 'Domain' is used.">
+      <it_tagpick group="DomainTerm" tag="?" dynamic="yes"/>
+      </inputthing>
+    </inputthinggroup>
+	
+  <inputthinggroup
+    id="ChooseGrp1">
+    <inputthing
+      name="Selections"
+      helptext="User Selections">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Label"
+      helptext="Specify the label used to identify choices for display in the first menu. If empty, no first label is shown.">
+      <it_field field="usrLabel1"/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Source"
+      helptext="Specify the source from which to retrieve choices for display in the first menu.">
+      <it_tagpick group="ChooseSrc1" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Tag Expression"
+      helptext="Specify the tag expression used to identify choices for display in the first menu. If empty, no first menu is shown.">
+      <it_field field="usrCandid1"/>
+      </inputthing>
+    <inputthing
+      name="Menu #2 Label"
+      helptext="Specify the label used to identify choices for display in the second menu. If empty, no second label is shown.">
+      <it_field field="usrLabel2"/>
+      </inputthing>
+    <inputthing
+      name="Menu #2 Source"
+      helptext="Specify the source from which to retrieve choices for display in the second menu.">
+      <it_tagpick group="ChooseSrc2" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Menu #2 Tag Expression"
+      helptext="Specify the tag expression used to identify choices for display in the second menu. If empty, no second menu is shown.">
+      <it_field field="usrCandid2"/>
+      </inputthing>
+    <inputthing
+      name="Menu #3 Label"
+      helptext="Specify the label used to identify choices for display in the third menu. If empty, no third label is shown.">
+      <it_field field="usrLabel3"/>
+      </inputthing>
+	  <inputthing
+      name="Menu #3 Source"
+      helptext="Specify the source from which to retrieve choices for display in the second menu.">
+      <it_tagpick group="ChooseSrc3" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Menu #3 Tag Expression"
+      helptext="Specify the tag expression used to identify choices for display in the third menu. If empty, no second menu is shown.">
+      <it_field field="usrCandid3"/>
+      </inputthing>
+	</inputthinggroup>
+
+  <inputthinggroup
+    id="ChooseGrp2">
+    <inputthing
+      name="Selections"
+      helptext="User Selections">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Label"
+      helptext="Specify the label used to identify choices for display in the first menu. If empty, no first label is shown.">
+      <it_field field="usrLabel4"/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Source"
+      helptext="Specify the source from which to retrieve choices for display in the first menu.">
+      <it_tagpick group="ChooseSrc4" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Tag Expression"
+      helptext="Specify the tag expression used to identify choices for display in the first menu. If empty, no first menu is shown.">
+      <it_field field="usrCandid4"/>
+      </inputthing>
+    <inputthing
+      name="Menu #2 Label"
+      helptext="Specify the label used to identify choices for display in the second menu. If empty, no second label is shown.">
+      <it_field field="usrLabel5"/>
+      </inputthing>
+    <inputthing
+      name="Menu #2 Source"
+      helptext="Specify the source from which to retrieve choices for display in the second menu.">
+      <it_tagpick group="ChooseSrc5" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Menu #2 Tag Expression"
+      helptext="Specify the tag expression used to identify choices for display in the second menu. If empty, no second menu is shown.">
+      <it_field field="usrCandid5"/>
+      </inputthing>
+    <inputthing
+      name="Menu #3 Label"
+      helptext="Specify the label used to identify choices for display in the third menu. If empty, no third label is shown.">
+      <it_field field="usrLabel6"/>
+      </inputthing>
+    <inputthing
+      name="Menu #3 Source"
+      helptext="Specify the source from which to retrieve choices for display in the second menu.">
+      <it_tagpick group="ChooseSrc6" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Menu #3 Tag Expression"
+      helptext="Specify the tag expression used to identify choices for display in the third menu. If empty, no second menu is shown.">
+      <it_field field="usrCandid6"/>
+      </inputthing>
+	</inputthinggroup>
+
+  <!-- Trait editthing -->
+  <editthing
+    compset="Trait"
+    name="Traits"
+    prefix="tr"
+    description="Traits have no special fields - only a name. If a trait confers an ability, create it as a special ability and bootstrap it from the trait."
+    summary="Defines a Trait that can be selected by a character.">
+	<inputthing
+      name="Categories"
+      helptext="select the category the trait belongs in. A starship-specific trait can be selected either in the list, or the checkbox below.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Category"
+      helptext="Select the category this Trait belongs to.">
+      <it_taglist group="TraitCat" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Starship Only?"
+      helptext="Specify whether this Trait is only for Starships.">
+      <it_tagcheck group="TraitCat" tag="Ship"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
+  <!-- Talent editthing -->
+  <editthing
+    compset="Talent"
+    name="Talents"
+    prefix="tal"
+    description="Talents usable by heros and starships."
+    summary="Defines a Talent.">
+    <inputthing
+      name="Name for Special Tab"
+      helptext="Specify an optional custom name to be used on the Special tab.">
+      <it_field field="spcName"/>
+      </inputthing>
+    <inputthing
+      name="Categories"
+      helptext="select the category the talent belongs in. A starship-specific talent can be selected either in the list, or the checkbox below.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Category"
+      helptext="Select the category this Talent belongs to.">
+      <it_taglist group="TalentCat" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Starship Only?"
+      helptext="Specify whether this Talent is only for Starships.">
+      <it_tagcheck group="TalentCat" tag="Ship"/>
+      </inputthing>
+    <inputthing
+      name="Other Options"
+      helptext="Other options.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Hide from User?"
+      helptext="Specify whether this special ability is hidden from direct user selection.">
+      <it_tagcheck group="Hide" tag="Talent"/>
+      </inputthing>
+    <inputthing
+      name="Activated by User?"
+      helptext="Specify whether this special ability can be activated by the user via the In-Play tab.">
+      <it_tagcheck group="User" tag="Activation"/>
+      </inputthing>
+    <inputthing
+      name="Creation Only?"
+      helptext="Specify whether this special ability can only be selected for a character during creation.">
+      <it_tagcheck group="User" tag="CreateOnly"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+
+<!-- These facets of special abilities are not currently used for anything so they are commented out.
+    <inputthing
+      name="Minimum Value"
+      helptext="Specify the minimum rating for the special ability (default is 0).">
+      <it_field field="abiMinimum"/>
+      </inputthing>
+    <inputthing
+      name="Maximum Value"
+      helptext="Specify the maximum rating for the skill(default is 10).">
+      <it_field field="abiMaximum"/>
+      </inputthing>
+    <inputthing
+      name="Abbreviation"
+      helptext="Specify a very short abbreviation for use in displaying the skill via its abbreviation (max 5 characters).">
+      <it_field field="abiAbbrev"/>
+      </inputthing>
+-->
+    </editthing>
+	
+  <!-- Hero (typMain, typSupp) specific tabe -->
+  <!-- Species editthing -->
+  <editthing
+    group="Hero"
+    compset="Species"
+    name="Species"
+    prefix="spc"
+    description="."
+    summary="Defines a Species that can be selected by a character.">
+    <inputthing
+      name="Category"
+      helptext="Select the talents selectable by this Mission Profile.">
+      <it_taglist group="SpecCat" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Attribute Bonus"
+      helptext="Select the attributes for species bonus.">
+      <it_taglist group="SpeciesBon" tag="?"/>
+      </inputthing>
+	<inputthing
+      name="Traits"
+      helptext="Select the traits provided by the species here.">
+      <it_bootlist compset="Trait"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp2"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
+  <!-- Environ editthing -->
+  <editthing
+    group="Hero"
+    compset="Environ"
+    name="Environment"
+    prefix="env"
+    description="."
+    summary="Defines an Environment that can be selected by a character.">
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+	<inputthing
+      name="Values"
+      helptext="Select the values provided by the envronment here. Use 'vaCustom' and specify {br}the UserName &amp; UserDesc fields if no specific option.">
+      <it_bootlist compset="Value"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>	
+	
+  <!-- Upbringing editthing -->
+  <editthing
+    group="Hero"
+    compset="Upbringing"
+    name="Upbringing"
+    prefix="up"
+    description="."
+    summary="Defines an Upbringing that can be selected by a character.">
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
+  <!-- Academy editthing (not needed since all implemented) -->
+  <!-- Career editthing (not needed since all implemented) -->
+
+  <!-- Career Event editthing -->
+  <editthing
+    group="Hero"
+    compset="Event"
+    name="Career Event"
+    prefix="ev"
+    description="."
+    summary="Defines a career event that can be selected by a character.">
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
+  <!-- Starship (typShip) specific tabe -->
+  <!-- Spaceframe editthing -->
+  <editthing
+    group="Starship"
+    compset="Frame"
+    name="Starship Frame"
+    prefix="fra"
+    description="."
+    summary="Defines a spaceframe that can be selected.">
+	<inputthing
+      name="Ship Info"
+      helptext="Other options.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Year Entered Service"
+      helptext="This is the year that the spaceframe entered service.">
+      <it_field field="fraYearEnt"/>
+      </inputthing>
+    <inputthing
+      name="Year Retired Service"
+      helptext="This is the year that the spaceframe was retired from service.">
+      <it_field field="fraYearRet"/>
+      </inputthing>
+    <inputthing
+      name="Ship Scale"
+      helptext="This is the scale of the ship.">
+      <it_field field="fraScale"/>
+      </inputthing>
+	<inputthing
+      name="Capabilities"
+      helptext="This is the capabilities listing of the ship.">
+      <it_field field="fraCap"/>
+      </inputthing>
+    <inputthing
+      name="Systems"
+      helptext="Beginning ratings for the frame.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Comm"
+      helptext="Comm Rating">
+      <it_field field="fraComm"/>
+      </inputthing>
+	<inputthing
+      name="Computers"
+      helptext="Computer Rating">
+      <it_field field="fraComp"/>
+      </inputthing>
+    <inputthing
+      name="Engine"
+      helptext="Engine Rating">
+      <it_field field="fraEngine"/>
+      </inputthing>
+	<inputthing
+      name="Sensors"
+      helptext="Sensor Rating">
+      <it_field field="fraSens"/>
+      </inputthing>
+    <inputthing
+      name="Structure"
+      helptext="Structure Rating">
+      <it_field field="fraStruc"/>
+      </inputthing>
+	<inputthing
+      name="Weapons"
+      helptext="Weapons Rating">
+      <it_field field="fraWeap"/>
+      </inputthing>
+	<inputthing
+      name="Departments"
+      helptext="Department ratings for the frame.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Command"
+      helptext="Command Rating">
+      <it_field field="fraCmd"/>
+      </inputthing>
+	<inputthing
+      name="Conn"
+      helptext="Conn Rating">
+      <it_field field="fraConn"/>
+      </inputthing>
+    <inputthing
+      name="Engineering"
+      helptext="Engineering Rating">
+      <it_field field="fraEng"/>
+      </inputthing>
+	<inputthing
+      name="Medicine"
+      helptext="Medicine Rating">
+      <it_field field="fraMed"/>
+      </inputthing>
+    <inputthing
+      name="Security"
+      helptext="Security Rating">
+      <it_field field="fraSecur"/>
+      </inputthing>
+	<inputthing
+      name="Sciences"
+      helptext="Sciences Rating">
+      <it_field field="fraSci"/>
+      </inputthing>
+	<inputthing
+      name="Traits"
+      helptext="Starship Traits.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Traits"
+      helptext="Select the traits provided by the starship here.">
+      <it_bootlist compset="Trait">
+	    <match>
+		  TraitCat.Ship
+		  </match>
+	    </it_bootlist>
+      </inputthing>
+	<inputthing
+      name="Options"
+      helptext="Seperator">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Allow Mission Pods?"
+      helptext="Specify whether Mission Pods are valid for this starship.">
+      <it_tagcheck group="Ship" tag="MissionPod"/>
+      </inputthing>
+	<inputthing
+      name="Number of Pods"
+      helptext="Number of Mission Pods able to be selected for the frame.">
+      <it_field field="fraPods"/>
+      </inputthing>
+    <inputthing
+      name="Allow Saucer Seperation?"
+      helptext="Specify whether Saucer Seperation talent is valid for this starship.">
+      <it_tagcheck group="Ship" tag="SaucerSep"/>
+      </inputthing>
+	<inputthing
+      name="Talents"
+      helptext="Starship Talents.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Talents"
+      helptext="Select the talents provided by the starship here.">
+      <it_bootlist compset="Talent">
+	    <match>
+		  TalentCat.Ship
+		  </match>
+	    </it_bootlist>
+      </inputthing>	  
+	<inputthing
+      name="Weapons"
+      helptext="Starship Weaponry for the frame.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Starship Weapons"
+      helptext="Select the weapons on the starship here.">
+      <it_bootlist compset="Energy">
+	    </it_bootlist>
+      </inputthing>	  
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
+  <!-- Mission Profile editthing -->
+  <editthing
+    group="Starship"
+    compset="Profile"
+    name="Mission Profile"
+    prefix="pro"
+    description="."
+    summary="Defines a mission profile that can be selected.">
+	<inputthing
+      name="Departments"
+      helptext="Department ratings for the frame.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Command"
+      helptext="Command Rating">
+      <it_field field="proCmd"/>
+      </inputthing>
+	<inputthing
+      name="Conn"
+      helptext="Conn Rating">
+      <it_field field="proConn"/>
+      </inputthing>
+    <inputthing
+      name="Engineering"
+      helptext="Engineering Rating">
+      <it_field field="proEng"/>
+      </inputthing>
+	<inputthing
+      name="Medicine"
+      helptext="Medicine Rating">
+      <it_field field="proMed"/>
+      </inputthing>
+    <inputthing
+      name="Security"
+      helptext="Security Rating">
+      <it_field field="proSecur"/>
+      </inputthing>
+	<inputthing
+      name="Sciences"
+      helptext="Sciences Rating">
+      <it_field field="proSci"/>
+      </inputthing>
+	<inputthing
+      name="Talents"
+      helptext="Starship Talents.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Talents"
+      helptext="Select the talents selectable by this Mission Profile.">
+      <it_taglist group="MisProTal" tag="?">
+		</it_taglist>
+      </inputthing>	   
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
+  <!-- Ship Weapons editthing -->
+  <editthing
+    group="Starship"
+    compset="Energy"
+    name="Energy Weapons"
+    prefix="sh"
+    description="Starship Weapons."
+    summary="Defines a starship weapon that can be selected.">
+	<inputthing
+      name="Weapon Category"
+      helptext="ShipWepCat.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Category"
+      helptext="Type of Weapon.">
+      <it_taglist group="ShipWepCat" tag="?"/>
+      </inputthing>
+	<inputthing
+      name="Combat"
+      helptext="Combat details for weapon.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Weapon Range"
+      helptext="Specify the Range of the weapon.">
+      <it_field field="wpSRange"/>
+      </inputthing>
+    <inputthing
+      name="Fixed Base Damage?"
+      helptext="Specify if this weapon has a fixed base damage.">
+      <it_tagcheck group="Weapon" tag="FixedBase"/>
+      </inputthing>
+    <inputthing
+      name="Base Damage"
+      helptext="Specify the damage of the weapon.">
+      <it_field field="wpSBasDmg"/>
+      </inputthing>
+	<inputthing
+      name="Qualities"
+      helptext="Qualities for the weapon.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Qualities"
+      helptext="Qualities of the weapon.">
+      <it_taglist group="GearQual" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Effects"
+      helptext="Damage Effects of the weapon.">
+      <it_taglist group="DmgEffect" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Delivery"
+      helptext="Delivery Method for the weapon.">
+      <it_taglist group="Delivery" tag="?"/>
+      </inputthing>
+	<inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
+  <!-- Equipment editthing - for basic gear -->
+  <editthing
+    compset="Equipment"
+    name="Equipment"
+    prefix="eq"
+	group="Gear"
+    description="Weapons, armor, and vehicles all have their own tabs for creating objects of those types."
+    summary="Defines a simple piece of equipment that can be selected on the Gear tab.">
+    <inputthing
+      name="Category"
+      helptext="Select the type of equipment this is.">
+      <it_taglist group="GearCat" tag="?"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="CostGrp"/>
+      </inputthing>
+    <inputthing
+      name="Lot Cost"
+      helptext="Specify the cost of a full 'lot' of the item, where the lot size is given on the right. The 'lot cost' overrides any individual cost given above.">
+      <it_field field="grLotCost"/>
+      </inputthing>
+    <inputthing
+      name="Weight"
+      helptext="Specify the weight of the item.">
+      <it_field field="gearWeight"/>
+      </inputthing>
+    <inputthing
+      name="Container Behavior"
+      helptext="Specify whether this piece of equipment can contain other equipment. If this equipment can contain other equipment AND be contained within other equipment, select 'Holder'. If the equipment can only contain other equipment, select 'Top Holder'. If the equipment can only be contained by other equipment, do not select anything.">
+      <it_tagpick group="thing" tag="holder?" />
+      </inputthing>
+    </editthing>
+
+
+  <!-- Ammunition editthing - for ammunition -->
+  <editthing
+    compset="Ammunition"
+    name="Ammunition"
+    prefix="eq"
+    group="Gear"
+    description="Weapons, armor, and vehicles all have their own tabs for creating objects of those types."
+    summary="Defines a type of weapon ammunition that can be selected on the Gear tab.">
+    <inputthing>
+      <it_groupref id="CostGrp"/>
+      </inputthing>
+    <inputthing
+      name="Lot Cost"
+      helptext="Specify the cost of a full 'lot' of the item, where the lot size is given on the right. The 'lot cost' overrides any individual cost given above.">
+      <it_field field="grLotCost"/>
+      </inputthing>
+    </editthing>
+
+
+  <!-- Melee editthing - for melee weapons -->
+  <editthing
+    compset="Melee"
+    name="Melee Weapon"
+    prefix="wp"
+	group="Gear"
+    description="Armor, vehicles, and simple equipment all have their own tabs for creating objects of those types."
+    summary="Defines a melee weapon that can be selected on the Armory tab.">
+    <inputthing
+      name="Weapon Bonus"
+      helptext="Specify the attack bonus of the weapon.">
+      <it_field field="wpBonus"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="WeaponGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="CostGrp"/>
+      </inputthing>
+    <inputthing
+      name="Special Behaviors"
+      helptext="Specify any special behaviors for the weapon of which the user should be reminded.">
+      <it_field field="wpSpecial"/>
+      </inputthing>
+    <inputthing
+      name="Natural Attack?"
+      helptext="Specify whether this weapon should be treated as a natural attack.">
+      <it_tagcheck group="Equipment" tag="Natural"/>
+      </inputthing>
+    <inputthing
+      name="Two-Handed Weapon?"
+      helptext="Specify whether this weapon is two-handed.">
+      <it_tagcheck group="Equipment" tag="TwoHand"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+	</editthing>
+
+
+  <!-- Ranged editthing - for ranged weapons -->
+  <editthing
+    compset="Ranged"
+    name="Ranged Weapon"
+    prefix="wp"
+	group="Gear"
+    description="Armor, vehicles, and simple equipment all have their own tabs for creating objects of those types."
+    summary="Defines a ranged weapon that can be selected on the Armory tab.">
+    <inputthing
+      name="Weapon Bonus"
+      helptext="Specify the attack bonus of the weapon.">
+      <it_field field="wpBonus"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="WeaponGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="CostGrp"/>
+      </inputthing>
+    <inputthing
+      name="Short Range"
+      helptext="Specify the short range distance of the weapon.">
+      <it_field field="wpShort"/>
+      </inputthing>
+    <inputthing
+      name="Medium Range"
+      helptext="Specify the medium range distance of the weapon.">
+      <it_field field="wpMedium"/>
+      </inputthing>
+    <inputthing
+      name="Long Range"
+      helptext="Specify the long range distance of the weapon.">
+      <it_field field="wpLong"/>
+      </inputthing>
+    <inputthing
+      name="Special Behaviors"
+      helptext="Specify any special behaviors for the weapon of which the user should be reminded.">
+      <it_field field="wpSpecial"/>
+      </inputthing>
+    <inputthing
+      name="Natural Attack?"
+      helptext="Specify whether this weapon should be treated as a natural attack.">
+      <it_tagcheck group="Equipment" tag="Natural"/>
+      </inputthing>
+    <inputthing
+      name="Two-Handed Weapon?"
+      helptext="Specify whether this weapon is two-handed.">
+      <it_tagcheck group="Equipment" tag="TwoHand"/>
+      </inputthing>
+    </editthing>
+
+
+  <!-- Armor editthing -->
+  <editthing
+    compset="Armor"
+    name="Armor"
+    prefix="arm"
+	group="Gear"
+    description="Weapons, vehicles, and simple equipment all have their own tabs for creating objects of those types."
+    summary="Defines armor that can be selected on the Armory tab.">
+    <inputthing
+      name="Defense Rating"
+      helptext="Specify the Defense rating of the armor against attacks.">
+      <it_field field="defResist"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="CostGrp"/>
+      </inputthing>
+    </editthing>
+
+
+  <!-- Shield editthing -->
+  <editthing
+    compset="Shield"
+    name="Shield"
+    prefix="shd"
+	group="Gear"
+    description="Weapons, vehicles, and simple equipment all have their own tabs for creating objects of those types."
+    summary="Defines a shield that can be selected on the Armory tab.">
+    <inputthing
+      name="Defense Rating"
+      helptext="Specify the Defense rating of the armor against attacks.">
+      <it_field field="defResist"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="CostGrp"/>
+      </inputthing>
+    </editthing>
+
+  <!-- Mission Pod editthing -->
+  <editthing
+    group="Starship"
+    compset="MissionPod"
+    name="Mission Pods"
+    description="A mission pod, typically for a Nebula Class starship, can have any sort of Talent or bonuses to Systems or Departments."
+    summary="Defines a simple Mission Pod item that can have a script added to improve the ship it is attached to.">
+    </editthing>
+
+  <!-- Mechanics editthing -->
+  <editthing
+    compset="Mechanics"
+    name="Mechanic"
+    description="A mechanics thing will be automatically added to every character to apply its effects. There is no built-in logic for mechanics,{br}as they provide a means for the user to customize everything to work as he chooses. As such, there are no fields and{br}everything is assumed to be done through scripts."
+    summary="Defines a set of custom behaviors that are defined by the user and applied to each character.">
+    </editthing>
+
+
+  </document>

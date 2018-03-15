@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Focuses
+
+  -->
+  <thing
+    id="foCustom"
+    name="== Custom Focus =="
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="UserName" value="Custom Focus"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="User" tag="NameRep"/>
+    <tag group="User" tag="NeedDomain"/>
+    <tag group="DomainTerm" tag="Focus"/>
+    </thing>
+	
+  <thing
+    id="foAstronav"
+    name="Astronavigation"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foComposur"
+    name="Composure"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foEVA"
+    name="Extra-Vehicular Activity"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foHtH"
+    name="Hand-to-Hand Combat"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foHandPhas"
+    name="Hand Phasers"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foSmallCra"
+    name="Small Craft"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foStarPro"
+    name="Starfleet Protocols"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foStarRec"
+    name="Starship Recognition"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foHistory"
+    name="History"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+	
+  <thing
+    id="foAthletic"
+    name="Athletics"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  </document>

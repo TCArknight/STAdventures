@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="spcKlingon" name="Klingon" description="Klingon characters are typically large, physically powerful, and proud, with an aggressive approach to everything they do, and a propensity for violence that makes them extremely dangerous. They are predatory, with a primarily carnivorous diet, and a preference for either still-living food or wild prey from a hunt. Culturally, Klingons revere physical prowess, victory in battle, and a code of personal and familial honor that influences most of their politics, though not all Klingons live up to this; in some Klingons, this only keeps them from performing shameful acts so long as they can avoid the repercussions." compset="Species" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <bootstrap thing="trKlingon"></bootstrap>
+    </thing>
+  <thing id="trKlingon" name="Klingon" description="Klingon physiology is hardy, with many redundant internal organs allowing them to withstand harm and a number of poisons, which would be deadly for many other species. They are significantly stronger and more resilient than Humans, though they have less tolerance for the cold." compset="Trait">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    </thing>
+  <thing id="trRomulan" name="Romulan" description="Romulan physiology is not meaningfully different\nto that of Vulcans, though a portion of the Romulan species\nexhibits a v-shaped forehead ridge not evident in Vulcans. \nThe largest difference is that Romulans lack the intense mental discipline common to Vulcans. Psychologically and culturally, Romulans prize cunning and strength of will, and are distrustful of other species: this opinion is reciprocated, as Romulans have a reputation for manipulation, deception, and betrayal." compset="Trait">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcRomulan" name="Romulan" description="Romulans are similar, but not quite identical, to Vulcans, having diverged from their common ancestors, though they did not adopt the stoicism and logic of their cousins. Rather, Romulans are a cruel and ruthless people, quick to anger, and easily moved to emotion.\n\nA culture of military discipline seems to keep their worst members directed towards useful ends, though paranoia and self-interest motivate Romulan politics as much as a desire for collective benefit; at times, it seems that the only things keeping the Romulan Star Empire together are the fact that they despise other species more than they despise one another." compset="Species" uniqueness="unique">
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <usesource source="ENT"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <bootstrap thing="trRomulan"></bootstrap>
+    </thing>
+  <thing id="trBorg" name="Borg" description="Borg are extremely strong and resilient, owing to their technologically-enhanced physiology. They lack self-determination and intuition, relying on directives and protocols from the Collective, and the gestalt consciousness\nof countless other Borg drones." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcBorg" name="Borg" description="Borg is not something that a person is born to, but rather\nsomething that they are forced to become — though for infants and children assimilated by the Collective, they may have little or no memory of any other life. The Borg meld biology with technology, and a drone will have countless implants, the result of both invasive surgery and aggressive nanotechnology. As of 2371, only a single individual has ever been removed from the Borg Collective — Jean-Luc Picard, who was captured only days earlier, meaning that his implants were less extensive than those of someone assimilated years or decades before. Borg NPCs are all mixed-species characters — their original species, and their new reality as part of the Collective.\n{i}EXAMPLE VALUE: The Drive for Exploration{/i}\n\n{b}ATTRIBUTES:{/b} +1 to three different attributes.\n\n{b}TRAIT:{/b} Human." compset="Species" uniqueness="unique">
+    <fieldval field="usrLabel4" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid4" value="component.AttrSys"/>
+    <fieldval field="usrSource4" value="1"/>
+    <fieldval field="usrLabel5" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid5" value="component.AttrSys"/>
+    <fieldval field="usrSource5" value="1"/>
+    <fieldval field="usrLabel6" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid6" value="component.AttrSys"/>
+    <fieldval field="usrSource6" value="1"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <tag group="ChooseSrc6" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    <tag group="User" tag="NoAutoName" name="NoAutoName" abbrev="NoAutoName"/>
+    <tag group="ChooseSrc4" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    <tag group="ChooseSrc5" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <bootstrap thing="trBorg"></bootstrap>
+    <eval phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the +1 modifier to selected attribute
+	  if (field[usrChosen4].ischosen <> 0) then
+        
+		tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen5].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen5].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen5].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen6].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen6].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif]]></eval>
+    </thing>
+  <thing id="trFerengi" name="Ferengi" description="Ferengi physiology does not lend itself to physical activity, nor does their culture value such hardship, though they have a high resistance to many common diseases.\n\nFerengi have exceptionally keen hearing, and highly-sensitive\nears, though this also means that intense sounds (and physical force applied to the ears) can inflict debilitating pain. Their unusual brain structure means that telepaths cannot read Ferengi minds. Culturally, Ferengi are acquisitive, regarding the accumulation of wealth as the highest virtue, and while this has given them a reputation as cunning negotiators, they are also often seen as duplicitous and manipulative as well." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcFerengi" name="Ferengi" description="Ferengi are short, unimposing beings, noted more as merchants and traders than as warriors, scientists, or engineers. Their culture promotes the acquisition of material wealth, and their society is extremely capitalistic, with most routine activities accompanied by the exchange of a precious, non-replicable substance called latinum (a room-temperature liquid metal, often stored within gold “slips,” “bricks” or “bars”). Ferengi discriminate between their genders considerably, with female Ferengi not being permitted to own property or wear clothing; enterprising female Ferengi invariably find a way around these restrictions." compset="Species" uniqueness="unique">
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <bootstrap thing="trFerengi"></bootstrap>
+    </thing>
+  <thing id="trCardassi" name="Cardassian" description="Cardassians possess extraordinary mental\ndiscipline, and commonly have photographic memories, the\nresult of intense training during childhood. They are intolerant\nof cold environments, but quite comfortable at higher\ntemperatures. Cardassian hearing is slightly less acute than\nthat of Humans, and they are uncomfortable in bright light.\nCardassians have a negative reputation amongst many Alpha\nQuadrant cultures, particularly Bajorans, whose homeworld\nthey occupied for decades." compset="Trait">
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcCardas" name="Cardassian" description="Cardassians are tall, grey-skinned humanoids with pronounced ridges on their bodies and faces. Their culture demands absolute loyalty to family and to the state — with Cardassian morality plays often depicting conflicts between familial loyalty and loyalty to the state — and they prize individual cunning, self-control, and the ability to endure hardship. Cardassians are a secretive people, even amongst close friends and family, and being suspicious and skeptical of others is regarded as wise and prudent. They value educational attainment and knowledge, and they are fond of conversation and lively debate. They are frequently regarded as domineering, ruthless, arrogant, and duplicitous." compset="Species" uniqueness="unique">
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <bootstrap thing="trCardassi"></bootstrap>
+    </thing>
+  <thing id="trJemHadar" name="Jem&apos;Hadar" description="Individual Jem’Hadar are physically powerful, and far stronger and more resilient than Humans. They also have exceptionally keen eyesight, and act utterly without fear or hesitation in battle. They do not regard death with any apprehension, and are extremely aggressive, limited only by their absolute obedience to the Founders and the Vorta." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trVorta" name="Vorta" description="Vorta have extremely keen hearing, but relatively poor eyesight. They are immune to most forms of\npoison. Vorta are absolutely loyal to the Dominion, revering\nthe Founders as living gods. Those who encounter the Vorta\noften regard them as insincere or manipulative." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcVorta" name="Vorta" description="The Vorta are genetically-engineered life-forms, created to\nserve as advisors, scientists, diplomats, and overseers for the\nDominion, acting as the Founders’ closest servants and foremost\nrepresentatives. Vorta are cloned, in batches of identical beings,\nwith a new clone being activated and placed into service upon\nthe death of a predecessor, receiving the memories of those that\ncame before them, though each clone is nevertheless a distinct\nindividual. Vorta are extremely cunning and clever, but have\nlittle creativity or sense of aesthetics." compset="Species" uniqueness="unique">
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <bootstrap thing="trVorta"></bootstrap>
+    </thing>
+  <thing id="spcJemHada" name="Jem&apos;Hadar" description="The Jem’Hadar are genetically-engineered life-forms, created to\nserve as the military of the Dominion. Bred in birthing chambers,\nrather than born naturally, they grow to maturity in three days,\ndeveloping complex reasoning and language skills within a day\nof birth. Once mature, they do not eat, drink, or sleep, taking all\nnourishment from the drug ketracel-white, often simply known as\n“the white,” which is distributed to them by their Vorta overseer\nas a means of ensuring loyalty. Few Jem’Hadar live for longer\nthan fifteen years due simply to battlefield casualties, with those\nliving to twenty being regarded as ‘Elders.’" compset="Species" uniqueness="unique">
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpecCat" tag="NPC"/>
+    <bootstrap thing="trJemHadar"></bootstrap>
+    </thing>
+  <thing id="spchdrNPC" name="Adversary Species" compset="Species" uniqueness="unique" isshowonly="yes">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <tag group="SpecCat" tag="NPC"/>
+    </thing>
+  </document>

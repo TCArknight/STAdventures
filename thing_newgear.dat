@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="eqTricordS" name="Tricorder (Science)" description="‘Tricorder’ is the label given to a class of versatile devices in\nuse across the Federation. Their name is derived from the\noriginal early 22nd century name for the device, ‘Tri-function\nRecorder,’ able to sense, record, and analyze data from a\nvariety of sensors attached to the device, dependent on the\nprimary use." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <tag group="GearCat" tag="General"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="eqTricordM" name="Tricorder (Medical)" description="‘Tricorder’ is the label given to a class of versatile devices in\nuse across the Federation. Their name is derived from the\noriginal early 22nd century name for the device, ‘Tri-function\nRecorder,’ able to sense, record, and analyze data from a\nvariety of sensors attached to the device, dependent on the\nprimary use." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <tag group="GearCat" tag="General"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="eqTricordP" name="Tricorder (Psych)" description="‘Tricorder’ is the label given to a class of versatile devices in\nuse across the Federation. Their name is derived from the\noriginal early 22nd century name for the device, ‘Tri-function\nRecorder,’ able to sense, record, and analyze data from a\nvariety of sensors attached to the device, dependent on the\nprimary use." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <tag group="GearCat" tag="General"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="eqTricordG" name="Tricorder" description="‘Tricorder’ is the label given to a class of versatile devices in\nuse across the Federation. Their name is derived from the\noriginal early 22nd century name for the device, ‘Tri-function\nRecorder,’ able to sense, record, and analyze data from a\nvariety of sensors attached to the device, dependent on the\nprimary use.\n\nBy the 24th century tricorders were unified into a single design as data storage and sensor design was further miniaturized by the development of isolinear computing technologies, even including more specialist analysis capabilities for engineering teams. \n\nWithout a tricorder, Starfleet crewmembers would have difficulty diagnosing medical ailments, engineering glitches, or scientific curiosities." compset="Equipment">
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="General"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="eqChrono" name="Chronometer" description="The chronometer is a useful device that has far more functionality than a clock, as its name suggests. A chronometer records the passing of time in the universe outside of the immediate vicinity of the device. This is accomplished by monitoring hundreds of pulsars and standing gravity waves in subspace with accuracy down to nearly Planck-time scales. Comparison of a chronometer and a local ‘ships clock’ is what allows crews to monitor for relativistic effects and any strange occurrences in space-time. Hand-held chronometers allow for a more localized monitoring of spacetime in a smaller more humanoid sized space around the user rather than ship-mounted chronometers." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Engineer"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="eqEngMulti" name="Engineering Multi-Tool" description="Beginning with the introduction of duotronic computing in the mid-23rd century, analysis of engineering faults in systems controlled by electronics became more difficult due to the high-energy transfer rates and EM interference. The engineering multitool was developed and acted as a tricorder like device to detect and diagnose system faults and could be used in a general role as a multi-purpose tool to repair and maintain systems. With the advent of isolinear systems, the multi-tool \nwas rendered obsolete and many of the uses of the device\nwere supplanted by the tricorder, but tools were still needed\nto maintain and repair damaged equipment, so the Starfleet\nengineering tool-kit was introduced to provide nearly every\ntool a damage control or engineering team may need outside\nof unusual circumstances." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <tag group="GearCat" tag="Engineer"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="eqEngTool" name="Engineering Toolkit" description="Beginning with the introduction of duotronic computing in the mid-23rd century, analysis of engineering faults in systems controlled by electronics became more difficult due to the high-energy\ntransfer rates and EM interference. The engineering multitool\nwas developed and acted as a tricorder like device to\ndetect and diagnose system faults and could be used in a\ngeneral role as a multi-purpose tool to repair and maintain\nsystems. With the advent of isolinear systems, the multi-tool\nwas rendered obsolete and many of the uses of the device\nwere supplanted by the tricorder, but tools were still needed\nto maintain and repair damaged equipment, so the Starfleet\nengineering tool-kit was introduced to provide nearly every\ntool a damage control or engineering team may need outside\nof unusual circumstances." compset="Equipment">
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Engineer"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="eqMassSpec" name="Mass Spectrometer" description="A mass spectrometer\nis a device that can take a sample of material, break it down,\nand provide an incredible amount of detail about the matter\nmaking it up. While tricorders can provide data similar to this,\nthe mass spectrometers found in engineering sections on\nstarships and specialist devices dedicated to this task are\nable to provide details on a sample that may be too broad\nto detect with other devices, such as: getting the accurate\nage of a sample to within months from carbon dating or a\ncouple of years with other radio-isotope dating techniques,\nelemental quantities to the parts per quadrillion, and even\nbreakdown of sub-atomic particle deviations." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Engineer"/>
+    </thing>
+  <thing id="eqPlasmaTo" name="Plasma Torch" description="Plasma torches are high\nenergy cutting tools powered by an integral energy cell and a\ncompressed helium matter source. The helium is super-heated and ionized before being focused by a magnetic field into a\nmicroscopic beam, allowing the beam to cut through all but\nthe strongest of materials. Dependent on availability, other\ngases and energy sources are used with the same capabilities." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Engineer"/>
+    </thing>
+  <thing id="eqPorEleMi" name="Portable Electron Microscope" description="The portable electron microscope is a name used for any\nelectronic device capable of scanning and imaging objects as\nsmall as atomic nuclei, regardless of the sub-atomic particle\nused. Unlike their larger counter parts, the portable scope is\nsmall enough to be carried by an away team member trained\nin its use and doesn’t have the resolution or power to image\nand analyze sub-atomic particles and quantum structures.\nThese devices are commonly connected to tricorders used\nby the engineering department to help find structural flaws in\nbulkheads and hull plating." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Engineer"/>
+    </thing>
+  <thing id="eqMoniDev" name="Monitoring Device" description="The heartbeat reader is a small device that can connect to a medical tricorder or a sick bay bio-bed. This device, placed on the patient, is able to scan a life-form, determine the function of a single vital organ\nor biological function, and what the physiology of the life-form\nsuggests are normal readings for that organ or function." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqTriLasCo" name="Tri-Laser Connector" description="Used to heal and\nrepair damaged neurons and nerve tissue, the tri-laser\nconnector uses laser light to stimulate a projected stream of\nstem cells to specialize into predetermined neural pathways.\nWith a detailed enough scan of a patient, such as one\nprovided by transporter systems, the tri-laser connector is\nable to repair and reconstruct damaged brain tissue with\nlittle to no detectable differences in the patient’s cognitive\nfunctions if undertaken within days of the last scan." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqDerRegen" name="Dermal Regenerator" description="A common tool in first aid kits on Starfleet vessels,\nthe dermal regenerator allows a physician to stimulate an\ninjured humanoids natural healing process to accelerate\nthe production of new skin cells and connective tissue,\neffectively healing superficial wounds." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqEmerSur" name="Emergency Surgical Kit" description="The standard\nStarfleet emergency surgical kit provides single use medical\nsupplies capable of allowing a trained physician the means\nto perform complex surgical procedures in the field at the\nexpense of equipment durability. The casing contains a builtin\nPADD that gives readouts on basic biological functions\nimportant to physicians such as blood pressure, heartbeat,\ntemperature, etc. The display will also walk even unskilled\ncivilians through steps to triage injured humanoids. An\nemergency surgical kit is a single-use item, its resources\nexpended after use." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqLasScal" name="Laser Scalpel" description="Laser scalpels, also known\nas exoscalpels, are widely used devices that have replaced\nstainless steel scalpels in hospitals and sickbays across the\nFederation. The laser scalpel uses a thin low-power laser beam\nto cleanly cut through tissue to a predetermined depth. The cut\nis also cleaned and cauterized by the scalpel, allowing dermal\nregenerators and auto-sutures to more effectively work after the\nsurgery is complete and the patient is healing." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqHypospr" name="Hypospray" description="In use since before the\nEugenics Wars on Earth in the 1990s, hypospray devices\nprovide a high speed and efficient means to deliver drugs\nthat would normally have to be given by hypodermic needle\nor IV drip. Hyposprays in the 23rd century and beyond have\nimproved far beyond those early models and are able to\ndeliver drugs in a much more efficient way to the patient." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqDetScan" name="Detronal Scanner" description="The advances in\nmolecular and atomic scanning as well as computing power\nallowed the development of hand-held genetic analysis\ndevices such as the detronal scanner. This device allows\na trained physician to scan the skin and deeper layers of\ntissue of a humanoid and perform an analysis of the patient’s\ngenome. If the patient is of a known and previously studied\nspecies, the device can also provide analysis of any genetic\ndrift or damage due to external sources." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqNeuroMon" name="Neurocortical Monitor" description="The neurocortical\nmonitor is worn on a humanoids neck and resembles\na small disc with pulsing lights. Before the invention of\nthe neurocortical monitor, long-term data collection and\nmonitoring of a patient exhibiting signs of neurological\ndamage or trauma had to be undertaken in controlled\nenvironments in sickbays and major hospitals. The\nintroduction of the monitor allowed doctors to collect\ninformation about the patient’s neurological condition in real\ntime in everyday circumstances where certain symptoms\nmay present more often. Use of the neurocortical monitor\nallows a patient undergoing observation to continue to\nperform normal duties, lack of this device means the patient\nmust remain isolated in sick bay and unable to perform any\nnormal ship functions." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqAntigrav" name="Anti-grav" description="Anti-gravs are a range of different\ndevices designed to reduce or negate the weight of any\nobject to which they’re attached, allowing heavy objects to\nbe moved easily. Multiple anti-gravs are used to provide lift\nfor vehicles like hovercars." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqAntigraS" name="Anti-grav Sled" description="The anti-grav sled resembles\na small cart without wheels. On the bottom of the device there\nare multiple graviton emitters that counter the local gravity\nfield, effectively making the sled and any items placed on it\nnearly weightless, though not massless. In a natural gravity\nfield the sled is less efficient, while on a vessel that has gravity\nplating, the sled interacts with the ships computer to lower\nthe artificial gravity around the sled, allowing more mass to be\nmoved and for a longer operational timespan. Versions which\ndouble as stretchers for transporting injured personnel are\noften used in sickbays and hospitals." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Other"/>
+    <tag group="GearCost" tag="Opportun2"/>
+    </thing>
+  <thing id="eqBeacon" name="Beacons" description="Like most battery powered light\nsources dating back to the 20th century, the standard issue\nStarfleet beacon has a wider range of functions including changing the frequency of the light emitted from the near\ninfrared to long-wave ultraviolet or providing a ‘white’ light\nfor species that evolved with different natural light. Beacons\ncan also be set to emit entirely in the near infrared, providing\na short-term heat source in a survival situation. Standard\nStarfleet beacons are worn on the wrist and are held in place\nwith a strap, but also can be hand-held, mounted on helmets,\nor fitted to phaser type-3." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqCommun" name="Communicator" description="The standard Starfleet\ncommunicator is a ubiquitous piece of technology. During the\n22nd and 23rd centuries, these devices were hand held and\nallowed the user to communicate with a starship in orbit or\nanother communicator broadcasting on the same series of\nsub-space channels. By the 24th century the communicator\nwas further miniaturized with the introduction of isolinear\ntechnologies, making it small enough to be worn as a pin\non the uniform, as well as allowing constant contact with\na starships main computer and the ability to communicate\ndirectly with any other crew member wearing a similar device.\nThe 23rd and 24th century versions of these devices also\ninclude a small, but complex universal translator." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Standard"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqAudRec" name="Audio Receiver" description="The Starfleet ear receiver\nhas fallen out of favor since the 23rd century, but still can be\nseen in use by specialists in communication technologies,\nlingual, and other aural sciences. The ear receiver ties directly\ninto shipboard communication networks and allows the user\nto listen to data coming across both sub-space frequencies\ntypically used for long-range communication and ship to\nsurface, but also listening to computer alerts and data so\nas not to distract others at nearby stations with the chatter.\nThe receiver can also be programmed to provide aural or\nvibrational feedback to users allowing sensor operators\ngreater accuracy in their duties." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <tag group="GearCat" tag="Other"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="eqEmerTran" name="Emergency Transponder" description="Also known by\ntransporter operation officers as ‘The Screamer’, emergency\ntransponders are small hand-held devices capable of\ntransmitting very strong sub-space singles with limited\namounts of data. This data usually consists of just a waveguide\nthat allows starship sensors to detect the transmitter\nfrom light-years away when there is no interference, and from\nAU’s away with sub-space background scattering. While\nthis does not allow for transporter systems to lock onto and\nbeam a person using the transponder from distances or\nthrough material it normally wouldn’t (without the aid of pattern\nenhancers), it does allow for high accuracy in transports and\nacts as a SOS signal recognized by most governments across\nthe Alpha and Beta quadrants. Characters using an emergency\ntransponder gain the ability to show their position to any vessel\ncurrently using sub-space sensors within a radius determined\nby the GM, but usually very long distances measuring between\na few hundred thousand kilometers and light-years." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqHoloImag" name="Holographic Imager" description="Imaging technology\nhas improved dramatically since the invention of the\nphotographic camera. The current state of the art imaging\ndevice is the holographic imager, a hand-held multi-spectral\ncamera capable of recording nearly unlimited still and moving\nimages with a resolution down to the micron level. Use of the\ndevice can range from recording happy memories from the\nlatest shore leave all the way to recording the behaviors of a\nnew life-form on a newly charted planet. The devices output\nis detailed enough that the recorded data can be used to\nrecreate the setting inside holodecks, allowing for accurate\ncomputer simulations." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqPADD" name="PADD" description="The ‘Personal Access Display Device’\nallows Starfleet crew to access the database of the starship\nor starbase they are currently serving on, tying them into the\nsub-space network stretching across the Federation. This\ngives a user as much data access as they have clearance for,\naccess to sub-space communication and the ability to record\nand transmit text, audio, and video recordings to anyone\nin the Federation. The primary role of a PADD on a starship\nis to replace paper books, manuals, technical journals,\nand act as a personal scheduler and as an aid to complete\nadministrative work. While nowhere near as powerful or  complex as the main computer system on a starship, a PADD\nis able to process and analyze data by itself, or serve as an\nextension of a main computer to which it is connected." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqPattEnh" name="Pattern Enhancer" description="Used to boost\nthe resolution and strength of a transporter scanning\nbeam, pattern enhancers allow transporter systems to\nachieve a signal lock even with interference from terrain\nor cosmic phenomena that normally would prevent a safe\ntransport. These devices are approximately a meter long\nwhen deployed on their tripods and require at least three\nto function when placed equidistant around an away party\nor other transporter target. Each device’s onboard power\ncell allows for approximately two transports, and additional\npattern enhancers can increase the area and number of\ntransports. Pattern enhancers come in sets of three." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="eqUniTrans" name="Universal Translator" description="A standard part of\nStarfleet communicators since the late 23rd century, the\nuniversal translator was originally invented before the Earth-\nRomulan War and has been an integral part of Federation\ndiplomacy ever since. Characters not possessing a universal\ntranslator, either through destruction or removal of a\ncommunicator, will be unable to converse with beings that do\nnot understand the character’s languages past basic hand\ngestures. Obtaining a separate universal translator provides\nthe character with a stand-alone unit, typically more powerful\nthan the versions found in communicators." compset="Equipment">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  </document>

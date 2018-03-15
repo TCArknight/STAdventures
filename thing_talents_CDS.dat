@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="talBargain" name="Bargain" description="When negotiating an offer with someone during Social Conflict, you may re-roll a d20 on your next Persuade Task to convince that person. If the Social Conflict involves an Extended Task, you gain the Progression 1 (page 91 of the {i}Star Trek Adventures core rulebook{/i}) benefit when you roll your Challenge Dice." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
+    </thing>
+  <thing id="talCallTar" name="Call Out Targets" description="Upon assisting a character making an attack (using either\nthe Assist Task, the Direct Task, or some other means), the\nhelped character generates one point of bonus Momentum\nif they succeed; bonus Momentum cannot be saved to the\ngroup pool." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required."><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    </thing>
+  <thing id="talCallAct" name="Call To Action" description="In a Conflict, a character may use the Prepare Minor Action\nto grant one ally a Minor Action of their choice (performed\nimmediately) if they can communicate with that ally." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
+    </thing>
+  <thing id="talCldRead" name="Cold Reading" description="Succeeding at a Task during Social Conflict generates\none bonus Momentum which must be used for the Obtain\nInformation Momentum Spend to gain knowledge about an\nindividual on the other side of the interaction. If the Social\nConflict involves an Extended Task, the character gains the\nScrutinize 1 benefit (page 91 of the {i}Star Trek Adventures core rulebook{/i}) benefit when you roll your Challenge Dice." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required"><![CDATA[#abilfinal[discdept01] >= 4]]></exprreq>
+    </thing>
+  <thing id="talTimeMng" name="Time Management" description="During any Challenge, Extended Task or other activity\nunder time pressure, the character may attempt a Control\n+ Command Task with a Difficulty 3. If this Task succeeds,\nreduce the total number of intervals the Players have taken\nby 1; for every 2 Momentum spent (Repeatable) reduce by a\nfurther 1. The character has managed to minimize lost time.\nIf the Task fails, add one additional interval as the character’s\nefforts actually waste time." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required"><![CDATA[#abilfinal[discdept01] >= 4]]></exprreq>
+    </thing>
+  <thing id="talCoordEf" name="Coordinated Efforts" description="During an Extended Task, an assisted character may gain\neither the Scrutinize 2 or Progression 1 benefits (see page 91\nof the core rulebook) when they roll their Challenge Dice." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required"><![CDATA[#abilfinal[discdept01] >= 4]]></exprreq>
+    </thing>
+  <thing id="talDecLead" name="Decisive Leadership" description="In a Conflict, whenever the character performs the Assist\nTask and would then pay two Momentum to keep the\ninitiative, the cost to keep the initiative is reduced to 0." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required"><![CDATA[#abilfinal[discdept01] >= 4]]></exprreq>
+    </thing>
+  <thing id="talFleetCo" name="Fleet Commander" description="Commanding a vessel during a fleet action r educes the\nDifficulty of a Task to grant a bonus to your vessel or\ngroup by 1, to a minimum of 1. Aboard a vessel during a\nfleet action, the character may treat the vessel as having\na Command Department of 4+, regardless of the actual\nvalue." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required"><![CDATA[#abilfinal[discdept01] >= 4]]></exprreq>
+    </thing>
+  <thing id="talMultDis" name="Multi-Discipline" description="The character may select one additional Role, but not\nCommanding Officer or Admiral." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
+    </thing>
+  <thing id="talPlanAct" name="Plan Of Action" description="When an ally succeeds at a Task that was made possible\nor had reduced Difficulty because of an Advantage created\nby the character, if that Advantage represented a plan or\nstrategy, they generate two bonus Momentum. Bonus\nMomentum cannot be saved into the group pool." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required"><![CDATA[#abilfinal[discdept01] >= 4]]></exprreq>
+    </thing>
+  <thing id="talAtkRun" name="Attack Run" description="A success in the Attack Pattern Task lets a character spend\ntwo Momentum. Enemy Attacks against the character’s ship\ndo not reduce in Difficulty due to the Attack Pattern Task." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
+    </thing>
+  <thing id="talCoverAd" name="Covering Advance" description="A success at any Helm Task means two Momentum can\nbe spent to block a single enemy vessel within Medium\nrange, plus one additional enemy vessel for each additional\nMomentum spent beyond that (Repeatable). When a blocked vessel makes its next attack, before the beginning of the\ncharacter’s next Turn, the Difficulty of any Attack that does\nnot target your vessel has a base Difficulty equal to the\ncharacter ship’s Scale, instead of normal Difficulty." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
+    </thing>
+  <thing id="talEffEva" name="Efficient Evasion" description="Attempting an Evasive Action Task for the second or subsequent time in a row during a scene reduces the Power\nRequirement for Evasive Action to 0." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
+    </thing>
+  <thing id="talFliCont" name="Flight Controller" description="Whenever the character assists an NPC in a Conn Task, one\nd20 re-roll may be done. The second result must be used." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    </thing>
+  <thing id="talGlanImp" name="Glancing Impact" description="Succeeding at the Evasive Action Task increases the\nResistance of the ship being piloted by +2. This bonus lasts\nuntil the start of the character’s next Turn." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
+    </thing>
+  <thing id="talInertia" name="Inertia" description="When the character succeeds at a Maneuver Task, 1\nMomentum may be spent to move one additional zone so\nlong as the previous Turn included an Impulse or Warp Task." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
+    </thing>
+  <thing id="talMultTas" name="Multi-Tasking" description="Attempting the Override Task while at a bridge station\nincluding Helm and/or Navigator positions utilizes the\ncharacter’s Conn Discipline instead of the Discipline\nnormally required for the Task." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
+    </thing>
+  <thing id="talPathfin" name="Pathfinder" description="When a character attempts a Task to plot a course through\nunknown territory, reduce the Difficulty of the Task by 1, 2,\nor 3, to a minimum of 1. Each point that reduces Difficulty\nincreases the Complication Range of the Task." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
+    </thing>
+  <thing id="talPrecMan" name="Precision Maneuvering" description="Reduces the Difficulty of the Task by 1, to a minimum of 0,\nwhen attempting a Task that requires precise maneuvering, or where there is a collision risk." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
+    </thing>
+  <thing id="talSpacwlk" name="Spacewalk" description="Whenever the Difficulty of a Task is increased thanks to low- or zero-gravity, ignore the increase. A Task that is normally\npossible but isn’t because of low- or zero-gravity, may be\nattempted at +1 Difficulty to the Task." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
+    </thing>
+  <thing id="talStraRun" name="Strafing Run" description="When a character succeeds at the Attack Pattern Task and\nspends Momentum to keep the initiative, the cost to keep the\ninitiative is 0." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT" parent="Era" name="Enterprise"/>
+    <usesource source="TOS" parent="Era" name="The Original Series"/>
+    <usesource source="TNG" parent="Era" name="The Next Generation"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
+    </thing>
+  <thing id="talPolHuPl" name="Polarized Hull Plating" description="The ship does not have deflector shielding, but rather is\nequipped with layers of hull plating that can be polarized to\nresist attack. This functions in the same way as Shields do, with one difference: the ship suffers a Breach if four or more damage is suffered after deductions for Resistance." compset="Talent">
+    <usesource source="ENT"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talGrapCab" name="Grappler Cables" description="This precursor to tractor beams uses sturdy cables and\nmagnetic grapplers to grab on to objects and ships. This\nfunctions as a tractor beam, but if the target breaks free, roll 1A — on an Effect, the cables have been Damaged and cannot be used again until repaired." compset="Talent">
+    <usesource source="ENT"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talEntPhTo" name="Photonic Torpedoes" description="The vessel is equipped with photonic torpedoes instead of\nspatial torpedoes." compset="Talent">
+    <usesource source="ENT"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talNukeWar" name="Nuclear Warheads" description="The vessel is equipped with nuclear warheads in addition to its spatial torpedoes. This Talent cannot be taken if the ship does not have spatial torpedoes." compset="Talent">
+    <usesource source="ENT"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  </document>

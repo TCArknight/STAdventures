@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of miscellaneous gear/equipment for the game
+      system. Most gear is just mundane items, but a few confer special benefits via
+      scripts. There are also a few that can be used as generic entries that users can
+      customize without having to add new entries via the Editor.
+
+      The behaviors of each piece of gear are controlled via a combination of field
+      values, tags, and XML attributes. A brief summary of the most important of these
+      is provided below:
+
+      "stacking" attribute: controls the behavior of multiple pieces of the gear with
+          respect to merging separate pieces or always keeping them distinct
+      "private" attribute: controls whether the gear is made visible to the user within
+          the Editor when creating a new piece of gear as a copy of an existing thing
+      "isunique" attribute: controls whether the user can only ever add a single
+          instance of the thing to an actor versus adding multiple instances
+      "Equipment" tags: The "Equipment.CustomGear" tag indicates gear that the user can
+          modify the name for
+      "thing" tags: The "thing.holder" tag indicates gear that can both be held within
+          other holders and can hold other gear, while the "thing.holder_top" tag
+          indicates gear that can only hold other (but cannot be held); omitting both
+          of these tags implies the gear can only be held by suitably flagged holders
+      "grUserName" field: If the "Equipment.CustomGear" tag is assigned, this field
+          provides the default name for the item until the user changes it
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Customizable Gear gear -->
+  <thing
+    id="eqCustom"
+    name=" – Custom Gear –"
+    compset="Equipment"
+    stacking="new"
+    isprivate="yes"
+    description="This item can be customized to represent whatever you want.">
+    <fieldval field="UserName" value="New Gear"/>
+    <tag group="Helper" tag="CustomItem"/>
+    </thing>
+
+  <!-- Customizable Top-Holder gear -->
+  <thing
+    id="eqCustTop"
+    name=" – Custom Location –"
+    compset="Equipment"
+    stacking="never"
+    isprivate="yes"
+    holdable="no"
+    description="Use this item to represent a place to store your gear - for example, a house, or as buried treasure somewhere.">
+    <fieldval field="UserName" value="New Location"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="thing" tag="holder_top"/>
+    </thing>
+
+  <!-- Customizable Holder gear -->
+  <thing
+    id="eqCustHold"
+    name=" – Custom Container –"
+    compset="Equipment"
+    stacking="solo"
+    isprivate="yes"
+    description="Use this item to represent a bag or other container in which gear can be carried around.">
+    <fieldval field="UserName" value="New Container"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="thing" tag="holder"/>
+    </thing>
+
+  <!-- Dropped to Ground location - automatically bootstrapped to every hero -->
+  <thing
+    id="eqGround"
+    name="Dropped to Ground"
+    compset="Equipment"
+    isprivate="yes"
+    uniqueness="unique"
+    description="Any equipment dropped to the ground is held in this container.{br}You can move an item from one container to another by clicking the &quot;Gear&quot; button beside its info button.">
+    <tag group="Helper" tag="Bootstrap"/>
+    <tag group="thing" tag="holder_top"/>
+    <tag group="Print" tag="NoPrint"/>
+    </thing>
+
+
+  <!-- Neural Boost gear -->
+  <thing
+    id="eqNeural"
+    name="Neural Boost"
+    compset="Equipment"
+    isunique="yes"
+    description="Confers a +1 boost to Intelligence.">
+    <fieldval field="grCost" value="1000"/>
+    <fieldval field="gearWeight" value="1"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys06] += 1
+      ]]></eval>
+    </thing>
+
+  <!-- Reflex Boost gear -->
+  <thing
+    id="eqReflex"
+    name="Reflex Boost"
+    compset="Equipment"
+    isunique="yes"
+    description="Confers a +1 boost to Dexterity.">
+    <fieldval field="grCost" value="1000"/>
+    <fieldval field="gearWeight" value="1"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys02] += 1
+      ]]></eval>
+    </thing>
+
+  <!-- Fortitude Boost gear -->
+  <thing
+    id="eqFortitud"
+    name="Fortitude Boost"
+    compset="Equipment"
+    isunique="yes"
+    description="Confers a +1 boost to Consitution.">
+    <fieldval field="grCost" value="1000"/>
+    <fieldval field="gearWeight" value="1"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys01] += 1
+      ]]></eval>
+    </thing>
+
+
+  <!-- Bullets gear -->
+  <thing
+    id="eqBullets"
+    name="Bullets"
+    compset="Ammunition"
+    lotsize="20"
+    stacking="merge"
+    description="Description goes here.">
+    <fieldval field="grCost" value=".5"/>
+    <fieldval field="gearWeight" value=".1"/>
+    </thing>
+
+  <!-- Backpack gear -->
+  <thing
+    id="eqBackpack"
+    name="Backpack"
+    compset="Equipment"
+    description="Description goes here.">
+    <fieldval field="grCost" value="5"/>
+    <fieldval field="gearWeight" value="2"/>
+    <tag group="thing" tag="holder"/>
+    </thing>
+
+  <!-- Chain gear -->
+  <thing
+    id="eqChain"
+    name="Chain (10 ft.)"
+    compset="Equipment"
+    stacking="merge"
+    description="Description goes here.">
+    <fieldval field="grCost" value="15"/>
+    <fieldval field="gearWeight" value="10"/>
+    </thing>
+
+  <!-- Flask gear -->
+  <thing
+    id="eqFlask"
+    name="Flask"
+    compset="Equipment"
+    stacking="merge"
+    description="Description goes here.">
+    <fieldval field="grCost" value="1"/>
+    <fieldval field="gearWeight" value="1"/>
+    </thing>
+
+  <!-- Lantern gear -->
+  <thing
+    id="eqLantern"
+    name="Lantern"
+    compset="Equipment"
+    description="Description goes here.">
+    <fieldval field="grCost" value="10"/>
+    <fieldval field="gearWeight" value="3"/>
+    </thing>
+
+  <!-- Mirror gear -->
+  <thing
+    id="eqMirror"
+    name="Mirror"
+    compset="Equipment"
+    description="Description goes here.">
+    <fieldval field="grCost" value="15"/>
+    <fieldval field="gearWeight" value="2"/>
+    </thing>
+
+  <!-- Rope gear -->
+  <thing
+    id="eqRope"
+    name="Rope"
+    compset="Equipment"
+    description="Description goes here.">
+    <fieldval field="grCost" value="2"/>
+    <fieldval field="gearWeight" value="10"/>
+    </thing>
+
+  <!-- Sack gear -->
+  <thing
+    id="eqSack"
+    name="Sack"
+    compset="Equipment"
+    description="Description goes here.">
+    <fieldval field="grCost" value="1"/>
+    <fieldval field="gearWeight" value="1"/>
+    <tag group="thing" tag="holder"/>
+    </thing>
+
+  <!-- Torch gear -->
+  <thing
+    id="eqTorch"
+    name="Torch"
+    compset="Equipment"
+    lotsize="5"
+    stacking="merge"
+    description="Description goes here.">
+    <fieldval field="grCost" value=".2"/>
+    <fieldval field="gearWeight" value="1"/>
+    </thing>
+
+
+  </document>

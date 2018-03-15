@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="trHuman" name="Human" description="Humans are adaptable and resilient, and their resolve and ambition often allow them to resist great hardship and triumph despite great adversity. However, Humans can also be reckless and stubborn, irrational, and unpredictable." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trAndorian" name="Andorian" description="This trait may reduce the Difficulty of Tasks to resist\nextreme cold, or Tasks impacted by extremely low temperatures. Their antennae aid in balance and spatial awareness; a lost antenna can be debilitating until it regrows. Andorians also have a high metabolism, meaning, amongst other things, that they tire more quickly than Humans; this also makes them more vulnerable to infection from certain types of injury. Before the Federation, Andorians and Vulcans had numerous disputes; though these issues are largely considered to be ancient history, Andorians and Vulcans don’t always get along." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trBajoran" name="Bajoran" description="For obvious reasons, Bajorans tend to be hostile towards Cardassians, and resentful of those who are dismissive of, or turned a blind eye to, the suffering of the Bajoran people. While not all Bajorans are spiritual or religious to the same degree, most have a cultural understanding of the Prophets’ place in Bajoran society." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trBetazoid" name="Betazoid" description="All Betazoids are telepathic to varying degrees, and even\nwhen not actively using their abilities, they are highly perceptive of others around them, but also highly sensitive to telepathic  disturbances and mental assaults. They have little familiarity with lies and deception, due to their open culture and ability to read the thoughts and emotions of others. As they are sensitive to the minds of other living beings, they tend not to be comfortable around animals, for fear of losing themselves in the minds of wild creatures." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trDenob" name="Denobulan" description="Denobulans have a robust immune system, but a vulnerability to various forms of radiation poisoning. They are naturally adept climbers, scuttling up sheer walls like some forms of terrestrial lizard. Denobulans do not need to sleep, but must hibernate for several days each year, becoming disoriented if kept awake during this period." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trTellar" name="Tellarite" description="Tellarites have a keen sense of smell and a high tolerance\nfor many common drugs, toxins, and inebriants (Tellarites don’t get drunk, just feisty). They also have excellent eyesight, and more acute perception of distance, depth, and dimension than Humans." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trTrill" name="Trill" description="Trill are especially resilient to parasites, as a quirk of their\npotential to be Joined; Joined Trill are entirely immune to parasitic infection. However, they tend to have strong allergic reactions to insect bites and other forms of venom, which can disrupt their neurochemistry, particularly if they’re Joined. As many of the specifics of Trill physiology — especially with regards to symbiosis — are not widely known, this can result in medical complications." compset="Trait" uniqueness="unique">
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trVulcan" name="Vulcan" description="Due to the harsh, arid, high-gravity world they come from,\nVulcans are naturally resistant to extreme heat and dehydration; they are also extremely strong, with keen auditory and olfactory senses. They are also telepathic, though this takes training to properly manifest, and they learn mental discipline and emotional control from childhood. However, this control takes regular meditation to maintain, and their controlled nature and desire for privacy can distance them from others, and make interactions awkward." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trhdrRace" name="Race" compset="Trait" isshowonly="yes">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trShipFed" name="Federation Starship" description="Starship of the United Federation of Planets" compset="Trait" uniqueness="unique">
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="trProto" name="Prototype" description="the ship is the first of its class. It’s brand new, highly sophisticated, and not yet fully tested. Foes may underestimate the ship’s capabilities, but technical problems with the ship may produce unexpected complications as experimental systems interact strangely." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="trLegacy" name="Legacy Vessel" description="the ship continues a long and proud legacy, bearing a name that has been used many times before on other starships, and maybe even on oceangoing vessels centuries ago. This legacy may manifest in the pride of the crew to serve aboard the ship, but it may also be found in enemies whose ancestors clashed with a ship of the same name in generations past." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="trRenown" name="Renowned" description="the ship and her crew have a proud reputation, but such a reputation also draws the ire of enemies who can gain glory in the defeat of such a prestigious vessel." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="trLongServ" name="Long-Serving" description="the ship has been a part of the fleet for decades, and she has served with distinction. Even with refits, the older technology isn’t quite as capable as the latest designs, but her crew know her systems and her quirks well, and can get the most out of her when it counts." compset="Trait" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  </document>

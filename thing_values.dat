@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Values -->
+  <thing
+    id="vaCustom"
+    name="== Custom Value =="
+    compset="Value"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="UserName" value="Custom Value"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="User" tag="NameRep"/>
+    <tag group="User" tag="NeedDomain"/>
+    <tag group="DomainTerm" tag="Value"/>
+    </thing>
+
+
+  </document>

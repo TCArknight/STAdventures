@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- This file contains the definition of the "Skills" tab panel. This tab is where
+      the user selects and adjusts the skills for the character.
+
+      All public visual elements used with this tab panel start with the prefix "sk"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+	
+  <template
+    id="mpProTemp"
+    name="Mission Profile Template"
+    compset="Profile"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="mpProTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Description"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="mpProDesc"
+      style="lblBrdLeft">
+      <label
+        field="descript"
+        ismultiline="yes">
+        </label>
+      </portal>
+                
+    <position><![CDATA[
+      ~set up our dimensions, with a width that we dictate; our width can vary
+     
+      portal[mpProTitle].height = 20
+
+      ~position the description on the left and let it use all available space
+      portal[mpProTitle].top = 0
+      portal[mpProTitle].left = 0
+      portal[mpProTitle].width = width
+      
+      portal[mpProDesc].top = portal[mpProTitle].bottom + 5
+      portal[mpProDesc].left = 0
+      portal[mpProDesc].width = width
+      portal[mpProDesc].height = height
+
+      ]]></position>
+
+    </template>
+
+  <template
+    id="mpTalent"
+    name="Talents"
+    compset="Talent"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="mpTalent"
+      style="chsNormal"
+      width="150">
+      <chooser_table
+        component="Talent"
+        choosetemplate="SimpleItem"
+		candidatepick="ExprHelp"
+		candidatefield="ehSProExp">
+        <chosen><![CDATA[
+          if (@ispick = 0) then
+            @text = "{text clrwarning}Select Provided Talent"
+          else
+            @text = "Talent: " & field[name].text
+            endif
+          ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Talent for your starship."
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+
+	
+    <position><![CDATA[
+      ~set up our dimensions, with a width that we dictate; our width can vary   
+      portal[mpTalent].height = 20
+	  
+      ~position the description on the left and let it use all available space
+      portal[mpTalent].top = 0
+      portal[mpTalent].left = 0
+      portal[mpTalent].width = width	  
+	  
+		
+	]]></position>
+
+    </template>	
+	
+  <!-- species layout
+        This layout orchestrates the display of the visual elements that comprise
+        the Skills tab. This amounts to a title at the top and a dynamic table below
+        where the user can add and adjust the skills he wants.
+
+        The logic for this layout is similar to (albeit much simpler than) the
+        logic for the Basics tab. So please refer to the Basics tab for more details.
+  -->
+  <layout
+    id="profile">
+    <templateref template="mpProTemp" useagent="yes"/>
+    <templateref template="mpTalent" useagent="yes"/>
+
+    <!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+
+      ~both tables span the full width
+      template[mpProTemp].width = width
+	  template[mpProTemp].height = height/2
+      template[mpProTemp].visible = 1
+
+      template[mpTalent].top = template[mpProTemp].bottom + 30
+      template[mpTalent].width = width
+	  template[mpTalent].height = (height - 10)/2
+      template[mpTalent].visible = 1
+
+      ]]></position>
+
+    </layout>
+
+  <!-- sorcery panel
+        This is the "Sorcery" panel shown within Hero Lab.
+  -->
+  <panel
+    id="profile"
+    name="Profile"
+    marginhorz="5"
+    marginvert="5"
+    order="15"
+    agentcompset="Profile"
+    agentlive="HasProfile"
+    agentname="name"
+    >
+    <live>!HideTab.profile</live>
+    <layoutref layout="profile"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+
+
+  </document>

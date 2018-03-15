@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="proStrDip" name="Strategic and Diplomatic Operations" description="Vessels equipped for Strategic and Diplomatic Operations are often placed under the command of flag officers and used as the heart of squadrons, battle-groups, and even whole fleets. These ships — and the prestige and standing that accompanies them — are also used for major diplomatic engagements, where they can serve as mobile embassies and represent the best of the Federation." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="3"/>
+    <fieldval field="proConn" value="1"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talCmdShip"/>
+    <tag group="MisProTal" tag="talDiploSu"/>
+    <tag group="MisProTal" tag="talEWS"/>
+    <tag group="MisProTal" tag="talExtShut"/>
+    </thing>
+  <thing id="proPatRec" name="Pathfinder and Reconaissance Operations" description="Long-range missions often employ the most advanced stellar cartography and astrometric facilities, allowing them to chart and navigate unknown regions of space effectively. These vessels are relied upon for extended exploratory missions, intelligence-gathering military operations, and risky &apos;pathfinder&apos; operations into the unknown." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talImpRCS"/>
+    <tag group="MisProTal" tag="talImpWarp"/>
+    <tag group="MisProTal" tag="talRuggDes"/>
+    </thing>
+  <thing id="proTecTest" name="Technical Testbed" description="The ship is equipped with an abundance of state-of-theart\nor even prototype technologies, allowing them to be\ntested and studied in practical conditions, so that the flaws\ncan be discovered and overcome, and the systems can be\nrefined and improved upon. These ships are often deployed\non a broad range of missions, to provide the most diverse\nconditions for equipment testing." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talAdvShld"/>
+    <tag group="MisProTal" tag="talBackEPS"/>
+    <tag group="MisProTal" tag="talHighRes"/>
+    <tag group="MisProTal" tag="talImpPowS"/>
+    <tag group="MisProTal" tag="talImpWarp"/>
+    </thing>
+  <thing id="proTacOps" name="Tactical Operations" description="While Starfleet is not a military, the defense of the Federation\nis one of Starfleet’s responsibilities, and Starfleet has been\nrequired to prepare for war on numerous occasions. Thus,\nmany ships are equipped for police and military actions,\nthough the number of vessels outfitted in this manner varies\ndepending on the politics of the day." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talAblaAr"/>
+    <tag group="MisProTal" tag="talFastTar"/>
+    <tag group="MisProTal" tag="talImpDamC"/>
+    <tag group="MisProTal" tag="talImpImp"/>
+    <tag group="MisProTal" tag="talQuanTor"/>
+    </thing>
+  <thing id="proSciSur" name="Scientific and Survey Operations" description="Starfleet’s mission of exploration and discovery means that\nthey employ many vessels for purely scientific missions,\nstudying unknown phenomena or supporting ongoing\nresearch. While most Federation starships are expected to\nhave at least some capacity for scientific endeavor, some\nvessels are equipped specifically for such missions." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talAdvRese"/>
+    <tag group="MisProTal" tag="talAdvSenS"/>
+    <tag group="MisProTal" tag="talHighRes"/>
+    <tag group="MisProTal" tag="talModLab"/>
+    </thing>
+  <thing id="proCriEmer" name="Crisis and Emergency Response" description="These vessels are equipped to respond quickly to a crisis,\nwhatever it may be. Normally capable of supporting\nexpansive shuttlebays, they can deploy large quantities of\npersonnel or cargo to, or evacuate large populations from,\ndisaster areas. Such vessels also serve as hospital ships and troop transports during times of war." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="3"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talAdvSick"/>
+    <tag group="MisProTal" tag="talEMH"/>
+    <tag group="MisProTal" tag="talExtShut"/>
+    <tag group="MisProTal" tag="talModLab"/>
+    </thing>
+  <thing id="proMultiEx" name="Multirole Explorer" description="Some of Starfleet’s most renowned and revered vessels have\nbeen jacks-of-all-trades, rather than specialized for a single\ntype of mission. This versatility allowed the likes of Jonathan\nArcher and James Kirk to explore strange new worlds, seek\nout new life and new civilizations, and to boldly go where no\none has gone before." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="MisProTal" tag="talImpHull"/>
+    <tag group="MisProTal" tag="talImpPowS"/>
+    <tag group="MisProTal" tag="talRedSys"/>
+    <tag group="MisProTal" tag="talRuggDes"/>
+    <tag group="MisProTal" tag="talSecReac"/>
+    </thing>
+  </document>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "Basics" summary panel. This panel
+      contains the list of attributes and derived traits for the character.
+
+      Since all of the tables shown within this summary panel should fit within the
+      available vertical space, no scroller is required, so we turn off the scroller
+      for each table so that Hero Lab doesn't leave space for one.
+
+      All public visual elements used with summary panels start with the prefix "sm"
+      to associate them with the various summary panels.
+-->
+
+<document signature="Hero Lab Data">
+
+
+  <!-- smAttrib portal - table of attributes
+  -->
+  <portal
+    id="smAttrSys"
+    style="tblInvisSm">
+    <table_fixed
+      component="AttrSys"
+      showtemplate="asShow"
+      showsortset="explicit"
+      scrollable="no">
+      <headertitle><![CDATA[
+      @text = #summtitle_decoration[] & " " & herofield[acASHdrTxt].text & "s " & #summtitle_decoration[]
+      ]]></headertitle>
+      </table_fixed>
+    </portal>
+	
+  <!-- smDiscDept portal - table of disciplines / departments
+  -->
+  <portal
+    id="smDiscDept"
+    style="tblInvisSm">
+    <table_fixed
+      component="DiscDept"
+      showtemplate="ddShow"
+      showsortset="explicit"
+      scrollable="no"
+	  alwaysupdate="yes">
+      <headertitle><![CDATA[
+      @text = #summtitle_decoration[] & " " & herofield[acDDHdrTxt].text & "s " & #summtitle_decoration[]
+      ]]></headertitle>
+      </table_fixed>
+    </portal>
+
+  <!-- smFocus portal - table of derived traits
+  -->
+  <portal
+    id="smFocus"
+    style="tblInvisSm">
+    <table_fixed
+      component="Focus"
+      showtemplate="SimpleItem"
+      showsortset="explicit"
+      scrollable="no">
+      <headertitle><![CDATA[
+      @text = #summtitle_decoration[] & " Focus " & #summtitle_decoration[]
+      ]]></headertitle>
+      </table_fixed>
+    </portal>
+
+  <!-- asShow template
+        This template shows the name and final value of the given trait, providing
+        mouse-over behavior to show the details of each trait.
+  -->
+  <template
+    id="asShow"
+    name="Summary Trait Pick"
+    compset="AttrSys">
+
+    <portal
+      id="value"
+      style="lblSummary">
+      <label
+        field="abiFinal">
+        </label>
+      </portal>
+
+    <portal
+      id="name"
+      style="lblSummary">
+      <label
+        field="asNameSumm">
+        </label>
+      <mouseinfo/>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[name].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position the value on the left in a limited span and the name on the right
+      portal[value].width = 30
+      perform portal[name].alignrel[ltor,value,5]
+      ]]></position>
+    </template>
+
+  <!-- asShow template
+        This template shows the name and final value of the given trait, providing
+        mouse-over behavior to show the details of each trait.
+  -->
+  <template
+    id="ddShow"
+    name="Summary DiscDept Pick"
+    compset="DiscDept">
+
+    <portal
+      id="value"
+      style="lblSummary">
+      <label
+        field="abiFinal">
+        </label>
+      </portal>
+
+    <portal
+      id="name"
+      style="lblSummary">
+      <label
+        field="ddName">
+        </label>
+      <mouseinfo/>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[name].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position the value on the left in a limited span and the name on the right
+      portal[value].width = 30
+      perform portal[name].alignrel[ltor,value,5]
+      ]]></position>
+    </template>
+
+  <!-- smBasics layout
+        This layout contains the table of attributes and derived traits for the
+        character.
+  -->
+  <layout
+    id="smBasics">
+    <portalref portal="smAttrSys"/>
+    <portalref portal="smDiscDept"/>
+
+    <position><![CDATA[
+      ~position and size the tables to span the full layout
+	  portal[smAttrSys].width = width
+	  portal[smDiscDept].width = portal[smAttrSys].width
+	  
+	  portal[smAttrSys].top = 0
+      portal[smDiscDept].top = portal[smAttrSys].bottom + 10
+	  
+      ]]></position>
+
+    </layout>
+
+
+  <!-- smBasics panel
+        This panel is designated as a summary panel and given an order that positions
+        it properly amongst the other defined summary panels. We setup a small margin
+        to indent the layout from the edges of the panel.
+
+        The panel is assigned a "live" tagexpr so that its visibility can be
+        controlled for different types of characters. While not really useful in the
+        sample data files, this approach can be quite useful when the data files
+        expand to govern creation of widely varying characters, such as vampires vs.
+        ghosts vs. mortals in the World of Darkness game system.
+  -->
+  <panel
+    id="smBasics"
+    name="Basics"
+    order="10010"
+    marginhorz="2"
+    marginvert="2"
+    issummary="yes">
+    <live>!HideTab.smBasics</live>
+    <layoutref layout="smBasics"/>
+
+    <position><![CDATA[
+      ]]></position>
+
+    </panel>
+
+
+  </document>

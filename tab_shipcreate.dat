@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "talents" tab panel. This tab is where
+      the user selects the special talents for the character.
+
+      All public visual elements used with this tab panel start with the prefix "ab"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- shRefit portal -->
+  <portal
+    id="shRefit"
+    style="tblNormal">
+    <table_dynamic
+      component="Refit"
+      showtemplate="SimpleItem"
+      choosetemplate="SimpleItem">
+      <titlebar><![CDATA[
+        @text = "Add a Refit - " & hero.child[resShipRef].field[resSummary].text
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Step 3: Refits - " & hero.child[resShipRef].field[resSummary].text
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text &= "Add New Refit"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
+  <portal 
+    id="hdrFrame" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 1: Frame"
+        </labeltext>
+      </label>
+    </portal>
+           
+  <portal
+    id="shFrame"
+    style="chsNormal"
+    width="150">
+    <chooser_table
+      component="Frame"
+      choosetemplate="SimpleItem">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Frame"
+        else
+          @text = "Frame: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Frame for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+
+  <portal 
+    id="hdrProfile" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 2: Mission Profile"
+        </labeltext>
+      </label>
+    </portal>
+           
+  <portal
+    id="shProfile"
+    style="chsNormal"
+    width="150">
+    <chooser_table
+      component="Profile"
+      choosetemplate="SimpleItem">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Mission Profile"
+        else
+          @text = "Mission: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Mission Profile for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+	
+  <template
+    id="fraPick"
+    name="Frame Pick"
+    compset="Frame"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[info].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+
+  <layout
+    id="shipcreate">
+    <portalref portal="hdrFrame" />
+    <portalref portal="hdrProfile" />
+    <portalref portal="shFrame" taborder="10"/>
+    <portalref portal="shProfile" taborder="20"/>
+    <portalref portal="shRefit" taborder="30"/>
+
+    <!-- This script sizes and positions the layout and its child visual elements. 
+	    <portalref portal="hoFrame" taborder="10"/>
+ -->
+    <position><![CDATA[
+      ~freeze our table in advancement mode to disable adding new choices
+      ~Note: All freezing must be done *before* any positioning is performed.
+      if (state.iscreate = 0) then
+        portal[hdrFrame].freeze = 1
+        portal[shFrame].freeze = 1
+        portal[hdrProfile].freeze = 1
+        portal[shProfile].freeze = 1
+        endif
+
+      ~position and size the table to span the full layout; it will only use the
+      ~vertical space that it actually needs
+      portal[hdrFrame].top = 0
+      portal[hdrFrame].height = 20
+      portal[hdrFrame].width = width
+      
+      portal[shFrame].top = portal[hdrFrame].bottom + 5
+      portal[shFrame].height = 20
+      portal[shFrame].width = width
+	  
+      portal[hdrProfile].top = portal[shFrame].bottom + 10
+      portal[hdrProfile].height = 20
+      portal[hdrProfile].width = width
+      
+      portal[shProfile].top = portal[hdrProfile].bottom + 5
+      portal[shProfile].height = 20
+      portal[shProfile].width = width
+	  
+      portal[shRefit].top = portal[shProfile].bottom + 10
+      ~portal[shRefit].height = 20
+      portal[shRefit].width = width
+	  
+	  height = portal[shRefit].bottom + 5
+	  
+      ]]></position>
+
+    </layout>
+
+  <panel
+    id="shipcreate"
+    name="Ship Components"
+    marginhorz="5"
+    marginvert="5"
+    order="5">
+	<live>CharType.typShip</live>
+    <layoutref layout="shipcreate"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+	
+  </document>

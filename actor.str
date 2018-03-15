@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definitions of components associated directly with the
+      actor and its management.
+-->
+
+<document signature="Hero Lab Structure">
+
+  <!-- Actor component
+        Encapsulates all the details associated with every actor
+  -->
+  <component
+    id="Actor"
+    name="Actor"
+    autocompset="no"
+    ispublic="no">
+
+    <!-- Basics Header text -->
+    <field
+      id="acASHdrTxt"
+      name="Attribute/System Header Text"
+      type="derived"
+	  maxfinal="10">
+	  <finalize><![CDATA[
+        if (hero.tagis[CharType.typShip] = 1) then
+          @text = "System"
+        else
+          @text = "Attribute"
+          endif
+        ]]></finalize>
+      </field>
+	  
+    <field
+      id="acDDHdrTxt"
+      name="Discipline/Dept Header Text"
+      type="derived"
+	  maxfinal="10">
+	  <finalize><![CDATA[
+        if (hero.tagis[CharType.typShip] = 1) then
+          @text = "Department"
+        else
+          @text = "Discipline"
+          endif
+        ]]></finalize>
+		</field>
+		
+	
+    <!-- Image to display in the TacCon -->
+    <field
+      id="acTacImage"
+      name="Image"
+      type="derived">
+      </field>
+
+    <!-- Number of hands of equipment the actor can use simultaneously -->
+    <field
+      id="acHands"
+      name="Hands Available"
+      type="derived"
+      defvalue="2">
+      </field>
+
+    <!-- Minimum (starting) health for the actor -->
+    <field
+      id="acStrMin"
+      name="Min Stress"
+      type="derived">
+      <!-- Calculate the base health value for the actor from its pieces. We have to
+            calculate the value from its pieces instead of just getting the net trait
+            value. This is because Stress must be calculated BEFORE the final value
+            for derived traits, since derived traits may be influenced by the net health
+            (e.g. attack penalties after taking sufficient damage).
+      -->
+      <calculate phase="Stress" priority="1000" name="Calc acStrMin"><![CDATA[
+        @value = #abilfinal[attrsys03] + #abilfinal[discdept05] + #abilinplay[trStress]
+        ]]></calculate>
+      </field>
+
+    <!-- Bonus health for the actor -->
+    <field
+      id="acStrBon"
+      name="Bonus Stress"
+      type="derived">
+      <!-- Calculate any health bonus that the actor receives from other sources.
+      -->
+      <calculate phase="Ability" priority="5000" name="Calc acStrBon"><![CDATA[
+        ~.... add any suitable code here to calculate this for the game system ....
+        @value = 0
+        ]]></calculate>
+      </field>
+
+    <!-- Maximum health for the actor -->
+    <field
+      id="acStrMax"
+      name="Max Stress"
+      type="derived">
+      <!-- Calculate the maximum health for the actor as the minimum plus any bonus.
+      -->
+      <calculate phase="Stress" priority="1002" name="Calc acStrMax">
+        <after name="Calc acStrMin"/>
+        <after name="Calc acStrBon"/><![CDATA[
+        @value = field[acStrMin].value + field[acStrBon].value
+        ]]></calculate>
+      </field>
+
+    <!-- Current health -->
+    <field
+      id="acStrNow"
+      name="Current Stress"
+      type="derived">
+      <!-- Calculate the current health for the actor based on the maximum and any
+            actual damage that has been sustained.
+      -->
+      <calculate phase="Stress" priority="5100" name="Calc acStrNow">
+        <after name="Calc acStrMax"/><![CDATA[
+        @value = field[acStrMax].value - hero.usagepool[DmgNet].value
+        ]]></calculate>
+      </field>
+
+    <!-- Stress penalty adjustment due to damage effects -->
+    <field
+      id="acStrPenal"
+      name="Stress Penalty"
+      type="derived"
+      maxfinal="50">
+      <!-- Calculate any penalty adjustment applied due to substantial damage effects.
+            For example, if the actor has sustained enough damage, he might suffer
+            penalties on attack roles.
+      -->
+      <calculate phase="Stress" priority="5200" name="Calc acStrPenal">
+        <after name="Calc acStrNow"/><![CDATA[
+        ~for our example, once an actor is down to 25% of health or less, a -1 is
+        ~incurred on all attacks
+        if (field[acStrNow].value / field[acStrMax].value <= .25) then
+          @value = -1
+        else
+          @value = 0
+          endif
+        ]]></calculate>
+      <!-- Final value for display shows any negative value in red and ignores other values -->
+      <finalize><![CDATA[
+        if (@value >= 0) then
+          @text = ""
+        else
+          @text = "{text clrwarning}(" & @value & "){text clrreset}"
+          endif
+        ]]></finalize>
+      </field>
+
+    <!-- Stress summary for display -->
+    <field
+      id="acStrSumm"
+      name="Stress Summary"
+      type="derived"
+      maxfinal="50">
+      <!-- Calculate a value that is based on all the fields referenced by the
+            "finalize" script. This ensures that the field always changes if any of
+            its pieces changes, which triggers the finalized value to be updated.
+      -->
+      <calculate phase="Render" priority="1000">
+        <after name="Calc acStrNow"/><![CDATA[
+        ~make sure this value consists of the elements that could cause the summary to change
+        @value = field[acStrNow].value * 10000 + field[acStrMax].value * 100 + field[acStrPenal].value
+        ]]></calculate>
+      <!-- Final value for display show the current and maximum health, plus any
+            penalty value in parentheses.
+      -->
+      <finalize><![CDATA[
+        @text = field[acStrNow].value & " / " & field[acStrMax].value
+        if (field[acStrPenal].value < 0) then
+          @text &= " {text clrwarning}(" & field[acStrPenal].value & "){text clrreset}"
+          endif
+        ]]></finalize>
+      </field>
+
+    <!-- Starting character points to allocate -->
+    <field
+      id="acStartCP"
+      name="Character Points"
+      type="user"
+      defvalue="250">
+      </field>
+
+    <!-- Starting ability slots to allocate -->
+    <field
+      id="acStartTal"
+      name="Talent Slots"
+      type="user"
+      defvalue="0">
+      </field>
+	  
+    <!-- Starting attribute slots to allocate -->
+    <field
+      id="acStartAtt"
+      name="Attribute Slots"
+      type="derived"
+      defvalue="56">
+      <calculate phase="Initialize" priority="4000"><![CDATA[
+ 	  	if (hero.tagis[CharType.typMain] = 1) then
+	      @value = 56
+	    elseif (hero.tagis[CharType.typSupport] = 1) then
+	      @value = 54
+		else
+		  @value = 99
+	      endif       
+        ]]></calculate>	  
+
+
+      </field>
+
+    <!-- Starting discipline slots to allocate -->
+    <field
+      id="acStartDis"
+      name="Discipline Slots"
+      type="derived"
+      defvalue="16">
+	  <calculate phase="Initialize" priority="4000"><![CDATA[
+ 	  	if (hero.tagis[CharType.typMain] = 1) then
+	      @value = 16
+	    elseif (hero.tagis[CharType.typSupport] = 1) then
+	      @value = 13
+		else
+		  @value = 99
+	      endif       
+        ]]></calculate>	
+      </field>
+	  
+    <!-- Starting XP for the character -->
+    <field
+      id="acStartXP"
+      name="Starting XP"
+      type="user">
+      </field>
+
+    <!-- Starting cash for the character -->
+    <field
+      id="acCashCfg"
+      name="Starting Cash"
+      type="user"
+      defvalue="100">
+      </field>
+
+    <!-- Net cash for the character -->
+    <field
+      id="acCashNet"
+      name="Starting Cash"
+      type="derived">
+      </field>
+
+    <!-- Character type - Hero, NPC, or other -->
+    <field
+      id="acType"
+      name="Character Type"
+      type="user"
+      style="menu">
+      </field>
+
+    <!-- For NPCs, you can enter a book id (SKU) and name -->
+    <field
+      id="acBookId"
+      name="Book Identifier / SKU"
+      type="user"
+      maxlength="25">
+      </field>
+	  
+    <field
+      id="acBookName"
+      name="Book Name"
+      type="user"
+      maxlength="100">
+      </field>
+
+    <!-- Whether character is abandoning his action in combat for benefits in the next turn  -->
+    <field
+      id="acAbandon"
+      name="Abandoning"
+      type="derived"
+      persistence="full">
+      </field>
+
+    <!-- Index of the last advancement for the character -->
+    <field
+      id="acLastAdv"
+      name="Last Advancement"
+      type="derived">
+      </field>
+	  
+    <!-- Assign tags relating to important damage states -->
+    <eval index="1" phase="Final" priority="1000"><![CDATA[
+      ~if no damage has been incurred, assign a tag to indicate that state
+      if (field[acStrNow].value >= field[acStrMax].value) then
+        perform hero.assign[Hero.NoDamage]
+
+      ~if the hero is dead or otherwise out of combat, indicate that state
+      elseif (field[acStrNow].value = 0) then
+        perform hero.assign[Hero.Dead]
+        endif
+      ]]></eval>
+
+    <!-- Copy the first user image for use in the TacCon -->
+    <eval index="2" phase="Final" priority="1000"><![CDATA[
+      ~all heroes should be able to reroll initiative
+      perform hero.assign[Hero.RerollInit]
+
+      field[acTacImage].value = hero.findchild[UserImage,"TRUE",_CompSeq_].field[uimgImage].value
+      ]]></eval>
+
+    <!-- calculate the net cash possessed for the character -->
+    <eval index="3" phase="Effects" priority="5000"><![CDATA[
+      ~our net cash is our configured starting cash plus our accrued cash
+      field[acCashNet].value = field[acCashCfg].value + hero.usagepool[TotalCash].value
+      ]]></eval>
+
+    <!-- activate our selected character type -->
+    <eval index="4" phase="Initialize" priority="3000"><![CDATA[
+      ~perform field[acType].chosen.forward[CharType.?]
+	  		
+	  foreach pick in hero where "component.AttrSys"
+		if (hero.tagis[CharType.typShip] = 1) then
+		  perform eachpick.assign[AttrType.System]
+		else
+		  perform eachpick.assign[AttrType.Attribute]
+	      endif	
+		  
+		nexteach
+		
+	  foreach pick in hero where "component.DiscDept"
+		if (hero.tagis[CharType.typShip] = 1) then
+		  perform eachpick.assign[DiscType.Department]		  
+		else
+		  perform eachpick.assign[DiscType.Discipline]
+	      endif
+				  
+		nexteach	  
+		
+      ~Set Expression Helper Fields
+      if (hero.tagis[CharType.typShip] = 1) then
+        hero.child[ExprHelp].field[ehTraitExp].text = "TraitCat.Ship"
+		hero.child[ExprHelp].field[ehTalExp].text = "TalentCat.Ship"
+      else
+        hero.child[ExprHelp].field[ehTraitExp].text = "!TraitCat.Ship"
+        hero.child[ExprHelp].field[ehTalExp].text = "!TalentCat.Ship"
+        endif
+		
+      ]]></eval>
+  
+    <!-- Hide inactive tabs until needed -->
+    <eval index="5" phase="Final" priority="1000"><![CDATA[
+      perform hero.assign[HideTab.advances]
+
+      ]]></eval>
+    </component>
+	
+  <!-- Service component
+        Encapsulates all of the personal details tracked on the Personal tab
+  -->
+  <component
+    id="Service"
+    name="Service Info"
+    ispublic="no">
+
+    <!-- Affiliation -->
+    <field
+      id="serAffil"
+      name="Affiliation"
+      maxlength="50"
+      type="user">
+      </field>
+	  
+    <!-- Rank -->
+    <field
+      id="serRank"
+      name="Rank"
+      maxlength="50"
+      type="user">
+      </field>
+	  
+    <!-- Assignment -->
+    <field
+      id="serAssign"
+      name="Assignment"
+      maxlength="50"
+      type="user">
+      </field>
+
+    <!-- Role -->
+    <field
+      id="serRole"
+      name="Role"
+      maxlength="50"
+      type="user">
+      </field>
+	  
+    </component>
+
+  <!-- SuppInfo component
+        Encapsulates all of the supporting character bonuses, etc.
+  -->
+  <component
+    id="SuppInfo"
+    name="Supporting Character Info"
+	panellink="support"
+    ispublic="no">
+
+    <!-- Starting ability slots to allocate -->
+    <field
+      id="suAppear"
+      name="Appearances"
+      type="user"
+      defvalue="0">
+      </field>
+	  
+    <!-- Tracks the first attribute selection (+3)  -->
+    <field
+      id="suAttrChs1"
+      name="Attribute selection for +3"
+      type="user"
+      style="menu">
+      </field>
+
+    <!-- Tracks the second and third attribute selection (+2)  -->
+    <field
+      id="suAttrChs2"
+      name="Attribute selection for +2"
+      type="user"
+      style="menu">
+      </field>
+    <field
+      id="suAttrChs3"
+      name="Attribute selection for +2"
+      type="user"
+      style="menu">
+      </field>
+	  
+    <!-- Tracks the fourth and fifth attribute selection (+1)  -->
+    <field
+      id="suAttrChs4"
+      name="Attribute selection for +1"
+      type="user"
+      style="menu">
+      </field>
+    <field
+      id="suAttrChs5"
+      name="Attribute selection for +1"
+      type="user"
+      style="menu">
+      </field>
+
+    <!-- Tracks the first discipline selection (+3)  -->
+    <field
+      id="suDiscChs1"
+      name="Discipline selection for +3"
+      type="user"
+      style="menu">
+      </field>
+
+    <!-- Tracks the second discipline selection (+2)  -->
+    <field
+      id="suDiscChs2"
+      name="Discipline selection for +2"
+      type="user"
+      style="menu">
+      </field>
+	  
+    <!-- Tracks the third fourth discipline selection (+1)  -->
+    <field
+      id="suDiscChs3"
+      name="Discipline selection for +1"
+      type="user"
+      style="menu">
+      </field>
+	  
+    <field
+      id="suDiscChs4"
+      name="Discipline selection for +1"
+      type="user"
+      style="menu">
+      </field>
+	  <!-- Integrate the various user selections into the name of the pick
+          NOTE! Must be scheduled after the "shortname" field is synthesized at Render/100.
+    -->
+    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+      
+	  ~if we have thing-based menus
+      var needed as number
+	  var actual as number
+	  
+      needed = 9
+	  
+      if (hero.tagis[CharType.typSupport] = 1) then
+	  
+        if (field[suAttrChs1].ischosen <> 0) then
+          field[suAttrChs1].chosen.field[abiBonus].value += 3
+          endif
+		if (field[suAttrChs2].ischosen <> 0) then
+          field[suAttrChs2].chosen.field[abiBonus].value += 2
+          endif
+		if (field[suAttrChs3].ischosen <> 0) then
+          field[suAttrChs3].chosen.field[abiBonus].value += 2
+          endif
+		if (field[suAttrChs4].ischosen <> 0) then
+          field[suAttrChs4].chosen.field[abiBonus].value += 1
+          endif
+		if (field[suAttrChs5].ischosen <> 0) then
+          field[suAttrChs5].chosen.field[abiBonus].value += 1
+          endif	
+
+        if (field[suDiscChs1].ischosen <> 0) then
+          field[suDiscChs1].chosen.field[abiBonus].value += 3
+          endif
+		if (field[suDiscChs2].ischosen <> 0) then
+          field[suDiscChs2].chosen.field[abiBonus].value += 2
+          endif
+		if (field[suDiscChs3].ischosen <> 0) then
+          field[suDiscChs3].chosen.field[abiBonus].value += 1
+          endif
+		if (field[suDiscChs4].ischosen <> 0) then
+          field[suDiscChs4].chosen.field[abiBonus].value += 1
+          endif	
+
+		actual += field[suAttrChs1].ischosen + field[suAttrChs2].ischosen + field[suAttrChs3].ischosen + field[suAttrChs4].ischosen + field[suAttrChs5].ischosen
+		
+		actual += field[suDiscChs1].ischosen + field[suDiscChs2].ischosen + field[suDiscChs3].ischosen + field[suDiscChs4].ischosen
+		
+	    if (actual >= needed) then
+	      ~ add focuses
+		  #resmax[resFocus] += 3
+	      endif
+		
+		endif
+		
+      ]]></eval>
+
+    <!-- Report a validation error if no selection has been made for a menu selection -->
+    <evalrule phase="Validate" priority="10000" message="Not enough Attribute/Discipline choices." summary="Choose!"><![CDATA[
+	  validif (hero.tagis[CharType.typShip] <> 0)
+	  
+      ~determine the number of menus that NEED selection
+      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
+      var needed as number
+      needed = 9
+
+      ~determine the number of menus that HAVE selections
+      var actual as number
+      if (hero.tagis[CharType.typSupport] = 1) then
+        actual += field[suAttrChs1].ischosen + field[suAttrChs2].ischosen + field[suAttrChs3].ischosen + field[suAttrChs4].ischosen + field[suAttrChs5].ischosen
+		actual += field[suDiscChs1].ischosen + field[suDiscChs2].ischosen + field[suDiscChs3].ischosen + field[suDiscChs4].ischosen
+        endif
+
+      ~if the user has chosen something whenever required, we're valid
+      validif (actual >= needed)
+
+      ~mark any associated tab as invalid
+      if (ispanel <> 0) then
+        linkvalid = 0
+        endif
+      ]]></evalrule>
+
+	  
+    </component>
+	
+  <!-- Personal component
+        Encapsulates all of the personal details tracked on the Personal tab
+  -->
+  <component
+    id="Personal"
+    name="Personal Info"
+    ispublic="no">
+
+    <!-- Age of the actor -->
+    <field
+      id="perAge"
+      name="Age"
+      type="user"
+      defvalue="25">
+      <!-- Bound the age to within the limits specified for the actor -->
+      <bound phase="Render" priority="10000"><![CDATA[
+        @minimum = field[perAgeMin].value
+        @maximum = field[perAgeMax].value
+        ]]></bound>
+      </field>
+
+    <!-- Minimum age of the actor -->
+    <field
+      id="perAgeMin"
+      name="Minimum Age"
+      type="derived"
+      defvalue="15">
+      </field>
+
+    <!-- Maximum age of the actor -->
+    <field
+      id="perAgeMax"
+      name="Maximum Age"
+      type="derived"
+      defvalue="75">
+      </field>
+
+    <!-- Height of the actor (in inches) -->
+    <field
+      id="perHeight"
+      name="Height"
+      type="user"
+      maxfinal="20"
+      defvalue="68">
+      <!-- Bound the age to within the limits specified for the actor -->
+      <bound phase="Render" priority="10000"><![CDATA[
+        @minimum = field[perHtMin].value
+        @maximum = field[perHtMax].value
+        ]]></bound>
+      <!-- Final value for display is converted from inches to feet and inches -->
+      <finalize><![CDATA[
+        ~calculate the height in terms of feet and inches
+        var feet as number
+        var inches as number
+        feet = @value / 12
+        feet = round(feet,0,-1)
+        inches = @value - (feet * 12)
+
+        ~synthesize appropriate text to display the height properly
+        @text = feet & "'"
+        if (inches <> 0) then
+          @text = @text & " " & inches & chr(34)
+          endif
+        ]]></finalize>
+      </field>
+
+    <!-- Minimum height of the actor -->
+    <field
+      id="perHtMin"
+      name="Minimum Height"
+      type="derived"
+      defvalue="36">
+      </field>
+
+    <!-- Maximum height of the actor -->
+    <field
+      id="perHtMax"
+      name="Maximum Height"
+      type="derived"
+      defvalue="96">
+      </field>
+
+    <!-- Weight of the actor (in pounds) -->
+    <field
+      id="perWeight"
+      name="Weight"
+      type="user"
+      maxfinal="20"
+      defvalue="160">
+      <!-- Bound the weight to within the limits specified for the actor -->
+      <bound phase="Render" priority="10000"><![CDATA[
+        @minimum = field[perWtMin].value
+        @maximum = field[perWtMax].value
+        ]]></bound>
+      <!-- Final value for display includes the "lb." suffix in a different font size -->
+      <finalize><![CDATA[
+        @text = @text & "{size 40}lb."
+        ]]></finalize>
+      </field>
+
+    <!-- Minimum weight of the actor -->
+    <field
+      id="perWtMin"
+      name="Minimum Weight"
+      type="derived"
+      defvalue="30">
+      </field>
+
+    <!-- Maximum weight of the actor -->
+    <field
+      id="perWtMax"
+      name="Maximum Weight"
+      type="derived"
+      defvalue="500">
+      </field>
+
+    <!-- Gender of the actor (0=male, 1=female, 2=specify) -->
+    <field
+      id="perGender"
+      name="Gender"
+      type="user"
+      minvalue="0"
+      maxvalue="2"
+      maxfinal="100"
+      nevercache="yes">
+      <finalize><![CDATA[
+        if (@value = 0) then
+          @text = "Male"
+        elseif (@value = 1) then
+          @text = "Female"
+        elseif (field[perGenUser].isempty = 0) then
+          @text = field[perGenUser].text
+        else
+          @text = "No Gender"
+          endif
+        ]]></finalize>
+      </field>
+    <field
+      id="perGenUser"
+      name="Gender"
+      type="user"
+      maxlength="100">
+      </field>
+
+    <!-- Hair color -->
+    <field
+      id="perHair"
+      name="Hair Color"
+      maxlength="25"
+      type="user">
+      </field>
+
+    <!-- Eye color -->
+    <field
+      id="perEyes"
+      name="Eye Color"
+      maxlength="25"
+      type="user">
+      </field>
+
+    <!-- Skin color -->
+    <field
+      id="perSkin"
+      name="Skin Color"
+      maxlength="25"
+      type="user">
+      </field>
+
+    <!-- Background description of the actor -->
+    <field
+      id="perInfo"
+      name="Background Text"
+      type="user"
+      maxlength="10000">
+      </field>
+
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      ~ Assign a tag if the user hasn't specified any background text
+      if (field[perInfo].isempty <> 0) then
+        perform assign[Helper.NoPersText]
+        endif
+      ]]></eval>
+
+    </component>
+
+
+  <!-- Define various component sets associated with the components defined above.
+  -->
+
+  <!-- The "Personal" compset is auto-defined for the component -->
+
+  <!-- Actor - all the collective one-shot details for the actor -->
+  <compset
+    id="Actor">
+    <compref component="Actor"/>
+    </compset>
+
+
+  </document>

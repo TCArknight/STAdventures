@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of miscellaneous things that are required for
+      the game system. Miscellaneous things include the mechanisms for managing applied
+      damage, user images, and personal info for each actor. It also includes things
+      used to track resource pools, such as those used for managing the available
+      attribute points, skill points, etc.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Types of characters you might want to build -->
+  <thing
+    id="typBase"
+    name="Type: Starbase"
+    compset="CharType">
+	<usesource source="DivCmd"/>
+    </thing>
+
+    </document>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="fraAkira" name="Akira Class" description="During the aftermath of the Battle of Wolf 359 in 2367, Starfleet saw the need for a more heavily armed vessel capable of patrolling and protecting large volumes of territory against possible Borg incursions, while continuing the primary mission of all Starfleet vessels, exploring the unknown. The Advanced Starship Design Bureau at the Antares Fleet Yards took a concept design, never planned for service, and turned it into the U.S.S. Akira in 2368; trial runs were so successful that Starfleet Command immediately ordered full-scale production of the Akira class to begin." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2368"/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="11"/>
+    <fieldval field="fraWeap" value="11"/>
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <fieldval field="fraCap" value="Unlike most vessels of its mass, Akira-class starships do not have a separate engineering hull, rather the vessel is designed to be as compact as possible to aid in maintaining a strong defensive shield strength over its entire surface area. Other defensive measures included raised pontoon-like structures on either side of the saucer that contained secondary shield generators to help protect vital command and control systems as well as highly sensitive sensor networks for planetary survey and stellar cartography missions that could double as back-up targeting systems for the vessel’s weaponry. The Akira class was also designed with extensive shuttlebays and attached support and maintenance facilities capable of manufacturing shuttles from scratch with the right raw materials. Capable of deploying shuttles of any size, fighters, and even Danube class runabouts, the Akira class is superb at space supremacy in combat roles and extensive stellar system survey in peacetime. If the mission assignment requires it, the shuttle recovery and maintenance systems are replaceable with cargo compartments and extra bulk transporter systems or even extra personnel quarters and life support systems to allow the craft to perform rescue and recovery operations. The torpedo pod mounted between the two pontoons aft of the hull isn’t as easily replaceable as the shuttlebays in the main hull due to the complex power feeds and targeting system relays that feed up the connecting pylons to the pod. This hasn’t stopped ASDB from working on ideas that include making sub-classes of the vessel that would replace the weapons systems with a subspace scanning array equal in size and resolution to ones typically seen in fixed installations. The torpedo pod itself is a unique design in Starfleet vessels, with a series of tubes in a line capable of a nearly continuous barrage as the system staggers the fire of each tube. Each of the standard tubes can be loaded with a store of subspace buoys or sensor probes, but the quantum torpedo systems standard on each vessel are dedicated systems and unable to launch alternate munitions."/>
+    <usesource source="TNG"/>
+    <bootstrap thing="talAblaAr"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTorQua"></bootstrap>
+    <bootstrap thing="shTractor4"></bootstrap>
+    <bootstrap thing="talExtShut"></bootstrap>
+    <bootstrap thing="talQuanTor"></bootstrap>
+    <bootstrap thing="talRFTorp"></bootstrap>
+    </thing>
+  <thing id="fraMiran" name="Miranda Class" description="During the mid to late 2260s the Federation saw increasing tensions with the Klingon Empire and many analysts thought that war was inevitable with Qo’noS. The design of the Miranda class began as a dual-purpose patrol and combat vessel designed specifically to counter Klingon designs, specifically recent refits of the D7 battle cruiser. A combined team of designers from Starfleet Tactical and the Starfleet Advanced Technologies Group began co-opting and adjusting technologies and systems from the upcoming Constitution class refit, producing a heavily armed attack vessel just as peace broke out between the Federation and the Empire in 2267. Production of six spaceframes occurred before further manufacturing was halted while a complete redesign was undertaken. In 2272, the Miranda development group had beaten the sword into a plowshare by redesigning nearly 70% of the internal volume of the starship, attempting to make the vessel into a science and survey ship. The result was a highly adaptable starship that continues to be in use nearly one hundred years since its introduction." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2274"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraCap" value="The original design of the Miranda class{br}had nearly double the amount of weapon systems as the{br}Constitution class as well as two large shuttlebays at the{br}aft of the starship. Many of these weapons were removed,{br}leaving three phaser turrets each on the dorsal and ventral{br}sections and two phasers mounted near the vessels impulse{br}deck. A phaser turret on both the port and starboard ‘roll bar’ mountings was linked directly into the warp plasma{br}conduits, increasing the firepower significantly at risk of{br}depriving the starship of warp power at critical moments.{br}In addition, a modular torpedo system was installed at the{br}top of the vessels roll-bar, giving two forward and two rear{br}facing launch tubes that could be quickly replaced with{br}probe launchers. Some of the extra power requirements{br}for weapon systems came from the ships compact shape,{br}lacking a secondary hull, the Miranda could generate the{br}same defensive shielding power as a Constitution class,{br}but for only 70% of the power. The reduction in weapon{br}systems also allowed many of the targeting systems to be{br}replaced by more high-resolution long-range sensors suited{br}for exploration duties. The large shuttle and cargo bays gave{br}the starship an excellent reputation for performing highly{br}detailed planetary surveys, being used for emergency cargo{br}transportation, and a border patrol vessel. The adaptability{br}of the modular systems of the Miranda class made it{br}indispensable for assignments to frontier starbases where{br}it could change its modules, and thus what assignments{br}it could perform, with little layover time. This meant that a{br}single Miranda could be assigned to a starbase rather than{br}two or three specialized starships. By the mid-2280s the{br}Miranda class was in use across the Federation and became{br}the ‘Jack-of-all-Trades’ of the Fleet, and an overworked one{br}with many Miranda-class vessels logging more hours of{br}continual operation than any others. While the Miranda class{br}could never achieve the specialization of the Constitution{br}class in exploration and science, nor the transport{br}capabilities of the Ptolemy class, nor the sheer firepower of the larger, more advanced Excelsior class, it was used for all{br}of these roles. The modular systems that were devised in the{br}2270s have made this class able to be easily refitted over{br}the century of its service, and many of the starships still in{br}active service today were exploring the Galaxy in the late 23rd{br}century."/>
+    <usesource source="TNG"/>
+    <usesource source="TOS"/>
+    <bootstrap thing="talExtShut"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraConstel" name="Constellation Class" description="Designed in the mid-2280s in response to\nincreasing tensions between the Klingon Empire and the\nFederation, the Constellation class was originally intended for\nuse as a perimeter patrol vessel and heavy interceptor. The\ndesign was not intended as a true warship, therefore, when\nthe initial Khitomer Accords were signed in 2293, the class’\nproduction wasn’t ceased, but its assignments were changed\nfrom being an alert interceptor to an emergency response\nvessel used to deal with crises that could rapidly spiral out of\ncontrol without Starfleet’s intervention." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2285"/>
+    <fieldval field="fraCap" value="Until the deployment of the Constellation class, Starfleet had never commissioned a four-nacelle design for general use in the fleet. The intent for the potent combination of four warp nacelles and two separate impulse drive reactor arrays was to provide the craft with the ability to maintain high warp speeds by alternating the use of two nacelles at a time and then switching the active nacelles before the warp coils would overheat and normally require a starship to drop out of warp. While Constellation-class vessels were not the highest velocity craft at warp speeds, the maximum sustained cruising speed of the vessel was just over warp 8. All four nacelles could be used to increase warp acceleration or push the maximum velocity of the craft to over warp 9. At sublight speeds, the two impulse arrays would tax the class’s structural integrity field by accelerating from full stop to full impulse in less than five seconds, often surprising non-Federation crews by what was known as the ‘Constellation Sprint’. Another tactic developed on U.S.S. Stargazer NCC-2893 by then Lieutenant Commander Jean-Luc Picard became known as the ‘Picard Maneuver’ where the starship would accelerate and jump into warp and then drop back out to nearly full stop so the starship appeared to be in two places at once. This agility and speed lent itself to its re-designation as an emergency response vehicle. In addition, the vessels three large shuttle/fighter bays located along the edges of the saucer were redesigned for use in regular planetary shuttles or cargo shuttles. This made the Constellation class ideal for delivering large quantities of emergency supplies to vast areas of a planet’s surface, or transporting colonists to newly terraformed worlds. The usefulness of this design has been great enough that Starfleet has kept many of these vessels on active duty, continuing to use them as couriers and rapid response, refitting them with new developments in technology over its decades of service."/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <bootstrap thing="talImpWarp"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor2"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talExtShut"></bootstrap>
+    </thing>
+  <thing id="fraConsti" name="Constitution Class" description="The Constitution-class starships defined and\nhelped continue to define Starfleet during the 23rd century\nand beyond. In 2235 Starfleet decided that, to better expand\nand protect the Federation as a whole, a more rugged and\nmulti-purpose exploration vessel was needed that was\nable to stand up to the increasing threat of conflict with\nthe Klingon Empire. The design that resulted would be\nused in dozens of later classes of starships; a saucer-like\nprimary hull that contained the bridge and the majority of\nweapon systems, a cylindrical secondary hull that housed\nthe class’s warp core, navigational deflector and shuttlebay,\nand connected to two warp nacelles held far away from the\nvessel on long struts." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2243"/>
+    <fieldval field="fraCap" value="As an exploratory vessel, the Constitution{br}class needed the best computer systems available, and was{br}designed to use the newly developed duotronic computer{br}system created by Doctor Richard Daystrom in 2243. This{br}breakthrough in computing technology allowed the computer{br}of Constitution-class starships to develop a limited AI-like{br}personality that sometimes became too self-aware and would{br}argue or bicker with officers and crew instead of providing{br}information and analysis. The computer system was able to handle the input from as many sensors as was typically seen{br}on three starships of previous classes, giving Constitutionclass{br}vessels sensor resolution and accuracy unable to{br}be matched until the late 2290s. To aid in exploration, the{br}design had a large shuttlebay with four class-F shuttlecraft,{br}but in an emergency situation could host six. While the warp{br}propulsion systems were not highly advanced, they were{br}made to be rugged and easily repaired, with many vessels{br}warp coils operating at high subspace field densities for 7–8{br}times the recommended time for replacement. This resilience{br}allowed Constitution-class vessels to operate far above their{br}rated safety limits, with U.S.S. Enterprise achieving brief{br}speeds of warp 14.1 in 2268, a speed record that would{br}hold until the 24th century. The warp reactor itself made{br}highly efficient use of antimatter by cycling warp plasma{br}through networked reactor cylinders housed behind main{br}engineering. The class also had a powerful multiple reactor{br}fusion impulse system that was noted to be able to keep the{br}starship aloft even inside planetary atmospheres that the{br}vessels were not designed to enter. Automation of critical{br}systems were not possible with the technology of the time,{br}and the Constitution class required over 400 crew members{br}for operation, with two-person teams crewing each of the{br}design’s six phaser banks and four-person teams crewing{br}each torpedo launcher. To save on the already high number{br}of crew on board, these teams were made up of crew from{br}the vessel’s scientific teams that would not typically be needed during combat operations. The success of the class meant that as further refinements to warp technology and computer systems became available, Constitution-class starships were often the first in line for refitting at shipyards across the Federation. The introduction of the Excelsior class began the slow decline of Constitution-class vessels, as the ships’ newer spaceframes and larger size made them better suited for deep space exploration missions."/>
+    <fieldval field="fraYearRet" value="2290"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="TOS"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talModLab"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    </thing>
+  <thing id="fraDefianc" name="Defiance Class" description="The primary purpose of Starfleet is science\nand exploration, with military prowess not being a priority.\nWith some notable exceptions made during the Earth-\nRomulan War, Starfleet had little experience designing\nships specifically made for warfare. The Defiant class began\ndevelopment a year before the Battle of Wolf 359, and the\nstarship’s development and production was made a priority\nafter the disastrous encounter with the Borg. Initial testing\nof the prototype showed serious flaws and was mothballed,\nalong with the entire design project. The development of\nthis class halted until 2370 when the commanding officer of\nDeep Space 9 requested the prototype be assigned to his\ncommand to help with the increasing tensions between the\nFederation and the Dominion." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraCap" value="The prototype (U.S.S. Defiant NX-74205){br}differs significantly from production models of the class by{br}having a Romulan cloaking device. The amount of power{br}required by the starship makes the cloak less effective than if{br}it was used on another starship of similar mass, and careful{br}sensor sweeps are still able to detect Defiant at close range.{br}These same power requirements resulted in the shelving of{br}the design due to the extreme power draw required for its{br}weapon systems. The weapon systems installed include four{br}forward-mounted pulsed phaser cannons, three secondary{br}type-10 phaser strips, and a total of six (four forward and{br}two aft mounted) multi-purpose torpedo launchers able to{br}fire both standard Mark IV photon torpedoes or the newly{br}developed quantum torpedoes. The class’s maximum warp{br}speed with weapons charged is warp 7, but with weapons{br}offline Defiant class vessels can achieve an impressive{br}Warp 9.5 from warp coils normally unable to produce such{br}a steep subspace gradient. Power draw for propulsion is{br}nearly identical at sublight speeds as the starship’s structural{br}integrity field struggles to handle maneuvers normally seen{br}in single crew shuttles or fighters. All of the weapon systems{br}and power generation come at the cost of crew comforts.{br}The Defiant class is one of the smallest starships used by{br}Starfleet in an active role with a standard crew size of 50.{br}However, even with this small crew, all crew (except the{br}captain) must share quarters and rely on a single mess hall{br}for any recreation while on board. The interior space did{br}allow the inclusion of a small shuttle bay that is primarily for{br}use when the starship is assigned to reconnaissance duties,{br}and landing struts to facilitate emergency planetary landings{br}or for planetary reconnaissance.{br}{br}As of 2371 only a single Defiant-class starship is in service{br}(the prototype Defiant), but the team at Deep Space 9{br}have overcome many of the prototype’s flaws, and several{br}additional Defiant-class starships are under construction."/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="13"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="TNG"/>
+    <bootstrap thing="talAblaAr"></bootstrap>
+    <bootstrap thing="talQuanTor"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shPhaCan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTorQua"></bootstrap>
+    <bootstrap thing="shTractor2"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraExcel" name="Excelsior Class" description="The Excelsior class was hailed as ‘The Great\nExperiment’ by many scientists and engineers across the\nFederation. It was to be the first class of starship to utilize\n‘transwarp drive’ technology, a theoretical next step in\npropulsion technology that had shown repeated laboratory\nand simulated successes. The first attempted full-scale\nuse of U.S.S. Excelsior and its transwarp systems in 2285\nresulted in a complete failure of all propulsion systems\nfrom a combination of sabotage and failure of the vessel’s\ncapability to generate and maintain a transwarp field. The\nprototype was brought back into space dock for redesign\nusing standard warp propulsion technologies, and by 2290\nthe ‘bugs’ had been worked out of the design, resulting in\na highly adaptable and capable starship for the late 23rd\ncentury and beyond." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2285"/>
+    <fieldval field="fraCap" value="The ship-wide failure of U.S.S. Excelsior{br}caused engineers at the San Francisco Ship Yards to overengineer{br}nearly every system on the ship. The design’s long{br}transwarp nacelles were no longer needed after the failure{br}of the experiment, but engineers elected to keep them so{br}extra warp coils could be installed, giving the large starship{br}both a robust warp field and a high maximum sustained{br}warp speed. Excelsior-class vessels could often sustain{br}dangerous warp speeds for periods long enough that the{br}warp cores would overload or the ship’s structural integrity{br}field would begin to fail long before the coils themselves{br}would begin to malfunction. Sublight propulsion was far{br}in excess of what was needed, giving the massive cruiser{br}accelerations typically seen on vessels half its size. The{br}redundant fusion reactors also assisted in powering the{br}ship’s impressive shielding systems, capable of greater{br}defensive power absorption than the Constitution class{br}over a much greater surface area. Tactical systems were{br}also improved over the older heavy cruiser, with five dual{br}type-8 phaser banks on the primary hull, and a single dual{br}bank tied directly into the impulse reactor array. Further,{br}two phaser banks are located on either side of the ‘neck’{br}connecting the primary and secondary hull, and a bank of{br}phasers is located on the dorsal secondary hull between{br}the warp nacelle pylons. Additionally, two forward and two{br}aft mounted photon torpedo launchers gave the Excelsior{br}class enough firepower to give pause to any commander of{br}a hostile vessel encountering it, though at least one tube is{br}kept loaded with probes while on exploratory and research{br}assignments. The redesign also allowed the installation{br}of the final generation of duotronic computer processors{br}before the introduction of isolinear systems in the early 24th{br}century. This gave Excelsior-class vessels unrivalled sensor{br}and data processing abilities compared to other starships{br}of its era. As the redesign of the class was so extensive,{br}designers on the project ended up inadvertently ensuring the{br}class would be in use even today with large sections of the{br}primary and secondary hull able to be removed and replaced{br}with the systems they contain. Refits of the class since its{br}introduction have kept a high demand for Excelsior-class{br}starships in Starfleet, and allowed their continual use in an{br}exploratory, border patrol, and even combat roles."/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraEng" value="2"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <bootstrap thing="talSecReac"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor4"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
+    </thing>
+  <thing id="fraGalaxy" name="Galaxy Class" description="Designed to be the best exploration and\nscience vessel ever deployed by Starfleet, the Galaxy class\nwas put into service with many of the most advanced\ntechnologies available in the late 2350s along with its\nsister design, the Nebula class. It also represented a new\nphilosophy in Starfleet where officers and crew on deep\nspace and long duration assignments could bring along their\nfamilies and loved ones rather than be apart from them for\nyears. This philosophy meant the starship was one of the\nlargest produced with often over 2000 crew and their family\nmembers aboard at any given time, and an emergency\nevacuation limit of around 15,000, but more typical crew\nlevels numbered near 1000. While non-Starfleet personnel\namounted to only between 15-20% of the total crew, each\nGalaxy-class starship had facilities and services onboard\nto serve Starfleet crew and civilians typically only seen on\nstarbases including schools for children, bars and in some\ncases restaurants, day-care, and the largest holodecks\nproduced at that time." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2359"/>
+    <fieldval field="fraCap" value="With much of the interior space of a Galaxy{br}class empty and waiting for mission specific modules to{br}be installed, each vessel quickly became unique compared{br}to others of its class. Often the occupations of the vessel’s{br}civilians would dictate what kind of research facilities would{br}be installed. As an example, the civilian husband of a serving{br}science officer may be a metallurgist and request a facility{br}able to handle the specialized needs of his smelting and{br}fabrication research. This adaptability and capability for{br}expansion also meant that these large vessels often ended{br}up with a specialist for any situation, and civilian specialists{br}that Starfleet required the expertise of would receive{br}temporary rank and further space consideration for their{br}facilities and hobbies onboard. Each Galaxy-class vessel had{br}the largest warp core then produced by the Federation and{br}designed by the Theoretical Propulsion Group of Mars. This{br}powerplant provided the massive starship with the capability{br}to maintain a cruising speed of warp 6 and an emergency{br}velocity of warp 9.8. Three identical isolinear computer{br}cores with FTL processing capabilities tie the wide variety{br}of scientific sensors, laboratories, and research facilities{br}onboard together. These cores could each take over all{br}computer needs on the ship in the case of the destruction of{br}the other two. This meant that in the case of the destruction{br}of the vessel, the data stored by a Galaxy-class starship{br}could be pieced back together based on pieces recovered{br}from each core. Unlike most Starfleet vessels before it, the{br}Galaxy class was designed with the ability to separate and{br}reattach its saucer without the need for a return to dry dock,{br}allowing this use for both for emergency purposes and in{br}tactical engagements such as when U.S.S. Enterprise NCC-{br}1701-D used the technique against the Borg following the{br}Battle of Wolf 359 in 2367. Auxiliary shuttle craft are located{br}in three separate shuttlebays, and typically include ten Type{br}6 or 7 personnel shuttles, ten type-9A cargo shuttles, and{br}twelve type-15, 15A, or 16 shuttlepods."/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="TNG"/>
+    <tag group="Ship" tag="SaucerSep"/>
+    <bootstrap thing="talModLab"></bootstrap>
+    <bootstrap thing="talRedSys"></bootstrap>
+    <bootstrap thing="talSaucSep"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shTractor5"></bootstrap>
+    </thing>
+  <thing id="fraIntrep" name="Intrepid Class" description="By the mid-2360s the success and failures of\nthe Galaxy class were clear to Starfleet. Its large size and\ncrew along with increasing use as a diplomatic vessel rather\nthan exploratory craft made engineers in Starfleet begin\ndesigning the next great explorer, the Intrepid class. This first\nof its class was launched in 2371 to great fanfare and was\nquickly seen by the Federation Science Council as a valuable\nresource. It is small compared to the Galaxy class, more\nclosely resembling a Constitution class, but contains the best\ntechnology available to the Federation." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraCap" value="he sleek curves of the Intrepid class{br}weren’t just a stylistic choice, they assisted the variable{br}geometry warp nacelles in producing a tight warp field over{br}the starship with a steep and stable field gradient in even{br}turbulent space-time conditions, giving these vessels both{br}an impressive warp acceleration and stability. These features,{br}along with the vessels primary class-9 warp drive and its{br}secondary warp assembly allowed the class an impressive{br}top speed of warp 9.975. While its sustained warp speeds{br}are considerably slower, they are still fast enough to allow{br}Starfleet to hail the design as its new deep-space explorer. To{br}aid in this role, Intrepid-class vessels are also equipped with{br}the best technology in the Federation, including the newest{br}generation of multi-spectral subspace sensors linked into the{br}most powerful shipboard computer yet in service in Starfleet.{br}This computing power is possible through a breakthrough in{br}the use of bio-neural circuitry, allowing the vessels’ computer{br}to form information connections in a faster and more natural{br}way, giving the main computer the unique ability to adapt to{br}new and confusing situations as well as improvise solutions{br}much like sentient life-forms. This increased computer{br}power allows the Intrepid class more automation than many{br}Starfleet vessels, keeping the typical crew rosters down to{br}between 130–150 officers and crew. As it’s a deep-space{br}exploratory vessel, all Intrepid-class starships have an{br}impressive amount of tactical systems as standard, the{br}reasoning being that it would be operating far from any{br}other allied starships and may need to defend itself against{br}multiple attackers. The Intrepid class has thirteen type-10{br}phaser strips, an additional four type 8 phaser emitters, and{br}five torpedo launchers (two forward, two aft, and one ventral{br}launcher that is typically only loaded with probes). To further{br}planetary exploration, all Intrepid-class vessels are assigned{br}at least four type-6 or type-8 shuttlecraft in addition to the{br}class-specific aeroshuttle that is located on the ventral side{br}of the primary hull. For crew recreation, new high resolution{br}holo-emitters and integrated replicator systems made{br}holodecks power efficient and able to create permanent{br}matter in the simulation to prevent continual holo-emitter{br}use and degradation. These same holo-emitters are also{br}installed in the sickbay, allowing the new Emergency Medical{br}Hologram system (EMH) to assist medical personnel when{br}they require it."/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="11"/>
+    <fieldval field="fraEngine" value="11"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSci" value="2"/>
+    <usesource source="TNG"/>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    <bootstrap thing="talEMH"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraNova" name="Nova Class" description="Starfleet Command and the Federation Science\nCouncil formed a committee in 2363 to discuss the state\nof Starfleet’s aging science and exploration vessels. While\nthe Galaxy class was considered a success, the amount\nof personnel and resources required to construct one of\nthe massive exploration cruisers was significant. The end\nconclusion of the committee was that Starfleet required a\nnew science and exploration vessel that was small, easy to\nmaintain, but had the best sensor and scientific equipment\npossible in a small spaceframe. The Nova class is the result,\nonly entering service in the past few years." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2368"/>
+    <fieldval field="fraCap" value="The designers at Utopia Planitia Fleet Yards{br}(UPFY) had been devising various next-generation designs{br}for several years when work began on the Nova class. The{br}science vessel was approximately the same size as the NX{br}class from the 22nd century and had a similar amount of{br}crew, typically requiring around 80 crew, depending on the{br}assignment. Like many ships designed around this time,{br}the Nova class had an integrated secondary hull under its{br}wedge-like primary saucer, capitalizing on both the most{br}recent theories on warp field dynamics and the faster{br}manufacturing that this simpler cross-section would allow.{br}However, though many next-generation technologies were{br}in their infancy at the time, the designers chose to make{br}use of tried, tested, and established components instead,{br}continuing to use an isolinear processing system for both{br}its primary and secondary computer cores and forgoing the{br}use of variable geometry warp drive. The reasoning behind{br}this was that the newer systems were still too bulky for the{br}small vessel and tended to make simulated Nova designs{br}far too cramped for even a bare minimum of crew members.{br}Designers at UPFY nevertheless improved upon these basic{br}components by increasing the strength of the warp field{br}around both computer cores, improving the processing{br}speeds by nearly doubling the field strength around the FTL{br}elements. The warp coils needed for the starship were small,{br}and engineers were able to place gimbal and gyroscopic{br}control elements around each of the individual coils, giving{br}the Nova class an even greater ability to modify the geometry{br}of its warp field than any other starship of its mass at the cost{br}of maintaining a steep field gradient, i.e. a lower maximum{br}speed. To save space, UPFY engineers compressed the{br}impulse systems into a single unit along the vessels spine{br}and only installed forward facing torpedo systems. The{br}type 10 phaser strips were short, reducing weapon arcs but{br}giving the vessel more interior volume that could be utilized{br}by life support and sensor systems rather than EPS transfer{br}systems and heat exchangers. The small crew size and the{br}slow cruising speed of the Nova class mean that its primary{br}assignments are planetary survey and short to mid-range{br}exploration missions lasting no more than six months before{br}crews rotate to larger vessels or facilities.{br}{br}Since the launch of U.S.S. Nova in 2368, three Nova-class{br}vessels have been destroyed or are presumed destroyed{br}including Borealis, Equinox, and Zodiac. While the reason{br}for the loss of Equinox in early 2371 is not yet known, it is{br}thought to be due to a failure of the anti-matter containment{br}systems when attempting to enter warp while under heavy{br}sublight acceleration. This failure occurred in the other{br}two starships, both in 2371. UPFY engineers are currently{br}studying these failures to determine if there are any serious{br}flaws with the design itself; this may determine whether the{br}Nova class has a future within Starfleet."/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="2"/>
+    <fieldval field="fraScale" value="3"/>
+    <usesource source="TNG"/>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor2"></bootstrap>
+    </thing>
+  </document>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Career Events -->
+  <thing
+    id="evBetIde"
+    name="Betrayed Ideals For A Superior"
+    compset="Event"
+    isunique="yes"
+    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow the superior.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys05] += 1
+	  #abilbonus[discdept01] += 1
+	  
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evShipDes"
+    name="Ship Destroyed"
+    compset="Event"
+    isunique="yes"
+    description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys02] += 1
+	  #abilbonus[discdept05] += 1
+	  
+      ]]></eval>    
+    </thing>
+  </document>

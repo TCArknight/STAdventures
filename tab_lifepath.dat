@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "talents" tab panel. This tab is where
+      the user selects the special talents for the character.
+
+      All public visual elements used with this tab panel start with the prefix "ab"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+  <portal 
+    id="hdrSpecies" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 1: Species"
+        </labeltext>
+      </label>
+    </portal>
+          
+  <portal
+    id="hoSpecies"
+    style="chsNormal"
+    width="110">
+    <chooser_table
+      component="Species"
+      choosetemplate="SimpleItem"
+	  choosesortset="SpecSort">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Species"
+        else
+          @text = "Species: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Species for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+<!-- 	
+  <portal
+    id="hoSpecies"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="Species"
+	  showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+	  choosesortset="SpecSort">
+      <titlebar><![CDATA[
+        @text = "Choose the Species for your character"
+        ]]></titlebar>
+	  <additem><![CDATA[
+        ~if we're in advancement mode, we've been frozen, so display accordingly
+        if (state.iscreate = 0) then
+          @text = "{text clrgrey}Add Talents Via Advances Tab"
+          done
+          endif
+
+        ~set the color based on whether the proper number of slots are allocated
+        if (field[resLeft].value = 0) then
+          @text = "{text clrgrey}"
+        elseif (field[resLeft].value < 0) then
+          @text = "{text clrwarning}"
+          endif
+        @text &= "Add New Talent"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+-->	
+  <portal 
+    id="hdrEnviron" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 2: Environment"
+        </labeltext>
+      </label>
+    </portal>
+           
+  <portal
+    id="hoEnviron"
+    style="chsNormal"
+    width="150">
+    <chooser_table
+      component="Environ"
+      choosetemplate="SimpleItem">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Environment"
+        else
+          @text = "Environment: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Environment for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+	
+  <portal 
+    id="hdrUpbring" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 3: Upbringing"
+        </labeltext>
+      </label>
+    </portal>
+           
+  <portal
+    id="hoUpbring"
+    style="chsNormal"
+    width="150">
+    <chooser_table
+      component="Upbringing"
+      choosetemplate="SimpleItem">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Upbringing"
+        else
+          @text = "Upbringing: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Upbringing for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+	
+  <portal 
+    id="hdrAcad" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 4: Starfleet Academy"
+        </labeltext>
+      </label>
+    </portal>
+           
+  <portal
+    id="hoAcad"
+    style="chsNormal"
+    width="150">
+    <chooser_table
+      component="Academy"
+      choosetemplate="SimpleItem">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Starfleet Academy Track"
+        else
+          @text = "Academy Track: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Academy Track for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+	
+  <portal 
+    id="hdrCareer" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 5 &amp; 6: Career &amp; Events"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal
+    id="hoCareer"
+    style="chsNormal"
+    width="150">
+    <chooser_table
+      component="Career"
+      choosetemplate="SimpleItem">
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Career Experience"
+        else
+          @text = "Career: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Academy Track for your character"
+        ]]></titlebar>
+      </chooser_table>
+    </portal>
+	
+  <portal 
+    id="hdrFinish" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 7: Finishing Touches"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal
+    id="hoHoriz1"
+    style="sepHorz">
+    <separator
+      isvertical="no">
+      </separator>
+    </portal>
+	
+  <template
+    id="hoPick"
+    name="Species Pick"
+    compset="Species"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[info].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+
+  <layout
+    id="lifepath">
+    <portalref portal="hdrSpecies" />
+    <portalref portal="hdrEnviron" />
+    <portalref portal="hdrUpbring" />
+    <portalref portal="hdrAcad" />
+    <portalref portal="hdrCareer" />
+    <portalref portal="hdrFinish" />
+    <portalref portal="hoSpecies" taborder="10"/>
+    <portalref portal="hoEnviron" taborder="20"/>
+    <portalref portal="hoUpbring" taborder="30"/>
+    <portalref portal="hoAcad" taborder="40"/>
+    <portalref portal="hoCareer" taborder="50"/>
+    <portalref portal="hoHoriz1" />
+
+    <!-- This script sizes and positions the layout and its child visual elements. 
+	    <portalref portal="hoSpecies" taborder="10"/>
+ -->
+    <position><![CDATA[
+      ~freeze our table in advancement mode to disable adding new choices
+      ~Note: All freezing must be done *before* any positioning is performed.
+      if (state.iscreate = 0) then
+        portal[hdrSpecies].freeze = 1
+        portal[hoSpecies].freeze = 1
+        portal[hdrEnviron].freeze = 1
+        portal[hoEnviron].freeze = 1
+        portal[hdrUpbring].freeze = 1
+        portal[hoUpbring].freeze = 1
+        portal[hdrAcad].freeze = 1
+        portal[hoAcad].freeze = 1
+        portal[hdrCareer].freeze = 1
+        portal[hoCareer].freeze = 1
+        portal[hdrFinish].freeze = 1
+        endif
+
+      ~position and size the table to span the full layout; it will only use the
+      ~vertical space that it actually needs
+      portal[hdrSpecies].top = 0
+      portal[hdrSpecies].height = 20
+      portal[hdrSpecies].width = width
+      
+      portal[hoSpecies].top = portal[hdrSpecies].bottom + 5
+      portal[hoSpecies].height = 20
+      portal[hoSpecies].width = width
+
+	  portal[hdrEnviron].top = portal[hoSpecies].bottom + 5
+      portal[hdrEnviron].height = 20
+      portal[hdrEnviron].width = width
+	  
+	  portal[hoEnviron].top = portal[hdrEnviron].bottom + 5
+      portal[hoEnviron].height = 20
+      portal[hoEnviron].width = width
+
+	  portal[hdrUpbring].top = portal[hoEnviron].bottom + 5
+      portal[hdrUpbring].height = 20
+      portal[hdrUpbring].width = width
+	  
+	  portal[hoUpbring].top = portal[hdrUpbring].bottom + 5
+      portal[hoUpbring].height = 20
+      portal[hoUpbring].width = width
+
+	  portal[hdrAcad].top = portal[hoUpbring].bottom + 5
+      portal[hdrAcad].height = 20
+      portal[hdrAcad].width = width
+	  
+	  portal[hoAcad].top = portal[hdrAcad].bottom + 5
+      portal[hoAcad].height = 20
+      portal[hoAcad].width = width
+	  
+	  portal[hdrCareer].top = portal[hoAcad].bottom + 5
+      portal[hdrCareer].height = 20
+      portal[hdrCareer].width = width
+	  
+	  portal[hoCareer].top = portal[hdrCareer].bottom + 5
+      portal[hoCareer].height = 20
+      portal[hoCareer].width = width
+
+	  portal[hdrFinish].top = portal[hoCareer].bottom + 5
+      portal[hdrFinish].height = 20
+      portal[hdrFinish].width = width
+	  
+      ]]></position>
+
+    </layout>
+
+  <panel
+    id="lifepath"
+    name="Lifepath"
+    marginhorz="5"
+    marginvert="5"
+    order="5">
+	<live>CharType.typMain</live>
+    <layoutref layout="lifepath"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+	
+  </document>

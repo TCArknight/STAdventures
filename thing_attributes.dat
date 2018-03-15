@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of attributes possessed by every actor for the
+      game system. The display order of attributes is controlled via the assignment of
+      an "explicit" tag with the relative position of each.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Control Attribute -->
+  <thing
+    id="attrsys01"
+    name="Control/Comm"
+    compset="AttrSys"
+    isunique="yes"
+    description="">
+    <fieldval field="asAttrDesc" value="Control is about the character controlling themselves, and it covers precision, accuracy, and careful timing. It can rely on self-discipline and control of one’s emotions to ensure mechanistic precision, or it can be a mixture of fine motor skills, coordination, and familiarity with the activity."/>
+	<fieldval field="asSysDesc" value="This System encompasses the transmission, encryption, decryption, and retrieval of subspace signals on a range of frequencies, as well as a range of other forms of signals transmission and reception. Any Task that involves or relies upon communications systems should use Communications."/>
+    <tag group="AttrName" tag="Control"/>
+    <tag group="AttrAbbrev" tag="Con"/>
+    <tag group="SysName" tag="Comms"/>
+    <tag group="SysAbbrev" tag="Com"/>
+    <tag group="explicit" tag="1"/>
+    </thing>
+
+  <!-- Daring Attribute -->
+  <thing
+    id="attrsys02"
+    name="Daring/Computers"
+    compset="AttrSys"
+    isunique="yes"
+    description="">
+    <fieldval field="asAttrDesc" value="Daring description"/>
+    <tag group="AttrName" tag="Daring"/>
+    <tag group="AttrAbbrev" tag="Dar"/>
+    <tag group="SysName" tag="Computers"/>
+    <tag group="SysAbbrev" tag="Cmp"/>
+    <tag group="explicit" tag="2"/>
+    </thing>
+
+  <!-- Fitness Attribute -->
+  <thing
+    id="attrsys03"
+    name="Fitness/Engines"
+    compset="AttrSys"
+    isunique="yes"
+    description="">
+    <fieldval field="asAttrDesc" value="Fitness description"/>
+    <tag group="AttrName" tag="Fitness"/>
+    <tag group="AttrAbbrev" tag="Fit"/>
+    <tag group="SysName" tag="Engines"/>
+    <tag group="SysAbbrev" tag="Eng"/>
+    <tag group="explicit" tag="3"/>
+    </thing>
+
+  <!-- Insight Attribute -->
+  <thing
+    id="attrsys04"
+    name="Insight/Sensors"
+    compset="AttrSys"
+    isunique="yes"
+    description="">
+    <fieldval field="asAttrDesc" value="Insight description"/>
+    <tag group="AttrName" tag="Insight"/>
+    <tag group="AttrAbbrev" tag="Ins"/>
+    <tag group="SysName" tag="Sensors"/>
+    <tag group="SysAbbrev" tag="Sen"/>
+    <tag group="explicit" tag="4"/>
+    </thing>
+
+  <!-- Presence Attribute -->
+  <thing
+    id="attrsys05"
+    name="Presence/Structure"
+    compset="AttrSys"
+    isunique="yes"
+    description="">
+    <fieldval field="asAttrDesc" value=""/>
+    <tag group="AttrName" tag="Presence"/>
+    <tag group="AttrAbbrev" tag="Pre"/>
+    <tag group="SysName" tag="Structure"/>
+    <tag group="SysAbbrev" tag="Str"/>
+    <tag group="explicit" tag="5"/>
+    </thing>
+
+  <!-- Reason Attribute -->
+  <thing
+    id="attrsys06"
+    name="Reason/Weapons"
+    compset="AttrSys"
+    isunique="yes"
+    description="">
+    <fieldval field="asAttrDesc" value=""/>
+    <tag group="AttrName" tag="Reason"/>
+    <tag group="AttrAbbrev" tag="Rea"/>
+    <tag group="SysName" tag="Weapons"/>
+    <tag group="SysAbbrev" tag="Wep"/>
+    <tag group="explicit" tag="6"/>
+    </thing>
+	
+  </document>

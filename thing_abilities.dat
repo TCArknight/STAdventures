@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+
+      Since derived traits are based upon other traits, we have a "chicken-and-egg"
+      situation with respect to script evaluation timing. The "Trait" component
+      auto-calculates the final value for the traits derived FROM, while the "Derived"
+      component provides a second calculation after that to incorporate the results of
+      the special calculation for each derived trait. Each derived trait must then
+      calculate the new derived value between those two times, which is what we
+      accomplish below within the eval script for each derived trait. The script is
+      timed to occur at Traits/4000 to splice it between the two other scripts that
+      mentioned above and performed by the component.
+
+      We calculate the derived value as a "bonus" for the trait, allowing it to be
+      added in appropriately by the component script. Trait bonuses can arise from
+      multiple sources, so we need to ADD our calculated amount instead of setting the
+      amount.
+
+      All trait values are rounded down, so we apply the proper rounding as needed.
+      Rounding must be performed BEFORE we add the adjustment.
+
+      Appropriate tags are assigned to each derived trait to control where the trait
+      displayed to the user and the order in which the traits are displayed.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Stress Trait -->
+  <thing
+    id="trStress"
+    name="Stress"
+    compset="Ability"
+    isunique="yes"
+    description="Description goes here">
+    <fieldval field="abiAbbrev" value="Str"/>
+    <tag group="explicit" tag="1"/>
+    <tag group="User" tag="Power"/>
+    <eval index="1" phase="Stress" priority="5500"><![CDATA[
+      field[abiBonus].value += #stressnow[]
+
+      ]]></eval>
+    </thing>
+
+  <!-- Power Points Trait -->
+  <thing
+    id="trPowerPts"
+    name="Power Points"
+    compset="Ability"
+    isunique="yes"
+    description="Description goes here">
+    <fieldval field="abiAbbrev" value="Powr"/>
+    <tag group="explicit" tag="4"/>
+    <tag group="User" tag="Power"/>
+    <!-- Calculate the Power Points trait as the total of "Con + Cha" -->
+    <eval index="1" phase="Ability" priority="4000">
+      <before name="Derived abiFinal"/>
+      <after name="Calc abiFinal"/><![CDATA[
+      field[abiBonus].value = #abil[attrsys01] + #abil[attrsys05]
+      ]]></eval>
+    </thing>
+
+  <!-- Defense Trait -->
+  <thing
+    id="trResist"
+    name="Resistance"
+    compset="Ability"
+    isunique="yes"
+    description="Description goes here">
+    <fieldval field="abiAbbrev" value="Def"/>
+    <tag group="explicit" tag="3"/>
+    <tag group="User" tag="Combat"/>
+    <tag group="DashTacCon" tag="Combat"/>
+    <eval index="1" phase="Ability" priority="4000">
+      <before name="Derived abiFinal"/>
+      <after name="Calc abiFinal"/><![CDATA[
+      var value as number
+      ~value = (#abil[attrsys02] * 2 + #abil[attrsys06]) / 3
+      ~value = round(value,0,-1)
+      ~field[abiBonus].value += value
+      ]]></eval>
+    </thing>
+
+  <!-- Mental Resistance Trait -->
+  <thing
+    id="trMentRes"
+    name="Mental Resistance"
+    compset="Ability"
+    isunique="yes"
+    description="Description goes here">
+    <fieldval field="abiAbbrev" value="Ment"/>
+    <tag group="explicit" tag="6"/>
+    <tag group="User" tag="Resistance"/>
+    <tag group="DashTacCon" tag="Traits"/>
+    <!-- Calculate the Mental Resistance trait as "(Cha + Wis * 2) / 3" -->
+    <eval index="1" phase="Ability" priority="4000">
+      <before name="Derived abiFinal"/>
+      <after name="Calc abiFinal"/><![CDATA[
+      var value as number
+      value = (#abil[attrsys05] + #abil[attrsys06] * 2) / 3
+      value = round(value,0,-1)
+      field[abiBonus].value += value
+      ]]></eval>
+    </thing>
+
+  <!-- Physical Resistance Trait -->
+  <thing
+    id="trPhysRes"
+    name="Physical Resistance"
+    compset="Ability"
+    isunique="yes"
+    description="Description goes here">
+    <fieldval field="abiAbbrev" value="Phys"/>
+    <tag group="explicit" tag="5"/>
+    <tag group="User" tag="Resistance"/>
+    <tag group="DashTacCon" tag="Traits"/>
+    <!-- Calculate the Physical Resistance trait as "(Con * 2 + Str) / 3" -->
+    <eval index="1" phase="Ability" priority="4000">
+      <before name="Derived abiFinal"/>
+      <after name="Calc abiFinal"/><![CDATA[
+      var value as number
+      value = (#abil[attrsys01] * 2 + #abil[attrsys03]) / 3
+      value = round(value,0,-1)
+      field[abiBonus].value += value
+      ]]></eval>
+    </thing>
+
+  <!-- Initiative Trait -->
+  <thing
+    id="trInit"
+    name="Initiative"
+    compset="Ability"
+    isunique="yes"
+    description="Description goes here">
+    <fieldval field="abiAbbrev" value="Init"/>
+    <tag group="explicit" tag="2"/>
+    <tag group="User" tag="Combat"/>
+    <tag group="DashTacCon" tag="Combat"/>
+    <tag group="DashTacCon" tag="Traits"/>
+    <!-- Calculate the Initiative trait as "(Dex + Wis) / 5" -->
+    <eval index="1" phase="Ability" priority="4000">
+      <before name="Derived abiFinal"/>
+      <after name="Calc abiFinal"/><![CDATA[
+      var value as number
+      value = (#abil[attrsys02] + #abil[attrsys06]) / 5
+      value = round(value,0,-1)
+      field[abiBonus].value += value
+      ]]></eval>
+    </thing>
+
+  </document>

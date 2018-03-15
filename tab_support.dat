@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "talents" tab panel. This tab is where
+      the user selects the special talents for the character.
+
+      All public visual elements used with this tab panel start with the prefix "ab"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- suAppear portal -->
+  <portal
+    id="suAppear"
+    style="tblNormal">
+    <table_dynamic
+      component="Appearance"
+      showtemplate="suAppear"
+      choosetemplate="SimpleItem">
+      <titlebar><![CDATA[
+        @text = "Add an Appearance Bonus"
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Appearance Bonuses: "
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text &= "Add New Appearance Bonus"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
+  <portal 
+    id="hdrRole" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 1: Role"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="lblRole" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "Role - See Personal Tab"
+        </labeltext>
+      </label>
+    </portal>
+		
+  <portal 
+    id="hdrSSpecie" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 2: Species/Attributes"
+        </labeltext>
+      </label>
+    </portal>
+		
+  <portal 
+    id="hdrDisc" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 3: Disciplines"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="hdrFocus" 
+    style="lblTitle">
+    <label>
+      <labeltext>
+        @text = "Step 4: Focuses"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="lblFocus" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "Focuses - See Basics Tab"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <!-- suAttr attributes choices -->
+  <template
+    id="suAppear"
+    name="Appearance Choices"
+    compset="Appearance"
+    marginhorz="13"
+    marginvert="9">
+
+  <portal 
+    id="name" 
+    style="lblNormal">
+    <label
+	  field="name">
+      </label>
+    </portal>
+    
+	<portal 
+      id="menu1" 
+	  style="menuNormal">
+      <menu_things 
+	  field="usrChosen1"
+	  candidatefield="usrCandid1"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="shortname">
+      </menu_things>
+      </portal>
+    
+	<portal 
+      id="menu2" 
+	  style="menuNormal">
+      <menu_things 
+	  field="usrChosen1"
+	  candidatefield="usrCandid1"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="shortname">
+      </menu_things>
+      </portal>
+	  
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+	  
+    <position><![CDATA[	 
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+	  
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+	  portal[menu1].visible = 0
+	  portal[menu2].visible = 0
+	  
+      ~determine whether our menus are visible
+      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
+      if (tagis[User.NeedChoice] = 1) then
+	    if (tagis[User.ChooseAttr] = 1) then
+          portal[menu1].visible = 1
+		elseif (tagis[User.ChooseDisc] = 1) then
+          portal[menu2].visible = 1
+          endif		  
+        endif
+		
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+      perform portal[menu1].centervert
+	  perform portal[menu2].centervert
+	  
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the name on the left and use availble space, with a gap for menus
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[info].left - portal[name].left - 75)
+
+	  ~position the menus to the right of the name in the available space
+      perform portal[menu1].alignrel[ltor,name,10]
+      portal[menu1].width = (portal[info].left - portal[menu1].left - 20)
+      perform portal[menu2].alignrel[ltor,name,10]
+      portal[menu2].width = (portal[info].left - portal[menu2].left - 20)
+
+      ~if a menu is visible, make sure it has a selection
+      if (portal[menu1].visible <> 0) then
+        if (field[usrChosen1].ischosen = 0) then
+          perform portal[menu1].setstyle[menuErrSm]
+          endif
+        endif
+      if (portal[menu2].visible <> 0) then
+        if (field[usrChosen1].ischosen = 0) then
+          perform portal[menu2].setstyle[menuErrSm]
+          endif
+        endif
+		
+      ~if the ability is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>	
+  <!-- suAttr attributes choices -->
+  <template
+    id="suAttr"
+    name="Attribute Choices"
+    compset="SuppInfo"
+    marginhorz="13"
+    marginvert="9">
+	  
+  <portal 
+    id="lblAttr1" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "+3 to one attribute:"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="lblAttr2" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "+2 to two attributes:"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="lblAttr3" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "+1 to two attributes:"
+        </labeltext>
+      </label>
+    </portal>
+ 
+  <portal 
+    id="menuAttr1" 
+	style="menuNormal">
+    <menu_things 
+	  field="suAttrChs1"
+	  component="AttrSys" 
+	  usepicks="hero"
+	  namefield="asName"
+	  maxvisible="20">
+    <candidate>component.AttrSys</candidate>
+    </menu_things>
+  </portal> 
+
+  <portal 
+    id="menuAttr2" 
+	style="menuNormal">
+    <menu_things 
+	  field="suAttrChs2"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="asName"
+	  maxvisible="20">
+    <candidate>component.AttrSys</candidate>
+    </menu_things>
+  </portal> 
+
+  <portal 
+    id="menuAttr3" 
+	style="menuNormal">
+    <menu_things 
+	  field="suAttrChs3"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="asName"
+	  maxvisible="20">
+    <candidate>component.AttrSys</candidate>
+    </menu_things>
+  </portal>  
+
+  <portal 
+    id="menuAttr4" 
+	style="menuNormal">
+    <menu_things 
+	  field="suAttrChs4"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="asName"
+	  maxvisible="20">
+    <candidate>component.AttrSys</candidate>
+    </menu_things>
+  </portal> 
+
+  <portal 
+    id="menuAttr5" 
+	style="menuNormal">
+    <menu_things 
+	  field="suAttrChs5"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="asName"
+	  maxvisible="20">
+    <candidate>component.AttrSys</candidate>
+    </menu_things>
+  </portal>  
+	  
+    <position><![CDATA[
+
+      ~position the title to span the full width
+ 	  portal[lblAttr1].top = 0
+      portal[lblAttr1].height = 20
+      portal[lblAttr1].width = width / 3
+
+	  portal[menuAttr1].top = portal[lblAttr1].top
+	  portal[menuAttr1].left = portal[lblAttr1].right + 5
+      portal[menuAttr1].height = 20
+      portal[menuAttr1].width = width / 4
+	  
+	  portal[lblAttr2].top = portal[lblAttr1].bottom + 5
+      portal[lblAttr2].height = 20
+      portal[lblAttr2].width = width / 3
+	  
+	  portal[menuAttr2].top = portal[lblAttr2].top
+	  portal[menuAttr2].left = portal[lblAttr2].right + 5
+      portal[menuAttr2].height = 20
+      portal[menuAttr2].width = width / 4
+	  
+	  portal[menuAttr3].top = portal[lblAttr2].top
+	  portal[menuAttr3].left = portal[menuAttr2].right + 5
+      portal[menuAttr3].height = 20
+      portal[menuAttr3].width = width / 4
+
+	  portal[lblAttr3].top = portal[lblAttr2].bottom + 5
+      portal[lblAttr3].height = 20
+      portal[lblAttr3].width = width / 3 
+	  
+	  portal[menuAttr4].top = portal[lblAttr3].top
+	  portal[menuAttr4].left = portal[lblAttr3].right + 5
+      portal[menuAttr4].height = 20
+      portal[menuAttr4].width = width / 4
+	  
+	  portal[menuAttr5].top = portal[lblAttr3].top
+	  portal[menuAttr5].left = portal[menuAttr4].right + 5
+      portal[menuAttr5].height = 20
+      portal[menuAttr5].width = width / 4
+	  
+      ~center the other portals vertically
+      ~perform portal[lblScale].centervert
+
+      ~height of the portal is the botom of the lowest portal + 10
+	  height = portal[lblAttr3].bottom + 5
+	  
+      ]]></position>
+
+    </template>
+	
+  <!-- suAttr attributes choices -->
+  <template
+    id="suDisc"
+    name="Discipline Choices"
+    compset="SuppInfo"
+    marginhorz="13"
+    marginvert="9">
+	  
+  <portal 
+    id="lblDisc1" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "+3 to one discipline:"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="lblDisc2" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "+2 to one discipline:"
+        </labeltext>
+      </label>
+    </portal>
+	
+  <portal 
+    id="lblDisc3" 
+    style="lblBrdCent">
+    <label>
+      <labeltext>
+        @text = "+1 to two disciplines:"
+        </labeltext>
+      </label>
+    </portal>
+ 
+  <portal 
+    id="menuDisc1" 
+	style="menuNormal">
+    <menu_things 
+	  field="suDiscChs1"
+	  component="DiscDept" 
+	  usepicks="hero"
+	  namefield="ddName"
+	  maxvisible="20">
+    <candidate>component.DiscDept</candidate>
+    </menu_things>
+  </portal> 
+
+  <portal 
+    id="menuDisc2" 
+	style="menuNormal">
+    <menu_things 
+	  field="suDiscChs2"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="ddName"
+	  maxvisible="20">
+    <candidate>component.DiscDept</candidate>
+    </menu_things>
+  </portal> 
+
+  <portal 
+    id="menuDisc3" 
+	style="menuNormal">
+    <menu_things 
+	  field="suDiscChs3"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="ddName"
+	  maxvisible="20">
+    <candidate>component.DiscDept</candidate>
+    </menu_things>
+  </portal>  
+
+  <portal 
+    id="menuDisc4" 
+	style="menuNormal">
+    <menu_things 
+	  field="suDiscChs4"
+	  component="none" 
+	  usepicks="hero"
+	  namefield="ddName"
+	  maxvisible="20">
+    <candidate>component.DiscDept</candidate>
+    </menu_things>
+  </portal> 
+ 
+    <position><![CDATA[
+
+      ~position the title to span the full width
+ 	  portal[lblDisc1].top = 0
+      portal[lblDisc1].height = 20
+      portal[lblDisc1].width = width / 3
+
+	  portal[menuDisc1].top = portal[lblDisc1].top
+	  portal[menuDisc1].left = portal[lblDisc1].right + 5
+      portal[menuDisc1].height = 20
+      portal[menuDisc1].width = width / 4
+	  
+	  portal[lblDisc2].top = portal[lblDisc1].bottom + 5
+      portal[lblDisc2].height = 20
+      portal[lblDisc2].width = width / 3
+	  
+	  portal[menuDisc2].top = portal[lblDisc2].top
+	  portal[menuDisc2].left = portal[lblDisc2].right + 5
+      portal[menuDisc2].height = 20
+      portal[menuDisc2].width = width / 4
+
+	  portal[lblDisc3].top = portal[lblDisc2].bottom + 5
+      portal[lblDisc3].height = 20
+      portal[lblDisc3].width = width / 3 
+	  
+	  portal[menuDisc3].top = portal[lblDisc3].top
+	  portal[menuDisc3].left = portal[lblDisc3].right + 5
+      portal[menuDisc3].height = 20
+      portal[menuDisc3].width = width / 4
+	  
+	  portal[menuDisc4].top = portal[lblDisc3].top
+	  portal[menuDisc4].left = portal[menuDisc3].right + 5
+      portal[menuDisc4].height = 20
+      portal[menuDisc4].width = width / 4
+	  
+      ~center the other portals vertically
+      ~perform portal[lblScale].centervert
+
+      ~height of the portal is the botom of the lowest portal + 10
+	  height = portal[lblDisc3].bottom + 15
+	  
+      ]]></position>
+
+    </template>	
+  <layout
+    id="support">
+    <portalref portal="hdrRole" />
+    <portalref portal="hdrSSpecie" />
+    <portalref portal="hdrDisc" />
+	<portalref portal="lblRole"/>
+    <portalref portal="stSpecies" taborder="20"/>
+	<portalref portal="hdrFocus" />
+	<portalref portal="lblFocus"/>
+    <portalref portal="suAppear" taborder="40"/>
+	<templateref template="suAttr" thing="mscSupport" taborder="10"/>
+	<templateref template="suDisc" thing="mscSupport" taborder="30"/>
+
+    <!-- This script sizes and positions the layout and its child visual elements. 
+	    <portalref portal="hoSpecies" taborder="10"/>
+ -->
+    <position><![CDATA[
+      ~freeze our table in advancement mode to disable adding new choices
+      ~Note: All freezing must be done *before* any positioning is performed.
+      if (state.iscreate = 0) then
+        portal[hdrSSpecie].freeze = 1
+        portal[stSpecies].freeze = 1
+        endif
+
+      ~position and size the table to span the full layout; it will only use the
+      ~vertical space that it actually needs
+      portal[hdrRole].top = 0
+      portal[hdrRole].height = 20
+      portal[hdrRole].width = width	  
+	  
+	  portal[lblRole].top = portal[hdrRole].bottom + 5
+      portal[lblRole].height = 20
+      portal[lblRole].width = width
+	  
+      portal[hdrSSpecie].top = portal[lblRole].bottom + 5
+      portal[hdrSSpecie].height = 20
+      portal[hdrSSpecie].width = width
+      
+      portal[stSpecies].top = portal[hdrSSpecie].bottom + 5
+      portal[stSpecies].height = 20
+      portal[stSpecies].width = width
+
+	  template[suAttr].top = portal[stSpecies].bottom + 5
+	  template[suAttr].width = width
+
+      portal[hdrDisc].top = template[suAttr].bottom + 5
+      portal[hdrDisc].height = 20
+      portal[hdrDisc].width = width
+
+	  template[suDisc].top = portal[hdrDisc].bottom + 5
+	  template[suDisc].width = width
+	  
+	  portal[hdrFocus].top = template[suDisc].bottom + 5
+      portal[hdrFocus].height = 20
+      portal[hdrFocus].width = width	  
+	  
+	  portal[lblFocus].top = portal[hdrFocus].bottom + 5
+      portal[lblFocus].height = 20
+      portal[lblFocus].width = width
+	  
+	  portal[suAppear].top = portal[lblFocus].bottom + 5
+      portal[suAppear].width = width
+	  
+	  
+      ]]></position>
+
+    </layout>
+
+  <panel
+    id="support"
+    name="Supporting Char."
+    marginhorz="5"
+    marginvert="5"
+    order="5">
+    <live>CharType.typSupport</live>
+    <layoutref layout="support"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+	
+  </document>

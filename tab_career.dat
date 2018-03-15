@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- This file contains the definition of the "Skills" tab panel. This tab is where
+      the user selects and adjusts the skills for the character.
+
+      All public visual elements used with this tab panel start with the prefix "sk"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+	  
+  <template
+    id="caCarTemp"
+    name="Academy Template"
+    compset="Academy"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="caCarTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Description"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="caCarDesc"
+      style="lblBrdLeft">
+      <label
+        field="descript"
+        ismultiline="yes">
+        </label>
+      </portal>
+                
+    <position><![CDATA[
+      ~set up our dimensions, with a width that we dictate; our width can vary
+     
+      portal[caCarTitle].height = 20
+
+      ~position the description on the left and let it use all available space
+      portal[caCarTitle].top = 0
+      portal[caCarTitle].left = 0
+      portal[caCarTitle].width = width
+      
+      portal[caCarDesc].top = portal[caCarTitle].bottom + 5
+      portal[caCarDesc].left = 0
+      portal[caCarDesc].width = width
+      portal[caCarDesc].height = height
+
+      ]]></position>
+
+    </template>	
+	
+  <!-- species layout
+        This layout orchestrates the display of the visual elements that comprise
+        the Skills tab. This amounts to a title at the top and a dynamic table below
+        where the user can add and adjust the skills he wants.
+
+        The logic for this layout is similar to (albeit much simpler than) the
+        logic for the Basics tab. So please refer to the Basics tab for more details.
+  -->
+  <layout
+    id="career">
+    <templateref template="caCarTemp" useagent="yes"/>
+
+    <!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+
+      ~both tables span the full width
+      template[caCarTemp].width = width
+	  template[caCarTemp].height = height/3
+      template[caCarTemp].visible = 1
+
+      ]]></position>
+
+    </layout>
+
+  <!-- career panel
+        This is the "Career" panel shown within Hero Lab.
+  -->
+  <panel
+    id="career"
+    name="Career"
+    marginhorz="5"
+    marginvert="5"
+    order="30"
+    agentcompset="Career"
+    agentlive="HasCareer"
+    agentname="name"
+    >
+    <live>!HideTab.career</live>
+    <layoutref layout="career"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+
+
+  </document>

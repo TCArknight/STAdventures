@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing
+    id="foArt"
+    name="Art"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foCultStu"
+    name="Cultural Studies"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foDebate"
+    name="Debate"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foDecept"
+    name="Deception"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foDiplo"
+    name="Diplomacy"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foEmpath"
+    name="Empathy"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foGambling"
+    name="Gambling"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foInspire"
+    name="Inspiration"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foLaw"
+    name="Law"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foLbE"
+    name="Lead By Example"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foLinguist"
+    name="Linguistics"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foMentDisc"
+    name="Mental Discipline"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foNegotia"
+    name="Negotiation"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foPhilos"
+    name="Philosophy"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foPolitic"
+    name="Politics"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foStratTac"
+    name="Strategy/Tactics"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foTeach"
+    name="Teaching"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foTeamDyn"
+    name="Team Dynamics"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foAstroPhy"
+    name="Astrophysics"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foAtmoFli"
+    name="Atmospheric Flight"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foCombMane"
+    name="Combat Maneuvers"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foEvasive"
+    name="Evasive Action"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foGroundV"
+    name="Ground Vehicles"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foHelmOps"
+    name="Helm Operations"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foImpEng"
+    name="Impulse Engines"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foSurvive"
+    name="Survival"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+  <thing
+    id="foWarpDrv"
+    name="Warp Drive"
+    compset="Focus"
+    isunique="no"
+    description="Description here.">
+    </thing>
+
+	
+
+	
+</document>

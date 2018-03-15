@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="armNatural" name="Natural Armor" description="Description goes here" compset="Armor" uniqueness="unique" holdable="no">
+    <fieldval field="defResist" value="1"/>
+    <tag group="Equipment" tag="Natural"/>
+    <tag group="Equipment" tag="AutoEquip"/>
+    </thing>
+  <thing id="armBodyArm" name="Body Armor" description="Body Armor has been issued periodically to Starfleet security at various times in Starfleet’s history. In the late 23rd century, it took the form of a bulky vest and helmet, designed to absorb and disperse impacts and energy attacks. By the 24th century, ablative body armor is used mainly by personnel engaged in protracted conflict." compset="Armor">
+    <fieldval field="defResist" value="2"/>
+    <fieldval field="grCost" value="100"/>
+    <fieldval field="gearWeight" value="15"/>
+    </thing>
+  <thing id="armEnvSuit" name="Environment Suit" description="Environment Suits or EV Suits are normally used for extra vehicular activities — such as moving in hard vacuum. They provide minimal physical protection, mainly due to being made of tough materials. These suits are issued as and when a mission requires — the Opportunity Cost may be ignored if the mission takes place in an environment that would be deadly without protection. The suits contain magnetic boots, a supply of breathable atmosphere, radiation shielding, and a communications relay more powerful than a normal personal communicator." compset="Armor">
+    <fieldval field="defResist" value="1"/>
+    <fieldval field="grCost" value="250"/>
+    <fieldval field="gearWeight" value="30"/>
+    </thing>
+  <thing id="armPersFor" name="Personal Force Field" description="These personal shields were sometimes issued to security and combat personnel, though the power requirements of such devices mean they have limited use in protracted fighting. A character with a personal force field gains the listed Resistance, but must roll 1 after each time they are hit by an attack; if an Effect is rolled, the force field loses power for the rest of the scene, and no longer provides Resistance." compset="Armor">
+    <fieldval field="defResist" value="4"/>
+    <fieldval field="grCost" value="500"/>
+    <fieldval field="gearWeight" value="50"/>
+    </thing>
+  <thing id="wpUnarmed" name="Unarmed Strike" description="Description goes here" compset="Melee" uniqueness="unique" holdable="no">
+    <fieldval field="shortname" value="Unarmed"/>
+    <fieldval field="wpDamage" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearQual" tag="NonLethal"/>
+    <tag group="Equipment" tag="Natural"/>
+    <tag group="DmgEffect" tag="Knockdown"/>
+    </thing>
+  <thing id="wpKnife" name="Knife/Dagger" description="Description goes here" compset="Melee" uniqueness="unique">
+    <fieldval field="wpDamage" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearQual" tag="Deadly"/>
+    <tag group="GearQual" tag="Hidden1"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="wpPhaser1" name="Phaser Type-1" compset="Ranged">
+    <fieldval field="wpDamage" value="2"/>
+    <fieldval field="wpShort" value="1"/>
+    <fieldval field="wpMedium" value="2"/>
+    <fieldval field="wpLong" value="3"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearQual" tag="Hidden1"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="shPhaCan" name="Phaser Cannons" compset="Energy">
+    <fieldval field="wpSRange" value="Close"/>
+    <tag group="DmgEffect" tag="Versa2"/>
+    <tag group="Delivery" tag="Cannons2"/>
+    </thing>
+  <thing id="shPhaBan" name="Phaser Banks" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <tag group="DmgEffect" tag="Versa2"/>
+    <tag group="Delivery" tag="Banks1"/>
+    </thing>
+  <thing id="shPhaArr" name="Phaser Arrays" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <tag group="DmgEffect" tag="Versa2"/>
+    <tag group="Delivery" tag="Arrays"/>
+    </thing>
+  <thing id="shDisrCan" name="Disruptor Cannons" compset="Energy">
+    <fieldval field="wpSRange" value="Close"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="Delivery" tag="Cannons2"/>
+    </thing>
+  <thing id="shDisrBan" name="Disruptor Banks" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="Delivery" tag="Banks1"/>
+    </thing>
+  <thing id="shDisrArr" name="Disruptor Arrays" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="Delivery" tag="Arrays"/>
+    </thing>
+  <thing id="shPolCan" name="Phased Polaron Beam Cannons" compset="Energy">
+    <fieldval field="wpSRange" value="Close"/>
+    <tag group="DmgEffect" tag="Piercing2"/>
+    <tag group="Delivery" tag="Cannons2"/>
+    </thing>
+  <thing id="shPolBan" name="Phased Polaron Beam Banks" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <tag group="DmgEffect" tag="Piercing2"/>
+    <tag group="Delivery" tag="Banks1"/>
+    </thing>
+  <thing id="shPolArr" name="Phased Polaron Beam Arrays" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <tag group="DmgEffect" tag="Piercing2"/>
+    <tag group="Delivery" tag="Arrays"/>
+    </thing>
+  <thing id="shTorPho" name="Photon Torpedoes" compset="Energy">
+    <fieldval field="wpSRange" value="Long"/>
+    <tag group="GearQual" tag="HiYield"/>
+    </thing>
+  <thing id="shTorQua" name="Quantum Torpedoes" compset="Energy">
+    <fieldval field="wpSRange" value="Long"/>
+    <tag group="GearQual" tag="Calib"/>
+    <tag group="GearQual" tag="HiYield"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    </thing>
+  <thing id="shTorPla" name="Plasma Torpedoes" compset="Energy">
+    <fieldval field="wpSRange" value="Long"/>
+    <tag group="GearQual" tag="Calib"/>
+    <tag group="DmgEffect" tag="Persist"/>
+    </thing>
+  <thing id="shTractor1" name="Tractor Beam" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="Weapon" tag="Tractor"/>
+    <tag group="DmgEffect" tag="Str1"/>
+    </thing>
+  <thing id="shTractor2" name="Tractor Beam" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="Weapon" tag="Tractor"/>
+    <tag group="DmgEffect" tag="Str2"/>
+    </thing>
+  <thing id="shTractor3" name="Tractor Beam" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="Weapon" tag="Tractor"/>
+    <tag group="DmgEffect" tag="Str3"/>
+    </thing>
+  <thing id="shTractor4" name="Tractor Beam" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="Weapon" tag="Tractor"/>
+    <tag group="DmgEffect" tag="Str4"/>
+    </thing>
+  <thing id="shTractor5" name="Tractor Beam" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="Weapon" tag="Tractor"/>
+    <tag group="DmgEffect" tag="Str5"/>
+    </thing>
+  <thing id="wpBlade" name="Blade" compset="Melee">
+    <fieldval field="wpDamage" value="2"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="wpHvyBlade" name="Heavy Blade" compset="Melee">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearCost" tag="Escalat1"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="wpBludgeon" name="Bludgeon" compset="Melee">
+    <fieldval field="wpDamage" value="2"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="DmgEffect" tag="Knockdown"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="wpPhaser2" name="Phaser Type-2" compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <fieldval field="wpShort" value="1"/>
+    <fieldval field="wpMedium" value="2"/>
+    <fieldval field="wpLong" value="3"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="wpPhaser3" name="Phaser Type-3 (Phaser Rifle)" compset="Ranged">
+    <fieldval field="shortname" value="Phaser Rifle"/>
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearCost" tag="Escalat2"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="wpGrenPul" name="Grenade (Pulse)" compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <fieldval field="shortname" value="Pulse Grenade"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearQual" tag="Grenade"/>
+    <tag group="GearCost" tag="Escalat2"/>
+    <tag group="DmgEffect" tag="Area"/>
+    </thing>
+  <thing id="wpAndPlaRi" name="Plasma Rifle (Andorian)" compset="Ranged">
+    <fieldval field="shortname" value="Andorian Plasma Rifle"/>
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="DmgEffect" tag="Intense"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="GearQual" tag="Deadly"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    </thing>
+  <thing id="wpPhasePis" name="Phase Pistol" compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="ENT"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="wpPartRif" name="Particle Rifle" compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="ENT"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="GearCost" tag="Standard"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    </thing>
+  <thing id="wpDisrPis" name="Disruptor Pistol" compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    </thing>
+  <thing id="wpDisrRif" name="Disruptor Rifle" compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    </thing>
+  <thing id="wpJHPlaPis" name="Plasma Pistol (Jem&apos;Hadar)" compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <fieldval field="shortname" value="Jem&apos;Hadar Plasma Pistol"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="GearQual" tag="Debil"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    </thing>
+  <thing id="wpJHPlaRif" name="Plasma Rifle (Jem&apos;Hadar)" compset="Ranged">
+    <fieldval field="shortname" value="Jem&apos;Hadar Plasma Rifle"/>
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="TNG"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearQual" tag="Debil"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    </thing>
+  </document>

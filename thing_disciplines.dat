@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of attributes possessed by every actor for the
+      game system. The display order of attributes is controlled via the assignment of
+      an "explicit" tag with the relative position of each.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Command  -->
+  <thing
+    id="discdept01"
+    name="Command"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Command covers a wide range of interpersonal interactions, especially leadership, negotiation, and both coordinating and motivating others. It also includes discipline and resisting coercion, as well as helping others resist fear and panic."/>
+    <tag group="DiscName" tag="Command"/>
+    <tag group="DiscAbbrev" tag="Com"/>
+    <tag group="DeptName" tag="Command"/>
+    <tag group="DeptAbbrev" tag="Com"/>
+    <tag group="explicit" tag="1"/>
+    </thing>
+
+  <!-- Conn  -->
+  <thing
+    id="discdept02"
+    name="Conn"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="A character’s ability at the Conn covers piloting craft of all sizes, from ground vehicles and shuttles, to grand starships. It also includes navigation — both on the ground and in space — and an understanding of starship operations, including the procedures and cultures of space travel and exploration."/>
+    <tag group="DiscName" tag="Conn"/>
+    <tag group="DiscAbbrev" tag="Con"/>
+    <tag group="DeptName" tag="Conn"/>
+    <tag group="DeptAbbrev" tag="Con"/>
+    <tag group="explicit" tag="2"/>
+    </thing>
+
+  <!-- Engineering Attribute -->
+  <thing
+    id="discdept03"
+    name="Engineering"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Engineering covers inventing, understanding, designing, repairing, and maintaining technology, as well as using any technology not specifically covered by another Discipline."/>
+    <tag group="DiscName" tag="Engineer"/>
+    <tag group="DiscAbbrev" tag="Eng"/>
+    <tag group="DeptName" tag="Engineer"/>
+    <tag group="DeptAbbrev" tag="Eng"/>
+    <tag group="explicit" tag="3"/>
+    </thing>
+
+  <!-- Medicine Attribute -->
+  <thing
+    id="discdept04"
+    name="Medicine"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Medicine is the understanding of the physical and mental makeup of life-forms, including a knowledge of ailments and diseases that might befall them, the injuries and stresses they can suffer, and the methods for treating those maladies in a wide range of species."/>
+    <tag group="DiscName" tag="Medicine"/>
+    <tag group="DiscAbbrev" tag="Med"/>
+    <tag group="DeptName" tag="Medicine"/>
+    <tag group="DeptAbbrev" tag="Med"/>
+    <tag group="explicit" tag="4"/>
+    </thing>
+
+  <!-- Security Attribute -->
+  <thing
+    id="discdept05"
+    name="Security"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Security is the use of force during combat — making attacks, essentially — as well as observing and analyzing threatening situations and watching for potential perils. It also encompasses interrogation and intimidation, stealth and infiltration, as well as an in-depth knowledge of weaponry, combat styles, and strategy. It also covers survival skills and athleticism."/>
+    <tag group="DiscName" tag="Security"/>
+    <tag group="DiscAbbrev" tag="Sec"/>
+    <tag group="DeptName" tag="Security"/>
+    <tag group="DeptAbbrev" tag="Sec"/>
+    <tag group="explicit" tag="5"/>
+    </thing>
+
+
+  <!-- Science Attribute -->
+  <thing
+    id="discdept06"
+    name="Science"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Science is the understanding of numerous fields of scientific study, both on a theoretical level, and in terms of their practical applications. This does not just cover 'hard' sciences like physics, chemistry, and biology, but also social sciences like anthropology. It also covers the application of the scientific method to situations."/>
+    <tag group="DiscName" tag="Science"/>
+    <tag group="DiscAbbrev" tag="Sci"/>
+    <tag group="DeptName" tag="Science"/>
+    <tag group="DeptAbbrev" tag="Sci"/>
+    <tag group="explicit" tag="6"/>
+    </thing>
+	
+  </document>

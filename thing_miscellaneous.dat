@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of miscellaneous things that are required for
+      the game system. Miscellaneous things include the mechanisms for managing applied
+      damage, user images, and personal info for each actor. It also includes things
+      used to track resource pools, such as those used for managing the available
+      attribute points, skill points, etc.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Damage transaction handler for use when applying damage on the In-Play tab -->
+  <thing
+    id="ExprHelp"
+    name="Expression Helper"
+    compset="ExprHelp">
+
+    <!-- Automatically add the damage transaction to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+    </thing>
+
+  <!-- Damage transaction handler for use when applying damage on the In-Play tab -->
+  <thing
+    id="mscDamage"
+    name="Damage"
+    compset="Damage">
+
+    <!-- Automatically add the damage transaction to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+    </thing>
+
+
+  <!-- Personal information details used on the Personal tab -->
+  <thing
+    id="mscPerson"
+    name="Personal"
+    compset="Personal">
+    </thing>
+
+  <!-- Service information details used on the Personal tab -->
+  <thing
+    id="mscService"
+    name="Service"
+    compset="Service">
+    </thing>
+
+  <!-- Basic starship info -->
+  <thing
+    id="mscShip"
+    name="Starship"
+    compset="ShipInfo">
+    </thing>
+	
+  <!-- Supporting Character info -->
+  <thing
+    id="mscSupport"
+    name="Supporting Character Info"
+    compset="SuppInfo">
+    </thing>	
+	
+  <!-- Basic user-added image that is managed through the gallery on Personal tab -->
+  <thing
+    id="mscUserImg"
+    name="User Image"
+    compset="UserImage">
+    </thing>
+
+
+  <!-- Character point resource to track the pool of character points being spent -->
+  <thing
+    id="resCP"
+    name="Character Points"
+    compset="Resource">
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting character points as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = herofield[acStartCP].value
+      ]]></eval>
+    </thing>
+
+
+  <!-- Ability slot resource to track the pool of ability slots being spent -->
+  <thing
+    id="resTalent"
+    name="Ability Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Ability"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = herofield[acStartTal].value
+      ]]></eval>
+    </thing>
+	
+  <!-- Ability slot resource to track the pool of ability slots being spent -->
+  <thing
+    id="resAttrib"
+    name="Attribute Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Ability"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = herofield[acStartAtt].value
+      ]]></eval>
+    </thing>
+	
+  <!-- Ability slot resource to track the pool of ability slots being spent -->
+  <thing
+    id="resDiscip"
+    name="Discipline Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Ability"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = herofield[acStartDis].value
+      ]]></eval>
+    </thing>
+	<!-- Trait slot resource to track the pool of ability slots being spent -->
+  <thing
+    id="resTrait"
+    name="Trait Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Trait"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>
+	
+  <!-- Value slot resource to track the pool of ability slots being spent -->
+  <thing
+    id="resValue"
+    name="Value Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Value"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>	
+	
+  <!-- Focus slot resource to track the pool of focus slots being spent -->
+  <thing
+    id="resFocus"
+    name="Focus Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Focus"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>	
+	
+  <!-- Focus slot resource to track the pool of focus slots being spent -->
+  <thing
+    id="resShipRef"
+    name="Ship Refits"
+    compset="Resource">
+    <fieldval field="resObject" value="Refit"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+	  var refCount as number
+	  var stYear as number
+	  var enYear as number
+	  var diYear as number
+	  
+	  field[resMax].value = 0
+	  
+	  doneif (hero.tagis[CharType.typShip] = 0)
+	  
+	  stYear = int(hero.firstchild["component.Frame"].field[fraYearEnt].text)
+	  enYear = hero.childfound[mscShip].field[shipYear].text
+	  diYear = (enYear - stYear) / 10
+	  
+	  refCount = round(diYear,0,-1)
+	  
+      field[resMax].value += refCount
+	  
+      ]]></eval>
+    </thing>
+	
+  <thing
+    id="resShipPod"
+    name="Ship Mission Pods"
+    compset="Resource">
+    <fieldval field="resObject" value="MissionPod"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    </thing>	
+  <!-- Career events slot resource to track the pool of career events being spent -->
+  <thing
+    id="resEvent"
+    name="Career Event Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Event"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>
+	
+  <!-- Environment slot resource to track the pool of Environments slots being spent -->
+  <thing
+    id="resEnviron"
+    name="Environment slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Value"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>	
+	
+  <!-- Upbringing slot resource to track the pool of Environments slots being spent -->
+  <thing
+    id="resUpbring"
+    name="Upbringing slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Value"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>
+  <!-- Experience points resource to track the pool of XP accrued and spent -->
+  <thing
+    id="resXP"
+    name="Experience Points"
+    compset="Resource">
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Do NOT require this resource to be fully utilized -->
+    <tag group="Helper" tag="NoMinimum"/>
+
+    <!-- Use the starting XP plus the accrued XP as our maximum -->
+    <eval index="1" phase="Setup" priority="1000" name="Calc XP Max"><![CDATA[
+      field[resMax].value = herofield[acStartXP].value + hero.usagepool[TotalXP].value
+      ]]></eval>
+    </thing>
+
+
+  <!-- Advance resource to track the number of advances accrued/spent -->
+  <thing
+    id="resAdvance"
+    name="Advances"
+    compset="Resource"
+    panellink="advances">
+    <fieldval field="resObject" value="Advance"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Base our maximum on the accrued XP -->
+    <eval index="1" phase="Setup" priority="2000">
+      <after name="Calc XP Max"/><![CDATA[
+      field[resMax].value = round(#resmax[resXP] / 20,0,-1)
+      ]]></eval>
+
+    </thing>
+
+
+  <!-- Power points tracker so the user can manage the expenditure of power points -->
+  <thing
+    id="trkPower"
+    name="Power Points"
+    compset="Tracker">
+
+    <!-- Automatically add the tracker to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Resetting the tracker sets the value to the maximum -->
+    <tag group="Helper" tag="ResetMax"/>
+
+    <!-- Use the starting power points as our initial maximum -->
+    <eval index="1" phase="Final" priority="1000"><![CDATA[
+      field[trkMin].value = 0
+      field[trkMax].value = #abil[trPowerPts]
+      ]]></eval>
+    </thing>
+
+
+  <!-- Types of characters you might want to build -->
+  <thing
+    id="typMain"
+    name="Type: Character (Main)"
+    compset="CharType">
+    </thing>
+  <thing
+    id="typSupport"
+    name="Type: Character (Supporting)"
+    compset="CharType">
+    </thing>
+  <thing
+    id="typShip"
+    name="Type: Starship"
+    compset="CharType">
+    </thing>
+
+  <!-- Appearances to display on the supporting character tab -->
+  <thing
+    id="apAttrib"
+    name="+1 to an Attribute"
+    compset="Appearance"
+    uniqueness="unique">
+	<fieldval field="usrCandid1" value="component.AttrSys"/>
+    <fieldval field="usrSource1" value="1"/>
+	<tag group="User" tag="NeedChoice"/>
+	<tag group="User" tag="NoAutoName"/>
+	<tag group="User" tag="ChooseAttr"/>
+    </thing>
+  <thing
+    id="apDiscip"
+    name="+1 to a Discipline"
+    compset="Appearance"
+    uniqueness="unique">
+	<fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+	<tag group="User" tag="NeedChoice"/>
+	<tag group="User" tag="NoAutoName"/>
+	<tag group="User" tag="ChooseDisc"/>
+    </thing>
+  <thing
+    id="apValue"
+    name="+1 additional Value"
+    compset="Appearance"
+	maxlimit="4">
+    </thing>
+  <thing
+    id="apFocus"
+    name="+1 additional Focus"
+    compset="Appearance"
+	maxlimit="3">
+    </thing>
+  <thing
+    id="apTalent"
+    name="+1 additional Talent"
+    compset="Appearance"
+	maxlimit="4">
+    </thing>	
+
+  <!-- Starship Refits -->
+  <thing
+    id="srComms"
+    name="+1 to Communications"
+    compset="Refit"
+    maxlimit="2">
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      perform hero.childfound[attrsys01].assign[Refit.Refit]
+      ]]></eval>
+    </thing>
+  <thing
+    id="srComp"
+    name="+1 to Computers"
+    compset="Refit"
+    maxlimit="2">
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      perform hero.childfound[attrsys02].assign[Refit.Refit]
+      ]]></eval>
+    </thing>
+  <thing
+    id="srEngine"
+    name="+1 to Engines"
+    compset="Refit"
+    maxlimit="2">
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      perform hero.childfound[attrsys03].assign[Refit.Refit]
+      ]]></eval>
+    </thing>
+  <thing
+    id="srSensor"
+    name="+1 to Sensors"
+    compset="Refit"
+    maxlimit="2">
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      perform hero.childfound[attrsys04].assign[Refit.Refit]
+      ]]></eval>
+    </thing>
+  <thing
+    id="srStruct"
+    name="+1 to Structure"
+    compset="Refit"
+    maxlimit="2">
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      perform hero.childfound[attrsys05].assign[Refit.Refit]
+      ]]></eval>
+    </thing>
+  <thing
+    id="srWeap"
+    name="+1 to Weapons"
+    compset="Refit"
+    maxlimit="2">
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      perform hero.childfound[attrsys06].assign[Refit.Refit]
+      ]]></eval>
+    </thing>	
+  <!-- NPC Info to display on the NPC info tab - the final "Additional
+      Information" pick can be added multiple times and customised by the user. -->
+  <thing
+    id="npcDesc"
+    name="Description"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="5"/>
+    </thing>
+  <thing
+    id="npcGoals"
+    name="Motivations &amp; Goals"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="10"/>
+    </thing>
+  <thing
+    id="npcSchemes"
+    name="Schemes, Plots &amp; Adventure Hooks"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="15"/>
+    </thing>
+  <thing
+    id="npcTacBef"
+    name="Tactics - Before Combat"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="20"/>
+    </thing>
+  <thing
+    id="npcTacDur"
+    name="Tactics - During Combat"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="25"/>
+    </thing>
+  <thing
+    id="npcMorale"
+    name="Tactics - Morale"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="30"/>
+    </thing>
+  <thing
+    id="npcEnviron"
+    name="Ecology - Environment"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="35"/>
+    </thing>
+  <thing
+    id="npcOrganiz"
+    name="Ecology - Organization"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="40"/>
+    </thing>
+  <thing
+    id="npcTreas"
+    name="Ecology - Treasure"
+    compset="NPCInfo"
+    uniqueness="unique">
+    <tag group="explicit" tag="45"/>
+    </thing>
+  <thing
+    id="npcOther"
+    name="Additional Information"
+    compset="NPCInfo">
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="explicit" tag="50"/>
+    </thing>
+
+
+    </document>

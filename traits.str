@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definitions of components associated with traits such as
+      attributes, skills, special abilities, etc.
+-->
+
+<document signature="Hero Lab Structure">
+
+  <!-- Trait component
+        All traits derive from this component and share these mechanisms in common
+  -->
+  <component
+    id="Ability"
+    name="Ability"
+    autocompset="no"
+    hasshortname="yes"
+    ispublic="no">
+
+    <!-- Abbreviation for use in places like the TacCon -->
+    <field
+      id="abiAbbrev"
+      name="Abbreviation"
+      type="static"
+      maxlength="5">
+      </field>
+
+    <!-- Minimum user-assigned value for the ability -->
+    <field
+      id="abiMinimum"
+      name="Minimum Value"
+      type="derived"
+      defvalue="0">
+      </field>
+
+    <!-- Maximum user-assigned value for the ability -->
+    <field
+      id="abiMaximum"
+      name="Maximum Value"
+      type="derived"
+      defvalue="10">
+      </field>
+
+    <!-- User value assigned for the ability -->
+    <field
+      id="abiUser"
+      name="User Value"
+      type="user"
+      usedelta="yes"
+      maxfinal="50">
+      <!-- Bound the user value to the limits established for the ability -->
+      <bound phase="Initialize" priority="5500" name="Bound abiUser">
+        <before name="Calc abiFinal"/><![CDATA[
+        @minimum = field[abiMinimum].value
+        @maximum = field[abiMaximum].value - field[abiBonus].value
+        ]]></bound>
+      <!-- Final value for display is the fully adjusted net value that incorporates
+            all adjustments from other sources
+      -->
+      <finalize><![CDATA[
+        ~if we're in creation mode and not autonomous, we can't be modified
+        if (hero.tagis[mode.creation] + !autonomous >= 2) then
+          @text = "{bmp forbidden_up}"
+        else
+          @text = field[abiFinal].value
+          endif
+        ]]></finalize>
+      </field>
+
+    <!-- Bonuses applied to the ability (e.g. from other abilities) -->
+    <field
+      id="abiBonus"
+      name="Bonus Value"
+      type="derived">
+      </field>
+
+    <!-- In-play bonuses applied to the ability -->
+    <field
+      id="abiInPlay"
+      name="In-Play Bonus"
+      type="derived">
+      </field>
+
+    <!-- Final value for the ability -->
+    <field
+      id="abiFinal"
+      name="Final Value"
+      type="derived">
+      <!-- Calculate the final value from the three distinct pieces -->
+      <calculate phase="Ability" priority="3000" name="Calc abiFinal"><![CDATA[
+        ~Note! If you change this calculation, you may need to change the similar
+        ~       calculation in the "Derived" component.
+        @value = field[abiUser].value + field[abiBonus].value + field[abiInPlay].value
+        ]]></calculate>
+      </field>
+
+    <!-- Set the delta for the user value to be the current bonuses
+        NOTE! This is necessary so incrementers have proper values when edited by the user.
+        -->
+    <eval index="1" phase="Render" priority="5000"><![CDATA[
+      field[abiUser].delta = field[abiBonus].value + field[abiInPlay].value
+      ]]></eval>
+
+    <!-- If the ability is at its minimum/maximum, assign a tag to preclude further advancements -->
+    <eval index="2" phase="Final" priority="5000"><![CDATA[
+      ~base our test on the adjusted ability value, sans any in-play adjustments
+      var ability as number
+      ability = field[abiUser].value + field[abiBonus].value
+      if (ability <= field[abiMinimum].value) then
+        perform assign[Helper.Minimum]
+      elseif (ability >= field[abiMaximum].value) then
+        perform assign[Helper.Maximum]
+        endif
+      ]]></eval>
+
+    </component>
+
+
+  <!-- Attribute/System component
+        Each attribute possessed by the actor derives from this component
+  -->
+  <component
+    id="AttrSys"
+    name="Attribute / System"
+    autocompset="no">
+
+	<field
+      id="asName"
+      name="Name"
+      type="derived"
+      maxlength="35">
+      </field>
+	  
+	<field
+      id="asAbbrev"
+      name="Abbreviation"
+      type="derived"
+      maxlength="5">
+      </field>
+	  
+	<field
+      id="asDescript"
+      name="Description"
+      type="derived"
+      maxlength="1000">
+      </field>
+	  
+	<field
+      id="asNameSumm"
+      name="Description"
+      type="derived"
+      maxlength="30">
+      </field>
+	  
+    <!-- Abbreviation for use in places like the TacCon -->
+    <field
+      id="asAttrDesc"
+      name="Attribute Description"
+      type="derived"
+      maxlength="1000">
+      </field>
+	  
+    <field
+      id="asSysDesc"
+      name="System Description"
+      type="derived"
+      maxlength="1000">
+      </field>
+	  
+    <!-- Each attribute needs its own SpecBon tag  -->
+    <identity group="SpeciesBon"/>
+
+    <!-- Set fields based on AttrSys type -->
+    <eval index="1" phase="Initialize" priority="4000"><![CDATA[
+	  var type as string
+	  type = tagnames[AttrType.?,"+"]
+	  
+	  if (compare(type,"Attribute") = 0) then
+	    field[asName].text = tagnames[AttrName.?,"+"]
+		field[asAbbrev].text = tagnames[AttrAbbrev.?,"+"]
+		field[asDescript].text = field[asAttrDesc].text
+	  elseif(compare(type,"System") = 0) then
+	    field[asName].text = tagnames[SysName.?,"+"]
+		field[asAbbrev].text = tagnames[SysAbbrev.?,"+"]
+		field[asDescript].text = field[asSysDesc].text
+		endif
+
+	  field[livename].text = field[asName].text
+      ]]></eval>
+			
+    <!-- Attributes have a minimum ability value of 7 -->
+    <eval index="2" phase="Initialize" priority="5000"><![CDATA[
+	
+	    if (hero.tagis[CharType.typShip] = 0) then
+			field[abiMinimum].value = 7
+		  
+			if (hero.tagis[Hero.Untapped] <> 0) then
+			  field[abiMaximum].value = 11
+			else
+			  field[abiMaximum].value = 12
+			  endif	
+	    else 
+		    field[abiMinimum].value = 0
+	        field[abiMaximum].value = 12
+		endif
+		
+            ]]></eval>
+
+    <!-- Each attribute point above one that is allocated by the user costs 7 CP -->
+    <eval index="3" phase="Ability" priority="3500"><![CDATA[
+	if (tagis[CharType.typMain] <> 1) then
+      hero.child[resAttrib].field[resSpent].value += field[abiFinal].value
+	  endif
+      ]]></eval>
+
+		  
+	<eval index="4" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[ 
+      
+	  ~apply the +1 species or refit bonus to attribute
+	  if (pos(hero.tagids[SpeciesBon.?,"|"], this.idstring) >= 0) then
+        field[abiBonus].value += 1
+	  	endif
+	  if (tagcount[Refit.Refit] >= 1) then
+        field[abiBonus].value += tagcount[Refit.Refit]
+	  	endif
+		
+      ]]></eval>
+		  
+	<eval index="5" phase="Render" priority="10000"><![CDATA[ 
+      var mySumm as string
+	  mySumm &= field[name].text
+	  
+	  ~build the Summary
+	  if (tagcount[Refit.Refit] >= 1) then
+	    mySumm &= " (" & tagcount[Refit.Refit]
+		if (tagcount[Refit.Refit] = 1) then
+		  mySumm &= " Refit)"
+		else
+		  mySumm &= " Refits)"
+		  endif
+	    endif
+		
+	  field[asNameSumm].text = mySumm
+
+      ]]></eval>
+	  
+    </component>
+  <!-- DisDep component
+        Each Discipline or Department possessed by the actor derives from this component
+  -->
+  <component
+    id="DiscDept"
+    name="Discipline / Department"
+    autocompset="no">
+	
+	<field
+      id="ddName"
+      name="Name"
+      type="derived"
+      maxlength="35">
+      </field>
+	  
+	<field
+      id="ddAbbrev"
+      name="Abbreviation"
+      type="derived"
+      maxlength="5">
+      </field>
+	  
+	<field
+      id="ddDescript"
+      name="Description"
+      type="derived"
+      maxlength="1000">
+      </field>
+	  
+    <!-- Abbreviation for use in places like the TacCon -->
+    <field
+      id="ddDiscDesc"
+      name="Discipline Description"
+      type="derived"
+      maxlength="1000">
+      </field>
+	  
+    <field
+      id="ddDeptDesc"
+      name="Department Description"
+      type="derived"
+      maxlength="1000">
+      </field>
+
+    <!-- Set fields based on DiscDept type -->
+    <eval index="1" phase="Initialize" priority="4000"><![CDATA[
+	  var type as string
+	  type = tagnames[DiscType.?,"+"]
+	  
+	  if (compare(type,"Discipline") = 0) then
+	    field[ddName].text = tagnames[DiscName.?,"+"]
+		field[ddAbbrev].text = tagnames[DiscAbbrev.?,"+"]
+		field[ddDescript].text = field[ddDiscDesc].text
+	  elseif (compare(type,"Department") = 0) then
+	    field[ddName].text = tagnames[DeptName.?,"+"]
+		field[ddAbbrev].text = tagnames[DeptAbbrev.?,"+"]
+		field[ddDescript].text = field[ddDeptDesc].text
+		endif
+
+	  field[livename].text = field[ddName].text
+      ]]></eval>
+	  
+    <!-- Disc/Dept have a minimum ability value of 0 -->
+    <eval index="2" phase="Initialize" priority="5000"><![CDATA[
+
+      if (hero.tagis[CharType.typShip] = 1) then
+	    field[abiMinimum].value = 0
+      elseif (hero.tagis[CharType.typShip] = 0) then 
+	    field[abiMinimum].value = 1
+		endif
+		
+	  field[abiMaximum].value = 5		
+      ]]></eval>
+
+	<!-- Each attribute point above one that is allocated by the user costs 7 CP -->
+    <eval index="3" phase="Ability" priority="3500"><![CDATA[
+	if (tagis[CharType.typMain] <> 1) then
+      hero.child[resDiscip].field[resSpent].value += field[abiFinal].value
+	  endif
+      ]]></eval>
+	  
+    </component>
+		
+  <!-- System component
+        Attributes for Ships.
+  
+  <component
+    id="System"
+    name="System"
+    autocompset="no">
+	
+    Attributes have a minimum ability value of 0
+    <eval index="1" phase="Initialize" priority="3000"><![CDATA[
+      field[abiMinimum].value = 0
+	  field[abiMaximum].value = 15
+            ]]></eval>
+	  
+    </component>
+	
+   Depart component
+        Each Department possessed by the actor derives from this component
+ 
+  <component
+    id="Depart"
+    name="Department"
+    autocompset="no">
+
+    Attributes have a minimum ability value of 1 
+    <eval index="1" phase="Initialize" priority="3000"><![CDATA[
+      if (tagis[CharType.typShip] = 1) then
+	    field[abiMinimum].value = 0
+        field[abiMaximum].value = 5
+		endif
+		
+      ]]></eval>
+	  
+    </component> -->
+
+
+  <!-- Ability component
+        Each special ability derives from this component
+  -->
+  <component
+    id="Talent"
+    name="Talent"
+    autocompset="no"
+    panellink="talents">
+
+    <!-- Activation state of ability - we're not activated by default -->
+    <field
+      id="talActive"
+      name="Is Activated?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+
+    <!-- Each ability needs its own identity tag to detect cascading dependencies via prereqs -->
+    <identity group="Talent"/>
+    <identity group="HasTalent"/>
+    <identity group="MisProTal"/>
+
+    <!-- Setup an identity tag group to track all activated abilities and adjustments -->
+    <identity group="Activated"/>
+
+    <!-- All abilities get the same tag for sorting purposes -->
+    <tag group="SpecialTab" tag="Talent"/>
+
+    <!-- Each ability that is added by the user costs 1 slot -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      ~we must ignore bootstrapped abilities from races and abilities added via advances
+      hero.child[resTalent].field[resSpent].value += 1
+      ]]></eval>
+
+    <!-- Track the ability on the actor -->
+    <eval index="2" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Talent.?]
+      perform forward[HasTalent.?]
+	  
+	  ~If not a Ship Talent, then no need for the MisProTal.? tag
+	  if (tagis[TalentCat.Ship] <> 1) then
+	    perform delete[MisProTal.?]
+	    endif
+      ]]></eval>
+
+    <!-- If the ability is activated, designate it appropriately -->
+    <eval index="3" phase="Setup" priority="100"><![CDATA[
+	  ~If not a Ship Talent, then no need for the MisProTal.? tag
+	  if (tagis[TalentCat.Ship] <> 1) then
+	    perform delete[MisProTal.?]
+	    endif
+		
+      ~if we're not able to be activated, we don't qualify
+      doneif (tagis[User.Activation] = 0)
+
+      ~if we've been activated by the user, mark ourselves as activated; in addition,
+      ~forward our identity tag to our parent actor; this allows the actor to track
+      ~when abilities are activated and reflect the state to the user
+      if (field[talActive].value <> 0) then
+        perform assign[Helper.Activated]
+        perform forward[Activated.?]
+        endif
+      ]]></eval>
+
+    <!-- Verify abilities that are only available at creation -->
+    <prereq message="Only available during character creation.">
+      <validate><![CDATA[
+        ~we only report this as a failure things (once added, we assume the user knows best)
+        validif (@ispick <> 0)
+
+        ~if we are not designated as creation only, we're valid
+        validif (altthing.tagis[User.CreateOnly] = 0)
+
+        ~if the mode is creation, we're valid
+        validif (state.iscreate <> 0)
+        ]]></validate>
+      </prereq>
+
+    </component>
+
+  <!-- Derived component
+        Each derived ability (calculated from other abilitys) is based upon this component
+  -->
+  <component
+    id="Derived"
+    name="Derived Ability"
+    autocompset="no">
+
+    <!-- Derived abilitys are based on other abilitys. The "calculate" script on the
+        "abiFinal" field value will work great for most abilitys, but NOT for derived
+        abilitys. Consequently, derived abilitys need to re-calculate the field value AFTER
+        the abilitys derived from are properly calculated. So the individual calculation
+        scripts for each derived ability must occur AFTER the initial "abiFinal"
+        calculation and BEFORE this derived calculation. We can also omit any "user"
+        value from the calculation since derived abilitys have no user-defined facet.
+        -->
+    <eval index="1" phase="Stress" priority="6000" name="Derived abiFinal"><![CDATA[
+      field[abiFinal].value = field[abiBonus].value + field[abiInPlay].value
+      ]]></eval>
+
+    </component>
+
+
+  <!-- Species component
+        Each race derives from this component
+  -->
+  <component
+    id="Species"
+    name="Species"
+    autocompset="no">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Species"/>
+    <identity group="IsSpecies"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Species.?]
+      perform forward[IsSpecies.?]
+	  perform forward[SpeciesBon.?]
+      ]]></eval>
+
+    <!-- Increase Trait and Talent counts -->
+    <eval index="2" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resTrait] += 1
+	  
+	  if (hero.tagis[CharType.typMain] = 1) then
+	    #resmax[resTalent] += 1
+	    endif
+      ]]></eval>
+    </component>
+
+	
+  <!-- Trait component
+        Each trait derives from this component
+  -->
+  <component
+    id="Trait"
+    name="Trait"
+    autocompset="no">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Trait"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Trait.?]
+      ]]></eval>
+
+	<!-- Each skill point that is allocated by the user costs 2 CP -->
+    <eval index="2" phase="Ability" priority="10000">
+      <before name="Calc resLeft"/>
+      <after name="Bound abiUser"/><![CDATA[
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
+
+      ~adjust the resource appropriately
+      hero.child[resTrait].field[resSpent].value += 1
+      ]]></eval>
+    </component>
+	
+  <!-- Environment component
+        Each trait derives from this component
+  -->
+  <component
+    id="Environ"
+    name="Environment"
+    autocompset="no">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Environ"/>
+    <identity group="HasEnviron"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Environ.?]
+      perform forward[HasEnviron.?]
+      ]]></eval>
+
+    <!-- Increase Value counts -->
+    <eval index="2" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resValue] += 1
+      ]]></eval>
+
+    <eval index="3" phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the modifier to selected attribute
+	  if (field[usrChosen1].ischosen <> 0) then 
+		field[usrChosen1].chosen.field[abiBonus].value += 1
+		endif
+	  if (field[usrChosen2].ischosen <> 0) then
+        field[usrChosen2].chosen.field[abiBonus].value += 1	
+		endif
+	  if (field[usrChosen3].ischosen <> 0) then
+        field[usrChosen3].chosen.field[abiBonus].value += 1	
+		endif
+		]]>
+		</eval>
+	  
+    </component>
+
+<!-- Environment component
+        Each trait derives from this component
+  -->
+  <component
+    id="Upbringing"
+    name="Upbringing"
+    autocompset="no">
+
+    <!-- Is the character a rebel against their upbringing? -->
+    <field
+      id="upIsRebel"
+      name="Is a Rebel?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+	  
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Upbringing"/>
+    <identity group="HasUpbring"/>
+	
+    <!-- If the equipment should be selected by default, select it now -->
+    <creation><![CDATA[
+      ~PC assumed to not be rebellious
+      field[upIsRebel].value = 0
+      ]]></creation>
+
+	<!-- If we're rebellious, assign ourselves the corresponding tag -->
+    <eval index="1" phase="Initialize" priority="5000" name="Equipped"><![CDATA[
+      if (field[upIsRebel].value <> 0) then
+        perform assign[Upbringing.Rebel]
+        endif
+      ]]></eval>
+	  
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="2" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Upbringing.?]
+      perform forward[HasUpbring.?]
+      ]]></eval>
+
+    <!-- Increase Focus and Talent counts -->
+    <eval index="3" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resFocus] += 1
+      #resmax[resTalent] += 1
+      ]]></eval>
+
+    <eval index="4" phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the modifier to selected attribute
+	  if (field[usrChosen1].ischosen <> 0) then 
+		field[usrChosen1].chosen.field[abiBonus].value += 1
+		endif
+	  if (field[usrChosen2].ischosen <> 0) then
+        field[usrChosen2].chosen.field[abiBonus].value += 1	
+		endif
+	  if (field[usrChosen3].ischosen <> 0) then
+        field[usrChosen3].chosen.field[abiBonus].value += 1	
+		endif
+		]]>
+		</eval>
+	  
+    </component>
+	
+  <!-- Academy component
+        Each academy track derives from this component
+  -->
+  <component
+    id="Academy"
+    name="Academy"
+    autocompset="no">
+
+    <!-- attribute bonus selection 
+	(0=+2 to one attribute, +1 to second
+	 1=+1 to three attributes	) -->
+    <field
+      id="acAttrBon"
+      name="Attribute Bonus"
+      type="user"
+      minvalue="0"
+      maxvalue="1"
+      maxfinal="100"
+      nevercache="yes">
+      <finalize><![CDATA[
+        if (@value = 0) then
+          @text = "+2/+1"
+        elseif (@value = 1) then
+          @text = "+1 to three"
+        else
+          @text = "No Bonus"
+          endif
+        ]]></finalize>
+      </field>	  
+	  
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Academy"/>
+    <identity group="HasAcademy"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Academy.?]
+      perform forward[HasAcademy.?]
+      ]]></eval>
+
+	<!-- Each skill point that is allocated by the user costs 2 CP -->
+    <eval index="2" phase="Ability" priority="10000">
+      <before name="Calc resLeft"/>
+      <after name="Bound abiUser"/><![CDATA[
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
+
+      ~adjust the resource appropriately
+      ~hero.child[resTrait].field[resSpent].value += 1
+      ]]></eval>
+	  
+    <eval index="3" phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the +1 modifier to selected component
+	  if (field[usrChosen1].ischosen <> 0) then
+        tempStr = " & !(thingid." & field[usrChosen1].chosen.idstring & ")"
+		perform field[usrChosen1].chosen.assign[Academy.Major]
+		field[usrChosen1].chosen.field[abiBonus].value += 2
+		field[usrCandid2].text &= tempStr
+		field[usrCandid3].text &= tempStr
+		endif
+	  if (field[usrChosen2].ischosen <> 0) then
+		perform field[usrChosen2].chosen.assign[Academy.Minor]
+		field[usrChosen2].chosen.field[abiBonus].value += 1
+		endif
+	  if (field[usrChosen3].ischosen <> 0) then
+		perform field[usrChosen3].chosen.assign[Academy.Minor]
+		field[usrChosen3].chosen.field[abiBonus].value += 1
+		endif
+      
+	  if (field[acAttrBon].value = 0) then
+	  	if (field[usrChosen4].ischosen <> 0) then
+		  field[usrChosen4].chosen.field[abiBonus].value += 2
+		  endif
+	  	if (field[usrChosen5].ischosen <> 0) then
+		  field[usrChosen5].chosen.field[abiBonus].value += 1
+		  endif
+      elseif (field[acAttrBon].value = 1) then
+	  	if (field[usrChosen4].ischosen <> 0) then
+		  field[usrChosen4].chosen.field[abiBonus].value += 1
+		  endif
+	  	if (field[usrChosen5].ischosen <> 0) then
+		  field[usrChosen5].chosen.field[abiBonus].value += 1
+		  endif
+	  	if (field[usrChosen6].ischosen <> 0) then
+		  field[usrChosen6].chosen.field[abiBonus].value += 1
+		  endif		  
+	    endif
+		
+	  ]]></eval>
+	
+    <eval index="4" phase="Initialize" priority="1000"><![CDATA[trustme
+	  var tempStr as string
+	  var bonus1 as number
+	  
+	  ~+2/+1
+	  if (field[acAttrBon].value = 0) then
+	    field[usrLabel4].text = "+2 to Attribute" 
+	    field[usrCandid4].text = "component.AttrSys" 
+	    field[usrLabel5].text = "+1 to Attribute" 
+	    field[usrCandid5].text = "component.AttrSys" 
+		if (field[usrChosen4].ischosen <> 0) then
+          field[usrCandid5].text &= " & !(thingid." & field[usrChosen4].chosen.idstring & ")"
+		  endif
+	  ~+1 to three attributes
+	  elseif (field[acAttrBon].value = 1) then
+	    field[usrLabel4].text = "+1 to Attribute" 
+	    field[usrCandid4].text = "component.AttrSys" 
+	    field[usrLabel5].text = "+1 to Attribute" 
+	    field[usrCandid5].text = "component.AttrSys" 
+	    field[usrLabel6].text = "+1 to Attribute" 
+	    field[usrCandid6].text = "component.AttrSys"
+	  endif
+	  
+	  ]]>
+	  </eval>
+		
+    <!-- Increase Value counts -->
+    <eval index="5" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resValue] += 1
+	  #resmax[resFocus] += 3
+      #resmax[resTalent] += 1
+      
+      ]]></eval>
+	  
+    </component>
+
+<!-- Career component
+        Each career derives from this component
+  -->
+  <component
+    id="Career"
+    name="Career"
+    autocompset="no"
+	panellink="career">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Career"/>
+	<identity group="HasCareer"/>
+	
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Career.?]
+      perform forward[HasCareer.?]
+      ]]></eval>
+	  
+    <!-- Increase Value counts -->
+    <eval index="2" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      ~Start with 2 career events, 
+	  #resmax[resEvent] += 2
+      #resmax[resValue] += 1
+	  
+	  if (#resleft[resEvent] = 0) then
+	    #resmax[resValue] += 1
+		perform hero.assign[Helper.UserUnlock]
+		endif
+      ]]></eval>
+	  
+	  </component>
+	  
+<!-- Event component
+        Each career event derives from this component
+  -->
+  <component
+    id="Event"
+    name="Career Event"
+    autocompset="no"
+	panellink="events">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Event"/>
+	
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Event.?]
+      ]]></eval>
+
+	<!-- Each skill point that is allocated by the user costs 2 CP -->
+    <eval index="2" phase="Ability" priority="10000">
+      <before name="Calc resLeft"/>
+      <after name="Bound abiUser"/><![CDATA[
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
+
+      ~adjust the resource appropriately
+      hero.child[resEvent].field[resSpent].value += 1
+      ]]></eval>
+	  
+    <!-- Increase Value counts -->
+    <eval index="3" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resFocus] += 1
+      ]]></eval>	  
+	  </component>	
+	  
+  <!-- Value component
+        Each value derives from this component
+  -->
+  <component
+    id="Value"
+    name="Value"
+    autocompset="no"
+	panellink="values">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Value"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Value.?]
+      ]]></eval>
+
+	<!-- Each skill point that is allocated by the user costs 2 CP -->
+    <eval index="2" phase="Ability" priority="10000">
+      <before name="Calc resLeft"/>
+      <after name="Bound abiUser"/><![CDATA[
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
+
+      ~adjust the resource appropriately
+      hero.child[resValue].field[resSpent].value += 1
+      ]]></eval>
+		
+    <!-- If the component requires a domain choice, check it -->
+    <evalrule index="1" phase="Validate" priority="5000" severity="warning" message="Domain not specified"><![CDATA[
+      ~if this component does not require domain, we're valid
+      validif (tagis[User.NeedDomain] = 0)
+	  
+	  validif (field[domDomain].isempty = 0)
+	  
+	  ~mark any associated tab as invalid
+      if (ispanel <> 0) then
+        linkvalid = 0
+        endif
+      ]]></evalrule>
+	  
+	  </component>
+
+
+  <!-- Focus component
+        Each value derives from this component
+  -->
+  <component
+    id="Focus"
+    name="Focus"
+    autocompset="no"
+	panellink="basics">
+
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Focus"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Focus.?]
+      ]]></eval>
+
+	<!-- Each skill point that is allocated by the user costs 2 CP -->
+    <eval index="2" phase="Ability" priority="10000">
+      <before name="Calc resLeft"/>
+      <after name="Bound abiUser"/><![CDATA[
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
+
+      ~adjust the resource appropriately
+      hero.child[resFocus].field[resSpent].value += 1
+      ]]></eval>
+		
+    <!-- If the component requires a domain choice, check it -->
+    <evalrule index="1" phase="Validate" priority="5000" severity="warning" message="Domain not specified"><![CDATA[
+      ~if this component does not require domain, we're valid
+      validif (tagis[User.NeedDomain] = 0)
+	  
+	  ~if the domain has text, we're valid
+	  validif (field[domDomain].isempty = 0)
+	  
+	  ~mark any associated tab as invalid
+      if (ispanel <> 0) then
+        linkvalid = 0
+        endif
+      ]]></evalrule>
+	  
+	  </component>
+	  
+  <!-- Define various component sets associated with the components defined above.
+  -->
+
+  <!-- No compsets are auto-defined for the component -->
+
+  <!-- Attribute - all attributes derive from this compset -->
+  <compset
+    id="AttrSys"
+    forceunique="yes">
+    <compref component="AttrSys"/>
+    <compref component="Ability"/>
+    <compref component="CanAdvance"/>
+    </compset>
+	
+  <compset
+    id="DiscDept"
+    forceunique="yes">
+    <compref component="DiscDept"/>
+    <compref component="Ability"/>
+    <compref component="CanAdvance"/>
+    </compset>
+
+  <!-- Ability - all abilities derive from this compset -->
+  <compset
+    id="Talent">
+    <compref component="Talent"/>
+    <compref component="Ability"/>
+    <compref component="Domain"/>
+    <compref component="UserSelect"/>
+    <compref component="SpecialTab"/>
+    <compref component="CanAdvance"/>
+    </compset>
+	
+  <!-- Ability - all derived abilitys are based on this compset -->
+  <compset
+    id="Ability">
+    <compref component="Derived"/>
+    <compref component="Ability"/>
+    </compset>
+
+  <!-- Species - all races derive from this compset -->
+  <compset
+    id="Species"
+    forceunique="yes">
+    <compref component="Species"/>
+    <compref component="UserSelect"/>
+    </compset>
+
+  <!-- Environ - all environments derive from this compset -->
+  <compset
+    id="Environ"
+    forceunique="yes">
+    <compref component="Environ"/>
+    <compref component="UserSelect"/>
+    </compset>
+
+  <!-- Upbringing - all upbringings derive from this compset -->
+  <compset
+    id="Upbringing"
+    forceunique="yes">
+    <compref component="Upbringing"/>
+    <compref component="UserSelect"/>
+    </compset>
+
+  <!-- Academy - all Academy Tracks derive from this compset -->
+  <compset
+    id="Academy"
+    forceunique="yes">
+    <compref component="Academy"/>
+    <compref component="UserSelect"/>
+    </compset>
+
+  <!-- Career - all career types derive from this compset -->
+  <compset
+    id="Career"
+    forceunique="yes">
+    <compref component="Career"/>
+    </compset>
+
+  <!-- Career - all career types derive from this compset -->
+  <compset
+    id="Event"
+    forceunique="yes">
+    <compref component="Event"/>
+    </compset>
+	
+  <!-- Trait - all traits derive from this compset -->
+  <compset
+    id="Trait">
+    <compref component="Trait"/>
+    <compref component="Domain"/>
+    <compref component="Custom"/>
+    </compset>
+
+  <!-- Focus - all focuses derive from this compset -->
+  <compset
+    id="Focus">
+    <compref component="Focus"/>
+    <compref component="Domain"/>
+    <compref component="Custom"/>
+    </compset>
+
+  <!-- Value - all values derive from this compset -->
+  <compset
+    id="Value">
+    <compref component="Value"/>
+    <compref component="Domain"/>
+    <compref component="Custom"/>
+    </compset>
+	
+  </document>

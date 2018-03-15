@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="fraDaedalu" name="Daedalus Class" description="Previous to the Earth-Romulan War, Starfleet\nneeded a large vessel to help protect and patrol the few trade\nlanes and colonies United Earth had set up. The Daedalus\nclass was designed to fill that role using the least amount of\nresources and the lowest amount of advanced technology\nas possible. The development and success of the NX class\nmade the Admiralty begin to pull Daedalus-class ships\nback to the Sol System for possible decommissioning, but\nthe Earth-Romulan War gave this vessel new life through\nStarfleet’s desperate need for vessels, allowing them to\nremain active until the late 2190s, with some being used even\ninto the mid-23rd century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2140"/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraCap" value="The low-tech design of the Daedalus{br}class was due to its role as an escort for trade vessels and{br}colony ships as well as routine scientific surveys, meaning{br}its capabilities didn’t have to be exceptional. At maximum{br}speed, the class could barely achieve warp 4 and its underpowered{br}impulse deck struggled at sublight speeds. The{br}spaceframe itself was rudimentary with a simple cylinder{br}for its engineering section and a sphere for the command{br}section. The weapon systems that it carried were also{br}primitive with first generation phase cannons and guided{br}missiles with thermonuclear payloads. The Daedalus class’s{br}primitive systems proved its success in the early years of{br}the Earth-Romulan War when it was seen that Starfleet{br}could build nearly four Daedalus-class vessels in the same{br}amount of time as an NX class. Additionally, the primitive{br}systems proved to be incredibly easy for even a moderately{br}experienced crew to maintain and repair. Minor upgrades{br}near the end of the war gave these starships greater{br}capabilities by replacing the nuclear weapons with photonic{br}torpedoes and replacing the sensor suites onboard with{br}state-of-the-art systems produced in conjunction with{br}the Vulcans and Andorians. So many of these vessels{br}were constructed by the end of the war that Starfleet{br}mothballed half of them to be used as ‘hanger queens’ to{br}make repair and refits of the still active vessels that much{br}easier. Over its decades of service, Daedalus-class vessels{br}saw dozens of minor and major refits that allowed them to{br}continue active service in Starfleet until the limitations of the{br}spaceframe became apparent when increasing hostilities{br}with the Klingon Empire in the 2250s and ’60s showed{br}the vulnerability of the design. Starfleet quickly phased{br}them out of active duty to be replaced by Constitution and{br}Hermes-class starships."/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraComp" value="6"/>
+    <fieldval field="fraEngine" value="5"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraEng" value="2"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talGrapCab"></bootstrap>
+    <bootstrap thing="talPolHuPl"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="shPulseCan"></bootstrap>
+    <bootstrap thing="shTorSpa"></bootstrap>
+    <bootstrap thing="shGrapple2"></bootstrap>
+    </thing>
+  <thing id="shPulseCan" name="Pulse Cannons" compset="Energy">
+    <fieldval field="wpSRange" value="Close"/>
+    <tag group="Delivery" tag="Cannons2" name="Cannons" abbrev="Cannons"/>
+    <tag group="DmgEffect" tag="Versa1"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    </thing>
+  <thing id="shTorSpa" name="Spatial Torpedoes" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpSBasDmg" value="2"/>
+    <usesource source="DivCmd"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    </thing>
+  <thing id="shTorPhoto" name="Photonic Torpedoes" compset="Energy">
+    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpSRange" value="Long"/>
+    <usesource source="DivCmd"/>
+    <tag group="GearQual" tag="HiYield" name="High Yield" abbrev="High Yield"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    </thing>
+  <thing id="shTorNucle" name="Nuclear Warheads" compset="Energy">
+    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpSBasDmg" value="3"/>
+    <usesource source="DivCmd"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearQual" tag="Calib"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    </thing>
+  <thing id="shGrapple1" name="Grappler Cables" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <usesource source="DivCmd"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="DmgEffect" tag="Str1"/>
+    <tag group="ShipWepCat" tag="Other"/>
+    </thing>
+  <thing id="shGrapple2" name="Grappler Cables" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <usesource source="DivCmd"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="DmgEffect" tag="Str2"/>
+    <tag group="ShipWepCat" tag="Other"/>
+    </thing>
+  <thing id="shGrapple3" name="Grappler Cables" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <usesource source="DivCmd"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="DmgEffect" tag="Str3"/>
+    <tag group="ShipWepCat" tag="Other"/>
+    </thing>
+  <thing id="shGrapple4" name="Grappler Cables" compset="Energy">
+    <fieldval field="wpSRange" value="-"/>
+    <usesource source="DivCmd"/>
+    <tag group="Weapon" tag="NoDamage"/>
+    <tag group="DmgEffect" tag="Str4"/>
+    <tag group="ShipWepCat" tag="Other"/>
+    </thing>
+  <thing id="fraNX" name="NX Class" description="In the decades before the Earth-Romulan War\nhuman exploration was limited to a small area around the\nSol System due to Starfleet’s few starships and primitive\nwarp technologies. The NX class was the result of the NX\nProject and Zefram Cochrane’s Warp Five Project that began\nprior to his disappearance. The NX class was experimental\nand groundbreaking in nearly every way, including its overall\ndesign. Unlike other UESPA and Starfleet vessels of the\nera, the NX class didn’t use the cylindrical or box-like hull\nconfigurations similar to 20th and 21st century submarines.\nInstead, the vessel had what would become a standard\nStarfleet aesthetic: a large saucer-like hull. Further, two long\naft-trailing pontoons connected to the class’s experimental\nand powerful warp nacelles. The NX class would serve\nStarfleet for over a decade and was present at some of the\nmost intense battles of the Earth-Romulan War." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2151"/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraComp" value="6"/>
+    <fieldval field="fraEngine" value="6"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talPolHuPl"></bootstrap>
+    <bootstrap thing="shGrapple2"></bootstrap>
+    <bootstrap thing="shPulseCan"></bootstrap>
+    <bootstrap thing="shTorSpa"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talGrapCab"></bootstrap>
+    </thing>
+  <thing id="fraHermes" name="Hermes Class" description="The Hermes-class scout was designed in\nconjunction with the Constitution class, the Saladin class,\nand the Ptolemy class. Sharing basic design elements and\nequipment with its sister classes, the Hermes class was\nhighly successful. The Hermes class shared the same basic\nsaucer-like primary hull and ‘neck’ dorsal as other vessels, that connected to a single warp nacelle. Internally the design\nwas quite successful in its role as a scout, but the ship’s small size and lack of mission adaptable space in its single hull made the Hermes class fall out of use by the 2280s. Some demilitarized Hermes-class starships were donated to civilian agencies across the Federation and continued to see use as research vessels for universities into the 24th century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2242"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="6"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="talImpRCS"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="talIndPhaS"></bootstrap>
+    </thing>
+  <thing id="talCaptYac" name="Captain&apos;s Yacht" description="The vessel has a single additional support craft, normally mounted in a dedicated port under the saucer section of the ship. These craft, larger than most shuttles, are often used for diplomatic missions and special excursions by the commanding officer, and are often known as the Captain’s Yacht (though not always; some Intrepid-class vessels have a similar craft called an aeroshuttle). The ship has one additional Small Craft, which does not count against the number which may be active at any one time," compset="Talent">
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talDedPers" name="Dedicated Personnel" description="Choose a single department. The ship gains two additional\nCrew Support, which may only be used to establish\nSupporting Characters who are part of that department." compset="Talent">
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    </thing>
+  <thing id="talHPTract" name="High-Power Tractor Beam" description="The ship’s tractor beam systems channel far greater\nquantities of power and exert much more force on the target.\nThe ship’s tractor beam has a strength two higher than\nnormal. Further, the ship may spend Power whenever a target\nattempts to escape the tractor beam to increase its strength\nfor that attempt; the strength increases by 1 for every two\nPower spent." compset="Talent">
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <eval phase="Effects" priority="1000"><![CDATA[var Str as string
+var StrVal as number
+
+~ Set focus to the skill id passed in
+perform hero.findchild[WeapEnergy,"Weapon.Tractor"].setfocus
+doneif (state.isfocus = 0)
+notify "Tractor Found"
+StrVal = focus.tagvalue[DmgEffect.Str?]
+notify StrVal
+StrVal += 2
+notify StrVal
+perform focus.delete[DmgEffect.Str?]
+Str = "DmgEffect.Str" & StrVal
+notify Str
+perform focus.assignstr[Str]]]></eval>
+    </thing>
+  <thing id="talIndPhaS" name="Independent Phaser Supply" description="Common prior to the 2270s, the ship’s phasers use an\nindependent power supply, rather than drawing directly from\nthe ship’s other power sources. Attacking with the ship’s\nphasers no longer has a Power Requirement. However,\nthe ship may not spend additional Power to boost the\neffectiveness of an attack with the phasers." compset="Talent">
+    <usesource source="DivCmd"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="fraOberth" name="Oberth Class" description="The design of the Oberth–class science vessel\ncomes as a surprise to most who haven’t studied the history\nof Starfleet. The small saucer-like primary hull is home\nto the approximately 100 crew that served on this ship.\nAttached directly to the hull were two compact and energy\nefficient warp nacelles and an engineering deck. The design\ndoes have a secondary hull slung below the primary hull\nconnected by two thin pylons that contained the vessels\ndeflector array and extensive sensor systems. The design\nonly saw limited use in Starfleet, as other vessels of the time\nperformed the same functions much more effectively, but its\nsmall size and low resource requirements meant that many\ncivilian agencies and universities could utilize the class." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2269"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSci" value="2"/>
+    <fieldval field="fraScale" value="3"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTractor2"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraSydney" name="Sydney Class" description="Colonization efforts across the Federation\nbegan to increase in the 2270s and ’80s with the\nintroduction of more efficient terraforming techniques and\nthe expansion of the Federation into new sectors, opening\ndozens of new worlds. A new vessel was designed at the\nLuna Shipyards in the Sol System that could transport a\nlarge group of colonists along with their equipment and\nsupplies. It was dubbed the Sydney-class transport, a\nboxy, angular, but highly effective starship. In service with\nStarfleet and multiple civilian agencies beginning in 2279,\nit would continue to be used until the present day in a\nmultitude of configurations." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2279"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraScale" value="4"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTractor2"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraCentaur" name="Centaur Class" description="In the mid-2280s Starfleet felt that the next\ngeneration of light cruisers should begin development based\non the new technologies in development for the Excelsior\nclass, but the initial failures of the prototype transwarp\nsystems in the Excelsior class meant delays for the Centaur\nclass. Extensive redesigns of most systems were undertaken\nby the mid-2290s, with additional vessels of the class\nbeyond the prototype coming into service. Externally this\nclass resembles the Excelsior class in many regards including\nsharing the same saucer for its primary hull and elongated\ntranswarp-style nacelles. The Centaur class was only\nproduced in small numbers, not an amount that would allow\nthe retirement of the Miranda class." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2285"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraAmbas" name="Ambassador Class" description="Just after the turn of the 24th century, the\nStarfleet Exploratory Division and the Federation Science\nCouncil began to see a steady decline in scientific returns\nfrom deep space missions. By this time Starfleet had been\nrelying on the Excelsior class and the few Constitution-class\nstarships still in service to continue its aims of discovery,\nbut even with refits, both vessels required frequent returns\nto starbases. Both organizations asked Utopia Planitia Fleet\nYards to develop a new deep-space exploration cruiser that\nwas heavily armed for self-defense, but also capable of\nstaying on assignment for years at a time. The Ambassador\nclass was developed and launched in 2335, and many of\nthe engineering techniques, design ideas, and technologies\ncreated for this starship would continue to be refined over the\ncoming decades and become the basis for the Galaxy class." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2335"/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="Ship" tag="SaucerSep"/>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talSaucSep"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor4"></bootstrap>
+    </thing>
+  <thing id="fraNebula" name="Nebula Class" compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2361"/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraEng" value="2"/>
+    <fieldval field="fraPods" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <tag group="Ship" tag="SaucerSep"/>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor4"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talSaucSep"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    </thing>
+  <thing id="mpComCom" name="Command &amp; Control" description="The pod contains additional subspace antennae and supplementary computer cores, allowing it to serve as a command vessel for fleet actions. The ship has +1 Communications, +1 Computers, and +1 Command. The ship also has the Command Ship and Electronic Warfare Systems\nTalent." compset="MissionPod">
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talCmdShip"></bootstrap>
+    <bootstrap thing="talEWS"></bootstrap>
+    <eval phase="PreAbility" priority="1000">~ +1 to Comms, Computers
+hero.child[attrsys01].field[abiBonus].value += 1
+hero.child[attrsys02].field[abiBonus].value += 1
+
+~ +1 to Command
+hero.child[discdept01].field[abiBonus].value += 1</eval>
+    </thing>
+  <thing id="mpSensors" name="Sensors" description="The pod contains additional sensor systems, allowing the ship to serve a range of scientific and reconnaissance roles. The ship has +2 Sensors, and +1 Science. The ship also has the Advanced Sensor Suites and High Resolution Sensors Talents." compset="MissionPod">
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <eval phase="PreAbility" priority="1000">~ +2 to Sensors
+hero.child[attrsys04].field[abiBonus].value += 2
+
+~ +1 to Science
+hero.child[discdept06].field[abiBonus].value += 1</eval>
+    </thing>
+  <thing id="mpWeapons" name="Weapons" description="The pod contains additional torpedo launchers, phaser arrays, and targeting sensors. The ship has +1 Sensors, +1 Weapons, and +1 Security. The ship also has the Fast Targeting Systems and Rapid-Fire Torpedo Launcher Talents." compset="MissionPod">
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talFastTar"></bootstrap>
+    <bootstrap thing="talRFTorp"></bootstrap>
+    <eval phase="PreAbility" priority="1000">~ +1 to Sensors, Weapons
+hero.child[attrsys04].field[abiBonus].value += 1
+hero.child[attrsys06].field[abiBonus].value += 1
+~ +1 to Security
+hero.child[discdept06].field[abiBonus].value += 1</eval>
+    </thing>
+  <thing id="fraNewOrle" name="New Orleans Class" description="Soon after the development of the Galaxy and\nNebula-class starships, Starfleet saw the new design style\nas innovative, but requiring large amounts of resources for\neach of the ships to be constructed. Starfleet Command\nissued directives to shipyards across the Federation to\ndesign and produce starships for various mission profiles\nusing the same design elements of their newest vessels, but\nkeeping the crew sizes smaller than the Galaxy and Nebula\nclasses. The New Orleans-class heavy frigate was the first\ndesign submitted for approval by the San Francisco Fleet\nYards. This ship was considerably more compact than most\nvessels in service at the time, and its non-modular primary\nand secondary hulls made construction easier and took\nnearly quarter the time to build compared to a Nebula class.\nThe New Orleans class has begun to replace Miranda-class\nvessels in active service, but construction rates imply that\nthis full change over won’t finish until 2377." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2364"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <bootstrap thing="talModLab"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraOlympic" name="Olympic Class" description="Starfleet had been relying on its exploration\nvessels as hospital ships since soon after the Earth-Romulan\nWar. Starfleet felt that a dedicated hospital ship was a waste\nof highly trained medical personnel that could be assigned\nacross the fleet otherwise. A change in this perspective began\nin the late 2360s with disastrous encounters with the Borg and\nincreased tensions with the Cardassians and other aggressive\ninterstellar governments. It was also seen that a vessel that\nwas a non-combatant and solely used for humanitarian efforts\ncould help diplomatically with neutral systems that were\nwavering between joining the Federation or other political\nentities. The Olympic class began limited production at various\nshipyards across the Federation in 2368, and while few are\ncurrently in service, they have made an impact." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2368"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraMed" value="2"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talAdvSick"></bootstrap>
+    <bootstrap thing="talDedPers"></bootstrap>
+    <bootstrap thing="talModLab"></bootstrap>
+    </thing>
+  <thing id="fraSteamru" name="Steamrunner Class" description="Light and fast, the Steamrunner class filled\nmultiple roles in Starfleet including light escort, interceptor,\nelectronic warfare, and surveillance/intelligence. The design\nconsists of an angular saucer for a primary hull containing\nall vital systems, and a detached secondary hull that is\nsuspended between the starship’s two warp nacelles. During\nshakedown cruises, new crew quickly discovered that the\ndensely-packed systems could cause interference between\nthe warp nacelles, the deflector system, and long-range\nsensors, but they quickly learned how to tweak the systems\nto perform at peak efficiency." compset="Frame" uniqueness="unique">
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="09"/>
+    <fieldval field="fraEngine" value="11"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraNorway" name="Norway Class" description="The Advanced Starship Design Bureau at Earth\nSpacedock designs and produces prototypes every year\nfor Starfleet to consider for active service. One area they\nsaw Starfleet lacking in was rapid emergency responders.\nDesign and production of the Norway-class starship began\nin 2369. ASDB gave its design a compact wedge-shaped\nhull with the engineering section located in the aft portion\nof the ship. The first two vessels of the class were launched\nin early 2371, U.S.S. Norway and U.S.S. Finland. Both have already responded to emergencies in the core of the\nFederation and Starfleet has ordered more production\nruns of this design to be assigned to other dense areas of\ninhabited worlds." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="11"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraMed" value="2"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="talAdvSick"></bootstrap>
+    <bootstrap thing="talEMH"></bootstrap>
+    </thing>
+  <thing id="fraSaber" name="Saber Class" description="Patrolling the outer reaches of the Federation\nhas always been a problem. During the rapid expansion\nof the Federation in the early 24th century, this became\na larger problem as the volume of space needing patrols\nand assignments requiring escort of essential goods grew\nexponentially. This duty originally fell to any Starfleet vessel\nin the area to be called on to help in emergencies such as\nattacks on interstellar commercial vessels or other crimes.\nStarfleet felt the need to design and produce a patrol\nvessel dedicated to maintaining a presence on the edges\nof Federation space to better respond to raiders and piracy,\nbut also be able to perform basic survey duties. This hybrid\nvessel was the Saber class." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraSecur" value="1"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talHPTract"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor2"></bootstrap>
+    </thing>
+  <thing id="fraSovere" name="Sovereign Class" description="The success of the Galaxy-class starship\nwasn’t lost on Starfleet or the Federation as a whole.\nWhile there were notable losses of the class, the large\nsize and survivability of the class made them influential\non starship designers already hard at work building the\nnext major Federation explorer. The Sovereign class began\ndevelopment in 2368 after Starfleet Command felt that\nstarships probing deep space would need to be better\nequipped to handle hostile and more technologically\nadvanced races such as the Borg. The new design gained\ngreater importance after the discovery of the Bajoran\nwormhole in 2369 and the discovery of damage to spacetime\ncaused by standard warp drive systems. The first\nof the new vessels, U.S.S. Sovereign NX/NCC-73811, is\nexpected to enter full service in late 2371." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talCmdShip"></bootstrap>
+    <bootstrap thing="talEMH"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
+    <bootstrap thing="talQuanTor"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTorQua"></bootstrap>
+    <bootstrap thing="shTractor5"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraLuna" name="Luna Class" description="With the design success of the Intrepid class,\nStarfleet immediately began a parallel development of a\nheavy explorer capable of all the same exploratory and\nscientific assignments of an Intrepid class, but with larger\nresearch facilities, more computer processing power, and\nlonger mission duration. The Luna class exited its design\nphase eight months after her sister class, and while there\nhave been engineering delays, U.S.S. Luna NX-80101 is\nexpected to slip her drydock over Mars in late 2372. Like the\nIntrepid class, the Luna class has an integrated primary and\nsecondary engineering hull with organic curves giving it a\nsimilar profile to many of the newer Starfleet vessels leaving\nUtopia Planitia." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2372"/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="11"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="11"/>
+    <fieldval field="fraStruc" value="08"/>
+    <fieldval field="fraWeap" value="09"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="2"/>
+    <usesource source="DivCmd"/>
+    <bootstrap thing="talAdvRese"></bootstrap>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    <bootstrap thing="talEMH"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor4"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  </document>

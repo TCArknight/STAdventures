@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definitions of components associated with traits such as
+      attributes, skills, special abilities, etc.
+-->
+
+<document signature="Hero Lab Structure">
+
+  <!-- ShipInfo component
+        Used for specifying a type of information about an NPC. Displayed in
+        the tables on the NPC tab.
+  -->
+  <component
+    id="ShipInfo"
+    name="Starship Info">
+
+    <field
+      id="shipYear"
+      name="Current Ship Year"
+      type="user"
+	  defvalue="2371"
+	  maxlength="4">
+      </field>
+	  
+    <field
+      id="shipServ"
+      name="Service Information"
+      type="derived"
+	  maxlength="50">
+      </field>
+	  
+    <field
+      id="shipScale"
+      name="Scale"
+      type="derived"
+	  defvalue="1">
+      </field>
+
+    <field
+      id="shipShield"
+      name="Shields"
+      type="derived"
+      minvalue="0"
+      maxvalue="15">
+	  <!-- Calculate the final value from the three distinct pieces -->
+      <calculate phase="Ability" priority="10000"><![CDATA[
+        ~Note! If you change this calculation, you may need to change the similar
+        ~       calculation in the "Derived" component.
+        @value = #shipsystem[attrsys05] + #shipdept[discdept05] + field[bonShields].value
+        ]]></calculate>
+      </field>
+
+    <field
+      id="shipPower"
+      name="Power"
+      type="derived"
+      minvalue="0"
+      maxvalue="15">
+	  <!-- Calculate the final value from the three distinct pieces -->
+      <calculate phase="Ability" priority="10000"><![CDATA[
+        ~Note! If you change this calculation, you may need to change the similar
+        ~       calculation in the "Derived" component.
+        @value = #shipsystem[attrsys03] + field[bonPower].value
+        ]]></calculate>
+	  </field>
+
+    <field
+      id="shipRes"
+      name="Resistance"
+      type="derived"
+      minvalue="1"
+      maxvalue="15">
+	  <!-- Calculate the final value from the three distinct pieces -->
+      <calculate phase="Ability" priority="10000"><![CDATA[
+        ~Note! If you change this calculation, you may need to change the similar
+        ~       calculation in the "Derived" component.
+        @value = field[shipScale].value + field[bonResist].value
+        ]]></calculate>
+      </field>
+
+    <!-- Bonuses applied to the Shields (e.g. from other abilities) -->
+    <field
+      id="bonShields"
+      name="Bonus Shield Value"
+      type="derived">
+      </field>
+
+    <!-- Bonuses applied to the Shields (e.g. from other abilities) -->
+    <field
+      id="bonPower"
+      name="Bonus Power Value"
+      type="derived">
+      </field>
+
+    <!-- Bonuses applied to the Shields (e.g. from other abilities) -->
+    <field
+      id="bonResist"
+      name="Bonus Resistance Value"
+      type="derived">
+      </field>
+
+    <field
+      id="shipClass"
+      name="Class"
+      type="derived"
+      maxlength="50">
+      </field>
+	  
+    <field
+      id="shipOver"
+      name="Overview"
+      type="derived"
+      maxlength="10000">
+      </field>
+	  
+    <field
+      id="shipCap"
+      name="Capabilities"
+      type="derived"
+      maxlength="10000">
+      </field>
+
+    <field
+      id="shipCrew"
+      name="Crew Support"
+      type="derived"
+	  defvalue="1">
+      </field>
+	  
+    <creation><![CDATA[
+      ~custom items need to pick a name
+      if (tagis[Helper.CustomItem] <> 0) then
+        field[username].text = "Enter Name"
+        endif
+      ]]></creation>
+
+    <!-- Make sure the choose template has enough width for our names -->
+    <tag group="SimpleItem" tag="width300"/>
+
+    </component>
+
+  <!-- Frame component
+        Each race derives from this component
+  -->
+  <component
+    id="Frame"
+    name="Frame"
+    autocompset="no">
+
+    <!-- Year Frame Entered Service -->
+    <field
+      id="fraYearEnt"
+      name="Entered Service"
+      type="derived"
+	  maxlength="4">
+      </field>
+	  
+    <!-- Year Frame Entered Service -->
+    <field
+      id="fraYearRet"
+      name="Retired From Service"
+      type="derived"
+	  maxlength="4">
+      </field>
+
+    <!-- Year Frame Entered Service -->
+    <field
+      id="fraSerSumm"
+      name="Service Summary"
+      type="derived"
+	  maxlength="50">
+      </field>
+	  
+    <!-- Frame Scale -->
+    <field
+      id="fraScale"
+      name="Frame Scale"
+      type="derived">
+      </field>
+	  
+    <!-- Frame Overview (Description becomes overview)-->
+	  
+    <!-- Frame Capabilities -->	  
+    <field
+      id="fraCap"
+      name="Capabilities"
+      type="user"
+      maxlength="10000">
+      </field>
+	  
+    <!-- Frame Systems -->
+    <field
+      id="fraComm"
+      name="Communication"
+      type="derived">
+      </field>
+
+    <field
+      id="fraComp"
+      name="Computer"
+      type="derived">
+      </field>
+
+    <field
+      id="fraEngine"
+      name="Engines"
+      type="derived">
+      </field>
+
+    <field
+      id="fraSens"
+      name="Sensors"
+      type="derived">
+      </field>
+
+    <field
+      id="fraStruc"
+      name="Structure"
+      type="derived">
+      </field>
+
+    <field
+      id="fraWeap"
+      name="Weapons"
+      type="derived">
+      </field>
+	  
+    <!-- Frame Departments -->
+    <field
+      id="fraCmd"
+      name="Command"
+      type="derived">
+      </field>
+
+    <field
+      id="fraConn"
+      name="Conn"
+      type="derived">
+      </field>
+
+    <field
+      id="fraEng"
+      name="Engineering"
+      type="derived">
+      </field>
+
+    <field
+      id="fraMed"
+      name="Medicine"
+      type="derived">
+      </field>
+
+    <field
+      id="fraSecur"
+      name="Security"
+      type="derived">
+      </field>
+
+    <field
+      id="fraSci"
+      name="Science"
+      type="derived">
+      </field>
+
+    <field
+      id="fraPods"
+      name="Number of Mission Pods"
+      type="derived"
+	  defvalue="0">
+      </field>
+	  
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Frame"/>
+    <identity group="IsFrame"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Frame.?]
+      perform forward[IsFrame.?]
+      ]]></eval>
+
+    <!-- Increase Systems and Departments -->
+    <eval index="2" phase="Initialize" priority="5000"><![CDATA[
+      hero.child[attrsys01].field[abiMinimum].value = field[fraComm].value
+	  hero.child[attrsys02].field[abiMinimum].value = field[fraComp].value
+	  hero.child[attrsys03].field[abiMinimum].value = field[fraEngine].value
+	  hero.child[attrsys04].field[abiMinimum].value = field[fraSens].value
+	  hero.child[attrsys05].field[abiMinimum].value = field[fraStruc].value
+	  hero.child[attrsys06].field[abiMinimum].value = field[fraWeap].value
+
+	  hero.child[discdept01].field[abiBonus].value = field[fraCmd].value
+	  hero.child[discdept02].field[abiBonus].value = field[fraConn].value
+	  hero.child[discdept03].field[abiBonus].value = field[fraEng].value
+	  hero.child[discdept04].field[abiBonus].value = field[fraMed].value
+	  hero.child[discdept05].field[abiBonus].value = field[fraSecur].value
+	  hero.child[discdept06].field[abiBonus].value = field[fraSci].value
+
+      ]]></eval>
+
+    <!-- Increase Trait and Talent counts -->
+    <eval index="3" phase="Setup" priority="5000"><![CDATA[
+	  var txt as string
+	  txt = field[fraYearRet].text
+	  
+	  field[fraSerSumm].text = field[fraYearEnt].text
+	  
+      if (empty(txt) = 0) then
+	    field[fraSerSumm].text &= " (Retired from service: " & field[fraYearRet].text & ")"
+		endif
+
+      foreach pick in hero where "component.ShipInfo"
+        eachpick.field[shipScale].value = field[fraScale].value
+		eachpick.field[shipCrew].value = field[fraScale].value
+		
+		eachpick.field[shipClass].text = field[name].text
+		eachpick.field[shipOver].text = field[descript].text
+		eachpick.field[shipCap].text = field[fraCap].text
+		eachpick.field[shipServ].text = field[fraSerSumm].text
+		
+		nexteach
+
+		perform forward[Ship.?]
+		
+	  ~notify "Year: " & hero.childfound[mscShip].field[shipYear].text
+	  
+      ]]></eval>
+	  
+    <!-- Increase Trait and Talent counts -->
+    <eval index="4" phase="PreAbility" priority="5000"><![CDATA[
+	  #resmax[resTrait] += 1
+	  #resmax[resTalent] += hero.childfound[mscShip].field[shipScale].value
+      #resmax[resShipPod] += field[fraPods].value
+      ]]></eval>
+	  </component>
+	  
+  <!-- Mission Profile component
+        Each Profile derives from this component
+  -->
+  <component
+    id="Profile"
+    name="Mission Profile"
+    autocompset="no">
+
+    <!-- Profile Departments -->
+    <field
+      id="proCmd"
+      name="Command"
+      type="derived">
+      </field>
+
+    <field
+      id="proConn"
+      name="Conn"
+      type="derived">
+      </field>
+
+    <field
+      id="proEng"
+      name="Engineering"
+      type="derived">
+      </field>
+
+    <field
+      id="proMed"
+      name="Medicine"
+      type="derived">
+      </field>
+
+    <field
+      id="proSecur"
+      name="Security"
+      type="derived">
+      </field>
+
+    <field
+      id="proSci"
+      name="Science"
+      type="derived">
+      </field>
+
+    <field
+      id="proTalExp"
+      name="Talent Expression"
+      type="derived"
+	  maxlength="500">
+	  </field> 
+	  
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="Profile"/>
+    <identity group="HasProfile"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Profile.?]
+      perform forward[HasProfile.?]
+      ]]></eval>
+
+    <!-- Increase Systems and Departments -->
+    <eval index="2" phase="Initialize" priority="5000"><![CDATA[
+	  hero.child[discdept01].field[abiBonus].value += field[proCmd].value
+	  hero.child[discdept02].field[abiBonus].value += field[proConn].value
+	  hero.child[discdept03].field[abiBonus].value += field[proEng].value
+	  hero.child[discdept04].field[abiBonus].value += field[proMed].value
+	  hero.child[discdept05].field[abiBonus].value += field[proSecur].value
+	  hero.child[discdept06].field[abiBonus].value += field[proSci].value
+
+	  var txt as string
+	  txt = tagids[MisProTal.?,"|"]
+	  txt = replace(txt,"MisProTal","thingid",0)
+	  
+	  if (empty(field[proTalExp].text) <> 0) then
+	    hero.child[ExprHelp].field[ehSProExp].text = txt
+	    endif
+	  
+      ]]></eval>
+	  
+	  </component>
+	  
+	<!-- No compsets are auto-defined for the component -->
+
+  <!-- Starship weapon components -->
+  <!-- WeapEnergy component -->
+  <component
+    id="WeapEnergy"
+    name="Starship Energy Weapon"
+    autocompset="no">
+
+    <!-- Synthesized text ranges for the weapon -->
+    <field
+      id="wpSRange"
+      name="Range"
+      type="derived"
+      maxlength="30">
+      </field>
+
+    <!-- Synthesized text ranges for the weapon -->
+    <field
+      id="wpSBasDmg"
+      name="Damage"
+      type="derived"
+      maxvalue="10">
+      </field>
+	  
+    <!-- All ranged weapons get the same tag for sorting purposes -->
+    <tag group="Armory" tag="Range"/>
+
+    <!-- Calculate the net attack roll for the weapon -->
+    <eval index="1" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
+	  ~notify "Ship Scale: " & #shipscale
+	  
+	  if (tagis[Weapon.FixedBase] <> 0) then
+        field[wpDamage].text = #shipdept[discdept05]
+	  else
+	    field[wpDamage].text = field[wpSBasDmg].value
+		endif
+	  
+      ]]></eval>
+
+    <!-- Prepend any derived special notes to the appropriate field -->
+    <eval index="2" phase="Render" priority="2000"><![CDATA[
+      var special as string
+
+      ~assign any appropriate special notes to the "special" variable here
+
+      ~prepend any existing special details with the notes for this weapon
+      field[wpNotes].text = splice(special,field[wpNotes].text,", ")
+      ]]></eval>
+
+    </component>
+	
+  <!-- Appearance component
+        Used for specifying a bonus for Supporting characters making multiple appearances
+  -->
+  <component
+    id="Appearance"
+    name="Appearances"
+    autocompset="no">
+
+    </component>
+
+  <!-- Refit component
+        Used for specifying a bonus for Supporting characters making multiple appearances
+  -->
+  <component
+    id="Refit"
+    name="Refits"
+    autocompset="no">
+
+    <!-- Each ability that is added by the user costs 1 slot -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      ~we must ignore bootstrapped abilities from races and abilities added via advances
+      hero.child[resShipRef].field[resSpent].value += 1
+      ]]></eval>
+	  
+    </component>
+
+  <!-- MissionPod component
+        Used for specifying a bonus for Supporting characters making multiple appearances
+  -->
+  <component
+    id="MissionPod"
+    name="Mission Pod"
+    autocompset="yes">
+
+    <!-- Each ability that is added by the user costs 1 slot -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      ~we must ignore bootstrapped abilities from races and abilities added via advances
+      hero.child[resShipPod].field[resSpent].value += 1
+      ]]></eval>
+	  
+    </component>
+	
+  <!-- Compsets -->
+
+  <!-- Frame - all races derive from this compset -->
+  <compset
+    id="Frame"
+    forceunique="yes">
+    <compref component="Frame"/>
+    <compref component="UserSelect"/>
+    </compset>
+	
+  <!-- Frame - all races derive from this compset -->
+  <compset
+    id="Profile"
+    forceunique="yes">
+    <compref component="Profile"/>
+    <compref component="UserSelect"/>
+    </compset>
+	
+  <!-- Transact - all transactions utilize this compset -->
+  <compset
+    id="Appearance">
+    <compref component="Appearance"/>
+	<compref component="UserSelect"/>
+    </compset>
+	
+  <!-- Transact - all transactions utilize this compset -->
+  <compset
+    id="Refit">
+    <compref component="Refit"/>
+	<compref component="UserSelect"/>
+    </compset>
+	
+  <!-- Energy - Starship Energy weapons -->
+  <compset
+    id="Energy"
+    stackable="yes">
+    <compref component="WeaponBase"/>
+    <compref component="WeapEnergy"/>
+    <compref component="Equippable"/>
+    <compref component="Gear"/>
+    </compset>
+	
+  </document>
