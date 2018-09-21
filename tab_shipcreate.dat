@@ -46,7 +46,8 @@
     width="150">
     <chooser_table
       component="Frame"
-      choosetemplate="SimpleItem">
+      choosetemplate="SimpleItem"
+	  choosesortset="FrameSort">
       <chosen><![CDATA[
         if (@ispick = 0) then
           @text = "{text clrwarning}Select Frame"

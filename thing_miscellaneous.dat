@@ -188,7 +188,7 @@
     <tag group="Helper" tag="Bootstrap"/>
 
     <!-- Use the starting ability slots as our initial maximum -->
-    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+    <eval index="1" phase="Setup" priority="5500"><![CDATA[
 	  var refCount as number
 	  var stYear as number
 	  var enYear as number
@@ -320,7 +320,7 @@
     <!-- Use the starting power points as our initial maximum -->
     <eval index="1" phase="Final" priority="1000"><![CDATA[
       field[trkMin].value = 0
-      field[trkMax].value = #abil[trPowerPts]
+      field[trkMax].value = #abilfinal[trPowerPts]
       ]]></eval>
     </thing>
 
@@ -341,7 +341,7 @@
     name="Type: Starship"
     compset="CharType">
     </thing>
-
+	
   <!-- Appearances to display on the supporting character tab -->
   <thing
     id="apAttrib"

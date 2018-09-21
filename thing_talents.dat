@@ -5,11 +5,11 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Racial"/>
-    <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndor] <> 0]]></exprreq>
+    <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndorian] <> 0]]></exprreq>
     </thing>
   <thing id="talUshaan" name="The Ushaan" description="You are experienced in the tradition of honor-dueling known as the Ushaan, having spilt much blood upon the ice. When you make a melee Attack, or are targeted by a melee Attack, and buy one or more d20s by adding to Threat, you may re-roll the dice pool for the Task. Further, you own an Ushaan-tor, a razor-sharp ice-miner’s tool used in these duels." compset="Talent" summary="When you make a melee Attack, or are targeted by a melee Attack, and buy one or more d20s by adding to Threat, you may re-roll the dice pool for the Task.">
     <tag group="TalentCat" tag="Racial"/>
-    <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndor] <> 0]]></exprreq>
+    <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndorian] <> 0]]></exprreq>
     </thing>
   <thing id="talKolinah" name="Kolinahr" description="You have undergone the ritual journey to purge all emotion. You reduce the Difficulty of all Tasks to resist coercion, mental intrusion, pain, and other mental attacks by two." compset="Talent" summary="You reduce the Difficulty of all Tasks to resist coercion, mental intrusion, pain, and other mental attacks by two.">
     <usesource source="ENT"/>
@@ -208,7 +208,7 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Ship"/>
-    <exprreq message="Science 3 or higher."><![CDATA[#abil[discdept06] >= 3]]></exprreq>
+    <exprreq message="Science 3 or higher."><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
     </thing>
   <thing id="talAdvSenS" name="Advanced Sensor Suites" description="The vessel’s sensors are amongst the most sophisticated and advanced available in the fleet. Unless the ship’s Sensors have suffered one or more Breaches, whenever a character performs a Task assisted by the ship’s Sensors, they may reduce the Difficulty of the Task by one, to a minimum of 0." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>

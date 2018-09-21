@@ -154,7 +154,7 @@
 		endif
 	  
 	  append eachpick.field[name].text
-      append " - " & eachpick.field[wpDmgSumm].text
+      append " - " & eachpick.field[wpDamageSummarySB].text
 		
 	  if (eachpick.field[wpQualSumm].isempty = 0) then
 	    if (compare(eachpick.field[wpQualSumm].text,"-") <> 0) then
@@ -328,7 +328,14 @@
 	append @boldon & "Resistance: " & @boldoff & txt & @newline & @newline
 	
     txt = hero.findchild[ShipInfo].field[shipCrew].text
-	append @boldon & "Crew Support: " & @boldoff & txt & @newline & @newline
+	append @boldon & "Crew Support: " & @boldoff & txt & @newline 
+	
+	txt = hero.findchild[ShipInfo].field[shipCrewSumm].text
+	if (empty(txt) = 0) then
+	  append @boldon & "Crew Details: " & @boldoff & txt & @newline
+	  endif
+	  
+	append @newline
 	
     ]]></procedure>
 	

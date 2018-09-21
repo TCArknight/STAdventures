@@ -168,7 +168,7 @@
       id="damage"
       style="lblNormal">
       <label
-        field="wpDmgSumm">
+        field="wpDamageSummary">
         </label>
       </portal>
 
@@ -292,7 +292,7 @@
       id="damage"
       style="lblNormal">
       <label
-        field="wpDmgSumm">
+        field="wpDamageSummary">
         </label>
       </portal>
 

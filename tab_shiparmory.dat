@@ -85,7 +85,7 @@
       id="damage"
       style="lblNormal">
       <label
-        field="wpDmgSumm">
+        field="wpDamageSummary">
         </label>
       </portal>
 
@@ -188,7 +188,7 @@
 		  var lng as number
 		  
 		  
-		  summ = field[wpDmgSumm].text
+		  summ = field[wpDamageSummary].text
 		  lng = length(summ) - 2
 		  
 		  if (compare(left(summ,2),"* ") = 0) then

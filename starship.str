@@ -127,6 +127,27 @@
 	  defvalue="1">
       </field>
 	  
+    <field
+      id="shipCrewSize"
+      name="Crew Size"
+      type="derived"
+      maxlength="100">
+      </field>
+	  
+    <field
+      id="shipCrewRating"
+      name="Crew Rating"
+      type="derived"
+      maxlength="100">
+      </field>
+
+    <field
+      id="shipCrewSumm"
+      name="Crew Summary"
+      type="derived"
+      maxlength="250">
+      </field>
+	  
     <creation><![CDATA[
       ~custom items need to pick a name
       if (tagis[Helper.CustomItem] <> 0) then
@@ -136,7 +157,25 @@
 
     <!-- Make sure the choose template has enough width for our names -->
     <tag group="SimpleItem" tag="width300"/>
+	
+    <!-- Build crew summary -->
+    <eval index="1" phase="Final" priority="10000"><![CDATA[
+      var mySumm as string
 
+	  if (field[shipCrewSize].isempty = 0) then
+	    mySumm &= field[shipCrewSize].text
+		endif
+
+	  if (empty(mySumm) <> 0) then
+		mySumm &= " (" & field[shipCrewRating].text & ")"
+	  else
+		mySumm &= field[shipCrewRating].text
+		endif
+		
+      field[shipCrewSumm].text = mySumm
+
+      ]]></eval>
+	  
     </component>
 
   <!-- Frame component
@@ -186,6 +225,22 @@
       name="Capabilities"
       type="user"
       maxlength="10000">
+      </field>
+
+    <!-- Frame Capabilities -->	  
+    <field
+      id="fraCrewSize"
+      name="Capabilities"
+      type="user"
+      maxlength="100">
+      </field>
+
+    <!-- Frame Capabilities -->	  
+    <field
+      id="fraCrewRating"
+      name="Capabilities"
+      type="user"
+      maxlength="100">
       </field>
 	  
     <!-- Frame Systems -->
@@ -281,24 +336,34 @@
 
     <!-- Increase Systems and Departments -->
     <eval index="2" phase="Initialize" priority="5000"><![CDATA[
-      hero.child[attrsys01].field[abiMinimum].value = field[fraComm].value
-	  hero.child[attrsys02].field[abiMinimum].value = field[fraComp].value
-	  hero.child[attrsys03].field[abiMinimum].value = field[fraEngine].value
-	  hero.child[attrsys04].field[abiMinimum].value = field[fraSens].value
-	  hero.child[attrsys05].field[abiMinimum].value = field[fraStruc].value
-	  hero.child[attrsys06].field[abiMinimum].value = field[fraWeap].value
+      ~reset user fields
+	  #userresetAbil[attrsys01]
+	  #userresetAbil[attrsys02]
+	  #userresetAbil[attrsys03]
+	  #userresetAbil[attrsys04]
+	  #userresetAbil[attrsys05]
+	  #userresetAbil[attrsys06]
+	  
+	  ~set minumums
+      #abilminimum[attrsys01] = field[fraComm].value
+	  #abilminimum[attrsys02] = field[fraComp].value
+	  #abilminimum[attrsys03] = field[fraEngine].value
+	  #abilminimum[attrsys04] = field[fraSens].value
+	  #abilminimum[attrsys05] = field[fraStruc].value
+	  #abilminimum[attrsys06] = field[fraWeap].value
 
-	  hero.child[discdept01].field[abiBonus].value = field[fraCmd].value
-	  hero.child[discdept02].field[abiBonus].value = field[fraConn].value
-	  hero.child[discdept03].field[abiBonus].value = field[fraEng].value
-	  hero.child[discdept04].field[abiBonus].value = field[fraMed].value
-	  hero.child[discdept05].field[abiBonus].value = field[fraSecur].value
-	  hero.child[discdept06].field[abiBonus].value = field[fraSci].value
+	  #abilbonus[discdept01] = field[fraCmd].value
+	  #abilbonus[discdept02] = field[fraConn].value
+	  #abilbonus[discdept03] = field[fraEng].value
+	  #abilbonus[discdept04] = field[fraMed].value
+	  #abilbonus[discdept05] = field[fraSecur].value
+	  #abilbonus[discdept06] = field[fraSci].value
 
       ]]></eval>
 
     <!-- Increase Trait and Talent counts -->
     <eval index="3" phase="Setup" priority="5000"><![CDATA[
+	  trustme
 	  var txt as string
 	  txt = field[fraYearRet].text
 	  
@@ -316,12 +381,13 @@
 		eachpick.field[shipOver].text = field[descript].text
 		eachpick.field[shipCap].text = field[fraCap].text
 		eachpick.field[shipServ].text = field[fraSerSumm].text
+		eachpick.field[shipCrewSize].text = field[fraCrewSize].text
+		eachpick.field[shipCrewRating].text = field[fraCrewRating].text
 		
 		nexteach
 
 		perform forward[Ship.?]
 		
-	  ~notify "Year: " & hero.childfound[mscShip].field[shipYear].text
 	  
       ]]></eval>
 	  

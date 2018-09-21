@@ -193,7 +193,6 @@
         </label>
       </portal>
 
-
 	<portal
       id="lblCrew"
       style="lblNormal">
@@ -209,7 +208,22 @@
         field="shipCrew">
         </label>
       </portal>
-	  
+
+	<portal
+      id="lblCrewDetails"
+      style="lblNormal">
+      <label
+        text="Crew:">
+        </label>
+      </portal>
+
+    <portal
+      id="crewdetails"
+      style="lblBrdCent">
+      <label
+        field="shipCrewSumm">
+        </label>
+      </portal>	  
     <position><![CDATA[
 
       ~position the title to span the full width
@@ -224,6 +238,8 @@
 	  portal[resist].width = 100
 	  portal[lblCrew].width = 100
 	  portal[crew].width = 100
+	  portal[lblCrewDetails].width = 100
+	  portal[crewdetails].width = 300
 	  portal[lblYear].width = 100
 	  portal[year].width = 100
 
@@ -261,6 +277,17 @@
 	  portal[crew].top = portal[lblCrew].top
 	  perform portal[crew].alignrel[ltor,lblCrew,10]
 	  
+	  portal[lblCrewDetails].top = portal[lblCrew].bottom + 20
+	  portal[lblCrewDetails].left = portal[lblCrew].left
+	  portal[crewdetails].top = portal[lblCrewDetails].top
+	  perform portal[crewdetails].alignrel[ltor,lblCrewDetails,10]
+	  
+	  ~if no summary, hide portals
+	  if (field[shipCrewSumm].isempty <> 0) then
+	    portal[lblCrewDetails].visible = 0
+	    portal[crewdetails].visible = 0
+		endif
+	  
       ~center the other portals vertically
       ~perform portal[lblScale].centervert
       ~perform portal[scale].centervert
@@ -268,7 +295,7 @@
       ~perform portal[power].centervert
 
       ~height of the portal is the botom of the lowest portal + 10
-	  height = 150
+	  height = portal[lblCrewDetails].bottom + 20
 	  
       ]]></position>
 
@@ -657,7 +684,7 @@
 	  
 	  template[shShipInfo].top = portal[InfoTitle].bottom + 10
 	  template[shShipInfo].left = 0
-	  template[shShipInfo].height = height / 4
+	  template[shShipInfo].height = 170
 	  
 	  ~size and position the attributes table in the top left; we set the height to
       ~the full layout height, but the table will only use the space it needs

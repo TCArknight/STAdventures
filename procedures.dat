@@ -323,7 +323,7 @@
     iteminfo &= "Net Attack: " & field[wpNetAtk].text & "{br}"
 
     ~report the damage rating of the weapon
-    iteminfo &= "Damage: " & field[wpDmgSumm].text & "{br}"
+    iteminfo &= "Damage: " & field[wpDamageSummary].text & "{br}"
 
 	~report the qualities of the weapon
     iteminfo &= "Qualities: " & field[wpQualSumm].text & "{br}"

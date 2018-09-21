@@ -89,6 +89,27 @@
     </source>
 	
   <source
+    id="DivOps"
+    name="Operations Division Sourcebook"
+    parent="Supplement"
+    default="no"
+    reportable="no"
+    selectable="no"
+    sortorder="2"
+    description="Options for Engineering and Operations">
+    </source>
+	
+  <source
+    id="QuadBeta"
+    name="Beta Quadrant Sourcebook"
+    parent="Supplement"
+    default="no"
+    reportable="no"
+    sortorder="4"
+    description="Options from the Beta Quadrant sourcebook.">
+    </source>
+	
+  <source
     id="Era"
     name="Campaign Era"
     selectable="no"
@@ -252,4 +273,10 @@
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
 
+  
+  <!-- FrameSort - Species sortset -->
+  <sortset id="FrameSort" name="Starship Frame Sort">
+    <sortkey isfield="no" id="ShipAlliance"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
   </document>

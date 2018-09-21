@@ -46,7 +46,8 @@
       name="User Value"
       type="user"
       usedelta="yes"
-      maxfinal="50">
+      maxfinal="50"
+	  defvalue="0">
       <!-- Bound the user value to the limits established for the ability -->
       <bound phase="Initialize" priority="5500" name="Bound abiUser">
         <before name="Calc abiFinal"/><![CDATA[
@@ -327,42 +328,6 @@
       ]]></eval>
 	  
     </component>
-		
-  <!-- System component
-        Attributes for Ships.
-  
-  <component
-    id="System"
-    name="System"
-    autocompset="no">
-	
-    Attributes have a minimum ability value of 0
-    <eval index="1" phase="Initialize" priority="3000"><![CDATA[
-      field[abiMinimum].value = 0
-	  field[abiMaximum].value = 15
-            ]]></eval>
-	  
-    </component>
-	
-   Depart component
-        Each Department possessed by the actor derives from this component
- 
-  <component
-    id="Depart"
-    name="Department"
-    autocompset="no">
-
-    Attributes have a minimum ability value of 1 
-    <eval index="1" phase="Initialize" priority="3000"><![CDATA[
-      if (tagis[CharType.typShip] = 1) then
-	    field[abiMinimum].value = 0
-        field[abiMaximum].value = 5
-		endif
-		
-      ]]></eval>
-	  
-    </component> -->
-
 
   <!-- Ability component
         Each special ability derives from this component

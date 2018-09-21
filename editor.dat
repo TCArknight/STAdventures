@@ -412,6 +412,11 @@
       <it_separator/>
       </inputthing>
     <inputthing
+      name="Alliance"
+      helptext="Select the Alliance this frame belongs to.">
+      <it_taglist group="ShipAlliance" tag="?"/>
+      </inputthing>
+    <inputthing
       name="Year Entered Service"
       helptext="This is the year that the spaceframe entered service.">
       <it_field field="fraYearEnt"/>
@@ -425,6 +430,16 @@
       name="Ship Scale"
       helptext="This is the scale of the ship.">
       <it_field field="fraScale"/>
+      </inputthing>
+    <inputthing
+      name="Ship Crew Size"
+      helptext="For Small Craft, this is the number of crew of the ship.">
+      <it_field field="fraCrewSize"/>
+      </inputthing>
+    <inputthing
+      name="Ship Crew Rating"
+      helptext="For typical ships of this type, this is the crew aboard the ship.">
+      <it_field field="fraCrewRating"/>
       </inputthing>
 	<inputthing
       name="Capabilities"

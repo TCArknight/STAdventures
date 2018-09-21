@@ -616,6 +616,18 @@
     <value id="Calib" name="Calibration" />
    </group>
 
+  <!-- Ship Alliance -->
+  <group
+    id="ShipAlliance"
+    dynamic="yes">
+    <value id="Civilian"/>
+    <value id="Federation"/>
+    <value id="Klingon"/>
+    <value id="Romulan"/>
+    <value id="Orion"/>
+    <value id="Gorn"/>
+    </group>
+	
   <!-- Ship group -->
   <group
     id="Ship"

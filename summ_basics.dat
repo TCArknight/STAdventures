@@ -23,7 +23,8 @@
       component="AttrSys"
       showtemplate="asShow"
       showsortset="explicit"
-      scrollable="no">
+      scrollable="no"
+	  alwaysupdate="yes">
       <headertitle><![CDATA[
       @text = #summtitle_decoration[] & " " & herofield[acASHdrTxt].text & "s " & #summtitle_decoration[]
       ]]></headertitle>
@@ -56,7 +57,8 @@
       component="Focus"
       showtemplate="SimpleItem"
       showsortset="explicit"
-      scrollable="no">
+      scrollable="no"
+	  alwaysupdate="yes">
       <headertitle><![CDATA[
       @text = #summtitle_decoration[] & " Focus " & #summtitle_decoration[]
       ]]></headertitle>

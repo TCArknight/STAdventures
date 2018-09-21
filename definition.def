@@ -43,8 +43,8 @@
     major="1"
     minor="0"
     required="6.1g"
-    summary=""><![CDATA[{bmp logo}
-	{b}{text ffff80}Star Trek Adventures for Hero Lab{text 010101}{/b}
+    summary=""><![CDATA[{align center}{bmp logo}
+	{b}{text ffff80}{align center}Star Trek Adventures for Hero Lab{text 010101}{/b}
 
 Mechanically, these data files are identical to the Skeleton data files that are used as a starting point when creating your own data files via the Authoring Kit. However, the Sample data files add an assortment of things that make them usable for experimentation. The added things provide a variety of examples of how to accomplish different behaviors.
 
@@ -105,9 +105,10 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
   <!-- Define an assortment of macros that will make writing scripts faster and easier. -->
 
   <scriptmacro
-    name="abil"
+    name="userresetAbil"
     param1="abil"
-    result="hero.child[#abil].field[abiFinal].value"/>
+    result="perform hero.childfound[#abil].field[abiUser].reset"/>
+	
   <scriptmacro
     name="abilfound"
     param1="abil"
@@ -115,19 +116,23 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
   <scriptmacro
     name="abilbonus"
     param1="abil"
-    result="hero.child[#abil].field[abiBonus].value"/>
+    result="hero.childfound[#abil].field[abiBonus].value"/>
   <scriptmacro
     name="abilinplay"
     param1="abil"
-    result="hero.child[#abil].field[abiInPlay].value"/>
+    result="hero.childfound[#abil].field[abiInPlay].value"/>
   <scriptmacro
     name="abiluser"
     param1="abil"
-    result="hero.child[#abil].field[abiUser].value"/>
+    result="hero.childfound[#abil].field[abiUser].value"/>
+  <scriptmacro
+    name="abilminimum"
+    param1="abil"
+    result="hero.childfound[#abil].field[abiMinimum].value"/>
   <scriptmacro
     name="abilfinal"
     param1="abil"
-    result="hero.child[#abil].field[abiFinal].value"/>
+    result="hero.childfound[#abil].field[abiFinal].value"/>
 	<scriptmacro
     name="childname"
     param1="child"
@@ -187,7 +192,7 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
     result="hero.child[#department].field[abiFinal].value"/>
 	
   <scriptmacro
-    name="curryear"
+    name="shipyear"
     result="hero.childfound[mscShip].field[shipYear].text"/>
 	
   <!-- Decoration character used in summary panel headertitle scripts -->

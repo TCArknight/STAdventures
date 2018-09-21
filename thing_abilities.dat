@@ -58,7 +58,7 @@
     <eval index="1" phase="Ability" priority="4000">
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
-      field[abiBonus].value = #abil[attrsys01] + #abil[attrsys05]
+      field[abiBonus].value = #abilfinal[attrsys01] + #abilfinal[attrsys05]
       ]]></eval>
     </thing>
 
@@ -77,7 +77,7 @@
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
       var value as number
-      ~value = (#abil[attrsys02] * 2 + #abil[attrsys06]) / 3
+      ~value = (#abilfinal[attrsys02] * 2 + #abilfinal[attrsys06]) / 3
       ~value = round(value,0,-1)
       ~field[abiBonus].value += value
       ]]></eval>
@@ -99,7 +99,7 @@
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
       var value as number
-      value = (#abil[attrsys05] + #abil[attrsys06] * 2) / 3
+      value = (#abilfinal[attrsys05] + #abilfinal[attrsys06] * 2) / 3
       value = round(value,0,-1)
       field[abiBonus].value += value
       ]]></eval>
@@ -121,7 +121,7 @@
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
       var value as number
-      value = (#abil[attrsys01] * 2 + #abil[attrsys03]) / 3
+      value = (#abilfinal[attrsys01] * 2 + #abilfinal[attrsys03]) / 3
       value = round(value,0,-1)
       field[abiBonus].value += value
       ]]></eval>
@@ -144,7 +144,7 @@
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
       var value as number
-      value = (#abil[attrsys02] + #abil[attrsys06]) / 5
+      value = (#abilfinal[attrsys02] + #abilfinal[attrsys06]) / 5
       value = round(value,0,-1)
       field[abiBonus].value += value
       ]]></eval>

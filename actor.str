@@ -349,6 +349,7 @@
       perform hero.assign[HideTab.advances]
 
       ]]></eval>
+
     </component>
 	
   <!-- Service component
@@ -476,9 +477,9 @@
       type="user"
       style="menu">
       </field>
+	  
 	  <!-- Integrate the various user selections into the name of the pick
-          NOTE! Must be scheduled after the "shortname" field is synthesized at Render/100.
-    -->
+          NOTE! Must be scheduled after the "shortname" field is synthesized at Render/100.     -->
     <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
       
 	  ~if we have thing-based menus
