@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="wpClawStrike" name="Claw Strike" description="In times of danger Chelons excrete a contact toxin onto their\nclaws that can be used to debilitate foes." compset="Melee">
+    <fieldval field="wpDamage" value="1"/>
+    <usesource source="QuadBeta"/>
+    <tag group="Equipment" tag="Natural"/>
+    <tag group="GearQual" tag="Debil"/>
+    <tag group="GearQual" tag="NonLethal"/>
+    <tag group="DmgEffect" tag="Piercing1"/>
+    </thing>
+  </document>

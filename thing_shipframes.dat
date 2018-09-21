@@ -13,7 +13,7 @@
     <fieldval field="fraSecur" value="2"/>
     <fieldval field="fraCap" value="Unlike most vessels of its mass, Akira-class starships do not have a separate engineering hull, rather the vessel is designed to be as compact as possible to aid in maintaining a strong defensive shield strength over its entire surface area. Other defensive measures included raised pontoon-like structures on either side of the saucer that contained secondary shield generators to help protect vital command and control systems as well as highly sensitive sensor networks for planetary survey and stellar cartography missions that could double as back-up targeting systems for the vessel’s weaponry. The Akira class was also designed with extensive shuttlebays and attached support and maintenance facilities capable of manufacturing shuttles from scratch with the right raw materials. Capable of deploying shuttles of any size, fighters, and even Danube class runabouts, the Akira class is superb at space supremacy in combat roles and extensive stellar system survey in peacetime. If the mission assignment requires it, the shuttle recovery and maintenance systems are replaceable with cargo compartments and extra bulk transporter systems or even extra personnel quarters and life support systems to allow the craft to perform rescue and recovery operations. The torpedo pod mounted between the two pontoons aft of the hull isn’t as easily replaceable as the shuttlebays in the main hull due to the complex power feeds and targeting system relays that feed up the connecting pylons to the pod. This hasn’t stopped ASDB from working on ideas that include making sub-classes of the vessel that would replace the weapons systems with a subspace scanning array equal in size and resolution to ones typically seen in fixed installations. The torpedo pod itself is a unique design in Starfleet vessels, with a series of tubes in a line capable of a nearly continuous barrage as the system staggers the fire of each tube. Each of the standard tubes can be loaded with a store of subspace buoys or sensor probes, but the quantum torpedo systems standard on each vessel are dedicated systems and unable to launch alternate munitions."/>
     <usesource source="TNG"/>
-    <bootstrap thing="talAblaAr"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
@@ -22,6 +22,7 @@
     <bootstrap thing="talExtShut"></bootstrap>
     <bootstrap thing="talQuanTor"></bootstrap>
     <bootstrap thing="talRFTorp"></bootstrap>
+    <bootstrap thing="talAblaAr"></bootstrap>
     </thing>
   <thing id="fraMiran" name="Miranda Class" description="During the mid to late 2260s the Federation saw increasing tensions with the Klingon Empire and many analysts thought that war was inevitable with Qo’noS. The design of the Miranda class began as a dual-purpose patrol and combat vessel designed specifically to counter Klingon designs, specifically recent refits of the D7 battle cruiser. A combined team of designers from Starfleet Tactical and the Starfleet Advanced Technologies Group began co-opting and adjusting technologies and systems from the upcoming Constitution class refit, producing a heavily armed attack vessel just as peace broke out between the Federation and the Empire in 2267. Production of six spaceframes occurred before further manufacturing was halted while a complete redesign was undertaken. In 2272, the Miranda development group had beaten the sword into a plowshare by redesigning nearly 70% of the internal volume of the starship, attempting to make the vessel into a science and survey ship. The result was a highly adaptable starship that continues to be in use nearly one hundred years since its introduction." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2274"/>
@@ -38,11 +39,12 @@
     <fieldval field="fraCap" value="The original design of the Miranda class{br}had nearly double the amount of weapon systems as the{br}Constitution class as well as two large shuttlebays at the{br}aft of the starship. Many of these weapons were removed,{br}leaving three phaser turrets each on the dorsal and ventral{br}sections and two phasers mounted near the vessels impulse{br}deck. A phaser turret on both the port and starboard ‘roll bar’ mountings was linked directly into the warp plasma{br}conduits, increasing the firepower significantly at risk of{br}depriving the starship of warp power at critical moments.{br}In addition, a modular torpedo system was installed at the{br}top of the vessels roll-bar, giving two forward and two rear{br}facing launch tubes that could be quickly replaced with{br}probe launchers. Some of the extra power requirements{br}for weapon systems came from the ships compact shape,{br}lacking a secondary hull, the Miranda could generate the{br}same defensive shielding power as a Constitution class,{br}but for only 70% of the power. The reduction in weapon{br}systems also allowed many of the targeting systems to be{br}replaced by more high-resolution long-range sensors suited{br}for exploration duties. The large shuttle and cargo bays gave{br}the starship an excellent reputation for performing highly{br}detailed planetary surveys, being used for emergency cargo{br}transportation, and a border patrol vessel. The adaptability{br}of the modular systems of the Miranda class made it{br}indispensable for assignments to frontier starbases where{br}it could change its modules, and thus what assignments{br}it could perform, with little layover time. This meant that a{br}single Miranda could be assigned to a starbase rather than{br}two or three specialized starships. By the mid-2280s the{br}Miranda class was in use across the Federation and became{br}the ‘Jack-of-all-Trades’ of the Fleet, and an overworked one{br}with many Miranda-class vessels logging more hours of{br}continual operation than any others. While the Miranda class{br}could never achieve the specialization of the Constitution{br}class in exploration and science, nor the transport{br}capabilities of the Ptolemy class, nor the sheer firepower of the larger, more advanced Excelsior class, it was used for all{br}of these roles. The modular systems that were devised in the{br}2270s have made this class able to be easily refitted over{br}the century of its service, and many of the starships still in{br}active service today were exploring the Galaxy in the late 23rd{br}century."/>
     <usesource source="TNG"/>
     <usesource source="TOS"/>
-    <bootstrap thing="talExtShut"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talExtShut"></bootstrap>
     </thing>
   <thing id="fraConstel" name="Constellation Class" description="Designed in the mid-2280s in response to\nincreasing tensions between the Klingon Empire and the\nFederation, the Constellation class was originally intended for\nuse as a perimeter patrol vessel and heavy interceptor. The\ndesign was not intended as a true warship, therefore, when\nthe initial Khitomer Accords were signed in 2293, the class’\nproduction wasn’t ceased, but its assignments were changed\nfrom being an alert interceptor to an emergency response\nvessel used to deal with crises that could rapidly spiral out of\ncontrol without Starfleet’s intervention." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2285"/>
@@ -59,12 +61,13 @@
     <fieldval field="fraSecur" value="1"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
-    <bootstrap thing="talImpWarp"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor2"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="talExtShut"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
     </thing>
   <thing id="fraConsti" name="Constitution Class" description="The Constitution-class starships defined and\nhelped continue to define Starfleet during the 23rd century\nand beyond. In 2235 Starfleet decided that, to better expand\nand protect the Federation as a whole, a more rugged and\nmulti-purpose exploration vessel was needed that was\nable to stand up to the increasing threat of conflict with\nthe Klingon Empire. The design that resulted would be\nused in dozens of later classes of starships; a saucer-like\nprimary hull that contained the bridge and the majority of\nweapon systems, a cylindrical secondary hull that housed\nthe class’s warp core, navigational deflector and shuttlebay,\nand connected to two warp nacelles held far away from the\nvessel on long struts." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2243"/>
@@ -81,12 +84,13 @@
     <fieldval field="fraSecur" value="1"/>
     <fieldval field="fraSci" value="1"/>
     <usesource source="TOS"/>
-    <bootstrap thing="trShipFed"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talModLab"></bootstrap>
     <bootstrap thing="talRuggDes"></bootstrap>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
     </thing>
   <thing id="fraDefianc" name="Defiance Class" description="The primary purpose of Starfleet is science\nand exploration, with military prowess not being a priority.\nWith some notable exceptions made during the Earth-\nRomulan War, Starfleet had little experience designing\nships specifically made for warfare. The Defiant class began\ndevelopment a year before the Battle of Wolf 359, and the\nstarship’s development and production was made a priority\nafter the disastrous encounter with the Borg. Initial testing\nof the prototype showed serious flaws and was mothballed,\nalong with the entire design project. The development of\nthis class halted until 2370 when the commanding officer of\nDeep Space 9 requested the prototype be assigned to his\ncommand to help with the increasing tensions between the\nFederation and the Dominion." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2371"/>
@@ -101,7 +105,7 @@
     <fieldval field="fraConn" value="1"/>
     <fieldval field="fraSecur" value="2"/>
     <usesource source="TNG"/>
-    <bootstrap thing="talAblaAr"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talQuanTor"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shPhaCan"></bootstrap>
@@ -109,6 +113,7 @@
     <bootstrap thing="shTorQua"></bootstrap>
     <bootstrap thing="shTractor2"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talAblaAr"></bootstrap>
     </thing>
   <thing id="fraExcel" name="Excelsior Class" description="The Excelsior class was hailed as ‘The Great\nExperiment’ by many scientists and engineers across the\nFederation. It was to be the first class of starship to utilize\n‘transwarp drive’ technology, a theoretical next step in\npropulsion technology that had shown repeated laboratory\nand simulated successes. The first attempted full-scale\nuse of U.S.S. Excelsior and its transwarp systems in 2285\nresulted in a complete failure of all propulsion systems\nfrom a combination of sabotage and failure of the vessel’s\ncapability to generate and maintain a transwarp field. The\nprototype was brought back into space dock for redesign\nusing standard warp propulsion technologies, and by 2290\nthe ‘bugs’ had been worked out of the design, resulting in\na highly adaptable and capable starship for the late 23rd\ncentury and beyond." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2285"/>
@@ -124,12 +129,13 @@
     <fieldval field="fraEng" value="2"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
-    <bootstrap thing="talSecReac"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor4"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talSecReac"></bootstrap>
     </thing>
   <thing id="fraGalaxy" name="Galaxy Class" description="Designed to be the best exploration and\nscience vessel ever deployed by Starfleet, the Galaxy class\nwas put into service with many of the most advanced\ntechnologies available in the late 2350s along with its\nsister design, the Nebula class. It also represented a new\nphilosophy in Starfleet where officers and crew on deep\nspace and long duration assignments could bring along their\nfamilies and loved ones rather than be apart from them for\nyears. This philosophy meant the starship was one of the\nlargest produced with often over 2000 crew and their family\nmembers aboard at any given time, and an emergency\nevacuation limit of around 15,000, but more typical crew\nlevels numbered near 1000. While non-Starfleet personnel\namounted to only between 15-20% of the total crew, each\nGalaxy-class starship had facilities and services onboard\nto serve Starfleet crew and civilians typically only seen on\nstarbases including schools for children, bars and in some\ncases restaurants, day-care, and the largest holodecks\nproduced at that time." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2359"/>
@@ -146,13 +152,14 @@
     <fieldval field="fraSci" value="1"/>
     <usesource source="TNG"/>
     <tag group="Ship" tag="SaucerSep"/>
-    <bootstrap thing="talModLab"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talRedSys"></bootstrap>
     <bootstrap thing="talSaucSep"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="shTractor5"></bootstrap>
+    <bootstrap thing="talModLab"></bootstrap>
     </thing>
   <thing id="fraIntrep" name="Intrepid Class" description="By the mid-2360s the success and failures of\nthe Galaxy class were clear to Starfleet. Its large size and\ncrew along with increasing use as a diplomatic vessel rather\nthan exploratory craft made engineers in Starfleet begin\ndesigning the next great explorer, the Intrepid class. This first\nof its class was launched in 2371 to great fanfare and was\nquickly seen by the Federation Science Council as a valuable\nresource. It is small compared to the Galaxy class, more\nclosely resembling a Constitution class, but contains the best\ntechnology available to the Federation." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2371"/>
@@ -166,13 +173,14 @@
     <fieldval field="fraConn" value="1"/>
     <fieldval field="fraSci" value="2"/>
     <usesource source="TNG"/>
-    <bootstrap thing="talAdvSenS"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talEMH"></bootstrap>
     <bootstrap thing="talImpWarp"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talAdvSenS"></bootstrap>
     </thing>
   <thing id="fraNova" name="Nova Class" description="Starfleet Command and the Federation Science\nCouncil formed a committee in 2363 to discuss the state\nof Starfleet’s aging science and exploration vessels. While\nthe Galaxy class was considered a success, the amount\nof personnel and resources required to construct one of\nthe massive exploration cruisers was significant. The end\nconclusion of the committee was that Starfleet required a\nnew science and exploration vessel that was small, easy to\nmaintain, but had the best sensor and scientific equipment\npossible in a small spaceframe. The Nova class is the result,\nonly entering service in the past few years." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2368"/>
@@ -187,10 +195,17 @@
     <fieldval field="fraSci" value="2"/>
     <fieldval field="fraScale" value="3"/>
     <usesource source="TNG"/>
-    <bootstrap thing="talAdvSenS"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor2"></bootstrap>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    </thing>
+  <thing id="fraHdrFederation" name="Federation" compset="Frame" uniqueness="unique" isshowonly="yes">
+    <tag group="ShipAlliance" tag="Federation"/>
+    </thing>
+  <thing id="fraHdrCivilian" name="Civilian" compset="Frame" uniqueness="unique" isshowonly="yes">
+    <tag group="ShipAlliance" tag="Civilian"/>
     </thing>
   </document>

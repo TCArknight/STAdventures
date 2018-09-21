@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="trShipFreighter" name="Freighter" description="Freighter Starship" compset="Trait" uniqueness="unique">
+    <usesource source="QuadBeta"/>
+    <tag group="TraitCat" tag="Ship" name="Ship" abbrev="Ship"/>
+    </thing>
+  <thing id="fraFreighter" name="Freighter" description="Civilian freighters are a widely varying group of designs ranging from the tiny warp capable Gnat-class agricultural freighter to the massive and slow T’lika-class bulk ice hauler. Federation Merchant Marines have standardized classes of freighters that allow ease of maintenance and give manufacturers as well as Starfleet a clear picture of how much they can move between systems. These vessels are distinct from transports as freighters focus solely on shipping cargo." compset="Frame" uniqueness="unique">
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraEng" value="2"/>
+    <fieldval field="fraMed" value="2"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="QuadBeta"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="ShipAlliance" tag="Civilian"/>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="trShipFreighter"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    </thing>
+  </document>

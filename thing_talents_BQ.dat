@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="talAboveClouds" name="Above The Clouds" description="While engaged in Social conflict in a lavish environment (or one of excess), you reduce the Difficulty of any Persuade Tasks by 1 to a minimum of 1." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ardanan Required"><![CDATA[#isspecies[spcArdanan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talZeniteSoul" name="Zenite In The Soul" description="Your ancestry is steeped in toil in the mines on Ardana’s surface and, you roll one additional d20 whenever using Engineering or Science in relation to geology, mining or mine equipment." compset="Talent" summary="Roll one additional d20 whenever using Engineering or Science in relation to geology, mining or mine equipment.">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ardanan Required"><![CDATA[#isspecies[spcArdanan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talMasterStrategist" name="Master Strategist" description="Zakdorn strategic sense is unparalleled in contemporary military theory. Whenever a Zakdorn attempts a Task to Create an Advantage related to strategy or tactics (as opposed to spending Momentum), reduce the Difficulty by 1." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Zakdorn Required"><![CDATA[#isspecies[spcZakdorn] <> 0]]></exprreq>
+    </thing>
+  <thing id="talTacticalVoice" name="Tactical Voice" description="In command positions, the speed of Zakdorn tactical calculations enables them to give concise orders to their crew. During combat, a Zakdorn leader may use the Direct Task one additional time per scene (so, twice per scene overall). Further, when they use the Swift Task Momentum Spend for an extra Task, the cost is reduced to 1 Momentum, so long as the second Task is the Assist or Direct Task." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Zakdorn Required"><![CDATA[#isspecies[spcZakdorn] <> 0]]></exprreq>
+    </thing>
+  <thing id="talProtectiveInst" name="Protective Instinct" description="Insectoids have a profound instinct to defend your eggs and their off-spring, and this transfers onto teams or groups with which they develop a close bond. Whenever an Insectoid attempts a Guard Task in combat, and confers the benefits to another Main Character, ignore the increase in Difficulty when attempting the Task." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Xindi-Insectoid Required"><![CDATA[#isspecies[spcXindiInsectoid] <> 0]]></exprreq>
+    </thing>
+  <thing id="talStunResistance" name="Stun Resistance" description="Reptillians are naturally resistant to energy weapons stun settings. They gain +1 Resistance against Non-lethal attacks from energy weapons. They may always Avoid an Injury from a Non-lethal attack with a cost of 1 Momentum (Immediate), even if they have already Avoided an Injury during the scene." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Xindi-Reptilian Required"><![CDATA[#isspecies[spcXindiReptilian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talMindForDesign" name="A Mind For Design" description="Xindi-Primates are natural engineers and scientists, pushing at the frontiers of design and construction. When following the Scientific Method, they may suggest an additional Focus, which they do not have to possess, as ‘The Good Way’. Every Task they attempt in an Extended Task related to the Scientific Method automatically gains the Piercing 1 effect." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Xindi-Primate Required"><![CDATA[#isspecies[spcXindiPrimate] <> 0]]></exprreq>
+    </thing>
+  <thing id="talCalmUnderPressure" name="Calm Under Pressure" description="Arboreals possess an unwaveringly calm nature, allowing them to ignore the stress of a crisis. When attempting Tasks with Control to resist stress or mental affliction they may reroll one die in your pool." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Xindi-Arboreal Required"><![CDATA[#isspecies[spcXindiArboreal] <> 0]]></exprreq>
+    </thing>
+  <thing id="talPeacefulExistence" name="Peaceful Existence" description="Your upbringing in a peaceful society, one that promotes harmony and has an outright ban on weapons, has developed the Risian ability for peaceful resolutions. Whenever a Risian attempts a Task to dissuade another individual or group from resorting to conflict, they reduce the Difficulty of that Task by 1." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Risian Required"><![CDATA[#isspecies[spcRisian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talOpenAndInsightful" name="Open and Insightful" description="Risian open, and often frank, discussion of problems and personal opinion enables conversation and understanding when working in a team. Whenever a Risian assists another character using Insight or Reason they may re-roll a single d20 in their dice pool. In addition, if the lead character succeeds in the Task using Insight or Reason, they gain 1 bonus Momentum." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Risian Required"><![CDATA[#isspecies[spcRisian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talExosex" name="Exosex" description="The character possess a Z chromosome that strengthens their physical and survival instincts and abilities. Whenever attempting a Task using Fitness or Daring, roll 1 additional d20 and gain one bonus Momentum on such Tasks." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Rigellian Jelna Required"><![CDATA[#isspecies[spcRigellianJelna] <> 0]]></exprreq>
+    </thing>
+  <thing id="talIndustriousMind" name="Industrious Mind" description="The Jelna are naturally enterprising and industrious, and have an affinity for technological developments and industrial engineering. When succeeding an Engineering or Science Task relating to fixing or adapting technology, and spending 2 or more Momentum, a Jelna may add an Advantage related to that technology for free." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Rigellian Jelna Required"><![CDATA[#isspecies[spcRigellianJelna] <> 0]]></exprreq>
+    </thing>
+  <thing id="talChelonShell" name="Chelon Shell" description="The hard shell extending over a Chelon’s body provides added protection from physical and radioactive threats. This natural armor gives the character a Resistance of 1. They may also ignore any Complications from radiation sources." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Rigellian Chelon Required"><![CDATA[#isspecies[spcRigellianChelon] <> 0]]></exprreq>
+    </thing>
+  <thing id="talToxicClaws" name="Toxic Claws" description="In times of danger Chelons excrete a contact toxin onto their claws that can be used to debilitate foes. Their Unarmed Strike is replaced with a melee attack Claw Strike (Melee, 1 A Piercing 1, Debilitating, Non-lethal)." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Rigellian Chelon Required"><![CDATA[#isspecies[spcRigellianChelon] <> 0]]></exprreq>
+    </thing>
+  <thing id="talToBattle" name="To Battle!" description="Whenever a Klingon buys additional dice for a melee attack using Threat, for each Threat added to the pool, you gain 1 bonus Momentum that can only be spent on Bonus Damage, increasing the damage of the attack by 1 per Momentum spent." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Klingon Only"><![CDATA[#isspecies[spcKlingon] <> 0]]></exprreq>
+    </thing>
+  <thing id="talBraklul" name="Brak&apos;lul" description="Various physiological redundancies mean that wounds that would kill other humanoid species don’t affect Klingons as badly. The character gains +2 Resistance against all Non-lethal attacks. In addition, whenever the Klingon is target of a First Aid Task, reduce the Difficulty of that Task by 1, to a minimum of 1." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Klingon Only"><![CDATA[#isspecies[spcKlingon] <> 0]]></exprreq>
+    </thing>
+  <thing id="talRuustai" name="R&apos;uustai" description="This Klingon has lit candles, spoken words to honor their parents, and given their house’s sash to another, joining in a fellowship with another person, and becoming members of the same house (the original house of either party). The R’uustai Talent grants a Klingon an additional Value, which must reflect their relationship with the ritual sibling. In addition, whenever the Klingon assists, or is assisted by another, the character\noffering assistance may re-roll their die." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Klingon Only"><![CDATA[#isspecies[spcKlingon] <> 0]]></exprreq>
+    </thing>
+  <thing id="talVisualSpectrum" name="Visual Spectrum" description="An Efrosian can see beyond what others think of as the visual spectrum, from some infra-red to ultra-violet light. Any Tasks in which detecting those parts of the spectrum is useful reduce in Difficulty by 1. Circumstances, such as low light levels, do not affect the Difficulty of Tasks, as long as those Tasks do not relate to perceiving minutiae of a subject." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Efrosian required."><![CDATA[#isspecies[spcEfrosian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talOralScholar" name="Oral Scholar" description="Efrosians are taught and learn through oral practices or ‘by rote’. Any Obtain Information Momentum spends that relate to their own knowledge using Reason or Insight may ask one additional question, for free, in addition to those bought with Momentum." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Efrosian required."><![CDATA[#isspecies[spcEfrosian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talDeltanPheromones" name="Deltan Pheromones" description="The character excretes a natural aphrodisiac pheromone. Whenever they attempt a Task using Presence to influence an attracted creature, they gain one bonus d20. However, they also increase their Complication Range by 2, as the effect can be distracting or lead to unwanted consequences. This talent can be switched off, losing both the bonus and the drawback, by applying chemical suppressants." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Deltan required."><![CDATA[#isspecies[spcDeltan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another  character the Bolian may use their Presence Attribute instead of their own. Further, both the Bolian and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talBornNearWarpCore" name="Born Near A Warp Core" description="Bolian traditions say that a child born near an active Warp Core has an improved, more positive, disposition. Optimism and an upbeat attitude certainly lends credence to this tradition, allowing the Bolian to weather misfortune. When they suffer a Complication from a Task, roll 1 A; if the result is an Effect, the\nComplication is ignored. Once a Complication has been ignored\nin this way, the Bolian may not ignore another Complication for\nthe remainder of the scene." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talMeticAnalysis" name="Meticulous Analysis" description="When you encounter unidentified phenomena through sensors, you may immediately make a Swift Task, without the need to spend Momentum or an increase in Difficulty. This Task may only be used to attempt to analyze the preliminary data you have received using Reason + Science and a relevant Focus." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Benzite Required"><![CDATA[#isspecies[spcBenzite] <> 0]]></exprreq>
+    </thing>
+  <thing id="talAllFingersThumbs" name="All Fingers And Thumbs" description="When you succeed at a Task using a computer console (including a bridge station), you gain one bonus Momentum. This bonus Momentum cannot be saved into the group pool." compset="Talent">
+    <usesource source="QuadBeta"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Benzite Required"><![CDATA[#isspecies[spcBenzite] <> 0]]></exprreq>
+    </thing>
+  </document>

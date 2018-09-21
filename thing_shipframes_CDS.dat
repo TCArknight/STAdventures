@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="fraDaedalu" name="Daedalus Class" description="Previous to the Earth-Romulan War, Starfleet\nneeded a large vessel to help protect and patrol the few trade\nlanes and colonies United Earth had set up. The Daedalus\nclass was designed to fill that role using the least amount of\nresources and the lowest amount of advanced technology\nas possible. The development and success of the NX class\nmade the Admiralty begin to pull Daedalus-class ships\nback to the Sol System for possible decommissioning, but\nthe Earth-Romulan War gave this vessel new life through\nStarfleet’s desperate need for vessels, allowing them to\nremain active until the late 2190s, with some being used even\ninto the mid-23rd century." compset="Frame" uniqueness="unique">
+  <thing id="fraDaedalu" name="Daedalus Class" description="Previous to the Earth-Romulan War, Starfleet needed a large vessel to help protect and patrol the few trade lanes and colonies United Earth had set up. The Daedalus class was designed to fill that role using the least amount of resources and the lowest amount of advanced technology as possible. The development and success of the NX class made the Admiralty begin to pull Daedalus-class ships back to the Sol System for possible decommissioning, but the Earth-Romulan War gave this vessel new life through Starfleet’s desperate need for vessels, allowing them to remain active until the late 2190s, with some being used even into the mid-23rd century." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2140"/>
     <fieldval field="fraScale" value="3"/>
-    <fieldval field="fraCap" value="The low-tech design of the Daedalus{br}class was due to its role as an escort for trade vessels and{br}colony ships as well as routine scientific surveys, meaning{br}its capabilities didn’t have to be exceptional. At maximum{br}speed, the class could barely achieve warp 4 and its underpowered{br}impulse deck struggled at sublight speeds. The{br}spaceframe itself was rudimentary with a simple cylinder{br}for its engineering section and a sphere for the command{br}section. The weapon systems that it carried were also{br}primitive with first generation phase cannons and guided{br}missiles with thermonuclear payloads. The Daedalus class’s{br}primitive systems proved its success in the early years of{br}the Earth-Romulan War when it was seen that Starfleet{br}could build nearly four Daedalus-class vessels in the same{br}amount of time as an NX class. Additionally, the primitive{br}systems proved to be incredibly easy for even a moderately{br}experienced crew to maintain and repair. Minor upgrades{br}near the end of the war gave these starships greater{br}capabilities by replacing the nuclear weapons with photonic{br}torpedoes and replacing the sensor suites onboard with{br}state-of-the-art systems produced in conjunction with{br}the Vulcans and Andorians. So many of these vessels{br}were constructed by the end of the war that Starfleet{br}mothballed half of them to be used as ‘hanger queens’ to{br}make repair and refits of the still active vessels that much{br}easier. Over its decades of service, Daedalus-class vessels{br}saw dozens of minor and major refits that allowed them to{br}continue active service in Starfleet until the limitations of the{br}spaceframe became apparent when increasing hostilities{br}with the Klingon Empire in the 2250s and ’60s showed{br}the vulnerability of the design. Starfleet quickly phased{br}them out of active duty to be replaced by Constitution and{br}Hermes-class starships."/>
+    <fieldval field="fraCap" value="The low-tech design of the Daedalus class was due to its role as an escort for trade vessels and colony ships as well as routine scientific surveys, meaning its capabilities didn’t have to be exceptional. At maximum speed, the class could barely achieve warp 4 and its underpowered{br}impulse deck struggled at sublight speeds. The spaceframe itself was rudimentary with a simple cylinder for its engineering section and a sphere for the command section. The weapon systems that it carried were also primitive with first generation phase cannons and guided{br}missiles with thermonuclear payloads. The Daedalus class’s primitive systems proved its success in the early years of the Earth-Romulan War when it was seen that Starfleet{br}could build nearly four Daedalus-class vessels in the same amount of time as an NX class. Additionally, the primitive systems proved to be incredibly easy for even a moderately{br}experienced crew to maintain and repair. Minor upgrades near the end of the war gave these starships greater capabilities by replacing the nuclear weapons with photonic torpedoes and replacing the sensor suites onboard with state-of-the-art systems produced in conjunction with the Vulcans and Andorians. So many of these vessels were constructed by the end of the war that Starfleet mothballed half of them to be used as ‘hanger queens’ to make repair and refits of the still active vessels that much easier. Over its decades of service, Daedalus-class vessels saw dozens of minor and major refits that allowed them to continue active service in Starfleet until the limitations of the spaceframe became apparent when increasing hostilities{br}with the Klingon Empire in the 2250s and ’60s showed the vulnerability of the design. Starfleet quickly phased them out of active duty to be replaced by Constitution and Hermes-class starships."/>
     <fieldval field="fraComm" value="6"/>
     <fieldval field="fraComp" value="6"/>
     <fieldval field="fraEngine" value="5"/>
@@ -13,13 +13,14 @@
     <fieldval field="fraEng" value="2"/>
     <fieldval field="fraSci" value="1"/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="trShipFed"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talGrapCab"></bootstrap>
     <bootstrap thing="talPolHuPl"></bootstrap>
     <bootstrap thing="talRuggDes"></bootstrap>
     <bootstrap thing="shPulseCan"></bootstrap>
     <bootstrap thing="shTorSpa"></bootstrap>
     <bootstrap thing="shGrapple2"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
     </thing>
   <thing id="shPulseCan" name="Pulse Cannons" compset="Energy">
     <fieldval field="wpSRange" value="Close"/>
@@ -79,7 +80,7 @@
     <tag group="DmgEffect" tag="Str4"/>
     <tag group="ShipWepCat" tag="Other"/>
     </thing>
-  <thing id="fraNX" name="NX Class" description="In the decades before the Earth-Romulan War\nhuman exploration was limited to a small area around the\nSol System due to Starfleet’s few starships and primitive\nwarp technologies. The NX class was the result of the NX\nProject and Zefram Cochrane’s Warp Five Project that began\nprior to his disappearance. The NX class was experimental\nand groundbreaking in nearly every way, including its overall\ndesign. Unlike other UESPA and Starfleet vessels of the\nera, the NX class didn’t use the cylindrical or box-like hull\nconfigurations similar to 20th and 21st century submarines.\nInstead, the vessel had what would become a standard\nStarfleet aesthetic: a large saucer-like hull. Further, two long\naft-trailing pontoons connected to the class’s experimental\nand powerful warp nacelles. The NX class would serve\nStarfleet for over a decade and was present at some of the\nmost intense battles of the Earth-Romulan War." compset="Frame" uniqueness="unique">
+  <thing id="fraNX" name="NX Class" description="In the decades before the Earth-Romulan War human exploration was limited to a small area around the Sol System due to Starfleet’s few starships and primitive warp technologies. The NX class was the result of the NX Project and Zefram Cochrane’s Warp Five Project that began prior to his disappearance. The NX class was experimental and groundbreaking in nearly every way, including its overall design. Unlike other UESPA and Starfleet vessels of the era, the NX class didn’t use the cylindrical or box-like hull configurations similar to 20th and 21st century submarines. Instead, the vessel had what would become a standard Starfleet aesthetic: a large saucer-like hull. Further, two long aft-trailing pontoons connected to the class’s experimental and powerful warp nacelles. The NX class would serve Starfleet for over a decade and was present at some of the most intense battles of the Earth-Romulan War." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2151"/>
     <fieldval field="fraScale" value="3"/>
     <fieldval field="fraComm" value="6"/>
@@ -91,15 +92,17 @@
     <fieldval field="fraConn" value="1"/>
     <fieldval field="fraEng" value="1"/>
     <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraCap" value="Starfleet considered the Warp Five Project a success on the launch of Enterprise on April 12th, 2151. The warp core, with significant modifications and with the tendency to use vast amounts of deuterium and antideuterium was able to reach warp 5.06, and during the Earth-Romulan War black-box records indicated that Atlantis reached a speed of warp 5.2 in the hours before its destruction. The vessels of the class were heavily armed for a starship of the time as it was thought to err on the side of caution when exploring areas humans had never been before. Three turreted phase cannons were mounted around the saucer to provide excellent coverage against attack from all angles, and six spatial torpedo launchers (four forward and two aft) gave the NX class a simulated advantage over possible opponents. The tactical systems were replaced on Enterprise in 2153 and installed on subsequent NX-class ships, with improved pulsed phase cannons and photonic torpedoes utilizing antimatter in their warheads. Polarized hull-plating and heavy internal bulkheads and structural bracing were used before deflector shield technology was developed. The ship’s shuttlebay was located on the ventral surface of the saucer. The two shuttlepods would ‘drop’ away from the starship when the polarity of the magnetic field of the articulated grappling arm was switched. Debris and small craft that were not under their own propulsion could be brought aboard by two ‘grapplers’ that could be latched on using both magnets and the servo mounted claws that would grip onto nearly any surface."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talPolHuPl"></bootstrap>
-    <bootstrap thing="shGrapple2"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPulseCan"></bootstrap>
     <bootstrap thing="shTorSpa"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="talGrapCab"></bootstrap>
+    <bootstrap thing="talPolHuPl"></bootstrap>
+    <bootstrap thing="shGrapple2"></bootstrap>
     </thing>
-  <thing id="fraHermes" name="Hermes Class" description="The Hermes-class scout was designed in\nconjunction with the Constitution class, the Saladin class,\nand the Ptolemy class. Sharing basic design elements and\nequipment with its sister classes, the Hermes class was\nhighly successful. The Hermes class shared the same basic\nsaucer-like primary hull and ‘neck’ dorsal as other vessels, that connected to a single warp nacelle. Internally the design\nwas quite successful in its role as a scout, but the ship’s small size and lack of mission adaptable space in its single hull made the Hermes class fall out of use by the 2280s. Some demilitarized Hermes-class starships were donated to civilian agencies across the Federation and continued to see use as research vessels for universities into the 24th century." compset="Frame" uniqueness="unique">
+  <thing id="fraHermes" name="Hermes Class" description="The Hermes-class scout was designed in conjunction with the Constitution class, the Saladin class, and the Ptolemy class. Sharing basic design elements and equipment with its sister classes, the Hermes class was highly successful. The Hermes class shared the same basic saucer-like primary hull and ‘neck’ dorsal as other vessels, that connected to a single warp  nacelle. Internally the design was quite successful in its role as a scout, but the ship’s small size and lack of mission adaptable space in its single hull made the Hermes class fall out of use by the 2280s. Some demilitarized Hermes-class starships were donated to civilian agencies across the Federation and  continued to see use as research vessels for universities into the 24th century." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2242"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="7"/>
@@ -110,13 +113,15 @@
     <fieldval field="fraWeap" value="6"/>
     <fieldval field="fraConn" value="2"/>
     <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraCap" value="The ship’s single warp nacelle created a powerful enough warp field from its two sets of warp coils that the Hermes class was able to have a much smaller matter/antimatter warp core than the Constitution class, fitting the entire engineering section into the neck and lower portion of the aft saucer. With the two sets of warp coils so close together, the Hermes class could maintain a strong field gradient for a minimal amount of power allowing it to maintain high warp velocities for longer. This meant that most commanding officers of a Hermes-class vessel could order their vessels to maintain a steady warp 7 and push emergency speeds above warp 9. Sublight propulsion was provided by the standard multistage fusion reactors at the aft of the primary hull. The weapon systems were comprised of only a single phaser bank on the ventral side of the hull, and no photon torpedo systems. The space this makes available in the saucer allows for the addition of extra sensor suites and laboratories networked through the vessel’s two large and powerful duotronic computer cores. The Hermes class wasn’t designed to include a shuttlebay as that space was required for sensor pallets, but it did have three separate docking ports that often carried small travel pods that could be used to move personnel and small amounts of cargo between the starship and orbital facilities and other starships."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="shTractor3"></bootstrap>
-    <bootstrap thing="trShipFed"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="talImpRCS"></bootstrap>
     <bootstrap thing="talRuggDes"></bootstrap>
     <bootstrap thing="talIndPhaS"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
     </thing>
   <thing id="talCaptYac" name="Captain&apos;s Yacht" description="The vessel has a single additional support craft, normally mounted in a dedicated port under the saucer section of the ship. These craft, larger than most shuttles, are often used for diplomatic missions and special excursions by the commanding officer, and are often known as the Captain’s Yacht (though not always; some Intrepid-class vessels have a similar craft called an aeroshuttle). The ship has one additional Small Craft, which does not count against the number which may be active at any one time," compset="Talent">
     <usesource source="DivCmd"/>
@@ -151,7 +156,7 @@ perform focus.assignstr[Str]]]></eval>
     <usesource source="DivCmd"/>
     <tag group="TalentCat" tag="Ship"/>
     </thing>
-  <thing id="fraOberth" name="Oberth Class" description="The design of the Oberth–class science vessel\ncomes as a surprise to most who haven’t studied the history\nof Starfleet. The small saucer-like primary hull is home\nto the approximately 100 crew that served on this ship.\nAttached directly to the hull were two compact and energy\nefficient warp nacelles and an engineering deck. The design\ndoes have a secondary hull slung below the primary hull\nconnected by two thin pylons that contained the vessels\ndeflector array and extensive sensor systems. The design\nonly saw limited use in Starfleet, as other vessels of the time\nperformed the same functions much more effectively, but its\nsmall size and low resource requirements meant that many\ncivilian agencies and universities could utilize the class." compset="Frame" uniqueness="unique">
+  <thing id="fraOberth" name="Oberth Class" description="The design of the {i}Oberth{/i} - class science vessel comes as a surprise to most who haven&apos;t studied the history of Starfleet. The small saucer-like primary hull is home to the approximately 100 crew that served on this ship. Attached directly to the hull were two compact and energy efficient warp nacelles and an engineering deck. The design does have a secondary hull slung below the primary hull connected by two thin pylons that contained the vessels deflector array and extensive sensor systems. The design only saw limited use in Starfleet, as other vessels of the time performed the same functions much more effectively, but its small size and low resource requirements meant that many civilian agencies and universities could utilize the class." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2269"/>
     <fieldval field="fraComm" value="8"/>
     <fieldval field="fraComp" value="9"/>
@@ -162,14 +167,16 @@ perform focus.assignstr[Str]]]></eval>
     <fieldval field="fraConn" value="1"/>
     <fieldval field="fraSci" value="2"/>
     <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraCap" value="The {i}Oberth{/i} class utilized highly efficient warp coils allowing the vessel to only carry small amounts of antimatter and allowing more space to be dedicated to sensors and a small shuttlebay at the far forward of the primary hull. These warp coils were powered separately by their own small matter/antimatter reactors, allowing each of the reactors to operate on lower settings to reduce strain on the power systems and to interfere less with sensitive detection devices in the secondary hull. Even at full power, the {i}Oberth{/i} class was limited to achieving warp 8 for brief periods and could only cruise at warp 5. The secondary hull was inaccessible except through access tubes during normal operation. Inside was the planetary survey and subspace scanning equipment that made the {i}Oberth{/i} class useful for research. The isolated sensor networks, dedicated duotronic computer core and shielded electronics were mirrored on the port and starboard sides of the hull giving the ship interferometric sensor readings that were more detailed than what most starship systems could provide. The isolation of these sensors was necessary due to their sensitivity and high energy output, and unprotected humanoids could be exposed to high energy EM and subspace radiation while scanning operations were underway. The {i}Oberth{/i} class was taken out of active service in Starfleet after the introduction of isolinear computer systems that rendered most systems on the design obsolete, but a few of the class can still be seen used by Starfleet Academy as training vessels with their warp cores removed and by universities requiring mobile research vessels."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talHighRes"></bootstrap>
-    <bootstrap thing="talImpWarp"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTractor2"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
     </thing>
-  <thing id="fraSydney" name="Sydney Class" description="Colonization efforts across the Federation\nbegan to increase in the 2270s and ’80s with the\nintroduction of more efficient terraforming techniques and\nthe expansion of the Federation into new sectors, opening\ndozens of new worlds. A new vessel was designed at the\nLuna Shipyards in the Sol System that could transport a\nlarge group of colonists along with their equipment and\nsupplies. It was dubbed the Sydney-class transport, a\nboxy, angular, but highly effective starship. In service with\nStarfleet and multiple civilian agencies beginning in 2279,\nit would continue to be used until the present day in a\nmultitude of configurations." compset="Frame" uniqueness="unique">
+  <thing id="fraSydney" name="Sydney Class" description="Colonization efforts across the Federation began to increase in the 2270s and &apos;80s with the introduction of more efficient terraforming techniques and the expansion of the Federation into new sectors, opening dozens of new worlds. A new vessel was designed at the Luna Shipyards in the Sol System that could transport a large group of colonists along with their equipment and supplies. It was dubbed the Sydney-class transport, a boxy, angular, but highly effective starship. In service with Starfleet and multiple civilian agencies beginning in 2279, it would continue to be used until the present day in a multitude of configurations." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2279"/>
     <fieldval field="fraComm" value="8"/>
     <fieldval field="fraComp" value="8"/>
@@ -180,14 +187,16 @@ perform focus.assignstr[Str]]]></eval>
     <fieldval field="fraConn" value="2"/>
     <fieldval field="fraEng" value="1"/>
     <fieldval field="fraScale" value="4"/>
+    <fieldval field="fraCap" value="The {i}Sydney{/i}-class was designed specifically to carry as many personnel as possible to a colony as quickly as possible. This meant a compromise between size and speed. The same nacelle and warp coil sets as the {i}Constitution{/i} and {i}Miranda{/i}-class starships were utilized along with a powerful warp core allowing the vessel to achieve warp 6. Sublight propulsion was accomplished via a series of impulse reactor ports at the aft and on the ventral surface of the transport. This gave it not only an incredible agility, but also could allow it to land on a planet&apos;s surface safely and launch again with its cargo holds full. This class didn&apos;t have to land on a planet to deliver its supplies as it had some of the largest transporters developed at the time. These vessels proved to be so useful that many private groups began requesting them as they wished to use them as merchant craft trading goods throughout the quadrants."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talImpImp"></bootstrap>
-    <bootstrap thing="talRuggDes"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTractor2"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
     </thing>
-  <thing id="fraCentaur" name="Centaur Class" description="In the mid-2280s Starfleet felt that the next\ngeneration of light cruisers should begin development based\non the new technologies in development for the Excelsior\nclass, but the initial failures of the prototype transwarp\nsystems in the Excelsior class meant delays for the Centaur\nclass. Extensive redesigns of most systems were undertaken\nby the mid-2290s, with additional vessels of the class\nbeyond the prototype coming into service. Externally this\nclass resembles the Excelsior class in many regards including\nsharing the same saucer for its primary hull and elongated\ntranswarp-style nacelles. The Centaur class was only\nproduced in small numbers, not an amount that would allow\nthe retirement of the Miranda class." compset="Frame" uniqueness="unique">
+  <thing id="fraCentaur" name="Centaur Class" description="In the mid-2280s Starfleet felt that the next generation of light cruisers should begin development based on the new technologies in development for the {i}Excelsior{/i} class, but the initial failures of the prototype transwarp systems in the {i}Excelsior{/i} class meant delays for the {i}Centaur{/i} class. Extensive redesigns of most systems were undertaken by the mid-2290s, with additional vessels of the class beyond the prototype coming into service. Externally this class resembles the {i}Excelsior{/i} class in many regards including sharing the same saucer for its primary hull and elongated transwarp-style nacelles. The {i}Centaur{/i} class was only produced in small numbers, not an amount that would allow the retirement of the {i}Miranda {/i}class." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2285"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="8"/>
@@ -198,15 +207,17 @@ perform focus.assignstr[Str]]]></eval>
     <fieldval field="fraWeap" value="9"/>
     <fieldval field="fraConn" value="2"/>
     <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraCap" value="The first comment from officers first serving onboard {i}Centaur{/i}-class vessels is always about its speed. The impulse deck of the vessel was designed to move the bulk of an {i}Excelsior{/i}-class starship nimbly at sublight speeds, but without a secondary hull {i}Centaur{/i}-class vessels strain the limits of inertial damping fields with their acceleration. They are also over 10% faster at warp velocities when compared to {i}Excelsior{/i}-class vessels and have a more stable field generated by its widely-spaced nacelles. This speed was utilized primarily for rapid emergency response, making {i}Centaur{/i}-class vessels the first on the scene during or after an attack on Federation assets or territory. To aid in this task the design included a significant amount of phaser emplacements as well as fore and aft-mounted photon torpedo launchers. A forward-facing shuttlebay could be equipped with a wide variety of small craft and a high-powered tractor/repulse launch system allowing for high-speed deployment of the auxiliary craft. The {i}Centaur{/i}-class is seen as a specialist vessel in the 2370s and a few are still in service across the Federation being maintained from utilizing parts from mothballed vessels."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talImpImp"></bootstrap>
-    <bootstrap thing="talImpWarp"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaBan"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talImpWarp"></bootstrap>
     </thing>
-  <thing id="fraAmbas" name="Ambassador Class" description="Just after the turn of the 24th century, the\nStarfleet Exploratory Division and the Federation Science\nCouncil began to see a steady decline in scientific returns\nfrom deep space missions. By this time Starfleet had been\nrelying on the Excelsior class and the few Constitution-class\nstarships still in service to continue its aims of discovery,\nbut even with refits, both vessels required frequent returns\nto starbases. Both organizations asked Utopia Planitia Fleet\nYards to develop a new deep-space exploration cruiser that\nwas heavily armed for self-defense, but also capable of\nstaying on assignment for years at a time. The Ambassador\nclass was developed and launched in 2335, and many of\nthe engineering techniques, design ideas, and technologies\ncreated for this starship would continue to be refined over the\ncoming decades and become the basis for the Galaxy class." compset="Frame" uniqueness="unique">
+  <thing id="fraAmbas" name="Ambassador Class" description="Just after the turn of the 24th century, the Starfleet Exploratory Division and the Federation Science Council began to see a steady decline in scientific returns from deep space missions. By this time Starfleet had been relying on the {i}Excelsior{/i} class and the few {i}Constitution{/i}-class starships still in service to continue its aims of discovery, but even with refits, both vessels required frequent returns to starbases. Both organizations asked Utopia Planitia Fleet Yards to develop a new deep-space exploration cruiser that was heavily armed for self-defense, but also capable of staying on assignment for years at a time. The {i}Ambassador{/i} class was developed and launched in 2335, and many of the engineering techniques, design ideas, and technologies created for this starship would continue to be refined over the coming decades and become the basis for the {i}Galaxy{/i} class." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2335"/>
     <fieldval field="fraScale" value="5"/>
     <fieldval field="fraComm" value="9"/>
@@ -218,17 +229,19 @@ perform focus.assignstr[Str]]]></eval>
     <fieldval field="fraCmd" value="1"/>
     <fieldval field="fraConn" value="1"/>
     <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraCap" value="The layout of the {i}Ambassador{/i} class is similar to most Starfleet cruisers, with a saucer-shaped primary hull and a cylindrical secondary engineering hull. The most obvious difference is the then unique warp nacelles that contained high-efficiency warp coils with directional subspace buffers. This meant that subspace distortions and stress could be directed away from weaker coils when they began to show stress. This fine-scale monitoring and field manipulation was only possible with the newly developed FTL isolinear computer cores that the {i}Ambassador{/i} class was fitted with. Other technological innovations were the first type-9 phaser strips (the precursor to the Galaxy class&apos;s type-10 systems), the first fully automated photon torpedo systems on the front and aft of the starship, and the first fully integrated food and equipment replicators aboard a large Starfleet vessel. This class was an immediate success but also a victim of its own innovation. Research and development continued on the groundbreaking systems, improving them faster than they could be installed in the vessels and it quickly became apparent that the {i}Ambassador{/i} class wasn&apos;t able to keep up with technological development, and production was halted on further spaceframes, replacing newer construction with the vastly superior {i}Galaxy{/i} class."/>
     <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
     <tag group="Ship" tag="SaucerSep"/>
-    <bootstrap thing="talHighRes"></bootstrap>
-    <bootstrap thing="talImpImp"></bootstrap>
     <bootstrap thing="talSaucSep"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor4"></bootstrap>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
     </thing>
-  <thing id="fraNebula" name="Nebula Class" compset="Frame" uniqueness="unique">
+  <thing id="fraNebula" name="Nebula Class" description="During the development of the {i}Galaxy{/i} class, Starfleet felt that they could make the next evolutionary step of the {i}Miranda{/i} class based on the design elements of the {i}Galaxy{/i} class, in the same way the {i}Miranda{/i} had incorporated elements from the refit of the {i}Constitution {/i}class vessels. The initial design and production contracts were awarded to Yoyodyne Propulsion Systems at the 40 Eridani A Starfleet Construction Yards. Yoyodyne ensured that design elements of the old {i}Miranda{/i} class that were well respected were included in the new design including modularity of its systems, a large and easily replaceable systems pod on the apex of a &apos;roll-bar&apos;, and interchangeable hull pieces with the {i}Galaxy{/i}-class under construction at Utopia Planitia." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2361"/>
     <fieldval field="fraScale" value="5"/>
     <fieldval field="fraComm" value="9"/>
@@ -239,14 +252,16 @@ perform focus.assignstr[Str]]]></eval>
     <fieldval field="fraWeap" value="9"/>
     <fieldval field="fraEng" value="2"/>
     <fieldval field="fraPods" value="1"/>
+    <fieldval field="fraCap" value="While heavily based on the layout of the old {i}Miranda{/i} class, the {i}Nebula {/i}class differed in its use of an unmodified primary saucer-like hull and the inclusion of a secondary hull that was only slightly modified from the {i}Galaxy{/i} standard in the first production runs, and unmodified in subsequent runs. This means that {i}Nebula{/i}-class starships had nearly the same internal volume as the {i}Galaxy{/i} class. The internal space of the design also differed from the {i}Galaxy{/i} with more non-modular permanent scientific laboratories, engineering shops, and a fourth computer core (the {i}Galaxy{/i} class had three) that helped in the transfer of information to and from the equipment pod. The roll-bar mount was much stronger structurally and provided more EPS connections than the {i}Miranda{/i} class and this allowed a far wider selection of modular pods to be made available for use on the design. The pods that are typically available for the {i}Nebula{/i} class at major starbases are: sensor array with multispectral and subspace interferometry, a subspace antenna array and repeater, additional matter/antimatter reactor core with two warp nacelles to provide an increased time at high warp speeds, shuttle or fighter launch bay, weapons pod including two type-10 phaser strips and six photon torpedo launchers, or a dedicated photon torpedo deck with sixteen individual launch systems."/>
     <usesource source="DivCmd"/>
-    <tag group="Ship" tag="MissionPod"/>
     <tag group="Ship" tag="SaucerSep"/>
-    <bootstrap thing="shTorPho"></bootstrap>
-    <bootstrap thing="shTractor4"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Ship" tag="MissionPod"/>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="talSaucSep"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTractor4"></bootstrap>
     </thing>
   <thing id="mpComCom" name="Command &amp; Control" description="The pod contains additional subspace antennae and supplementary computer cores, allowing it to serve as a command vessel for fleet actions. The ship has +1 Communications, +1 Computers, and +1 Command. The ship also has the Command Ship and Electronic Warfare Systems\nTalent." compset="MissionPod">
     <usesource source="DivCmd"/>
@@ -279,7 +294,7 @@ hero.child[attrsys06].field[abiBonus].value += 1
 ~ +1 to Security
 hero.child[discdept06].field[abiBonus].value += 1</eval>
     </thing>
-  <thing id="fraNewOrle" name="New Orleans Class" description="Soon after the development of the Galaxy and\nNebula-class starships, Starfleet saw the new design style\nas innovative, but requiring large amounts of resources for\neach of the ships to be constructed. Starfleet Command\nissued directives to shipyards across the Federation to\ndesign and produce starships for various mission profiles\nusing the same design elements of their newest vessels, but\nkeeping the crew sizes smaller than the Galaxy and Nebula\nclasses. The New Orleans-class heavy frigate was the first\ndesign submitted for approval by the San Francisco Fleet\nYards. This ship was considerably more compact than most\nvessels in service at the time, and its non-modular primary\nand secondary hulls made construction easier and took\nnearly quarter the time to build compared to a Nebula class.\nThe New Orleans class has begun to replace Miranda-class\nvessels in active service, but construction rates imply that\nthis full change over won’t finish until 2377." compset="Frame" uniqueness="unique">
+  <thing id="fraNewOrle" name="New Orleans Class" description="Soon after the development of the {i}Galaxy{/i} and {i}Nebula{/i}-class starships, Starfleet saw the new design style as innovative, but requiring large amounts of resources for each of the ships to be constructed. Starfleet Command issued directives to shipyards across the Federation to design and produce starships for various mission profiles using the same design elements of their newest vessels, but keeping the crew sizes smaller than the {i}Galaxy{/i} and {i}Nebula{/i} classes. The {i}New Orleans{/i}-class heavy frigate was the first design submitted for approval by the San Francisco Fleet Yards. This ship was considerably more compact than most vessels in service at the time, and its non-modular primary and secondary hulls made construction easier and took nearly quarter the time to build compared to a {i}Nebula{/i} class. The {i}New Orleans{/i} class has begun to replace {i}Miranda{/i}-class vessels in active service, but construction rates imply that this full change over won&apos;t finish until 2377." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2364"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="9"/>
@@ -291,15 +306,17 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraConn" value="1"/>
     <fieldval field="fraEng" value="1"/>
     <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraCap" value="The {i}New Orleans{/i} class is primarily assigned to patrol and planetary survey missions, similar to the {i}Miranda{/i} class. The design has two main features that make it highly desired for these missions: a mission adaptable pod on its ventral secondary hull, and two interlinked subspace and EM sensor strips down the side of its secondary hull and along its warp nacelles. The mission pod closely resembles the two photon torpedo / probe launch systems on its dorsal primary hull, but It contains its own isolinear computer core and as many planetary sensors as a {i}Galaxy-{/i}class ship typically carries. In addition, this planetary survey pod contains six fully automated remote sample probes that can enter a planet&apos;s atmosphere and return biological and geological samples to isolation chambers that are physically separate from the rest of the vessel, making contamination highly unlikely. The two subspace sensor arrays along the hull and the warp nacelles allow long-range and highly detailed sensor scans on star systems dozens of parsecs away through interferometry. These same sensor networks allow the {i}New Orleans{/i} class the ability to have a detailed map of subspace fluctuations and turbulence around it, allowing its warp coils to tweak power output in such a way that it mimics the variable warp geometry of an {i}Intrepid{/i}-class starship without the adjustable-pitch warp pylons."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talHighRes"></bootstrap>
-    <bootstrap thing="talModLab"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talHighRes"></bootstrap>
+    <bootstrap thing="talModLab"></bootstrap>
     </thing>
-  <thing id="fraOlympic" name="Olympic Class" description="Starfleet had been relying on its exploration\nvessels as hospital ships since soon after the Earth-Romulan\nWar. Starfleet felt that a dedicated hospital ship was a waste\nof highly trained medical personnel that could be assigned\nacross the fleet otherwise. A change in this perspective began\nin the late 2360s with disastrous encounters with the Borg and\nincreased tensions with the Cardassians and other aggressive\ninterstellar governments. It was also seen that a vessel that\nwas a non-combatant and solely used for humanitarian efforts\ncould help diplomatically with neutral systems that were\nwavering between joining the Federation or other political\nentities. The Olympic class began limited production at various\nshipyards across the Federation in 2368, and while few are\ncurrently in service, they have made an impact." compset="Frame" uniqueness="unique">
+  <thing id="fraOlympic" name="Olympic Class" description="Starfleet had been relying on its exploration vessels as hospital ships since soon after the Earth-Romulan War. Starfleet felt that a dedicated hospital ship was a waste of highly trained medical personnel that could be assigned across the fleet otherwise. A change in this perspective began in the late 2360s with disastrous encounters with the Borg and increased tensions with the Cardassians and other aggressive interstellar governments. It was also seen that a vessel that was a non-combatant and solely used for humanitarian efforts could help diplomatically with neutral systems that were wavering between joining the Federation or other political entities. The {i}Olympic{/i} class began limited production at various shipyards across the Federation in 2368, and while few are currently in service, they have made an impact." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2368"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="10"/>
@@ -310,15 +327,17 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraWeap" value="7"/>
     <fieldval field="fraMed" value="2"/>
     <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraCap" value="The {i}Olympic{/i} class was designed to look like no other Starfleet vessel currently in service, only resembling the starships used during the Earth-Romulan War such as the {i}Daedalus{/i} class with a large spherical primary hull and an angular secondary hull. This was to make the starship unable to be confused with other Starfleet vessels so it would better stand out as a non-combatant in warzones. The primary hull contained the crew quarters, main computer, and command systems, as well as a sizable botanical garden filled with medicinal plants from across the Federation and beyond. To help with identification, the logo of Starfleet Medical is displayed prominently on each side of the primary hull. The main sickbay used for the crew was also located in the primary hull, but the hospital complex was located in the secondary hull. This hospital complex could house, isolate, and treat over 500 humanoids requiring intensive care and the crew could quickly adapt other spaces inside the ship to house another 500 in triage situations. Newly built {i}Olympic{/i}-class ships are also being fitted with the Emergency Medical Hologram system. While the {i}Olympic{/i} class is considered a non-combatant, Starfleet insisted that a &apos;minimum amount of defensive weaponry&apos; be installed, so low power type-8 Phaser arrays circle the outer primary hull, barely powerful enough to rattle a starship, but enough to destroy incoming debris, or cut away sections of starship hull to have rescue teams reach trapped personnel. The design contains a sizeable shuttlebay that is typically equipped with runabouts and larger shuttles to be used for personnel evacuations or medical supply shipments."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="shPhaArr"></bootstrap>
-    <bootstrap thing="shTractor3"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="talAdvSick"></bootstrap>
     <bootstrap thing="talDedPers"></bootstrap>
     <bootstrap thing="talModLab"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTractor3"></bootstrap>
     </thing>
-  <thing id="fraSteamru" name="Steamrunner Class" description="Light and fast, the Steamrunner class filled\nmultiple roles in Starfleet including light escort, interceptor,\nelectronic warfare, and surveillance/intelligence. The design\nconsists of an angular saucer for a primary hull containing\nall vital systems, and a detached secondary hull that is\nsuspended between the starship’s two warp nacelles. During\nshakedown cruises, new crew quickly discovered that the\ndensely-packed systems could cause interference between\nthe warp nacelles, the deflector system, and long-range\nsensors, but they quickly learned how to tweak the systems\nto perform at peak efficiency." compset="Frame" uniqueness="unique">
+  <thing id="fraSteamru" name="Steamrunner Class" description="Light and fast, the Steamrunner class filled multiple roles in Starfleet including light escort, interceptor, electronic warfare, and surveillance/intelligence. The design consists of an angular saucer for a primary hull containing all vital systems, and a detached secondary hull that is suspended between the starship’s two warp nacelles. During shakedown cruises, new crew quickly discovered that the densely-packed systems could cause interference between the warp nacelles, the deflector system, and long-range sensors, but they quickly learned how to tweak the systems to perform at peak efficiency." compset="Frame" uniqueness="unique">
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="10"/>
     <fieldval field="fraComp" value="09"/>
@@ -330,14 +349,15 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraSecur" value="1"/>
     <fieldval field="fraSci" value="1"/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talAdvSenS"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talImpWarp"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talAdvSenS"></bootstrap>
     </thing>
-  <thing id="fraNorway" name="Norway Class" description="The Advanced Starship Design Bureau at Earth\nSpacedock designs and produces prototypes every year\nfor Starfleet to consider for active service. One area they\nsaw Starfleet lacking in was rapid emergency responders.\nDesign and production of the Norway-class starship began\nin 2369. ASDB gave its design a compact wedge-shaped\nhull with the engineering section located in the aft portion\nof the ship. The first two vessels of the class were launched\nin early 2371, U.S.S. Norway and U.S.S. Finland. Both have already responded to emergencies in the core of the\nFederation and Starfleet has ordered more production\nruns of this design to be assigned to other dense areas of\ninhabited worlds." compset="Frame" uniqueness="unique">
+  <thing id="fraNorway" name="Norway Class" description="The Advanced Starship Design Bureau at Earth Spacedock designs and produces prototypes every year for Starfleet to consider for active service. One area they \nsaw Starfleet lacking in was rapid emergency responders. Design and production of the {i}Norway{/i}-class starship began in 2369. ASDB gave its design a compact wedge-shaped hull with the engineering section located in the aft portion of the ship. The first two vessels of the class were launched in early 2371, {i}U.S.S. Norway{/i} and {i}U.S.S. Finland{/i}. Both have already responded to emergencies in the core of the Federation and Starfleet has ordered more production runs of this design to be assigned to other dense areas of inhabited worlds." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2371"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="10"/>
@@ -348,15 +368,17 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraWeap" value="9"/>
     <fieldval field="fraEng" value="1"/>
     <fieldval field="fraMed" value="2"/>
+    <fieldval field="fraCap" value="As an emergency response vessel, the {i}Norway{/i} class has extensive personnel transporters, expanded sickbay and biological science facilities to handle wounded and to research viral and bacterial infections that often cause pain and suffering. Also, the design includes a shuttlebay capable of handling two Type-6 shuttlecraft in a &apos;ready launch&apos; set up and a shuttle elevator provides access to the shuttle maintenance bay that typically holds at least two other shuttles of various models, one of which being a Type 7 often loaded with emergency food and medical supplies ready to be delivered to a stricken starship or planet&apos;s surface. Large cargo bays on the dorsal section of the starship allow significant amounts of material to be brought to a needed area, but the ASDB also included two tractor beam emitters above the shuttle launch bay that allow small cargo containers to be towed between the vessels warp nacelles while under power in case internal cargo bays aren&apos;t adequate. This ship could normally cruise at warp 7 and achieve short bursts of warp 9.7, but with tractored cargo interfering with the vessel&apos;s warp field, maximum sustained speeds were lowered to warp 6.5 with short bursts of warp 9.2. As a relief ship, it was assumed the {i}Norway{/i} class would be entering war zones, so the design includes defensive shielding 5% stronger than starships of similar mass and includes secondary shield generators for the warp core and bridge. The design also includes multiple type-10 phaser strips and both a forward and rear-mounted torpedo launcher."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="trShipFed"></bootstrap>
-    <bootstrap thing="shPhaArr"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor3"></bootstrap>
     <bootstrap thing="talAdvSick"></bootstrap>
     <bootstrap thing="talEMH"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
     </thing>
-  <thing id="fraSaber" name="Saber Class" description="Patrolling the outer reaches of the Federation\nhas always been a problem. During the rapid expansion\nof the Federation in the early 24th century, this became\na larger problem as the volume of space needing patrols\nand assignments requiring escort of essential goods grew\nexponentially. This duty originally fell to any Starfleet vessel\nin the area to be called on to help in emergencies such as\nattacks on interstellar commercial vessels or other crimes.\nStarfleet felt the need to design and produce a patrol\nvessel dedicated to maintaining a presence on the edges\nof Federation space to better respond to raiders and piracy,\nbut also be able to perform basic survey duties. This hybrid\nvessel was the Saber class." compset="Frame" uniqueness="unique">
+  <thing id="fraSaber" name="Saber Class" description="Patrolling the outer reaches of the Federation has always been a problem. During the rapid expansion of the Federation in the early 24th century, this became a larger problem as the volume of space needing patrols and assignments requiring escort of essential goods grew exponentially. This duty originally fell to any Starfleet vessel in the area to be called on to help in emergencies such as attacks on interstellar commercial vessels or other crimes. Starfleet felt the need to design and produce a patrol vessel dedicated to maintaining a presence on the edges of Federation space to better respond to raiders and piracy, but also be able to perform basic survey duties. This hybrid vessel was the {i}Saber{/i} class." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2371"/>
     <fieldval field="fraScale" value="3"/>
     <fieldval field="fraComm" value="10"/>
@@ -367,14 +389,17 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraWeap" value="9"/>
     <fieldval field="fraConn" value="2"/>
     <fieldval field="fraSecur" value="1"/>
-    <bootstrap thing="trShipFed"></bootstrap>
-    <bootstrap thing="talHPTract"></bootstrap>
-    <bootstrap thing="talImpImp"></bootstrap>
+    <fieldval field="fraCap" value="Small and compact, the {i}Saber{/i} class has an angular primary hull with an integrated engineering section at its aft. The forward section of the primary hull has a cut-out that contains two large shuttlebay doors leading inside a spacious launch and maintenance bay for the vessel&apos;s four shuttlecraft, typically two Type-6 and two Type-9, with two of the shuttles maintained in a &apos;Ready&apos; launch condition. In some cases these vessels also include two Work Bee maintenance pods, but this can make maneuvering the shuttles inside the bay more difficult and few crews keep them on board for long. As a patrol vessel, the {i}Saber{/i} class has sensors specifically dedicated to detection of warp signatures and neutrinos from fusion reactors, allowing easy detection of starships and other spacecraft. The design also includes powerful tractor beams linked directly into the warp power system, capable of towing vessels much larger than it and even halting those same starships under full impulse power. To help stop fleeing criminals, these ships also include powerful impulse drives on the aft with vectored magnetic flow mounts as well as extensive RCS systems across the rest of the vessel, providing heavy thrust in any direction needed to counter the thrust of an escaping vessel. As Starfleet wished the ship to also double as a survey vessel, all {i}Saber{/i}-class vessels have an extensive sensor suite that is particularly suited to detecting spatial and planetary anomalies, but unsuitable for larger bodies as the size of the starship limits the power and number of planetary sensors able to provide deep geological scans from orbit. Currently Starfleet has plans to have at least one of this class assigned to each border sector, but deployment has been limited to the Romulan border area nearest Earth due to production of the design just beginning."/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor2"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talHPTract"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
     </thing>
-  <thing id="fraSovere" name="Sovereign Class" description="The success of the Galaxy-class starship\nwasn’t lost on Starfleet or the Federation as a whole.\nWhile there were notable losses of the class, the large\nsize and survivability of the class made them influential\non starship designers already hard at work building the\nnext major Federation explorer. The Sovereign class began\ndevelopment in 2368 after Starfleet Command felt that\nstarships probing deep space would need to be better\nequipped to handle hostile and more technologically\nadvanced races such as the Borg. The new design gained\ngreater importance after the discovery of the Bajoran\nwormhole in 2369 and the discovery of damage to spacetime\ncaused by standard warp drive systems. The first\nof the new vessels, U.S.S. Sovereign NX/NCC-73811, is\nexpected to enter full service in late 2371." compset="Frame" uniqueness="unique">
+  <thing id="fraSovere" name="Sovereign Class" description="The success of the Galaxy-class starship wasn’t lost on Starfleet or the Federation as a whole. While there were notable losses of the class, the large size and survivability of the class made them influential on starship designers already hard at work building the next major Federation explorer. The Sovereign class began development in 2368 after Starfleet Command felt that starships probing deep space would need to be better\nequipped to handle hostile and more technologically advanced races such as the Borg. The new design gained greater importance after the discovery of the Bajoran wormhole in 2369 and the discovery of damage to spacetime caused by standard warp drive systems. The first of the new vessels, U.S.S. Sovereign NX/NCC-73811, is expected to enter full service in late 2371." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2371"/>
     <fieldval field="fraScale" value="6"/>
     <fieldval field="fraComm" value="10"/>
@@ -387,7 +412,7 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraSecur" value="1"/>
     <fieldval field="fraSci" value="1"/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talCmdShip"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talEMH"></bootstrap>
     <bootstrap thing="talImpWarp"></bootstrap>
     <bootstrap thing="talQuanTor"></bootstrap>
@@ -396,8 +421,9 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <bootstrap thing="shTorQua"></bootstrap>
     <bootstrap thing="shTractor5"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talCmdShip"></bootstrap>
     </thing>
-  <thing id="fraLuna" name="Luna Class" description="With the design success of the Intrepid class,\nStarfleet immediately began a parallel development of a\nheavy explorer capable of all the same exploratory and\nscientific assignments of an Intrepid class, but with larger\nresearch facilities, more computer processing power, and\nlonger mission duration. The Luna class exited its design\nphase eight months after her sister class, and while there\nhave been engineering delays, U.S.S. Luna NX-80101 is\nexpected to slip her drydock over Mars in late 2372. Like the\nIntrepid class, the Luna class has an integrated primary and\nsecondary engineering hull with organic curves giving it a\nsimilar profile to many of the newer Starfleet vessels leaving\nUtopia Planitia." compset="Frame" uniqueness="unique">
+  <thing id="fraLuna" name="Luna Class" description="With the design success of the {i}Intrepid{/i} class, Starfleet immediately began a parallel development of a heavy explorer capable of all the same exploratory and scientific assignments of an {i}Intrepid{/i} class, but with larger research facilities, more computer processing power, and longer mission duration. The {i}Luna{/i} class exited its design phase eight months after her sister class, and while there have been engineering delays, {i}U.S.S. Luna{/i} NX-80101 is expected to slip her drydock over Mars in late 2372. Like the {i}Intrepid{/i} class, the {i}Luna{/i} class has an integrated primary and secondary engineering hull with organic curves giving it a similar profile to many of the newer Starfleet vessels leaving Utopia Planitia." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2372"/>
     <fieldval field="fraScale" value="5"/>
     <fieldval field="fraComm" value="10"/>
@@ -408,13 +434,179 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
     <fieldval field="fraWeap" value="09"/>
     <fieldval field="fraEng" value="1"/>
     <fieldval field="fraSci" value="2"/>
+    <fieldval field="fraCap" value="Like her sister class, the {i}Luna{/i} class is equipped with variable geometry warp nacelles, allowing the starship to maintain warp field stability in turbulent space-time and to generate the subspace field with less power. This allows the {i}Luna{/i} class a cruising speed of Warp 7 and a maximum speed of Warp 9.975. Also like the {i}Intrepid{/i} class, these vessels are designed to incorporate holo-emitters in sickbay to facilitate an Emergency Medical Hologram, but these emitters are also installed in mission critical areas of the ship. Large sections of the primary hull have areas that allow for modular mission specific research facilities that have hardwired connections into the ships main computer arrays, as well as facilities to allow for non-Class-M environments for studying newly discovered life forms or for hosting non-humanoid sentient species for diplomatic events, and mounts for extra sensor equipment. Unlike its sister class, the {i}Luna{/i} class has a modular equipment pod much like the {i}Nebula{/i} class. This pod is typically filled with sensitive subspace and multispectral sensor equipment and a third isolinear computer core that assists the two primary cores. The only pod so far in development is a subspace transceiver that would allow near real-time communications back to Starfleet from distances of up to 50,000 light-years, but this technology is not believed to be ready until after the performance analysis of MIDAS (Mutara Interdimensional Deep Space Array System) is complete once construction is finished."/>
     <usesource source="DivCmd"/>
-    <bootstrap thing="talAdvRese"></bootstrap>
-    <bootstrap thing="talAdvSenS"></bootstrap>
+    <tag group="ShipAlliance" tag="Federation"/>
     <bootstrap thing="talEMH"></bootstrap>
     <bootstrap thing="shPhaArr"></bootstrap>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor4"></bootstrap>
     <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talAdvRese"></bootstrap>
+    <bootstrap thing="talAdvSenS"></bootstrap>
+    </thing>
+  <thing id="fraShuttleTypeF" name="Shuttle (Type-F)" description="The Type-F “Federation” shuttlecraft was the first fully standardized shuttlecraft manufactured by all shipyards and member worlds. The boxy, but functional design was at first decried by more aesthetically minded Starfleet officers and crew, but the design quickly gained a reputation for reliability, survivability, and versatility not seen in previous Starfleet shuttles. It would be used in its original specifications until the 2280s when it underwent an extensive redesign and refit program, making them continue to resemble Starfleet’s design aesthetic and increasing its usefulness." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2255"/>
+    <fieldval field="fraCap" value="The squat, angular, and non-aerodynamic form of the Type-F shuttle hides the fact that it had the greatest mass-to-power ratio for any shuttlecraft yet produced. Powered by a tiny matter/antimatter fuel cell in each of its nacelles, the Type F could use its ion-based impulse drive to maintain sublight accelerations equivalent to most starships of its era. These ion impulse drives were so efficient that while in an atmosphere, under normal operating conditions, the Type-F shuttlecraft would act as a ramjet and maintain hypersonic speeds nearly indefinitely. In a vacuum, it was less efficient and would require refueling of reaction mass and its fuel cells every three standard weeks. The Type F was designed to not only provide transport for goods, but also personnel. The maximum normal compliment was seven humanoids, but used as a lifeboat or a troop transport, it could hold nearly double that in cramped conditions for short periods of time. It also had very limited warp capability, making it suited for planetary survey missions. To assist in this, the shuttle had a powerful duotronic computer system and advanced sensors that could provide extra information to its parent craft. The Type-F shuttle can still be seen in use by Starfleet Academy during atmospheric flight training exercises and formation flying above Paris for the annual United Earth’s “Federation Day” Air and Space show."/>
+    <fieldval field="fraCrewSize" value="1 or 2, plus 6 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraComm" value="5"/>
+    <fieldval field="fraComp" value="4"/>
+    <fieldval field="fraEngine" value="5"/>
+    <fieldval field="fraSens" value="4"/>
+    <fieldval field="fraStruc" value="5"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraWorkBee" name="Work Bee" description="Small, agile, and made for ease of use, the Cargo Management Unit (CMU), also known as the Work Bee, was introduced in the 2270s and continues to see use across the Federation one hundred years later. The Work Bee&apos;s cautionary yellow hull markings resemble Earth honey bees, busy and productive, giving them their nickname.\n\n{b}SPECIAL RULES:{/b} \nCannot use any Helm action other than Maneuver. Provides no life support. Grants an Advantage - &amp;quot;Work Bee Tools&amp;quot; - on all Tasks made to use the Work Bee to perform external repairs on the ship." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2270"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraCap" value="The Work Bee is very small, barely larger than the humanoid piloting it. The CMU design is so small that users don environmental suits that provide them with a breathable environment as there is no room for a dedicated life-support system. All Work Bees have standard equipment such as a powerful spotlight on the forward hull to illuminate areas of interest and large transparent-aluminum windows allowing the pilot easy viewing of what is often tight spaces around them. Depending on the specific assignment, Work Bees can be outfitted with numerous tools on modular mounts on the fore and aft of the vehicle including cargo hardpoints for hauling small cargo pods, manipulator arms for moving and placing pieces of equipment, welding and cutting torches, inspection scanning devices for checking newly finished construction, and a tool box filled with engineering tools designed to be used by crews in EVA suits. The Work Bee is powered by tiny electro-chemical fuel cells and moves via helium RCS thrusters. Typically Work Bees must replace the RCS and fuel cells after only a few hours of operation making these vehicles closely tied to the facility or starship they call home."/>
+    <fieldval field="fraComm" value="3"/>
+    <fieldval field="fraComp" value="3"/>
+    <fieldval field="fraEngine" value="4"/>
+    <fieldval field="fraSens" value="3"/>
+    <fieldval field="fraStruc" value="5"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraCrewSize" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    </thing>
+  <thing id="fraShuttleType6" name="Shuttle (Type-6)" description="By the early 2300s, Starfleet knew that the Type-F shuttlecraft was approaching the end of the design&apos;s usefulness. The Type-6 shuttlecraft was designed to closely resemble the refitted Type-F shuttle of the 2280s so recovery systems and shuttle platforms wouldn&apos;t have to be redesigned across the Federation. An easy to understand and maintain design was required as this shuttle would become the new standard across the Federation." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2356"/>
+    <fieldval field="fraCap" value="The Type-6 shuttlecraft was an improvement in design over the Type F with many of its systems. Propulsion systems were upgraded; the impulse drive having its own fusion power core, and the nacelles on the ventral sides of the shuttle actually having warp coils that are powered by their own fusion reactors, giving the shuttle a limited FTL capability of just over warp 1. This speed meant that the shuttle could range further from its parent craft for assignments; it usually wouldn&apos;t venture further than a few AUs. The fact that the Type-6 could enter warp meant that the shuttlecraft became ubiquitous as interplanetary transport, making travel between worlds and facilities in a star system nearly five times faster. Improvements in offensive and defensive technologies included the installation of deflector shield emitters, allowing it to survive in more hostile environmental conditions and the addition of two modular type- 4 phaser mounts. The addition of extra energy capacitors and power generation for these weapons also gave the Type-6 a higher warp speed, almost reaching warp 2. These shuttlecraft can be found assigned to nearly every Starfleet starbase and ground facilities across the Federation as well as most starships with shuttlebays large enough to hold them."/>
+    <fieldval field="fraCrewSize" value="1 or 2, plus 6 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraComp" value="5"/>
+    <fieldval field="fraEngine" value="6"/>
+    <fieldval field="fraSens" value="5"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraShuttleType7" name="Shuttle (Type-7)" description="Seeing a need for a larger personnel and cargo transport shuttle after the limitations of the internal space of the Type-6 shuttlecraft became apparent, Starfleet issued a directive calling for the design and construction of a larger &apos;Medium Range Cargo and Personnel Shuttle&apos;. The design that came out on top was from the Baikonur Cosmodrome and was designated the &apos;Type-7&apos;. The Type-7 was still the box-like shape and two nacelles common to all Starfleet shuttles, but in a deviation from what was expected, its edges were rounded and curved, giving it a fluid shape akin to a sea creature or a tear drop.\n\n{b}SPECIAL RULES:{/b} \n{b}Well-Supplied:{/b} A Type-7 shuttle is well-supplied and contains many storage compartments. Characters may attempt to search the shuttle for parts or supplies by attempting an Insight + Engineering Task with a Difficulty of 2. The Gamemaster determines what these supplies or parts do, based on what the characters are attempting to find.\n\n{b}Unstable Warp Field:{/b} A character operating a Type-7 shuttle increases the Difficulty of any Task to go to warp by 1." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2359"/>
+    <fieldval field="fraCap" value="Built with the same isolinear computer systems as was standard on the later models of the Type-6, the Type-7 shuttle used a 100 millicochrane field around its computer core to help monitor and adjust its low-power warp field. This heavy computer control was needed to keep the shuttle at superluminal velocities topping out at Warp 2.5. Without the computer assistance, a rookie pilot could easily cause the shuttle to drop to sublight speeds. The interior of the shuttle was large, capable of seating a minimum of two pilots and over ten passengers in comfort, triple that for short duration flights in emergency situations. Nearly all the shuttle&apos;s power was needed for propulsion, leaving little for deflector shields, and none for weapon systems. This lack of adequate defenses meant that starships operating away from Federation space rarely used the Type-7, they were usually assigned to starbases and star systems inside Federation territory."/>
+    <fieldval field="fraCrewSize" value="1 or 2, plus 12 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraComp" value="6"/>
+    <fieldval field="fraEngine" value="6"/>
+    <fieldval field="fraSens" value="5"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fraShuttleType8" name="Shuttle (Type-8)" description="The introduction of the {i}Sovereign{/i}, {i}Intrepid{/i}, and {i}Nova-{/i}class starships meant that design teams had the chance to rework and update the reliable Type-6 shuttlecraft. The Type-8 was the result, visually almost identical to the Type-6 and able to use the same maintenance facilities and docking ports as the older model." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraCap" value="The major difference in standard systems in the Type-8 over the Type-6 was a more compact and powerful matter/antimatter warp core. Inset bussard collectors in the port and starboard intakes were larger enough that the shuttlecraft only carried small deuterium tanks compared to its larger antimatter storage cells. This extra power gave the Type-8 a higher sustained warp speed of 2.8. The shuttle was capable of warp 3.1, but only for short durations before the warp coils drained the field capacitors and forced the shuttle to spend hours at sublight speeds recharging its systems. Like the Type-6, the Type-8 had the option of mounting two phasers on the nose of the vessel, requiring one of the shuttle pilots to be tactically trained. The use of the phasers would also put a strain on the shuttle&apos;s warp systems, and firing the phasers in a tactical situation often meant forgoing the possibility of going to warp soon after."/>
+    <fieldval field="fraCrewSize" value="1 or 2, plus 6 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="5"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    </thing>
+  <thing id="fraShuttleType9" name="Shuttle (Type-9)" description="The Type-9 shuttlecraft was also referred to as the Class 2 (second-class) after the Type-8 shuttlecraft was given priority in production over the arguably more elegant and smaller Type-9. The Type-9 was originally designed as a single crew warp-capable fighter to replace the larger multi-crewed fighters currently deployed in defensive formations across the Federation, but initial flight tests showed that the design would be far more successful as a small shuttlecraft with its internal space dedicated to sensors and cargo rather than shielding and offensive systems." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2370"/>
+    <fieldval field="fraCap" value="The major difference in standard systems in the Type-8 over the Type-6 was a more compact and powerful matter/antimatter warp core. Inset bussard collectors in the port and starboard intakes were larger enough that the shuttlecraft only carried small deuterium tanks compared to its larger antimatter storage cells. This extra power gave the Type-8 a higher sustained warp speed of 2.8. The shuttle was capable of warp 3.1, but only for short durations before the warp coils drained the field capacitors and forced the shuttle to spend hours at sublight speeds recharging its systems. Like the Type-6, the Type-8 had the option of mounting two phasers on the nose of the vessel, requiring one of the shuttle pilots to be tactically trained. The use of the phasers would also put a strain on the shuttle&apos;s warp systems, and firing the phasers in a tactical situation often meant forgoing the possibility of going to warp soon after."/>
+    <fieldval field="fraCrewSize" value="1, plus 2 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    </thing>
+  <thing id="fraShuttleType10" name="Shuttle (Type-10)" description="With the new smaller starships beginning to be put into production by Starfleet, compact shuttles were needed to give these vessels the versatility expected by the officers and enlisted of the service. To accomplish this, designers had to make compromises in the design, electing for compact systems rather than the best available for Federation shuttles. The Type-10 shuttlecraft, also known as the {i}Chaffee{/i} class, ended up using technology that had been discarded for a century or more as refinements to the equipment made them small enough to be required for this design. Loved and hated in equal measures by crew serving aboard them, the Type-10 is only permanently assigned to {i}Defiant{/i} and some {i}Nova{/i}-class starships.\n\n{b}SPECIAL RULES:{/b}\nThe Type 10 is difficult to repair while in space. Any attempt to repair a Type-10 shuttle in any environment other than a shuttlebay or other repair facility increases in Difficulty by 1. Repairs made in a proper repair facility reduce in Difficulty by 1 instead." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2370"/>
+    <fieldval field="fraCap" value="The Type-10 can handle up to four crew (and double that number in emergencies), but typically only has a crew of two assigned for away missions. This interior space is surprising for such a small shuttle. The openness of the Type-10 is only made possible due to the shuttle&apos;s reliance on compact fusion reactors in its two engine pods for power. Without a bulky matter/ antimatter reactor, more of these small reactors, along with more capacitors allow the Type-10 to maintain a cruising speed of Warp 3 and a burst speed of Warp 5 that can be sustained for approximately thirty seconds. As the Type-10 is typically assigned to combat vessels or small and under-armed science vessels, it has three hard-mounted type-5 phaser strips, one on each engine pod and one on the nose of the shuttle. The Type-10 also has a hardpoint on its ventral surface that allows the mounting of a micro-torpedo launcher for a single-shot quantum torpedo. Crews often complained about how many systems were located outside on the engine pods. As EVA suits are not standard on the Type-10 due to their bulk, damage to propulsion systems and hull damage were very difficult to repair. This isn&apos;t typically an issue as reports of reactor damage to the Type-10 results in high-energy plasma burning through the entire engine pod, and damaging the hull, resulting in crews beaming to safety in the emergency transporter, and scuttling the shuttle rather than trying to salvage the radioactive scrap."/>
+    <fieldval field="fraCrewSize" value="1 or 2, plus 2 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraEngine" value="6"/>
+    <fieldval field="fraWeap" value="5"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorPho"></bootstrap>
+    <bootstrap thing="shTorQuantumSIngle"></bootstrap>
+    </thing>
+  <thing id="fraFedAttackFighter" name="Federation Attack Fighter" description="vessel also built by them. Given the unimaginative name of \n&amp;quot;Attack Fighter&amp;quot;, many of its crews nicknamed them after the Andorian riding animal, &amp;quot;Zabathu.&amp;quot;" compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2367"/>
+    <fieldval field="fraScale" value="2"/>
+    <fieldval field="fraCrewSize" value="1 or 2"/>
+    <fieldval field="fraCap" value="The fighter is small enough that it is typically piloted by a single crew member, but training flights and fighters assigned for strike missions typically have two crew assigned. Each fighter has hard-mounted two forward torpedo launchers and a single aft launcher that can double as a probe launcher or cargo delivery system. Current testing is underway on Andor to use these launchers to deliver special forces troops or undercover agents to a planet&apos;s surface where transporters aren&apos;t feasible for use and speed is more of a concern than safety. The fighter also has standard type-5 phaser strips along the edges of the vessel&apos;s warp nacelles, giving it wide firing arcs and providing accurate defensive fire against incoming heavy weapons. {br}{br}The fighter was never assumed to operate on its own, so the designers removed many of the original courier design&apos;s warp coils to provide extra internal space for larger fusion reactors for the impulse drive and shield emitters. This makes the fighter only able to maintain warp speeds for short durations, normally no more than thirty minutes to an hour at lower speeds, and makes it highly dependent on its parent vessel to deliver it close to the battle. As the fighter was based on an older and more reliable design, upgrading the civilian ship is fairly trivial and many Maquis cells use these upgraded vessels as attack ships in their fight against the Cardassians."/>
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="DivCmd"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="talImpImp"></bootstrap>
+    <bootstrap thing="talImpRCS"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
+    <bootstrap thing="shTorMicro"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="shTorMicro" name="Micro-torpedoes" compset="Energy">
+    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpSBasDmg" value="5"/>
+    <usesource source="DivCmd"/>
+    <tag group="GearQual" tag="HiYield"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    </thing>
+  <thing id="shTorQuantumSIngle" name="Single Quantum Torpedo" compset="Energy">
+    <fieldval field="wpSRange" value="Long"/>
+    <tag group="GearQual" tag="Calib" name="Calibration" abbrev="Calibration"/>
+    <tag group="GearQual" tag="HiYield" name="High Yield" abbrev="High Yield"/>
+    <tag group="DmgEffect" tag="Vicious1" name="Vicious 1" abbrev="Vicious 1"/>
     </thing>
   </document>
