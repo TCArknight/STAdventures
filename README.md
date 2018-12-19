@@ -9,4 +9,8 @@ Beta Quadrant Supplement
 Coming Soon:
 Operations Division Supplement
 
+12/19/2018 (1.1beta)
+Fixed: 
+* Mission Pod showing on all character types
+
 
