@@ -138,9 +138,6 @@
 
       ~if this is a "sizing" calculation, we're done
       doneif (issizing <> 0)
-	  
-      ~if this is a "sizing" calculation, we're done
-      doneif (issizing <> 0)
 
       ~determine whether our menus are visible
       ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
@@ -279,6 +276,8 @@
         portal[abPod].freeze = 1
         endif
 
+	  portal[abPod].visible = hero.tagis[Ship.MissionPod]
+	  
       ~position and size the table to span the full layout; it will only use the
       ~vertical space that it actually needs
       perform portal[abTalent].autoplace

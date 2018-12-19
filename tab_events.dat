@@ -73,6 +73,18 @@
       </portal>
 
     <portal
+      id="menu1"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen1"
+        component="none"
+        maxvisible="10"
+        usepicksfield="usrSource1"
+        candidatefield="usrCandid1">
+        </menu_things>
+      </portal>
+	  
+    <portal
       id="info"
       style="actInfo">
       <action
@@ -97,22 +109,40 @@
       ~if this is a "sizing" calculation, we're done
       doneif (issizing <> 0)
 
+      ~determine whether our menus are visible
+      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
+	  if (field[usrCandid1].isempty <> 0) then
+        portal[menu1].visible = 0
+        endif
+		
       ~position our tallest portal at the top
       portal[info].top = 0
 
       ~center the other portals vertically
       perform portal[name].centervert
       perform portal[delete].centervert
+      perform portal[menu1].centervert
 
       ~position the delete portal on the far right
       perform portal[delete].alignedge[right,0]
 
       ~position the info portal to the left of the delete button
       perform portal[info].alignrel[rtol,delete,-8]
-
-      ~position the name on the left and let it use all available space
+	  
+      ~position the name on the left and use availble space, with a gap for menus
       portal[name].left = 0
-      portal[name].width = minimum(portal[name].width,portal[info].left - 5)
+      portal[name].width = minimum(portal[name].width,portal[info].left - portal[name].left - 75)
+
+	  ~position the menus to the right of the name in the available space
+      perform portal[menu1].alignrel[ltor,name,10]
+      portal[menu1].width = (portal[info].left - portal[menu1].left - 20) / 2
+
+      ~if a menu is visible, make sure it has a selection
+      if (portal[menu1].visible <> 0) then
+        if (field[usrChosen1].ischosen = 0) then
+          perform portal[menu1].setstyle[menuErrSm]
+          endif
+        endif
 
       ~if the ability is auto-added, change its font to indicate that fact
       if (candelete = 0) then

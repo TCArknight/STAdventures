@@ -9,6 +9,20 @@
 
   <!-- Career Events -->
   <thing
+    id="evShipDes"
+    name="Ship Destroyed"
+    compset="Event"
+    isunique="yes"
+    description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys02] += 1
+	  #abilbonus[discdept05] += 1
+	  
+      ]]></eval>    
+    </thing>
+	
+  <thing
     id="evBetIde"
     name="Betrayed Ideals For A Superior"
     compset="Event"
@@ -23,16 +37,271 @@
 	</thing>
 
   <thing
-    id="evShipDes"
-    name="Ship Destroyed"
+    id="evDeathFriend"
+    name="Death of a Friend"
     compset="Event"
     isunique="yes"
-    description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.">
+    description="During an important mission, one of the character’s friends was killed in action.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys04] += 1
+	  #abilbonus[discdept04] += 1
+	  
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evLaudCulture"
+    name="Lauded By Another Culture"
+    compset="Event"
+    isunique="yes"
+    description="The character was involved in a mission that earned the official praise of a non-Federation culture; they are now considered to be a friend to that people.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys05] += 1
+	  #abilbonus[discdept06] += 1
+	  
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evNegTreaty"
+    name="Negotiate a Treaty"
+    compset="Event"
+    isunique="yes"
+    description="The character was part of a delegation that helped negotiate a treaty, agreement, or alliance with a culture outside the Federation.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys01] += 1
+	  #abilbonus[discdept01] += 1
+	  
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evReqTakeCommand"
+    name="Required To Take Command"
+    compset="Event"
+    isunique="yes"
+    description="During a mission, a crisis left the mission’s leader unable to lead. This required the character to take command, something they may not have been prepared for.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys02] += 1
+	  #abilbonus[discdept01] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evEncAlienBeing"
+    name="Encounter With A Truly Alien Being"
+    compset="Event"
+    isunique="yes"
+    description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys02] += 1
+	  #abilbonus[discdept01] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evSeriousInj"
+    name="Serious Injury"
+    compset="Event"
+    isunique="yes"
+    description="The character was seriously hurt, and needed to spend a considerable amount of time recovering.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys03] += 1
+	  #abilbonus[discdept04] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evConfHostileCult"
+    name="Conflict With A Hostile Culture"
+    compset="Event"
+    isunique="yes"
+    description="The character was involved in a major battle with a hostile force, and is unlikely to forget the experience.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys03] += 1
+	  #abilbonus[discdept05] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evMentored"
+    name="Mentored"
+    compset="Event"
+    isunique="yes"
+    description="A highly-respected officer took notice of the character’s career. For a time, the character served as the officer’s pilot and aide, gaining the benefit of the officer’s experiences and lessons.">
+	<fieldval field="usrLabel1" value="Attribute:"/>
+    <fieldval field="usrCandid1" value="component.AttrSys"/>
+    <fieldval field="usrSource1" value="1"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+	  #abilbonus[discdept02] += 1
+	  
+      doneif (field[usrChosen1].ischosen = 0)
+
+      field[usrChosen1].chosen.field[abiBonus].value += 1
+	  
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evTransporterAcc"
+    name="Transporter Accident"
+    compset="Event"
+    isunique="yes"
+    description="The character suffered some manner of strange accident while using a Transporter.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys01] += 1
+	  #abilbonus[discdept02] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evDealPlague"
+    name="Dealing With A Plague"
+    compset="Event"
+    isunique="yes"
+    description="The character’s starship was assigned to provide aid to a world deal with an epidemic.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys04] += 1
+	  #abilbonus[discdept04] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evCalledOut"
+    name="Called Out By A Superior"
+    compset="Event"
+    isunique="yes"
+    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow their ideals.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys06] += 1
+	  #abilbonus[discdept01] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evNewBattleStrat"
+    name="New Battle Strategy"
+    compset="Event"
+    isunique="yes"
+    description="In combat with a hostile force, the character devised a new strategy or tactic.">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
 	  #abilbonus[discdept05] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evLearnLanguage"
+    name="Learns Unique Language"
+    compset="Event"
+    isunique="yes"
+    description="The character encounters a species with an unusual form of communication, and learns to communicate with them.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys04] += 1
+	  #abilbonus[discdept06] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evDiscArtefact"
+    name="Discovers An Artefact"
+    compset="Event"
+    isunique="yes"
+    description="During a survey mission, the character discovered a device or fragment of technology from a now-extinct civilization.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys06] += 1
+	  #abilbonus[discdept03] += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evSpecCommen"
+    name="Special Commendation"
+    compset="Event"
+    isunique="yes"
+    description="During a crisis, the character saved the lives of several colleagues, helping them to safety. This earned the character a special commendation.">
+	<fieldval field="usrLabel1" value="Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys03] += 1
+	 
+      doneif (field[usrChosen1].ischosen = 0)
+
+      field[usrChosen1].chosen.field[abiBonus].value += 1
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evSolveEngCrisis"
+    name="Solved An Engineering Crisis"
+    compset="Event"
+    isunique="yes"
+    description="The character was instrumental in ending a crisis caused by malfunctioning technology, and saved many lives in the process.">
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys01] += 1
+	  #abilbonus[discdept03] += 1
+      ]]></eval>
+	</thing>
+
+
+  <thing
+    id="evBreakInvent"
+    name="Breakthrough Or Invention"
+    compset="Event"
+    isunique="yes"
+    description="The character made an important technological discovery, devised a new way of using a particular technology, or invented some new technology that will be invaluable in the future.">
+	<fieldval field="usrLabel1" value="Attribute:"/>
+    <fieldval field="usrCandid1" value="component.AttrSys"/>
+    <fieldval field="usrSource1" value="1"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+	  #abilbonus[discdept03] += 1
 	  
-      ]]></eval>    
-    </thing>
+      doneif (field[usrChosen1].ischosen = 0)
+
+      field[usrChosen1].chosen.field[abiBonus].value += 1
+	  
+      ]]></eval>
+	</thing>
+
+  <thing
+    id="evFirstContact"
+    name="First Contact"
+    compset="Event"
+    isunique="yes"
+    description="The character was chosen to be involved in one of the most important of Starfleet’s missions: first contact with another culture.">
+	<fieldval field="usrLabel1" value="Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #abilbonus[attrsys05] += 1
+	 
+      doneif (field[usrChosen1].ischosen = 0)
+
+      field[usrChosen1].chosen.field[abiBonus].value += 1
+      ]]></eval>
+	</thing>
+	
   </document>

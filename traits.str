@@ -969,6 +969,7 @@
     id="Event"
     forceunique="yes">
     <compref component="Event"/>
+    <compref component="UserSelect"/>
     </compset>
 	
   <!-- Trait - all traits derive from this compset -->
