@@ -92,6 +92,11 @@
       <it_tagcheck group="User" tag="NeedDomain"/>
       </inputthing>
     <inputthing
+      name="Domain Optional?"
+      helptext="Specify whether the specification of a domain is optional.">
+      <it_tagcheck group="User" tag="NeedDomainOpt"/>
+      </inputthing>
+    <inputthing
       name="Domain Term"
       helptext="Specify the term to use as a label for the domain. If empty, the term 'Domain' is used.">
       <it_tagpick group="DomainTerm" tag="?" dynamic="yes"/>
@@ -206,6 +211,36 @@
       </inputthing>
 	</inputthinggroup>
 
+  <!-- Focus editthing -->
+  <editthing
+    compset="Focus"
+    name="Focuses"
+    prefix="fo"
+    description="Focuses have no special fields - only a name."
+    summary="Defines a Focus that can be selected by a character.">
+	<inputthing
+      name="Categories"
+      helptext="select the category the trait belongs in. A starship-specific trait can be selected either in the list, or the checkbox below.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Category"
+      helptext="Select the category this Trait belongs to.">
+      <it_taglist group="FocusCat" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Starship Only?"
+      helptext="Specify whether this Focus is only for Starships.">
+      <it_tagcheck group="FocusCat" tag="Ship"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
   <!-- Trait editthing -->
   <editthing
     compset="Trait"
@@ -410,6 +445,16 @@
       name="Ship Info"
       helptext="Other options.">
       <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Small Craft?"
+      helptext="Is this frame for a Small Craft?">
+      <it_tagcheck group="Ship" tag="SmallCraft"/>
+      </inputthing>
+    <inputthing
+      name="Ship Type"
+      helptext="Select the type of ship this frame belongs to.">
+      <it_taglist group="ShipType" tag="?"/>
       </inputthing>
     <inputthing
       name="Alliance"

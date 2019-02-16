@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
+  <thing
+    id="trCustom"
+    name="== Custom Trait =="
+    compset="Trait"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="UserName" value="Custom Trait"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="User" tag="NameRep"/>
+    <tag group="User" tag="NeedDomain"/>
+    <tag group="TraitCat" tag="Custom"/>
+    </thing>
+
   <thing id="trHuman" name="Human" description="Humans are adaptable and resilient, and their resolve and ambition often allow them to resist great hardship and triumph despite great adversity. However, Humans can also be reckless and stubborn, irrational, and unpredictable." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -43,10 +56,10 @@
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     </thing>
+  <thing id="trhdrCustom" name="Custom" compset="Trait" isshowonly="yes">
+    <tag group="TraitCat" tag="Custom"/>
+    </thing>
   <thing id="trhdrRace" name="Race" compset="Trait" isshowonly="yes">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     </thing>
   <thing id="trShipFed" name="Federation Starship" description="Starship of the United Federation of Planets" compset="Trait" uniqueness="unique">

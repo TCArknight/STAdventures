@@ -15,6 +15,10 @@
     name="Type: Starbase"
     compset="CharType">
 	<usesource source="DivCmd"/>
+	<!-- Use the Starship creation tab by default -->
+    <eval index="1" phase="Initialize" priority="1000"><![CDATA[
+	  perform hero.assign[ShowTab.Starship]
+      ]]></eval>
     </thing>
 
     </document>

@@ -168,24 +168,4 @@
     <tag group="TalentCat" tag="Conn"/>
     <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
     </thing>
-  <thing id="talPolHuPl" name="Polarized Hull Plating" description="The ship does not have deflector shielding, but rather is\nequipped with layers of hull plating that can be polarized to\nresist attack. This functions in the same way as Shields do, with one difference: the ship suffers a Breach if four or more damage is suffered after deductions for Resistance." compset="Talent">
-    <usesource source="ENT"/>
-    <usesource source="DivCmd"/>
-    <tag group="TalentCat" tag="Ship"/>
-    </thing>
-  <thing id="talGrapCab" name="Grappler Cables" description="This precursor to tractor beams uses sturdy cables and\nmagnetic grapplers to grab on to objects and ships. This\nfunctions as a tractor beam, but if the target breaks free, roll 1A — on an Effect, the cables have been Damaged and cannot be used again until repaired." compset="Talent">
-    <usesource source="ENT"/>
-    <usesource source="DivCmd"/>
-    <tag group="TalentCat" tag="Ship"/>
-    </thing>
-  <thing id="talEntPhTo" name="Photonic Torpedoes" description="The vessel is equipped with photonic torpedoes instead of\nspatial torpedoes." compset="Talent">
-    <usesource source="ENT"/>
-    <usesource source="DivCmd"/>
-    <tag group="TalentCat" tag="Ship"/>
-    </thing>
-  <thing id="talNukeWar" name="Nuclear Warheads" description="The vessel is equipped with nuclear warheads in addition to its spatial torpedoes. This Talent cannot be taken if the ship does not have spatial torpedoes." compset="Talent">
-    <usesource source="ENT"/>
-    <usesource source="DivCmd"/>
-    <tag group="TalentCat" tag="Ship"/>
-    </thing>
   </document>

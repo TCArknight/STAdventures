@@ -111,16 +111,6 @@
       </portal>
 
     <portal
-      id="cp"
-      style="lblStatic">
-      <label>
-        <labeltext><![CDATA[
-          @text = "CP: " & hero.child[resCP].field[resShort].text
-          ]]></labeltext>
-        </label>
-      </portal>
-
-    <portal
       id="cash"
       style="lblStatic">
       <label>
@@ -140,16 +130,12 @@
 
       ~position the portals horizontally
       portal[stress].left = 0
-      perform portal[cp].alignrel[ltor,stress,15]
-      perform portal[cash].alignrel[ltor,cp,15]
+      perform portal[cash].alignrel[ltor,stress,15]
 
       ~hide any portals that don't fully fit within the visible horizontal space
 	  if (hero.tagis[CharType.typShip] = 1) then
 	    portal[stress].visible = 0
 		endif
-      ~if (portal[cp].right > width) then
-        portal[cp].visible = 0
-      ~  endif
       ~if (portal[cash].right > width) then
         portal[cash].visible = 0
       ~  endif

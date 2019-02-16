@@ -615,6 +615,18 @@
       </style_label>
     </style>
 
+  <!-- left-aligned 'disabled' label
+        -for showing choices that don't meet pre-reqs or are disabled in grey
+  -->
+  <style
+    id="lblDisableLeft">
+    <style_label
+      textcolorid="clrdisable"
+      font="fntnormal"
+      alignment="left">
+      </style_label>
+    </style>
+	
   <!-- generic 'bright' label
         -for highlighting material to stand out
   -->

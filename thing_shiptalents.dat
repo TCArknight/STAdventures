@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+
+  <thing id="talExtShut" name="Extensive Shuttlebays" description="The vessel’s shuttlebays are large, well-supplied, and able to support a larger number of active shuttle missions simultaneously. The ship may have twice as many small craft active at any one time as it would normally allow, and it may carry up to two Scale 2 small craft. For more on small craft operations, see p. 232." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talAblaAr" name="Ablative Armor" description="The vessel’s hull plating has an additional ablative layer that disintegrates slowly under extreme temperatures, such as those caused by energy weapons and torpedo blasts, dissipating the energy, and protecting the ship. This plating is replaced periodically. The ship’s Resistance is increased by 2." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <eval phase="Ability" priority="5000">hero.childfound[mscShip].field[bonResist].value += 2</eval>
+    <exprreq message="2371 or later."><![CDATA[int(hero.childfound[mscShip].field[shipYear].text) >= 2371]]></exprreq>
+    </thing>
+  <thing id="talAdvRese" name="Advanced Research Facilities" description="The vessel is equipped with additional laboratories and long-term research facilities, which allow the crew to study phenomena over a protracted period, and thus generate a wealth of useful information. Whenever a character on board the ship attempts a Task to perform research, and they are assisted by the ship’s Computers + Science, the character gains one bonus Momentum, which must be used for the Obtain Information Momentum Spend." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="Science 3 or higher."><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
+    </thing>
+  <thing id="talAdvSenS" name="Advanced Sensor Suites" description="The vessel’s sensors are amongst the most sophisticated and advanced available in the fleet. Unless the ship’s Sensors have suffered one or more Breaches, whenever a character performs a Task assisted by the ship’s Sensors, they may reduce the Difficulty of the Task by one, to a minimum of 0." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talAdvShld" name="Advanced Shields" description="The vessel’s shields are state of the art, using developments that other cultures have not yet learned to overcome, or which simply provide greater protection for the same power expenditure. The ship’s maximum Shields are increased by 5." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <eval phase="Ability" priority="5000">hero.childfound[mscShip].field[bonShields].value += 5</eval>
+    </thing>
+  <thing id="talAdvSick" name="Advanced Sickbay" description="The ship’s sickbay is extremely well-equipped, and larger\nthan is normal for a ship of this size. The ship gains the\nAdvanced Sickbay Advantage, which applies to all Tasks\nrelated to medicine and biology performed within the sickbay\nitself. This Advantage is lost if the ship’s Computers System\nis Disabled." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talBackEPS" name="Backup EPS Conduits" description="The ship’s power conduits have additional redundancies,\nwhich can be activated to reroute power more easily in case\nof an emergency, keeping it from being lost when the ship is\ndamaged. Whenever the ship would lose one or more Power\nbecause of suffering damage, roll for each Power lost.\nEach Effect rolled prevents the loss of that point of Power." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talCmdShip" name="Command Ship" description="The ship has command and control systems allowing it to\ncoordinate easily with allies during a crisis. When a character\non the ship succeeds at a Command Task to create an\nAdvantage, they may always be assisted by the ship’s\nCommunications + Command, and they may confer the\nAdvantage to allied ships or away teams with whom the ship\nmaintains a communications link." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
+    </thing>
+  <thing id="talDiploSu" name="Diplomatic Suites" description="The ship has numerous high-quality staterooms for hosting\nVIPs, as well as briefing rooms and other facilities that\nallow the ship to serve as a neutral ground for diplomatic\nsummits, trade negotiations, and similar functions. When\nhosting negotiations, members of the crew may be assisted\nby the ship’s Computers + Command or Structure +\nCommand." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talEWS" name="Electronic Warfare Systems" description="The ship’s communications systems have been specially designed to intercept and disrupt enemy communications\nin battle. Whenever a character on the ship succeeds at\nthe Intercept or Signals Jamming Tasks, they may spend 2\nMomentum to select one additional ship to target." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talEMH" name="Emergency Medical Hologram" description="The ship’s sickbay is equipped with holoemitters and a\nstate-of-the-art holographic doctor, able to assist medical\npersonnel during emergencies. The ship has one additional\nSupporting Character, an Emergency Medical Hologram,\nusing the Attributes, Disciplines, and so forth as shown in the\nsidebar, which does not cost any Crew Support to introduce,\nand which does not automatically improve when introduced.\nThis character cannot go into any location not equipped with\nholoemitters." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="2370 or later."><![CDATA[int(hero.childfound[mscShip].field[shipYear].text) >= 2371]]></exprreq>
+    </thing>
+  <thing id="talFastTar" name="Fast Targeting Systems" description="The ship’s targeting systems can lock weapons on target\nmuch faster and more accurately than other ships of its\nclass, giving it an edge in battle. The ship does not suffer the\nnormal Difficulty increase for targeting a specific System on\nthe enemy ship." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    </thing>
+  <thing id="talHighRes" name="High Resolution Sensors" description="The vessel’s sensors can gain large amounts of accurate\ndata, though they are extremely sensitive. While the vessel is not in combat, any successful Task that is assisted by the\nship’s Sensors gains one bonus Momentum." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talImpDamC" name="Improved Damage Control" description="The ship has more efficient damage reporting systems,\nand better-trained teams of technicians, allowing the crew\nto respond more quickly to damage during a crisis. When\na character takes the Damage Control Task aboard this\nship, they may re-roll a single d20. If the repairs require an\nExtended Task, then the characters also gain Progression 1,\nadding +1 to Work done for each Effect rolled." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talImpHull" name="Improved Hull Integrity" description="The ship’s hull has been reinforced to hold together better\nunder stress and damage. The ship’s Resistance is increased by 1." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <eval phase="Ability" priority="5000">hero.childfound[mscShip].field[bonResist].value += 1</eval>
+    </thing>
+  <thing id="talImpImp" name="Improved Impulse Drive" description="The ship’s Impulse drives are more powerful than on most\nships, allowing the ship to accelerate much more quickly.\nWhen the flight controller succeeds at the Impulse, Attack\nPattern, Evasive Action, or Ramming Speed Tasks, they\nmay spend 2 Momentum to increase the Difficulty of attacks\nagainst the ship by 1 until the start of the flight controller’s\nnext Turn, due to the ship’s rapid acceleration." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <eval phase="Ability" priority="5000">hero.childfound[mscShip].field[bonResist].value += 1</eval>
+    </thing>
+  <thing id="talImpPowS" name="Improved Power Systems" description="The ship’s power systems are extremely efficient, allowing\npower to be redirected and rerouted from different systems\nvery quickly. Whenever a character succeeds at a Power Management Task, the ship gains 2 Power per Momentum\nspent (Repeatable) instead of 1." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talImpRCS" name="Improved Reacion Control System" description="The ship’s maneuvering thrusters operate with greater\nprecision, allowing the ship to adjust its course more\ncarefully. Whenever a Task to move or maneuver the ship\nwould increase in Difficulty because of obstacles or hazards,\nreduce the Difficulty by 1 (to a minimum of the Task’s normal\nDifficulty)." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
+    </thing>
+  <thing id="talImpShiR" name="Improved Shield Recharge" description="The ship’s deflector shields have redundant capacitors and\nemitter arrays that allow the shields to be recharged and\nreplenished much more efficiently. Whenever the Regenerate\nShields Task is successful, the ship regains 3 points of\nShields, plus 3 more for each Momentum spent (Repeatable),\ninstead of the normal amount." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    </thing>
+  <thing id="talImpWarp" name="Improved Warp Drive" description="The ship’s warp drive is more efficient, capitalizing on\nimproved field dynamics, better control of antimatter flow\nrates, or some other advancement that allows the ship to\nexpend less energy when travelling at warp. Whenever the\nship spends power to go to warp, roll 1 [CD] for each Power\nspent; for each Effect rolled, that point of Power is not spent." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talRFTorp" name="Rapid-Fire Torpedo Launcher" description="The vessel’s torpedo launchers have been redesigned to\nallow the ship to fire multiple torpedoes much more quickly\nand accurately. Whenever the crew add 3 to Threat to fire a\ntorpedo salvo, they may re-roll a single d20 on the attack,\nand any number of on the damage roll." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talModLab" name="Modular Laboratories" description="The ship has considerable numbers of empty, multi-purpose\ncompartments that can be converted to laboratories as and\nwhen required. At the start of an adventure, the crew may\ndecide how the modular laboratories are configured; this\nconfiguration counts as an Advantage which applies to work\nperformed within the laboratories." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
+    </thing>
+  <thing id="talQuanTor" name="Quantum Torpedoes" description="The vessel has been equipped with the latest in ship-to-ship\nmunitions: the quantum torpedoes. The ship has quantum\ntorpedoes in addition to any other form of torpedo it carries." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talRedSys" name="Redundant Systems" description="The ship has multiple additional redundancies that allow it\nto withstand severe damage more easily. Nominate a single\nSystem. When that system becomes Damaged or Disabled,\nthe crew may choose to activate the backups as a Minor\nAction; if the System was Damaged, it is no longer Damaged. If it was Disabled, it becomes Damaged instead. A System’s\nbackups may only be activated once per adventure, so\nsubsequent damage will have the normal effect." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talRuggDes" name="Rugged Design" description="The ship is designed with the frontier in mind, with a durable\nconstruction and easy access to critical systems that allow\nrepairs to be made easily. Reduce the Difficulty of all Tasks to\nrepair the ship by 1, to a minimum of 1." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talSaucSep" name="Saucer Separation" description="The ship is designed so that the saucer section can be\nseparated from the engineering section, to operate as\ntwo distinct ships. Each section has the same Systems,\nDepartments, Talents, and weapons, but their Scale is one\nlower than the whole ship (recalculate anything derived from\nScale), and each section only has half the Power (round\ndown) that the ship had before separation. Further, if the ship\nhas suffered any damage, ongoing effects of that damage\napply equally to both sections. The saucer section, which\ncontains the crew quarters and recreational areas, does not\nhave the capacity to go to warp.\n\nSeparating is a Control + Conn Task with a Difficulty of 3,\nassisted by the ship’s Structure + Engineering, performed\nfrom the internal systems position or main engineering.\nReconnecting requires the same Task with Difficulty 1, but\nfrom crew in both parts of the ship; if either Task fails, the\nreconnection fails. Separating and reconnection cannot be\ndone if the Structure of either ship has been Damaged or\nDisabled." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <exprreq message="{i}Galaxy{/i} class or Gamemaster&apos;s Discretion">hero.tagis[Ship.SaucerSep] = 1</exprreq>
+    </thing>
+  <thing id="talSecReac" name="Secondary Reactors" description="The ship has additional impulse and fusion reactors, that\nallow the ship to generate far greater quantities of energy.\nIncrease the ship’s normal Power capacity by 5." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    <eval phase="Ability" priority="5000">hero.childfound[mscShip].field[bonPower].value += 5</eval>
+    </thing>
+
+  </document>

@@ -118,11 +118,11 @@
       style="lblSmall">
       <label>
         <labeltext><![CDATA[
-          @text = "{size 30}PP: {size 36}" & hero.child[trkPower].field[trkUser].text
+          @text = "{size 30}Det: {size 36}" & hero.child[trkDetermination].field[trkUser].text
           ]]></labeltext>
         </label>
       <mouseinfo><![CDATA[
-        @text = "Power Points: " & hero.child[trkPower].field[trkUser].text & " / " & hero.child[trkPower].field[trkMax].text
+        @text = "Determination: " & hero.child[trkDetermination].field[trkUser].text & " / " & hero.child[trkDetermination].field[trkMax].text
         ]]></mouseinfo>
       </portal>
 

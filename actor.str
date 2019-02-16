@@ -20,30 +20,15 @@
       id="acASHdrTxt"
       name="Attribute/System Header Text"
       type="derived"
-	  maxfinal="10">
-	  <finalize><![CDATA[
-        if (hero.tagis[CharType.typShip] = 1) then
-          @text = "System"
-        else
-          @text = "Attribute"
-          endif
-        ]]></finalize>
+	  maxlength="10">
       </field>
 	  
     <field
       id="acDDHdrTxt"
       name="Discipline/Dept Header Text"
       type="derived"
-	  maxfinal="10">
-	  <finalize><![CDATA[
-        if (hero.tagis[CharType.typShip] = 1) then
-          @text = "Department"
-        else
-          @text = "Discipline"
-          endif
-        ]]></finalize>
-		</field>
-		
+	  maxlength="10">
+	  </field>
 	
     <!-- Image to display in the TacCon -->
     <field
@@ -171,14 +156,6 @@
           @text &= " {text clrwarning}(" & field[acStrPenal].value & "){text clrreset}"
           endif
         ]]></finalize>
-      </field>
-
-    <!-- Starting character points to allocate -->
-    <field
-      id="acStartCP"
-      name="Character Points"
-      type="user"
-      defvalue="250">
       </field>
 
     <!-- Starting ability slots to allocate -->
@@ -310,13 +287,37 @@
       ~our net cash is our configured starting cash plus our accrued cash
       field[acCashNet].value = field[acCashCfg].value + hero.usagepool[TotalCash].value
       ]]></eval>
+	  
+    <!-- calculate the net cash possessed for the character -->
+    <eval index="4" phase="Initialize" priority="1000"><![CDATA[
+	  var temp as string
 
+      if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0) then
+        temp = "Attribute"
+      else
+        temp = "System"
+        endif
+		
+      field[acASHdrTxt].text = temp
+		
+      if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0) then
+        temp = "Discipline"
+      else
+        temp = "Department"
+        endif
+		
+      field[acDDHdrTxt].text = temp
+      ]]></eval>
+	  
     <!-- activate our selected character type -->
-    <eval index="4" phase="Initialize" priority="3000"><![CDATA[
-      ~perform field[acType].chosen.forward[CharType.?]
-	  		
+    <eval index="5" phase="Initialize" priority="3000"><![CDATA[
+	  var temp as number
+	  	  		
+	  temp = 0
+	  temp = ( hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] )
+	  
 	  foreach pick in hero where "component.AttrSys"
-		if (hero.tagis[CharType.typShip] = 1) then
+		if (temp = 0) then
 		  perform eachpick.assign[AttrType.System]
 		else
 		  perform eachpick.assign[AttrType.Attribute]
@@ -325,7 +326,7 @@
 		nexteach
 		
 	  foreach pick in hero where "component.DiscDept"
-		if (hero.tagis[CharType.typShip] = 1) then
+		if (temp = 0) then
 		  perform eachpick.assign[DiscType.Department]		  
 		else
 		  perform eachpick.assign[DiscType.Discipline]
@@ -334,7 +335,7 @@
 		nexteach	  
 		
       ~Set Expression Helper Fields
-      if (hero.tagis[CharType.typShip] = 1) then
+      if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0) then
         hero.child[ExprHelp].field[ehTraitExp].text = "TraitCat.Ship"
 		hero.child[ExprHelp].field[ehTalExp].text = "TalentCat.Ship"
       else
@@ -345,11 +346,48 @@
       ]]></eval>
   
     <!-- Hide inactive tabs until needed -->
-    <eval index="5" phase="Final" priority="1000"><![CDATA[
+    <eval index="6" phase="Final" priority="1000"><![CDATA[
       perform hero.assign[HideTab.advances]
-
       ]]></eval>
 
+    <!-- Report a validation error if no selection has been made for a lifepath selection -->
+    <evalrule index="1" phase="Validate" priority="10000" message="Not enough Lifepath selections made." summary="Select lifepath options!"><![CDATA[
+      ~if we're not using the lifepath, we're good.
+	  validif (hero.tagis[CreateMethod.Lifepath] = 0)
+	  
+	  var steps as number
+	  steps = 0
+	  
+	  steps += hero.tagis[IsSpecies.?]
+	  steps += hero.tagis[HasEnviron.?]
+	  steps += hero.tagis[HasUpbring.?]
+	  steps += hero.tagis[HasAcademy.?]
+	  steps += hero.tagis[HasCareer.?]
+	  
+	  validif (steps >= 5)
+	  
+      ~mark lifepath tabs as invalid
+      container.panelvalid[lifepath] = 0
+      ]]></evalrule>
+
+    <!-- Report a validation error if no selection has been made for a lifepath selection -->
+    <evalrule index="2" phase="Validate" priority="10000" message="Not enough Ship component selections made." summary="Select ship components options!"><![CDATA[
+      ~if we're not using the starship creation, we're good.
+	  validif (hero.tagis[ShowTab.Starship] = 0)
+	  
+	  var steps as number
+	  steps = 0
+	  
+	  steps += hero.tagis[IsFrame.?]
+	  steps += hero.tagis[HasProfile.?]
+	  
+	  validif (steps >= 2)
+	  
+      ~mark lifepath tabs as invalid
+      container.panelvalid[shipcreate] = 0
+	  
+      ]]></evalrule>
+	  
     </component>
 	
   <!-- Service component
@@ -534,8 +572,9 @@
 
     <!-- Report a validation error if no selection has been made for a menu selection -->
     <evalrule phase="Validate" priority="10000" message="Not enough Attribute/Discipline choices." summary="Choose!"><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
-	  
+      ~if we're not a Supporting character, we're good.
+	  validif (hero.tagis[CharType.typSupport] = 0)
+	  	  
       ~determine the number of menus that NEED selection
       ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
       var needed as number

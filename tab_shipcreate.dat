@@ -48,6 +48,10 @@
       component="Frame"
       choosetemplate="SimpleItem"
 	  choosesortset="FrameSort">
+	  <needtag
+        container="CharType"
+        thing="ShipType">
+        </needtag>
       <chosen><![CDATA[
         if (@ispick = 0) then
           @text = "{text clrwarning}Select Frame"
@@ -212,7 +216,7 @@
     marginhorz="5"
     marginvert="5"
     order="5">
-	<live>CharType.typShip</live>
+	<live>ShowTab.Starship</live>
     <layoutref layout="shipcreate"/>
     <position><![CDATA[
       ]]></position>

@@ -44,21 +44,20 @@
       ]]></eval>
     </thing>
 
-  <!-- Power Points Trait -->
+  <!-- Determination Trait -->
   <thing
-    id="trPowerPts"
-    name="Power Points"
+    id="trDetermination"
+    name="Determination"
     compset="Ability"
     isunique="yes"
     description="Description goes here">
     <fieldval field="abiAbbrev" value="Powr"/>
     <tag group="explicit" tag="4"/>
     <tag group="User" tag="Power"/>
-    <!-- Calculate the Power Points trait as the total of "Con + Cha" -->
     <eval index="1" phase="Ability" priority="4000">
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
-      field[abiBonus].value = #abilfinal[attrsys01] + #abilfinal[attrsys05]
+      field[abiBonus].value += 3
       ]]></eval>
     </thing>
 
@@ -83,50 +82,6 @@
       ]]></eval>
     </thing>
 
-  <!-- Mental Resistance Trait -->
-  <thing
-    id="trMentRes"
-    name="Mental Resistance"
-    compset="Ability"
-    isunique="yes"
-    description="Description goes here">
-    <fieldval field="abiAbbrev" value="Ment"/>
-    <tag group="explicit" tag="6"/>
-    <tag group="User" tag="Resistance"/>
-    <tag group="DashTacCon" tag="Traits"/>
-    <!-- Calculate the Mental Resistance trait as "(Cha + Wis * 2) / 3" -->
-    <eval index="1" phase="Ability" priority="4000">
-      <before name="Derived abiFinal"/>
-      <after name="Calc abiFinal"/><![CDATA[
-      var value as number
-      value = (#abilfinal[attrsys05] + #abilfinal[attrsys06] * 2) / 3
-      value = round(value,0,-1)
-      field[abiBonus].value += value
-      ]]></eval>
-    </thing>
-
-  <!-- Physical Resistance Trait -->
-  <thing
-    id="trPhysRes"
-    name="Physical Resistance"
-    compset="Ability"
-    isunique="yes"
-    description="Description goes here">
-    <fieldval field="abiAbbrev" value="Phys"/>
-    <tag group="explicit" tag="5"/>
-    <tag group="User" tag="Resistance"/>
-    <tag group="DashTacCon" tag="Traits"/>
-    <!-- Calculate the Physical Resistance trait as "(Con * 2 + Str) / 3" -->
-    <eval index="1" phase="Ability" priority="4000">
-      <before name="Derived abiFinal"/>
-      <after name="Calc abiFinal"/><![CDATA[
-      var value as number
-      value = (#abilfinal[attrsys01] * 2 + #abilfinal[attrsys03]) / 3
-      value = round(value,0,-1)
-      field[abiBonus].value += value
-      ]]></eval>
-    </thing>
-
   <!-- Initiative Trait -->
   <thing
     id="trInit"
@@ -144,7 +99,7 @@
       <before name="Derived abiFinal"/>
       <after name="Calc abiFinal"/><![CDATA[
       var value as number
-      value = (#abilfinal[attrsys02] + #abilfinal[attrsys06]) / 5
+      value = 0
       value = round(value,0,-1)
       field[abiBonus].value += value
       ]]></eval>

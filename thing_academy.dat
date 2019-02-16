@@ -13,7 +13,7 @@
     name="Command"
     compset="Academy"
     isunique="yes"
-    description="The Command track is for those cadets who aspire to command their own starship someday. It focuses on leadership and interpersonal skills, diplomacy, decisionmaking in crisis situations, an understanding of protocol and procedure, and starship operations, which includes flight control. Many command track cadets begin their careers as flight control officers and pilots, where their training can be put to the test on a smaller scale while they gain the experience necessary for more authority and responsibility. Command track cadets customarily undertake the infamous Kobayashi Maru test during their final year.">
+    description="The Command track is for those cadets who aspire to command their own starship someday. It focuses on leadership and interpersonal skills, diplomacy, decisionmaking in crisis situations, an understanding of protocol and procedure, and starship operations, which includes flight control. Many command track cadets begin their careers as flight control officers and pilots, where their training can be put to the test on a smaller scale while they gain the experience necessary for more authority and responsibility. Command track cadets customarily undertake the infamous Kobayashi Maru test during their final year.\n\nMajor: Command or Conn">
 	<fieldval field="usrLabel1" value="Major Study:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
     <fieldval field="usrSource1" value="1"/>
@@ -34,7 +34,7 @@
     name="Operations"
     compset="Academy"
     isunique="yes"
-    description="The Operations track is practical and hands-on, dealing with many of the realities of Starfleet’s mission. Divided broadly into engineering and security divisions, operations track cadets are defined by a sense of pragmatism, whether that applies to the technical or the tactical.">
+    description="The Operations track is practical and hands-on, dealing with many of the realities of Starfleet’s mission. Divided broadly into engineering and security divisions, operations track cadets are defined by a sense of pragmatism, whether that applies to the technical or the tactical.\n\nMajor: Engineering or Security">
 	<fieldval field="usrLabel1" value="Major Study:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept03|thingid.discdept05)"/>
     <fieldval field="usrSource1" value="1"/>
@@ -55,7 +55,7 @@
     name="Sciences"
     compset="Academy"
     isunique="yes"
-    description="Somewhat isolated from the other Tracks, the Sciences track is primarily academic, with Starfleet Academy producing many accomplished scientists. Included within the sciences track, but separated by a distinct curriculum, is Starfleet Medical, training doctors, nurses, and counselors to serve aboard Starfleet vessels and facilities across the Federation.">
+    description="Somewhat isolated from the other Tracks, the Sciences track is primarily academic, with Starfleet Academy producing many accomplished scientists. Included within the sciences track, but separated by a distinct curriculum, is Starfleet Medical, training doctors, nurses, and counselors to serve aboard Starfleet vessels and facilities across the Federation.\n\nMajor: Science or Medical">
 	<fieldval field="usrLabel1" value="Major Study:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept04|thingid.discdept06)"/>
     <fieldval field="usrSource1" value="1"/>

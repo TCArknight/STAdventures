@@ -282,7 +282,7 @@
     name="Upbringing"
     marginhorz="5"
     marginvert="5"
-    order="10"
+    order="30"
     agentcompset="Upbringing"
     agentlive="HasUpbring"
     agentname="name"

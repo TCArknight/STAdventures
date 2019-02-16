@@ -7,18 +7,17 @@
     </thing>
   <thing id="armBodyArm" name="Body Armor" description="Body Armor has been issued periodically to Starfleet security at various times in Starfleet’s history. In the late 23rd century, it took the form of a bulky vest and helmet, designed to absorb and disperse impacts and energy attacks. By the 24th century, ablative body armor is used mainly by personnel engaged in protracted conflict." compset="Armor">
     <fieldval field="defResist" value="2"/>
-    <fieldval field="grCost" value="100"/>
-    <fieldval field="gearWeight" value="15"/>
+    <tag group="GearCost" tag="Escalat1"/>
+    <tag group="GearCost" tag="Opportun1"/>
     </thing>
   <thing id="armEnvSuit" name="Environment Suit" description="Environment Suits or EV Suits are normally used for extra vehicular activities — such as moving in hard vacuum. They provide minimal physical protection, mainly due to being made of tough materials. These suits are issued as and when a mission requires — the Opportunity Cost may be ignored if the mission takes place in an environment that would be deadly without protection. The suits contain magnetic boots, a supply of breathable atmosphere, radiation shielding, and a communications relay more powerful than a normal personal communicator." compset="Armor">
     <fieldval field="defResist" value="1"/>
-    <fieldval field="grCost" value="250"/>
-    <fieldval field="gearWeight" value="30"/>
+    <tag group="GearCost" tag="Opportun2"/>
     </thing>
   <thing id="armPersFor" name="Personal Force Field" description="These personal shields were sometimes issued to security and combat personnel, though the power requirements of such devices mean they have limited use in protracted fighting. A character with a personal force field gains the listed Resistance, but must roll 1 after each time they are hit by an attack; if an Effect is rolled, the force field loses power for the rest of the scene, and no longer provides Resistance." compset="Armor">
     <fieldval field="defResist" value="4"/>
-    <fieldval field="grCost" value="500"/>
-    <fieldval field="gearWeight" value="50"/>
+    <tag group="GearCost" tag="Escalat2"/>
+    <tag group="GearCost" tag="Opportun1"/>
     </thing>
   <thing id="wpUnarmed" name="Unarmed Strike" description="Description goes here" compset="Melee" uniqueness="unique" holdable="no">
     <fieldval field="shortname" value="Unarmed"/>
@@ -26,10 +25,22 @@
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+	<tag group="Equipment" tag="Natural"/>
     <tag group="GearQual" tag="NonLethal"/>
-    <tag group="Equipment" tag="Natural"/>
     <tag group="DmgEffect" tag="Knockdown"/>
+	 <tag group="GearCost" tag="Standard"/>
     </thing>
+  <thing id="wpNervPinc" name="Nerve Pinch" description="Neuropressure Attack. You may use Science or Medicine instead of Security when attempting a nerve pinch Attack, and may increase damage by your Science or Medicine Discipline instead of Security." compset="Melee" summary="Vulcan Nerve Pinch" uniqueness="unique" holdable="no">
+    <fieldval field="shortname" value="Nerve"/>
+    <fieldval field="wpDamage" value="1"/>
+    <fieldval field="shortname" value="NerPin"/>
+	<tag group="Equipment" tag="Natural"/>
+    <tag group="GearQual" tag="NonLethal" name="Non-Lethal" abbrev="Non-Lethal"/>
+    <tag group="GearCost" tag="Standard" name="Standard Issue" abbrev="Standard Issue"/>
+    <tag group="DmgEffect" tag="Intense"/>
+	<!--Need to adjust Nerve Pinch to allow choosing which discipline is used, or to automatically pick whichevr is higher.-->
+    </thing>
+
   <thing id="wpKnife" name="Knife/Dagger" description="Description goes here" compset="Melee" uniqueness="unique">
     <fieldval field="wpDamage" value="1"/>
     <usesource source="ENT"/>

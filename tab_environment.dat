@@ -233,7 +233,7 @@
     name="Environment"
     marginhorz="5"
     marginvert="5"
-    order="30"
+    order="20"
     agentcompset="Environ"
     agentlive="HasEnviron"
     agentname="name"

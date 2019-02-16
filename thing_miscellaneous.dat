@@ -65,23 +65,6 @@
     compset="UserImage">
     </thing>
 
-
-  <!-- Character point resource to track the pool of character points being spent -->
-  <thing
-    id="resCP"
-    name="Character Points"
-    compset="Resource">
-
-    <!-- Automatically add the resource to every actor -->
-    <tag group="Helper" tag="Bootstrap"/>
-
-    <!-- Use the starting character points as our initial maximum -->
-    <eval index="1" phase="Setup" priority="1000"><![CDATA[
-      field[resMax].value = herofield[acStartCP].value
-      ]]></eval>
-    </thing>
-
-
   <!-- Ability slot resource to track the pool of ability slots being spent -->
   <thing
     id="resTalent"
@@ -110,6 +93,8 @@
 
     <!-- Use the starting ability slots as our initial maximum -->
     <eval index="1" phase="Setup" priority="1000"><![CDATA[
+	  field[livename].text = herofield[acASHdrTxt].text & " Slots"
+
       field[resMax].value = herofield[acStartAtt].value
       ]]></eval>
     </thing>
@@ -126,9 +111,12 @@
 
     <!-- Use the starting ability slots as our initial maximum -->
     <eval index="1" phase="Setup" priority="1000"><![CDATA[
+	  field[livename].text = herofield[acDDHdrTxt].text & " Slots"
+		
       field[resMax].value = herofield[acStartDis].value
       ]]></eval>
     </thing>
+	
 	<!-- Trait slot resource to track the pool of ability slots being spent -->
   <thing
     id="resTrait"
@@ -138,10 +126,13 @@
 
     <!-- Automatically add the resource to every actor -->
     <tag group="Helper" tag="Bootstrap"/>
+	
+    <!-- Doesn't require all slots spent -->
+    <tag group="Helper" tag="NoMinimum"/>
 
     <!-- Use the starting ability slots as our initial maximum -->
     <eval index="1" phase="Setup" priority="1000"><![CDATA[
-      field[resMax].value = 0
+      field[resMax].value = 4
       ]]></eval>
     </thing>
 	
@@ -196,7 +187,11 @@
 	  
 	  field[resMax].value = 0
 	  
-	  doneif (hero.tagis[CharType.typShip] = 0)
+	  ~If we're not a starship, we're good
+	  doneif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0  )
+	  
+	  ~If we haven't chosen a frame, we're good
+	  doneif (hero.tagis[IsFrame.?] = 0)
 	  
 	  stYear = int(hero.firstchild["component.Frame"].field[fraYearEnt].text)
 	  enYear = hero.childfound[mscShip].field[shipYear].text
@@ -307,8 +302,8 @@
 
   <!-- Power points tracker so the user can manage the expenditure of power points -->
   <thing
-    id="trkPower"
-    name="Power Points"
+    id="trkDetermination"
+    name="Determination"
     compset="Tracker">
 
     <!-- Automatically add the tracker to every actor -->
@@ -319,8 +314,8 @@
 
     <!-- Use the starting power points as our initial maximum -->
     <eval index="1" phase="Final" priority="1000"><![CDATA[
-      field[trkMin].value = 0
-      field[trkMax].value = #abilfinal[trPowerPts]
+      field[trkMin].value = 1	
+      field[trkMax].value = #abilfinal[trDetermination]
       ]]></eval>
     </thing>
 
@@ -329,17 +324,31 @@
   <thing
     id="typMain"
     name="Type: Character (Main)"
-    compset="CharType">
+    compset="CharType"> 
+    <bootstrap thing="wpUnarmed">
+	  </bootstrap>
+	<!-- Use the Lifepath creation method by default -->
+    <eval index="1" phase="Initialize" priority="1000"><![CDATA[
+      perform hero.assign[CreateMethod.Lifepath]
+	  perform hero.assign[ShowTab.Lifepath]
+      ]]></eval>
     </thing>
+	
   <thing
     id="typSupport"
     name="Type: Character (Supporting)"
     compset="CharType">
+    <bootstrap thing="wpUnarmed"></bootstrap>
     </thing>
+	
   <thing
     id="typShip"
     name="Type: Starship"
     compset="CharType">
+	<!-- Use the Starship creation tab by default -->
+    <eval index="1" phase="Initialize" priority="1000"><![CDATA[
+	  perform hero.assign[ShowTab.Starship]
+      ]]></eval>
     </thing>
 	
   <!-- Appearances to display on the supporting character tab -->
@@ -439,6 +448,7 @@
       perform hero.childfound[attrsys06].assign[Refit.Refit]
       ]]></eval>
     </thing>	
+	
   <!-- NPC Info to display on the NPC info tab - the final "Additional
       Information" pick can be added multiple times and customised by the user. -->
   <thing

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Academy Tracks -->
+  <thing
+    id="acShipOps"
+    name="Operations (Ship Operations)"
+    compset="Academy"
+    isunique="yes"
+    description="The Operations track is practical and hands-on, dealing with many of the realities of Starfleet’s mission. The Ship Operations Major focuses on all areas of ship management and maintenance as well as sensor utilization training..\n\nMajor: Conn\n\nMinors: Engineering and Sciences">
+	<fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; thingid.discdept02"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; thingid.discdept03"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept06"/>
+    <fieldval field="usrSource3" value="1"/>
+	<tag group="User" tag="NoAutoName"/>
+	<bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Starfleet Academy - Ship Operations"/>
+	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect some aspect of the character’s beliefs that developed during their time at the Academy."/>
+	  </bootstrap>
+    </thing>
+
+
+  </document>

@@ -28,6 +28,11 @@
 	  
       ~if we have a race selected, we're good
       validif (hero.tagis[Species.?] <> 0)
+	  
+	  ~if we're on the lifepath, mark lifepath tab invalid
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)	  
+	  container.panelvalid[lifepath] = 0
+	  
       ]]></evalrule>
 
     </thing>
@@ -41,7 +46,8 @@
 
     <!-- Make sure that we have all special abilities selected -->
     <evalrule index="1" phase="Validate" priority="8000" severity="error" message="You may only have one attribute at maximum."><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
+      ~if we're not a Main or Supporting character, we're good.
+	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 	  
 	  var maxCount as number
 	  foreach pick in hero where "component.AttrSys"
@@ -57,7 +63,11 @@
 	  
     <!-- Make sure that we have all attributes selected -->
     <evalrule index="2" phase="Validate" priority="8000" severity="error" message="Not enough selected"><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
+      ~if we're not a Main or Supporting character, we're good.
+	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
+
+	  ~If we're using the Lifepath creation method, we're good.
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)
 
       ~we have a negative or zero quantity left, we're good
       validif (hero.child[resAttrib].field[resLeft].value <= 0)
@@ -65,11 +75,15 @@
       ~mark associated tabs as invalid
       container.panelvalid[basics] = 0
       ]]></evalrule>
-
+	  
     <!-- Make sure that we don't have too many attributes selected -->
     <evalrule index="3" phase="Validate" priority="8000" severity="error" message="Too many selected"><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
+      ~if we're not a Main or Supporting character, we're good.
+	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 
+	  ~If we're using the Lifepath creation method, we're good.
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)
+	  
       ~we have a positive or zero quantity left, we're good
       validif (hero.child[resAttrib].field[resLeft].value >= 0)
 
@@ -87,8 +101,9 @@
 
     <!-- Make sure that we have all special abilities selected -->
     <evalrule index="1" phase="Validate" priority="8000" severity="error" message="You may only have one discipline at maximum."><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
-
+      ~if we're not a Main or Supporting character, we're good.
+	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
+	  
 	  var maxCount as number
 	  foreach pick in hero where "component.DiscDept"
 	    maxCount += eachpick.tagcount[Helper.Maximum]
@@ -103,8 +118,12 @@
 	  
     <!-- Make sure that we have all disciplines selected -->
     <evalrule index="2" phase="Validate" priority="8000" severity="error" message="Not enough selected"><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
+      ~if we're not a Main or Supporting character, we're good.
+	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 
+	  ~If we're using the Lifepath creation method, we're good.
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)
+	  
       ~we have a negative or zero quantity left, we're good
       validif (hero.child[resDiscip].field[resLeft].value <= 0)
 
@@ -114,7 +133,11 @@
 
     <!-- Make sure that we don't have too many disciplines selected -->
     <evalrule index="3" phase="Validate" priority="8000" severity="error" message="Too many selected"><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
+      ~if we're not a Main or Supporting character, we're good.
+	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
+
+	  ~If we're using the Lifepath creation method, we're good.
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)
 
       ~we have a positive or zero quantity left, we're good
       validif (hero.child[resDiscip].field[resLeft].value >= 0)
@@ -218,6 +241,11 @@
 
       ~mark associated tabs as invalid
       container.panelvalid[events] = 0
+	  
+	  ~if we're on the lifepath, mark lifepath tab invalid
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)	  
+	  container.panelvalid[lifepath] = 0
+	  
       ]]></evalrule>
 
     <!-- Make sure that we don't have too many special abilities selected -->
@@ -227,6 +255,11 @@
 
       ~mark associated tabs as invalid
       container.panelvalid[events] = 0
+	  	  
+	  ~if we're on the lifepath, mark lifepath tab invalid
+	  validif (hero.tagis[CreateMethod.Lifepath] <> 0)	  
+	  container.panelvalid[lifepath] = 0
+	  
       ]]></evalrule>
 
     </thing>

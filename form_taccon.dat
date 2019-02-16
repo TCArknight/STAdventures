@@ -272,7 +272,7 @@
         ismultiline="yes">
         <labeltext><![CDATA[
           ~start with the power points status
-          @text = "{size 30}PP: {size 36}" & #abiluser[trPowerPts] & " / " & #abilfinal[trPowerPts]
+          @text = "{size 30}PP: {size 36}" & #abiluser[trDetermination] & " / " & #abilfinal[trDetermination]
 
           ~add the defense rating
           @text &= "{horz 12}{size 30}Def: {size 36}" & #abilfinal[trResist]

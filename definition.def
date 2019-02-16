@@ -46,12 +46,16 @@
     summary=""><![CDATA[{align center}{bmp logo}
 	{b}{text ffff80}{align center}Star Trek Adventures for Hero Lab{text 010101}{/b}
 
-Mechanically, these data files are identical to the Skeleton data files that are used as a starting point when creating your own data files via the Authoring Kit. However, the Sample data files add an assortment of things that make them usable for experimentation. The added things provide a variety of examples of how to accomplish different behaviors.
+{align left}STARFLEET NEEDS A NEW CREW
+Welcome to your new assignment, Captain. Your continuing mission, to explore strange new worlds, seek out new life and new civilizations, to bodly go where no one has gone before…
 
-You can play around with these data files to see how they work. You can also use the included things as excellent examples when creating your own data files with the Authoring Kit.
+Star Trek Adventures takes you to the Final Frontier of the Galaxy, where new discoveries await keen explorers of Starfleet. Your duties may take you to the edges of known space, or to Federation colonies in need, to the borders of neighbouring galactic powers or into the eye of interstellar phenomena. Your ship and your crew epitomise the best Starfleet and the United Federation of Planets has to offer, and you are needed more than ever.
+
+These Herolab files are provided to allow you to quickly customize your Main hero, a supporting character, or even your starship. 
 
 {b}{text ffff80}Legal Information:{text 010101}{/b}
 STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rights Reserved.
+STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright of Modiphius Entertainment Ltd. All Rights Reserved.
 ]]>
     </release>
 
@@ -61,7 +65,7 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
   -->
 
   <structure
-    folder="sample"
+    folder="stadventures"
     summarymax="250">
     </structure>
 
@@ -87,7 +91,7 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
       @text &= txt
 
       ~append the CP rating of the character
-      @text &= " - CP: " & hero.child[resCP].field[resMax].text
+      ~@text &= " - CP: " & hero.child[resCP].field[resMax].text
       ]]></leadsummary>
 
     <!-- Define how the initiative is auto-calculated by the Tactical Console. -->
@@ -108,7 +112,10 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
     name="userresetAbil"
     param1="abil"
     result="perform hero.childfound[#abil].field[abiUser].reset"/>
-	
+  <scriptmacro
+    name="ability"
+    param1="abil"
+    result="hero.childfound[#abil].field[abiFinal].value"/>	
   <scriptmacro
     name="abilfound"
     param1="abil"
@@ -153,6 +160,7 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
     name="resextra"
     param1="resource"
     result="hero.child[#resource].field[resExtra].value"/>
+
   <scriptmacro
     name="trkmax"
     param1="tracker"
@@ -164,10 +172,20 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
     result="hero.tagis[Species.#species]"/>
 
   <scriptmacro
+    name="haschoice1"
+    param1="myComp"
+    result="hero.childfound[#myComp].field[usrChosen1].ischosen"/>
+
+  <scriptmacro
+    name="choiceid"
+    param1="myComp"
+    result="hero.childfound[#myComp].field[usrChosen1].chosen.idstring"/>
+	
+  <scriptmacro
     name="hastalent"
     param1="talent"
     result="hero.tagis[HasTalent.#talent]"/>
-
+	
   <scriptmacro
     name="stressmax"
     result="herofield[acStrMax].value"/>
@@ -175,6 +193,10 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
   <scriptmacro
     name="stressnow"
     result="herofield[acStrNow].value"/>
+
+  <scriptmacro
+    name="resistance"
+    result="hero.childfound[trResist].field[abiFinal].text"/>	
 	
   <scriptmacro
     name="shipsystem"
@@ -194,6 +216,22 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
   <scriptmacro
     name="shipyear"
     result="hero.childfound[mscShip].field[shipYear].text"/>
+
+  <scriptmacro
+    name="shipscale"
+    result="hero.childfound[mscShip].field[shipScale].value"/>
+	
+  <scriptmacro
+    name="ischaracter"
+    result="(hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport])"/>
+	
+  <scriptmacro
+    name="isstarship"
+    result="hero.tagis[CharType.typShip]"/>
+	
+  <scriptmacro
+    name="isstarbase"
+    result="hero.tagis[CharType.typBase]"/>
 	
   <!-- Decoration character used in summary panel headertitle scripts -->
   <scriptmacro
@@ -215,11 +253,8 @@ STAR TREK and related marks and logos are trademarks of CBS Studios Inc. All Rig
       @message = ""
 
       ~perform tests to assure all starting resources have been assigned
-      if (#resleft[resCP] <> 0) then
-        @message &= bullet & "Character points must be assigned for the character.{br}"
-        endif
       if (#resleft[resTalent] <> 0) then
-        @message &= bullet & "Ability slots must be assigned for the character.{br}"
+        @message &= bullet & "Talent slots must be assigned for the character.{br}"
         endif
       ]]></canadvance>
 

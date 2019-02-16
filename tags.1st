@@ -41,6 +41,7 @@
     <value id="NoPersText"/>  <!-- User entered no background text -->
     <value id="NotUserSel"/>  <!-- Item not user selectable -->
     <value id="UserUnlock"/>  <!-- Unlock user adjustment of Attributes, Disciplines, etc. -->
+    <value id="NoCost"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -51,18 +52,19 @@
   -->
   <group
     id="User">
-    <value id="CreateOnly"/>  <!-- Whether an ability is selectable only during creation -->
-    <value id="Activation"/>  <!-- Whether an ability can be activated to invoke dynamic changes -->
-    <value id="NeedDomain"/>  <!-- Whether an ability requires the user to specify a domain -->
-    <value id="NeedChoice"/>  <!-- Whether an ability requires the user to specify a menu choice -->
-    <value id="NoAutoName"/>  <!-- Whether to not automatically amend the naming of a pick with selections -->
-    <value id="Resistance"/>  <!-- Identifies a resistance trait -->
-    <value id="NameRep"/>     <!-- Whether to not replace the livename with the domain name -->
-    <value id="Power"/>       <!-- Identifies a power trait -->
-    <value id="Combat"/>      <!-- Identifies a combat trait -->
-    <value id="ChooseAttr"/>      <!-- Choose among AttrSys -->
-    <value id="ChooseDisc"/>      <!-- Choose among DiscDept -->
-    <value id="Reset"/>       <!-- Reset abiUser -->
+    <value id="CreateOnly"/>    <!-- Whether an ability is selectable only during creation -->
+    <value id="Activation"/>    <!-- Whether an ability can be activated to invoke dynamic changes -->
+    <value id="NeedDomainOpt"/> <!-- Whether an ability requires the user to specify a domain -->
+    <value id="NeedDomain"/>    <!-- Whether an ability requires the user to specify a domain -->
+    <value id="NeedChoice"/>    <!-- Whether an ability requires the user to specify a menu choice -->
+    <value id="NoAutoName"/>    <!-- Whether to not automatically amend the naming of a pick with selections -->
+    <value id="Resistance"/>    <!-- Identifies a resistance trait -->
+    <value id="NameRep"/>       <!-- Whether to not replace the livename with the domain name -->
+    <value id="Power"/>         <!-- Identifies a power trait -->
+    <value id="Combat"/>        <!-- Identifies a combat trait -->
+    <value id="ChooseAttr"/>    <!-- Choose among AttrSys -->
+    <value id="ChooseDisc"/>    <!-- Choose among DiscDept -->
+    <value id="Reset"/>         <!-- Reset abiUser -->
     </group>
 
   <!-- Hero group - Helper tags assigned exclusively to the hero/actor
@@ -214,7 +216,12 @@
     id="Show">
     <value id="dummy"/>   <!-- replace this tag when you define a real context -->
     </group>
-
+	
+  <group
+    id="ShowTab">
+    <value id="Lifepath"/>   <!-- show the starship creation tab -->
+    <value id="Starship"/>   <!-- show the starship creation tab -->
+    </group>
   <!-- Promote group - controls whether an item is promoted to the top
         This group should only ever have the one tag. If the tag is assigned to a
         thing, it has been promoted to the top of the list. By having this tag in its
@@ -522,6 +529,7 @@
   <group
     id="TalentCat"
     sequence="explicit">
+    <value id="Custom" order="5"/>
     <value id="Ship" order="10"/>
     <value id="General" order="10"/>
     <value id="Command" order="20"/>
@@ -532,11 +540,27 @@
     <value id="Security" order="70"/>
     <value id="Racial" order="80"/>
    </group>	
+  <!-- Talent Category group -->
+  <group
+    id="FocusCat"
+    sequence="explicit">
+    <value id="Custom" order="5"/>
+    <value id="Ship" order="10"/>
+    <value id="General" order="10"/>
+    <value id="Command" order="20"/>
+    <value id="Conn" order="30"/>
+    <value id="Engineer" order="40"/>
+    <value id="Medicine" order="50"/>
+    <value id="Science" order="60"/>
+    <value id="Security" order="70"/>
+    <value id="Racial" order="80"/>
+   </group>
    
   <!-- Talent Category group -->
   <group
     id="TraitCat"
     sequence="explicit">
+    <value id="Custom" order="5"/>
     <value id="Ship" order="10"/>
     <value id="Race" order="10"/>
     <value id="Main" order="20"/>
@@ -632,8 +656,17 @@
   <group
     id="Ship"
     dynamic="no">
+    <value id="SmallCraft" name="Small Craft"/>
     <value id="SaucerSep"/>
     <value id="MissionPod"/>
+    </group>
+
+  <!-- ShipType group -->
+  <group
+    id="ShipType"
+    dynamic="no">
+    <value id="typShip" name="Starship"/>
+    <value id="typBase" name="Starbase"/>
     </group>
 	
   <!-- Refit group -->
@@ -641,6 +674,14 @@
     id="Refit"
     dynamic="no">
     <value id="Refit"/>
+    </group>
+
+  <!-- CreateMethod group - what type of character creation method used
+        Right now there is only one tag for the Lifepath method. Later this will be expanded to offer other types of creation methods
+  -->
+  <group
+    id="CreateMethod">
+    <value id="Lifepath"/>    <!-- Identifies weapons and armor that are equipped -->
     </group>
 	
    </document>

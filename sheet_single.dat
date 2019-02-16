@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the first page of the standard character
+      sheet for output. The character sheet has been carved into a simple two-column
+      presentation that is used by many game systems, with some information on the
+      left and other material on the right. You can use whatever overall layout you
+      prefer, using this sample as a guideline.
+
+      A variety of display techniques have been used on this one character sheet to
+      provide examples of how to present information in different ways. You will
+      likely choose one or two of these methods and use them exclusively within your
+      own data files, but this gives you various styles to choose from.
+
+      The second page of the character sheet will be found in "sheet_standard2.dat".
+-->
+
+<document signature="Hero Lab Data">
+
+
+  <!-- Hero and Player Info
+        NOTE! These could be easily wrapped inside a template or used directly within
+              a layout, as we do here. Both methods are perfectly reasonable.
+  -->
+
+  <!-- oHeroNameSingle portal - name of the actor 
+  style="outHeroNam"> -->
+  <portal
+    id="oHeroNameSingle"
+    style="outHeroNam">
+    <output_label>
+      <labeltext><![CDATA[
+	    var role as string
+	    var assign as string
+	    var txt as string
+	
+	    txt = ""
+		role = ""
+		assign = ""
+		
+		txt = hero.findchild[Service].field[serRank].text
+	    role = hero.findchild[Service].field[serRole].text
+	    assign = hero.findchild[Service].field[serAssign].text
+	
+		if (empty(txt) = 0) then
+		  @text &= txt & " "
+		  endif
+
+        if (empty(hero.actorname) <> 0) then
+          @text &= "- Unnamed Hero -"
+		else
+		  @text &= hero.actorname
+          endif
+		  
+	
+	    if (empty(role) <> 0) then
+          txt = ""
+	    else
+	      txt = role
+          endif
+	  
+	    if (empty(assign) <> 0) then
+          txt = txt
+	    else
+	      if (empty(txt) <> 0) then
+	        txt = assign
+          else
+	        txt &= ", " & assign
+	        endif
+          endif
+		
+        if (empty(txt) = 0) then
+		  @text &= "{br}{size 44}" & txt & "{revert}"
+		  endif		
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oPersonalSingle portal
+        This is a table in which we output the personal details (background) of the
+        character. We use a table so we can put the info on the first page if there
+        is room and easily spill it onto the second page if not.
+  -->
+  <portal
+    id="oPersonalSingle"
+    style="outNormal">
+    <output_table
+      component="Personal"
+      showtemplate="oPersonal"
+      varyheight="yes">
+      <list><![CDATA[
+        !Helper.NoPersText & hero#source.ShowDetail
+        ]]></list>
+      </output_table>
+    </portal>
+
+  <!-- oTraitsSingle portal - traits of the actor -->
+  <portal
+    id="oTraitsSingle"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+	    var ismore as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from Trait
+		  if (ismore <> 0) then
+		    temp &= ", "
+            endif
+		  
+	      temp &= eachpick.field[name].text
+	  
+          ismore = 1
+          nexteach
+	  
+		@text &= "{b}Traits: {/b}" & temp
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>	
+
+  <!-- oValuesSingle portal - values of the actor -->
+  <portal
+    id="oValuesSingle"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+	    var ismore as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from Value
+	      temp &= "{br}" & chr(149) & " " & eachpick.field[name].text
+          nexteach
+	  
+		@text &= "{b}Values: {/b}" & temp
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oFocusSingle portal - focuses of the actor -->
+  <portal
+    id="oFocusSingle"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+	    var ismore as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from Focus
+		  if (ismore <> 0) then
+		    temp &= ", "
+            endif
+		  
+	      temp &= eachpick.field[name].text
+	  
+          ismore = 1
+          nexteach
+	  
+		@text &= "{b}Focuses: {/b}" & temp
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oDetermination portal - Determination value of the actor -->
+  <portal
+    id="oDetermination"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+	    var ismore as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from Focus
+		  if (ismore <> 0) then
+		    temp &= ", "
+            endif
+		  
+	      temp &= eachpick.field[name].text
+	  
+          ismore = 1
+          nexteach
+	  
+		@text &= "{b}Determination: {/b}(Start with 1) {font Wingdings}{size 60}" & chr(168) & "{horz 3}" & chr(168) & "{horz 3}" & chr(168) & "{revert}"
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <!-- oStress portal - Stress value of the actor -->
+  <portal
+    id="oStress"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+	    var stress as number
+		var i as number
+		
+		temp = "{font Wingdings}{size 60}"
+		stress = #stressmax[]
+		
+		for i = 1 to stress
+	      temp &= "{horz 3}" & chr(168)
+          next
+	  
+	    temp &= "{revert}"
+		
+		@text &= "{b}Stress: {/b} " & temp 
+        ]]></labeltext>
+      </output_label>
+    </portal>	
+	
+  <!-- oGearSingle portal
+        This is a table of all Gear carried by the actor. The gear list needs to
+        exclude weapons and armor, since those are already listed in the separate
+        sections for those item types.
+  -->
+  <portal
+    id="oGearSingle"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+	    var ismore as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from Gear where "!(Print.NoPrint|Equipment.Natural)"
+		  if (ismore <> 0) then
+		    temp &= ", "
+            endif
+		  
+	      temp &= eachpick.field[name].text
+	  
+          ismore = 1
+          nexteach
+	  
+		@text &= "{b}Equipment: {/b}" & temp
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oWeaponSingle portal
+        This is a table of all Weapons carried by the actor. Weapons use the same
+        template for both the contents and the header across the top. See the
+        template for more details on this.
+  -->
+  <portal
+    id="oArmorySingle"
+    style="outNormal">
+    <output_table
+      component="WeaponBase"
+      showtemplate="oWeapPickSingle"
+      showsortset="Armory"
+	  varyheight="yes">
+      <list><![CDATA[
+        ]]></list>
+      </output_table>
+    </portal>
+
+  <portal
+    id="oWeaponHeader"
+    style="outLeft">
+    <output_label>
+        <labeltext><![CDATA[
+          @text = "{b}Attacks:{/b}"
+          ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oTalent portal
+        This is a table of all Talents for the actor.
+  -->
+  <portal
+    id="oTalentSingle"
+    style="outNormal">
+    <output_table
+      component="Talent"
+      showtemplate="oAbilPick"
+	  varyheight="yes">
+      <list><![CDATA[
+        ]]></list>
+      </output_table>
+    </portal>
+
+  <portal
+    id="oTalentHeader"
+    style="outLeft">
+    <output_label>
+        <labeltext><![CDATA[
+          @text = "{b}Talents:{/b}"
+          ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oResistance portal - Resistance value of the actor -->
+  <portal
+    id="oResistance"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+		@text &= "{b}Resistance: {/b} " & #resistance[]
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <!-- oGearPick template
+        This template presents the basic gear possessed. Gear that is in quantities
+        other than one has the proper quantity listed next to it. We use a small
+        horizontal margin to indent everything slightly.
+  -->
+  <template
+    id="oWeapPickSingle"
+    name="Single Page Output Weapon Table"
+    compset="Weapon"
+    marginhorz="25">
+
+    <portal
+      id="bullet"
+      style="outLeft">
+      <output_label>
+        <labeltext><![CDATA[
+          @text = chr(149)
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="summary"
+      style="outLeft">
+      <output_label
+	    ismultiline="yes">
+        <labeltext><![CDATA[
+          @text = field[wpDamageSummaryOS].text
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <position><![CDATA[
+      ~our height is the height of the tallest portal
+      height = portal[summary].height
+      doneif (issizing <> 0)
+
+      ~assign a fixed width to the bullet and position the summary to the right
+      portal[bullet].width = 10
+      perform portal[summary].alignrel[ltor,bullet,20]
+
+      ~size the name to fit the available space
+      portal[summary].width = width - portal[summary].left
+	  portal[summary].top = portal[bullet].top
+      ~perform portal[summary].sizetofit[36]
+      perform portal[summary].autoheight
+
+      ~our height is the height of our portal
+      height = portal[summary].bottom
+	  
+      ~center all portals vertically
+      ~perform portal[bullet].centervert
+      ~perform portal[summary].centervert
+      ]]></position>
+
+    </template>
+	
+  <!-- oLeftSideSingle layout
+        This layout is rendered down the left side of the sheet and contains the
+        name and description details for the character, as well as the table of
+        table of attributes, table of health/powers, and table of derived traits.
+		
+	<portalref portal="oHeroInfo"/>
+    <portalref portal="oDerived"/>
+  -->
+  <layout
+    id="oLeftSideSingle">
+    <portalref portal="oHeroNameSingle"/>
+    <portalref portal="oPersonalSingle"/>
+    <portalref portal="oTraitsSingle"/>
+    <portalref portal="oValuesSingle"/>
+    <portalref portal="oAttribute"/>
+    <portalref portal="oDiscip"/>
+    <portalref portal="oFocusSingle"/>
+    <portalref portal="oTalentHeader"/>
+    <portalref portal="oTalentSingle"/>
+    <position><![CDATA[
+      ~position the hero name at the top with the hero details beneath the name
+      perform portal[oHeroNameSingle].autoplace[0]
+      perform portal[oPersonalSingle].autoplace[10]
+      perform portal[oTraitsSingle].autoplace[10]
+      perform portal[oValuesSingle].autoplace[10]
+	  
+      ~position the tables next
+      perform portal[oAttribute].autoplace[10]
+      perform portal[oDiscip].autoplace[10]
+      perform portal[oFocusSingle].autoplace[10]
+      perform portal[oTalentHeader].autoplace[20]
+      perform portal[oTalentSingle].autoplace[5]
+
+      ~our layout height is the extent of the elements within
+      height = autoextent
+      ]]></position>
+    </layout>
+	
+  <!-- oRightSideSingle layout
+        This layout is rendered down the right side of the sheet and contains the
+        character portrait, table of special abilities, table of skills, and table
+        of gear. As much gear as will fit is output, with any excess being truncated
+        on this sheet and being included on the spillover sheet.
+  -->
+  <layout
+    id="oRightSideSingle">
+    <portalref portal="oDetermination"/>
+    <portalref portal="oStress"/>
+    <portalref portal="oResistance"/>
+    <portalref portal="oWeaponHeader"/>
+    <portalref portal="oArmorySingle"/>
+    <portalref portal="oGearSingle"/>
+    <portalref portal="oPersonal"/>
+    <templateref template="oPortrait" thing="actor"/>
+    <position><![CDATA[
+      ~position the character portrait at the top and the various tables beneath
+      perform template[oPortrait].autoplace
+      perform portal[oDetermination].autoplace
+      perform portal[oStress].autoplace
+      perform portal[oResistance].autoplace
+      perform portal[oWeaponHeader].autoplace
+      perform portal[oArmorySingle].autoplace
+      perform portal[oGearSingle].autoplace
+      perform portal[oPersonal].autoplace
+
+      ~our layout height is the extent of the elements within
+      height = autoextent
+      ]]></position>
+    </layout>
+  <!-- singlepage sheet
+        This is the first page of the stanard character sheet, which coordinates the
+        output of a whole bunch of layouts containing different pieces of information
+        for the character. Layouts are estimated to perform whatever calculations are
+        necessary within that layout, such as its overall dimensions. Once estimated,
+        the dimensions of the layout can be used to properly position and size any
+        subsequent layouts that depend on it. So the overall process is to process
+        layouts in an order that progressively fills the sheet with aligned material.
+  -->
+  <sheet
+    id="singlepage"
+    name="1-Page character sheet">
+    <layoutref layout="oLogos"/>
+    <layoutref layout="oLeftSideSingle"/>
+    <layoutref layout="oRightSideSingle"/>
+    <layoutref layout="oAdjust"/>
+    <layoutref layout="oValidate"/>
+    <position><![CDATA[
+      ~set this global variable to 1 if you want the logos to be stacked; a value
+      ~of zero places them side-by-side
+      scenevalue[stacklogos] = 1
+
+      ~setup the gap to be used between the various sections of the character sheet
+      autogap = 20
+      scenevalue[sectiongap] = autogap
+
+      ~calculate the width of the two columns of the character sheet, leaving a
+      ~suitable center gap between them
+      var colwidth as number
+      colwidth = (width - 50) / 2
+
+      ~if the user wants to omit the validation report, the hide it and allow the
+      ~rest of the sheet to fill that space; otherwise, output the layout and the
+      ~top of the validation report establishes the bottom for all other output
+      var extent as number
+      if (hero.tagis[source.Validation] = 0) then
+        layout[oValidate].visible = 0
+        extent = height
+      else
+        layout[oValidate].width = width
+        perform layout[oValidate].render
+        layout[oValidate].top = height - layout[oValidate].height
+        extent = layout[oValidate].top - autogap
+        endif
+
+      ~position the leftside layout in the upper left corner
+      layout[oLeftSideSingle].width = colwidth
+      layout[oLeftSideSingle].height = extent - layout[oLeftSideSingle].top
+      perform layout[oLeftSideSingle].render
+
+      ~position the activated adjustments at the bottom on the left; this will
+      ~establish the remaining space available on the left for armor and weapons
+      layout[oAdjust].width = colwidth
+      perform layout[oAdjust].render
+      layout[oAdjust].top = extent - layout[oAdjust].height
+
+      ~position the armory layout within the remaining space on the left
+      ~layout[oArmory].width = colwidth
+      ~layout[oArmory].top = layout[oLeftSideSingle].bottom + autogap
+      ~layout[oArmory].height = layout[oAdjust].top - autogap - layout[oArmory].top
+      ~perform layout[oArmory].render
+
+      ~position the logos layout in the upper right corner
+      layout[oLogos].width = colwidth
+      perform layout[oLogos].render
+      layout[oLogos].left = width - colwidth
+
+      ~position the rightside layout in the remaining space on the right
+      layout[oRightSideSingle].width = colwidth
+      layout[oRightSideSingle].top = layout[oLogos].bottom + autogap
+      layout[oRightSideSingle].left = layout[oLogos].left
+      layout[oRightSideSingle].height = extent - layout[oRightSideSingle].top
+      perform layout[oRightSideSingle].render
+      ]]></position>
+    </sheet>
+
+
+  </document>

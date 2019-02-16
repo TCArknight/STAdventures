@@ -86,7 +86,7 @@
     name="Career"
     marginhorz="5"
     marginvert="5"
-    order="30"
+    order="50"
     agentcompset="Career"
     agentlive="HasCareer"
     agentname="name"

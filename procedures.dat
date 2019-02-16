@@ -756,7 +756,7 @@
     final = "Species: {b}" & info & "{/b}{br}{br}"
 
     ~output our power point pool
-    perform hero.child[trPowerPts].setfocus
+    perform hero.child[trDetermination].setfocus
     final &= "Power Points: {b}" & focus.field[abiFinal].text & " / " & focus.field[abiMaximum].text & "{/b}{br}{br}"
 
     ~output our resistance traits

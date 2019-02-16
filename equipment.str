@@ -311,13 +311,14 @@
       id="wpDamageSummary"
       name="Damage"
       type="derived"
-      maxfinal="50">
+      maxfinal="75">
 	  <!-- Final value for display is a blending of the various range values -->
       <finalize><![CDATA[
         var txt as string
 		var tags as string
 		var totD as number
 		var scale as number
+		var sec as number
 		var delDmg as number
 		
 		foreach pick in hero where "component.ShipInfo"
@@ -327,6 +328,8 @@
 		totD = int(field[wpDamage].text)
 		if (hero.tagis[CharType.typShip] = 1) then
 		  totD += scale
+		  sec = #ability[discdept05]
+		  totD += sec
 		  delDmg = tagvalue[Delivery.?]
           totD += delDmg
 		else
@@ -336,7 +339,7 @@
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
 		else
-		  txt = totD & "{font TrekArrowheads} A{revert}"
+		  txt = totD & "{size 40}{font TrekArrowheads} A{revert}"
           endif
 		  
 	    tags = tagnames[DmgEffect.?,", "] 
@@ -357,13 +360,14 @@
       id="wpDamageSummarySB"
       name="Damage"
       type="derived"
-      maxfinal="50">
+      maxfinal="75">
 	  <!-- Final value for display is a blending of the various range values -->
       <finalize><![CDATA[
         var txt as string
 		var tags as string
 		var totD as number
 		var scale as number
+		var sec as number
 		var delDmg as number
 		
 		foreach pick in hero where "component.ShipInfo"
@@ -373,6 +377,8 @@
 		totD = int(field[wpDamage].text)
 		if (hero.tagis[CharType.typShip] = 1) then
 		  totD += scale
+		  sec = #ability[discdept05]
+		  totD += sec
 		  delDmg = tagvalue[Delivery.?]
           totD += delDmg
 		else
@@ -397,12 +403,82 @@
 		
         ]]></finalize>
       </field>
+	<!-- Damage summary of the weapon -->
+    <field
+      id="wpDamageSummaryOS"
+      name="Damage"
+      type="derived"
+      maxfinal="150">
+	  <!-- Final value for display is a blending of the various range values -->
+      <finalize><![CDATA[
+        var txt as string
+		var mySumm as string
+		var tags as string
+		var totD as number
+		var scale as number
+		var sec as number
+		var delDmg as number
+		
+		~name of the weapon
+		mySumm = field[name].text & " ("
+		
+		~type of weapon
+		if (tagis[Armory.Melee] <> 0) then
+		  mySumm &= "Melee, "
+		else
+		  mySumm &= "Ranged, "
+		  endif
+		
+		~damage rating
+		foreach pick in hero where "component.ShipInfo"
+          scale = eachpick.field[shipScale].value
+		  nexteach
+		
+		totD = int(field[wpDamage].text)
+		if (hero.tagis[CharType.typShip] = 1) then
+		  totD += scale
+		  sec = #ability[discdept05]
+		  totD += sec
+		  delDmg = tagvalue[Delivery.?]
+          totD += delDmg
+		else
+          totD += #abilfinal[discdept05]
+		  endif
+		
+		if (tagis[Weapon.NoDamage] <> 0) then
+	      txt = "*"
+		else
+		  txt = totD & "{font TrekArrowheads} A{revert}"
+          endif
+		
+		mySumm &= txt 
+		
+		~effects
+	    mySumm &= " " & tagnames[DmgEffect.?,", "] 
+		
+		~ weapon size
+		if (tagis[Equipment.TwoHand] <> 0) then
+		  mySumm &= ", Size 2H,"
+		else
+		  mySumm &= ", Size 1H,"
+		  endif
+		  
+        ~ qualities
+		mySumm &= " " & tagnames[GearQual.?,", "]
 
+		mySumm &= ")"
+		
+	    @text = mySumm
+		
+		
+        ]]></finalize>
+      </field>
     <field
       id="wpQualSumm"
       name="Qualities"
       type="derived"
-      maxfinal="50">
+	  maxlength="75"
+	  maxfinal="75">
 	  <!-- Final value for display is a blending of the various range values -->
       <finalize><![CDATA[
         var txt as string

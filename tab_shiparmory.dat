@@ -170,7 +170,7 @@
 
     <portal
       id="quality"
-      style="lblDisable">
+      style="lblDisableLeft">
       <label>
 	    <labeltext><![CDATA[
           @text = "Qualities: " & field[wpQualSumm].text
@@ -180,15 +180,15 @@
 
     <portal
       id="damage"
-      style="lblDisable">
+      style="lblDisableLeft">
       <label>
 	    <labeltext><![CDATA[
 		  var txt as string
 		  var summ as string
 		  var lng as number
 		  
-		  
 		  summ = field[wpDamageSummary].text
+		  
 		  lng = length(summ) - 2
 		  
 		  if (compare(left(summ,2),"* ") = 0) then
@@ -196,6 +196,7 @@
 		  else
 		    txt = "Damage: " & summ
 		    endif
+			
           @text = txt
           ]]></labeltext>
         </label>
@@ -203,7 +204,7 @@
 
     <portal
       id="range"
-      style="lblDisable">
+      style="lblDisableLeft">
       <label>
         <labeltext><![CDATA[
           @text = "Range: " & field[wpSRange].text
@@ -256,24 +257,27 @@
 	  top1 = portal[name].top
 	  top2 = portal[info].bottom + 5
 	  
-      ~position the quality portal to the left of the gear button
-      portal[quality].top = top2
-	  perform portal[quality].alignedge[right,0]
+      ~position the range portal to the left of the info button
+      portal[range].top = top1
+	  perform portal[range].alignrel[ltor,name,-8]
 
       ~position the portals on 2nd rows	  
-	  portal[range].top = top2
+	  portal[quality].top = top2
 	  portal[damage].top = top2
-
+	  
       ~position the attack portal to the left of damage column; we want the
       ~attack to be centered in its own column relative to a centerpoint position
-      perform portal[damage].centerpoint[horz,210]
-
-	  perform portal[range].alignedge[left,0]
+      perform portal[damage].alignedge[left,0]
+	  portal[damage].width = width/2 - 5
+	  ~.centerpoint[horz,210]
+	  
+      portal[quality].width = portal[damage].width
+	  perform portal[quality].alignrel[ltor,damage,8]
 
       ~if this is not a energy weapon, hide the range portal
       portal[range].visible = tagis[component.WeapEnergy]
 
-	  height = portal[range].bottom + 5
+	  height = portal[damage].bottom + 5
       ]]></position>
 
     </template>

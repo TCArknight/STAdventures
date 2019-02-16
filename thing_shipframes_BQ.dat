@@ -22,8 +22,9 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="ShipAlliance" tag="Civilian"/>
-    <bootstrap thing="shPhaBan"></bootstrap>
+    <tag group="ShipType" tag="typShip"/>
     <bootstrap thing="trShipFreighter"></bootstrap>
     <bootstrap thing="talRuggDes"></bootstrap>
+    <bootstrap thing="shPhaBan"></bootstrap>
     </thing>
   </document>

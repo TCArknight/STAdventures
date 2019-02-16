@@ -1,0 +1,13 @@
+Ship Issues:
+Resource Validation - shows Attributes and Disciplines instead of System and Department.
+Resource Validation - number of Traits shouldn't be limited
+Resource Validation - Character Points shouldn't show.
+Weapons - Phaser damage wrong, should be Scale + Security + Modifiers; seems to be just Scale + Modifiers.
+Ship Details - Crew Details entry showing for other than Small Craft.
+
+Hero Issues:
+Career Events - Missing many events.
+Career Events - Needs Attribute and Discipline added to description.
+Talents - Choosing Veteran correctly adds the Veteran Talent, but it doesn't add the fourth Talent to the list; says have used 4 of 3 Talents.
+
+

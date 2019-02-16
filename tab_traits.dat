@@ -21,6 +21,7 @@
       component="Trait"
       showtemplate="trPick"
       choosetemplate="SimpleItem"
+	  choosesortset="TraitSort"
       showfixedlast="yes"
       addpick="resTrait"
 	  candidatepick="ExprHelp"
@@ -30,7 +31,7 @@
         ]]></titlebar>
       <description/>
       <headertitle><![CDATA[
-        @text = "Traits: " & hero.child[resTrait].field[resSummary].text
+        @text = "Traits: "
         ]]></headertitle>
       <additem><![CDATA[
         ~if we're in advancement mode, we've been frozen, so display accordingly
@@ -81,7 +82,15 @@
         </action>
       <mouseinfo/>
       </portal>
-
+      
+	<portal
+	  id="domain"
+	  style="editNormal">
+	  <edit
+	    field="domDomain">
+	    </edit>
+	  </portal>
+	  
     <portal
       id="delete"
       style="actDelete"
@@ -104,6 +113,7 @@
       ~center the other portals vertically
       perform portal[name].centervert
       perform portal[delete].centervert
+      perform portal[domain].centervert
 
       ~position the delete portal on the far right
       perform portal[delete].alignedge[right,0]
@@ -111,10 +121,23 @@
       ~position the info portal to the left of the delete button
       perform portal[info].alignrel[rtol,delete,-8]
 
-      ~position the name on the left and let it use all available space
-      portal[name].left = 0
-      portal[name].width = minimum(portal[name].width,portal[info].left - 5)
-
+      ~if we don't need a domain, hide the portals
+	  if (tagis[User.NeedDomain] = 0) then
+	    portal[domain].visible = 0
+	    
+	    ~position the name on the left and let it use all available space
+        portal[name].left = 0
+        portal[name].width = minimum(portal[name].width,portal[info].left - 5)
+	  else
+	    ~position the domain portal to the left of the info
+        perform portal[domain].alignrel[rtol,info,-150]
+        ~portal[domain].width = minimum(150,portal[info].left - portal[domain].left - 100)
+        portal[domain].width = 200
+        ~position the name on the left and let it use all available space
+        portal[name].left = 0
+        portal[name].width = minimum(portal[name].width,portal[domain].left - 5)
+        endif
+		
       ~if the ability is auto-added, change its font to indicate that fact
       if (candelete = 0) then
         perform portal[name].setstyle[lblAuto]

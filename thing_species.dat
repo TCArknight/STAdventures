@@ -111,4 +111,62 @@
     <usesource source="TNG"/>
     <tag group="SpecCat" tag="Player"/>
     </thing>
+	<thing id="spcMixedHer" name="Mixed-Heritage" description="The character is of Mixed Heritage. Choose 2 species and determine which one is the Dominant of the two. Choose two of the attrributes associated with that race. Choose the third attribute from one of the attributes from your secondary species. You get the trait for both species, and are considered both species in regards to any talents." compset="Species" uniqueness="unique">
+    <fieldval field="usrLabel4" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid4" value="component.AttrSys"/>
+    <fieldval field="usrSource4" value="1"/>
+    <fieldval field="usrLabel5" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid5" value="component.AttrSys"/>
+    <fieldval field="usrSource5" value="1"/>
+    <fieldval field="usrLabel6" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid6" value="component.AttrSys"/>
+    <fieldval field="usrSource6" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="ChooseSrc4" tag="Container"/>
+    <tag group="ChooseSrc5" tag="Container"/>
+    <tag group="ChooseSrc6" tag="Container"/>
+    <tag group="User" tag="NoAutoName"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="trMixedHeri"></bootstrap>
+    <eval phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the +1 modifier to selected attribute
+	  if (field[usrChosen4].ischosen <> 0) then
+        
+		tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen5].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen5].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen5].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen6].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen6].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif]]></eval>
+    </thing>
+	<thing id="trMixedHeri" name="Mixed Heritage" description="The person is decendant of two species and is considered one of each." compset="Trait">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+	<thing id="trSngAnd" name="Soong-type Android" description="The physical and mental capabilities of a Soong-type android are superior to that of most organic or cybernetic life-forms, allowing them to ignore or resist effects like hard vacuum, disease, radiation, oxygen deprivation, telepathy, or biochemical imbalance. However, some environmental conditions, such as highly-ionized atmospheres, and electromagnetic fields, can have a severe effect. Further, Soong-type androids do not naturally have the capacity for emotions, requiring additional hardware to process and experience any feelings. The legal personhood of Soong-type androids is somewhat disputed, though a landmark case involving Lieutenant Commander Data establishes their right to self-determination." compset="Trait">
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcSngAnd" name="Soong-type Android" description="Originally designed by Dr. Noonian Soong the Soong-type Android is a exceptionally advanced artificial intelligence life-form. These android are capable of incredible feats of reason due to their positronic brain but are normally emotionless and may find it difficult to relate to organic beings. Certain advanced versions offset this problem by use of an emotion chip that allows them to experience a full gamut of emotions. Unfortunately it is possible for negative emotions like anger and megalomania to become dominant and cause the android to harm others.\n\n{i}EXAMPLE VALUE: If only I had a heart. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason.\n\n{b}TRAIT:{/b} Soong-type Android." compset="Species" uniqueness="unique">
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="trSngAnd"></bootstrap>
+    </thing>
   </document>

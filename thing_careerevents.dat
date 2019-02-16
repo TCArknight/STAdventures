@@ -13,7 +13,7 @@
     name="Ship Destroyed"
     compset="Event"
     isunique="yes"
-    description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.">
+    description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.\n\nAttribute: Daring\nDiscipline: Security">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
@@ -21,13 +21,13 @@
 	  
       ]]></eval>    
     </thing>
-	
+
   <thing
     id="evBetIde"
     name="Betrayed Ideals For A Superior"
     compset="Event"
     isunique="yes"
-    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow the superior.">
+    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow the superior.\n\nAttribute: Presence\nDiscipline: Command">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys05] += 1
@@ -41,7 +41,7 @@
     name="Death of a Friend"
     compset="Event"
     isunique="yes"
-    description="During an important mission, one of the character’s friends was killed in action.">
+    description="During an important mission, one of the character’s friends was killed in action.\n\nAttribute: Insight\nDiscipline: Medicine">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys04] += 1
@@ -55,7 +55,7 @@
     name="Lauded By Another Culture"
     compset="Event"
     isunique="yes"
-    description="The character was involved in a mission that earned the official praise of a non-Federation culture; they are now considered to be a friend to that people.">
+    description="The character was involved in a mission that earned the official praise of a non-Federation culture; they are now considered to be a friend to that people.\n\nAttribute: Presence\nDiscipline: Science">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys05] += 1
@@ -69,7 +69,7 @@
     name="Negotiate a Treaty"
     compset="Event"
     isunique="yes"
-    description="The character was part of a delegation that helped negotiate a treaty, agreement, or alliance with a culture outside the Federation.">
+    description="The character was part of a delegation that helped negotiate a treaty, agreement, or alliance with a culture outside the Federation.\n\nAttribute: Control\nDiscipline: Command">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys01] += 1
@@ -83,7 +83,7 @@
     name="Required To Take Command"
     compset="Event"
     isunique="yes"
-    description="During a mission, a crisis left the mission’s leader unable to lead. This required the character to take command, something they may not have been prepared for.">
+    description="During a mission, a crisis left the mission’s leader unable to lead. This required the character to take command, something they may not have been prepared for.\n\nAttribute: Daring\nDiscipline: Command">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
@@ -96,7 +96,7 @@
     name="Encounter With A Truly Alien Being"
     compset="Event"
     isunique="yes"
-    description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.">
+    description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.\n\nAttribute: Reason\nDiscipline: Science">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
@@ -109,7 +109,7 @@
     name="Serious Injury"
     compset="Event"
     isunique="yes"
-    description="The character was seriously hurt, and needed to spend a considerable amount of time recovering.">
+    description="The character was seriously hurt, and needed to spend a considerable amount of time recovering.\n\nAttribute: Fitness\nDiscipline: Medicine">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys03] += 1
@@ -122,7 +122,7 @@
     name="Conflict With A Hostile Culture"
     compset="Event"
     isunique="yes"
-    description="The character was involved in a major battle with a hostile force, and is unlikely to forget the experience.">
+    description="The character was involved in a major battle with a hostile force, and is unlikely to forget the experience.\n\nAttribute: Fitness\nDiscipline: Security">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys03] += 1
@@ -135,7 +135,7 @@
     name="Mentored"
     compset="Event"
     isunique="yes"
-    description="A highly-respected officer took notice of the character’s career. For a time, the character served as the officer’s pilot and aide, gaining the benefit of the officer’s experiences and lessons.">
+    description="A highly-respected officer took notice of the character’s career. For a time, the character served as the officer’s pilot and aide, gaining the benefit of the officer’s experiences and lessons.\n\nAttribute: Choose One\nDiscipline: Conn">
 	<fieldval field="usrLabel1" value="Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys"/>
     <fieldval field="usrSource1" value="1"/>
@@ -156,7 +156,7 @@
     name="Transporter Accident"
     compset="Event"
     isunique="yes"
-    description="The character suffered some manner of strange accident while using a Transporter.">
+    description="The character suffered some manner of strange accident while using a Transporter.\n\nAttribute: Control\nDiscipline: Conn">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys01] += 1
@@ -169,20 +169,20 @@
     name="Dealing With A Plague"
     compset="Event"
     isunique="yes"
-    description="The character’s starship was assigned to provide aid to a world deal with an epidemic.">
+    description="The character’s starship was assigned to provide aid to a world deal with an epidemic.\n\nAttribute: Insight\nDiscipline: Medicine">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys04] += 1
 	  #abilbonus[discdept04] += 1
       ]]></eval>
 	</thing>
-
+	
   <thing
     id="evCalledOut"
-    name="Called Out By A Superior"
+    name="Called Out A Superior"
     compset="Event"
     isunique="yes"
-    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow their ideals.">
+    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow their ideals.\n\nAttribute: Reason\nDiscipline: Conn">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys06] += 1
@@ -195,7 +195,7 @@
     name="New Battle Strategy"
     compset="Event"
     isunique="yes"
-    description="In combat with a hostile force, the character devised a new strategy or tactic.">
+    description="In combat with a hostile force, the character devised a new strategy or tactic.\n\nAttribute: Daring\nDiscipline: Security">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
@@ -208,7 +208,7 @@
     name="Learns Unique Language"
     compset="Event"
     isunique="yes"
-    description="The character encounters a species with an unusual form of communication, and learns to communicate with them.">
+    description="The character encounters a species with an unusual form of communication, and learns to communicate with them.\n\nAttribute: Insight\nDiscipline: Science">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys04] += 1
@@ -221,7 +221,7 @@
     name="Discovers An Artefact"
     compset="Event"
     isunique="yes"
-    description="During a survey mission, the character discovered a device or fragment of technology from a now-extinct civilization.">
+    description="During a survey mission, the character discovered a device or fragment of technology from a now-extinct civilization.\n\nAttribute: Reason\nDiscipline: Engineering">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys06] += 1
@@ -234,7 +234,7 @@
     name="Special Commendation"
     compset="Event"
     isunique="yes"
-    description="During a crisis, the character saved the lives of several colleagues, helping them to safety. This earned the character a special commendation.">
+    description="During a crisis, the character saved the lives of several colleagues, helping them to safety. This earned the character a special commendation.\n\nAttribute: Fitness\nDiscipline: Choose One">
 	<fieldval field="usrLabel1" value="Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/>
@@ -254,7 +254,7 @@
     name="Solved An Engineering Crisis"
     compset="Event"
     isunique="yes"
-    description="The character was instrumental in ending a crisis caused by malfunctioning technology, and saved many lives in the process.">
+    description="The character was instrumental in ending a crisis caused by malfunctioning technology, and saved many lives in the process.\n\nAttribute: Control\nDiscipline: Engineering">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys01] += 1
@@ -268,7 +268,7 @@
     name="Breakthrough Or Invention"
     compset="Event"
     isunique="yes"
-    description="The character made an important technological discovery, devised a new way of using a particular technology, or invented some new technology that will be invaluable in the future.">
+    description="The character made an important technological discovery, devised a new way of using a particular technology, or invented some new technology that will be invaluable in the future.\n\nAttribute: Choose one\nDiscipline: Engineering">
 	<fieldval field="usrLabel1" value="Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys"/>
     <fieldval field="usrSource1" value="1"/>
@@ -289,7 +289,7 @@
     name="First Contact"
     compset="Event"
     isunique="yes"
-    description="The character was chosen to be involved in one of the most important of Starfleet’s missions: first contact with another culture.">
+    description="The character was chosen to be involved in one of the most important of Starfleet’s missions: first contact with another culture.\n\nAttribute: Presence\nDiscipline: Choose One">
 	<fieldval field="usrLabel1" value="Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/>

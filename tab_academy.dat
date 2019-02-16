@@ -400,7 +400,7 @@
     name="Starfleet Academy"
     marginhorz="5"
     marginvert="5"
-    order="30"
+    order="40"
     agentcompset="Academy"
     agentlive="HasAcademy"
     agentname="name"

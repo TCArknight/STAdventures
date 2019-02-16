@@ -234,7 +234,7 @@
     name="Species"
     marginhorz="5"
     marginvert="5"
-    order="15"
+    order="10"
     agentcompset="Species"
     agentlive="IsSpecies"
     agentname="name"

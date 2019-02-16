@@ -39,6 +39,16 @@
       style="bold">
       </font>
     </resource>
+	
+  <!-- font used on giant text -->
+  <resource
+    id="ofntgiant">
+    <font
+      face="Arial"
+      size="80"
+      style="bold">
+      </font>
+    </resource>
 
   <!-- font used on smaller text -->
   <resource
@@ -144,13 +154,14 @@
       </style_output>
     </style>
 
-  <!-- hero name text for output -->
+  <!-- hero name text for output 
+      filled in background: backcolor="dddddd"
+	  -->
   <style
     id="outHeroNam">
     <style_output
       textcolor="000000"
-      backcolor="dddddd"
-      font="ofntlarge"
+      font="ofntgiant"
       alignment="center">
       </style_output>
     </style>

@@ -70,18 +70,45 @@
         data files to tailor behavior based on the presence (or not) of that tag.
   -->
 
-    <source
+  <source
     id="Supplement"
     name="Supplements"
     selectable="no"
 	sortorder="0"
     description="Supplements for the game.">
     </source>
+
+  <source
+    id="Divisions"
+    name="Division Sourcebooks"
+    parent="Supplement"
+    selectable="no"
+    sortorder="1"
+    description="Sourcebooks for each division">
+    </source>
+
+  <source
+    id="Quadrants"
+    name="Quadrant Sourcebooks"
+    parent="Supplement"
+    selectable="no"
+    sortorder="2"
+    description="Sourcebooks for each quadrant">
+    </source>
+
+  <source
+    id="Characters"
+    name="Character Collections"
+    parent="Supplement"
+    selectable="no"
+    sortorder="2"
+    description="Character compilations">
+    </source>
 	
   <source
     id="DivCmd"
     name="Command Division Sourcebook"
-    parent="Supplement"
+    parent="Divisions"
     default="no"
     reportable="no"
     sortorder="1"
@@ -91,22 +118,98 @@
   <source
     id="DivOps"
     name="Operations Division Sourcebook"
-    parent="Supplement"
+    parent="Divisions"
     default="no"
     reportable="no"
-    selectable="no"
     sortorder="2"
     description="Options for Engineering and Operations">
     </source>
 	
   <source
-    id="QuadBeta"
-    name="Beta Quadrant Sourcebook"
-    parent="Supplement"
+    id="DivSci"
+    name="Science Division Sourcebook"
+    parent="Divisions"
     default="no"
     reportable="no"
-    sortorder="4"
+    selectable="no"
+    sortorder="3"
+    description="Options for Sciences and Medicine">
+    </source>
+	
+  <source
+    id="QuadAlpha"
+    name="Alpha Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    selectable="no"
+    sortorder="1"
+    description="Options from the Alpha Quadrant sourcebook.">
+    </source>
+	
+  <source
+    id="QuadBeta"
+    name="Beta Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    sortorder="2"
     description="Options from the Beta Quadrant sourcebook.">
+    </source>
+	
+  <source
+    id="QuadGamma"
+    name="Gamma Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    selectable="no"
+    sortorder="3"
+    description="Options from the Gamma Quadrant sourcebook.">
+    </source>
+	
+  <source
+    id="QuadDelta"
+    name="Beta Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    selectable="no"
+    reportable="no"
+    sortorder="4"
+    description="Options from the Delta Quadrant sourcebook.">
+    </source>
+
+  <source
+    id="CharacterTOS"
+    name="Original Series Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="1"
+    description="Options from the TOS Characters supplement.">
+    </source>
+
+  <source
+    id="CharacterTNG"
+    name="Next Generations Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="2"
+    description="Options from the TNG Characters supplement.">
+    </source>
+
+  <source
+    id="CharacterDS9"
+    name="Deep Space 9 Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="3"
+    description="Options from the DS9 Characters supplement.">
     </source>
 	
   <source
@@ -260,7 +363,19 @@
     <sortkey isfield="yes" id="adjIndex" isascend="no"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
+	
+  <!-- FocusSort - Focus sortset -->
+  <sortset id="FocusSort" name="Focus Sort">
+    <sortkey isfield="no" id="FocusCat"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
 
+  <!-- TraitsSort - Traits sortset -->
+  <sortset id="TraitSort" name="Trait Sort">
+    <sortkey isfield="no" id="TraitCat"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+	
   <!-- TalSort - Talents sortset -->
   <sortset id="TalentSort" name="Talent Sort">
     <sortkey isfield="no" id="TalentCat"/>
@@ -276,6 +391,7 @@
   
   <!-- FrameSort - Species sortset -->
   <sortset id="FrameSort" name="Starship Frame Sort">
+    <sortkey isfield="no" id="ShipType"/>
     <sortkey isfield="no" id="ShipAlliance"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>

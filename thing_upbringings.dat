@@ -1,6 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="upStarfl" name="Starfleet" description="The character’s family may have a strong tradition of Starfleet service, with at least one member of the family in every generation serving the Federation in this way. Perhaps both the character’s parents were Starfleet officers, who met in service. Either way, the character’s formative years were influenced by Starfleet." compset="Upbringing" uniqueness="unique">
+  <thing id="upAgriRur" name="Agricultural or Rural" description="The character grew up surrounded more by nature than by people, in rural communities, on the frontier, or somewhere else distanced from the bustle of cities. They might be heavily involved in agriculture, growing real food to supplement synthesized or replicated meals.\n\nAccept: Fitness +2, Control +1\nReject: Reason +2, Presence +1\n\nDiscipline: Conn, Medicine, or Security" compset="Upbringing" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept05|thingid.discdept04)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+      if (hero.tagis[Upbringing.Rebel] = 0) then
+	    #abilbonus[attrsys03] += 2
+	    #abilbonus[attrsys01] += 1
+	  else
+	    #abilbonus[attrsys06] += 2
+	    #abilbonus[attrsys05] += 1
+		endif
+
+	  doneif (field[usrChosen1].ischosen <> 0)
+		
+	  field[usrChosen1].chosen.field[abiBonus].value += 1
+		
+      ]]></eval>
+    </thing>
+
+  <thing id="upArtCre" name="Artistic and Creativity" description="The character’s life was filled with arts and creativity of all kinds, and no matter what pursuits the character favors, they are exposed to the great works of many cultures, and given every opportunity to express themselves.\n\nAccept: Presence +2, Insight +1\nReject: Fitness +2, Daring +1\n\nDiscipline: Command, Engineering, Science" compset="Upbringing" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+      if (hero.tagis[Upbringing.Rebel] = 0) then
+	    #abilbonus[attrsys04] += 2
+	    #abilbonus[attrsys05] += 1
+	  else
+	    #abilbonus[attrsys02] += 1
+	    #abilbonus[attrsys03] += 2
+		endif
+
+	  doneif (field[usrChosen1].ischosen <> 0)
+		
+	  field[usrChosen1].chosen.field[abiBonus].value += 1
+		
+      ]]></eval>
+    </thing>
+
+  <thing id="upBusTra" name="Business or Trade" description="The character’s family may have connections on countless worlds, overseeing and directing some grand business endeavor. They might have been traders or involved in interplanetary freight. Either way, the character has grown up encountering people from all walks of life, including those from outside the Federation, and their outlook on life has been shaped accordingly.\n\nAccept: Presence +2, Daring +1\nReject: Insight +2, Reason +1\n\nDiscipline: Command, Engineering, or Science" compset="Upbringing" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept  &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept06)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+      if (hero.tagis[Upbringing.Rebel] = 0) then
+	    #abilbonus[attrsys02] += 1
+	    #abilbonus[attrsys05] += 2
+	  else
+	    #abilbonus[attrsys04] += 2
+	    #abilbonus[attrsys06] += 1
+		endif
+
+	  doneif (field[usrChosen1].ischosen <> 0)
+		
+	  field[usrChosen1].chosen.field[abiBonus].value += 1
+		
+      ]]></eval>
+    </thing>
+
+  <thing id="upDipPol" name="Diplomacy and Politics" description="The character has been exposed to the complexities of political thought and the nuances of diplomacy since they were young, perhaps because a family member was involved in those fields.\n\nAccept: Presence +2, Control +1\nReject: Reason +2, Fitness +1\n\nDiscipline: Command, Conn, or Security" compset="Upbringing" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+	<eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+      if (hero.tagis[Upbringing.Rebel] = 0) then
+	    #abilbonus[attrsys05] += 2
+	    #abilbonus[attrsys01] += 1
+	  else
+	    #abilbonus[attrsys06] += 2
+	    #abilbonus[attrsys03] += 1
+		endif
+
+	  doneif (field[usrChosen1].ischosen <> 0)
+		
+	  field[usrChosen1].chosen.field[abiBonus].value += 1
+		
+      ]]></eval>
+    </thing>
+
+  <thing id="upSciTech" name="Science and Technology" description="The character’s home was one filled with the potential of science, and cutting edge developments were familiar ground. Perhaps the character was raised by scientists or engineers, or had mentors and teachers who encouraged a talent for the technical.\n\nAccept: Control +2, Reason +1\nReject: Insight+2, Daring +1\n\nDiscipline: Conn, Engineering, Medicine, or Science" compset="Upbringing" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; !(thingid.discdept01|thingid.discdept05)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+      if (hero.tagis[Upbringing.Rebel] = 0) then
+	    #abilbonus[attrsys01] += 2
+	    #abilbonus[attrsys06] += 1
+	  else
+	    #abilbonus[attrsys04] += 2
+	    #abilbonus[attrsys02] += 1
+		endif
+
+	  doneif (field[usrChosen1].ischosen <> 0)
+		
+	  field[usrChosen1].chosen.field[abiBonus].value += 1
+		
+      ]]></eval>
+    </thing>
+
+  <thing id="upStarfl" name="Starfleet" description="The character’s family may have a strong tradition of Starfleet service, with at least one member of the family in every generation serving the Federation in this way. Perhaps both the character’s parents were Starfleet officers, who met in service. Either way, the character’s formative years were influenced by Starfleet.\n\nAccept: Control +2, Fitness +1\nReject: Daring +2, Insight +1\n\nDiscipline: Choose One" compset="Upbringing" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/> 
@@ -26,125 +146,4 @@
 	  
     </thing>
 
-  <thing id="upBusTra" name="Business or Trade" description="The character’s family may have connections on countless worlds, overseeing and directing some grand business endeavor. They might have been traders or involved in interplanetary freight. Either way, the character has grown up encountering people from all walks of life, including those from outside the Federation, and their outlook on life has been shaped accordingly." compset="Upbringing" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept  &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept06)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
-      if (hero.tagis[Upbringing.Rebel] = 0) then
-	    #abilbonus[attrsys02] += 1
-	    #abilbonus[attrsys05] += 2
-	  else
-	    #abilbonus[attrsys04] += 2
-	    #abilbonus[attrsys06] += 1
-		endif
-
-	  doneif (field[usrChosen1].ischosen <> 0)
-		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
-    </thing>
-
-  <thing id="upAgriRur" name="Agricultural or Rural" description="The character grew up surrounded more by nature than by people, in rural communities, on the frontier, or somewhere else distanced from the bustle of cities. They might be heavily involved in agriculture, growing real food to supplement synthesized or replicated meals." compset="Upbringing" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept05|thingid.discdept04)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
-      if (hero.tagis[Upbringing.Rebel] = 0) then
-	    #abilbonus[attrsys03] += 2
-	    #abilbonus[attrsys01] += 1
-	  else
-	    #abilbonus[attrsys06] += 2
-	    #abilbonus[attrsys05] += 1
-		endif
-
-	  doneif (field[usrChosen1].ischosen <> 0)
-		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
-    </thing>
-
-  <thing id="upSciTech" name="Science and Technology" description="The character’s home was one filled with the potential of science, and cutting edge developments were familiar ground. Perhaps the character was raised by scientists or engineers, or had mentors and teachers who encouraged a talent for the technical." compset="Upbringing" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept &amp; !(thingid.discdept01|thingid.discdept05)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
-      if (hero.tagis[Upbringing.Rebel] = 0) then
-	    #abilbonus[attrsys01] += 2
-	    #abilbonus[attrsys06] += 1
-	  else
-	    #abilbonus[attrsys04] += 2
-	    #abilbonus[attrsys02] += 1
-		endif
-
-	  doneif (field[usrChosen1].ischosen <> 0)
-		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
-    </thing>
-
-  <thing id="upArtCre" name="Artistic and Creativity" description="The character’s life was filled with arts and creativity of all kinds, and no matter what pursuits the character favors, they are exposed to the great works of many cultures, and given every opportunity to express themselves." compset="Upbringing" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
-      if (hero.tagis[Upbringing.Rebel] = 0) then
-	    #abilbonus[attrsys04] += 2
-	    #abilbonus[attrsys05] += 1
-	  else
-	    #abilbonus[attrsys02] += 1
-	    #abilbonus[attrsys03] += 2
-		endif
-
-	  doneif (field[usrChosen1].ischosen <> 0)
-		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
-    </thing>
-
-  <thing id="upDipPol" name="Diplomacy and Politics" description="The character has been exposed to the complexities of political thought and the nuances of diplomacy since they were young, perhaps because a family member was involved in those fields." compset="Upbringing" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept02)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-	<eval index="1" phase="PreAbility" priority="5000"><![CDATA[
-      if (hero.tagis[Upbringing.Rebel] = 0) then
-	    #abilbonus[attrsys05] += 2
-	    #abilbonus[attrsys01] += 1
-	  else
-	    #abilbonus[attrsys06] += 2
-	    #abilbonus[attrsys03] += 1
-		endif
-
-	  doneif (field[usrChosen1].ischosen <> 0)
-		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
-    </thing>
-
-	
-	</document>
+  </document>

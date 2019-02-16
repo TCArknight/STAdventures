@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="evRecSFIntel" name="Recruited to Starfleet Intelligence" description="On a quiet day while you were on shore leave, you were approached by a member of Starfleet Intelligence and offered a position as a covert agent. It seems they had been watching you for some time and decided you had the right skills and attitude they required. You were assigned a small mission as a test, and if you passed they promised to take you on as an agent, but one that maintained your Starfleet career." compset="Event" uniqueness="unique">
+  <thing id="evRecSFIntel"
+   name="Recruited to Starfleet Intelligence"
+   compset="Event" 
+   isunique="yes"
+    description="On a quiet day while you were on shore leave, you were approached by a member of Starfleet Intelligence and offered a position as a covert agent. It seems they had been watching you for some time and decided you had the right skills and attitude they required. You were assigned a small mission as a test, and if you passed they promised to take you on as an agent, but one that maintained your Starfleet career.\n\nAttribute: Daring\nDiscipline: Security">
     <usesource source="DivOps"/>
     <eval phase="PreAbility" priority="5000">
       #abilbonus[attrsys05] += 1

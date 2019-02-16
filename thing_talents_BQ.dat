@@ -69,6 +69,7 @@
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Rigellian Chelon Required"><![CDATA[#isspecies[spcRigelChelon] <> 0]]></exprreq>
+	<!--<bootstrap thing="wpClawStrike"></bootstrap>-->
     </thing>
   <thing id="talToBattle" name="To Battle!" description="Whenever a Klingon buys additional dice for a melee attack using Threat, for each Threat added to the pool, you gain 1 bonus Momentum that can only be spent on Bonus Damage, increasing the damage of the attack by 1 per Momentum spent." compset="Talent">
     <usesource source="QuadBeta"/>

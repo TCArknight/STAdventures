@@ -715,7 +715,7 @@
       doneif (empty(choices) <> 0)
 
       ~add the selection to both the livename and shortname (if present) fields
-      field[livename].text = field[name].text & ": " & choices
+      field[livename].text = field[name].text & " (" & choices & ")"
       if (tagis[component.shortname] <> 0) then
         field[shortname].text &= " (" & choices & ")"
         endif
@@ -838,16 +838,19 @@
       ~if we're not supposed to auto-amend the name for this pick, we're done
       doneif (tagis[User.NoAutoName] <> 0)
 
+      ~if domain is optional and the domDomain field is empty, we're done
+	  doneif (tagis[User.NeedDomainOpt] + field[domDomain].isempty = 2)
+	  
       ~if we don't have a domain, use a placeholder for it
       var domain as string
       if (field[domDomain].isempty = 0) then
         domain = field[domDomain].text
       else
-        domain = field[UserName].text & ": ????"
+        domain = field[UserName].text & "- ????"
         endif
 
       ~add the domain to both the livename and shortname (if present) fields
-      field[livename].text = field[name].text & ": " & domain
+      field[livename].text = field[name].text & " (" & domain & ")"
       if (tagis[component.shortname] <> 0) then
         field[shortname].text &= " (" & domain & ")"
         endif
@@ -865,8 +868,9 @@
 
     <!-- If the domain is required and not defined, report a validation error -->
     <evalrule index="1" phase="Validate" priority="9000" message="????"><![CDATA[
-      ~if no domain is needed or the domain is specified, we're valid
+      ~if no domain is needed, domain selection is optional, or the domain is specified, we're valid
       validif (tagis[User.NeedDomain] = 0)
+      validif (tagis[User.NeedDomainOpt] = 1)
       validif (field[domDomain].isempty = 0)
 
       ~if we have a basis linkage, then we already have domain on that pick

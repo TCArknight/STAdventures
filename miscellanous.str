@@ -412,12 +412,11 @@
       </creation>
 	  
     <!-- calculate the net cash possessed for the character -->
-    <eval index="1" phase="Initialize" priority="2500"><![CDATA[
+    <eval index="1" phase="Initialize" priority="500"><![CDATA[
       ~forward char type to hero
 	  perform forward[CharType.?]
       ]]></eval>
 	
-  
     </component>
 
 

@@ -167,17 +167,6 @@
       </portal>
 
     <portal
-      id="menucp"
-      style="menuNormal">
-      <menu_literal
-        field="acStartCP">
-        <choice value="225" display="Character Points: 225 Points"/>
-        <choice value="250" display="Character Points: 250 Points"/>
-        <choice value="275" display="Character Points: 275 Points"/>
-        </menu_literal>
-      </portal>
-
-    <portal
       id="menuabil"
       style="menuNormal">
       <menu_literal
@@ -218,14 +207,6 @@
       ~perform portal[label].centerhorz
       ~perform portal[label].alignrel[ttob,menutype,10]
 
-      ~position the character points menu beneath the title
-      ~portal[menucp].width = width
-      ~perform portal[menucp].alignrel[ttob,label,10]
-
-      ~position the ability menu beneath the character points
-      ~portal[menuabil].width = width
-      ~perform portal[menuabil].alignrel[ttob,menucp,15]
-
       ~position the starting cash beneath the ability slots
       ~perform portal[cash].alignrel[ttob,menuabil,15]
       ~perform portal[lblcash].centeron[vert,cash]
@@ -238,7 +219,6 @@
       height = portal[menutype].bottom + 3
 	  
 	  ~hide non-essential portals
-	  portal[menucp].visible = 0
 	  portal[lblcash].visible = 0
 	  portal[cash].visible = 0
 	  portal[label].visible = 0

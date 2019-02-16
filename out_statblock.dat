@@ -16,14 +16,23 @@
   -->
   <procedure id="sbname" scripttype="synthesize"><![CDATA[
     var name as string
-    if (empty(hero.actorname) = 0) then
-      name = hero.actorname
-    else
-	  if (hero.tagis[CharType.typShip] = 1) then 
+	var temp as string
+	var temp1 as number
+	
+	temp1 = hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport]
+	
+	if (compare(left(hero.actorname,8),"Unnamed ") = 0) then
+       temp = hero.tagnames[CharType.?,"+"]
+	  
+	  if (#ischaracter[] <> 0) then 
+	     name = "Unnamed Character"
+	  elseif (#isstarship[] <> 0) then 
 	     name = "Unnamed Ship"
-	  else 
-         name = "Unnamed Character"
+	  elseif (#isstarbase[] <> 0) then 
+         name = "Unnamed Starbase"
 	  endif
+    else
+	  name = hero.actorname
     endif
 	  
     ]]></procedure>
@@ -206,11 +215,12 @@
   -->
   <procedure id="sbgear" scripttype="synthesize"><![CDATA[
     var ismore as number
-    append @boldon & "Gear: " & @boldoff & @newline
+    append @boldon & "Equipment: " & @boldoff & @newline
     ~output the details of all gear (equipped first)
 	var ismore as number
     ismore = 0
-    foreach pick in hero from Equipment where "!Print.NoPrint"
+    ~ foreach pick in hero from Equipment where "!Print.NoPrint"
+    foreach pick in hero from Gear where "!(Print.NoPrint|Equipment.Natural)"
       if (ismore <> 0) then
         append ", "
         endif
@@ -218,7 +228,7 @@
       ismore = 1
       nexteach
 	
-	~if we have no armor, output that fact
+	~if we have no equipment, output that fact
     if (ismore = 0) then
       append @indent & "-none-" & @newline
       endif
@@ -330,8 +340,8 @@
     txt = hero.findchild[ShipInfo].field[shipCrew].text
 	append @boldon & "Crew Support: " & @boldoff & txt & @newline 
 	
-	txt = hero.findchild[ShipInfo].field[shipCrewSumm].text
-	if (empty(txt) = 0) then
+	if (hero.tagis[Ship.SmallCraft] <> 0) then
+      txt = hero.findchild[ShipInfo].field[shipCrewSumm].text
 	  append @boldon & "Crew Details: " & @boldoff & txt & @newline
 	  endif
 	  
@@ -376,7 +386,7 @@
 		~output our name
 		append @boldon & "Name: " & @boldoff & name & @newline
 
-		if (hero.tagis[CharType.typShip] = 0) then
+		if (#ischaracter[] <> 0) then
           call sbmaininfo
 		  call sbstats
 
@@ -445,6 +455,7 @@
 			
 			endif
 		else
+		  ~ Starship Info
 		  call sbshipinfo
 		  call sbstats
 

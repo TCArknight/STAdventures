@@ -6,6 +6,22 @@
 
 <document signature="Hero Lab Data">
 
+  <!-- 1 page character sheet
+        This is the default character sheet for any actor, consisting of two pages.
+        The first page includes all the core information for the character and will
+        usually be all that is needed. The sheet contents are defined in the file 
+		"sheet_single.dat".
+  -->
+  <dossier
+    id="single"
+    name="Single Page Character Sheet">
+    <dossier_sheet
+      grouping="AtTop"
+      default="yes">
+      <sheetref sheet="singlepage"/>
+      </dossier_sheet>
+    </dossier>
+	
   <!-- Standard character sheet
         This is the default character sheet for any actor, consisting of two pages.
         The first page includes all the core information for the character and will
@@ -19,7 +35,7 @@
     name="Standard Character Sheet">
     <dossier_sheet
       grouping="AtTop"
-      default="yes">
+      default="no">
       <sheetref sheet="standard1"/>
       <sheetref sheet="standard2"/>
       </dossier_sheet>

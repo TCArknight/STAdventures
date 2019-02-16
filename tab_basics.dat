@@ -66,6 +66,7 @@
       component="Focus"
       showtemplate="baFocPick"
       choosetemplate="SimpleItem"
+      choosesortset="FocusSort"
       showfixedlast="yes"
       addpick="resFocus">
       <candidate>!Hide.Focus</candidate>
@@ -287,12 +288,10 @@
 	    portal[lblCrewDetails].visible = 0
 	    portal[crewdetails].visible = 0
 		endif
-	  
-      ~center the other portals vertically
-      ~perform portal[lblScale].centervert
-      ~perform portal[scale].centervert
-      ~perform portal[lblPower].centervert
-      ~perform portal[power].centervert
+
+	  ~if not a Small Craft, hide portals
+	  portal[lblCrewDetails].visible = hero.tagis[Ship.SmallCraft]
+	  portal[crewdetails].visible = hero.tagis[Ship.SmallCraft]
 
       ~height of the portal is the botom of the lowest portal + 10
 	  height = portal[lblCrewDetails].bottom + 20
@@ -639,7 +638,7 @@
 	
     <!-- This script sizes and positions the layout and its child visual elements. -->
     <position><![CDATA[
-	if (hero.tagis[CharType.typShip] = 0) then
+	if (#ischaracter[] <> 0) then
 	  portal[InfoTitle].visible = 0
 	  portal[InfoTitle].height = 0
 	  
@@ -741,7 +740,7 @@
     name="Basics"
     marginhorz="5"
     marginvert="5"
-    order="110">
+    order="1">
     <live>!HideTab.basics</live>
     <layoutref layout="basics"/>
     <position><![CDATA[

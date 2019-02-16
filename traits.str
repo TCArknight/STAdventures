@@ -16,6 +16,14 @@
     hasshortname="yes"
     ispublic="no">
 
+    <!-- Text for whether character is shaken -->
+    <field
+      id="outSummary"
+      name="Summary for output"
+      type="derived"
+      maxlength="250">
+      </field>
+	  
     <!-- Abbreviation for use in places like the TacCon -->
     <field
       id="abiAbbrev"
@@ -112,7 +120,13 @@
         perform assign[Helper.Maximum]
         endif
       ]]></eval>
-
+	  
+    <!-- If the ability is at its minimum/maximum, assign a tag to preclude further advancements -->
+    <eval index="3" phase="Render" priority="9000"><![CDATA[
+      ~default the outSummary field to the text in the summary field
+      field[outSummary].text = field[summary].text
+	  
+      ]]></eval>
     </component>
 
 
@@ -206,7 +220,7 @@
 		
             ]]></eval>
 
-    <!-- Each attribute point above one that is allocated by the user costs 7 CP -->
+    <!-- Each attribute point above one that is allocated by the user costs 1 Attribute point -->
     <eval index="3" phase="Ability" priority="3500"><![CDATA[
 	if (tagis[CharType.typMain] <> 1) then
       hero.child[resAttrib].field[resSpent].value += field[abiFinal].value
@@ -320,7 +334,7 @@
 	  field[abiMaximum].value = 5		
       ]]></eval>
 
-	<!-- Each attribute point above one that is allocated by the user costs 7 CP -->
+	<!-- Each attribute point above one that is allocated by the user costs 1 Discipline point-->
     <eval index="3" phase="Ability" priority="3500"><![CDATA[
 	if (tagis[CharType.typMain] <> 1) then
       hero.child[resDiscip].field[resSpent].value += field[abiFinal].value
@@ -361,6 +375,8 @@
     <!-- Each ability that is added by the user costs 1 slot -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       ~we must ignore bootstrapped abilities from races and abilities added via advances
+	  doneif (tagis[Helper.NoCost] <> 0)
+	  
       hero.child[resTalent].field[resSpent].value += 1
       ]]></eval>
 
@@ -480,7 +496,7 @@
       perform forward[Trait.?]
       ]]></eval>
 
-	<!-- Each skill point that is allocated by the user costs 2 CP -->
+	<!-- Each skill point that is allocated by the user costs 1 trait point -->
     <eval index="2" phase="Ability" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound abiUser"/><![CDATA[
@@ -639,7 +655,7 @@
       perform forward[HasAcademy.?]
       ]]></eval>
 
-	<!-- Each skill point that is allocated by the user costs 2 CP -->
+	<!-- Each skill point that is allocated by the user costs 1 slot -->
     <eval index="2" phase="Ability" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound abiUser"/><![CDATA[
@@ -779,7 +795,7 @@
       perform forward[Event.?]
       ]]></eval>
 
-	<!-- Each skill point that is allocated by the user costs 2 CP -->
+	<!-- Each skill point that is allocated by the user costs 1 slot -->
     <eval index="2" phase="Ability" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound abiUser"/><![CDATA[
@@ -814,7 +830,7 @@
       perform forward[Value.?]
       ]]></eval>
 
-	<!-- Each skill point that is allocated by the user costs 2 CP -->
+	<!-- Each skill point that is allocated by the user costs 1 slot -->
     <eval index="2" phase="Ability" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound abiUser"/><![CDATA[
@@ -858,7 +874,7 @@
       perform forward[Focus.?]
       ]]></eval>
 
-	<!-- Each skill point that is allocated by the user costs 2 CP -->
+	<!-- Each skill point that is allocated by the user costs 1 slot -->
     <eval index="2" phase="Ability" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound abiUser"/><![CDATA[

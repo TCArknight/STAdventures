@@ -365,7 +365,7 @@
     marginhorz="5"
     marginvert="5"
     order="5">
-	<live>CharType.typMain</live>
+	<live>ShowTab.Lifepath</live>
     <layoutref layout="lifepath"/>
     <position><![CDATA[
       ]]></position>

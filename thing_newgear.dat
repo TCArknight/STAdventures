@@ -141,6 +141,14 @@
     <usesource source="TNG"/>
     <tag group="GearCost" tag="Standard"/>
     <tag group="GearCat" tag="Other"/>
+	<eval phase="Initialize" priority="5000"><![CDATA[
+	  if (hero.tagis[source.TNG] <> 0) then
+	    field[livename].text = "Commbadge"
+	  else
+	    field[livename].text = "Communicator"
+	    endif
+	  
+	  ]]></eval>
     </thing>
   <thing id="eqAudRec" name="Audio Receiver" description="The Starfleet ear receiver\nhas fallen out of favor since the 23rd century, but still can be\nseen in use by specialists in communication technologies,\nlingual, and other aural sciences. The ear receiver ties directly\ninto shipboard communication networks and allows the user\nto listen to data coming across both sub-space frequencies\ntypically used for long-range communication and ship to\nsurface, but also listening to computer alerts and data so\nas not to distract others at nearby stations with the chatter.\nThe receiver can also be programmed to provide aural or\nvibrational feedback to users allowing sensor operators\ngreater accuracy in their duties." compset="Equipment">
     <usesource source="ENT"/>

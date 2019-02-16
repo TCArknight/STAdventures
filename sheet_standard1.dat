@@ -210,18 +210,19 @@
 
 
   <!-- oTalent portal
-        This is a table of all Special Abilities for the actor.
+        This is a table of all Talents for the actor.
   -->
   <portal
     id="oTalent"
     style="outNormal">
     <output_table
       component="Talent"
-      showtemplate="oAbilPick">
+      showtemplate="oAbilPick"
+	  varyheight="yes">
       <list><![CDATA[
         ]]></list>
       <headertitle><![CDATA[
-        @text = "Special Abilities"
+        @text = "Talents"
         ]]></headertitle>
       </output_table>
     </portal>
@@ -622,16 +623,17 @@
   -->
   <template
     id="oAbilPick"
-    name="Output Special Abilities Table"
+    name="Output Talents Table"
     compset="Talent"
     marginvert="2">
 
     <portal
       id="details"
-      style="outNameLg">
-      <output_label>
+      style="outLeft">
+      <output_label
+	    ismultiline="yes">
         <labeltext><![CDATA[
-          @text = field[name].text & "{/b}  {size 32}" & field[summary].text
+          @text = "{b}" & field[name].text & ":{/b} " & field[outSummary].text
           ]]></labeltext>
         </output_label>
       </portal>
@@ -641,7 +643,8 @@
       portal[details].width = width
 
       ~limit our portal height to a single line of output
-      portal[details].lineheight = 1
+      ~ portal[details].lineheight = 1
+	  perform portal[details].autoheight
 
       ~our height is the height of our portal
       height = portal[details].bottom

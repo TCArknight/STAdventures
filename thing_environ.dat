@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="envHome" name="Homeworld" description="The character comes from the world that birthed their civilization, and has been surrounded by cultural and spiritual legacies their entire life. Species homeworlds are often utopian and idyllic, serving as the platonic ideal of that species’ culture. They also exemplify aspects of a culture’s most revered traditions, and serve as the heart of that civilization’s legal and political landscape." compset="Environ" uniqueness="unique">
+  <thing id="envBusCol" name="Busy Colony" description="The character comes from one of their culture’s oldest or most prosperous colonies, which may be another world within their home system — such as Luna or Mars for Humans — or one of the first worlds colonized after the culture achieved interstellar flight. These colonies often develop a fiercely independent outlook, often having developed with little direct aid from their homeworld, and a sense of pride that accompanies being amongst the first of their kind to tame another world.\n\nAttribute: Daring or Presence\n\nDiscipline: Command, Science, or Security" compset="Environ" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys02|thingid.attrsys05)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
+    <fieldval field="usrSource2" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Environment - Busy Colony"/>
+	  <assignval field="UserDesc" value="At this step, the character gains a single Value. This Value should reflect the environment and culture the character was raised within. This is a good opportunity to consider how the character views their own culture, and how they connect — or possibly, don’t connect — to the philosophies and traditions of their people."/>
+	  </bootstrap>
+    </thing>
+	
+  <thing id="envFroCol" name="Frontier Colony" description="The character comes from a colony located on the fringes of known space, either on the edge of uncharted space or on the border with another civilization. Frontier colonists tend to be hardy and determined, even stubborn, and well-prepared for the dangers that their home may pose.\n\nAttribute: Control or Firtness\n\nDiscipline: Conn, Medicine, or Security" compset="Environ" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys01|thingid.attrsys03)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="+1 to Discipline:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept05|thingid.discdept04)"/>
+    <fieldval field="usrSource2" value="1"/>
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Environment - Frontier Colony"/>
+	  <assignval field="UserDesc" value="At this step, the character gains a single Value. This Value should reflect the environment and culture the character was raised within. This is a good opportunity to consider how the character views their own culture, and how they connect — or possibly, don’t connect — to the philosophies and traditions of their people."/>
+	  </bootstrap>
+    </thing>
+	
+  <thing id="envHome" name="Homeworld" description="The character comes from the world that birthed their civilization, and has been surrounded by cultural and spiritual legacies their entire life. Species homeworlds are often utopian and idyllic, serving as the platonic ideal of that species’ culture. They also exemplify aspects of a culture’s most revered traditions, and serve as the heart of that civilization’s legal and political landscape.\n\nAttribute: Choose One of Species Attributes\n\nDiscipline: Command, Security, or Science" compset="Environ" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys &amp; "/>
     <fieldval field="usrSource1" value="1"/>
@@ -24,24 +58,7 @@
 	  ]]></eval>
     </thing>
 	
-  <thing id="envBusCol" name="Busy Colony" description="The character comes from one of their culture’s oldest or most prosperous colonies, which may be another world within their home system — such as Luna or Mars for Humans — or one of the first worlds colonized after the culture achieved interstellar flight. These colonies often develop a fiercely independent outlook, often having developed with little direct aid from their homeworld, and a sense of pride that accompanies being amongst the first of their kind to tame another world." compset="Environ" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys02|thingid.attrsys05)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
-    <fieldval field="usrSource2" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-    <bootstrap thing="vaCustom">
-	  <assignval field="UserName" value="Environment - Busy Colony"/>
-	  <assignval field="UserDesc" value="At this step, the character gains a single Value. This Value should reflect the environment and culture the character was raised within. This is a good opportunity to consider how the character views their own culture, and how they connect — or possibly, don’t connect — to the philosophies and traditions of their people."/>
-	  </bootstrap>
-    </thing>
-	
-  <thing id="envIsoCol" name="Isolated Colony" description="The character comes from a colony that is isolated from broader galactic society. Worlds like the Vulcan monastery on P’Jem use the vast distances between star systems as an opportunity for contemplative isolation, while others are settled because they present unique research opportunities. The cultures of these colonies tend to focus on learning and introspection." compset="Environ" uniqueness="unique">
+  <thing id="envIsoCol" name="Isolated Colony" description="The character comes from a colony that is isolated from broader galactic society. Worlds like the Vulcan monastery on P’Jem use the vast distances between star systems as an opportunity for contemplative isolation, while others are settled because they present unique research opportunities. The cultures of these colonies tend to focus on learning and introspection.\n\nAttribute: Insight or Reason\n\nDiscipline: Engineering, Medicine, or Science" compset="Environ" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys06|thingid.attrsys04)"/>
     <fieldval field="usrSource1" value="1"/>
@@ -58,24 +75,7 @@
 	  </bootstrap>
     </thing>
 	
-  <thing id="envFroCol" name="Frontier Colony" description="The character comes from a colony located on the fringes of known space, either on the edge of uncharted space or on the border with another civilization. Frontier colonists tend to be hardy and determined, even stubborn, and well-prepared for the dangers that their home may pose." compset="Environ" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys01|thingid.attrsys03)"/>
-    <fieldval field="usrSource1" value="1"/>
-    <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept05|thingid.discdept04)"/>
-    <fieldval field="usrSource2" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>
-    <bootstrap thing="vaCustom">
-	  <assignval field="UserName" value="Environment - Frontier Colony"/>
-	  <assignval field="UserDesc" value="At this step, the character gains a single Value. This Value should reflect the environment and culture the character was raised within. This is a good opportunity to consider how the character views their own culture, and how they connect — or possibly, don’t connect — to the philosophies and traditions of their people."/>
-	  </bootstrap>
-    </thing>
-	
-  <thing id="envStar" name="Starship or Starbase" description="The character grew up in space, travelling aboard a starship or living aboard a space station or starbase. While they’re unlikely to have lived aboard a Starfleet vessel — only some of them carry families — many freighters, transports, and other civilian vessels have a tradition of family or generational crews, and many officers with families take postings to starbases rather than ships. Those raised in space learn the ins-and-outs of shipboard life as children, and many are groomed for leadership, or learn to fly a shuttle in their formative years." compset="Environ" uniqueness="unique">
+  <thing id="envStar" name="Starship or Starbase" description="The character grew up in space, travelling aboard a starship or living aboard a space station or starbase. While they’re unlikely to have lived aboard a Starfleet vessel — only some of them carry families — many freighters, transports, and other civilian vessels have a tradition of family or generational crews, and many officers with families take postings to starbases rather than ships. Those raised in space learn the ins-and-outs of shipboard life as children, and many are groomed for leadership, or learn to fly a shuttle in their formative years.\n\nAttribute: Control or Insight\n\nDiscipline: Command, Conn, or Engineering" compset="Environ" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys01|thingid.attrsys04)"/>
     <fieldval field="usrSource1" value="1"/>
@@ -92,7 +92,7 @@
 	  </bootstrap>
     </thing>
 	
-  <thing id="envAnoSpec" name="Another Species World" description="The character grew up amongst another species. They might have lived amongst a small enclave of their own kind, or they may have been orphaned by some manner of disaster and raised by aliens. Whatever the situation, the character has unique perspectives on their own species and on those they were raised alongside." compset="Environ" uniqueness="unique">
+  <thing id="envAnoSpec" name="Another Species World" description="The character grew up amongst another species. They might have lived amongst a small enclave of their own kind, or they may have been orphaned by some manner of disaster and raised by aliens. Whatever the situation, the character has unique perspectives on their own species and on those they were raised alongside.\n\nAttribute: Choose One of Species Attributes\n\nDiscipline: Choose One" compset="Environ" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys"/>
     <fieldval field="usrSource1" value="1"/>

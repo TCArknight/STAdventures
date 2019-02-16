@@ -194,7 +194,7 @@
     name="Events"
     marginhorz="5"
     marginvert="5"
-    order="120">
+    order="55">
     <live>HasCareer.?</live>
     <layoutref layout="events"/>
     <position><![CDATA[
