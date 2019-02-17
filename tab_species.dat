@@ -195,6 +195,166 @@
 	]]></position>
 
     </template>	
+
+  <template
+    id="spSpcMixed"
+    name="Mixed Heritage Menus"
+    compset="Species"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="lblmenuPrimary"
+      style="lblBrdLeft">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Primary Species:"
+          ]]></labeltext>
+        </label>
+      </portal>
+
+    <portal
+      id="lblmenuSecondary"
+      style="lblBrdLeft">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Secondary Species:"
+          ]]></labeltext>
+        </label>
+      </portal>
+
+    <portal
+      id="menuPrimary"
+      style="menuNormal">
+      <menu_things
+        field="spcPrimary"
+        component="none"
+        maxvisible="10">
+		<candidate>component.Species &amp; !thingid.spcMixedHer</candidate>
+        </menu_things>
+      </portal>
+
+    <portal
+      id="menuSecondary"
+      style="menuNormal">
+      <menu_things
+        field="spcSecondary"
+        component="none"
+        maxvisible="10">
+		<candidate>component.Species &amp; !thingid.spcMixedHer</candidate>
+        </menu_things>
+      </portal>
+
+    <portal
+      id="addtraits"
+      style="actBig"
+      tiptext="Click to add selected species traits.">
+      <action
+        action="trigger">
+        <trigger><![CDATA[
+	      var primary as string
+	      var secondary as string
+		  var txt as string
+	      var myTrait as string
+		  var myAttributes as string
+	  
+	      if (field[spcPrimary].ischosen <> 0) then
+	        primary = field[spcPrimary].chosen.idstring
+
+	        txt = "SpeciesTrait." & primary
+			
+			foreach thing in Trait where txt
+              myTrait = eachthing.idstring
+              nexteach
+		    
+			perform hero.addpick[trTrait,myTrait]
+			
+			~ populate usrCandid4 and usrCandid5 with species attribute selections
+			~ get SpeciesBon.? tags from selected species
+		    txt = field[spcPrimary].chosen.tagids[SpeciesBon.?,"|"]
+	 			
+			if (empty(txt) <> 0) then
+			  ~select from all attributes
+			  myAttributes = "component.AttrSys"
+			else
+			  ~select from attributes specific to species
+			  txt = replace(txt,"SpeciesBon","thingid",0)
+			  myAttributes = txt 
+			  endif
+			
+			field[usrCandid4].text = myAttributes
+			field[usrCandid5].text = myAttributes
+			
+		    endif
+	      if (field[spcSecondary].ischosen <> 0) then
+	        secondary = field[spcSecondary].chosen.idstring
+
+	        txt = "SpeciesTrait." & secondary
+			
+			foreach thing in Trait where txt
+              myTrait = eachthing.idstring
+              nexteach
+		    
+			perform hero.addpick[trTrait,myTrait]
+			
+			~ populate usrCandid6 with species attribute selections
+			~ get SpeciesBon.? tags from selected species
+		    txt = field[spcSecondary].chosen.tagids[SpeciesBon.?,"|"]
+	 			
+			if (empty(txt) <> 0) then
+			  ~select from all attributes
+			  myAttributes = "component.AttrSys"
+			else
+			  ~select from attributes specific to species
+			  txt = replace(txt,"SpeciesBon","thingid",0)
+			  myAttributes = txt 
+			  endif
+			
+			field[usrCandid6].text = myAttributes
+		    endif
+          ]]></trigger>
+        <buttontext><![CDATA[
+          @text = "Add Traits"
+          ]]></buttontext>
+        </action>
+      </portal>
+	  
+    <position><![CDATA[
+      ~position our labels on the left
+      portal[lblmenuPrimary].height = portal[menuPrimary].height
+	  portal[lblmenuPrimary].left = 0
+	  portal[lblmenuPrimary].width = width / 3
+
+	  portal[menuPrimary].left = portal[lblmenuPrimary].right + 5
+	  portal[menuPrimary].width = width / 3
+
+      portal[lblmenuSecondary].top = portal[lblmenuPrimary].bottom + 10
+	  portal[lblmenuSecondary].height = portal[menuPrimary].height
+	  portal[lblmenuSecondary].left = portal[lblmenuPrimary].left
+	  portal[lblmenuSecondary].width = portal[lblmenuPrimary].width
+
+	  portal[menuSecondary].top = portal[menuPrimary].bottom + 10
+	  portal[menuSecondary].left = portal[menuPrimary].left
+	  portal[menuSecondary].width = portal[menuPrimary].width
+	  
+	  ~position trait button to the right of the menus
+	  portal[addtraits].top = (portal[menuPrimary].top + portal[menuPrimary].bottom) / 2
+	  portal[addtraits].height = 20
+	  portal[addtraits].left = portal[menuPrimary].right + 10
+	  portal[addtraits].width = 80
+		
+      ~if a menu is visible, make sure it has a selection
+	  portal[lblmenuPrimary].visible = hero.tagis[Hero.MixedHeritage] 
+      portal[menuPrimary].visible = hero.tagis[Hero.MixedHeritage] 
+	  
+	  portal[lblmenuSecondary].visible = hero.tagis[Hero.MixedHeritage] 
+	  portal[menuSecondary].visible = hero.tagis[Hero.MixedHeritage] 
+	  
+	  portal[addtraits].visible = hero.tagis[Hero.MixedHeritage] 
+	  
+	]]></position>
+
+    </template>	
 	
   <!-- species layout
         This layout orchestrates the display of the visual elements that comprise
@@ -208,7 +368,8 @@
     id="species">
     <templateref template="spSpcTemp" useagent="yes"/>
     <templateref template="spSpcMenus" useagent="yes"/>
-
+    <templateref template="spSpcMixed" useagent="yes"/>
+	
     <!-- This script sizes and positions the layout and its child visual elements. -->
     <position><![CDATA[
 
@@ -217,9 +378,14 @@
 	  template[spSpcTemp].height = height/2
       template[spSpcTemp].visible = 1
 
-      template[spSpcMenus].top = template[spSpcTemp].bottom + 30
+      template[spSpcMixed].top = template[spSpcTemp].bottom + 30
+      template[spSpcMixed].width = width
+	  template[spSpcMixed].height = 50
+      template[spSpcMixed].visible = 1 
+	  
+      template[spSpcMenus].top = template[spSpcMixed].bottom + 30
       template[spSpcMenus].width = width
-	  template[spSpcMenus].height = (height - 10)/2
+	  template[spSpcMenus].height = 150
       template[spSpcMenus].visible = 1
 
       ]]></position>

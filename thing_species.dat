@@ -39,19 +39,16 @@
   <thing id="spcHuman" name="Human" description="Originating on the planet Earth in the Sol system, Humans are a resilient, diverse, and adaptable species, who developed from fractious, warring nations on the brink of mutual annihilation to a united, peaceful society in less than a century, and managed to forge alliances between former enemies within a century of achieving interstellar space flight. Earth is a founder and pivotal member of the United Federation of Planets, and many of the Federation’s institutions can be found on Earth. Humans often exhibit a dichotomy in their nature — being both driven to strong emotion and careful reason — and while they have largely grown beyond their warlike and divisive past, their drive and capacity for aggression are as much a part of their success as their curiosity and analytical minds.{br}{br}{i}EXAMPLE VALUE: The Drive for Exploration{/i}{br}{br}{b}ATTRIBUTES:{/b} +1 to three different attributes.{br}{br}{b}TRAIT:{/b} Human." compset="Species" uniqueness="unique">
     <fieldval field="usrLabel4" value="+1 to Attribute:"/>
     <fieldval field="usrCandid4" value="component.AttrSys"/>
-    <fieldval field="usrSource4" value="1"/>
     <fieldval field="usrLabel5" value="+1 to Attribute:"/>
     <fieldval field="usrCandid5" value="component.AttrSys"/>
-    <fieldval field="usrSource5" value="1"/>
     <fieldval field="usrLabel6" value="+1 to Attribute:"/>
     <fieldval field="usrCandid6" value="component.AttrSys"/>
-    <fieldval field="usrSource6" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
-    <tag group="ChooseSrc4" tag="Container"/>
-    <tag group="ChooseSrc5" tag="Container"/>
-    <tag group="ChooseSrc6" tag="Container"/>
+    <tag group="ChooseSrc4" tag="Hero"/>
+    <tag group="ChooseSrc5" tag="Hero"/>
+    <tag group="ChooseSrc6" tag="Hero"/>
     <tag group="User" tag="NoAutoName"/>
     <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trHuman"></bootstrap>
@@ -111,25 +108,21 @@
     <usesource source="TNG"/>
     <tag group="SpecCat" tag="Player"/>
     </thing>
-	<thing id="spcMixedHer" name="Mixed-Heritage" description="The character is of Mixed Heritage. Choose 2 species and determine which one is the Dominant of the two. Choose two of the attrributes associated with that race. Choose the third attribute from one of the attributes from your secondary species. You get the trait for both species, and are considered both species in regards to any talents." compset="Species" uniqueness="unique">
+	<thing id="spcMixedHer" name="Mixed Heritage" description="The character is of Mixed Heritage. Choose 2 species and determine which one is the Dominant of the two. Choose two of the attrributes associated with that race. Choose the third attribute from one of the attributes from your secondary species. You get the trait for both species, and are considered both species in regards to any talents." compset="Species" uniqueness="unique">
     <fieldval field="usrLabel4" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid4" value="component.AttrSys"/>
-    <fieldval field="usrSource4" value="1"/>
+    <fieldval field="usrCandid4" value=""/>
     <fieldval field="usrLabel5" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid5" value="component.AttrSys"/>
-    <fieldval field="usrSource5" value="1"/>
+    <fieldval field="usrCandid5" value=""/>
     <fieldval field="usrLabel6" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid6" value="component.AttrSys"/>
-    <fieldval field="usrSource6" value="1"/>
+    <fieldval field="usrCandid6" value=""/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
-    <tag group="ChooseSrc4" tag="Container"/>
-    <tag group="ChooseSrc5" tag="Container"/>
-    <tag group="ChooseSrc6" tag="Container"/>
+    <tag group="ChooseSrc4" tag="Hero"/>
+    <tag group="ChooseSrc5" tag="Hero"/>
+    <tag group="ChooseSrc6" tag="Hero"/>
     <tag group="User" tag="NoAutoName"/>
-    <tag group="SpecCat" tag="Player"/>
-    <bootstrap thing="trMixedHeri"></bootstrap>
+    <tag group="SpecCat" tag="PlayerMixed"/>
     <eval phase="PreAbility" priority="1000"><![CDATA[
 	  var tempStr as string
 	  
@@ -150,6 +143,9 @@
 		perform hero.assignstr[tempStr]
 		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
 		endif]]></eval>
+    <eval phase="Setup" priority="100" index="2"><![CDATA[
+	  perform hero.assign[Hero.MixedHeritage]
+	  ]]></eval>
     </thing>
 	<thing id="trMixedHeri" name="Mixed Heritage" description="The person is decendant of two species and is considered one of each." compset="Trait">
     <usesource source="ENT"/>

@@ -18,43 +18,51 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcHuman"/>
     </thing>
   <thing id="trAndorian" name="Andorian" description="This trait may reduce the Difficulty of Tasks to resist\nextreme cold, or Tasks impacted by extremely low temperatures. Their antennae aid in balance and spatial awareness; a lost antenna can be debilitating until it regrows. Andorians also have a high metabolism, meaning, amongst other things, that they tire more quickly than Humans; this also makes them more vulnerable to infection from certain types of injury. Before the Federation, Andorians and Vulcans had numerous disputes; though these issues are largely considered to be ancient history, Andorians and Vulcans don’t always get along." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcAndorian"/>
     </thing>
   <thing id="trBajoran" name="Bajoran" description="For obvious reasons, Bajorans tend to be hostile towards Cardassians, and resentful of those who are dismissive of, or turned a blind eye to, the suffering of the Bajoran people. While not all Bajorans are spiritual or religious to the same degree, most have a cultural understanding of the Prophets’ place in Bajoran society." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcBajoran"/>
     </thing>
   <thing id="trBetazoid" name="Betazoid" description="All Betazoids are telepathic to varying degrees, and even\nwhen not actively using their abilities, they are highly perceptive of others around them, but also highly sensitive to telepathic  disturbances and mental assaults. They have little familiarity with lies and deception, due to their open culture and ability to read the thoughts and emotions of others. As they are sensitive to the minds of other living beings, they tend not to be comfortable around animals, for fear of losing themselves in the minds of wild creatures." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcBetazoid"/>
     </thing>
   <thing id="trDenob" name="Denobulan" description="Denobulans have a robust immune system, but a vulnerability to various forms of radiation poisoning. They are naturally adept climbers, scuttling up sheer walls like some forms of terrestrial lizard. Denobulans do not need to sleep, but must hibernate for several days each year, becoming disoriented if kept awake during this period." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcDenob"/>
     </thing>
   <thing id="trTellar" name="Tellarite" description="Tellarites have a keen sense of smell and a high tolerance\nfor many common drugs, toxins, and inebriants (Tellarites don’t get drunk, just feisty). They also have excellent eyesight, and more acute perception of distance, depth, and dimension than Humans." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcTellar"/>
     </thing>
   <thing id="trTrill" name="Trill" description="Trill are especially resilient to parasites, as a quirk of their\npotential to be Joined; Joined Trill are entirely immune to parasitic infection. However, they tend to have strong allergic reactions to insect bites and other forms of venom, which can disrupt their neurochemistry, particularly if they’re Joined. As many of the specifics of Trill physiology — especially with regards to symbiosis — are not widely known, this can result in medical complications." compset="Trait" uniqueness="unique">
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcTrill"/>
     </thing>
   <thing id="trVulcan" name="Vulcan" description="Due to the harsh, arid, high-gravity world they come from,\nVulcans are naturally resistant to extreme heat and dehydration; they are also extremely strong, with keen auditory and olfactory senses. They are also telepathic, though this takes training to properly manifest, and they learn mental discipline and emotional control from childhood. However, this control takes regular meditation to maintain, and their controlled nature and desire for privacy can distance them from others, and make interactions awkward." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcVulcan"/>
     </thing>
   <thing id="trhdrCustom" name="Custom" compset="Trait" isshowonly="yes">
     <tag group="TraitCat" tag="Custom"/>

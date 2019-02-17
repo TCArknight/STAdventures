@@ -85,6 +85,7 @@
     <value id="Support"/>     <!-- Indicates that the hero is a Supporting Character -->
     <value id="Ship"/>        <!-- Indicates that the hero is a Ship -->
     <value id="Creature"/>    <!-- Indicates that the hero is a Creature -->
+    <value id="MixedHeritage"/>  <!-- Indicates that the hero is a Creature -->
     </group>
 
   <!-- DashTacCon group - behaviors associated with the Dashboard and/or Tactical Console
@@ -501,6 +502,7 @@
   <group
     id="SpecCat"
     sequence="explicit">
+    <value id="PlayerMixed" order="5"/>
     <value id="Player" order="10"/>
     <value id="NPC" order="20"/>
    </group>

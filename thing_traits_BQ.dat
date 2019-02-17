@@ -2,12 +2,14 @@
 <document signature="Hero Lab Data">
   <thing id="trArdanan" name="Ardanan" description="Ardana natives from either caste are hardy individuals, whose duality of art and culture, and resource mining and management, make them excellent all-rounders. Without the exposure to zenite gas many Troglytes reach a level of academic and artistic ability on par with the city-dwellers, making the Ardanans both a people of stout endurance and cultural excellence." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
-    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="TraitCat" tag="Race" />
+    <tag group="SpeciesTrait" tag="spcArdanan"/>
     </thing>
 	
   <thing id="trBenzite" name="Benzite" description="A Benzite’s average body temperature is several degrees lower than an average, warm blooded humanoid, though the Benzite themselves are not cold blooded. Their blood being mercury and platinum based. Benzites also have 2 apposable thumbs on each hand, aiding their dexterity. Before 2370, Benzites also require a breathing apparatus in Class-M atmospheres. If playing before this time, add the Trait {b}‘Breathing Apparatus’{/b}." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcBenzite"/>
     </thing>
 	
   <thing id="trBreathingApp" name="Breathing Apparatus" description="Before 2370, Benzites require a breathing apparatus in Class-M atmospheres." compset="Trait">
@@ -18,56 +20,67 @@
   <thing id="trBolian" name="Bolian" description="Bolians are able, thanks to their cartilaginous tongues, to consume substances unsafe to other species, such as acids or decaying meat. Bolian hearts are on the right side of their body, moving blue blood around their circulatory system. Bolians are an understanding, hospitable species, often forward-facing in their duties in customer relations or diplomatic service." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcBolian"/>
     </thing>
 	
   <thing id="trDeltan" name="Deltan" description="Deltans are considered to be beautiful individuals, with powerful empathic abilities and heightened sensuality. The pheromones they excrete are a natural aphrodisiac in most species throughout the Federation, and while serving aboard Starfleet they must be very careful with their natural physiology, using chemical suppressants to cancel the effect." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcDeltan"/>
     </thing>
 	
   <thing id="trEfrosian" name="Efrosian" description="As the natives to a planet of harsh freezing storms, Efrosians have natural resilience and survival instincts. They have two stomachs to break down any tough foodstuffs and protect from infection, while their naturally poor eyesight is made up for by their enhanced senses of smell and taste. Interestingly, even though they have poor vision compared to other humanoids, they can perceive a greater portion of the light spectrum than most." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcEfrosian"/>
     </thing>
 	
   <thing id="trRigellianChelon" name="Rigellian Chelon" description="The Chelon species retains a lot of characteristics from its ancestral species, a type of saber-toothed turtle. They have beaks, and a strong (if clumsy) bite; some have trained to use this in close-quarters combat. During times of stress or physical combat they also emit a deadly toxin through their skin. This can be used with their claws so that the toxin reaches an opponent’s blood. They are skilled swimmers and prefer a warm, humid climate. They are also resistant to ultraviolet radiation and, to a lesser extent, other radioactivity. This is probably due to the shells that extend over much their bodies." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcRigelChelon"/>
     </thing>
 	
   <thing id="trRigellianJelna" name="Rigellian Jelna" description="The Jelna on Rigel V evolved along similar lines to most humanoids, aside from their four sexes. Endosexes are comparable to other humanoids, while exosexes possess a more robust physique and aggressive tendancies. Endosexes have exclusively gray skin and red eyes and are more suited to nurture and care; exosexes have a pale brown complexion." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcRigelJelna"/>
     </thing>
 	
   <thing id="trRisian" name="Risian" description="Risians appear much like Humans, save a  decorative gold emblem in the center of the forehead. They have open and adventurous personalities but also have a great patience with others." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcRisian"/>
     </thing>
 	
   <thing id="trXindiArboreal" name="Xindi-Arboreal" description="Covered in hair, and with distinctive ridges on their nose and cheekbones, the Arboreals are evolved from creatures similar to that of the Earth sloth. They possess sharp claws and have slightly longer arms than the average humanoid. With a naturally calm, rational mind, they do not panic or stress easily though they do fear large bodies of water. Their dark eyes allow them to see easier in low light conditions compared to other humanoids." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcXindiArboreal"/>
     </thing>
 	
   <thing id="trXindiPrimate" name="Xindi-Primate" description="With a similar physiology to humans, Primates share their characteristic internal organ structure and metabolism, as well as their sensory perceptions. Their facial structure is markedly different, however, with pronounced foreheads and ridged cheekbones like other Xindus species. Amongst other Xindi, Primates have a reputation for fairness and honesty. Many people beyond Xindus have come to regard Xindi-Primates as trustworthy and decent." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcXindiPrimate"/>
     </thing>
 
   <thing id="trXindiReptilian" name="Xindi-Reptilian" description="These are cold blooded individuals who prefer hotter climates. Scales, ridges and spikes cover their body and they have vertical slit eyes, for adapting to low light conditions and judging depth. A carnivorous, protein-heavy diet gives them muscular tone and definition that enhances their strength and endurance. They have a reputation amongst other Xindi for being aggressive, impatient, stubborn, and untrustworthy." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcXindiReptilian"/>
     </thing>
 
   <thing id="trXindiInsectoid" name="Xindi-Insectoid" description="Reproduction is asexual with a single adult laying a clutch of eggs. Life expectancy is very short compared to other species with 12 years as the average. Their insectoid bodies grant them enhanced abilities, such as crawling and climbing, while their cheek ridges distinguish them as Xindus natives." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcXindiInsectoid"/>
     </thing>
 
   <thing id="trZakdorn" name="Zakdorn" description="Zakdorn tend to be of shorter stature than most humanoids and have distinctive wrinkles of fatty tissue over their faces and bodies. This fatty layer enables Zakdorn to survive without food for much longer periods than normal humanoids. Their analytical brains give them an edge in logic and reasoning that rivals even Vulcans." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcZakdorn"/>
     </thing>
 
   </document>

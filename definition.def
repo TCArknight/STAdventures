@@ -41,7 +41,7 @@
 
   <release
     major="1"
-    minor="0"
+    minor="5"
     required="6.1g"
     summary=""><![CDATA[{align center}{bmp logo}
 	{b}{text ffff80}{align center}Star Trek Adventures for Hero Lab{text 010101}{/b}
@@ -169,7 +169,7 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="isspecies"
     param1="species"
-    result="hero.tagis[Species.#species]"/>
+    result="hero.tagis[CountsAsSpecies.#species]"/>
 
   <scriptmacro
     name="haschoice1"

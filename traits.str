@@ -457,15 +457,52 @@
     name="Species"
     autocompset="no">
 
+    <!-- Tracks the primary species for mixed heritage when choice is required -->
+    <field
+      id="spcPrimary"
+      name="Primary Species"
+      type="user"
+      style="menu">
+      </field>
+	  
+    <!-- Tracks the secondary species for mixed heritage when choice is required  -->
+    <field
+      id="spcSecondary"
+      name="Secondary Species"
+      type="user"
+      style="menu">
+      </field>
+	  
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Species"/>
+    <identity group="SpeciesTrait"/>
     <identity group="IsSpecies"/>
+    <identity group="CountsAsSpecies"/>
 
     <!-- Track the race on the actor by assigning the appropriate tags -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
+	  var primary as string
+	  var secondary as string
+	  var txt as string
+	  
+	  if (field[spcPrimary].ischosen <> 0) then
+	    primary = field[spcPrimary].chosen.idstring
+		perform assignstr["CountsAsSpecies." & primary]
+		endif
+		
+	  if (field[spcSecondary].ischosen <> 0) then
+	    secondary = field[spcSecondary].chosen.idstring
+		perform assignstr["CountsAsSpecies." & secondary]
+        endif
+		
+	  if (tagis[CountsAsSpecies.spcMixedHer] <> 0) then
+	    perform delete[CountsAsSpecies.spcMixedHer]
+		endif
+	  
       perform forward[Species.?]
       perform forward[IsSpecies.?]
 	  perform forward[SpeciesBon.?]
+	  perform forward[CountsAsSpecies.?]
       ]]></eval>
 
     <!-- Increase Trait and Talent counts -->
