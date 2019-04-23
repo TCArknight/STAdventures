@@ -1,4 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
+  <thing id="foHtH" name="Hand-to-Hand Combat" description="Description here." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foHandPhas" name="Hand Phasers" description="Description here." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foCriminalOrgs" name="Criminal Organizations" description="Despite the Federation’s largely utopian society, organized criminal enterprises are a common feature in known space. Characters with this Focus are familiar with them. This Focus provides the character with detailed intelligence of organizations’ inner workings, members, and common elements to criminal enterprises." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foFleetFormation" name="Fleet Formations" description="Characters with this Focus are experts in starship fleet formations, including coordinated maneuvers, joint attacks, organized defensive patterns and so on. This Focus is common among flag officers and fleet liaison officers." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foForensics" name="Forensics" description="Characters with this Focus are highly skilled in analyzing crime scene evidence and deriving information from it. While most individuals can gather some information from a location, the same evidence speaks as clearly a subspace communique to characters with this Focus." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foHazardousEnv" name="Hazardous Environments" description="All Starfleet officers receive minimum training in hazardous environment survival. Characters with this Focus have the skills to survive and live as if they were on their homeworld rather than in a hazardous place. Combat veterans and survival experts are equally likely to have this Focus." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foMartialArts" name="Martial Arts" description="In an age where energy weapons are standard issue equipment the dedicated study of hand-to-hand combat has fallen out of favor. Characters with this Focus, however, have dedicated themselves to the mastery of one or more styles of martial arts, making them particularly dangerous opponents. The styles include aikido, karate, krav maga and {i}mok’bara{/i}." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foSmallUnitTactic" name="Small Unit Tactics" description="A small force that is disciplined and well-organized can win in battle even when heavily outnumbered. Characters with this Focus are experts at forming and implementing offensive and defensive tactical plans for a small team." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foShipEngagement" name="Ship Engagement Tactics" description="Tactical officers must be constantly vigilant and ready to advise their captains on the best way to engage an enemy if a situation turns hostile. This Focus provides the character with a vast knowledge of starship tactical maneuvers and the best counters for them." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foShipLockdown" name="Ship Lockdown Procedures" description="In the event that an enemy manages to board a Starfleet vessel or there is a breach of internal security, the ship’s security officers must contain the foe and prevent damage to vital internal systems. Characters with this Focus have extensive training locking down locations, trapping targets, or stopping movement throughout a ship, and know how to bypass such tactics." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foSecurityProcs" name="Security Procedures" description="Often information or precious items require protection, and that is ensured through various security systems designed to prevent unauthorized access. These may take the form of particular devices or computer programs, and characters with this Focus are experts in all of them." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foTargetingSys" name="Targeting Systems" description="Starship weapons are powerful and capable of devastating enemy vessels or planetary fortifications. Without effective targeting these systems are useless, and this Focus covers the sensors used to aim these weapons. The character understands their operation, maintenance and repair as well as the specially designed sensors used to acquire targets." compset="Focus">
+    <tag group="FocusCat" tag="Security"/>
+    </thing>
+  <thing id="foAdvHolograms" name="Advanced Holograms" description="The character is skilled in the design and programming of high-end functioning holograms and artificial intelligence. Once restricted to the realm of entertainment, hologram application has advanced considerably. The most notable example is the development of the Emergency Medical Hologram, and characters with this Focus are at the forefront of this work." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foCybernetics" name="Cybernetics" description="The character is knowledgeable of the ways that machines and technology can be directly connected to living beings. This includes not only artificial organs, which are common place by 23rd and 24th centuries, but also limb and sensory organ replacements. This Focus covers the medical procedures, various designs and replacement functionalities, as well as the construction, maintenance and repair of human-machine interfaces." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foDiagnostics" name="Diagnostics" description="Engineers constantly monitor systems to ensure they are operating at peak efficiency. Much like a medical doctor analyzing a patient’s symptoms, the character is skilled at reviewing technical data and identifying areas of improvement or problems." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foEPS" name="Electro-Plasma Systems (EPS)" description="Nearly all known modern starship designs make use of a highly efficient power transfer medium known as Electro-Plasma. Characters with this Focus are experts in these systems and can ensure that critical systems remain online during normal and emergency operations. This technology has become so central to modern ship design that most vessels lack any other form of power transfer equipment." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foEmerRepairs" name="Emergency Repairs" description="The character is skilled in damage control, the ancient (wet) navy term still used for making emergency repairs during battle or other dangerous situations. In the harsh environment of space, damaged or destroyed systems can become more dangerous than any enemy, and a character with this Focus is practically a wizard in this area." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foEnergyWpns" name="Energy Weapons" description="While most engineers are more at home with propulsion systems, characters with this Focus have a deep expertise in high-energy weapon systems aboard ships and used by individuals. This includes the emission systems as well as target sensors, power feeds, energy vents and any other ancillary support equipment. This Focus would also include tractor beams, drilling, excavation, and various other energy-based construction equipment." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foFlightControlSy" name="Flight Control Systems" description="Federation starships have very sophisticated navigation and conn systems, giving the ships highly effective and precise maneuverability. Engineers with this Focus are experts in maneuvering thrusters, reaction control systems, and the impulse maneuvering assemblies that provide vectored thrust from the impulse engines." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foImagingEquip" name="Imaging Equipment" description="Starfleet makes use of numerous kinds of imaging and display equipment. This Focus applies to the inner workings of viewscreens and work stations, but also applies to a host of medical equipment used to diagnose patients through internal images." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foImpulseFund" name="Impulse Fundamentals" description="While warp travel tends to receive a large amount of attention, it is impulse that moves the Federation at a local level. Almost every vessel utilizes some form of impulse engine for sublight movement. This Focus covers the theory behind impulse engines, as well as the mechanical systems\nthat make them work." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foJuryRigging" name="Jury Rigging" description="Sometimes, the standard way of getting things done isn’t enough. Characters with this Focus have a talent for finding creative ways to use technology to overcome problems. This Focus can be used anytime the character is attempting to make a device do something it wasn’t designed to accomplish." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foModelDesign" name="Modeling and Design" description="Before a piece of equipment, system or starship can be built it must be designed. This Focus applies to all manner of design and development processes. It can also come into play whenever the character is attempting to make experimental modifications to existing systems." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foReverseEngineer" name="Reverse Engineering" description="Starfleet engineers are famous for their ability to adapt new technologies or integrate them into existing systems. Characters with this Focus display an intuitive understanding of any device they encounter, and have a near compulsion to integrate it into normal operations." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foSensorCalib" name="Sensor Calibration" description="When encountering new spatial anomalies, ships sensors are usually not set correctly to perform extensive and efficient analyses of the discovery. Characters with this Focus have extensive experience with modifying and calibrating sensors of all kinds to obtain the best quality of data possible." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foStructuralEng" name="Structural Engineering" description="Without strong foundations and well-designed frames, buildings and ships are fragile and ill-suited for the rigors of extended use. This Focus applies to all work done to develop and maintain structural integrity in all constructed objects from small habitats to orbital space docks." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foSystemMaint" name="System Maintenance" description="Characters with this Focus have extensive training and knowledge of the standard maintenance practices of Starfleet. They are comfortable working on everything from waste processing systems to phaser arrays. This Focus specifically covers standard maintenance and does not apply to modifications or repairs to systems." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foTransportReplic" name="Transporters/Replicators" description="Considered by many to be the greatest scientific development since warp drive, replicators allow the creation of nearly any conceivable object. Transporters provide reliable movement across planetary distances in moments. Characters with this Focus are recognized as experts in the field of matter-energy transmutation." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foTroubleshoot" name="Troubleshooting" description="Often, engineering problems and system faults are not easily identifiable, or a there is a rare type of malfunction in a system. Characters with this Focus are naturals at tracking down system issues through trial and error. While such abilities are best applied to technical problems, characters with this Focus can often provide insights when assisting others." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
+  <thing id="foWarpCoreMech" name="Warp Core Mechanics" description="Traveling at faster-than-light speeds requires more than simply plotting a course and turning on the engines. Characters with this Focus are recognized as experts in the field of warp core design, construction and use." compset="Focus">
+    <tag group="FocusCat" tag="Engineer"/>
+    </thing>
 
   </document>

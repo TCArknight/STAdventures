@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+
+  <thing id="foAstroPhy" name="Astrophysics" description="Civilizations have always studied the stars, nebulas, and other celestial bodies in order to lift the veil obscuring the formation of our Galaxy and life itself. It is the principles and developments within this field that lead to the first steps into space, rocketry trial and error notwithstanding, and while the movement of the heavens may have revealed most of its secrets, there are still more questions left unanswered. This Focus applies any time the character is dealing with the study of, or information pertaining to, stellar or celestial bodies." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foArchaeology" name="Archaeology" description="The study of ancient civilizations, with emphasis on their technology, has been at the heart of scientific expeditions since the earliest days of space exploration, and before. Humanity has always held a deep fascination for what came before and finds profound fulfilment from connecting with ancient wisdom. This Focus can be applied any time the character encounters ancient structures, artifacts, or technology." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foAstrometric" name="Astrometrics" description="A relatively recent scientific field, astrometrics combines stellar cartography, broadband frequency analysis, and relativistic mathematics to detect and evaluate the movement of stellar bodies – both natural and artificial – for incredibly precise navigation. This Focus can be used to study the natural and forced movement of objects in space, chart the boundaries of entire civilizations, and plot complex navigational courses." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foBiology" name="Biology/Xenobiology" description="The study of biological organisms, be they native to earth or beyond is a crucial area of focus for Starfleet. Experts in this field are able to identify and catalog the various kinds of new life encountered during a ship’s travels, as well as determine potential hazards to the crew and develop countermeasures." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foBotany" name="Botany / Xenobotany" description="A complementary discipline to Biology, Botany performs many of the same investigations, but focuses on plant life instead. As Starfleet considers all life, animal or plant to be valuable and protected, Xenobotanists are called upon to study new plant life discovered and to determine the applications it may provide. Many new medical cures are uncovered through the application of this study." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foChemistry" name="Chemistry" description="As the study of chemical compounds and processes, Chemistry is a fundamental science that has numerous advanced applications. New chemical compounds are often encountered during scientific survey and exploration missions and scientists with deep knowledge of Chemistry are called upon to identify and study these. This Focus is of particular value anytime the crew discovers an inorganic compound during the course of its missions." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foDeflectorOper" name="Deflector Operations" description="Next to modern sensor arrays, the navigational and secondary deflector arrays are key tools used in scientific study from the mid 22nd century onwards. At its core, deflector arrays are intended to protect a starship from colliding with microscopic debris while traveling through space, harmlessly pushing them aside. However, this simple concept allows for precise manipulation of everything from sub-atomic particles to sizable asteroids. Harnessing these broad applications requires delicate changes to the output of the array and are governed by this Focus." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foGalacticHistory" name="Galactic History" description="While knowledge of this topic may often be covered under other Disciplines, the academic study of history and applying parallels to current events is a scientific field all its own. Given the old saying that history is doomed to repeat itself, careful analysis of past events can often provide critical insight when challenges arise. This Focus can be used not only to recall or research events of the past, but also make those events meaningful to the modern day." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foPhotonicApp" name="Photonic Applications" description="Holographic technology has been used to varying degrees during different periods of Federation history. It was, however, the development of artificially intelligent holograms that breathed new life into an otherwise ‘entertainment’ science. By the late 24th century, Starfleet had begun experimenting with holographic crew members and had even begun to theorize the use of autonomous holograms for extra-galactic exploration. Experts in this field are likely to possess this Focus and can use it for everything from holographic communication and holodecks to development of intelligent holographic individuals." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foQuantumMech" name="Quantum Mechanics" description="The study of the motion and interaction of sub-atomic particles, this scientific field has numerous applications aboard Starfleet vessels. From deflector operations and bussard collectors to the theory behind transporter operation, characters with this Focus are acknowledged experts whenever miniscule particles and energies are at work." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foResearch" name="Research" description="One of the most common and fruitful areas of focus for a scientist, nearly all areas of scientific inquiry require significant amounts of research. This Focus provides the character with a background and expertise in the standardized methods of research and can be applied any time the character is involved in finding and applying catalogued scientific theories and conclusions." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foSensorOps" name="Sensor Operations" description="The wondrous mysteries of the universe are as diverse as the individuals who study them. Due to the dynamic and wide-reaching possibilities of information that can be obtained, sensor arrays are simply incapable of collecting and processing all of that data simultaneously. In normal operation, sensors are designed to operate on the widest spectrum possible – and then focus in on specific areas of interest. There are few as knowledgeable and skilled in this area as those who have devoted time and effort into full understanding what they are looking for. This Focus comes into play any time ship’s sensors need to cut through interference, during maintenance, or when conducting detailed scans and sweeps." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foSubspaceTheory" name="Subspace Theory" description="While the pseudo-dimensional realm of subspace was not clearly understood when Zefram Cochrane made his historic flight aboard the Phoenix, its existence continues to be the subject of a vast amount of scientific inquiry. It is this transdimensional realm that allows for faster-than-light (FTL) travel and communication. This Focus provides the character with a significant understanding of the theories regarding subspace and can be used when developing predictive models for warp flight, configuring long range communications, and a host of other applications involving FTL technology." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foTemporalMech" name="Temporal Mechanics" description="The study of time, Temporal Mechanics provides the character with a deep understanding of the natural flow of time as well as the potential situations where this flow may be disrupted. Furthermore, this Focus specializes in understanding and projecting the possible ramifications of changing the timeline and the various ways time travel can be attempted." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foUnifiedFieldTh" name="Unified Field Theory" description="Once considered the ‘holy grail’ of the scientific community, by the time of the Enterprise NX-01’s famous journey into deep space, the Unified Field Theory had not only become accepted as a core scientific principle, but it led to the development of several key pieces of technology – such as artificial gravity plating and inertial dampers. This Focus can be used any time the character is utilizing or investigating how different fundamental forces, such as magnetism or gravity, interact with one another." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foWarpTheory" name="Warp Theory" description="One of the most important scientific discoveries of human history, warp travel and all that came with it transformed human society into the near utopia that it is now. This Focus covers the theory of warp fields, including more recent developments like variable warp field geometry and asymmetrical warp fields. This comes into play anytime a character is working with warp engines or experimenting with warp fields." compset="Focus">
+    <tag group="FocusCat" tag="Science"/>
+    </thing>
+  <thing id="foAnesthesiology" name="Anesthesiology" description="The study of pain management and anesthesia for use during major, invasive medical procedures, as well as therapeutic treatments. This also can cover the monitoring patient’s vital signs." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foDentistry" name="Dentistry" description="This field of medicine focuses on treating the mouth, teeth and gums. Advances in personal care have made routine dentist visits effectively painless for most humanoids, however, there is an ever-increasing need for dentists capable of operating on species such as Klingons, Ferengi or Nausicaans." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foEmergencyMed" name="Emergency Medicine" description="This Focus provides the character with in-depth knowledge and training required to make immediate decisions to prevent loss of life or further major medical complications. These individuals are most often found in emergency response groups as well as within the trauma ward of medical facilities." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foGuidedTherapy" name="Guided Therapy" description="While there are many prescriptions that may be used to treat mental and neurological conditions – for low intensity situations; structured, guided therapy and meditation can often be sufficient to reduce a patient’s stress levels and improve overall mental wellbeing. This Focus can be used anytime the character is attempting to provide counseling to another individual in a structured environment." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foMedImagingSys" name="Medical Imaging Systems" description="Modern medical science depends heavily on the state-of-the-art imaging equipment that allows physicians to literally see into a patient’s body and directly identify ailments and damaged tissues. However, there are some individuals that are extremely well versed in the use of this technology and able to obtain information that others cannot. This Focus can be used any time an imaging device is used in the course of a Task or Challenge, where the quality and clarity of information is of particular value." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foImmunology" name="Immunology" description="Characters with this Focus are well trained in the body’s natural immune system, including how it identifies and reacts to foreign bodies to prevent the spread of infections. In addition, this Focus also provides the characters with extensive understanding of the disorders of the immune system and potential ways to prevent or treat autoimmune disorders." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foInternalMed" name="Internal Medicine" description="The broad study of internal organs. This Focus can be used any time the physician is dealing with the diagnosis and treatment of the internal organs – specifically those within the chest and abdomen." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foMedicalTox" name="Medical Toxicology" description="Specializing in the treatment of injuries originating from exposure to drugs and chemicals, as well as biological and radiological contaminates. Further, characters with this Focus are extremely knowledgeable in counter-agents to prevent lasting damage, and may even be able to identify local flora capable of meeting those needs." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foNeuropsych" name="Neuropsychology" description="A subspecialty that deals with diseases of the nervous system, especially when it results in emotional or mental disorders. Characters with this Focus possess a strong understanding of both the physical structure of the brain as well as how that drives emotional and thought processes." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foPediatrics" name="Pediatrics" description="This Focus applies whenever the character is engaged in the treatment of children or child development. As a broad area of study, this can overlap many other fields of medical sciences, but in each case – the common factor is children." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foPsychiatry" name="Psychiatry" description="The study of intense mental and emotional disorders, education and training in psychiatry allows the character to identify the disorder in question as well as potentially predict the patient’s behavior patterns and recommend treatment options." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foPsychosomatic" name="Psychosomatic Disorders" description="A interdisciplinary field of study that considers the interpersonal and communal relationships and the resulting stresses those relationships can cause, particularly when those stresses result in other physical symptoms. This Focus is used whenever the medical professional is attempting to diagnose or treat ailments that are believed to be from social or emotional stress." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foRheumatology" name="Rheumatology" description="The medical specialty dealing with the diseases of joints, bones, and connective tissues. This Focus can be used whenever the physician is attempting to determine the cause of recurring pain or identifying degenerative conditions affecting the joints, muscles, and bones." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foStressDisorders" name="Stress Disorders" description="One of the most common mental ailments that Starfleet officers suffer from, stress disorders appear suddenly in nearly any individual when the circumstances are right. This usually involves some form of physical or emotional trauma, but the patient may not even be aware of how traumatic the event truly was for them. This Focus allows for the accurate identification of different kinds of disorders, as well as the pharmacological and homeopathic methods of treatment." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  <thing id="foSurgery" name="Surgery" description="This Focus, as its name implies, covers surgical procedures of all kinds and any instance of when the treatment of Injuries requires surgical intervention. It also covers the tools and equipment required to perform a successful surgery and any particular concerns or issues that may arise when performing surgery on species." compset="Focus">
+    <tag group="FocusCat" tag="Medicine"/>
+    </thing>
+  </document>
