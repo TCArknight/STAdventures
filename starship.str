@@ -46,7 +46,7 @@
       <calculate phase="Ability" priority="10000"><![CDATA[
         ~Note! If you change this calculation, you may need to change the similar
         ~       calculation in the "Derived" component.
-        @value = #shipsystem[attrsys05] + #shipdept[discdept05] + field[bonShields].value
+        @value = #shipsystem[attrsys05] + #shipdept[discdept03] + field[bonShields].value
         ]]></calculate>
       </field>
 
@@ -354,10 +354,10 @@
 
 	  #abilbonus[discdept01] = field[fraCmd].value
 	  #abilbonus[discdept02] = field[fraConn].value
-	  #abilbonus[discdept03] = field[fraEng].value
-	  #abilbonus[discdept04] = field[fraMed].value
-	  #abilbonus[discdept05] = field[fraSecur].value
-	  #abilbonus[discdept06] = field[fraSci].value
+	  #abilbonus[discdept04] = field[fraEng].value
+	  #abilbonus[discdept06] = field[fraMed].value
+	  #abilbonus[discdept03] = field[fraSecur].value
+	  #abilbonus[discdept05] = field[fraSci].value
 
       ]]></eval>
 
@@ -465,10 +465,10 @@
     <eval index="2" phase="Initialize" priority="5000"><![CDATA[
 	  hero.child[discdept01].field[abiBonus].value += field[proCmd].value
 	  hero.child[discdept02].field[abiBonus].value += field[proConn].value
-	  hero.child[discdept03].field[abiBonus].value += field[proEng].value
-	  hero.child[discdept04].field[abiBonus].value += field[proMed].value
-	  hero.child[discdept05].field[abiBonus].value += field[proSecur].value
-	  hero.child[discdept06].field[abiBonus].value += field[proSci].value
+	  hero.child[discdept04].field[abiBonus].value += field[proEng].value
+	  hero.child[discdept06].field[abiBonus].value += field[proMed].value
+	  hero.child[discdept03].field[abiBonus].value += field[proSecur].value
+	  hero.child[discdept05].field[abiBonus].value += field[proSci].value
 
 	  var txt as string
 	  txt = tagids[MisProTal.?,"|"]
@@ -515,7 +515,7 @@
 	  ~notify "Ship Scale: " & #shipscale
 	  
 	  if (tagis[Weapon.FixedBase] <> 0) then
-        field[wpDamage].text = #shipdept[discdept05]
+        field[wpDamage].text = #shipdept[discdept03]
 	  else
 	    field[wpDamage].text = field[wpSBasDmg].value
 		endif

@@ -18,7 +18,7 @@
     <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trBajoran"></bootstrap>
     </thing>
-  <thing id="spcBetazo" name="Betazoid" description="The peaceful Betazoid people hail from the idyllic, verdant world Betazed. The world is a valued member of the Federation, and its people can be found across Federation space, including Starfleet. Betazoids appear almost\nidentical to Humans, but differ in one major way: they are naturally telepathic, developing mental abilities during adolescence. The potency of this ability varies between individuals, but it has resulted in a culture where honesty and directness are fundamental: it is difficult to keep secrets when everyone around you can read minds.\n\n{i}EXAMPLE VALUE: Compassion through Understanding{/i}\n\n{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Betazoid." compset="Species" uniqueness="unique">
+  <thing id="spcBetazoid" name="Betazoid" description="The peaceful Betazoid people hail from the idyllic, verdant world Betazed. The world is a valued member of the Federation, and its people can be found across Federation space, including Starfleet. Betazoids appear almost\nidentical to Humans, but differ in one major way: they are naturally telepathic, developing mental abilities during adolescence. The potency of this ability varies between individuals, but it has resulted in a culture where honesty and directness are fundamental: it is difficult to keep secrets when everyone around you can read minds.\n\n{i}EXAMPLE VALUE: Compassion through Understanding{/i}\n\n{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Betazoid." compset="Species" uniqueness="unique">
     <usesource source="TNG"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
@@ -108,22 +108,94 @@
     <usesource source="TNG"/>
     <tag group="SpecCat" tag="Player"/>
     </thing>
-	<thing id="spcMixedHer" name="Mixed Heritage" description="The character is of Mixed Heritage. Choose 2 species and determine which one is the Dominant of the two. Choose two of the attrributes associated with that race. Choose the third attribute from one of the attributes from your secondary species. You get the trait for both species, and are considered both species in regards to any talents." compset="Species" uniqueness="unique">
-    <fieldval field="usrLabel4" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid4" value=""/>
-    <fieldval field="usrLabel5" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid5" value=""/>
-    <fieldval field="usrLabel6" value="+1 to Attribute:"/>
-    <fieldval field="usrCandid6" value=""/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+<!--
+    <fieldval field="usrLabel4" value="+1 to Attribute (Primary):"/>
+    <fieldval field="usrCandid4" value="|"/>
+    <fieldval field="usrLabel5" value="+1 to Attribute (Primary):"/>
+    <fieldval field="usrCandid5" value="|"/>
+    <fieldval field="usrLabel6" value="+1 to Attribute (Secondary):"/>
+    <fieldval field="usrCandid6" value="|"/>
     <tag group="ChooseSrc4" tag="Hero"/>
     <tag group="ChooseSrc5" tag="Hero"/>
-    <tag group="ChooseSrc6" tag="Hero"/>
+    <tag group="ChooseSrc6" tag="Hero"/> 
+-->
+	<thing id="spcMixedHer" name="Mixed Heritage" description="The character is of Mixed Heritage. Choose 2 species and determine which one is the Dominant of the two. Choose two of the attrributes associated with that race. Choose the third attribute from one of the attributes from your secondary species. You get the trait for both species, and are considered both species in regards to any talents." compset="Species" uniqueness="unique">
+    <fieldval field="spcIsMixed" value="1"/>
     <tag group="User" tag="NoAutoName"/>
     <tag group="SpecCat" tag="PlayerMixed"/>
-    <eval phase="PreAbility" priority="1000"><![CDATA[
+    <tag group="Hero" tag="MixedHeritage"/>
+    <eval phase="PreAbility" priority="100" index="1"><![CDATA[
+	    var primary as string
+		var primaryspecies as string
+	    var secondary as string
+		var secondaryspecies as string
+		var txt as string
+	    var myTrait as string
+		var myAttributes as string
+	  
+	    if (field[spcPrimary].ischosen <> 0) then
+	      primary = field[spcPrimary].chosen.idstring
+	      primaryspecies = field[spcPrimary].chosen.field[name].text
+
+	      txt = "SpeciesTrait." & primary
+		
+		  ~tag primary trait with MixedHeritage.Primary
+		  foreach pick in hero from Trait where txt
+			perform eachpick.assign[MixedHeritage.Primary]
+			nexteach
+			  
+		  ~ populate usrCandid4 and usrCandid5 with species attribute selections
+		  ~ get SpeciesBon.? tags from selected species
+		  txt = field[spcPrimary].chosen.tagids[SpeciesBon.?,"|"]
+	 			
+		  if (empty(txt) <> 0) then
+			~select from all attributes
+			myAttributes = "component.AttrSys"
+		  else
+			~select from attributes specific to species
+			txt = replace(txt,"SpeciesBon","thingid",0)
+			myAttributes = txt 
+			endif
+			
+		  field[usrLabel4].text = "+1 to Attribute (" & primaryspecies & "):"
+		  field[usrCandid4].text = myAttributes
+		  field[usrLabel5].text = "+1 to Attribute (" & primaryspecies & "):"
+		  field[usrCandid5].text = myAttributes
+			
+		  endif
+
+	    if (field[spcSecondary].ischosen <> 0) then
+	      secondary = field[spcSecondary].chosen.idstring
+	      secondaryspecies = field[spcSecondary].chosen.field[name].text
+
+	      txt = "SpeciesTrait." & primary
+		
+		  ~tag secondary trait with MixedHeritage.Secondary
+		  foreach pick in hero from Trait where txt
+			perform eachpick.assign[MixedHeritage.Secondary]
+			nexteach
+			  
+		  ~ populate usrCandid6 with species attribute selections
+		  ~ get SpeciesBon.? tags from selected species
+		  txt = field[spcSecondary].chosen.tagids[SpeciesBon.?,"|"]
+	 			
+		  if (empty(txt) <> 0) then
+			~select from all attributes
+			myAttributes = "component.AttrSys"
+		  else
+			~select from attributes specific to species
+			txt = replace(txt,"SpeciesBon","thingid",0)
+			myAttributes = txt 
+			endif
+			
+		  field[usrLabel6].text = "+1 to Attribute (" & secondaryspecies & "):"
+		  field[usrCandid6].text = myAttributes
+			
+		  endif
+		  
+	    ]]></eval>
+		
+    <eval phase="PreAbility" priority="1000" index="2"><![CDATA[
 	  var tempStr as string
 	  
 	  ~assign tags to apply the +1 modifier to selected attribute
@@ -143,9 +215,7 @@
 		perform hero.assignstr[tempStr]
 		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
 		endif]]></eval>
-    <eval phase="Setup" priority="100" index="2"><![CDATA[
-	  perform hero.assign[Hero.MixedHeritage]
-	  ]]></eval>
+
     </thing>
 	<thing id="trMixedHeri" name="Mixed Heritage" description="The person is decendant of two species and is considered one of each." compset="Trait">
     <usesource source="ENT"/>

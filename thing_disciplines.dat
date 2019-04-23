@@ -37,39 +37,9 @@
     <tag group="explicit" tag="2"/>
     </thing>
 
-  <!-- Engineering Attribute -->
-  <thing
-    id="discdept03"
-    name="Engineering"
-    compset="DiscDept"
-    isunique="yes"
-    description="">
-    <fieldval field="ddDiscDesc" value="Engineering covers inventing, understanding, designing, repairing, and maintaining technology, as well as using any technology not specifically covered by another Discipline."/>
-    <tag group="DiscName" tag="Engineer"/>
-    <tag group="DiscAbbrev" tag="Eng"/>
-    <tag group="DeptName" tag="Engineer"/>
-    <tag group="DeptAbbrev" tag="Eng"/>
-    <tag group="explicit" tag="3"/>
-    </thing>
-
-  <!-- Medicine Attribute -->
-  <thing
-    id="discdept04"
-    name="Medicine"
-    compset="DiscDept"
-    isunique="yes"
-    description="">
-    <fieldval field="ddDiscDesc" value="Medicine is the understanding of the physical and mental makeup of life-forms, including a knowledge of ailments and diseases that might befall them, the injuries and stresses they can suffer, and the methods for treating those maladies in a wide range of species."/>
-    <tag group="DiscName" tag="Medicine"/>
-    <tag group="DiscAbbrev" tag="Med"/>
-    <tag group="DeptName" tag="Medicine"/>
-    <tag group="DeptAbbrev" tag="Med"/>
-    <tag group="explicit" tag="4"/>
-    </thing>
-
   <!-- Security Attribute -->
   <thing
-    id="discdept05"
+    id="discdept03"
     name="Security"
     compset="DiscDept"
     isunique="yes"
@@ -79,13 +49,27 @@
     <tag group="DiscAbbrev" tag="Sec"/>
     <tag group="DeptName" tag="Security"/>
     <tag group="DeptAbbrev" tag="Sec"/>
-    <tag group="explicit" tag="5"/>
+    <tag group="explicit" tag="3"/>
     </thing>
 
-
+  <!-- Engineering Attribute -->
+  <thing
+    id="discdept04"
+    name="Engineering"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Engineering covers inventing, understanding, designing, repairing, and maintaining technology, as well as using any technology not specifically covered by another Discipline."/>
+    <tag group="DiscName" tag="Engineer"/>
+    <tag group="DiscAbbrev" tag="Eng"/>
+    <tag group="DeptName" tag="Engineer"/>
+    <tag group="DeptAbbrev" tag="Eng"/>
+    <tag group="explicit" tag="4"/>
+    </thing>
+	
   <!-- Science Attribute -->
   <thing
-    id="discdept06"
+    id="discdept05"
     name="Science"
     compset="DiscDept"
     isunique="yes"
@@ -95,6 +79,21 @@
     <tag group="DiscAbbrev" tag="Sci"/>
     <tag group="DeptName" tag="Science"/>
     <tag group="DeptAbbrev" tag="Sci"/>
+    <tag group="explicit" tag="5"/>
+    </thing>
+
+  <!-- Medicine Attribute -->
+  <thing
+    id="discdept06"
+    name="Medicine"
+    compset="DiscDept"
+    isunique="yes"
+    description="">
+    <fieldval field="ddDiscDesc" value="Medicine is the understanding of the physical and mental makeup of life-forms, including a knowledge of ailments and diseases that might befall them, the injuries and stresses they can suffer, and the methods for treating those maladies in a wide range of species."/>
+    <tag group="DiscName" tag="Medicine"/>
+    <tag group="DiscAbbrev" tag="Med"/>
+    <tag group="DeptName" tag="Medicine"/>
+    <tag group="DeptAbbrev" tag="Med"/>
     <tag group="explicit" tag="6"/>
     </thing>
 	

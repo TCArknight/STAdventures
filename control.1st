@@ -131,7 +131,6 @@
     parent="Divisions"
     default="no"
     reportable="no"
-    selectable="no"
     sortorder="3"
     description="Options for Sciences and Medicine">
     </source>
@@ -258,6 +257,19 @@
     description="Collection of optional rules that can be turned on and off">
     </source>
 
+
+  <source
+    id="StarbaseUn"
+    name="Starbase Construction (Unofficial)"
+    abbrev=""
+    parent="Optional"
+    default="no"
+    reportable="no"
+	selectable="no"
+    sortorder="1"
+    description="Unofficial rules for Starbase Construction.">
+    </source>
+	
   <source
     id="Output"
     name="Output Options"
@@ -372,6 +384,13 @@
 
   <!-- TraitsSort - Traits sortset -->
   <sortset id="TraitSort" name="Trait Sort">
+    <sortkey isfield="no" id="TraitCat"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+
+  <!-- TraitsSort - Traits sortset -->
+  <sortset id="AltTraitSort" name="Trait Sort by Heritage">
+    <sortkey isfield="no" id="MixedHeritage"/>
     <sortkey isfield="no" id="TraitCat"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>

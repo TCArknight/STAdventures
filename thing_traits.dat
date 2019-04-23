@@ -35,7 +35,7 @@
   <thing id="trBetazoid" name="Betazoid" description="All Betazoids are telepathic to varying degrees, and even\nwhen not actively using their abilities, they are highly perceptive of others around them, but also highly sensitive to telepathic  disturbances and mental assaults. They have little familiarity with lies and deception, due to their open culture and ability to read the thoughts and emotions of others. As they are sensitive to the minds of other living beings, they tend not to be comfortable around animals, for fear of losing themselves in the minds of wild creatures." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
-    <tag group="SpeciesTrait" tag="spcBetazoid"/>
+    <tag group="SpeciesTrait" tag="spcBetazoidid"/>
     </thing>
   <thing id="trDenob" name="Denobulan" description="Denobulans have a robust immune system, but a vulnerability to various forms of radiation poisoning. They are naturally adept climbers, scuttling up sheer walls like some forms of terrestrial lizard. Denobulans do not need to sleep, but must hibernate for several days each year, becoming disoriented if kept awake during this period." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>

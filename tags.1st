@@ -568,7 +568,15 @@
     <value id="Main" order="20"/>
     <value id="Supp" order="30"/>
    </group>
-
+   
+  <!-- Talent Category group -->
+  <group
+    id="MixedHeritage"
+    sequence="explicit">
+    <value id="Primary" order="1"/>
+    <value id="Secondary" order="2"/>
+    </group>
+   
   <!-- Ship Weapon Category group -->
   <group
     id="ShipWepCat"

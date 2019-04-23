@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the first page of the standard character
+      sheet for output. The character sheet has been carved into a simple two-column
+      presentation that is used by many game systems, with some information on the
+      left and other material on the right. You can use whatever overall layout you
+      prefer, using this sample as a guideline.
+
+      A variety of display techniques have been used on this one character sheet to
+      provide examples of how to present information in different ways. You will
+      likely choose one or two of these methods and use them exclusively within your
+      own data files, but this gives you various styles to choose from.
+
+      The second page of the character sheet will be found in "sheet_standard2.dat".
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- oShipLogo portal - starships game system logo -->
+  <portal
+    id="oShipLogo"
+    style="outNormal"
+    width="0"
+    height="0">
+    <output_image
+      image="sheet_shipheader.bmp">
+      </output_image>
+    </portal>
+
+  <!-- oHeroName portal - name of the actor 
+  style="outHeroNam"> -->
+  <portal
+    id="oShipName"
+    style="outLeft">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text = "Name: "
+        ~@text = hero.actorname
+        if (empty(hero.actorname) <> 0) then
+          @text &= "- Unnamed Hero -"
+		else
+		  @text &= hero.actorname
+          endif
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <!-- oLogos layout
+        This layout sizes and positions the Hero Lab and game system logos. The logos
+        can be either stacked or shown side-by-side, based on the global variable set
+        within the sheet script.
+  -->
+  <layout
+    id="oShipLogos">
+    <portalref portal="oHLLogo"/>
+    <portalref portal="oShipLogo"/>
+    <position><![CDATA[
+      var temp as number
+      var logogap as number
+      var scale as number
+
+      ~if our logos are stacked, scale them for stacked orientation
+      if (scenevalue[stacklogos] <> 0) then
+        logogap = 20
+        scale = 1.8
+
+      ~otherwise, scale our logos for side by side orientation
+      else
+        logogap = 40
+        temp = portal[oShipLogo].width + portal[oHLLogo].width
+        scale = (width - logogap) / temp
+        if (scale > 2.0) then
+          scale = 2.0
+          endif
+        endif
+
+      ~scale both logos appropriately
+      portal[oShipLogo].width *= scale
+      portal[oShipLogo].height *= scale
+      portal[oHLLogo].width *= scale
+      portal[oHLLogo].height *= scale
+
+      ~if our logos are stacked, position them properly
+      if (scenevalue[stacklogos] <> 0) then
+
+        ~position the logos horizontally
+        perform portal[oShipLogo].centerhorz
+        perform portal[oHLLogo].centerhorz
+
+        ~position the Hero Lab logo beneath the game system logo
+        perform portal[oHLLogo].alignrel[ttob,oShipLogo,logogap]
+
+        ~our total height is the bottom of the lower logo
+        height = portal[oHLLogo].bottom
+
+      ~ Otherwise, position them side by side
+      else
+
+        ~position the logos horizontally, centering them together in the space
+        temp = portal[oShipLogo].width + portal[oHLLogo].width
+        temp = (width - temp - logogap) / 2
+        portal[oShipLogo].left = temp
+        perform portal[oHLLogo].alignrel[ltor,oShipLogo,logogap]
+
+        ~our total height is the bottom of the tallest logo
+        height = maximum(portal[oHLLogo].height,portal[oShipLogo].height)
+
+        ~center the logos vertically
+        perform portal[oShipLogo].centervert
+        perform portal[oHLLogo].centervert
+        endif
+      ]]></position>
+    </layout>
+	
+  <!-- oShipTop layout
+        This layout is rendered down the left side of the sheet and contains the
+        name and description details for the character, as well as the table of
+        table of attributes, table of health/powers, and table of derived traits.
+  -->
+  <layout
+    id="oShipLeft">
+    <portalref portal="oShipName"/>
+    <portalref portal="oHeroInfo"/>
+    <position><![CDATA[
+      ~position the hero name at the top with the hero details beneath the name
+      perform portal[oShipName].autoplace[0]
+      perform portal[oHeroInfo].autoplace[15]
+
+      ~position the tables next
+      ~perform portal[oAttribute].autoplace
+      ~perform portal[oDiscip].autoplace
+      ~perform portal[oDerived].autoplace
+
+      ~our layout height is the extent of the elements within
+      height = autoextent
+      ]]></position>
+    </layout>	
+  <!-- singlepage sheet
+        This is the first page of the stanard character sheet, which coordinates the
+        output of a whole bunch of layouts containing different pieces of information
+        for the character. Layouts are estimated to perform whatever calculations are
+        necessary within that layout, such as its overall dimensions. Once estimated,
+        the dimensions of the layout can be used to properly position and size any
+        subsequent layouts that depend on it. So the overall process is to process
+        layouts in an order that progressively fills the sheet with aligned material.
+  -->
+  <sheet
+    id="shipsinglepage"
+    name="1-Page character sheet"
+	landscape="yes">
+    <layoutref layout="oShipLogos"/>
+    <layoutref layout="oShipLeft"/>
+    <layoutref layout="oRightSideSingle"/>
+    <layoutref layout="oAdjust"/>
+    <layoutref layout="oValidate"/>
+    <position><![CDATA[
+      ~set this global variable to 1 if you want the logos to be stacked; a value
+      ~of zero places them side-by-side
+      scenevalue[stacklogos] = 1
+
+      ~setup the gap to be used between the various sections of the character sheet
+      autogap = 20
+      scenevalue[sectiongap] = autogap
+
+      ~calculate the width of the two columns of the character sheet, leaving a
+      ~suitable center gap between them
+      var colwidth as number
+      colwidth = (width - 50) / 2
+
+      ~if the user wants to omit the validation report, the hide it and allow the
+      ~rest of the sheet to fill that space; otherwise, output the layout and the
+      ~top of the validation report establishes the bottom for all other output
+      var extent as number
+      if (hero.tagis[source.Validation] = 0) then
+        layout[oValidate].visible = 0
+        extent = height
+      else
+        layout[oValidate].width = width
+        perform layout[oValidate].render
+        layout[oValidate].top = height - layout[oValidate].height
+        extent = layout[oValidate].top - autogap
+        endif
+
+      ~position the leftside layout in the upper left corner
+      layout[oShipLeft].width = colwidth
+      layout[oShipLeft].height = extent - layout[oShipLeft].top
+      perform layout[oShipLeft].render
+
+      ~position the activated adjustments at the bottom on the left; this will
+      ~establish the remaining space available on the left for armor and weapons
+      layout[oAdjust].width = colwidth
+      perform layout[oAdjust].render
+      layout[oAdjust].top = extent - layout[oAdjust].height
+
+      ~position the armory layout within the remaining space on the left
+      ~layout[oArmory].width = colwidth
+      ~layout[oArmory].top = layout[oShipLeft].bottom + autogap
+      ~layout[oArmory].height = layout[oAdjust].top - autogap - layout[oArmory].top
+      ~perform layout[oArmory].render
+
+      ~position the logos layout in the upper right corner
+      layout[oShipLogos].width = colwidth
+      perform layout[oShipLogos].render
+      layout[oShipLogos].left = width - colwidth
+
+      ~position the rightside layout in the remaining space on the right
+      layout[oRightSideSingle].width = colwidth
+      layout[oRightSideSingle].top = layout[oShipLogos].bottom + autogap
+      layout[oRightSideSingle].left = layout[oShipLogos].left
+      layout[oRightSideSingle].height = extent - layout[oRightSideSingle].top
+      perform layout[oRightSideSingle].render
+      ]]></position>
+    </sheet>
+
+
+  </document>

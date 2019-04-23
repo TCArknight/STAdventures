@@ -22,6 +22,22 @@
       </dossier_sheet>
     </dossier>
 	
+  <!-- 1 page Starship sheet
+        This is the default character sheet for any actor, consisting of two pages.
+        The first page includes all the core information for the character and will
+        usually be all that is needed. The sheet contents are defined in the file 
+		"sheet_single.dat".
+  -->
+  <dossier
+    id="starship1"
+    name="Single Page Starship Sheet">
+    <dossier_sheet
+      grouping="AtTop"
+      default="no">
+      <sheetref sheet="shipsinglepage"/>
+      </dossier_sheet>
+    </dossier>	
+	
   <!-- Standard character sheet
         This is the default character sheet for any actor, consisting of two pages.
         The first page includes all the core information for the character and will

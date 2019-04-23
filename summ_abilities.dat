@@ -19,7 +19,9 @@
     <table_fixed
       component="Trait"
       showtemplate="smTraits"
-      scrollable="no">
+	  showsortset="AltTraitSort"
+      scrollable="no"
+	  alwaysupdate="yes">
       <headertitle><![CDATA[
       @text = #summtitle_decoration[] & " Traits " & #summtitle_decoration[]
       ]]></headertitle>

@@ -37,7 +37,34 @@
 	  
     ]]></procedure>
 
+  <!-- Procedure sbattributes
+        Output all of the traits that satisfy the provided tag expression, reporting
+        the name and final value for each. The "tagexpr" text variable specifies the
+        constraints that must be satisfied for the list of traits.
 
+        Inbound parameter:  tagexpr
+  -->
+  <procedure id="sbattributes" scripttype="synthesize"><![CDATA[
+    var tagexpr as string
+    var ismore as number
+    ismore = 0
+    foreach pick in hero where tagexpr sortas explicit
+      if (ismore <> 0) then
+        append ", "
+        endif
+      if (eachpick.tagis[component.AttrSys] = 1) then
+	    append eachpick.field[asName].text & " " & eachpick.field[abiFinal].text
+	  elseif (eachpick.tagis[component.DiscDept] = 1) then
+	    append eachpick.field[ddName].text & " " & eachpick.field[abiFinal].text
+	  else
+	    append eachpick.field[name].text & " " & eachpick.field[abiFinal].text
+	  endif
+	  
+      ismore = 1
+      nexteach
+    append @newline
+    ]]></procedure>
+	
   <!-- Procedure sbtraits
         Output all of the traits that satisfy the provided tag expression, reporting
         the name and final value for each. The "tagexpr" text variable specifies the
@@ -49,15 +76,11 @@
     var tagexpr as string
     var ismore as number
     ismore = 0
-    foreach pick in hero where tagexpr
+    foreach pick in hero where tagexpr sortas AltTraitSort
       if (ismore <> 0) then
         append ", "
         endif
-      if (eachpick.tagis[component.AttrSys] = 1) then
-	    append eachpick.field[asName].text & " " & eachpick.field[abiFinal].text
-	  elseif (eachpick.tagis[component.DiscDept] = 1) then
-	    append eachpick.field[ddName].text & " " & eachpick.field[abiFinal].text
-	  elseif (eachpick.tagis[component.Trait] = 1) then
+	  if (eachpick.tagis[component.Trait] = 1) then
 	    append eachpick.field[name].text
 	  else
 	    append eachpick.field[name].text & " " & eachpick.field[abiFinal].text
@@ -357,12 +380,12 @@
 	~output attributes / systems
 	append @boldon & herofield[acASHdrTxt].text & "s: " & @boldoff
 	tagexpr = "component.AttrSys"
-	call sbtraits
+	call sbattributes
 
 	~output disciplines / dept
 	append @boldon & herofield[acDDHdrTxt].text & "s: " & @boldoff
 	tagexpr = "component.DiscDept"
-	call sbtraits
+	call sbattributes
 			
     ]]></procedure>
 

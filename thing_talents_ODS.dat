@@ -3,32 +3,32 @@
   <thing id="talHunDow" name="Hunker Down" description="Making good use of the surroundings for protection is one of the hallmarks of a skilled soldier. Whenever the character rolls Cover Dice, they may add +1 Resistance to the total for each Effect rolled." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 2+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 2+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talCrimMin" name="Criminal Minds" description="By imagining they are a suspect, and thinking in the same way, the character gains insight into a criminal’s thought processes or actions. Whenever a character succeeds at a Task to interpret information about a suspect using Reason, a character generates 1 bonus Momentum which may only be used for the Obtain Information Momentum Spend." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talCrisMan" name="Crisis Management" description="Small squad tactics can mean the difference between life and death in a dangerous, hostile situation, and the character excels at coordinating action in battle. The character may make use of the Direct Task (Star Trek Adventures core rulebook p. 173). If they already have access to the Direct Task, they may do so twice per scene instead of once." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talFuSprd" name="Full Spread - Maximum Yield!" description="The character is skilled in setting up torpedo attacks. In addition to the normal benefits of a Salvo, the attack also gains the benefit of the Devastating Attack Momentum Spend as though 2 Momentum had been spent. The Devastating Attack Momentum Spend may not be selected again for this attack." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talDMark" name="Deadeye Marksman" description="The character has spent time at the target range every day, working on their aim. When the character takes the Aim Minor Action, they reduce the Difficulty of their next Attack by 1, in addition to the normal effects of the Aim Minor Action." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talFiWill" name="Fire at Will" description="The character is capable of tracking multiple targets and making attacks against them with great effect. Whenever the character makes a ranged weapon attack, and then uses the Swift Task Momentum spend to make a second ranged attack, they ignore the normal Difficulty increase from Swift Task." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talMarArt" name="Martial Artist" description="There are countless forms and styles of hand-to-hand combat, and the character has mastered several of them. The character’s Unarmed Strike attacks gain the Intense Damage Effect. If the character also has the Mean Right Hook Talent, then both Damage Effect apply when Effects are rolled." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
@@ -36,81 +36,81 @@
     <eval phase="Setup" priority="1000">~add Intense to Unarmed Strike
 
 perform hero.childfound[wpUnarmed].assign[DmgEffect.Intense]</eval>
-    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talManSpec" name="Maintenance Specialist" description="You are an expert in conducting and directing normal, dayto-day, maintenance and repairs on Starfleet equipment. Whenever they are required to perform maintenance, reduce the Difficulty by 1, to a minimum of 1, and halve the time required to complete the Task." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     </thing>
   <thing id="talRTRJob" name="Right Tool for the Right Job" description="Engineers are trained to identify and use appropriate tools whenever they are working on the delicate components that make up complex ship systems. Whenever you acquire an engineering tool with an Opportunity Cost, the tool grants an Advantage if it did not do so originally, or increases the Advantage it provides by one step." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     </thing>
   <thing id="talMetic" name="Meticulous" description="You are patient, methodical, and check for errors before considering Tasks complete. Whenever they use Engineering to complete a Task, you may negate one Complication generated from the roll. However, during timed Tasks or Challenges, you take 1 more interval to complete the Task." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     <exprreq message="Control 10+ required"><![CDATA[#abilfinal[attrsys01] >= 10]]></exprreq>
     </thing>
   <thing id="talExDev" name="Experimental Device" description="You have designed and constructed a new piece of equipment that is either a brand new invention or is heavily modified from its original to the point of being barely recognizable. In either case, the device performs a function that you determine when you select this Talent. When used appropriately, it automatically provides you an Advantage. However, its experimental nature means there are lingering design bugs that sometimes plagues its function. Increase the Complication Range of any Task by 2 when using this device. This Talent may be selected multiple times with a different device for each selection." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
+    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
     <exprreq message="Main Character required"><![CDATA[hero.tagis[CharType.typMain] <> 0]]></exprreq>
     </thing>
   <thing id="talMirWork" name="Miracle Worker" description="You have a reputation of doing the impossible: repairs or modifications well in advance of expectations; getting offline systems up and running when most needed and so on. Whenever you use Engineering on an Extended Task, if you achieve a Breakthrough and roll at least one Effect on a Challenge Die, you achieve a second Breakthrough." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
+    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
     </thing>
   <thing id="talCbtMedic" name="Combat Medic" description="The character’s abilities in field medicine and battle triage\nare exceptional and their presence inspires allies to continue any fight. Whenever the character attempts the First Aid Task (Star Trek Adventures core ruebook p. 174), they may spend one Momentum to cause the recipient to regain points of Stress equal to the numaber of the character&apos;s Medicine Discipline. A character may only regain Stress in this way once per scene." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 2+ required."><![CDATA[#abilfinal[discdept05] >= 2]]></exprreq>
-    <exprreq message="Medicine 2+ required"><![CDATA[#abilfinal[discdept04] >= 2]]></exprreq>
+    <exprreq message="Security 2+ required."><![CDATA[#abilfinal[discdept03] >= 2]]></exprreq>
+    <exprreq message="Medicine 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
     </thing>
   <thing id="talLeadInvest" name="Lead Investigator" description="The character has a mind intrigued by mystery and investigation, and is often called upon to review and coordinate response to lawbreaking. The character generates two bonus Momentum after a successful Task to  investigate a crime." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 3+ required."><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required."><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     <exprreq message="Conn 2+ required"><![CDATA[#abilfinal[discdept02] >= 2]]></exprreq>
     </thing>
   <thing id="talPrecisionTarg" name="Precision Targeting" description="Having extensive knowledge of ship systems and operations, the character can easily target specific systems when attacking an enemy vessel. When the character makes an attack that targets a specific System they may reroll 1d20 in their dice pool, and the attack gains the Piercing 1 damage effect." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 4+ required."><![CDATA[#abilfinal[discdept05] >= 4]]></exprreq>
+    <exprreq message="Security 4+ required."><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
     <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
     </thing>
   <thing id="talExploitEngFlaw" name="Exploit Engineering Flaw" description="Following an ally’s successful Scan for Weakness Task (Star Trek Adventures core rulebook, p. 223), you may highlight an identified engineering flaw in the opponent’s ship. In addition to the bonus granted by the Scan for Weakness Task, you may assist anyone making an Attack against the target ship, which does not count against the normal limit for providing assistance. If the Attack is successful, it generates 1 bonus Momentum. You must be able to communicate with the ally making the Attack to offer this assistance." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 3]]></exprreq>
     </thing>
   <thing id="talProcCompliance" name="Procedural Compliance" description="You are well versed in established Starfleet engineering practices and guidelines. By spending 2 Momentum to Create an Advantage (obtaining the proper technical manuals and documentation prior to attempting a Task to work on a ship’s system), you may reroll 1d20 during the next Engineering Task." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     <exprreq message="Conn 2+ required"><![CDATA[#abilfinal[discdept02] >= 2]]></exprreq>
     </thing>
   <thing id="talPastRedline" name="Past The Redline" description="Engineers understand that safety tolerances and operating\nmargins are always designed into the acceptable\nperformance range of equipment. While not recommended\nthe equipment is usually capable of higher performance,\nif the consequences are risky. This Talent provides bonus\nMomentum for using a ship’s System until the end of the\nscene. Select the System you wish to enhance, and the\nnumber of bonus Momentum to be provided. Attempt a\nDaring + Engineering Task with a Difficulty equal to the\nbonus Momentum selected.\n\nIf the you succeed, subsequent Tasks using that System\nautomatically generate that amount of bonus Momentum.\nHowever, to represent the risks involved, the Task also\nincreases its Complication Range by the same number as\nthe Bonus Momentum provided. If a Complication is rolled,\nthe System no longer provides bonus Momentum and the\nSystem suffers a number of Breaches equal to half the\nship&apos;s Scale." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     <exprreq message="Daring 10+ required"><![CDATA[#abilfinal[attrsys02] >= 10]]></exprreq>
     </thing>
   <thing id="talRepairTeamLead" name="Repair Team Leader" description="You are trained to direct and lead damage repair parties during emergencies, giving them guidance and expert knowledge of the ships systems. If you succeed at the Damage Control Task (Star Trek Adventures core rulebook, p. 224) you may spend 3 Momentum (Repeatable) to also repair one Breach." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     <exprreq message="Command 2+ required"><![CDATA[#abilfinal[discdept01] >= 2]]></exprreq>
     </thing>
   <thing id="talRocksReplic" name="Rocks Into Replicators" description="Starfleet engineers are famed for being able to build or create\nnearly anything needed from the most basic of available components. Once per session, you may destroy any single piece of equipment to create any other piece of equipment of an equal or lower Opportunity Cost. This new piece of equipment has a Complication range increase of 2, with the Complication being a malfunction that renders it useless.\n\nYou should provide a reasonable explanation as to how a repurposed or cannibalized device could function and the Gamemaster has final say if there is any question about the “reasonableness” of the new device." compset="Talent" uniqueness="useronce">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
-    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
+    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
+    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept05] >= 2]]></exprreq>
     </thing>
   </document>

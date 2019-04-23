@@ -128,10 +128,10 @@
       ~position our labels on the left
       portal[lblmenu1].height = portal[menu1].height
 	  portal[lblmenu1].left = 0
-	  portal[lblmenu1].width = width / 4
+	  portal[lblmenu1].width = 180
 
 	  portal[menu1].left = portal[lblmenu1].right + 5
-	  portal[menu1].width = width / 4
+	  portal[menu1].width = 150
 
       portal[lblmenu2].top = portal[lblmenu1].bottom + 10
 	  portal[lblmenu2].height = portal[menu1].height
@@ -254,6 +254,7 @@
         <trigger><![CDATA[
 	      var primary as string
 	      var secondary as string
+		  var secondaryspecies as string
 		  var txt as string
 	      var myTrait as string
 		  var myAttributes as string
@@ -269,25 +270,11 @@
 		    
 			perform hero.addpick[trTrait,myTrait]
 			
-			~ populate usrCandid4 and usrCandid5 with species attribute selections
-			~ get SpeciesBon.? tags from selected species
-		    txt = field[spcPrimary].chosen.tagids[SpeciesBon.?,"|"]
-	 			
-			if (empty(txt) <> 0) then
-			  ~select from all attributes
-			  myAttributes = "component.AttrSys"
-			else
-			  ~select from attributes specific to species
-			  txt = replace(txt,"SpeciesBon","thingid",0)
-			  myAttributes = txt 
-			  endif
+			endif
 			
-			field[usrCandid4].text = myAttributes
-			field[usrCandid5].text = myAttributes
-			
-		    endif
 	      if (field[spcSecondary].ischosen <> 0) then
 	        secondary = field[spcSecondary].chosen.idstring
+	        secondaryspecies = field[spcSecondary].chosen.field[name].text
 
 	        txt = "SpeciesTrait." & secondary
 			
@@ -297,20 +284,6 @@
 		    
 			perform hero.addpick[trTrait,myTrait]
 			
-			~ populate usrCandid6 with species attribute selections
-			~ get SpeciesBon.? tags from selected species
-		    txt = field[spcSecondary].chosen.tagids[SpeciesBon.?,"|"]
-	 			
-			if (empty(txt) <> 0) then
-			  ~select from all attributes
-			  myAttributes = "component.AttrSys"
-			else
-			  ~select from attributes specific to species
-			  txt = replace(txt,"SpeciesBon","thingid",0)
-			  myAttributes = txt 
-			  endif
-			
-			field[usrCandid6].text = myAttributes
 		    endif
           ]]></trigger>
         <buttontext><![CDATA[
@@ -323,10 +296,10 @@
       ~position our labels on the left
       portal[lblmenuPrimary].height = portal[menuPrimary].height
 	  portal[lblmenuPrimary].left = 0
-	  portal[lblmenuPrimary].width = width / 3
+	  portal[lblmenuPrimary].width = 150
 
 	  portal[menuPrimary].left = portal[lblmenuPrimary].right + 5
-	  portal[menuPrimary].width = width / 3
+	  portal[menuPrimary].width = 150
 
       portal[lblmenuSecondary].top = portal[lblmenuPrimary].bottom + 10
 	  portal[lblmenuSecondary].height = portal[menuPrimary].height

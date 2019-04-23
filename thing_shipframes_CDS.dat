@@ -290,7 +290,7 @@ hero.child[discdept01].field[abiBonus].value += 1</eval>
 hero.child[attrsys04].field[abiBonus].value += 2
 
 ~ +1 to Science
-hero.child[discdept06].field[abiBonus].value += 1</eval>
+hero.child[discdept05].field[abiBonus].value += 1</eval>
     </thing>
   <thing id="mpWeapons" name="Weapons" description="The pod contains additional torpedo launchers, phaser arrays, and targeting sensors. The ship has +1 Sensors, +1 Weapons, and +1 Security. The ship also has the Fast Targeting Systems and Rapid-Fire Torpedo Launcher Talents." compset="MissionPod">
     <usesource source="DivCmd"/>
@@ -300,7 +300,7 @@ hero.child[discdept06].field[abiBonus].value += 1</eval>
 hero.child[attrsys04].field[abiBonus].value += 1
 hero.child[attrsys06].field[abiBonus].value += 1
 ~ +1 to Security
-hero.child[discdept06].field[abiBonus].value += 1</eval>
+hero.child[discdept05].field[abiBonus].value += 1</eval>
     </thing>
   <thing id="fraNewOrle" name="New Orleans Class" description="Soon after the development of the {i}Galaxy{/i} and {i}Nebula{/i}-class starships, Starfleet saw the new design style as innovative, but requiring large amounts of resources for each of the ships to be constructed. Starfleet Command issued directives to shipyards across the Federation to design and produce starships for various mission profiles using the same design elements of their newest vessels, but keeping the crew sizes smaller than the {i}Galaxy{/i} and {i}Nebula{/i} classes. The {i}New Orleans{/i}-class heavy frigate was the first design submitted for approval by the San Francisco Fleet Yards. This ship was considerably more compact than most vessels in service at the time, and its non-modular primary and secondary hulls made construction easier and took nearly quarter the time to build compared to a {i}Nebula{/i} class. The {i}New Orleans{/i} class has begun to replace {i}Miranda{/i}-class vessels in active service, but construction rates imply that this full change over won&apos;t finish until 2377." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2364"/>

@@ -20,12 +20,14 @@
     <table_dynamic
       component="Trait"
       showtemplate="trPick"
+	  showsortset="AltTraitSort"
       choosetemplate="SimpleItem"
 	  choosesortset="TraitSort"
       showfixedlast="yes"
       addpick="resTrait"
 	  candidatepick="ExprHelp"
-	  candidatefield="ehTraitExp">
+	  candidatefield="ehTraitExp"
+	  alwaysupdate="yes">
       <titlebar><![CDATA[
         @text = "Add a Trait - " & hero.child[resTrait].field[resSummary].text
         ]]></titlebar>

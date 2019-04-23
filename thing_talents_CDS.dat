@@ -15,7 +15,7 @@
     <usesource source="DivCmd"/>
     <tag group="TalentCat" tag="Command"/>
     <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
-    <exprreq message="Security 3+ required."><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required."><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talCallAct" name="Call To Action" description="In a Conflict, a character may use the Prepare Minor Action\nto grant one ally a Minor Action of their choice (performed\nimmediately) if they can communicate with that ally." compset="Talent" uniqueness="useronce">
     <usesource source="ENT" parent="Era" name="Enterprise"/>

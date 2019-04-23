@@ -404,10 +404,10 @@
 
 	  perform hero.child[discdept01].field[abiUser].reset
       perform hero.child[discdept02].field[abiUser].reset
-      perform hero.child[discdept03].field[abiUser].reset
       perform hero.child[discdept04].field[abiUser].reset
-      perform hero.child[discdept05].field[abiUser].reset
       perform hero.child[discdept06].field[abiUser].reset
+      perform hero.child[discdept03].field[abiUser].reset
+      perform hero.child[discdept05].field[abiUser].reset
             ]]>
       </creation>
 	  

@@ -183,7 +183,11 @@
 	  
     <!-- Each attribute needs its own SpecBon tag  -->
     <identity group="SpeciesBon"/>
-
+	  
+    <!-- Each attribute needs its own identity tag for use as alternate Attack/Damage value -->
+    <identity group="AltAttack"/>
+    <identity group="AltDamage"/>
+	
     <!-- Set fields based on AttrSys type -->
     <eval index="1" phase="Initialize" priority="4000"><![CDATA[
 	  var type as string
@@ -303,7 +307,11 @@
       type="derived"
       maxlength="1000">
       </field>
-
+	  
+    <!-- Each Dept/Disc needs its own identity tag for use as alternate Attack/Damage value -->
+    <identity group="AltAttack"/>
+    <identity group="AltDamage"/>
+	
     <!-- Set fields based on DiscDept type -->
     <eval index="1" phase="Initialize" priority="4000"><![CDATA[
 	  var type as string
@@ -457,6 +465,15 @@
     name="Species"
     autocompset="no">
 
+    <!-- mixed heritage or not - we're not mixed heritage by default -->
+    <field
+      id="spcIsMixed"
+      name="Is Mixed Heritage?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+	  
     <!-- Tracks the primary species for mixed heritage when choice is required -->
     <field
       id="spcPrimary"
@@ -495,10 +512,6 @@
 		perform assignstr["CountsAsSpecies." & secondary]
         endif
 		
-	  if (tagis[CountsAsSpecies.spcMixedHer] <> 0) then
-	    perform delete[CountsAsSpecies.spcMixedHer]
-		endif
-	  
       perform forward[Species.?]
       perform forward[IsSpecies.?]
 	  perform forward[SpeciesBon.?]
@@ -514,6 +527,15 @@
 	    #resmax[resTalent] += 1
 	    endif
       ]]></eval>
+	  
+    <eval index="3" phase="Setup" priority="1000"><![CDATA[
+	  if (field[spcIsMixed].value <> 0) then
+	    perform hero.assign[Hero.MixedHeritage]
+	    perform delete[CountsAsSpecies.spcMixedHer]
+		endif
+	  
+	  ]]></eval>
+	  
     </component>
 
 	

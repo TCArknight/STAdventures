@@ -306,6 +306,13 @@
       maxlength="2">
       </field>
 
+    <!-- Damage rating of the weapon -->
+    <field
+      id="wpTotalDamage"
+      name="Total Damage"
+      type="derived">
+      </field>
+	  
 	<!-- Damage summary of the weapon -->
     <field
       id="wpDamageSummary"
@@ -321,20 +328,7 @@
 		var sec as number
 		var delDmg as number
 		
-		foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  nexteach
-		
-		totD = int(field[wpDamage].text)
-		if (hero.tagis[CharType.typShip] = 1) then
-		  totD += scale
-		  sec = #ability[discdept05]
-		  totD += sec
-		  delDmg = tagvalue[Delivery.?]
-          totD += delDmg
-		else
-          totD += #abilfinal[discdept05]
-		  endif
+		totD = field[wpTotalDamage].value
 		
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
@@ -370,20 +364,7 @@
 		var sec as number
 		var delDmg as number
 		
-		foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  nexteach
-		
-		totD = int(field[wpDamage].text)
-		if (hero.tagis[CharType.typShip] = 1) then
-		  totD += scale
-		  sec = #ability[discdept05]
-		  totD += sec
-		  delDmg = tagvalue[Delivery.?]
-          totD += delDmg
-		else
-          totD += #abilfinal[discdept05]
-		  endif
+		totD = field[wpTotalDamage].value
 		
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
@@ -414,6 +395,7 @@
         var txt as string
 		var mySumm as string
 		var tags as string
+		var dmgAttr as number
 		var totD as number
 		var scale as number
 		var sec as number
@@ -430,20 +412,7 @@
 		  endif
 		
 		~damage rating
-		foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  nexteach
-		
-		totD = int(field[wpDamage].text)
-		if (hero.tagis[CharType.typShip] = 1) then
-		  totD += scale
-		  sec = #ability[discdept05]
-		  totD += sec
-		  delDmg = tagvalue[Delivery.?]
-          totD += delDmg
-		else
-          totD += #abilfinal[discdept05]
-		  endif
+		totD = field[wpTotalDamage].value
 		
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
@@ -537,9 +506,87 @@
 
     <!-- Weapons require one hand by default (unless natural) -->
     <tag group="Equipment" tag="Hand"/>
+	
+    <!-- Calculate the net attack roll for the weapon -->
+    <eval index="1" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
+	  var attribute as number
+	  var discipline as number
+	  var tagexpr as string
+	  
+	  attribute = #abilfinal[attrsys01]
+	  discipline = #abilfinal[discdept03]
+	  
+	  ~ check for alternate attribute values to use
+	  if (tagcount[AltAttack.?] <> 0) then
+	  
+	  ~ check for alternate attribute values to use
+	    tagexpr = tagids[AltAttack.attrsys?,"|"]
+		foreach pick in hero from DiscDept where tagexpr
+		  if (eachpick.field[abiFinal].value > attribute) then
+		    attribute = eachpick.field[abiFinal].value
+			endif
+		  nexteach
 
+	  ~ check for alternate discipline values to use
+	    tagexpr = tagids[AltAttack.discdept?,"|"]
+		foreach pick in hero from DiscDept where tagexpr
+		  if (eachpick.field[abiFinal].value > discipline) then
+		    discipline = eachpick.field[abiFinal].value
+			endif
+		  nexteach
+		  
+	    endif
+	  
+      field[wpNetAtk].value = attribute + discipline + field[wpBonus].value + field[wpPenalty].value
+      ]]></eval>
+	  
+    <!-- Calculate the net attack roll for the weapon -->
+    <eval index="2" phase="Final" priority="7000" name="Calc wpTotalDamage"><![CDATA[
+      var txt as string
+	  var tags as string
+	  var dmgAttr as number
+	  var totD as number
+	  var scale as number
+	  var sec as number
+	  var delDmg as number
+	  var attribute as number
+	  var discipline as number
+	  var tagexpr as string
+	  
+      ~ damage from attribute/discipline
+	  dmgAttr = #ability[discdept03]
+	  
+	  ~ check for alternate attribute values to use
+	  if (tagcount[AltDamage.?] <> 0) then		
+	    ~ check for alternate discipline values to use
+	    tagexpr = tagids[AltDamage.discdept?,"|"]
+		foreach pick in hero from DiscDept where tagexpr
+		  if (eachpick.field[abiFinal].value > dmgAttr) then
+		    dmgAttr = eachpick.field[abiFinal].value
+			endif
+		  nexteach		
+        endif
+		
+	  totD = dmgAttr
+	  
+	  foreach pick in hero where "component.ShipInfo"
+        scale = eachpick.field[shipScale].value
+		nexteach
+
+      if (hero.tagis[CharType.typShip] = 1) then
+		totD += scale
+		delDmg = tagvalue[Delivery.?]
+        totD += delDmg
+        endif
+	  
+	  totD += int(field[wpDamage].text)
+	  
+      field[wpTotalDamage].value = totD
+	  
+      ]]></eval>
+	  
     <!-- Assign any derived special notes to the appropriate field -->
-    <eval index="2" phase="Render" priority="1000"><![CDATA[
+    <eval index="3" phase="Render" priority="1000"><![CDATA[
       var special as string
 
       ~report the weapon as two-handed (if any)
@@ -620,11 +667,6 @@
     <!-- All ranged weapons get the same tag for sorting purposes -->
     <tag group="Armory" tag="Range"/>
 
-    <!-- Calculate the net attack roll for the weapon -->
-    <eval index="1" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
-      field[wpNetAtk].value = #abilfinal[attrsys01] + #abilfinal[discdept05] + field[wpBonus].value + field[wpPenalty].value
-      ]]></eval>
-
     <!-- Prepend any derived special notes to the appropriate field -->
     <eval index="2" phase="Render" priority="2000"><![CDATA[
       var special as string
@@ -657,7 +699,7 @@
 
     <!-- Calculate the net attack roll for the weapon -->
     <eval index="2" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
-      field[wpNetAtk].value = #abilfinal[attrsys02] + #abilfinal[discdept05] + field[wpBonus].value + field[wpPenalty].value
+      field[wpNetAtk].value = #abilfinal[attrsys02] + #abilfinal[discdept03] + field[wpBonus].value + field[wpPenalty].value
       ]]></eval>
 
     <!-- Prepend any derived special notes to the appropriate field -->

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Academy Tracks -->
+  <thing
+    id="acUniAlumni"
+    name="Sciences (University Alumni)"
+    compset="Academy"
+    isunique="yes"
+    description="Educated at one of the major universities throughout Federation space and commissioned as an officer upon graduation.\n\nMajor: Science\n\nMinors: Command and Engineering">
+	<fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; thingid.discdept05"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; thingid.discdept01"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept04"/>
+    <fieldval field="usrSource3" value="1"/>
+    <usesource source="DivSci"/>
+	<tag group="User" tag="NoAutoName"/>
+	<bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Starfleet Academy - University Alumni"/>
+	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect some aspect of the character’s beliefs that developed during their studies."/>
+	  </bootstrap>
+    </thing>
+
+  <thing
+    id="acResearchInt"
+    name="Sciences (Research Intern)"
+    compset="Academy"
+    isunique="yes"
+    description="may have pursued a working internship at a major research station and obtained a commission in Starfleet following exceptional work in their field. \n\nMajor: Science\n\nMinors: Engineering and Medicine">
+	<fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; thingid.discdept05"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; thingid.discdept04"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept06"/>
+    <fieldval field="usrSource3" value="1"/>
+    <usesource source="DivSci"/>
+	<tag group="User" tag="NoAutoName"/>
+	<bootstrap thing="vaCustom">
+	  <assignval field="UserName" value="Starfleet Academy - Research Intern"/>
+	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect some aspect of the character’s beliefs that developed during their studies."/>
+	  </bootstrap>
+    </thing>
+
+  </document>

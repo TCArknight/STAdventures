@@ -14,7 +14,7 @@
     id="typBase"
     name="Type: Starbase"
     compset="CharType">
-	<usesource source="DivCmd"/>
+	<usesource source="StarbaseUn"/>
 	<!-- Use the Starship creation tab by default -->
     <eval index="1" phase="Initialize" priority="1000"><![CDATA[
 	  perform hero.assign[ShowTab.Starship]

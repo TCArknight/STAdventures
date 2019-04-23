@@ -18,10 +18,10 @@
     <fieldval field="usrCandid1" value="component.DiscDept &amp; thingid.discdept02"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="Minor Study:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; thingid.discdept03"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; thingid.discdept04"/>
     <fieldval field="usrSource2" value="1"/>
     <fieldval field="usrLabel3" value="Minor Study:"/>
-    <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept06"/>
+    <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept05"/>
     <fieldval field="usrSource3" value="1"/>
 	<tag group="User" tag="NoAutoName"/>
 	<bootstrap thing="vaCustom">

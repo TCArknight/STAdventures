@@ -20,7 +20,7 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Ship"/>
-    <exprreq message="Science 3 or higher."><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
+    <exprreq message="Science 3 or higher."><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
     </thing>
   <thing id="talAdvSenS" name="Advanced Sensor Suites" description="The vessel’s sensors are amongst the most sophisticated and advanced available in the fleet. Unless the ship’s Sensors have suffered one or more Breaches, whenever a character performs a Task assisted by the ship’s Sensors, they may reduce the Difficulty of the Task by one, to a minimum of 0." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>
@@ -78,7 +78,7 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Ship"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talHighRes" name="High Resolution Sensors" description="The vessel’s sensors can gain large amounts of accurate\ndata, though they are extremely sensitive. While the vessel is not in combat, any successful Task that is assisted by the\nship’s Sensors gains one bonus Momentum." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>
@@ -124,7 +124,7 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Ship"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talImpWarp" name="Improved Warp Drive" description="The ship’s warp drive is more efficient, capitalizing on\nimproved field dynamics, better control of antimatter flow\nrates, or some other advancement that allows the ship to\nexpend less energy when travelling at warp. Whenever the\nship spends power to go to warp, roll 1 [CD] for each Power\nspent; for each Effect rolled, that point of Power is not spent." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>
@@ -143,7 +143,7 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Ship"/>
-    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
+    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept05] >= 2]]></exprreq>
     </thing>
   <thing id="talQuanTor" name="Quantum Torpedoes" description="The vessel has been equipped with the latest in ship-to-ship\nmunitions: the quantum torpedoes. The ship has quantum\ntorpedoes in addition to any other form of torpedo it carries." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>

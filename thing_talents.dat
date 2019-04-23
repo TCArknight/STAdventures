@@ -127,12 +127,13 @@
   <thing id="talTelepat" name="Telepath" description="You can sense the surface thoughts and emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar. Surface thoughts are whatever a creature is thinking about at that precise moment. The character cannot choose not to sense the emotions or read the surface thoughts of those nearby, except for those who are resistant to telepathy. It will require effort and a Task to pick out the emotions or thoughts of a specific individual in a crowd, to search a creature’s mind for specific thoughts or memories, or to block out the minds of those nearby. Unwilling targets may resist with an Opposed Task." compset="Talent" summary="You can sense the surface thoughts and emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar.">
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Racial"/>
-    <exprreq message="Betazoid Required"><![CDATA[#isspecies[spcBetazo] <> 0]]></exprreq>
+    <exprreq message="Betazoid Required"><![CDATA[#isspecies[spcBetazoid] <> 0]]></exprreq>
     </thing>
   <thing id="talEmpath" name="Empath" description="You can sense the emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar. You cannot choose not to sense the emotions of those nearby, except for those who are resistant to telepathy. It may require effort and a Task to pick out the emotions of a specific individual in a crowd, or to block out the emotions of those nearby. Increase the Difficulty of this Task if the situation is stressful, if there are a lot of beings present, if the target has resistance to telepathy, and other relevant factors." compset="Talent" summary="You can sense the emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar.">
     <usesource source="TNG"/>
+    <usesource source="TOS"/>
     <tag group="TalentCat" tag="Racial"/>
-    <exprreq message="Betazoid Required"><![CDATA[#isspecies[spcBetazo] <> 0]]></exprreq>
+    <exprreq message="Betazoid or Deltan Required"><![CDATA[#isspecies[spcBetazoid] + #isspecies[spcDeltan] <> 0]]></exprreq>
     </thing>
   <thing id="talStrPagh" name="Strong Pagh" description="You believe profoundly in the Prophets, and rely heavily upon that faith to see you through hardship. Whenever you attempt a Task to resist being coerced or threatened, you reduce the Difficulty of that Task by 1." compset="Talent" summary=" Whenever you attempt a Task to resist being coerced or threatened, you reduce the Difficulty of that Task by 1.">
     <usesource source="TNG"/>
@@ -362,14 +363,14 @@ field[usrCandid1].text &= tempStr]]></eval>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     </thing>
   <thing id="talIKMShip" name="I Know My Ship" description="Whenever you attempt a Task to determine the source of a\ntechnical problem with your ship, add one bonus d20." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
+    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
     </thing>
   <thing id="talITNTime" name="In The Nick Of Time" description="Whenever you succeed at an Engineering or Science Task\nas part of an Extended Task, you score 1 additional Work for\nevery Effect rolled." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
@@ -378,8 +379,8 @@ field[usrCandid1].text &= tempStr]]></eval>
     <tag group="TalentCat" tag="Engineer"/>
     <tag group="TalentCat" tag="Science"/>
     <prereq message="Engineering 3+ or Science 3+ required">
-      <validate><![CDATA[validif (#abilfinal[discdept03]  >= 3)
-validif (#abilfinal[discdept06]   >= 3)]]></validate>
+      <validate><![CDATA[validif (#abilfinal[discdept04]  >= 3)
+validif (#abilfinal[discdept05]   >= 3)]]></validate>
       </prereq>
     </thing>
   <thing id="talIntScru" name="Intense Scrutiny" description="Whenever you succeed at a Task using Reason or Control\nas part of an Extended Task, you may ignore up to two\nResistance for every Effect rolled." compset="Talent" uniqueness="useronce">
@@ -389,8 +390,8 @@ validif (#abilfinal[discdept06]   >= 3)]]></validate>
     <tag group="TalentCat" tag="Engineer"/>
     <tag group="TalentCat" tag="Science"/>
     <prereq message="Engineering 3+ or Science 3+ required">
-      <validate><![CDATA[validif (#abilfinal[discdept03]  >= 3)
-validif (#abilfinal[discdept06]   >= 3)]]></validate>
+      <validate><![CDATA[validif (#abilfinal[discdept04]  >= 3)
+validif (#abilfinal[discdept05]   >= 3)]]></validate>
       </prereq>
     </thing>
   <thing id="talJuryRig" name="Jury-Rig" description="Whenever you attempt an Engineering Task to perform\nrepairs, you may reduce the Difficulty by two, to a minimum\nof 0. If you do this, however, then the repairs are only\ntemporary and will last only a single scene, plus one\nadditional scene per Momentum spent (Repeatable) before\nthey fail again. Jury-rigged repairs can only be applied once,\nand the Difficulty to repair a device that has been Jury-rigged\nincreases by 1." compset="Talent" uniqueness="useronce">
@@ -398,21 +399,21 @@ validif (#abilfinal[discdept06]   >= 3)]]></validate>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Engineer"/>
-    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
+    <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
     </thing>
   <thing id="talClosPro" name="Close Protection" description="When you make a successful Attack, you may spend one\nMomentum to protect a single ally within Close range. The\nnext Attack against that ally before the start of your next turn\nincreases in Difficulty by 1." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept05] >= 4]]></exprreq>
+    <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
     </thing>
   <thing id="talInterro" name="Interrogation" description="When you succeed at a Task to coerce someone to reveal\ninformation in a social conflict, you will gain one bonus\nMomentum, which may only be spent on the Obtain\nInformation Momentum Spend." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talMeanRH" name="Mean Right Hook" description="Your Unarmed Strike Attack has the Vicious 1 Damage Effect." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
@@ -433,14 +434,14 @@ perform hero.childfound[wpUnarmed].assign[DmgEffect.Vicious1]</eval>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
-    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
   <thing id="talDocOrd" name="Doctor&apos;s Orders" description="When you attempt a Task to coordinate others, or to coerce\nsomeone into taking or refraining from a specific course\nof action, you may use your Medicine Discipline instead of\nCommand." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
-    <exprreq message="Medicine 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
+    <exprreq message="Medicine 4+ required"><![CDATA[#abilfinal[discdept06] >= 4]]></exprreq>
     </thing>
   <thing id="talFldMed" name="Field Medicine" description="When attempting a Medicine Task, you may ignore any\nincrease in Difficulty for working without the proper tools or\nequipment." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
@@ -453,34 +454,34 @@ perform hero.childfound[wpUnarmed].assign[DmgEffect.Vicious1]</eval>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
-    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
+    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
     </thing>
   <thing id="talQuiStud" name="Quick Study" description="When attempting a Task that will involve an unfamiliar\nmedical procedure, or which is to treat an unfamiliar\nspecies, ignore any Difficulty increase stemming from your\nunfamiliarity." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
-    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
+    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
     </thing>
   <thing id="talTriage" name="Triage" description="When you attempt a Task to identify specific injuries or\nillnesses, or to determine the severity of a patient’s condition,\nyou may spend one Momentum (Repeatable) to diagnose\none additional patient." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
-    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
+    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
     </thing>
   <thing id="talCompExp" name="Computer Expertise" description="Whenever you attempt a Task that involves the programming\nor study of a computer system, you may add a bonus d20 to\nyour pool." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Science"/>
-    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
+    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept05] >= 2]]></exprreq>
     </thing>
   <thing id="talTestThe" name="Testing A Theory" description="When you attempt a Task using Engineering or Science, you\nmay roll one additional d20, so long as you succeeded at a\nprevious Task covering the same scientific or technological\nfield earlier in the same adventure." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Science"/>
-    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
+    <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept05] >= 2]]></exprreq>
     </thing>
   </document>

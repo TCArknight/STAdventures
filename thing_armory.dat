@@ -38,7 +38,10 @@
     <tag group="GearQual" tag="NonLethal" name="Non-Lethal" abbrev="Non-Lethal"/>
     <tag group="GearCost" tag="Standard" name="Standard Issue" abbrev="Standard Issue"/>
     <tag group="DmgEffect" tag="Intense"/>
-	<!--Need to adjust Nerve Pinch to allow choosing which discipline is used, or to automatically pick whichevr is higher.-->
+	<tag group="AltAttack" tag="discdept05"/>
+	<tag group="AltAttack" tag="discdept06"/>
+	<tag group="AltDamage" tag="discdept05"/>
+	<tag group="AltDamage" tag="discdept06"/>
     </thing>
 
   <thing id="wpKnife" name="Knife/Dagger" description="Description goes here" compset="Melee" uniqueness="unique">

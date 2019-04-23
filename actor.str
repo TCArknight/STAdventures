@@ -57,7 +57,7 @@
             (e.g. attack penalties after taking sufficient damage).
       -->
       <calculate phase="Stress" priority="1000" name="Calc acStrMin"><![CDATA[
-        @value = #abilfinal[attrsys03] + #abilfinal[discdept05] + #abilinplay[trStress]
+        @value = #abilfinal[attrsys03] + #abilfinal[discdept03] + #abilinplay[trStress]
         ]]></calculate>
       </field>
 

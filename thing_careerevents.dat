@@ -17,7 +17,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
-	  #abilbonus[discdept05] += 1
+	  #abilbonus[discdept03] += 1
 	  
       ]]></eval>    
     </thing>
@@ -45,7 +45,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys04] += 1
-	  #abilbonus[discdept04] += 1
+	  #abilbonus[discdept06] += 1
 	  
       ]]></eval>
 	</thing>
@@ -59,7 +59,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys05] += 1
-	  #abilbonus[discdept06] += 1
+	  #abilbonus[discdept05] += 1
 	  
       ]]></eval>
 	</thing>
@@ -113,7 +113,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys03] += 1
-	  #abilbonus[discdept04] += 1
+	  #abilbonus[discdept06] += 1
       ]]></eval>
 	</thing>
 
@@ -126,7 +126,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys03] += 1
-	  #abilbonus[discdept05] += 1
+	  #abilbonus[discdept03] += 1
       ]]></eval>
 	</thing>
 
@@ -173,7 +173,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys04] += 1
-	  #abilbonus[discdept04] += 1
+	  #abilbonus[discdept06] += 1
       ]]></eval>
 	</thing>
 	
@@ -199,7 +199,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys02] += 1
-	  #abilbonus[discdept05] += 1
+	  #abilbonus[discdept03] += 1
       ]]></eval>
 	</thing>
 
@@ -212,7 +212,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys04] += 1
-	  #abilbonus[discdept06] += 1
+	  #abilbonus[discdept05] += 1
       ]]></eval>
 	</thing>
 
@@ -225,7 +225,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys06] += 1
-	  #abilbonus[discdept03] += 1
+	  #abilbonus[discdept04] += 1
       ]]></eval>
 	</thing>
 
@@ -258,7 +258,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys01] += 1
-	  #abilbonus[discdept03] += 1
+	  #abilbonus[discdept04] += 1
       ]]></eval>
 	</thing>
 
@@ -275,7 +275,7 @@
     <tag group="User" tag="NoAutoName"/>
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
-	  #abilbonus[discdept03] += 1
+	  #abilbonus[discdept04] += 1
 	  
       doneif (field[usrChosen1].ischosen = 0)
 

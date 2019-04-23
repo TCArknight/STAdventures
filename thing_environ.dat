@@ -5,7 +5,7 @@
     <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys02|thingid.attrsys05)"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept05)"/>
     <fieldval field="usrSource2" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -22,7 +22,7 @@
     <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys01|thingid.attrsys03)"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept05|thingid.discdept04)"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept03|thingid.discdept06)"/>
     <fieldval field="usrSource2" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -39,7 +39,7 @@
     <fieldval field="usrCandid1" value="component.AttrSys &amp; "/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept05)"/>
     <fieldval field="usrSource2" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -63,7 +63,7 @@
     <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys06|thingid.attrsys04)"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept03|thingid.discdept04|thingid.discdept06)"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept04|thingid.discdept06|thingid.discdept05)"/>
     <fieldval field="usrSource2" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -80,7 +80,7 @@
     <fieldval field="usrCandid1" value="component.AttrSys &amp; (thingid.attrsys01|thingid.attrsys04)"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02|thingid.discdept03)"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02|thingid.discdept04)"/>
     <fieldval field="usrSource2" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -97,7 +97,7 @@
     <fieldval field="usrCandid1" value="component.AttrSys"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="+1 to Discipline:"/>
-    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept05|thingid.discdept06)"/>
+    <fieldval field="usrCandid2" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept05)"/>
     <fieldval field="usrSource2" value="1"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>

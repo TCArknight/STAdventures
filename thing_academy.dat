@@ -36,7 +36,7 @@
     isunique="yes"
     description="The Operations track is practical and hands-on, dealing with many of the realities of Starfleet’s mission. Divided broadly into engineering and security divisions, operations track cadets are defined by a sense of pragmatism, whether that applies to the technical or the tactical.\n\nMajor: Engineering or Security">
 	<fieldval field="usrLabel1" value="Major Study:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept03|thingid.discdept05)"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept04|thingid.discdept03)"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="Minor Study:"/>
     <fieldval field="usrCandid2" value="component.DiscDept"/>
@@ -57,7 +57,7 @@
     isunique="yes"
     description="Somewhat isolated from the other Tracks, the Sciences track is primarily academic, with Starfleet Academy producing many accomplished scientists. Included within the sciences track, but separated by a distinct curriculum, is Starfleet Medical, training doctors, nurses, and counselors to serve aboard Starfleet vessels and facilities across the Federation.\n\nMajor: Science or Medical">
 	<fieldval field="usrLabel1" value="Major Study:"/>
-    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept04|thingid.discdept06)"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept06|thingid.discdept05)"/>
     <fieldval field="usrSource1" value="1"/>
     <fieldval field="usrLabel2" value="Minor Study:"/>
     <fieldval field="usrCandid2" value="component.DiscDept"/>
