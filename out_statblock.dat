@@ -436,7 +436,7 @@
 		  ~output Stress
 		  append @newline & @boldon & "Stress: " & @boldoff & hero.childfound[trStress].field[abiFinal].text & @newline
 		  ~output Resistance
-		  append @boldon & "Resistance: " & @boldoff & hero.childfound[trResist].field[abiFinal].text & @newline & @newline
+		  append @boldon & "Resistance: " & @boldoff & hero.childfound[trResist].field[outSummary].text & @newline & @newline
 
 		  ~output weapons/attacks
 		  call sbweapons

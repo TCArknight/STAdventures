@@ -84,6 +84,11 @@
   <thing id="talRuustai" name="R&apos;uustai" description="This Klingon has lit candles, spoken words to honor their parents, and given their house’s sash to another, joining in a fellowship with another person, and becoming members of the same house (the original house of either party). The R’uustai Talent grants a Klingon an additional Value, which must reflect their relationship with the ritual sibling. In addition, whenever the Klingon assists, or is assisted by another, the character\noffering assistance may re-roll their die." compset="Talent">
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
+    <bootstrap thing="foCustom">
+      <assignval field="domDomain" value="?? Ritual Sibling Relationship ??"/>
+      </bootstrap>
+    <eval phase="PreAbility" priority="1000">~additional Focus
+      #resmax[resFocus] += 1</eval>
     <exprreq message="Klingon Only"><![CDATA[#isspecies[spcKlingon] <> 0]]></exprreq>
     </thing>
   <thing id="talVisualSpectrum" name="Visual Spectrum" description="An Efrosian can see beyond what others think of as the visual spectrum, from some infra-red to ultra-violet light. Any Tasks in which detecting those parts of the spectrum is useful reduce in Difficulty by 1. Circumstances, such as low light levels, do not affect the Difficulty of Tasks, as long as those Tasks do not relate to perceiving minutiae of a subject." compset="Talent">

@@ -127,7 +127,7 @@
 
       xml[node].attr["name"] = eachpick.field[name].text
       xml[node].attr["attack"] = eachpick.field[wpNetAtk].text
-      xml[node].attr["damage"] = eachpick.field[wpDamage].text
+      xml[node].attr["damage"] = eachpick.field[wpDamage].value
 
       if (eachpick.field[grIsEquip].value <> 0) then
         xml[node].attr["equipped"] = "yes"

@@ -45,6 +45,16 @@
     <bootstrap thing="trEfrosian"></bootstrap>
     <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
     </thing>
+  <thing id="spcKlingon" name="Klingon" description="Klingon characters are typically large, physically powerful, and proud, with an aggressive approach to everything they do, and a propensity for violence that makes them extremely dangerous. They are predatory, with a primarily carnivorous diet, and a preference for either still-living food or wild prey from a hunt. Culturally, Klingons revere physical prowess, victory in battle, and a code of personal and familial honor that influences most of their politics, though not all Klingons live up to this; in some Klingons, this only keeps them from performing shameful acts so long as they can avoid the repercussions.\n\n{i}EXAMPLE VALUE: Today is a Good Day to Die.{/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence.\n\n{b}TRAIT:{/b} Klingon." compset="Species" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <bootstrap thing="trKlingon"></bootstrap>
+    </thing>
   <thing id="spcRigelChelon" name="Rigellian Chelon" description="Chelons are a hardy race, sharing their home solar system of\nRigel with Rigellian Jelna. They are descendants of  saber-toothed turtles and, though bipedal, they have retained their ancestral beaks, claws and hard shells. Chelons are androgynous and take on masculine or feminine societal roles at varying points in their lives, reproducing like most reptilians by laying eggs and fertilizing those eggs. Some traditionalists within Chelon society maintain a neutral gender, and refuse to take on male or female roles.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Rigellian Chelon." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpecCat" tag="NPC"/>

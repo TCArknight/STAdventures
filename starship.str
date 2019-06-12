@@ -515,9 +515,9 @@
 	  ~notify "Ship Scale: " & #shipscale
 	  
 	  if (tagis[Weapon.FixedBase] <> 0) then
-        field[wpDamage].text = #shipdept[discdept03]
+        field[wpDamage].value = #shipdept[discdept03]
 	  else
-	    field[wpDamage].text = field[wpSBasDmg].value
+	    field[wpDamage].value = field[wpSBasDmg].value
 		endif
 	  
       ]]></eval>

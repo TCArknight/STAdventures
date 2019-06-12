@@ -64,6 +64,41 @@
       ]]></eval>
     </thing>
 
+
+  <!-- Derived Trait Adjustment -->
+  <thing
+    id="adjTalentValid"
+    name="Talent Valid"
+    compset="Adjustment"
+    description="Select this adjustment to skip the prereqs of a selected talent.">
+    <fieldval field="adjUsePick" value="1"/>
+    <fieldval field="adjCandid" value="component.Talent"/>
+    <tag group="AdjustShow" tag="Menu"/>
+    <tag group="Helper" tag="UserAdjust"/>
+    <tag group="InPlay" tag="PermOK"/>
+    <tag group="InPlay" tag="TempOK"/>
+    <eval phase="Setup" priority="1000"><![CDATA[
+      perform field[adjChosen].chosen.assign[thing.skipprereq]
+      ]]></eval>
+    </thing>
+
+  <!-- Derived Trait Adjustment -->
+  <thing
+    id="adjSpeciesValid"
+    name="Species Valid"
+    compset="Adjustment"
+    description="Select this adjustment to skip the prereqs of a selected talent.">
+    <fieldval field="adjUsePick" value="1"/>
+    <fieldval field="adjCandid" value="component.Species"/>
+    <tag group="AdjustShow" tag="Menu"/>
+    <tag group="Helper" tag="UserAdjust"/>
+    <tag group="InPlay" tag="PermOK"/>
+    <tag group="InPlay" tag="TempOK"/>
+    <eval phase="Setup" priority="1000"><![CDATA[
+      perform field[adjChosen].chosen.assign[thing.skipprereq]
+      ]]></eval>
+    </thing>
+	
   <!-- Weapon Adjustment -->
   <thing
     id="adjWeapon"

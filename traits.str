@@ -81,7 +81,21 @@
       name="Bonus Value"
       type="derived">
       </field>
-
+	  
+    <!-- Misc. field 1 -->
+    <field
+      id="abiValue1"
+      name="Value 1"
+      type="derived">
+      </field>
+	  
+    <!-- Misc. field 2 -->
+    <field
+      id="abiValue2"
+      name="Value 2"
+      type="derived">
+      </field>
+	  
     <!-- In-play bonuses applied to the ability -->
     <field
       id="abiInPlay"
@@ -121,7 +135,7 @@
         endif
       ]]></eval>
 	  
-    <!-- If the ability is at its minimum/maximum, assign a tag to preclude further advancements -->
+    <!--  -->
     <eval index="3" phase="Render" priority="9000"><![CDATA[
       ~default the outSummary field to the text in the summary field
       field[outSummary].text = field[summary].text

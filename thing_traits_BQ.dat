@@ -83,4 +83,12 @@
     <tag group="SpeciesTrait" tag="spcZakdorn"/>
     </thing>
 
+  <thing id="trKlingon" name="Klingon" description="Klingon physiology is hardy, with many redundant internal organs allowing them to withstand harm and a number of poisons, which would be deadly for many other species. They are significantly stronger and more resilient than Humans, though they have less tolerance for the cold." compset="Trait">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcKlingon"/>
+    </thing>
+	
   </document>

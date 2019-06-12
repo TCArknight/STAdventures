@@ -302,8 +302,7 @@
     <field
       id="wpDamage"
       name="Damage"
-      type="derived"
-      maxlength="2">
+      type="derived">
       </field>
 
     <!-- Damage rating of the weapon -->
@@ -465,14 +464,6 @@
 		
         ]]></finalize>
       </field>
-	  
-    <!-- Damage rating of the weapon -->
-    <field
-      id="wpDmgStr"
-      name="Damage"
-      type="derived"
-      maxlength="20">
-      </field>
 
     <!-- Special details about the weapon -->
     <field
@@ -579,7 +570,7 @@
         totD += delDmg
         endif
 	  
-	  totD += int(field[wpDamage].text)
+	  totD += int(field[wpDamage].value)
 	  
       field[wpTotalDamage].value = totD
 	  

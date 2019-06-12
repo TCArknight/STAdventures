@@ -29,7 +29,7 @@
 
   <author
     author="Thomas Clegg"
-    email="TN_Clegg@lycos.com"
+    email="TCArknight@yahoo.com"
     website="">
     </author>
 
@@ -41,7 +41,7 @@
 
   <release
     major="1"
-    minor="5"
+    minor="7"
     required="6.1g"
     summary=""><![CDATA[{align center}{bmp logo}
 	{b}{text ffff80}{align center}Star Trek Adventures for Hero Lab{text 010101}{/b}
@@ -193,6 +193,14 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="stressnow"
     result="herofield[acStrNow].value"/>
+
+  <scriptmacro
+    name="resistnon"
+    result="hero.childfound[trResist].field[abiValue1].value"/>
+	
+  <scriptmacro
+    name="resistbonus"
+    result="hero.childfound[trResist].field[abiBonus].value"/>	
 
   <scriptmacro
     name="resistance"

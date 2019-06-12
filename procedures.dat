@@ -727,7 +727,7 @@
     ~output all weapons, with equipped ones first
     info = ""
     foreach pick in hero from WeaponBase sortas Armory
-      info &= eachpick.field[name].text & " {b}" & eachpick.field[wpNetAtk].text & " {/b}{text clrsecond}@{text clrreset}" & eachpick.field[wpDamage].text & "{br}"
+      info &= eachpick.field[name].text & " {b}" & eachpick.field[wpNetAtk].text & " {/b}{text clrsecond}@{text clrreset}" & eachpick.field[wpDamage].value & "{br}"
       nexteach
     if (empty(info) <> 0) then
       info = "-No Weapons-{br}"

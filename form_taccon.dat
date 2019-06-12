@@ -504,7 +504,7 @@
             ~output the weapon entry with attack value and damage
             @text = splice(@text,"{text clrtacinfo}","{br}")
             @text &= name & ":{text clrreset} {b}"
-            @text &= eachpick.field[wpNetAtk].text & "{/b} @ " & eachpick.field[wpDamage].text
+            @text &= eachpick.field[wpNetAtk].text & "{/b} @ " & eachpick.field[wpDamage].value
             nexteach
 
           ~squeeze the lines together a little bit
