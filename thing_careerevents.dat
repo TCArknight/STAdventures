@@ -99,8 +99,8 @@
     description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.\n\nAttribute: Reason\nDiscipline: Science">
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys02] += 1
-	  #abilbonus[discdept01] += 1
+      #abilbonus[attrsys06] += 1
+	  #abilbonus[discdept05] += 1
       ]]></eval>
 	</thing>
 

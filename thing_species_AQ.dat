@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="spcArbazan" name="Arbazan" description="The Arbazan were one of the earliest civilizations encountered during Starfleet’s early ventures into deep space. Within a short time, the stoic Arbazan were welcomed into the newly-formed Federation and are considered by many to be one of its founding members, a fact the Arbazan take great pride in. Like many humanoid species within the Federation, the Arbazan are physically similar to Humans, though the forward portion of their skulls have slightly raised plates that reinforce their brows. The Arbazan are known for their conservative values, infallible self-confidence, and devotion to social protocol. Some, however, find the cultural focus on proper social etiquette to be stifling, and rebellious young Arbazan can often be found at Starfleet Academy pursuing security or ship operation roles.\n\n{i}EXAMPLE VALUE: {/i}Propriety First and Always\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}TRAIT:{/b} Arbazan." compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <bootstrap thing="trArbazan"></bootstrap>
+    </thing>
+  <thing id="spcArkarian" name="Arkarian" description="Arkarians are native to the Class-M world of Arkaria, home to the Remmler Array – an orbital facility that removes built-up baryon particles (a by-product of warp travel) – and Arkaria Base. Arkaria is a member world of the Federation and Arkarians serve throughout Starfleet and other Federation organizations. Arkaria is known for its abnormal weather patterns, resulting in extremely colorful sunrises and sunsets of every shade of green, pink, and purple as well as higher-than-normal average temperatures. The nature trails that run throughout the sweeping plains located near Arkaria Base are a common attraction for those visiting the Array or Base, especially for those wanting to see the nesting sites for horn fowls. Arkarians are physically very similar to Humans and other humanoid species – save for distinctive brow and nasal ridges. Their society has recently begun to shift away from its traditional authoritarian nobility toward the more common egalitarian systems found throughout the Federation. This is largely believed to be due to the increasing interactions between Arkarians and other Federation member worlds, though a conservative minority continues to maintain their noble holdings and social expectations.\n\n{i}EXAMPLE VALUE: {/i}Dedication and Diligence\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Daring, +1 Reason\n\n{b}TRAIT:{/b} Arkarian." compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <bootstrap thing="trArkarian"></bootstrap>
+    <exprreq message="Next Generation Only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spcAurelian" name="Aurelian" description="One of the few avian species to be represented within the Federation, the Aurelians are renowned for their study of history and service within the Federation Science Council. While not unheard of, there are a few Aurelians serving in Starfleet, and those that do most commonly work as science officers. Aurelians dislike enclosed spaces and many suffer from a mild form of claustrophobia, which makes long-term service aboard a starship that much more difficult. Most Aurelians that pursue a career in Starfleet request assignments at planetary installations, allowing them to spend their off-duty time outdoors. Their homeworld of Aurelia is an abnormally large Class-M planet covered by large expanses of scrub lands and mild deserts. Aurelians on Aurelia make their homes in natural mesa formations. Though they did not join the Federation until several decades after its formation, Aurelians were known to early Human deep space explorers.\n\n{i}EXAMPLE VALUE: {/i}Soar High and Achieve Greatness\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight\n\n{b}TRAIT:{/b} Aurelian" compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <bootstrap thing="trAurelian"></bootstrap>
+    </thing>
+  <thing id="spcCaitian" name="Caitian" description="The Caitian are a bipedal felinoid species with a strong history of service within Starfleet. Their homeworld of Cait is a pleasant Class-M planet with extensive grasslands that support sprawling city complexes that integrate seamlessly into the environment, for which the Caitians have great respect. While known to be extremely effective and proud warriors, the Caitian culture holds artistic and philosophical endeavors in extremely high regard. Following their acceptance into the Federation in the late 22nd Century, Caitians have come to serve at all levels of Starfleet – to include high-ranking flag officers as well as often being elected to serve on the Federation Council. On average, Caitians tend to be slightly smaller than most other humanoid species. While this often results in Caitians being somewhat weaker than Humans, they more than make up for this in their balance, agility, and dexterity. Caitians are one of the few species actively serving within Starfleet that possess a tail – which requires alterations to standard Starfleet uniforms.\n\n{i}EXAMPLE VALUE: {/i}War is Instinct, Conflict an Art\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight\n\n{b}TRAIT:{/b} Caitian" compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <bootstrap thing="trCaitian"></bootstrap>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spcEdosian" name="Edosian" description="Edosians are a tripedal species with three arms and three legs. While not a member of the Federation, the Edosians have a long-standing, loose alliance with the Federation since their earliest contact. It is rare, though not unknown, for Edosians to serve in Starfleet. Edosian culture tends toward inner reflection and a meticulousness with historical records. Genealogy has a much larger focus than in many other cultures, and Edosians are able to trace their individual family lines back thousands of years. Being a race that lives longer than even Vulcans, an Edosian may spend decades focused on a particular area of study before moving on to a new interest. Interesting to exobiologists, with practice, an Edosian becomes capable of allocating sections of their brain to each arm, operating independently with nearly fully focus and capability.\n\n{i}EXAMPLE VALUE: {/i}Perspective Brings Understanding\n\n{b}ATTRIBUTES:{/b} +1 Fitness, +1 Insight, +1 Reason\n\n{b}TRAIT:{/b} Edosian" compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <bootstrap thing="trEdosian"></bootstrap>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spcGrazerite" name="Grazerite" description="The Grazerite are a peaceful people whose homeworld, Grazer, is one of the harsher examples of the far ends of the planetary M classification. The three main continents are predominately covered by extensive mountain ranges that reach as far as 10 kilometers above ‘sea level.’ The Grazerites’ evolutionary development has incorporated not only traditional humanoid traits – but also those of bovidae – giving them goat like physical features. Grazerites are a peaceful people with a natural sense of curiosity. Grazerites have a deep dislike of conflict and actively avoid it if possible. Grazerite officers in Starfleet pursue careers in most fields – but it is nearly unheard of to see them serving as tactical or security officers. In Grazerite society, it is considered impolite (boarding on indecent) to leave one’s horns and hands uncovered – and thus Grazerites are usually seen with gloves and a headwrap.\n\n{i}EXAMPLE VALUE: Patient Study Yields the Best Results{/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence\n\n{b}TRAIT:{/b} Grazerite" compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <bootstrap thing="trGrazerite"></bootstrap>
+    <exprreq message="Next Generation Only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spcHaliian" name="Haliian" description="Haliians are native to the Federation world of Halii – renowned for its crystal formations and beautiful waterfalls. As one of the few telepathic species in the Federation, the Haliians share many of the same social nuances of other telepathic or empathic species, such as Betazoids. Haliians often find it hard to truly connect with non-Haliians, and this has the unfortunate effect of limiting their interactions with other Federation species. Due to the nature of their telepathic abilities, Haliians are either far more prone to physical contact during social encounters or avoid it entirely depending on individual in question. Haliians also share a deep fondness for holidays – of which they have many – which almost always involve music.\n\n{i}EXAMPLE VALUE: Many Sides to every Tale{/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Insight, +1 Presence\n\n{b}TRAIT:{/b} Grazerite" compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <bootstrap thing="trHaliian"></bootstrap>
+    <exprreq message="Next Generation Only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spcKtarian" name="Ktarian" description="The Ktarians are a physically diverse species native to the Federation world of Ktaris. They are a common sight throughout Federation space and are one of the many species that maintains its own fleet of vessels – both merchant and military. The Ktarian fleet is considered to be a reserve force, and can be transferred to the command of Starfleet during times of great need. Unlike most Federation species, the Ktarians are comprised of two separate species that evolved together on Ktaris – one whose brows are bisected into two hemispheres and the other with bone ridges along the center of the forehead. Intermarriage among these two species has resulted in both carrying the traits of the other. Predicting which traits will manifest in offspring is extremely difficult, especially when Ktarians mate with other species. Rumors circulate that the Miradorn are an offshoot of Ktarians, but the Miradorns’ reclusive nature makes this difficult to confirm.\n\n{i}EXAMPLE VALUE: Hold the Course until the End{/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Reason, +1 Fitness or +1 Presence\n\n{b}TRAIT:{/b} Grazerite" compset="Species" uniqueness="unique">
+    <fieldval field="usrLabel4" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid4" value="component.AttrSys &amp; (thingid.attrsys03|thingid.attrsys05)"/>
+    <usesource source="QuadAlpha"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="ChooseSrc4" tag="Hero"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trKtarian"></bootstrap>
+    <eval phase="PreAbility" priority="1000"><![CDATA[var tempStr as string
+	  
+~assign tags to apply the +1 modifier to selected attribute
+if (field[usrChosen4].ischosen <> 0) then
+  tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
+  perform hero.assignstr[tempStr]
+
+  perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
+  endif]]></eval>
+    <exprreq message="Next Generation Only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spcZaranite" name="Zaranite" description="Zaranites are a humanoid species native to a Class-K world, Zaran II, a planet of endless volcanic activity that supports a flourishing chemosynthesis-based ecosystem. The Zaranites evolved breathing the toxic volcanic gases and must wear a respirator that provides the gas mixture that would be lethal to most Federation species. In addition, Zaranites have a strong sensitivity to light due to the constant clouds of volcanic ash covering their world, and must wear special eye protection to prevent damage to their retinas. Zaranites serve in Starfleet like any other member world of the Federation, and the Starfleet Corps of Engineers has developed standardized modules that convert the atmosphere of crew quarters to meet their particular needs. These biological differences have the unfortunate effect of often isolating Zaranite officers from their crewmates. Their unique physiology, dependence on a respirator, and natural resilience makes the Zaranite one of the few species serving in Starfleet able to survive hard vacuum.\n\n{i}EXAMPLE VALUE: The Tougher the Skin, the Tougher the\nBeing{/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason\n\n{b}TRAIT:{/b} Zaranite" compset="Species" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <bootstrap thing="trZaranite"></bootstrap>
+    <eval phase="PreAbility" priority="1000"><![CDATA[var tempStr as string
+	  
+~assign tags to apply the +1 modifier to selected attribute
+if (field[usrChosen4].ischosen <> 0) then
+  tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
+  perform hero.assignstr[tempStr]
+
+  perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
+  endif]]></eval>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  </document>

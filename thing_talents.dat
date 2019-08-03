@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="talHdrCustom" name="Custom –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrCustom" name="– Custom –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Custom"/>
     </thing>
-  <thing id="talHdrRace" name="Racial –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrRace" name="– Racial –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Racial"/>
     </thing>
-  <thing id="talHdrGen" name="General –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrGen" name="– General –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="General"/>
     </thing>
-  <thing id="talHdrComm" name="Command –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrComm" name="– Command –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Command"/>
     </thing>
-  <thing id="talHdrConn" name="Conn –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrConn" name="– Conn –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Conn"/>
     </thing>
-  <thing id="talHdrEngr" name="Engineering –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrEngr" name="– Engineering –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Engineer"/>
     </thing>
-  <thing id="talHdrMed" name="Medicine –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrMed" name="– Medicine –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Medicine"/>
     </thing>
-  <thing id="talHdrSci" name="Science –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrSci" name="– Science –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Science"/>
     </thing>
-  <thing id="talHdrSec" name="Security –" compset="Talent" isshowonly="yes">
+  <thing id="talHdrSec" name="– Security –" compset="Talent" isshowonly="yes">
     <tag group="TalentCat" tag="Security"/>
     </thing>
-  <thing id="talCustom" name="== Custom Talent ==" compset="Talent">
+  <thing id="talCustom" name="Custom Talent" compset="Talent">
+    <fieldval field="UserName" value="Custom Talent"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="User" tag="NameRep"/>
+    <tag group="User" tag="NeedDomain"/>
     <tag group="TalentCat" tag="Custom"/>
     </thing>
   <thing id="talProHon" name="Proud and Honorable" description="Your personal integrity is unimpeachable, and you will not willingly break a promise made. Whenever you attempt a Task to resist being coerced into breaking a promise, betraying your allies, or otherwise acting dishonorably, you reduce the Difficulty by 1." compset="Talent" summary="Whenever you attempt a Task to resist being coerced into breaking a promise, betraying your allies, or otherwise acting dishonorably, you reduce the Difficulty by 1.">

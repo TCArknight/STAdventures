@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="trArbazan" name="Arbazan" description="Arbazan have been Federation members since shortly after its founding and are found throughout Federation space, often serving as ambassadors, attaches, advisors, and negotiators – though there have also been several well-known scientific discoveries and engineering advancements by dedicated Arbazan." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcArbazan"/>
+    </thing>
+  <thing id="trArkarian" name="Arkarian" description="Direct and hardworking, Arkarians have a reputation for detail-oriented work practices and high expectations. Due to their historical authoritarian nobility, Arkarians tend to be more socially reserved than many other Federation member species and tend to be inwardly uncomfortable in social gatherings where ‘mingling’ and ‘small talk’ are expected. In addition, Arkarians are accustomed to slightly warmer climates than other humanoids and can endure higher temperatures than many other species without difficulty." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Arkarian"/>
+    </thing>
+  <thing id="trAurelian" name="Aurelian" description="One of the few avian species to be represented within the Federation, the Aurelians are renowned for their study of history and service within the Federation Science Council. While not unheard of, there are a few Aurelians serving in Starfleet, and those that do most commonly work as science officers. Aurelians dislike enclosed spaces and many suffer from a mild form of claustrophobia, which makes long-term service aboard a starship that much more difficult. Most Aurelians that pursue a career in Starfleet request assignments at planetary installations, allowing them to spend their off-duty time outdoors. Their homeworld of Aurelia is an abnormally large Class-M planet covered by large expanses of scrub lands and mild deserts. Aurelians on Aurelia make their homes in natural mesa formations. Though they did not join the Federation until several decades after its formation, Aurelians were known to early Human deep space explorers." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Aurelian"/>
+    </thing>
+  <thing id="trCaitian" name="Caitian" description="Caitians are all slightly smaller in both height and weight than average humanoids – with most reaching between 1.5-1.7 meters. They have retained the retractable claws of their evolutionary ancestors along with a flexible tail. Caitians are carnivorous and prefer uncooked meat. While they evolved from predatory felines, the Caitians are regarded as some of the greatest poets and philosophers within the Federation." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Caitian"/>
+    </thing>
+  <thing id="trEdosian" name="Edosian" description="With three legs, Endosians are somewhat slower than most humanoids, but far more stable. With three multidextrous arms, they are able to operate multiple stations or controls at the same time. They are long-lived and capable of deep thought – which others often mistake as antisocial behavior. Their long lives grant them a perspective most others lack and they are often able to recall details and facts from disciplines outside their areas of focus due to decades of exposure and broad study." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Edosian"/>
+    </thing>
+  <thing id="trGrazerite" name="Grazerite" description="Grazerites possess powerful jaws and durable teeth – allowing them to chew through a surprising number of hardened substances. They cannot, however, digest inorganic materials, despite being able to chew through them, and as evolutionary vegetarians, have a difficult time digesting meats. Their brows are adorned with a pair of durable horns, which slope back in the vast majority. Further, Grazerite fingers evolved from hooves and their fingernails remain extremely dense, and are capable of supporting their full weight – making them excellent climbers." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Grazerite"/>
+    </thing>
+  <thing id="trHaliian" name="Haliian" description="Physically, Haliians are similar to other humanoid species within the Federation; however, the natives of Halii possess distinctive bulges along the bridge of their noses and just above their brows. Haliians tend to have close family bonds and numerous festivals and holidays. Much like other telepathic species, Haliians struggle with the use of deception, and will often misinterpret it during social encounters." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Haliian"/>
+    </thing>
+  <thing id="trKtarian" name="Ktarian" description="Ktarians are a hard people, determined and relentless in pursuit of their goals. The intertwining of the two native species has led to the Ktarians possessing the best traits of both. They are physically fit and quick witted – adapting and responding to adversity with ease. They rarely engage in negotiations unless they feel they have the upper hand." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Ktarian"/>
+    </thing>
+  <thing id="trZaranite" name="Zaranite" description="Zaranites are hardy and immune to toxic gases, complications due to bright lighting, and can survive the extremes conditions of the vacuum of space, so long as their respirator tanks last. In general, Zaranites are pleasant if not somewhat reserved. In addition to their service in Starfleet, Zaranites also serve in various positions within the scientific community and diplomatic corps." compset="Trait" uniqueness="unique">
+    <usesource source="QuadAlpha"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="Zaranite"/>
+    </thing>
+  </document>

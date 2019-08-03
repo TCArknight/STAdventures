@@ -141,7 +141,7 @@
     parent="Quadrants"
     default="no"
     reportable="no"
-    selectable="no"
+    selectable="yes"
     sortorder="1"
     description="Options from the Alpha Quadrant sourcebook.">
     </source>

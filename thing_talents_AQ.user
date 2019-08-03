@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="talColdShoulder" name="Cold Shoulder" description="Strong self-discipline and conservative cultural values prevent Arbazan from being susceptible to their baser desires. Any character attempting to use their physical attractiveness or seductive nature against an Arbazan during a Social Conflict increases their Difficulty by 1." compset="Talent" summary="Social Conflict using physical attractiveness or seductive nature against an Arbazan increases their Difficulty by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arbazan species required."><![CDATA[#isspecies[spcArbazan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talProtocolPolit" name="The Protocol Of Politics" description="Arbazan are naturally adept at the subtleties of social\nprotocol, and often come to rely on it heavily during social\ninteractions. To many other species, the Arbazan’s focus\non such rules and guidelines is often viewed as obsessive,\nbut to the Arbazan, it is simply the natural way to engage in\ninteractions. Whenever a character with this Talent attempts a test during Social Conflict, they may re-roll a d20 so long as they succeeded at an earlier Test relating to the recollection or research of appropriate social graces, protocols, or faux pas." compset="Talent" summary="Whenever a character with this Talent attempts a test during Social Conflict, they may re-roll a d20 so long as they succeeded at an earlier Test relating to the recollection or research of appropriate social graces, protocols, or faux pas.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arbazan species required."><![CDATA[#isspecies[spcArbazan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talCoolPressure" name="Cool Under Pressure" description="Demands of Arkarian society place strict requirements on social interactions. You are able to keep your outward expressions neutral, revealing as little as possible. Whenever you are engaged in a Social Conflict, you are considered to have an Advantage until you fail a Composure Test." compset="Talent" summary="Whenever you are engaged in a Social Conflict, you are considered to have an Advantage until you fail a Composure Test.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arkarian species required."><![CDATA[#isspecies[spcArkarian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talQuickRecovery" name="Quick Recovery" description="The increased bone density of the brow and nasal areas are also found throughout the rest of their physical frame and provide Arkarians with superior protection from blunt trauma.\n\nThey gain 2 additional Resistance against any attack made with blunt weapons." compset="Talent" summary="gain 2 additional Resistance against any attack made with blunt weapons.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arkarian species required."><![CDATA[#isspecies[spcArkarian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talAerialCombat" name="Aerial Combat" description="While most Aurelians avoid confrontation, they understand\nthat sometimes it is necessary for survival. Some Aurelians\nhave learned to take advantage of their natural flying ability.\nCharacters with this Talent may use a Minor Action to move to any Zone within Long Range instead of Medium, and ignore any Difficulty increases associated with terrestrial terrain – however, they increase the Difficulty of any weather-related hazards by 1. Characters with this Talent are also considered to have the Advantage when making an attack against ground-based Targets." compset="Talent" summary="Minor Action to move to any Zone within Long Range instead of Medium (ignore any Difficulty increases associated with ground terrain (increase Difficulty of any weather-related hazards by 1 though)).  Advantage attacking against ground-based targets.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Aurelian species required."><![CDATA[#isspecies[spcAurelian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talKeenSenses" name="Keen Senses" description="Aurelians are known for their keen vision, hearing, and directional sense. Characters with this Talent reduce the Difficulty due to Distance of Perception Tasks by 1." compset="Talent" summary="Reduce the Difficulty due to Distance of Perception Tasks by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Aurelian species required."><![CDATA[#isspecies[spcAurelian] <> 0]]></exprreq>
+    </thing>
+  </document>

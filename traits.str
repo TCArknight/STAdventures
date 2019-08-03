@@ -1005,6 +1005,7 @@
     <compref component="UserSelect"/>
     <compref component="SpecialTab"/>
     <compref component="CanAdvance"/>
+    <compref component="Custom"/>
     </compset>
 	
   <!-- Ability - all derived abilitys are based on this compset -->

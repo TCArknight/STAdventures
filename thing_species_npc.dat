@@ -63,19 +63,19 @@
     </thing>
 
   <thing id="trCardassi" name="Cardassian" description="Cardassians possess extraordinary mental\ndiscipline, and commonly have photographic memories, the\nresult of intense training during childhood. They are intolerant\nof cold environments, but quite comfortable at higher\ntemperatures. Cardassian hearing is slightly less acute than\nthat of Humans, and they are uncomfortable in bright light.\nCardassians have a negative reputation amongst many Alpha\nQuadrant cultures, particularly Bajorans, whose homeworld\nthey occupied for decades." compset="Trait">
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcCardas"/>
     </thing>
   <thing id="spcCardas" name="Cardassian" description="Cardassians are tall, grey-skinned humanoids with pronounced ridges on their bodies and faces. Their culture demands absolute loyalty to family and to the state — with Cardassian morality plays often depicting conflicts between familial loyalty and loyalty to the state — and they prize individual cunning, self-control, and the ability to endure hardship. Cardassians are a secretive people, even amongst close friends and family, and being suspicious and skeptical of others is regarded as wise and prudent. They value educational attainment and knowledge, and they are fond of conversation and lively debate. They are frequently regarded as domineering, ruthless, arrogant, and duplicitous.\n\n{i}EXAMPLE VALUE: Family is everything. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Cardassian." compset="Species" uniqueness="unique">
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <usesource source="QuadAlpha"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <bootstrap thing="trCardassi"></bootstrap>
+    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
     </thing>
   <thing id="trJemHadar" name="Jem&apos;Hadar" description="Individual Jem’Hadar are physically powerful, and far stronger and more resilient than Humans. They also have exceptionally keen eyesight, and act utterly without fear or hesitation in battle. They do not regard death with any apprehension, and are extremely aggressive, limited only by their absolute obedience to the Founders and the Vorta." compset="Trait">
     <usesource source="TNG"/>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
- 
   <thing id="spcChange" name="Changeling" description="A fluidic, shapeshifting species from the Gamma Quadrant, Changelings are typically reclusive, elusive beings, who try to avoid contact with other species, referred to by Changelings as “monoforms” or “solids”. Most Changelings are collectively the Founders of the Dominion, but Changelings encountered beyond the Dominion are often from “The Hundred”, a group of infants sent out to learn about the galaxy before being compelled to return home. The Founders collectively regard themselves as The Great Link, a fluid collective that appears more like an ocean than a society, where the distinctions between individuals disappear.\n\n{i}EXAMPLE VALUE: Solids are beneath me. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Changeling." compset="Species" uniqueness="unique">
     <usesource source="TNG"/>
     <usesource source="CharacterDS9"/>
@@ -10,28 +9,23 @@
     <tag group="SpecCat" tag="NPC"/>
     <bootstrap thing="trChange"></bootstrap>
     </thing>
-
   <thing id="spcFerengi" name="Ferengi" description="Ferengi are short, unimposing beings, noted more as merchants and traders than as warriors, scientists, or engineers. Their culture promotes the acquisition of material wealth, and their society is extremely capitalistic, with most routine activities accompanied by the exchange of a precious, non-replicable substance called latinum (a room-temperature liquid metal, often stored within gold “slips,” “bricks” or “bars”). Ferengi discriminate between their genders considerably, with female Ferengi not being permitted to own property or wear clothing; enterprising female Ferengi invariably find a way around these restrictions.\n\n{i}EXAMPLE VALUE: Greed is eternal. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}TRAIT:{/b} Ferengi." compset="Species" uniqueness="unique">
-    <usesource source="TNG"/>
     <usesource source="CharacterDS9"/>
+    <usesource source="QuadAlpha"/>
+    <usesource source="TNG"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpecCat" tag="NPC"/>
     <bootstrap thing="trFerengi"></bootstrap>
     </thing>
-	
   <thing id="trChange" name="Changeling" description="A Changeling is naturally a gelatinous orange-brown fluid, which can adopt the form and structure of any solid object, including other living creatures and diffuse substances like fog. While they cannot become energy, a Changeling’s ability to assume other forms is limited more by skill and experience than by physical capacity: it is theorized that they transfer mass to and from subspace in order to change size and density. Many Changelings find themselves persecuted by “solids” for their shapeshifting ability, and often crave a sense of order and justice in the universe, with a rigid attitude at odds with their fluid forms." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcChange"/>
     </thing>
-
   <thing id="trFerengi" name="Ferengi" description="Ferengi physiology does not lend itself to physical activity, nor does their culture value such hardship, though they have a high resistance to many common diseases.\n\nFerengi have exceptionally keen hearing, and highly-sensitive\nears, though this also means that intense sounds (and physical force applied to the ears) can inflict debilitating pain. Their unusual brain structure means that telepaths cannot read Ferengi minds. Culturally, Ferengi are acquisitive, regarding the accumulation of wealth as the highest virtue, and while this has given them a reputation as cunning negotiators, they are also often seen as duplicitous and manipulative as well." compset="Trait">
-    <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcFerengi"/>
     </thing>
-
-	
- </document>
+  </document>

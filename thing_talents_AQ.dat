@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="talColdShoulder" name="Cold Shoulder" description="Strong self-discipline and conservative cultural values prevent Arbazan from being susceptible to their baser desires. Any character attempting to use their physical attractiveness or seductive nature against an Arbazan during a Social Conflict increases their Difficulty by 1." compset="Talent" summary="Social Conflict using physical attractiveness or seductive nature against an Arbazan increases their Difficulty by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arbazan species required."><![CDATA[#isspecies[spcArbazan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talProtocolPolit" name="The Protocol Of Politics" description="Arbazan are naturally adept at the subtleties of social\nprotocol, and often come to rely on it heavily during social\ninteractions. To many other species, the Arbazan’s focus\non such rules and guidelines is often viewed as obsessive,\nbut to the Arbazan, it is simply the natural way to engage in\ninteractions. Whenever a character with this Talent attempts a test during Social Conflict, they may re-roll a d20 so long as they succeeded at an earlier Test relating to the recollection or research of appropriate social graces, protocols, or faux pas." compset="Talent" summary="Whenever a character with this Talent attempts a test during Social Conflict, they may re-roll a d20 so long as they succeeded at an earlier Test relating to the recollection or research of appropriate social graces, protocols, or faux pas.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arbazan species required."><![CDATA[#isspecies[spcArbazan] <> 0]]></exprreq>
+    </thing>
+  <thing id="talCoolPressure" name="Cool Under Pressure" description="Demands of Arkarian society place strict requirements on social interactions. You are able to keep your outward expressions neutral, revealing as little as possible. Whenever you are engaged in a Social Conflict, you are considered to have an Advantage until you fail a Composure Test." compset="Talent" summary="Whenever you are engaged in a Social Conflict, you are considered to have an Advantage until you fail a Composure Test.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arkarian species required."><![CDATA[#isspecies[spcArkarian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talQuickRecovery" name="Quick Recovery" description="The increased bone density of the brow and nasal areas are also found throughout the rest of their physical frame and provide Arkarians with superior protection from blunt trauma.\n\nThey gain 2 additional Resistance against any attack made with blunt weapons." compset="Talent" summary="gain 2 additional Resistance against any attack made with blunt weapons.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Arkarian species required."><![CDATA[#isspecies[spcArkarian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talAerialCombat" name="Aerial Combat" description="While most Aurelians avoid confrontation, they understand\nthat sometimes it is necessary for survival. Some Aurelians\nhave learned to take advantage of their natural flying ability.\nCharacters with this Talent may use a Minor Action to move to any Zone within Long Range instead of Medium, and ignore any Difficulty increases associated with terrestrial terrain – however, they increase the Difficulty of any weather-related hazards by 1. Characters with this Talent are also considered to have the Advantage when making an attack against ground-based Targets." compset="Talent" summary="Minor Action to move to any Zone within Long Range instead of Medium (ignore any Difficulty increases associated with ground terrain (increase Difficulty of any weather-related hazards by 1 though)).  Advantage attacking against ground-based targets.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Aurelian species required."><![CDATA[#isspecies[spcAurelian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talKeenSenses" name="Keen Senses" description="Aurelians are known for their keen vision, hearing, and directional sense. Characters with this Talent reduce the Difficulty due to Distance of Perception Tasks by 1." compset="Talent" summary="Reduce the Difficulty due to Distance of Perception Tasks by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Aurelian species required."><![CDATA[#isspecies[spcAurelian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talDisarmingNat" name="Disarming Nature" description="Despite their reputation for being fierce warriors, Caitians are extremely sociable and adept at putting others at ease. Whenever you are engaged in a Social Conflict, you reduce the Difficulty of any Test to make your target relax or to trust you by 1." compset="Talent" summary="During Social Conflict, reduce the Difficulty of any Test to make your target relax or to trust you by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Caitian species required."><![CDATA[#isspecies[spcCaitian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talPrehensileTail" name="Prehensile Tail" description="While most Caitians have some functional control over their tail, characters with this Talent have worked to increase their control over the appendage to the point of it becoming fully functional. This provides the character with the ability to hold and operate an additional piece of equipment, like an additional hand. In addition, the character gains a bonus d20 to any Fitness Test to maintain balance or to climb." compset="Talent" summary="Your tail can hold and operate an additional piece of equipment, like an additional hand. Also, it provides a bonus d20 to any Fitness Test to maintain balance or to climb.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Caitian species required."><![CDATA[#isspecies[spcCaitian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talDutyDiscipline" name="Duty and DIscipline" description="When the character assists a superior, the superior gains a bonus Momentum." compset="Talent">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Cardassian species required."><![CDATA[#isspecies[spcCardas] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSuspByNature" name="Suspicious By Nature" description="When attempting to detect hidden enemies, traps or other forms of danger, the character may re-roll a die." compset="Talent">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Cardassian species required."><![CDATA[#isspecies[spcCardas] <> 0]]></exprreq>
+    </thing>
+  <thing id="talRegimentMind" name="Regimented Mind" description="Whenever this character spends Momentum to Obtain Information, they reduce the Difficulty of their next Task by 1 so long as that Task in some way relates to the information gained." compset="Talent">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Cardassian species required."><![CDATA[#isspecies[spcCardas] <> 0]]></exprreq>
+    </thing>
+  <thing id="talEndsJustMeans" name="The Ends Justify The Means" description="When the character challenges a Directive, they gain a bonus die – in addition to any other benefits." compset="Talent">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Cardassian species required."><![CDATA[#isspecies[spcCardas] <> 0]]></exprreq>
+    </thing>
+  <thing id="talMultiTaskRace" name="Multi-Tasking" description="Edosians are capable, with extensive training and great effort, of compartmentalizing their thoughts and operating each arm completely independent of the others. Characters with this Talent may spend 3 Momentum to gain the benefit of an additional Senior Officer Role until the end of the current scene. This Talent may only be used once per episode." compset="Talent" summary="Once per episode Characters with this Talent may spend 3 Momentum to gain the benefit of an additional Senior Officer Role until the end of the current scene">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Edosian species required."><![CDATA[#isspecies[spcEdosian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talLongView" name="The Long View" description="Due to their extremely long lifespans, Edosians come to understand and gain knowledge more extensively than most other individuals. When a character with this Talent uses a Milestone to exchange a Focus, they may do so twice instead of once." compset="Talent" summary="When a character with this Talent uses a Milestone to exchange a Focus, they may do so twice instead of once.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Edosian species required."><![CDATA[#isspecies[spcEdosian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talEveryManPrice" name="Every Man Has his Price" description="The character gains a bonus die whenever engaged in Social Conflict where the opponent can be bribed, bought, or otherwise enticed by monetary gain." compset="Talent" summary="Whenever engaged in Social Conflict, character gains a bonus die when the opponent can be bribed, bought, or otherwise enticed by monetary gain.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ferengi species required."><![CDATA[#isspecies[spcFerengi] <> 0]]></exprreq>
+    </thing>
+  <thing id="talHearAllTrustNo" name="Hear All, Trust Nothing" description="Increase the Difficulty of any Social Conflict to deceive the character by 1." compset="Talent" summary="Whenever engaged in Social Conflict, Increase the Difficulty to deceive the character by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ferengi species required."><![CDATA[#isspecies[spcFerengi] <> 0]]></exprreq>
+    </thing>
+  <thing id="talKnowEqProfit" name="Knowledge Equals Profit" description="When the character spends Momentum to Obtain Information, an additional Momentum is added to the group’s Momentum Pool after all other Momentum spends are resolved." compset="Talent" summary="Whenever engaged in Social Conflict, Increase the Difficulty to deceive the character by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ferengi species required."><![CDATA[#isspecies[spcFerengi] <> 0]]></exprreq>
+    </thing>
+  <thing id="talCommunal" name="Communal" description="Grazerites are deeply communal and work well in coordination with others. Whenever a character with this Talent is providing assistance to another, they increase the Focus range to generate 2 successes by 1." compset="Talent" summary="Whenever a character with this Talent is providing assistance to another, they increase the Focus range to generate 2 successes by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Grazerite species required."><![CDATA[#isspecies[spcGrazerite] <> 0]]></exprreq>
+    </thing>
+  <thing id="talHornSense" name="Horn-Sense" description="A small minority of Grazerites are born with a genetic variance that causes their horns to be hollow. This gives them a highly sensitive organ that can detect subtle changes in air pressure, sound, and all manner of vibrations. When a character with this Talent attempts a Task that involves the detection or analysis of sound or vibrations of any kind, they may re-roll a d20." compset="Talent" summary="When a character with this Talent attempts a Task that involves the detection or analysis of sound or vibrations of any kind, they may re-roll a d20.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Grazerite species required."><![CDATA[#isspecies[spcGrazerite] <> 0]]></exprreq>
+    </thing>
+  <thing id="talContactEmpathy" name="Contact Empathy" description="Haliians possess minor empathic abilities which, without the canar focusing crystal, is limited to touch. Once you make contact with another character, you can sense the emotions of that individual – as well as communicate telepathically with other empaths or telepaths. You cannot choose to not sense the emotions of those you make contact with. It may require effort and a Task to gain information from beings that are resistant to forms of telepathy. Such information can most often be used as an Advantage during Social Conflicts." compset="Talent" summary="You sense the emotions of those you touch. WIth a Task or effort, you can gain information to provide an Advantage during Social Conflicts.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Haliian species required."><![CDATA[#isspecies[spcHaliian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talFacetedAttent" name="Faceted Attention" description="Characters with this Talent can suddenly divert their attention to other Tasks, leaving their current Task in whatever state it was in, and immediately begin work on the second. To many this may seem undisciplined and unfocused, but to characters with this Talent it is simply an effective way of completing several Tasks at once. Whenever this character is participating in a Challenge, they may choose to use this Talent and attempt two Tasks simultaneously. The attempt is made against the Task with the highest Difficulty, which is then attempted using the appropriate pool. Successes are then divided between the two Tasks. When attempting Tasks using this Talent – the Complication range is increased by one and any Complications rolled can be from either Task – as thematically appropriate." compset="Talent" summary="When participating in a Challenge, may choose to use this Talent and attempt  2 Tasks at once. Successes are split between the two.  Comp. Range is increased by 1.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Haliian species required."><![CDATA[#isspecies[spcHaliian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talDeepDetermin" name="Deep Determination" description="Ktarians have a well-earned reputation for becoming deeply committed to a particular goal – a single-minded determination to achieve success. When a character with this Talent succeeds at a Task where they could have spent a point of Determination, but choose not to, they may spend 3 Momentum to gain a point of Determination. This Talent may only be used once per Episode." compset="Talent" summary="Once per episode, when a character with this Talent succeeds at a Task where they could have spent a point of Determination, but choose not to, they may spend 3 Momentum to gain a point of Determination.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ktarian species required."><![CDATA[#isspecies[spcKtarian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talNegFromStr" name="Negotiate From Strength" description="Ktarians are loath to enter into negotiations unless they feel they are at an advantage. When a Character with this Talent enters into a Social Conflict and attempts to use negotiation, they may gain the benefit of an Advantage twice – however, the Advantage must be used differently each time. This Talent may only be used once per scene." compset="Talent" summary="Once per scene during Social Conflict and using negotiation,  may gain the benefit of an Advantage twice if used in different ways.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <exprreq message="Ktarian species required."><![CDATA[#isspecies[spcKtarian] <> 0]]></exprreq>
+    </thing>
+  <thing id="talHardenedHide" name="Hardened Hide" description="Zaranite skin is extremely tough and capable of withstanding pressures, temperatures, and acidity levels that would prove lethal to other species. Characters with this Talent gain 2 natural Resistance." compset="Talent" summary="Gain a Resistance of 2.">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <eval phase="PreAbility" priority="5000">~ +2 additional resistance
+#resistbonus[] += 2</eval>
+    <exprreq message="Zaranite species required."><![CDATA[#isspecies[spcZaranite] <> 0]]></exprreq>
+    </thing>
+  <thing id="talMultiSpectVis" name="Multispectrum Vision" description="Zaranites can see a broader spectrum of light than most humanoid species. Characters with this Talent gain a bonus Momentum on a Perception Task based on vision. This bonus Momentum may only be used on the Gain Information Momentum spend." compset="Talent" summary="Gain a bonus Momentum (for a Gain Information spend) on a Perception Task based on vision">
+    <usesource source="QuadAlpha"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <eval phase="PreAbility" priority="5000">~ +2 additional resistance
+#resistbonus[] += 2</eval>
+    <exprreq message="Zaranite species required."><![CDATA[#isspecies[spcZaranite] <> 0]]></exprreq>
+    </thing>
+  </document>
