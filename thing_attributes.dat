@@ -30,7 +30,8 @@
     compset="AttrSys"
     isunique="yes"
     description="">
-    <fieldval field="asAttrDesc" value="Daring description"/>
+    <fieldval field="asAttrDesc" value="Daring comes into play whenever a character reacts to a new situation without doubt, hesitation, or caution. It covers circumstances where characters take decisive action without a detailed plan or analysis, and relies on gut instinct and quick reflexes."/>
+	<fieldval field="asSysDesc" value="This System represents the ship’s library and operational computer systems, from the Duotronic systems of the 23rd century, to the Isolinear and Bioneural systems of the 24th century. Any Task that relies on the processing power and data storage of the ship’s computers uses Computers."/>
     <tag group="AttrName" tag="Daring"/>
     <tag group="AttrAbbrev" tag="Dar"/>
     <tag group="SysName" tag="Computers"/>
@@ -45,7 +46,8 @@
     compset="AttrSys"
     isunique="yes"
     description="">
-    <fieldval field="asAttrDesc" value="Fitness description"/>
+    <fieldval field="asAttrDesc" value="Fitness is about enduring hardship and employing force. It covers physical conditioning, general health and well-being, fortitude, and endurance."/>
+	<fieldval field="asSysDesc" value="This System covers the propulsion and power generation systems of the vessel, and its ability to move and maneuver through space. This includes thrusters, impulse engines, and warp drive, as well as reactors, generators, and related systems such as the navigational deflector. Any Task that relies on moving the vessel under its own power uses Engines."/>
     <tag group="AttrName" tag="Fitness"/>
     <tag group="AttrAbbrev" tag="Fit"/>
     <tag group="SysName" tag="Engines"/>
@@ -60,7 +62,8 @@
     compset="AttrSys"
     isunique="yes"
     description="">
-    <fieldval field="asAttrDesc" value="Insight description"/>
+    <fieldval field="asAttrDesc" value="Insight is about understanding people and their feelings, and being open to different ideas and ways of thinking. It covers self-awareness, being conscious of a creature’s current state of mind, and hard-earned wisdom, and relies upon a person’s emotional intelligence, empathy, and experiences."/>
+	<fieldval field="asSysDesc" value="This System covers the vessel’s sensor suites and probes, allowing it to scan and monitor its surroundings, and the scientific systems that interpret that data. It also relates to transporters, as they are heavily tied into a ship’s sensors. Any Task that involves scanning and analysis using the vessel’s sensor arrays should use Sensors."/>
     <tag group="AttrName" tag="Insight"/>
     <tag group="AttrAbbrev" tag="Ins"/>
     <tag group="SysName" tag="Sensors"/>
@@ -75,7 +78,8 @@
     compset="AttrSys"
     isunique="yes"
     description="">
-    <fieldval field="asAttrDesc" value=""/>
+    <fieldval field="asAttrDesc" value="Presence is power of personality, and the ability to command attention or respect. It’s used for being diplomatic during negotiations, giving orders during a crisis, and even being charming or seductive."/>
+	<fieldval field="asSysDesc" value="This System covers the physical construction of the vessel, from its hull and superstructure, to the structural integrity field and inertial dampeners, as well as thermal and radiation shielding, and all aspects of the ship’s basic operational infrastructure, including life support systems, and artificial gravity. Any Task that involves the physical construction of the vessel or its protective systems uses Structure."/>
     <tag group="AttrName" tag="Presence"/>
     <tag group="AttrAbbrev" tag="Pre"/>
     <tag group="SysName" tag="Structure"/>
@@ -90,7 +94,8 @@
     compset="AttrSys"
     isunique="yes"
     description="">
-    <fieldval field="asAttrDesc" value=""/>
+    <fieldval field="asAttrDesc" value="Reason is about logic and meticulous analysis. It covers forming hypotheses and intricate planning, as well as recall of intricate facts, calculation of complex variables, and it relies on keen observation and a thorough command of the facts."/>
+	<fieldval field="asSysDesc" value="This System covers the tactical and offensive systems of the vessel, normally phasers or disruptors, plus torpedo launchers, and maybe even other weapons besides. Any Task that involves attacking a target use Weapons."/>
     <tag group="AttrName" tag="Reason"/>
     <tag group="AttrAbbrev" tag="Rea"/>
     <tag group="SysName" tag="Weapons"/>
