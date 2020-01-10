@@ -106,7 +106,7 @@
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Deltan required."><![CDATA[#isspecies[spcDeltan] <> 0]]></exprreq>
     </thing>
-  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another  character the Bolian may use their Presence Attribute instead of their own. Further, both the Bolian and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent">
+  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another character the Bolian may use their Presence Attribute instead of their own. Further, both the Bolian and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent">
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>

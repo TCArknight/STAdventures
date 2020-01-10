@@ -32,7 +32,7 @@
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcBajoran"/>
     </thing>
-  <thing id="trBetazoid" name="Betazoid" description="All Betazoids are telepathic to varying degrees, and even when not actively using their abilities, they are highly perceptive of others around them, but also highly sensitive to telepathic  disturbances and mental assaults. They have little familiarity with lies and deception, due to their open culture and ability to read the thoughts and emotions of others. As they are sensitive to the minds of other living beings, they tend not to be comfortable around animals, for fear of losing themselves in the minds of wild creatures." compset="Trait">
+  <thing id="trBetazoid" name="Betazoid" description="All Betazoids are telepathic to varying degrees, and even when not actively using their abilities, they are highly perceptive of others around them, but also highly sensitive to telepathic disturbances and mental assaults. They have little familiarity with lies and deception, due to their open culture and ability to read the thoughts and emotions of others. As they are sensitive to the minds of other living beings, they tend not to be comfortable around animals, for fear of losing themselves in the minds of wild creatures." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcBetazoidid"/>

@@ -67,7 +67,7 @@
     <bootstrap thing="wpNervPinc"></bootstrap>
     <exprreq message="Vulcan Required"><![CDATA[#isspecies[spcVulcan] <> 0]]></exprreq>
     </thing>
-  <thing id="talJoined" name="Joined" description="You have a symbiont, with lifetimes of memories to draw upon. Once per mission, you may declare that a former host had expertise in a relevant skill or field of study; you gain a single Focus for the remainder of the scene, as you draw upon those memories. Additionally, you gain a Trait with the name of the Symbiont; this reflects potential advantages of the Joining, the ability to perform rites and rituals to awaken past hosts’ memories, and the vulnerabilities inherent in the connection. Former Initiate cannot be taken if the character has the Joined Talent — they are mutually  exclusive." compset="Talent">
+  <thing id="talJoined" name="Joined" description="You have a symbiont, with lifetimes of memories to draw upon. Once per mission, you may declare that a former host had expertise in a relevant skill or field of study; you gain a single Focus for the remainder of the scene, as you draw upon those memories. Additionally, you gain a Trait with the name of the Symbiont; this reflects potential advantages of the Joining, the ability to perform rites and rituals to awaken past hosts’ memories, and the vulnerabilities inherent in the connection. Former Initiate cannot be taken if the character has the Joined Talent — they are mutually exclusive." compset="Talent">
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="User" tag="CreateOnly"/>

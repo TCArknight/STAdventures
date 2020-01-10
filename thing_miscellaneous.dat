@@ -304,7 +304,8 @@
   <thing
     id="trkDetermination"
     name="Determination"
-    compset="Tracker">
+    compset="Tracker"
+    description="Player Characters begin each session with a single point of Determination, and no character can have more than three points of Determination at any time. Using and gaining Determination is tied to a character’s Values, and to the Directives in play during a mission.">
 
     <!-- Automatically add the tracker to every actor -->
     <tag group="Helper" tag="Bootstrap"/>

@@ -71,7 +71,7 @@ perform hero.childfound[wpUnarmed].assign[DmgEffect.Intense]</eval>
     <exprreq message="Security 2+ required."><![CDATA[#abilfinal[discdept03] >= 2]]></exprreq>
     <exprreq message="Medicine 2+ required"><![CDATA[#abilfinal[discdept06] >= 2]]></exprreq>
     </thing>
-  <thing id="talLeadInvest" name="Lead Investigator" description="The character has a mind intrigued by mystery and investigation, and is often called upon to review and coordinate response to lawbreaking. The character generates two bonus Momentum after a successful Task to  investigate a crime." compset="Talent">
+  <thing id="talLeadInvest" name="Lead Investigator" description="The character has a mind intrigued by mystery and investigation, and is often called upon to review and coordinate response to lawbreaking. The character generates two bonus Momentum after a successful Task to investigate a crime." compset="Talent">
     <usesource source="DivOps"/>
     <tag group="TalentCat" tag="Security"/>
     <exprreq message="Security 3+ required."><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
