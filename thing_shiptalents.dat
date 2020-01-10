@@ -126,7 +126,7 @@
     <tag group="TalentCat" tag="Ship"/>
     <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
-  <thing id="talImpWarp" name="Improved Warp Drive" description="The ship’s warp drive is more efficient, capitalizing on improved field dynamics, better control of antimatter flow rates, or some other advancement that allows the ship to expend less energy when travelling at warp. Whenever the ship spends power to go to warp, roll 1 [CD] for each Power spent; for each Effect rolled, that point of Power is not spent." compset="Talent" uniqueness="unique">
+  <thing id="talImpWarp" name="Improved Warp Drive" description="The ship’s warp drive is more efficient, capitalizing on improved field dynamics, better control of antimatter flow rates, or some other advancement that allows the ship to expend less energy when travelling at warp. Whenever the ship spends power to go to warp, roll 1{meta bmpfull}{bmp StarTrekArrow}{revert} for each Power spent; for each Effect rolled, that point of Power is not spent." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>

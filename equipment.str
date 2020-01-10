@@ -368,7 +368,7 @@
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
 		else
-	      txt = totD & " [CD]"
+	      txt = totD & "{meta bmpfull}{bmp StarTrekArrow}{revert}"
           endif
 		  
 	    tags = tagnames[DmgEffect.?,", "] 
