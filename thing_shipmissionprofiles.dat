@@ -29,7 +29,7 @@
     <tag group="MisProTal" tag="talImpWarp"/>
     <tag group="MisProTal" tag="talRuggDes"/>
     </thing>
-  <thing id="proTecTest" name="Technical Testbed" description="The ship is equipped with an abundance of state-of-theart\nor even prototype technologies, allowing them to be\ntested and studied in practical conditions, so that the flaws\ncan be discovered and overcome, and the systems can be\nrefined and improved upon. These ships are often deployed\non a broad range of missions, to provide the most diverse\nconditions for equipment testing." compset="Profile" uniqueness="unique">
+  <thing id="proTecTest" name="Technical Testbed" description="The ship is equipped with an abundance of state-of-theart or even prototype technologies, allowing them to be tested and studied in practical conditions, so that the flaws can be discovered and overcome, and the systems can be refined and improved upon. These ships are often deployed on a broad range of missions, to provide the most diverse conditions for equipment testing." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="1"/>
     <fieldval field="proConn" value="2"/>
     <fieldval field="proEng" value="3"/>
@@ -45,7 +45,7 @@
     <tag group="MisProTal" tag="talImpPowS"/>
     <tag group="MisProTal" tag="talImpWarp"/>
     </thing>
-  <thing id="proTacOps" name="Tactical Operations" description="While Starfleet is not a military, the defense of the Federation\nis one of Starfleet’s responsibilities, and Starfleet has been\nrequired to prepare for war on numerous occasions. Thus,\nmany ships are equipped for police and military actions,\nthough the number of vessels outfitted in this manner varies\ndepending on the politics of the day." compset="Profile" uniqueness="unique">
+  <thing id="proTacOps" name="Tactical Operations" description="While Starfleet is not a military, the defense of the Federation is one of Starfleet’s responsibilities, and Starfleet has been required to prepare for war on numerous occasions. Thus, many ships are equipped for police and military actions, though the number of vessels outfitted in this manner varies depending on the politics of the day." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
     <fieldval field="proConn" value="2"/>
     <fieldval field="proEng" value="2"/>
@@ -61,7 +61,7 @@
     <tag group="MisProTal" tag="talImpImp"/>
     <tag group="MisProTal" tag="talQuanTor"/>
     </thing>
-  <thing id="proSciSur" name="Scientific and Survey Operations" description="Starfleet’s mission of exploration and discovery means that\nthey employ many vessels for purely scientific missions,\nstudying unknown phenomena or supporting ongoing\nresearch. While most Federation starships are expected to\nhave at least some capacity for scientific endeavor, some\nvessels are equipped specifically for such missions." compset="Profile" uniqueness="unique">
+  <thing id="proSciSur" name="Scientific and Survey Operations" description="Starfleet’s mission of exploration and discovery means that they employ many vessels for purely scientific missions, studying unknown phenomena or supporting ongoing research. While most Federation starships are expected to have at least some capacity for scientific endeavor, some vessels are equipped specifically for such missions." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
     <fieldval field="proConn" value="2"/>
     <fieldval field="proEng" value="3"/>
@@ -76,7 +76,7 @@
     <tag group="MisProTal" tag="talHighRes"/>
     <tag group="MisProTal" tag="talModLab"/>
     </thing>
-  <thing id="proCriEmer" name="Crisis and Emergency Response" description="These vessels are equipped to respond quickly to a crisis,\nwhatever it may be. Normally capable of supporting\nexpansive shuttlebays, they can deploy large quantities of\npersonnel or cargo to, or evacuate large populations from,\ndisaster areas. Such vessels also serve as hospital ships and troop transports during times of war." compset="Profile" uniqueness="unique">
+  <thing id="proCriEmer" name="Crisis and Emergency Response" description="These vessels are equipped to respond quickly to a crisis, whatever it may be. Normally capable of supporting expansive shuttlebays, they can deploy large quantities of personnel or cargo to, or evacuate large populations from, disaster areas. Such vessels also serve as hospital ships and troop transports during times of war." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
     <fieldval field="proConn" value="2"/>
     <fieldval field="proEng" value="1"/>
@@ -91,7 +91,7 @@
     <tag group="MisProTal" tag="talExtShut"/>
     <tag group="MisProTal" tag="talModLab"/>
     </thing>
-  <thing id="proMultiEx" name="Multirole Explorer" description="Some of Starfleet’s most renowned and revered vessels have\nbeen jacks-of-all-trades, rather than specialized for a single\ntype of mission. This versatility allowed the likes of Jonathan\nArcher and James Kirk to explore strange new worlds, seek\nout new life and new civilizations, and to boldly go where no\none has gone before." compset="Profile" uniqueness="unique">
+  <thing id="proMultiEx" name="Multirole Explorer" description="Some of Starfleet’s most renowned and revered vessels have been jacks-of-all-trades, rather than specialized for a single type of mission. This versatility allowed the likes of Jonathan Archer and James Kirk to explore strange new worlds, seek out new life and new civilizations, and to boldly go where no one has gone before." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
     <fieldval field="proConn" value="2"/>
     <fieldval field="proEng" value="2"/>

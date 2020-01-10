@@ -60,7 +60,7 @@
   <thing id="foImagingEquip" name="Imaging Equipment" description="Starfleet makes use of numerous kinds of imaging and display equipment. This Focus applies to the inner workings of viewscreens and work stations, but also applies to a host of medical equipment used to diagnose patients through internal images." compset="Focus">
     <tag group="FocusCat" tag="Engineer"/>
     </thing>
-  <thing id="foImpulseFund" name="Impulse Fundamentals" description="While warp travel tends to receive a large amount of attention, it is impulse that moves the Federation at a local level. Almost every vessel utilizes some form of impulse engine for sublight movement. This Focus covers the theory behind impulse engines, as well as the mechanical systems\nthat make them work." compset="Focus">
+  <thing id="foImpulseFund" name="Impulse Fundamentals" description="While warp travel tends to receive a large amount of attention, it is impulse that moves the Federation at a local level. Almost every vessel utilizes some form of impulse engine for sublight movement. This Focus covers the theory behind impulse engines, as well as the mechanical systems that make them work." compset="Focus">
     <tag group="FocusCat" tag="Engineer"/>
     </thing>
   <thing id="foJuryRigging" name="Jury Rigging" description="Sometimes, the standard way of getting things done isn’t enough. Characters with this Focus have a talent for finding creative ways to use technology to overcome problems. This Focus can be used anytime the character is attempting to make a device do something it wasn’t designed to accomplish." compset="Focus">

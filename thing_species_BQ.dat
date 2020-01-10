@@ -55,7 +55,7 @@
     <tag group="SpeciesBon" tag="attrsys03"/>
     <bootstrap thing="trKlingon"></bootstrap>
     </thing>
-  <thing id="spcRigelChelon" name="Rigellian Chelon" description="Chelons are a hardy race, sharing their home solar system of\nRigel with Rigellian Jelna. They are descendants of  saber-toothed turtles and, though bipedal, they have retained their ancestral beaks, claws and hard shells. Chelons are androgynous and take on masculine or feminine societal roles at varying points in their lives, reproducing like most reptilians by laying eggs and fertilizing those eggs. Some traditionalists within Chelon society maintain a neutral gender, and refuse to take on male or female roles.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Rigellian Chelon." compset="Species" uniqueness="unique">
+  <thing id="spcRigelChelon" name="Rigellian Chelon" description="Chelons are a hardy race, sharing their home solar system of Rigel with Rigellian Jelna. They are descendants of  saber-toothed turtles and, though bipedal, they have retained their ancestral beaks, claws and hard shells. Chelons are androgynous and take on masculine or feminine societal roles at varying points in their lives, reproducing like most reptilians by laying eggs and fertilizing those eggs. Some traditionalists within Chelon society maintain a neutral gender, and refuse to take on male or female roles.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Rigellian Chelon." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys03"/>

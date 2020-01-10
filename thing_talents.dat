@@ -219,7 +219,7 @@ field[usrCandid1].text &= tempStr]]></eval>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="General"/>
     </thing>
-  <thing id="talCautio" name="Cautious" description="You must choose a single Discipline when you select this\nTalent. Whenever you attempt a Task with that Discipline, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may select this Talent multiple times, once for each Discipline. You may not select this Talent for any Discipline for which you already have the Bold Talent." compset="Talent">
+  <thing id="talCautio" name="Cautious" description="You must choose a single Discipline when you select this Talent. Whenever you attempt a Task with that Discipline, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may select this Talent multiple times, once for each Discipline. You may not select this Talent for any Discipline for which you already have the Bold Talent." compset="Talent">
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/>
     <usesource source="ENT"/>
@@ -252,7 +252,7 @@ tempStr = " & (!thingid." & #choiceid[talBold] & ")"
 
 field[usrCandid1].text &= tempStr]]></eval>
     </thing>
-  <thing id="talCollab" name="Collaboration" description="You must choose a single Discipline when you select\nthis Talent. Whenever an ally attempts a Task using that\nDiscipline, you may spend one Momentum (Immediate) to\nallow them to use your score for that Discipline, and one of\nyour Focuses." compset="Talent" uniqueness="useronce">
+  <thing id="talCollab" name="Collaboration" description="You must choose a single Discipline when you select this Talent. Whenever an ally attempts a Task using that Discipline, you may spend one Momentum (Immediate) to allow them to use your score for that Discipline, and one of your Focuses." compset="Talent" uniqueness="useronce">
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/>
     <usesource source="ENT"/>
@@ -261,31 +261,31 @@ field[usrCandid1].text &= tempStr]]></eval>
     <tag group="TalentCat" tag="General"/>
     <tag group="ChooseSrc1" tag="Container"/>
     </thing>
-  <thing id="talConWat" name="Constantly Watching" description="When you attempt a Task to detect danger or hidden\nenemies, reduce the Difficulty by 1." compset="Talent" uniqueness="useronce">
+  <thing id="talConWat" name="Constantly Watching" description="When you attempt a Task to detect danger or hidden enemies, reduce the Difficulty by 1." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="General"/>
     </thing>
-  <thing id="talStudiou" name="Studious" description="Whenever you spend one or more Momentum to Obtain\nInformation, you may ask one additional question (in total,\nnot per Momentum spent on Obtain Information)." compset="Talent" uniqueness="useronce">
+  <thing id="talStudiou" name="Studious" description="Whenever you spend one or more Momentum to Obtain Information, you may ask one additional question (in total, not per Momentum spent on Obtain Information)." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="General"/>
     </thing>
-  <thing id="talTechExp" name="Technical Expertise" description="Whenever you attempt a Task assisted by the ship’s\nComputers or Sensors, you may re-roll one d20 (which may\nbe the ship’s die)." compset="Talent" uniqueness="useronce">
+  <thing id="talTechExp" name="Technical Expertise" description="Whenever you attempt a Task assisted by the ship’s Computers or Sensors, you may re-roll one d20 (which may be the ship’s die)." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="General"/>
     </thing>
-  <thing id="talTough" name="Tough" description="Whenever you Avoid an Injury, the cost is reduced by 1, to a\nminimum of 1." compset="Talent" uniqueness="useronce">
+  <thing id="talTough" name="Tough" description="Whenever you Avoid an Injury, the cost is reduced by 1, to a minimum of 1." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="General"/>
     </thing>
-  <thing id="talPerEff" name="Personal Effects" description="The character possesses some significant and uncommon\nitem or device which is not part of Starfleet’s standard issue,\nbut which is nevertheless useful for missions. The character\nmay select one item with an Opportunity Cost of 2, or two\nitems with an Opportunity Cost of 1 each. Neither items\nmay have an Escalation Cost greater than 1. See Chapter 8:\nEquipment and Technology for more details. A character may\nselect this multiple times." compset="Talent">
+  <thing id="talPerEff" name="Personal Effects" description="The character possesses some significant and uncommon item or device which is not part of Starfleet’s standard issue, but which is nevertheless useful for missions. The character may select one item with an Opportunity Cost of 2, or two items with an Opportunity Cost of 1 each. Neither items may have an Escalation Cost greater than 1. See Chapter 8: Equipment and Technology for more details. A character may select this multiple times." compset="Talent">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -299,7 +299,7 @@ field[usrCandid1].text &= tempStr]]></eval>
     <tag group="TalentCat" tag="Command"/>
     <exprreq message="Command 2+ required"><![CDATA[#abilfinal[discdept01] >= 2]]></exprreq>
     </thing>
-  <thing id="talDefuseT" name="Defuse the Tension" description="Whenever you attempt a Task to persuade someone not to\nresort to violence, you may add a bonus d20 to your dice pool." compset="Talent" uniqueness="useronce">
+  <thing id="talDefuseT" name="Defuse the Tension" description="Whenever you attempt a Task to persuade someone not to resort to violence, you may add a bonus d20 to your dice pool." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -313,35 +313,35 @@ field[usrCandid1].text &= tempStr]]></eval>
     <tag group="TalentCat" tag="Command"/>
     <exprreq message="Command 3+ required"><![CDATA[#abilfinal[discdept01] >= 3]]></exprreq>
     </thing>
-  <thing id="talSupervi" name="Supervisor" description="The ship’s Crew Support increases by one. This increase is\ncumlative if multiple Main Characters in the group select it,\nbut each Main Character may only select this Talent once." compset="Talent" uniqueness="useronce">
+  <thing id="talSupervi" name="Supervisor" description="The ship’s Crew Support increases by one. This increase is cumlative if multiple Main Characters in the group select it, but each Main Character may only select this Talent once." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Command"/>
     <exprreq message="Main Character required">hero.tagis[CharType.typMain] = 1</exprreq>
     </thing>
-  <thing id="talFlyBy" name="Fly-By" description="Whenever you use the Swift Task Momentum Spend, you do\nnot increase the Difficulty of the second Task if one of the\nTasks you attempt is to pilot a vessel or vehicle." compset="Talent" uniqueness="useronce">
+  <thing id="talFlyBy" name="Fly-By" description="Whenever you use the Swift Task Momentum Spend, you do not increase the Difficulty of the second Task if one of the Tasks you attempt is to pilot a vessel or vehicle." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Conn"/>
     <exprreq message="Conn 3+ required"><![CDATA[#abilfinal[discdept02] >= 2]]></exprreq>
     </thing>
-  <thing id="talPrecEva" name="Precise Evasion" description="Whenever you succeed at the Evasive Action Task, you\nmay spend two Momentum. If you do, the ship does not\nsuffer the increased Difficulty for attacks normally caused by\nEvasive Action." compset="Talent" uniqueness="useronce">
+  <thing id="talPrecEva" name="Precise Evasion" description="Whenever you succeed at the Evasive Action Task, you may spend two Momentum. If you do, the ship does not suffer the increased Difficulty for attacks normally caused by Evasive Action." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Conn"/>
     <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
     </thing>
-  <thing id="talPushLim" name="Push The Limits" description="When you attempt a Conn Task that has increased in\nDifficulty due to environmental conditions or damage to the\nengines, reduce the Difficulty by 1, to a minimum of 1." compset="Talent" uniqueness="useronce">
+  <thing id="talPushLim" name="Push The Limits" description="When you attempt a Conn Task that has increased in Difficulty due to environmental conditions or damage to the engines, reduce the Difficulty by 1, to a minimum of 1." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Conn"/>
     <exprreq message="Conn 4+ required"><![CDATA[#abilfinal[discdept02] >= 4]]></exprreq>
     </thing>
-  <thing id="talStarExp" name="Starship Expert" description="Whenever you succeed at a Conn Task to identify a type\nof starship, or to try and understand an unknown form of\nStarship, you gain one bonus Momentum, which may only be\nused on the Obtain Information Momentum Spend, or to pay\npart of the cost of the Create Advantage Momentum Spend\n(where the Advantage must represent some form of known or observed weakness in the ship being studied)." compset="Talent" uniqueness="useronce">
+  <thing id="talStarExp" name="Starship Expert" description="Whenever you succeed at a Conn Task to identify a type of starship, or to try and understand an unknown form of Starship, you gain one bonus Momentum, which may only be used on the Obtain Information Momentum Spend, or to pay part of the cost of the Create Advantage Momentum Spend (where the Advantage must represent some form of known or observed weakness in the ship being studied)." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -355,14 +355,14 @@ field[usrCandid1].text &= tempStr]]></eval>
     <tag group="TalentCat" tag="Engineer"/>
     <exprreq message="Engineering 3+ required"><![CDATA[#abilfinal[discdept04] >= 3]]></exprreq>
     </thing>
-  <thing id="talIKMShip" name="I Know My Ship" description="Whenever you attempt a Task to determine the source of a\ntechnical problem with your ship, add one bonus d20." compset="Talent" uniqueness="useronce">
+  <thing id="talIKMShip" name="I Know My Ship" description="Whenever you attempt a Task to determine the source of a technical problem with your ship, add one bonus d20." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Engineer"/>
     <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
     </thing>
-  <thing id="talITNTime" name="In The Nick Of Time" description="Whenever you succeed at an Engineering or Science Task\nas part of an Extended Task, you score 1 additional Work for\nevery Effect rolled." compset="Talent" uniqueness="useronce">
+  <thing id="talITNTime" name="In The Nick Of Time" description="Whenever you succeed at an Engineering or Science Task as part of an Extended Task, you score 1 additional Work for every Effect rolled." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -373,7 +373,7 @@ field[usrCandid1].text &= tempStr]]></eval>
 validif (#abilfinal[discdept05]   >= 3)]]></validate>
       </prereq>
     </thing>
-  <thing id="talIntScru" name="Intense Scrutiny" description="Whenever you succeed at a Task using Reason or Control\nas part of an Extended Task, you may ignore up to two\nResistance for every Effect rolled." compset="Talent" uniqueness="useronce">
+  <thing id="talIntScru" name="Intense Scrutiny" description="Whenever you succeed at a Task using Reason or Control as part of an Extended Task, you may ignore up to two Resistance for every Effect rolled." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -384,21 +384,21 @@ validif (#abilfinal[discdept05]   >= 3)]]></validate>
 validif (#abilfinal[discdept05]   >= 3)]]></validate>
       </prereq>
     </thing>
-  <thing id="talJuryRig" name="Jury-Rig" description="Whenever you attempt an Engineering Task to perform\nrepairs, you may reduce the Difficulty by two, to a minimum\nof 0. If you do this, however, then the repairs are only\ntemporary and will last only a single scene, plus one\nadditional scene per Momentum spent (Repeatable) before\nthey fail again. Jury-rigged repairs can only be applied once,\nand the Difficulty to repair a device that has been Jury-rigged\nincreases by 1." compset="Talent" uniqueness="useronce">
+  <thing id="talJuryRig" name="Jury-Rig" description="Whenever you attempt an Engineering Task to perform repairs, you may reduce the Difficulty by two, to a minimum of 0. If you do this, however, then the repairs are only temporary and will last only a single scene, plus one additional scene per Momentum spent (Repeatable) before they fail again. Jury-rigged repairs can only be applied once, and the Difficulty to repair a device that has been Jury-rigged increases by 1." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Engineer"/>
     <exprreq message="Engineering 4+ required"><![CDATA[#abilfinal[discdept04] >= 4]]></exprreq>
     </thing>
-  <thing id="talClosPro" name="Close Protection" description="When you make a successful Attack, you may spend one\nMomentum to protect a single ally within Close range. The\nnext Attack against that ally before the start of your next turn\nincreases in Difficulty by 1." compset="Talent" uniqueness="useronce">
+  <thing id="talClosPro" name="Close Protection" description="When you make a successful Attack, you may spend one Momentum to protect a single ally within Close range. The next Attack against that ally before the start of your next turn increases in Difficulty by 1." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
     <exprreq message="Security 4+ required"><![CDATA[#abilfinal[discdept03] >= 4]]></exprreq>
     </thing>
-  <thing id="talInterro" name="Interrogation" description="When you succeed at a Task to coerce someone to reveal\ninformation in a social conflict, you will gain one bonus\nMomentum, which may only be spent on the Obtain\nInformation Momentum Spend." compset="Talent" uniqueness="useronce">
+  <thing id="talInterro" name="Interrogation" description="When you succeed at a Task to coerce someone to reveal information in a social conflict, you will gain one bonus Momentum, which may only be spent on the Obtain Information Momentum Spend." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -413,61 +413,61 @@ validif (#abilfinal[discdept05]   >= 3)]]></validate>
     <eval phase="Setup" priority="1000">~add Vicious 1 to Unarmed Strike
 perform hero.childfound[wpUnarmed].assign[DmgEffect.Vicious1]</eval>
     </thing>
-  <thing id="talPacTac" name="Pack Tactics" description="Whenever you assist another character during combat, the\ncharacter you assisted gains one bonus Momentum if they\nsucceed." compset="Talent" uniqueness="useronce">
+  <thing id="talPacTac" name="Pack Tactics" description="Whenever you assist another character during combat, the character you assisted gains one bonus Momentum if they succeed." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
     </thing>
-  <thing id="talQuiAct" name="Quick To Action" description="During the first round of any combat, you and your allies may\nignore the normal cost to Retain the Initiative." compset="Talent" uniqueness="useronce">
+  <thing id="talQuiAct" name="Quick To Action" description="During the first round of any combat, you and your allies may ignore the normal cost to Retain the Initiative." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
     <exprreq message="Security 3+ required"><![CDATA[#abilfinal[discdept03] >= 3]]></exprreq>
     </thing>
-  <thing id="talDocOrd" name="Doctor&apos;s Orders" description="When you attempt a Task to coordinate others, or to coerce\nsomeone into taking or refraining from a specific course\nof action, you may use your Medicine Discipline instead of\nCommand." compset="Talent" uniqueness="useronce">
+  <thing id="talDocOrd" name="Doctor&apos;s Orders" description="When you attempt a Task to coordinate others, or to coerce someone into taking or refraining from a specific course of action, you may use your Medicine Discipline instead of Command." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
     <exprreq message="Medicine 4+ required"><![CDATA[#abilfinal[discdept06] >= 4]]></exprreq>
     </thing>
-  <thing id="talFldMed" name="Field Medicine" description="When attempting a Medicine Task, you may ignore any\nincrease in Difficulty for working without the proper tools or\nequipment." compset="Talent" uniqueness="useronce">
+  <thing id="talFldMed" name="Field Medicine" description="When attempting a Medicine Task, you may ignore any increase in Difficulty for working without the proper tools or equipment." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
     </thing>
-  <thing id="talFirstRe" name="First Response" description="When you attempt the Treatment Task during combat, you\ngain a bonus d20. Further, you may always Succeed at a\nCost, with each Complication you suffer adding +1 to the\nDifficulty of healing the patient’s Injury subsequently." compset="Talent" uniqueness="useronce">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="TalentCat" tag="Medicine"/>
-    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
-    </thing>
-  <thing id="talQuiStud" name="Quick Study" description="When attempting a Task that will involve an unfamiliar\nmedical procedure, or which is to treat an unfamiliar\nspecies, ignore any Difficulty increase stemming from your\nunfamiliarity." compset="Talent" uniqueness="useronce">
+  <thing id="talFirstRe" name="First Response" description="When you attempt the Treatment Task during combat, you gain a bonus d20. Further, you may always Succeed at a Cost, with each Complication you suffer adding +1 to the Difficulty of healing the patient’s Injury subsequently." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
     <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
     </thing>
-  <thing id="talTriage" name="Triage" description="When you attempt a Task to identify specific injuries or\nillnesses, or to determine the severity of a patient’s condition,\nyou may spend one Momentum (Repeatable) to diagnose\none additional patient." compset="Talent" uniqueness="useronce">
+  <thing id="talQuiStud" name="Quick Study" description="When attempting a Task that will involve an unfamiliar medical procedure, or which is to treat an unfamiliar species, ignore any Difficulty increase stemming from your unfamiliarity." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Medicine"/>
     <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
     </thing>
-  <thing id="talCompExp" name="Computer Expertise" description="Whenever you attempt a Task that involves the programming\nor study of a computer system, you may add a bonus d20 to\nyour pool." compset="Talent" uniqueness="useronce">
+  <thing id="talTriage" name="Triage" description="When you attempt a Task to identify specific injuries or illnesses, or to determine the severity of a patient’s condition, you may spend one Momentum (Repeatable) to diagnose one additional patient." compset="Talent" uniqueness="useronce">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#abilfinal[discdept06] >= 3]]></exprreq>
+    </thing>
+  <thing id="talCompExp" name="Computer Expertise" description="Whenever you attempt a Task that involves the programming or study of a computer system, you may add a bonus d20 to your pool." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Science"/>
     <exprreq message="Science 2+ required"><![CDATA[#abilfinal[discdept05] >= 2]]></exprreq>
     </thing>
-  <thing id="talTestThe" name="Testing A Theory" description="When you attempt a Task using Engineering or Science, you\nmay roll one additional d20, so long as you succeeded at a\nprevious Task covering the same scientific or technological\nfield earlier in the same adventure." compset="Talent" uniqueness="useronce">
+  <thing id="talTestThe" name="Testing A Theory" description="When you attempt a Task using Engineering or Science, you may roll one additional d20, so long as you succeeded at a previous Task covering the same scientific or technological field earlier in the same adventure." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>

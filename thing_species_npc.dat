@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
 
-  <thing id="trRomulan" name="Romulan" description="Romulan physiology is not meaningfully different\nto that of Vulcans, though a portion of the Romulan species\nexhibits a v-shaped forehead ridge not evident in Vulcans. \nThe largest difference is that Romulans lack the intense mental discipline common to Vulcans. Psychologically and culturally, Romulans prize cunning and strength of will, and are distrustful of other species: this opinion is reciprocated, as Romulans have a reputation for manipulation, deception, and betrayal." compset="Trait">
+  <thing id="trRomulan" name="Romulan" description="Romulan physiology is not meaningfully different to that of Vulcans, though a portion of the Romulan species exhibits a v-shaped forehead ridge not evident in Vulcans.  The largest difference is that Romulans lack the intense mental discipline common to Vulcans. Psychologically and culturally, Romulans prize cunning and strength of will, and are distrustful of other species: this opinion is reciprocated, as Romulans have a reputation for manipulation, deception, and betrayal." compset="Trait">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -18,12 +18,12 @@
     <tag group="SpeciesBon" tag="attrsys03"/>
     <bootstrap thing="trRomulan"></bootstrap>
     </thing>
-  <thing id="trBorg" name="Borg" description="Borg are extremely strong and resilient, owing to their technologically-enhanced physiology. They lack self-determination and intuition, relying on directives and protocols from the Collective, and the gestalt consciousness\nof countless other Borg drones." compset="Trait">
+  <thing id="trBorg" name="Borg" description="Borg are extremely strong and resilient, owing to their technologically-enhanced physiology. They lack self-determination and intuition, relying on directives and protocols from the Collective, and the gestalt consciousness of countless other Borg drones." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcBorg"/>
     </thing>
-  <thing id="spcBorg" name="Borg" description="Borg is not something that a person is born to, but rather\nsomething that they are forced to become — though for infants and children assimilated by the Collective, they may have little or no memory of any other life. The Borg meld biology with technology, and a drone will have countless implants, the result of both invasive surgery and aggressive nanotechnology. As of 2371, only a single individual has ever been removed from the Borg Collective — Jean-Luc Picard, who was captured only days earlier, meaning that his implants were less extensive than those of someone assimilated years or decades before. Borg NPCs are all mixed-species characters — their original species, and their new reality as part of the Collective.\n{i}EXAMPLE VALUE: The Drive for Exploration{/i}\n\n{b}ATTRIBUTES:{/b} +1 to three different attributes.\n\n{b}TRAIT:{/b} Borg." compset="Species" uniqueness="unique">
+  <thing id="spcBorg" name="Borg" description="Borg is not something that a person is born to, but rather something that they are forced to become — though for infants and children assimilated by the Collective, they may have little or no memory of any other life. The Borg meld biology with technology, and a drone will have countless implants, the result of both invasive surgery and aggressive nanotechnology. As of 2371, only a single individual has ever been removed from the Borg Collective — Jean-Luc Picard, who was captured only days earlier, meaning that his implants were less extensive than those of someone assimilated years or decades before. Borg NPCs are all mixed-species characters — their original species, and their new reality as part of the Collective.\n{i}EXAMPLE VALUE: The Drive for Exploration{/i}\n\n{b}ATTRIBUTES:{/b} +1 to three different attributes.\n\n{b}TRAIT:{/b} Borg." compset="Species" uniqueness="unique">
     <fieldval field="usrLabel4" value="+1 to Attribute:"/>
     <fieldval field="usrCandid4" value="component.AttrSys"/>
     <fieldval field="usrSource4" value="1"/>
@@ -62,7 +62,7 @@
 		endif]]></eval>
     </thing>
 
-  <thing id="trCardassi" name="Cardassian" description="Cardassians possess extraordinary mental\ndiscipline, and commonly have photographic memories, the\nresult of intense training during childhood. They are intolerant\nof cold environments, but quite comfortable at higher\ntemperatures. Cardassian hearing is slightly less acute than\nthat of Humans, and they are uncomfortable in bright light.\nCardassians have a negative reputation amongst many Alpha\nQuadrant cultures, particularly Bajorans, whose homeworld\nthey occupied for decades." compset="Trait">
+  <thing id="trCardassi" name="Cardassian" description="Cardassians possess extraordinary mental discipline, and commonly have photographic memories, the result of intense training during childhood. They are intolerant of cold environments, but quite comfortable at higher temperatures. Cardassian hearing is slightly less acute than that of Humans, and they are uncomfortable in bright light. Cardassians have a negative reputation amongst many Alpha Quadrant cultures, particularly Bajorans, whose homeworld they occupied for decades." compset="Trait">
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcCardas"/>
     </thing>
@@ -82,12 +82,12 @@
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcJemHadar"/>
     </thing>
-  <thing id="trVorta" name="Vorta" description="Vorta have extremely keen hearing, but relatively poor eyesight. They are immune to most forms of\npoison. Vorta are absolutely loyal to the Dominion, revering\nthe Founders as living gods. Those who encounter the Vorta\noften regard them as insincere or manipulative." compset="Trait">
+  <thing id="trVorta" name="Vorta" description="Vorta have extremely keen hearing, but relatively poor eyesight. They are immune to most forms of poison. Vorta are absolutely loyal to the Dominion, revering the Founders as living gods. Those who encounter the Vorta often regard them as insincere or manipulative." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcVorta"/>
     </thing>
-  <thing id="spcVorta" name="Vorta" description="The Vorta are genetically-engineered life-forms, created to\nserve as advisors, scientists, diplomats, and overseers for the\nDominion, acting as the Founders’ closest servants and foremost\nrepresentatives. Vorta are cloned, in batches of identical beings,\nwith a new clone being activated and placed into service upon\nthe death of a predecessor, receiving the memories of those that\ncame before them, though each clone is nevertheless a distinct\nindividual. Vorta are extremely cunning and clever, but have\nlittle creativity or sense of aesthetics.\n\n{i}EXAMPLE VALUE: The Founders know best. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Ferengi." compset="Species" uniqueness="unique">
+  <thing id="spcVorta" name="Vorta" description="The Vorta are genetically-engineered life-forms, created to serve as advisors, scientists, diplomats, and overseers for the Dominion, acting as the Founders’ closest servants and foremost representatives. Vorta are cloned, in batches of identical beings, with a new clone being activated and placed into service upon the death of a predecessor, receiving the memories of those that came before them, though each clone is nevertheless a distinct individual. Vorta are extremely cunning and clever, but have little creativity or sense of aesthetics.\n\n{i}EXAMPLE VALUE: The Founders know best. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Ferengi." compset="Species" uniqueness="unique">
     <usesource source="TNG"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
@@ -95,7 +95,7 @@
     <tag group="SpecCat" tag="NPC"/>
     <bootstrap thing="trVorta"></bootstrap>
     </thing>
-  <thing id="spcJemHadar" name="Jem&apos;Hadar" description="The Jem’Hadar are genetically-engineered life-forms, created to\nserve as the military of the Dominion. Bred in birthing chambers,\nrather than born naturally, they grow to maturity in three days,\ndeveloping complex reasoning and language skills within a day\nof birth. Once mature, they do not eat, drink, or sleep, taking all\nnourishment from the drug ketracel-white, often simply known as\n“the white,” which is distributed to them by their Vorta overseer\nas a means of ensuring loyalty. Few Jem’Hadar live for longer\nthan fifteen years due simply to battlefield casualties, with those\nliving to twenty being regarded as ‘Elders.’\n\n{i}EXAMPLE VALUE: Victory is Life. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Ferengi." compset="Species" uniqueness="unique">
+  <thing id="spcJemHadar" name="Jem&apos;Hadar" description="The Jem’Hadar are genetically-engineered life-forms, created to serve as the military of the Dominion. Bred in birthing chambers, rather than born naturally, they grow to maturity in three days, developing complex reasoning and language skills within a day of birth. Once mature, they do not eat, drink, or sleep, taking all nourishment from the drug ketracel-white, often simply known as “the white,” which is distributed to them by their Vorta overseer as a means of ensuring loyalty. Few Jem’Hadar live for longer than fifteen years due simply to battlefield casualties, with those living to twenty being regarded as ‘Elders.’\n\n{i}EXAMPLE VALUE: Victory is Life. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Ferengi." compset="Species" uniqueness="unique">
     <usesource source="TNG"/>
     <tag group="SpeciesBon" tag="attrsys02"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
