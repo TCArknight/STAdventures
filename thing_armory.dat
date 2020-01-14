@@ -19,7 +19,7 @@
     <tag group="GearCost" tag="Escalat2"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
-  <thing id="wpUnarmed" name="Unarmed Strike" description="Description goes here" compset="Melee" uniqueness="unique" holdable="no">
+  <thing id="wpUnarmed" name="Unarmed Strike" description="While not really equipment, every character has the means to make an unarmed attack, striking with fists, feet, knees, elbows, head, or otherwise using brute force without a weapon. Countless martial arts, such as Klingon mok’bara, Vulcan suus mahna, and Human styles like boxing or aikido, exist to allow individuals to hone their ability to disable foes without weapons." compset="Melee" uniqueness="unique" holdable="no">
     <fieldval field="shortname" value="Unarmed"/>
     <fieldval field="wpDamage" value="1"/>
     <usesource source="ENT"/>
@@ -54,7 +54,7 @@
     <tag group="GearQual" tag="Hidden1"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
-  <thing id="wpPhaser1" name="Phaser Type-1" compset="Ranged">
+  <thing id="wpPhaser1" name="Phaser Type-1" description="Phaser Type-1 is the smallest design of hand phaser, a tiny device a few centimeters long, which is the most widely-used form of phaser distributed to personnel for self-defense." compset="Ranged">
     <fieldval field="wpDamage" value="2"/>
     <fieldval field="wpShort" value="1"/>
     <fieldval field="wpMedium" value="2"/>
@@ -66,104 +66,104 @@
     <tag group="GearQual" tag="Hidden1"/>
     <tag group="GearCost" tag="Standard"/>
     </thing>
-  <thing id="shPhaCan" name="Phaser Cannons" compset="Energy">
+  <thing id="shPhaCan" name="Phaser Cannons" description="" compset="Energy">
     <fieldval field="wpSRange" value="Close"/>
     <tag group="DmgEffect" tag="Versa2"/>
     <tag group="Delivery" tag="Cannons2"/>
     </thing>
-  <thing id="shPhaBan" name="Phaser Banks" compset="Energy">
+  <thing id="shPhaBan" name="Phaser Banks" description="" compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="DmgEffect" tag="Versa2"/>
     <tag group="Delivery" tag="Banks1"/>
     </thing>
-  <thing id="shPhaArr" name="Phaser Arrays" compset="Energy">
+  <thing id="shPhaArr" name="Phaser Arrays" description="" compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="DmgEffect" tag="Versa2"/>
     <tag group="Delivery" tag="Arrays"/>
     </thing>
-  <thing id="shDisrCan" name="Disruptor Cannons" compset="Energy">
+  <thing id="shDisrCan" name="Disruptor Cannons" description="" compset="Energy">
     <fieldval field="wpSRange" value="Close"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="Delivery" tag="Cannons2"/>
     </thing>
-  <thing id="shDisrBan" name="Disruptor Banks" compset="Energy">
+  <thing id="shDisrBan" name="Disruptor Banks" description="" compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="Delivery" tag="Banks1"/>
     </thing>
-  <thing id="shDisrArr" name="Disruptor Arrays" compset="Energy">
+  <thing id="shDisrArr" name="Disruptor Arrays" description="" compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="Delivery" tag="Arrays"/>
     </thing>
-  <thing id="shPolCan" name="Phased Polaron Beam Cannons" compset="Energy">
+  <thing id="shPolCan" name="Phased Polaron Beam Cannons" description="" compset="Energy">
     <fieldval field="wpSRange" value="Close"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="Delivery" tag="Cannons2"/>
     </thing>
-  <thing id="shPolBan" name="Phased Polaron Beam Banks" compset="Energy">
+  <thing id="shPolBan" name="Phased Polaron Beam Banks" description="" compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="Delivery" tag="Banks1"/>
     </thing>
-  <thing id="shPolArr" name="Phased Polaron Beam Arrays" compset="Energy">
+  <thing id="shPolArr" name="Phased Polaron Beam Arrays" description="" compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="Delivery" tag="Arrays"/>
     </thing>
-  <thing id="shTorPho" name="Photon Torpedoes" compset="Energy">
+  <thing id="shTorPho" name="Photon Torpedoes" description="" compset="Energy">
     <fieldval field="wpSRange" value="Long"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
-  <thing id="shTorQua" name="Quantum Torpedoes" compset="Energy">
+  <thing id="shTorQua" name="Quantum Torpedoes" description="" compset="Energy">
     <fieldval field="wpSRange" value="Long"/>
     <tag group="GearQual" tag="Calib"/>
     <tag group="GearQual" tag="HiYield"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     </thing>
-  <thing id="shTorPla" name="Plasma Torpedoes" compset="Energy">
+  <thing id="shTorPla" name="Plasma Torpedoes" description="" compset="Energy">
     <fieldval field="wpSRange" value="Long"/>
     <tag group="GearQual" tag="Calib"/>
     <tag group="DmgEffect" tag="Persist"/>
     </thing>
-  <thing id="shTractor1" name="Tractor Beam" compset="Energy">
+  <thing id="shTractor1" name="Tractor Beam" description="" compset="Energy">
     <fieldval field="wpSRange" value="-"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="Str1"/>
     </thing>
-  <thing id="shTractor2" name="Tractor Beam" compset="Energy">
+  <thing id="shTractor2" name="Tractor Beam" description="" compset="Energy">
     <fieldval field="wpSRange" value="-"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="Str2"/>
     </thing>
-  <thing id="shTractor3" name="Tractor Beam" compset="Energy">
+  <thing id="shTractor3" name="Tractor Beam" description="" compset="Energy">
     <fieldval field="wpSRange" value="-"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="Str3"/>
     </thing>
-  <thing id="shTractor4" name="Tractor Beam" compset="Energy">
+  <thing id="shTractor4" name="Tractor Beam" description="" compset="Energy">
     <fieldval field="wpSRange" value="-"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="Str4"/>
     </thing>
-  <thing id="shTractor5" name="Tractor Beam" compset="Energy">
+  <thing id="shTractor5" name="Tractor Beam" description="" compset="Energy">
     <fieldval field="wpSRange" value="-"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="Str5"/>
     </thing>
-  <thing id="wpBlade" name="Blade" compset="Melee">
+  <thing id="wpBlade" name="Blade" description="Larger blades such as the Klingon mek’leth or various forms of sword, provide more of a symbolic use, but still are used ritually, in sports, or even in real combat, depending on the skill and inclination of the individual." compset="Melee">
     <fieldval field="wpDamage" value="2"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
-  <thing id="wpHvyBlade" name="Heavy Blade" compset="Melee">
+  <thing id="wpHvyBlade" name="Heavy Blade" description="Heavy blades like the bat’leth, kar’takin, and the Vulcan lirpa only see use in heavily ritualized combat or in very limited situations where hand-to-hand combat is almost assured." compset="Melee">
     <fieldval field="wpDamage" value="3"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -173,7 +173,7 @@
     <tag group="GearCost" tag="Escalat1"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
-  <thing id="wpBludgeon" name="Bludgeon" compset="Melee">
+  <thing id="wpBludgeon" name="Bludgeon" description="" compset="Melee">
     <fieldval field="wpDamage" value="2"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -181,7 +181,7 @@
     <tag group="DmgEffect" tag="Knockdown"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
-  <thing id="wpPhaser2" name="Phaser Type-2" compset="Ranged">
+  <thing id="wpPhaser2" name="Phaser Type-2" description="Phaser Type-2 refers to the larger form of hand phaser, carried by security personnel and Starfleet officers going into dangerous environments. Versions used in the 23rd century are a pistol grip attachment that can be fitted to a phaser type-1, with a secondary power cell to increase output. 24th century hand phasers are a distinct design, with a curved ergonomic grip." compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
     <fieldval field="wpShort" value="1"/>
     <fieldval field="wpMedium" value="2"/>
@@ -192,7 +192,7 @@
     <tag group="GearQual" tag="Charge"/>
     <tag group="GearCost" tag="Standard"/>
     </thing>
-  <thing id="wpPhaser3" name="Phaser Type-3 (Phaser Rifle)" compset="Ranged">
+  <thing id="wpPhaser3" name="Phaser Type-3 (Phaser Rifle)" description="Phaser Type-3, or phaser rifles, are higher-powered weapons designed for hazardous situations and combat. In addition to a larger power supply, they have numerous targeting and beam-focusing systems that make them more accurate. They are only issued to properly-trained personnel, and only when necessary." compset="Ranged">
     <fieldval field="shortname" value="Phaser Rifle"/>
     <fieldval field="wpDamage" value="4"/>
     <usesource source="ENT"/>
@@ -204,7 +204,7 @@
     <tag group="GearCost" tag="Escalat2"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
-  <thing id="wpGrenPul" name="Grenade (Pulse)" compset="Ranged">
+  <thing id="wpGrenPul" name="Grenade (Pulse)" description="Pulse Grenades work on a similar principle to hand phasers. The user selects a setting and a countdown timer. When the timer reaches zero, the grenade discharges its power cell at once in all directions. After discharge, the grenade’s components burn out, rendering them inert to prevent them being reused. Pulse grenades cover a number of similar technologies used throughout Starfleet’s history — from the stun grenades used by United Earth MACO forces, to photon grenades employed in the 24th century." compset="Ranged">
     <fieldval field="wpDamage" value="4"/>
     <fieldval field="shortname" value="Pulse Grenade"/>
     <usesource source="ENT"/>
@@ -216,7 +216,7 @@
     <tag group="GearCost" tag="Escalat2"/>
     <tag group="DmgEffect" tag="Area"/>
     </thing>
-  <thing id="wpAndPlaRi" name="Plasma Rifle (Andorian)" compset="Ranged">
+  <thing id="wpAndPlaRi" name="Plasma Rifle (Andorian)" description="Andorian plasma rifles use similar principles to phasers used by Starfleet with a particle beam as the primary effect. What is different is the particle beam is augmented by an encapsulated plasma discharge that always causes thermal damage to a target. This means that Andorian style plasma rifles are unable to cause a stun effect, and at best can knock a humanoid unconscious through pain." compset="Ranged">
     <fieldval field="shortname" value="Andorian Plasma Rifle"/>
     <fieldval field="wpDamage" value="4"/>
     <usesource source="ENT"/>
@@ -228,19 +228,19 @@
     <tag group="GearQual" tag="Deadly"/>
     <tag group="GearCost" tag="NotAvail"/>
     </thing>
-  <thing id="wpPhasePis" name="Phase Pistol" compset="Ranged">
+  <thing id="wpPhasePis" name="Phase Pistol" description="Phase pistols were introduced in 2151 to replace the EM-33 plasma pistol" compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
     <usesource source="ENT"/>
     <tag group="GearCost" tag="Standard"/>
     </thing>
-  <thing id="wpPartRif" name="Particle Rifle" compset="Ranged">
+  <thing id="wpPartRif" name="Particle Rifle" description="Particle rifles and phase pistols were early forms of directed energy weapon used before the development of phasers. The most advanced designs of particle rifle were those produced for United Earth MACO forces in the 22nd century," compset="Ranged">
     <fieldval field="wpDamage" value="4"/>
     <usesource source="ENT"/>
     <tag group="GearQual" tag="Accurate"/>
     <tag group="GearCost" tag="Standard"/>
     <tag group="Equipment" tag="TwoHand"/>
     </thing>
-  <thing id="wpDisrPis" name="Disruptor Pistol" compset="Ranged">
+  <thing id="wpDisrPis" name="Disruptor Pistol" description="Disruptor weapons rely on extremely high energy particle discharges that will burn or boil targets at the lowest settings, and can disintegrate a target if enough energy is applied." compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -248,7 +248,7 @@
     <tag group="GearCost" tag="NotAvail"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     </thing>
-  <thing id="wpDisrRif" name="Disruptor Rifle" compset="Ranged">
+  <thing id="wpDisrRif" name="Disruptor Rifle" description="Disruptor weapons rely on extremely high energy particle discharges that will burn or boil targets at the lowest settings, and can disintegrate a target if enough energy is applied." compset="Ranged">
     <fieldval field="wpDamage" value="4"/>
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -258,7 +258,7 @@
     <tag group="GearQual" tag="Accurate"/>
     <tag group="Equipment" tag="TwoHand"/>
     </thing>
-  <thing id="wpJHPlaPis" name="Plasma Pistol (Jem&apos;Hadar)" compset="Ranged">
+  <thing id="wpJHPlaPis" name="Plasma Pistol (Jem&apos;Hadar)" description="The plasma weapons used by the Dominion’s Jem’Hadar soldiers cause severe burns and death through thermal shock, and incorporate an anticoagulant effect that makes injuries inflicted by them far harder to treat." compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
     <fieldval field="shortname" value="Jem&apos;Hadar Plasma Pistol"/>
     <usesource source="TNG"/>
@@ -266,7 +266,7 @@
     <tag group="GearQual" tag="Debil"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     </thing>
-  <thing id="wpJHPlaRif" name="Plasma Rifle (Jem&apos;Hadar)" compset="Ranged">
+  <thing id="wpJHPlaRif" name="Plasma Rifle (Jem&apos;Hadar)" description="The plasma weapons used by the Dominion’s Jem’Hadar soldiers cause severe burns and death through thermal shock, and incorporate an anticoagulant effect that makes injuries inflicted by them far harder to treat." compset="Ranged">
     <fieldval field="shortname" value="Jem&apos;Hadar Plasma Rifle"/>
     <fieldval field="wpDamage" value="4"/>
     <usesource source="TNG"/>
