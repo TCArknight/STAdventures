@@ -260,23 +260,23 @@
       else
         descript &= field[UserDesc].text
         endif	
+	elseif (field[descript].isempty = 0) then
+      descript &= field[descript].text
+    elseif (tagis[component.AttrSys] <> 0) then
+	  if (field[asDescript].isempty <> 0) then
+		descript &= chr(150) & " no description " & chr(150)
+	  else
+		descript &= field[asDescript].text
+		endif
+	elseif (tagis[component.DiscDept] <> 0) then
+	  if (field[ddDescript].isempty <> 0) then
+		descript &= chr(150) & " no description " & chr(150)
+	  else
+		descript &= field[ddDescript].text
+		endif
 	else
-      if (field[descript].isempty <> 0) then
-	    if (tagis[component.AttrSys] = 1) then
-		  if (field[asDescript].isempty <> 0) then
-		    descript &= chr(150) & " no description " & chr(150)
-		    endif
-	    elseif (tagis[component.DiscDept] = 1) then
-		  if (field[ddDescript].isempty <> 0) then
-		    descript &= chr(150) & " no description " & chr(150)
-		    endif
-		else
-          descript &= chr(150) & " no description " & chr(150)
-		  endif
-      else
-        descript &= field[descript].text
-        endif
-      endif
+      descript &= chr(150) & " no description " & chr(150)
+	  endif
 	  
     ~if this is gear, output any container/containee details
     if (isgear <> 0) then
