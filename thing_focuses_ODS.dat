@@ -20,6 +20,8 @@
     </thing>
   <thing id="foMartialArts" name="Martial Arts" description="In an age where energy weapons are standard issue equipment the dedicated study of hand-to-hand combat has fallen out of favor. Characters with this Focus, however, have dedicated themselves to the mastery of one or more styles of martial arts, making them particularly dangerous opponents. The styles include aikido, karate, krav maga and {i}mok’bara{/i}." compset="Focus">
     <tag group="FocusCat" tag="Security"/>
+    <tag group="User" tag="NeedDomain"/>
+    <tag group="User" tag="NeedDomainOpt"/>
     </thing>
   <thing id="foSmallUnitTactic" name="Small Unit Tactics" description="A small force that is disciplined and well-organized can win in battle even when heavily outnumbered. Characters with this Focus are experts at forming and implementing offensive and defensive tactical plans for a small team." compset="Focus">
     <tag group="FocusCat" tag="Security"/>
