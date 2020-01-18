@@ -47,6 +47,18 @@
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Ship"/>
     </thing>
+  <thing id="talCloakDevice" name="Cloaking Device" description="The ship has a cloaking device, allowing it to vanish from view. Activating the device is a {b}Control + Engineering{/b} Task with a Difficulty of 2, assisted by the ship’s {b}Engines + Security{/b}, performed from the tactical position. This Task has a Power Requirement of 3. If successful, the vessel gains the Cloaked Trait. While Cloaked, the vessel cannot attack, nor can it be the target of an attack unless the attacker has found some way of detecting the cloaked ship. While cloaked, the vessel’s shields are down. It takes a Minor Action to decloak." compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talCloakDevDS9" name="Cloaking Device (DS9)" description="The ship has a cloaking device, allowing it to vanish from view. Activating the device is a {b}Control + Engineering{/b} Task with a Difficulty of 2, assisted by the ship’s {b}Engines + Security{/b}, performed from the tactical position. This Task has a Power Requirement of 3. If successful, the vessel gains the Cloaked Trait. While Cloaked, the vessel cannot attack, nor can it be the target of an attack unless the attacker has found some way of detecting the cloaked ship. While cloaked, the vessel’s shields are down. It takes a Minor Action to decloak. {i}Due to incompatibilities between Romulan and Federation technology, and Federation unfamiliarity with cloaking technology, any Task relating to using the Cloaking Device has +1 Complication range.{/i}" compset="Talent" uniqueness="unique">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
   <thing id="talCmdShip" name="Command Ship" description="The ship has command and control systems allowing it to coordinate easily with allies during a crisis. When a character on the ship succeeds at a Command Task to create an Advantage, they may always be assisted by the ship’s Communications + Command, and they may confer the Advantage to allied ships or away teams with whom the ship maintains a communications link." compset="Talent" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -130,6 +142,10 @@
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <tag group="TalentCat" tag="Ship"/>
+    </thing>
+  <thing id="talIndPhasSupply" name="Independent Phaser Supply" description="The ship’s phasers use an independent power supply, rather than drawing directly from the ship’s other power. Attacking with the ship’s phasers no longer has a Power Requirement. However, the ship may not spend additional Power to boost the effectiveness of an attack with the Phasers." compset="Talent" uniqueness="unique">
+    <usesource source="TOS"/>
     <tag group="TalentCat" tag="Ship"/>
     </thing>
   <thing id="talRFTorp" name="Rapid-Fire Torpedo Launcher" description="The vessel’s torpedo launchers have been redesigned to allow the ship to fire multiple torpedoes much more quickly and accurately. Whenever the crew add 3 to Threat to fire a torpedo salvo, they may re-roll a single d20 on the attack, and any number of on the damage roll." compset="Talent" uniqueness="unique">
