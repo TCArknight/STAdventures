@@ -6,6 +6,10 @@
     </thing>
 	
 
+  <thing id="foCombatTactics" name="Combat Tactics" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
   <thing id="foComputers" name="Computers" description="" compset="Focus">
     <tag group="FocusCat" tag="General"/>
     </thing>
@@ -55,6 +59,10 @@
     </thing>
 	
   <thing id="foSpatialPhen" name="Spatial Phenomena" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foStealth" name="Stealth" description="" compset="Focus">
     <tag group="FocusCat" tag="General"/>
     </thing>
 	
