@@ -47,7 +47,7 @@
     <tag group="SpeciesTrait" tag="spcRigelJelna"/>
     </thing>
 	
-  <thing id="trRisian" name="Risian" description="Risians appear much like Humans, save a  decorative gold emblem in the center of the forehead. They have open and adventurous personalities but also have a great patience with others." compset="Trait" uniqueness="unique">
+  <thing id="trRisian" name="Risian" description="Risians appear much like Humans, save a decorative gold emblem in the center of the forehead. They have open and adventurous personalities but also have a great patience with others." compset="Trait" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
     <tag group="SpeciesTrait" tag="spcRisian"/>

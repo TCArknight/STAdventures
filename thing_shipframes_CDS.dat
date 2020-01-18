@@ -104,7 +104,7 @@
     <bootstrap thing="talPolHuPl"></bootstrap>
     <bootstrap thing="shGrapple2"></bootstrap>
     </thing>
-  <thing id="fraHermes" name="Hermes Class" description="The Hermes-class scout was designed in conjunction with the Constitution class, the Saladin class, and the Ptolemy class. Sharing basic design elements and equipment with its sister classes, the Hermes class was highly successful. The Hermes class shared the same basic saucer-like primary hull and ‘neck’ dorsal as other vessels, that connected to a single warp  nacelle. Internally the design was quite successful in its role as a scout, but the ship’s small size and lack of mission adaptable space in its single hull made the Hermes class fall out of use by the 2280s. Some demilitarized Hermes-class starships were donated to civilian agencies across the Federation and  continued to see use as research vessels for universities into the 24th century." compset="Frame" uniqueness="unique">
+  <thing id="fraHermes" name="Hermes Class" description="The Hermes-class scout was designed in conjunction with the Constitution class, the Saladin class, and the Ptolemy class. Sharing basic design elements and equipment with its sister classes, the Hermes class was highly successful. The Hermes class shared the same basic saucer-like primary hull and ‘neck’ dorsal as other vessels, that connected to a single warp nacelle. Internally the design was quite successful in its role as a scout, but the ship’s small size and lack of mission adaptable space in its single hull made the Hermes class fall out of use by the 2280s. Some demilitarized Hermes-class starships were donated to civilian agencies across the Federation and continued to see use as research vessels for universities into the 24th century." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2242"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="7"/>
@@ -130,13 +130,13 @@
     <usesource source="DivCmd"/>
     <tag group="TalentCat" tag="Ship"/>
     </thing>
-  <thing id="talDedPers" name="Dedicated Personnel" description="Choose a single department. The ship gains two additional\nCrew Support, which may only be used to establish\nSupporting Characters who are part of that department." compset="Talent">
+  <thing id="talDedPers" name="Dedicated Personnel" description="Choose a single department. The ship gains two additional Crew Support, which may only be used to establish Supporting Characters who are part of that department." compset="Talent">
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <usesource source="DivCmd"/>
     <tag group="TalentCat" tag="Ship"/>
     <tag group="ChooseSrc1" tag="Hero"/>
     </thing>
-  <thing id="talHPTract" name="High-Power Tractor Beam" description="The ship’s tractor beam systems channel far greater\nquantities of power and exert much more force on the target.\nThe ship’s tractor beam has a strength two higher than\nnormal. Further, the ship may spend Power whenever a target\nattempts to escape the tractor beam to increase its strength\nfor that attempt; the strength increases by 1 for every two\nPower spent." compset="Talent">
+  <thing id="talHPTract" name="High-Power Tractor Beam" description="The ship’s tractor beam systems channel far greater quantities of power and exert much more force on the target. The ship’s tractor beam has a strength two higher than normal. Further, the ship may spend Power whenever a target attempts to escape the tractor beam to increase its strength for that attempt; the strength increases by 1 for every two Power spent." compset="Talent">
     <usesource source="DivCmd"/>
     <tag group="TalentCat" tag="Ship"/>
     <eval phase="Effects" priority="1000"><![CDATA[var Str as string
@@ -155,7 +155,7 @@ Str = "DmgEffect.Str" & StrVal
 notify Str
 perform focus.assignstr[Str]]]></eval>
     </thing>
-  <thing id="talIndPhaS" name="Independent Phaser Supply" description="Common prior to the 2270s, the ship’s phasers use an\nindependent power supply, rather than drawing directly from\nthe ship’s other power sources. Attacking with the ship’s\nphasers no longer has a Power Requirement. However,\nthe ship may not spend additional Power to boost the\neffectiveness of an attack with the phasers." compset="Talent">
+  <thing id="talIndPhaS" name="Independent Phaser Supply" description="Common prior to the 2270s, the ship’s phasers use an independent power supply, rather than drawing directly from the ship’s other power sources. Attacking with the ship’s phasers no longer has a Power Requirement. However, the ship may not spend additional Power to boost the effectiveness of an attack with the phasers." compset="Talent">
     <usesource source="DivCmd"/>
     <tag group="TalentCat" tag="Ship"/>
     </thing>
@@ -271,7 +271,7 @@ perform focus.assignstr[Str]]]></eval>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTractor4"></bootstrap>
     </thing>
-  <thing id="mpComCom" name="Command &amp; Control" description="The pod contains additional subspace antennae and supplementary computer cores, allowing it to serve as a command vessel for fleet actions. The ship has +1 Communications, +1 Computers, and +1 Command. The ship also has the Command Ship and Electronic Warfare Systems\nTalent." compset="MissionPod">
+  <thing id="mpComCom" name="Command &amp; Control" description="The pod contains additional subspace antennae and supplementary computer cores, allowing it to serve as a command vessel for fleet actions. The ship has +1 Communications, +1 Computers, and +1 Command. The ship also has the Command Ship and Electronic Warfare Systems Talent." compset="MissionPod">
     <usesource source="DivCmd"/>
     <bootstrap thing="talCmdShip"></bootstrap>
     <bootstrap thing="talEWS"></bootstrap>
@@ -368,7 +368,7 @@ hero.child[discdept05].field[abiBonus].value += 1</eval>
     <bootstrap thing="trShipFed"></bootstrap>
     <bootstrap thing="talAdvSenS"></bootstrap>
     </thing>
-  <thing id="fraNorway" name="Norway Class" description="The Advanced Starship Design Bureau at Earth Spacedock designs and produces prototypes every year for Starfleet to consider for active service. One area they \nsaw Starfleet lacking in was rapid emergency responders. Design and production of the {i}Norway{/i}-class starship began in 2369. ASDB gave its design a compact wedge-shaped hull with the engineering section located in the aft portion of the ship. The first two vessels of the class were launched in early 2371, {i}U.S.S. Norway{/i} and {i}U.S.S. Finland{/i}. Both have already responded to emergencies in the core of the Federation and Starfleet has ordered more production runs of this design to be assigned to other dense areas of inhabited worlds." compset="Frame" uniqueness="unique">
+  <thing id="fraNorway" name="Norway Class" description="The Advanced Starship Design Bureau at Earth Spacedock designs and produces prototypes every year for Starfleet to consider for active service. One area they saw Starfleet lacking in was rapid emergency responders. Design and production of the {i}Norway{/i}-class starship began in 2369. ASDB gave its design a compact wedge-shaped hull with the engineering section located in the aft portion of the ship. The first two vessels of the class were launched in early 2371, {i}U.S.S. Norway{/i} and {i}U.S.S. Finland{/i}. Both have already responded to emergencies in the core of the Federation and Starfleet has ordered more production runs of this design to be assigned to other dense areas of inhabited worlds." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2371"/>
     <fieldval field="fraScale" value="4"/>
     <fieldval field="fraComm" value="10"/>
@@ -412,7 +412,7 @@ hero.child[discdept05].field[abiBonus].value += 1</eval>
     <bootstrap thing="talHPTract"></bootstrap>
     <bootstrap thing="talImpImp"></bootstrap>
     </thing>
-  <thing id="fraSovere" name="Sovereign Class" description="The success of the Galaxy-class starship wasn’t lost on Starfleet or the Federation as a whole. While there were notable losses of the class, the large size and survivability of the class made them influential on starship designers already hard at work building the next major Federation explorer. The Sovereign class began development in 2368 after Starfleet Command felt that starships probing deep space would need to be better\nequipped to handle hostile and more technologically advanced races such as the Borg. The new design gained greater importance after the discovery of the Bajoran wormhole in 2369 and the discovery of damage to spacetime caused by standard warp drive systems. The first of the new vessels, U.S.S. Sovereign NX/NCC-73811, is expected to enter full service in late 2371." compset="Frame" uniqueness="unique">
+  <thing id="fraSovere" name="Sovereign Class" description="The success of the Galaxy-class starship wasn’t lost on Starfleet or the Federation as a whole. While there were notable losses of the class, the large size and survivability of the class made them influential on starship designers already hard at work building the next major Federation explorer. The Sovereign class began development in 2368 after Starfleet Command felt that starships probing deep space would need to be better equipped to handle hostile and more technologically advanced races such as the Borg. The new design gained greater importance after the discovery of the Bajoran wormhole in 2369 and the discovery of damage to spacetime caused by standard warp drive systems. The first of the new vessels, U.S.S. Sovereign NX/NCC-73811, is expected to enter full service in late 2371." compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2370"/>
     <fieldval field="fraScale" value="6"/>
     <fieldval field="fraComm" value="10"/>
@@ -604,7 +604,7 @@ hero.child[discdept05].field[abiBonus].value += 1</eval>
     <bootstrap thing="shTorPho"></bootstrap>
     <bootstrap thing="shTorQuantSing"></bootstrap>
     </thing>
-  <thing id="fraFedAttackFtr" name="Federation Attack Fighter" description="vessel also built by them. Given the unimaginative name of \n&amp;quot;Attack Fighter&amp;quot;, many of its crews nicknamed them after the Andorian riding animal, &amp;quot;Zabathu.&amp;quot;" compset="Frame" uniqueness="unique">
+  <thing id="fraFedAttackFtr" name="Federation Attack Fighter" description="vessel also built by them. Given the unimaginative name of  &amp;quot;Attack Fighter&amp;quot;, many of its crews nicknamed them after the Andorian riding animal, &amp;quot;Zabathu.&amp;quot;" compset="Frame" uniqueness="unique">
     <fieldval field="fraYearEnt" value="2367"/>
     <fieldval field="fraScale" value="2"/>
     <fieldval field="fraCrewSize" value="1 or 2"/>

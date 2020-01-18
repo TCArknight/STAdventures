@@ -15,6 +15,7 @@
     isunique="yes"
     description="">
     <fieldval field="ddDiscDesc" value="Command covers a wide range of interpersonal interactions, especially leadership, negotiation, and both coordinating and motivating others. It also includes discipline and resisting coercion, as well as helping others resist fear and panic."/>
+    <fieldval field="ddDeptDesc" value="Command is the professionalism and organization of the ship’s crew, and its chain of command. It also represents how well the ship represents the virtues and nature of its culture, and conveys those things to both allies and outsiders, which can be valuable in diplomatic situations."/>
     <tag group="DiscName" tag="Command"/>
     <tag group="DiscAbbrev" tag="Com"/>
     <tag group="DeptName" tag="Command"/>
@@ -30,6 +31,7 @@
     isunique="yes"
     description="">
     <fieldval field="ddDiscDesc" value="A character’s ability at the Conn covers piloting craft of all sizes, from ground vehicles and shuttles, to grand starships. It also includes navigation — both on the ground and in space — and an understanding of starship operations, including the procedures and cultures of space travel and exploration."/>
+    <fieldval field="ddDeptDesc" value="Conn is the quality of the ship’s flight control and astronavigation systems, as well as the expertise of its flight crews and the maintenance personnel responsible for maintaining those systems."/>
     <tag group="DiscName" tag="Conn"/>
     <tag group="DiscAbbrev" tag="Con"/>
     <tag group="DeptName" tag="Conn"/>
@@ -45,6 +47,7 @@
     isunique="yes"
     description="">
     <fieldval field="ddDiscDesc" value="Security is the use of force during combat — making attacks, essentially — as well as observing and analyzing threatening situations and watching for potential perils. It also encompasses interrogation and intimidation, stealth and infiltration, as well as an in-depth knowledge of weaponry, combat styles, and strategy. It also covers survival skills and athleticism."/>
+    <fieldval field="ddDeptDesc" value="Security represents the skill, training, and numbers of the ship’s security personnel, as well as other on-board security systems such as containment fields, and the refinement and calibration of tactical systems."/>
     <tag group="DiscName" tag="Security"/>
     <tag group="DiscAbbrev" tag="Sec"/>
     <tag group="DeptName" tag="Security"/>
@@ -60,6 +63,7 @@
     isunique="yes"
     description="">
     <fieldval field="ddDiscDesc" value="Engineering covers inventing, understanding, designing, repairing, and maintaining technology, as well as using any technology not specifically covered by another Discipline."/>
+    <fieldval field="ddDeptDesc" value="Engineering represents the quality and quantity of the ship’s engineering and other technical personnel, as well as the tools and facilities they work with."/>
     <tag group="DiscName" tag="Engineer"/>
     <tag group="DiscAbbrev" tag="Eng"/>
     <tag group="DeptName" tag="Engineer"/>
@@ -75,6 +79,7 @@
     isunique="yes"
     description="">
     <fieldval field="ddDiscDesc" value="Science is the understanding of numerous fields of scientific study, both on a theoretical level, and in terms of their practical applications. This does not just cover 'hard' sciences like physics, chemistry, and biology, but also social sciences like anthropology. It also covers the application of the scientific method to situations."/>
+    <fieldval field="ddDeptDesc" value="Science represents the scientific personnel aboard the ship, their laboratories, their analytical facilities, and the other tools and systems available for analyzing data and studying the unknown."/>
     <tag group="DiscName" tag="Science"/>
     <tag group="DiscAbbrev" tag="Sci"/>
     <tag group="DeptName" tag="Science"/>
@@ -90,6 +95,7 @@
     isunique="yes"
     description="">
     <fieldval field="ddDiscDesc" value="Medicine is the understanding of the physical and mental makeup of life-forms, including a knowledge of ailments and diseases that might befall them, the injuries and stresses they can suffer, and the methods for treating those maladies in a wide range of species."/>
+    <fieldval field="ddDeptDesc" value="Medicine represents the ship’s medical facilities (sickbay, and laboratories), as well as the personnel — doctors, nurses, lab technicians, orderlies — who work there. Most of the uses of Medicine are internal to the ship — making use of the facilities in the ship’s sickbay — rather than able to be projected outwards."/>
     <tag group="DiscName" tag="Medicine"/>
     <tag group="DiscAbbrev" tag="Med"/>
     <tag group="DeptName" tag="Medicine"/>

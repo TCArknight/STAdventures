@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="wpClawStrike" name="Claw Strike" description="In times of danger Chelons excrete a contact toxin onto their\nclaws that can be used to debilitate foes." compset="Melee" uniqueness="unique" holdable="no">
+  <thing id="wpClawStrike" name="Claw Strike" description="In times of danger Chelons excrete a contact toxin onto their claws that can be used to debilitate foes." compset="Melee" uniqueness="unique" holdable="no">
     <fieldval field="wpDamage" value="1"/>
     <usesource source="QuadBeta"/>
     <tag group="Equipment" tag="Natural"/>

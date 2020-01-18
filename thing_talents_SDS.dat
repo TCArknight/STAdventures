@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="talBafflingBrief" name="Baffling Briefing" description="When the character engages in a Social Conflict using\ndeception, the character may use Science in place of\nCommand so long as their technical knowledge is used to\nmislead their opponent." compset="Talent">
+  <thing id="talBafflingBrief" name="Baffling Briefing" description="When the character engages in a Social Conflict using deception, the character may use Science in place of Command so long as their technical knowledge is used to mislead their opponent." compset="Talent">
     <usesource source="DivSci"/>
     <tag group="TalentCat" tag="Science"/>
     <exprreq message="Presence 9+ required"><![CDATA[#abilfinal[attrsys05] >= 9]]></exprreq>
     <exprreq message="Science 3+ required."><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
     </thing>
-  <thing id="talDedicatedFoc" name="Dedicated Focus" description="When this Talent is taken, choose a Focus your character\nhas. When attempting a Task where that Focus applies,\neach d20 that generates 2 successes also generates\n1 bonus Momentum. This Talent only applies to d20s\nin the character’s dice pool, and does not apply to\nd20s added due to equipment, starship assistance, or\ncharacter assistance." compset="Talent">
+  <thing id="talDedicatedFoc" name="Dedicated Focus" description="When this Talent is taken, choose a Focus your character has. When attempting a Task where that Focus applies, each d20 that generates 2 successes also generates 1 bonus Momentum. This Talent only applies to d20s in the character’s dice pool, and does not apply to d20s added due to equipment, starship assistance, or character assistance." compset="Talent">
     <fieldval field="usrLabel1" value="Focus"/>
     <fieldval field="usrCandid1" value="component.Focus"/>
     <usesource source="DivSci"/>

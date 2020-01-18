@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+
+  <thing id="foAnthropology" name="Anthropology" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+
+  <thing id="foComputers" name="Computers" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foElecPlasPow" name="Electro-Plasma Power Systems" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foEspionage" name="Espionage" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foExotectonics" name="Exo-tectonics" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foGenetics" name="Genetics" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foGeology" name="Geology" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foInfectDis" name="Infectious Diseases" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foInfiltration" name="Infiltration" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foInterrogation" name="Interrogation" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foPersuasion" name="Persuasion" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foPhysics" name="Physics" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foShipTact" name="Shipboard Tactical Systems" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foSpatialPhen" name="Spatial Phenomena" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foTraumaSurgery" name="Trauma Surgery" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foVirology" name="Virology" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foWarpFieldDyn" name="Warp Field Dynamics" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  <thing id="foXenobiology" name="Xenobiology" description="" compset="Focus">
+    <tag group="FocusCat" tag="General"/>
+    </thing>
+	
+  </document>

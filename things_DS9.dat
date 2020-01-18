@@ -24,7 +24,7 @@
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcChange"/>
     </thing>
-  <thing id="trFerengi" name="Ferengi" description="Ferengi physiology does not lend itself to physical activity, nor does their culture value such hardship, though they have a high resistance to many common diseases.\n\nFerengi have exceptionally keen hearing, and highly-sensitive\nears, though this also means that intense sounds (and physical force applied to the ears) can inflict debilitating pain. Their unusual brain structure means that telepaths cannot read Ferengi minds. Culturally, Ferengi are acquisitive, regarding the accumulation of wealth as the highest virtue, and while this has given them a reputation as cunning negotiators, they are also often seen as duplicitous and manipulative as well." compset="Trait">
+  <thing id="trFerengi" name="Ferengi" description="Ferengi physiology does not lend itself to physical activity, nor does their culture value such hardship, though they have a high resistance to many common diseases.\n\nFerengi have exceptionally keen hearing, and highly-sensitive ears, though this also means that intense sounds (and physical force applied to the ears) can inflict debilitating pain. Their unusual brain structure means that telepaths cannot read Ferengi minds. Culturally, Ferengi are acquisitive, regarding the accumulation of wealth as the highest virtue, and while this has given them a reputation as cunning negotiators, they are also often seen as duplicitous and manipulative as well." compset="Trait">
     <tag group="TraitCat" tag="Race"/>
     <tag group="SpeciesTrait" tag="spcFerengi"/>
     </thing>

@@ -81,7 +81,7 @@
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Klingon Only"><![CDATA[#isspecies[spcKlingon] <> 0]]></exprreq>
     </thing>
-  <thing id="talRuustai" name="R&apos;uustai" description="This Klingon has lit candles, spoken words to honor their parents, and given their house’s sash to another, joining in a fellowship with another person, and becoming members of the same house (the original house of either party). The R’uustai Talent grants a Klingon an additional Value, which must reflect their relationship with the ritual sibling. In addition, whenever the Klingon assists, or is assisted by another, the character\noffering assistance may re-roll their die." compset="Talent">
+  <thing id="talRuustai" name="R&apos;uustai" description="This Klingon has lit candles, spoken words to honor their parents, and given their house’s sash to another, joining in a fellowship with another person, and becoming members of the same house (the original house of either party). The R’uustai Talent grants a Klingon an additional Value, which must reflect their relationship with the ritual sibling. In addition, whenever the Klingon assists, or is assisted by another, the character offering assistance may re-roll their die." compset="Talent">
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
     <bootstrap thing="foCustom">
@@ -106,12 +106,12 @@
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Deltan required."><![CDATA[#isspecies[spcDeltan] <> 0]]></exprreq>
     </thing>
-  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another  character the Bolian may use their Presence Attribute instead of their own. Further, both the Bolian and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent">
+  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another character the Bolian may use their Presence Attribute instead of their own. Further, both the Bolian and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent">
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>
     </thing>
-  <thing id="talBornNearWarpC" name="Born Near A Warp Core" description="Bolian traditions say that a child born near an active Warp Core has an improved, more positive, disposition. Optimism and an upbeat attitude certainly lends credence to this tradition, allowing the Bolian to weather misfortune. When they suffer a Complication from a Task, roll 1 A; if the result is an Effect, the\nComplication is ignored. Once a Complication has been ignored\nin this way, the Bolian may not ignore another Complication for\nthe remainder of the scene." compset="Talent">
+  <thing id="talBornNearWarpC" name="Born Near A Warp Core" description="Bolian traditions say that a child born near an active Warp Core has an improved, more positive, disposition. Optimism and an upbeat attitude certainly lends credence to this tradition, allowing the Bolian to weather misfortune. When they suffer a Complication from a Task, roll 1 A; if the result is an Effect, the Complication is ignored. Once a Complication has been ignored in this way, the Bolian may not ignore another Complication for the remainder of the scene." compset="Talent">
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>
