@@ -68,9 +68,9 @@
   <!-- Ability slot resource to track the pool of ability slots being spent -->
   <thing
     id="resTalent"
-    name="Ability Slots"
+    name="Talent Slots"
     compset="Resource">
-    <fieldval field="resObject" value="Ability"/>
+    <fieldval field="resObject" value="Talent"/>
 
     <!-- Automatically add the resource to every actor -->
     <tag group="Helper" tag="Bootstrap"/>
@@ -97,6 +97,16 @@
 
       field[resMax].value = herofield[acStartAtt].value
       ]]></eval>
+	  
+    <!-- If we're not a main or supporting character, we don't 
+         need to spend this resource -->
+    <eval index="2" phase="Setup" priority="1000"><![CDATA[
+      ~if we're not a Main or Supporting character, assign Helper.NoMinimum tag.
+	  if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0) then
+	    perform assign[Helper.NoMinimum]
+		endif
+	  
+      ]]></eval>
     </thing>
 	
   <!-- Ability slot resource to track the pool of ability slots being spent -->
@@ -114,6 +124,16 @@
 	  field[livename].text = herofield[acDDHdrTxt].text & " Slots"
 		
       field[resMax].value = herofield[acStartDis].value
+      ]]></eval>
+	  
+    <!-- If we're not a main or supporting character, we don't 
+         need to spend this resource -->
+    <eval index="2" phase="Setup" priority="1000"><![CDATA[
+      ~if we're not a Main or Supporting character, assign Helper.NoMinimum tag.
+	  if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0) then
+	    perform assign[Helper.NoMinimum]
+		endif
+	  
       ]]></eval>
     </thing>
 	
@@ -305,7 +325,7 @@
     id="trkDetermination"
     name="Determination"
     compset="Tracker"
-    description="Player Characters begin each session with a single point of Determination, and no character can have more than three points of Determination at any time. Using and gaining Determination is tied to a characterâ€™s Values, and to the Directives in play during a mission.">
+    description="Player Characters begin each session with a single point of Determination, and no character can have more than three points of Determination at any time. Using and gaining Determination is tied to a character’s Values, and to the Directives in play during a mission.">
 
     <!-- Automatically add the tracker to every actor -->
     <tag group="Helper" tag="Bootstrap"/>

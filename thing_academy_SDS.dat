@@ -24,6 +24,7 @@
     <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept04"/>
     <fieldval field="usrSource3" value="1"/>
     <usesource source="DivSci"/>
+	<tag group="IsDivision" tag="Science"/>
 	<tag group="User" tag="NoAutoName"/>
 	<bootstrap thing="vaCustom">
 	  <assignval field="UserName" value="Starfleet Academy - University Alumni"/>
@@ -47,6 +48,7 @@
     <fieldval field="usrCandid3" value="component.DiscDept &amp; thingid.discdept06"/>
     <fieldval field="usrSource3" value="1"/>
     <usesource source="DivSci"/>
+	<tag group="IsDivision" tag="Science"/>
 	<tag group="User" tag="NoAutoName"/>
 	<bootstrap thing="vaCustom">
 	  <assignval field="UserName" value="Starfleet Academy - Research Intern"/>

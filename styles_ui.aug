@@ -29,7 +29,7 @@
   <resource
     id="fntlarge">
     <font
-      face="Arial"
+      face="CourierNew"
       size="44"
       style="bold">
       </font>
@@ -264,15 +264,24 @@
       </border>
     </resource>
 
-  <!-- bitmap for use as the background of label portals designated as a "title" -->
+  <!-- bitmap for use as the background of label portals designated as a "title" 
+
   <resource
     id="titleback"
     isbuiltin="yes">
     <bitmap
       bitmap="mainwindow.bmp">
       </bitmap>
+    </resource> -->
+	
+  <resource
+    id="titleback"
+	issystem="no"
+    isbuiltin="no">
+    <bitmap
+      bitmap="panel_title.bmp">
+      </bitmap>
     </resource>
-
 
 <!--
         ##########  General Color Definitions  ##########

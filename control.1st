@@ -210,7 +210,17 @@
     sortorder="3"
     description="Options from the DS9 Characters supplement.">
     </source>
-	
+
+  <source
+    id="CharacterVoy"
+    name="Voyager Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="4"
+    description="Options from the Voyager Characters supplement.">
+    </source>	
   <source
     id="Era"
     name="Campaign Era"

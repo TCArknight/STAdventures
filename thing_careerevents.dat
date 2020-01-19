@@ -186,7 +186,7 @@
     <eval index="1" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       #abilbonus[attrsys06] += 1
-	  #abilbonus[discdept02] += 1
+	  #abilbonus[discdept01] += 1
       ]]></eval>
 	</thing>
 

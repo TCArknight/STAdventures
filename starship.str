@@ -105,6 +105,13 @@
       type="derived"
       maxlength="50">
       </field>
+
+    <field
+      id="shipClassShort"
+      name="Class"
+      type="derived"
+      maxlength="50">
+      </field>
 	  
     <field
       id="shipOver"
@@ -148,6 +155,38 @@
       maxlength="250">
       </field>
 	  
+    <!-- Year Frame Entered Service -->
+    <field
+      id="shipSerSumm"
+      name="Service Summary"
+      type="derived"
+	  maxlength="50">
+      </field>
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="shipDetails"
+      name="Ship Detail Text"
+      type="user"
+      maxlength="10000">
+      </field>
+	  
+    <!-- Affiliation -->
+    <field
+      id="shipAffil"
+      name="Affiliation"
+      maxlength="50"
+      type="user">
+      </field>
+
+    <!-- Role -->
+    <field
+      id="shipProfile"
+      name="Mission Profile"
+      maxlength="50"
+      type="derived">
+      </field>
+	  
     <creation><![CDATA[
       ~custom items need to pick a name
       if (tagis[Helper.CustomItem] <> 0) then
@@ -175,7 +214,20 @@
       field[shipCrewSumm].text = mySumm
 
       ]]></eval>
-	  
+
+    <eval index="2" phase="Setup" priority="5000"><![CDATA[
+	  ~ fill out the Mission Profile if one has been selected
+      if (hero.tagis[HasProfile.?] <> 0) then
+        field[shipProfile].text = hero.findchild[Profile].field[name].text
+        endif
+		
+      ~ Assign a tag if the user hasn't specified any background text
+      if (field[shipDetails].isempty <> 0) then
+        perform assign[Helper.NoDetailText]
+        endif
+      ]]></eval>
+
+  
     </component>
 
   <!-- Frame component
@@ -365,12 +417,15 @@
     <eval index="3" phase="Setup" priority="5000"><![CDATA[
 	  trustme
 	  var txt as string
+	  var shortname as string
+	  var shortlen as number
+	  
 	  txt = field[fraYearRet].text
 	  
 	  field[fraSerSumm].text = field[fraYearEnt].text
 	  
       if (empty(txt) = 0) then
-	    field[fraSerSumm].text &= " (Retired from service: " & field[fraYearRet].text & ")"
+	    field[fraSerSumm].text &= " (Retired: " & field[fraYearRet].text & ")"
 		endif
 
       foreach pick in hero where "component.ShipInfo"
@@ -378,15 +433,21 @@
 		eachpick.field[shipCrew].value = field[fraScale].value
 		
 		eachpick.field[shipClass].text = field[name].text
+		
+		shortlen = length(field[name].text) - 6
+		shortname = mid(field[name].text, 0, shortlen)
+		eachpick.field[shipClassShort].text = shortname
+		
 		eachpick.field[shipOver].text = field[descript].text
 		eachpick.field[shipCap].text = field[fraCap].text
 		eachpick.field[shipServ].text = field[fraSerSumm].text
 		eachpick.field[shipCrewSize].text = field[fraCrewSize].text
 		eachpick.field[shipCrewRating].text = field[fraCrewRating].text
+		eachpick.field[shipSerSumm].text = field[fraSerSumm].text
 		
 		nexteach
 
-		perform forward[Ship.?]
+	  perform forward[Ship.?]
 		
 	  
       ]]></eval>
@@ -454,7 +515,7 @@
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Profile"/>
     <identity group="HasProfile"/>
-
+	
     <!-- Track the race on the actor by assigning the appropriate tags -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Profile.?]
@@ -479,6 +540,19 @@
 	    endif
 	  
       ]]></eval>
+
+    <!-- Report a validation error if no selection has been made for a lifepath selection -->
+    <evalrule index="1" phase="Validate" priority="10000" message="Not enough Mission Profile Talents" summary="Select Talent for Mission Profile!"><![CDATA[
+      ~if we're not using the starship creation, we're good.
+	  validif (hero.tagis[ShowTab.Starship] = 0)
+	  
+	  ~we're good if we have chosen a mission profile talent
+	  validif (hero.tagis[Profile.Talent] <> 0)
+	  
+      ~mark profile tab as invalid
+      container.panelvalid[profile] = 0
+	  
+      ]]></evalrule>
 	  
 	  </component>
 	  

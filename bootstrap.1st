@@ -70,5 +70,7 @@
   <!-- And a single journal entry -->
   <autoadd thing="journal" portal="journal"/>
 
+  <!-- default to a Main character -->
+  <autoadd thing="typMain"  portal="cnfType"/> 
 
   </document>

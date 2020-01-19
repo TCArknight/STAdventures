@@ -99,4 +99,16 @@
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Ship"/>
     </thing>
+  <thing
+    id="trShipCustom"
+    name="== Custom Trait =="
+    compset="Trait"
+    isunique="no"
+    description="Description here.">
+	<fieldval field="UserName" value="Custom Trait"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="User" tag="NameRep"/>
+    <tag group="User" tag="NeedDomain"/>
+    <tag group="TraitCat" tag="ShipCustom"/>
+    </thing>
   </document>

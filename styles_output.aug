@@ -9,7 +9,7 @@
 <document signature="Hero Lab Structure">
 
 <!-- ##### Output Resources ##### -->
-
+	
   <!-- font used on normal text -->
   <resource
     id="ofntnormal">
@@ -50,6 +50,16 @@
       </font>
     </resource>
 
+  <!-- font used on colossal text -->
+  <resource
+    id="ofntsuper">
+    <font
+      face="Arial"
+      size="100"
+      style="bold">
+      </font>
+    </resource>
+	
   <!-- font used on smaller text -->
   <resource
     id="ofntsmall">
@@ -99,6 +109,16 @@
     </resource>
 
 
+  <!-- LCARS font used on title text -->
+  <resource
+    id="ofnttitleAD">
+    <font
+      face="Arial"
+      size="40"
+      style="bold">
+      </font>
+    </resource>
+	
 <!-- ##### Output Styles ##### -->
 
   <!-- replace the default style for titles with our own for output -->
@@ -121,7 +141,7 @@
       alignment="left">
       </style_output>
     </style>
-
+	
   <!-- simple left-aligned text for output -->
   <style
     id="outRight"
@@ -132,7 +152,7 @@
       alignment="right">
       </style_output>
     </style>
-	
+
   <!-- simple text for output -->
   <style
     id="outNormal">
@@ -166,6 +186,18 @@
       </style_output>
     </style>
 
+  <!-- hero name text for output 
+      filled in background: backcolor="dddddd"
+	  -->
+  <style
+    id="outShipName">
+    <style_output
+      textcolor="000000"
+      font="ofntsuper"
+      alignment="center">
+      </style_output>
+    </style>
+	
   <!-- solid border for use around character images -->
   <style
     id="outCharImg"
@@ -331,5 +363,41 @@
       font="ofntvalid">
       </style_output>
     </style>
+
+
+  <!-- LCARS Title text for output -->
+  <style
+    id="outTitleAD">
+    <style_output
+      textcolor="FFFFFF"
+      backcolor="FF9C00"
+      font="ofnttitle"
+      alignment="center">
+      </style_output>
+    </style>
+
+  <!-- LCARS left-aligned text for output -->
+  <style
+    id="outRightAD"
+	border="solid">
+    <style_output
+      textcolor="FFFFFF"
+	  backcolor="6460CC"
+      font="ofntsmall"
+      alignment="right">
+      </style_output>
+    </style>
+
+  <!-- box outlining centered value for output -->
+  <style
+    id="outValBoxAD"
+    border="solid">
+    <style_output
+      textcolor="FFFFFF"
+	  backcolor="6460CC"
+      font="ofntnormal"
+      alignment="center">
+      </style_output>
+    </style>	
 
   </document>

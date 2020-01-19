@@ -38,10 +38,12 @@
     <value id="NoMinBound"/>  <!-- Tracker user value is not bounded at the minimum end -->
     <value id="NoMinimum"/>   <!-- Resource does NOT need to be fully spent to avoid reporting a warning -->
     <value id="CustomItem"/>  <!-- Identifies a thing that has a user customizable name -->
-    <value id="NoPersText"/>  <!-- User entered no background text -->
+    <value id="NoPersText"/>  <!-- User entered no background text for hero -->
+    <value id="NoDetailText"/><!-- User entered no detail text for ship -->
     <value id="NotUserSel"/>  <!-- Item not user selectable -->
     <value id="UserUnlock"/>  <!-- Unlock user adjustment of Attributes, Disciplines, etc. -->
     <value id="NoCost"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
+    <value id="UserDesc"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -563,6 +565,7 @@
     id="TraitCat"
     sequence="explicit">
     <value id="Custom" order="5"/>
+    <value id="ShipCustom" order="5"/>
     <value id="Ship" order="10"/>
     <value id="Race" order="10"/>
     <value id="Main" order="20"/>
@@ -691,7 +694,22 @@
   -->
   <group
     id="CreateMethod">
-    <value id="Lifepath"/>    <!-- Identifies weapons and armor that are equipped -->
+    <value id="Lifepath"/>    <!-- Lifepath method of character creation -->
+    </group>
+
+  <group
+    id="Profile"
+    dynamic="yes">
+    <value id="Talent"/>    <!-- Indicates talent selected for Mission Profile -->
+    </group>
+	
+  <!-- IsDivision group -->
+  <group
+    id="IsDivision"
+    dynamic="no">
+    <value id="Command"/>
+    <value id="Operations"/>
+    <value id="Science"/>
     </group>
 	
    </document>

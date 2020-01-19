@@ -29,19 +29,23 @@
     style="outHeroNam">
     <output_label>
       <labeltext><![CDATA[
+	  	var txt as string
 	    var role as string
 	    var assign as string
-	    var txt as string
-	
+		var division as string
+
 	    txt = ""
 		role = ""
 		assign = ""
+		division = ""
 		
 		txt = hero.findchild[Service].field[serRank].text
 	    role = hero.findchild[Service].field[serRole].text
 	    assign = hero.findchild[Service].field[serAssign].text
 	
 		if (empty(txt) = 0) then
+		  call GetDivisionColor
+		  @text &= division
 		  @text &= txt & " "
 		  endif
 
@@ -97,10 +101,11 @@
   <!-- oTraitsSingle portal - traits of the actor -->
   <portal
     id="oTraitsSingle"
-    style="outLeft">
+    style="outPlainLt">
     <output_label>
       <labeltext><![CDATA[
 	    var temp as string
+		var division as string
 	    var ismore as number
 		
 		temp = ""
@@ -114,8 +119,10 @@
 	  
           ismore = 1
           nexteach
-	  
-		@text &= "{b}Traits: {/b}" & temp
+	    
+	    call GetDivisionColor
+		@text &= division
+		@text &= "{b}Traits: {/b}{text 000000}" & temp
 		
         ]]></labeltext>
       </output_label>
@@ -128,6 +135,7 @@
     <output_label>
       <labeltext><![CDATA[
 	    var temp as string
+		var division as string
 	    var ismore as number
 		
 		temp = ""
@@ -135,8 +143,10 @@
 		foreach pick in hero from Value
 	      temp &= "{br}" & chr(149) & " " & eachpick.field[name].text
           nexteach
-	  
-		@text &= "{b}Values: {/b}" & temp
+
+	    call GetDivisionColor
+		@text &= division
+		@text &= "{b}Values: {/b}{text 000000}" & temp
 		
         ]]></labeltext>
       </output_label>
@@ -149,9 +159,12 @@
     <output_label>
       <labeltext><![CDATA[
 	    var temp as string
+		var division as string
 	    var ismore as number
 		
 		temp = ""
+		division = ""
+		
 		ismore = 0
 		foreach pick in hero from Focus
 		  if (ismore <> 0) then
@@ -163,7 +176,10 @@
           ismore = 1
           nexteach
 	  
-		@text &= "{b}Focuses: {/b}" & temp
+	    call GetDivisionColor
+		@text = division
+		@text &= "{b}Focuses: {/b}{text 000000}" & temp
+
 		
         ]]></labeltext>
       </output_label>
@@ -176,6 +192,7 @@
     <output_label>
       <labeltext><![CDATA[
 	    var temp as string
+		var division as string
 	    var ismore as number
 		
 		temp = ""
@@ -190,7 +207,9 @@
           ismore = 1
           nexteach
 	  
-		@text &= "{b}Determination: {/b}(Start with 1) {font Wingdings}{size 60}" & chr(168) & "{horz 3}" & chr(168) & "{horz 3}" & chr(168) & "{revert}"
+	    call GetDivisionColor
+		@text &= division
+		@text &= "{b}Determination: {/b}{text 000000}(Start with 1) {font Wingdings}{size 46}" & chr(168) & "{horz 3}" & chr(168) & "{horz 3}" & chr(168) & "{revert}"
 		
         ]]></labeltext>
       </output_label>
@@ -203,10 +222,11 @@
     <output_label>
       <labeltext><![CDATA[
 	    var temp as string
+		var division as string
 	    var stress as number
 		var i as number
 		
-		temp = "{font Wingdings}{size 60}"
+		temp = "{font Wingdings}{size 46}"
 		stress = #stressmax[]
 		
 		for i = 1 to stress
@@ -214,8 +234,12 @@
           next
 	  
 	    temp &= "{revert}"
-		
-		@text &= "{b}Stress: {/b} " & temp 
+
+        call GetDivisionColor
+		  
+		@text &= division
+		  
+		@text &= "{b}Stress: {/b}{text 000000}" & temp 
         ]]></labeltext>
       </output_label>
     </portal>	
@@ -231,6 +255,8 @@
     <output_label>
       <labeltext><![CDATA[
 	    var temp as string
+		var division as string
+
 	    var ismore as number
 		
 		temp = ""
@@ -244,8 +270,11 @@
 	  
           ismore = 1
           nexteach
-	  
-		@text &= "{b}Equipment: {/b}" & temp
+        
+		call GetDivisionColor
+		  
+		@text &= division
+		@text &= "{b}Equipment: {/b}{text 000000}{br}" & temp
 		
         ]]></labeltext>
       </output_label>
@@ -274,7 +303,11 @@
     style="outLeft">
     <output_label>
         <labeltext><![CDATA[
-          @text = "{b}Attacks:{/b}"
+		  var division as string
+          call GetDivisionColor
+		  
+		  @text &= division
+          @text &= "{b}Attacks:{/b}{text 000000}"
           ]]></labeltext>
       </output_label>
     </portal>
@@ -287,7 +320,7 @@
     style="outNormal">
     <output_table
       component="Talent"
-      showtemplate="oAbilPick"
+      showtemplate="oAbilPickSingle"
 	  varyheight="yes">
       <list><![CDATA[
         ]]></list>
@@ -299,7 +332,11 @@
     style="outLeft">
     <output_label>
         <labeltext><![CDATA[
-          @text = "{b}Talents:{/b}"
+		  var division as string
+          call GetDivisionColor
+		  
+		  @text &= division
+          @text &= "{b}Talents:{/b}{text 000000}"
           ]]></labeltext>
       </output_label>
     </portal>
@@ -310,10 +347,53 @@
     style="outLeft">
     <output_label>
       <labeltext><![CDATA[
-		@text &= "{b}Resistance: {/b} " & #resistance[]
+		var division as string
+        call GetDivisionColor
+		  
+		@text &= division
+		@text &= "{b}Resistance: {/b}{text 000000}" & #resistance[]
         ]]></labeltext>
       </output_label>
     </portal>
+
+  <!-- oAbilPickSingle template
+        This template presents the Special Abilities, consisting of the prominent
+        name and the summary text in small letters next to it. We use a small margin
+        for vertical spacing between abilities.
+  -->
+  <template
+    id="oAbilPickSingle"
+    name="Output Talents Table"
+    compset="Talent"
+    marginvert="2">
+
+    <portal
+      id="details"
+      style="outLeft">
+      <output_label
+	    ismultiline="yes">
+        <labeltext><![CDATA[
+		  var division as string
+		  
+		  call GetDivisionColor
+		  @text &= division
+          @text &= "{b}" & field[name].text & ":{/b}{text 000000} " & field[outSummary].text
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <position><![CDATA[
+      ~our details width spans the entire template width
+      portal[details].width = width
+
+      ~limit our portal height to a single line of output
+      ~ portal[details].lineheight = 1
+	  perform portal[details].autoheight
+
+      ~our height is the height of our portal
+      height = portal[details].bottom
+      ]]></position>
+    </template>
 	
   <!-- oGearPick template
         This template presents the basic gear possessed. Gear that is in quantities
@@ -328,7 +408,7 @@
 
     <portal
       id="bullet"
-      style="outLeft">
+      style="outPlain">
       <output_label>
         <labeltext><![CDATA[
           @text = chr(149)
@@ -338,7 +418,7 @@
 
     <portal
       id="summary"
-      style="outLeft">
+      style="outPlainLt">
       <output_label
 	    ismultiline="yes">
         <labeltext><![CDATA[
