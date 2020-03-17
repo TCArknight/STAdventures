@@ -3,7 +3,7 @@ Known Issues:
 
 History:
 v1.9
-Release: xx/xx/20
+Release: 03/17/20
 Fixed - 
 No descriptions showing for Talents and other items
 Artistic And Creative Upbringing - correctly adds +2/+1 to Presence/Insight instead of the reverse

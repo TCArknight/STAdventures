@@ -316,7 +316,7 @@
   <resource
     id="clrtitle">
     <color
-      color="c0c0c0">
+      color="FFC300">
       </color>
     </resource>
 

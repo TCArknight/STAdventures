@@ -20,7 +20,7 @@
   -->
   <portal
     id="baAttrib"
-    style="tblInvis">
+    style="tblOuter">
     <table_fixed
       component="AttrSys"
       showtemplate="baAttrPick"
@@ -43,7 +43,7 @@
   -->
   <portal
     id="baDiscip"
-    style="tblInvis">
+    style="tblOuter">
     <table_fixed
       component="DiscDept"
       showtemplate="baDisPick"
@@ -61,7 +61,7 @@
   <!-- baFocus portal -->
   <portal
     id="baFocus"
-    style="tblNormal">
+    style="tblOuter">
     <table_dynamic
       component="Focus"
       showtemplate="baFocPick"

@@ -141,7 +141,6 @@
     parent="Quadrants"
     default="no"
     reportable="no"
-    selectable="yes"
     sortorder="1"
     description="Options from the Alpha Quadrant sourcebook.">
     </source>
@@ -162,14 +161,13 @@
     parent="Quadrants"
     default="no"
     reportable="no"
-    selectable="no"
     sortorder="3"
     description="Options from the Gamma Quadrant sourcebook.">
     </source>
 	
   <source
     id="QuadDelta"
-    name="Beta Quadrant Sourcebook"
+    name="Delta Quadrant Sourcebook"
     parent="Quadrants"
     default="no"
     selectable="no"
