@@ -23,6 +23,7 @@
     <fieldval field="usrLabel3" value="Minor Study:"/>
     <fieldval field="usrCandid3" value="component.DiscDept"/>
     <fieldval field="usrSource3" value="1"/>
+    <tag group="IsDivision" tag="Command"/>
     <tag group="User" tag="NoAutoName"/>
 	<bootstrap thing="vaCustom">
 	  <assignval field="UserName" value="Starfleet Academy - Command Track"/>
@@ -44,6 +45,7 @@
     <fieldval field="usrLabel3" value="Minor Study:"/>
     <fieldval field="usrCandid3" value="component.DiscDept"/>
     <fieldval field="usrSource3" value="1"/>
+    <tag group="IsDivision" tag="Operations"/>
 	<tag group="User" tag="NoAutoName"/>
 	<bootstrap thing="vaCustom">
 	  <assignval field="UserName" value="Starfleet Academy - Operations Track"/>
@@ -66,6 +68,7 @@
     <fieldval field="usrCandid3" value="component.DiscDept"/>
     <fieldval field="usrSource3" value="1"/>
     <tag group="User" tag="NoAutoName"/>
+    <tag group="IsDivision" tag="Science"/>
 	<bootstrap thing="vaCustom">
 	  <assignval field="UserName" value="Starfleet Academy - Sciences Track"/>
 	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect some aspect of the character’s beliefs that developed during their time at the Academy."/>

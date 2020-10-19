@@ -410,6 +410,10 @@
 	  ~If not a Ship Talent, then no need for the MisProTal.? tag
 	  if (tagis[TalentCat.Ship] <> 1) then
 	    perform delete[MisProTal.?]
+	  else
+	    ~ if we're a ship talent, we may have been chosen from the Mission Profile. 
+		~ forward that to the hero for validation
+	    perform forward[Profile.Talent]
 	    endif
       ]]></eval>
 
@@ -726,6 +730,7 @@
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Academy.?]
       perform forward[HasAcademy.?]
+      perform forward[IsDivision.?]
       ]]></eval>
 
 	<!-- Each skill point that is allocated by the user costs 1 slot -->

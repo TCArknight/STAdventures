@@ -61,7 +61,30 @@
     <alliance>
       </alliance>
     </portal>
-
+	
+  <!-- cnfTypeportal
+        Displays a menu that allows the user to select what type of hero is being created.
+  -->
+  
+  <portal id="cnfType" 
+	style="chsNormal" 
+	width="150">
+	<chooser_table 
+	  component="CharType" 
+	  choosetemplate="SimpleItem">
+	  <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text ff0000}Select Char Type"
+        else
+          @text = field[name].text
+          endif 
+		]]>
+		</chosen>
+      <titlebar>
+        @text = "Choose your character type"
+        </titlebar>
+      </chooser_table>
+    </portal>
 
   <!-- cnfName template
         This template is used to display and edit the name of the actor and player.
@@ -138,7 +161,7 @@
         </menu_things>
       </portal> -->
 	  
-	<portal id="menutype" 
+	<portal id="menuType" 
 	  style="chsNormal" 
 	  width="150">
 	  <chooser_table 
@@ -201,7 +224,7 @@
       width = 185
 
       ~position the type menu at the top
-      portal[menutype].width = width
+      portal[menuType].width = width
 
       ~position the resources title just under it
       ~perform portal[label].centerhorz
@@ -216,7 +239,7 @@
 
       ~set the height of the template based on the extent of the portals
       ~Note: Include a little extra space at the bottom for borders and such.
-      height = portal[menutype].bottom + 3
+      height = portal[menuType].bottom + 3
 	  
 	  ~hide non-essential portals
 	  portal[lblcash].visible = 0
@@ -240,7 +263,8 @@
     id="configure">
     <portalref portal="cnfTitle"/>
     <portalref portal="cnfAlly" taborder="80"/>
-    <portalref portal="cnfSummary" taborder="95"/>
+    <portalref portal="cnfSummary" taborder="90"/>
+    <portalref portal="cnfType" taborder="95"/>
     <templateref reference="heroname" template="cnfName" thing="heroname" taborder="10"/>
     <templateref reference="playername" template="cnfName" thing="playername" taborder="20"/>
     <templateref template="cnfStart" thing="actor" taborder="30"/>
@@ -250,8 +274,10 @@
       ~render all templates to generate the appropriate dimensions for each
       perform template[heroname].render
       perform template[playername].render
-      perform template[cnfStart].render
-
+      ~perform template[cnfStart].render
+      
+	  template[cnfStart].visible = 0
+	  
       ~setup a horizontal margin to use
       var horz as number
       horz = 20
@@ -282,13 +308,13 @@
       portal[cnfTitle].width = width
 
       ~position the starting values template beneath the title on the left
-      template[cnfStart].left = (portal[cnfSummary].left - template[cnfStart].width) / 2
-      template[cnfStart].top = template[playername].bottom + 15
+      portal[cnfType].left = (portal[cnfSummary].left - portal[cnfType].width) / 2
+      portal[cnfType].top = template[playername].bottom + 15
 
       ~position the alliance portal beneath the starting values template
-      portal[cnfAlly].left = template[cnfStart].left
-      portal[cnfAlly].width = template[cnfStart].width
-      portal[cnfAlly].top = template[cnfStart].bottom + 10
+      portal[cnfAlly].left = portal[cnfType].left
+      portal[cnfAlly].width = portal[cnfType].width
+      portal[cnfAlly].top = portal[cnfType].bottom + 10
 
       ~our height must encompass the alliance portal and be at least 225 pixels high
       ~Note: Using a minimum height ensures that the displayed list of user-selected

@@ -8,7 +8,27 @@
 -->
 
 <document signature="Hero Lab Data">
-
+  <!-- shImages portal
+        Duplicate of the peImages portal from the Personal tab
+   -->
+  <portal
+    id="shImages"
+    style="tblNormal">
+    <table_auto
+      component="UserImage"
+      showtemplate="peImage"
+      autothing="mscUserImg"
+      allowuserorder="yes"
+      showsortset="_CompSeq_">
+      <headertitle><![CDATA[
+        @text = "Gallery"
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add Another Image"
+        ]]></additem>
+      </table_auto>
+    </portal>
+	
   <!-- shRefit portal -->
   <portal
     id="shRefit"
@@ -160,7 +180,121 @@
       ]]></position>
 
     </template>
+	
+  <template
+    id="shDetails"
+    name="Details"
+    compset="ShipInfo">
 
+    <portal
+      id="lblServiceTitle"
+      style="lblTitle">
+      <label
+        text="Service">
+        </label>
+      </portal>
+  
+    <portal
+      id="lblYear"
+      style="lblNormal">
+      <label
+        text="Current Year:">
+        </label>
+      </portal>
+
+    <portal
+      id="year"
+      style="editNormal">
+      <edit 
+        field="shipYear">
+        </edit>
+      </portal>
+
+    <portal
+      id="lblSumm"
+      style="lblNormal">
+      <label
+        text="Commissioned:">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblServiceSumm"
+      style="lblNormal">
+      <label
+        field="shipSerSumm">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblinfo"
+      style="lblTitle">
+      <label
+        text="Ship Details">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="editNormal">
+      <edit
+        field="shipDetails"
+        ismultiline="yes">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="lblAffil"
+      style="lblNormal">
+      <label
+        text="Affiliation:">
+        </label>
+      </portal>
+
+    <portal
+      id="affil"
+      style="editNormal">
+      <edit
+        field="shipAffil">
+        </edit>
+      </portal>
+	  
+    <position><![CDATA[
+	  ~position the lblinfo to span the full width
+      portal[lblServiceTitle].width = width
+	  portal[lblServiceTitle].left = 0
+	  
+      ~position the lblinfo to span the full width
+      portal[lblinfo].width = width
+
+      ~position the personal details portals beneath the separator bar
+      portal[lblAffil].left = 0
+      perform portal[lblAffil].alignrel[ttob,lblServiceTitle,5]
+	  portal[affil].top = portal[lblAffil].top
+	  portal[affil].left = portal[lblAffil].right + 5
+	  portal[affil].width = width - portal[affil].left
+      portal[lblYear].left = 0
+      perform portal[lblYear].alignrel[ttob,lblAffil,5]
+	  portal[year].top = portal[lblYear].top
+	  portal[year].left = portal[lblYear].right + 5
+	  portal[lblSumm].left = 0
+      perform portal[lblSumm].alignrel[ttob,lblYear,5]
+	  portal[lblServiceSumm].top = portal[lblSumm].top
+	  portal[lblServiceSumm].left = portal[lblSumm].right + 5
+	  
+      ~position the personal details portals beneath the separator bar
+      portal[lblinfo].left = 0
+      perform portal[lblinfo].alignrel[ttob,lblSumm,5]
+	  
+      portal[info].left = portal[lblinfo].left
+      perform portal[info].alignrel[ttob,lblinfo,5]
+      portal[info].width = width
+      portal[info].height = height - portal[info].top - 10
+	  
+      ]]></position>
+
+    </template>
+	
   <layout
     id="shipcreate">
     <portalref portal="hdrFrame" />
@@ -168,6 +302,9 @@
     <portalref portal="shFrame" taborder="10"/>
     <portalref portal="shProfile" taborder="20"/>
     <portalref portal="shRefit" taborder="30"/>
+    <portalref portal="shImages" taborder="40"/>
+    <portalref portal="peAdjust" taborder="50"/>
+    <templateref template="shDetails" thing="mscShip" taborder="35"/>
 
     <!-- This script sizes and positions the layout and its child visual elements. 
 	    <portalref portal="hoFrame" taborder="10"/>
@@ -182,29 +319,55 @@
         portal[shProfile].freeze = 1
         endif
 
+      ~depending on our overall height, allow the permanent adjustments table to
+      ~grow vertically, with a minimum height allowing for at least two items
+      ~Note: We assume a standard height of 460 pixels for the overall tab and grow
+      ~relative to that. We base this height on the minimum size of the HL window.
+      var limit as number
+      limit = 2 + (height - 460) / 40
+      limit = maximum(limit,2)
+      limit = minimum(limit,6)
+      portal[peAdjust].maxrows = limit
+
+      ~position the permanent adjustments table spanning the bottom
+      portal[peAdjust].top = height - portal[peAdjust].height
+      portal[peAdjust].width = width
+	  
+	  ~reserve a width of 185 pixels for the user images table
+      portal[shImages].width = 200
+
+      ~position the images table in the upper right corner
+      portal[shImages].left = width - portal[shImages].width
+      portal[shImages].height = portal[peAdjust].top - portal[shImages].top - 10
+	  
+	  ~allocate the remaining width to the personal details template
+      template[shDetails].width = width - portal[shImages].width - 10
+	  
       ~position and size the table to span the full layout; it will only use the
       ~vertical space that it actually needs
       portal[hdrFrame].top = 0
       portal[hdrFrame].height = 20
-      portal[hdrFrame].width = width
+      portal[hdrFrame].width = width - 210
       
       portal[shFrame].top = portal[hdrFrame].bottom + 5
       portal[shFrame].height = 20
-      portal[shFrame].width = width
+      portal[shFrame].width = portal[hdrFrame].width
 	  
       portal[hdrProfile].top = portal[shFrame].bottom + 10
       portal[hdrProfile].height = 20
-      portal[hdrProfile].width = width
+      portal[hdrProfile].width = portal[hdrFrame].width
       
       portal[shProfile].top = portal[hdrProfile].bottom + 5
       portal[shProfile].height = 20
-      portal[shProfile].width = width
+      portal[shProfile].width = portal[hdrFrame].width
 	  
       portal[shRefit].top = portal[shProfile].bottom + 10
       ~portal[shRefit].height = 20
-      portal[shRefit].width = width
+      portal[shRefit].width = portal[hdrFrame].width
 	  
-	  height = portal[shRefit].bottom + 5
+      ~position the details template between the service template and the adjustment
+	  template[shDetails].top = portal[shRefit].bottom + 10
+      template[shDetails].height = portal[peAdjust].top - template[shDetails].top
 	  
       ]]></position>
 
@@ -212,7 +375,7 @@
 
   <panel
     id="shipcreate"
-    name="Ship Components"
+    name="Ship Details"
     marginhorz="5"
     marginvert="5"
     order="5">

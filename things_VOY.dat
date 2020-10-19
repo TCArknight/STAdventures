@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="trVOYHologram" name="Hologram" description="Holograms can be programmed to any specification,\nthough the nature of their holomatrix means that they are essentially impervious to direct physical harm – they can allow energy and objects to pass through them at will. However, they are unable to go anywhere that lacks holographic emitters that can project their image and forcefields, and those emitters can be damaged even if the holograms themselves cannot. Holograms also tend not to receive much respect or consideration from flesh-and-blood people, who see them as tools at best or annoyances at worst. Holograms may also have a second species trait, reflecting the species they were designed to emulate." compset="Trait">
+    <usesource source="CharacterVoy"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcVOYHologram" name="Hologram" description="Advances in holotechnology and computing in the 2370s allow for the creation of independent, virtually-intelligent holograms, far more sophisticated than the characters who populate holonovels and other recreations. Arguably, the first true example of this occurred accidentally in 2365, with the activation of a holographic James Moriarty, a simulation of a fictional character with a genuine emergent intellect. However, it took years before these advancements could be recreated deliberately. Doctor Lewis Zimmerman made the leaps that led to the creation of the Emergency Medical Hologram and its successors, the first widespread examples of this technology. Self-aware, independent holograms begin to become more common in both Starfleet and civilian contexts, though few of them seem to develop true individuality, and the matter of their legal personhood is hotly disputed in Federation courts.{br}{br}{i}EXAMPLE VALUE: Am I More Than My Programming?{/i}{br}{br}{b}ATTRIBUTES:{/b} +1 to three different attributes.{br}{br}{b}TRAIT:{/b} Hologram." compset="Species" uniqueness="unique">
+    <fieldval field="usrLabel4" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid4" value="component.AttrSys"/>
+    <fieldval field="usrLabel5" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid5" value="component.AttrSys"/>
+    <fieldval field="usrLabel6" value="+1 to Attribute:"/>
+    <fieldval field="usrCandid6" value="component.AttrSys"/>
+    <usesource source="CharacterVoy"/>
+    <tag group="ChooseSrc4" tag="Hero"/>
+    <tag group="ChooseSrc5" tag="Hero"/>
+    <tag group="ChooseSrc6" tag="Hero"/>
+    <tag group="User" tag="NoAutoName"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="trVOYHologram"></bootstrap>
+    <eval phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the +1 modifier to selected attribute
+	  if (field[usrChosen4].ischosen <> 0) then
+        
+		tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen5].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen5].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen5].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen6].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen6].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif]]></eval>
+    </thing>
+  <thing id="talVOYExpProgram" name="Expanded Program" description="Your programming has been expanded considerably, with subroutines and databases covering a wide range of additional subjects and fields of expertise.\n\nYou may select up to two additional Focuses." compset="Talent" summary="You may select up to two additional Focuses.">
+    <usesource source="CharacterVoy"/>
+    <tag group="TalentCat" tag="Racial"/>
+    <eval phase="PreAbility" priority="5000">#resmax[resFocus] += 2</eval>
+    <pickreq thing="spcVOYHologram"/>
+    </thing>
+  <thing id="talVOYMobEmitter" name="Mobile Emitter" description="You have a device that allows you a degree of autonomy from fixed holoemitters. Most of these mobile emitters are bulky, awkward pieces of equipment with a limited amount of power, making them useful only for short periods and emergencies, but the technology is improving. While you have your mobile emitter, you can move freely in places that lack holo-emitters. However, Complications may reflect damage to or problems with the emitter." compset="Talent" summary="You have a device that allows you a degree of autonomy from fixed holoemitters.">
+    <usesource source="CharacterVoy"/>
+    <tag group="TalentCat" tag="Racial"/>
+    </thing>
+  <thing id="trVOYLiberBorg" name="Liberated Borg" description="As they come from so many different species, Liberated Borg have little physically in common with each other. They retain some of the cybernetic implants common to Borg drones, as not all of theses can be safely removed. Their original traits slowly begin to reassert their influence the longer the drone remains free from the collective. Borg are highly resistant to natural diseases, but are weak to electric shocks and exotic radiation. Those with the right implants can survive vacuum and other harsh environments, though they may still be susceptible to influence from the collective, and failing implants can be hazardous to a Liberated Borg’s health. The Liberated Borg do not sleep conventionally, requiring routine access to a Borg regeneration alcove." compset="Trait">
+    <usesource source="CharacterVoy"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="spcVOYLiberBorg" name="Liberated Borg" description="The true power of the Borg comes from the nearly infinite number of drones that have been assimilated into the collective, like slaves of ancient civilizations. Thousands upon thousands of species have been forcibly pressed into service, their individuality stripped away in the most horrific way imaginable. For centuries, these poor souls had no hope of escape, condemned to a life of servitude aboard Borg ships, installations, and planets. Worse, once fully brought into the hive mind, they would seek out and visit the same fate upon anyone and everyone unfortunate enough to cross their path.\n\nBut in the last few decades, more and more drones have been separated from the collective – either intentionally or by some twist of fate. Once removed from the grip of the cacophony of voices speaking as one, the identity of these lucky few can begin to resurface, and they have the opportunity to try and regain the life that was taken from them. Liberated Borg, as they have become known, are as different and distinct from each other as any other individual member of a species. Some want only to return to the simplicity of existence that the collective offers, and will work tirelessly to become one with the Borg again. Others, invigorated by their release, embrace life with exuberant abandon. Regardless of their response to their new-found freedom, all must contend with the difficulties that their new life brings: rehabilitation, reintegration, and reintroduction to life as a solitary individual.\n\n{i}EXAMPLE VALUE: What Does It Mean To Be An Individual?{/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason" compset="Species" uniqueness="unique">
+    <usesource source="CharacterVoy"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <bootstrap thing="trVOYLiberBorg"></bootstrap>
+    <pickreq thing="spcMixedHer"/>
+    </thing>
+  </document>

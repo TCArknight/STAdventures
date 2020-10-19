@@ -20,7 +20,7 @@
   -->
   <portal
     id="baAttrib"
-    style="tblInvis">
+    style="tblOuter">
     <table_fixed
       component="AttrSys"
       showtemplate="baAttrPick"
@@ -43,7 +43,7 @@
   -->
   <portal
     id="baDiscip"
-    style="tblInvis">
+    style="tblOuter">
     <table_fixed
       component="DiscDept"
       showtemplate="baDisPick"
@@ -61,7 +61,7 @@
   <!-- baFocus portal -->
   <portal
     id="baFocus"
-    style="tblNormal">
+    style="tblOuter">
     <table_dynamic
       component="Focus"
       showtemplate="baFocPick"
@@ -112,22 +112,6 @@
     compset="ShipInfo"
     marginhorz="13"
     marginvert="9">
-	  
-    <portal
-      id="lblYear"
-      style="lblNormal">
-      <label
-        text="Current Year:">
-        </label>
-      </portal>
-
-    <portal
-      id="year"
-      style="editNormal">
-      <edit 
-        field="shipYear">
-        </edit>
-      </portal>
 	  
     <portal
       id="lblScale"
@@ -241,17 +225,9 @@
 	  portal[crew].width = 100
 	  portal[lblCrewDetails].width = 100
 	  portal[crewdetails].width = 300
-	  portal[lblYear].width = 100
-	  portal[year].width = 100
-
-      ~position year at the top left
-      portal[lblYear].top = 5
-      portal[lblYear].left = 0
-      perform portal[year].alignrel[ltor,lblYear,10]
-	  portal[year].top = portal[lblYear].top
 	  
       ~position power at the top left
-      portal[lblPower].top = portal[lblYear].bottom + 10
+      portal[lblPower].top = 5
       portal[lblPower].left = 0
 	  
       perform portal[power].alignrel[ltor,lblPower,10]

@@ -30,7 +30,7 @@
     id="fntlarge">
     <font
       face="Arial"
-      size="44"
+      size="46"
       style="bold">
       </font>
     </resource>
@@ -264,15 +264,24 @@
       </border>
     </resource>
 
-  <!-- bitmap for use as the background of label portals designated as a "title" -->
+  <!-- bitmap for use as the background of label portals designated as a "title" 
+
   <resource
     id="titleback"
     isbuiltin="yes">
     <bitmap
       bitmap="mainwindow.bmp">
       </bitmap>
+    </resource> -->
+	
+  <resource
+    id="titleback"
+	issystem="no"
+    isbuiltin="no">
+    <bitmap
+      bitmap="panel_title.bmp">
+      </bitmap>
     </resource>
-
 
 <!--
         ##########  General Color Definitions  ##########
@@ -307,7 +316,7 @@
   <resource
     id="clrtitle">
     <color
-      color="c0c0c0">
+      color="FFC300">
       </color>
     </resource>
 

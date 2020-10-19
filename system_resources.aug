@@ -31,12 +31,12 @@
   <resource
     id="mainwindow"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <bitmap
-      bitmap="mainwindow.bmp">
+      bitmap="background_black.bmp">
       </bitmap>
     </resource>
-
+	
   <!-- color used in conjunction with outer background tile bitmap for determining
         suitable colors for raised/lowered borders
   -->
@@ -44,7 +44,7 @@
     id="refmainwin"
     issystem="yes">
     <color
-      color="173766">
+      color="fcfc00">
       </color>
     </resource>
 
@@ -52,19 +52,20 @@
   <resource
     id="background"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <bitmap
-      bitmap="background.bmp">
+      bitmap="background_black.bmp">
       </bitmap>
-    </resource>
+    </resource> 
 
+	
   <!-- color used in conjunction with interior background tile bitmap for determining suitable colors for raised/lowered borders
   -->
   <resource
     id="refbackgrd"
     issystem="yes">
     <color
-      color="15294e">
+      color="fcfc00">
       </color>
     </resource>
 
@@ -72,11 +73,11 @@
   <resource
     id="staticpan"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <bitmap
-      bitmap="mainwindow.bmp">
+      bitmap="background_form_static.bmp">
       </bitmap>
-    </resource>
+    </resource> 
 
 
   <!-- **********   STANDARD LABEL COLORS   ********** -->
@@ -209,9 +210,9 @@
   <resource
     id="sumbackgrd"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <bitmap
-      bitmap="background.bmp">
+      bitmap="background_black.bmp">
       </bitmap>
     </resource>
 
@@ -244,17 +245,17 @@
   <resource
     id="tabunsel"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <bitmap
-      bitmap="background.bmp">
+      bitmap="background_yellow.bmp">
       </bitmap>
     </resource>
   <resource
     id="tabsel"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <bitmap
-      bitmap="background.bmp">
+      bitmap="background_black.bmp">
       </bitmap>
     </resource>
 
@@ -266,14 +267,21 @@
     id="tabtextsel"
     issystem="yes">
     <color
-      color="f0f0f0">
+      color="fcfc00">
       </color>
     </resource>
-  <resource
+  <!--  <resource
     id="tabtextuns"
     issystem="yes">
     <color
       color="82c8f7">
+      </color>
+    </resource> -->
+  <resource
+    id="tabtextuns"
+    issystem="yes">
+    <color
+      color="000000">
       </color>
     </resource>
   <resource
@@ -1940,7 +1948,7 @@
   <resource
     id="brdtabuns"
     issystem="yes"
-    isbuiltin="yes">
+    isbuiltin="no">
     <border>
       <topleft bitmap="brd_unseltab_topleft.bmp"/>
       <topright bitmap="brd_unseltab_topright.bmp"/>

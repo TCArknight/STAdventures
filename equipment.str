@@ -332,7 +332,7 @@
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
 		else
-		  txt = totD & "{meta bmpfull}{bmp StarTrekArrow}{revert}"
+		  txt = totD & "{size 40}{font TrekArrowheads} A{revert}"
           endif
 		  
 	    tags = tagnames[DmgEffect.?,", "] 
@@ -368,7 +368,7 @@
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
 		else
-	      txt = totD & "{meta bmpfull}{bmp StarTrekArrow}{revert}"
+	      txt = totD & " [CD]"
           endif
 		  
 	    tags = tagnames[DmgEffect.?,", "] 
@@ -416,7 +416,7 @@
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
 		else
-		  txt = totD & "{meta bmpfull}{bmp StarTrekArrow}{revert}"
+		  txt = totD & "{font TrekArrowheads} A{revert}"
           endif
 		
 		mySumm &= txt 

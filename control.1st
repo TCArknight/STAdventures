@@ -141,7 +141,6 @@
     parent="Quadrants"
     default="no"
     reportable="no"
-    selectable="yes"
     sortorder="1"
     description="Options from the Alpha Quadrant sourcebook.">
     </source>
@@ -162,14 +161,13 @@
     parent="Quadrants"
     default="no"
     reportable="no"
-    selectable="no"
     sortorder="3"
     description="Options from the Gamma Quadrant sourcebook.">
     </source>
 	
   <source
     id="QuadDelta"
-    name="Beta Quadrant Sourcebook"
+    name="Delta Quadrant Sourcebook"
     parent="Quadrants"
     default="no"
     selectable="no"
@@ -210,7 +208,17 @@
     sortorder="3"
     description="Options from the DS9 Characters supplement.">
     </source>
-	
+
+  <source
+    id="CharacterVoy"
+    name="Voyager Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="4"
+    description="Options from the Voyager Characters supplement.">
+    </source>	
   <source
     id="Era"
     name="Campaign Era"

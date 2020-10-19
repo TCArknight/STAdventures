@@ -9,6 +9,39 @@
 
 <document signature="Hero Lab Data">
 
+    <portal
+      id="mpTalent"
+      style="tblNormal"
+      width="150">
+      <table_dynamic
+        component="Talent"
+        showtemplate="talPick"
+        choosetemplate="SimpleItem"
+	    choosesortset="TalentSort"
+        showfixedlast="no"
+		candidatepick="ExprHelp"
+	    candidatefield="ehSProExp"
+	    scrollable="no">
+		<list>Profile.Talent</list>
+		<autotag group="Profile" tag="Talent"/>
+        <titlebar><![CDATA[
+          @text = "Add a Talent"
+          ]]></titlebar>
+        <description/>
+        <headertitle><![CDATA[
+          @text = "Mission Profile Talent"
+          ]]></headertitle>
+        <additem><![CDATA[
+          ~if we're in advancement mode, we've been frozen, so display accordingly
+          if (state.iscreate = 0) then
+            @text = "{text clrgrey}Add Talents Via Advances Tab"
+            done
+            endif
+
+          @text &= "Add New Talent"
+          ]]></additem>
+        </table_dynamic>
+    </portal>
 	
   <template
     id="mpProTemp"
@@ -54,7 +87,7 @@
       ]]></position>
 
     </template>
-
+<!--
   <template
     id="mpTalent"
     name="Talents"
@@ -69,9 +102,12 @@
       <chooser_table
         component="Talent"
         choosetemplate="SimpleItem"
-		candidatepick="ExprHelp"
-		candidatefield="ehSProExp">
+		useagentcandidate="yes"
+		candidatefield="usrCandid1">
         <chosen><![CDATA[
+		
+		  ~ candidatepick="ExprHelp"
+		  
           if (@ispick = 0) then
             @text = "{text clrwarning}Select Provided Talent"
           else
@@ -84,6 +120,7 @@
       </chooser_table>
     </portal>
 
+
 	
     <position><![CDATA[
       ~set up our dimensions, with a width that we dictate; our width can vary   
@@ -93,12 +130,12 @@
       portal[mpTalent].top = 0
       portal[mpTalent].left = 0
       portal[mpTalent].width = width	  
-	  
 		
 	]]></position>
 
     </template>	
-	
+-->	
+
   <!-- species layout
         This layout orchestrates the display of the visual elements that comprise
         the Skills tab. This amounts to a title at the top and a dynamic table below
@@ -109,10 +146,11 @@
   -->
   <layout
     id="profile">
+    <portalref portal="mpTalent" />
     <templateref template="mpProTemp" useagent="yes"/>
-    <templateref template="mpTalent" useagent="yes"/>
-
-    <!-- This script sizes and positions the layout and its child visual elements. -->
+    <!-- <templateref template="mpTalent" useagent="yes"/>
+	
+    This script sizes and positions the layout and its child visual elements. -->
     <position><![CDATA[
 
       ~both tables span the full width
@@ -120,10 +158,10 @@
 	  template[mpProTemp].height = height/2
       template[mpProTemp].visible = 1
 
-      template[mpTalent].top = template[mpProTemp].bottom + 30
-      template[mpTalent].width = width
-	  template[mpTalent].height = (height - 10)/2
-      template[mpTalent].visible = 1
+      portal[mpTalent].top = template[mpProTemp].bottom + 30
+      portal[mpTalent].width = width / 2
+	  portal[mpTalent].height = (height - 10)/2
+      portal[mpTalent].visible = 1
 
       ]]></position>
 

@@ -34,8 +34,8 @@
     <tag group="User" tag="NoAutoName"/>
     <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
       if (hero.tagis[Upbringing.Rebel] = 0) then
-	    #abilbonus[attrsys04] += 2
-	    #abilbonus[attrsys05] += 1
+	    #abilbonus[attrsys04] += 1
+	    #abilbonus[attrsys05] += 2
 	  else
 	    #abilbonus[attrsys02] += 1
 	    #abilbonus[attrsys03] += 2

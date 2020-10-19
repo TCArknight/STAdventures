@@ -45,6 +45,263 @@
       </output_label>
     </portal>
 	
+  <!-- oHeroName portal - name of the actor 
+  style="outHeroNam"> -->
+  <portal
+    id="oShipNameSingle"
+    style="outShipName">
+    <output_label>
+      <labeltext><![CDATA[
+	    var affil as string
+		var txt as string
+		
+	    affil = hero.findchild[ShipInfo].field[shipAffil].text
+
+        if (empty(hero.actorname) <> 0) then
+          @text &= "- Unnamed Hero -"
+		else
+		  @text &= hero.actorname
+          endif
+		  
+	    if (empty(affil) <> 0) then
+          txt = ""
+	    else
+	      txt = affil & " Starship"
+          endif
+		
+        if (empty(txt) = 0) then
+		  @text &= "{br}{size 44}" & txt & "{revert}"
+		  endif		
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>	
+
+  <!-- oPersonalSingle portal
+        This is a table in which we output the personal details (background) of the
+        character. We use a table so we can put the info on the first page if there
+        is room and easily spill it onto the second page if not.
+  -->
+  <portal
+    id="oShipDetailSingle"
+    style="outNormal">
+    <output_table
+      component="ShipInfo"
+      showtemplate="oShipDetails"
+      varyheight="yes">
+      <list><![CDATA[
+        !Helper.NoPersText & hero#source.ShowDetail
+        ]]></list>
+      </output_table>
+    </portal>
+
+  <!-- oShipDetails template
+        This template presents the background and personal details for the character.
+  -->
+  <template
+    id="oShipDetails"
+    name="Output Ship Details Table"
+    compset="ShipInfo">
+
+    <portal
+      id="info"
+      style="outPlainLt">
+      <output_label
+        field="shipDetails">
+        </output_label>
+      </portal>
+
+    <position><![CDATA[
+      ~size the name to fit the available space
+      portal[info].width = width
+      perform portal[info].autoheight
+
+      ~our height is the vertical extent of our portal
+      height = portal[info].textheight
+      ]]></position>
+
+    </template>	
+
+  <!-- oShipDetails template
+        This template presents the background and personal details for the character.
+  -->
+  <template
+    id="oShipService"
+    name="Output Ship Service Info"
+    compset="Actor">
+
+    <portal
+      id="class"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipClassShort].text
+
+		@text &= "{b}Class: {/b}" & txt
+		
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="commission"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[Frame].field[fraYearEnt].text
+
+		@text &= "{b}Commissioned: {/b}" & txt
+		
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="profile"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipProfile].text
+
+		@text &= "{b}Mission Profile: {/b}" & txt
+		
+        ]]></labeltext>
+        </output_label>
+      </portal>
+	  
+    <position><![CDATA[
+      ~place class, commissioning date and profile
+      portal[class].width = width
+	  portal[commission].width = portal[class].width
+	  portal[profile].width = portal[class].width
+
+      portal[class].top = 0
+	  portal[class].left = 0
+	  
+	  portal[commission].left = portal[class].left
+      perform portal[commission].alignrel[ttob,class,5]
+	  
+	  portal[profile].left = portal[class].left
+      perform portal[profile].alignrel[ttob,commission,5]
+
+      height = portal[profile].bottom
+      ]]></position>
+
+    </template>
+  <!-- oShipDetails template
+        This template presents the background and personal details for the character.
+  -->
+  <template
+    id="oShipStats"
+    name="Output Ship Stats"
+    compset="Actor">
+
+    <portal
+      id="power"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipPower].text
+
+		@text &= "{b}Power: {/b}" & txt
+		
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="scale"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipScale].text
+
+		@text &= "{b}Scale: {/b}" & txt
+		
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="shields"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipShield].text
+
+		@text &= "{b}Shields: {/b}" & txt
+		
+        ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="resist"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipRes].text
+
+		@text &= "{b}Resistance: {/b}" & txt
+		
+        ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="crew"
+      style="outPlainLt">
+      <output_label>
+	    <labeltext><![CDATA[
+		var txt as string
+		
+	    txt = hero.findchild[ShipInfo].field[shipCrew].text
+
+		@text &= "{b}Crew Support (Total): {/b}" & txt
+		
+        ]]></labeltext>
+        </output_label>
+      </portal>	  
+    <position><![CDATA[
+      ~place class, commissioning date and profile
+      portal[power].width = width / 2
+	  portal[scale].width = portal[power].width
+	  portal[shields].width = portal[power].width
+	  portal[resist].width = portal[power].width
+	  portal[crew].width = portal[power].width
+	  
+      portal[power].top = 0
+	  portal[power].left = 0
+	  
+	  portal[scale].left = portal[power].right
+      portal[scale].top = portal[power].top
+	  
+	  portal[shields].left = portal[power].left
+      perform portal[shields].alignrel[ttob,power,5]
+	  portal[resist].left = portal[shields].right
+      portal[resist].top = portal[shields].top
+	  
+	  portal[crew].left = portal[power].left
+      perform portal[crew].alignrel[ttob,resist,20]
+
+      height = portal[crew].bottom
+      ]]></position>
+
+    </template>	
   <!-- oLogos layout
         This layout sizes and positions the Hero Lab and game system logos. The logos
         can be either stacked or shown side-by-side, based on the global variable set
@@ -118,23 +375,61 @@
         table of attributes, table of health/powers, and table of derived traits.
   -->
   <layout
-    id="oShipLeft">
-    <portalref portal="oShipName"/>
-    <portalref portal="oHeroInfo"/>
+    id="oShipLeftSingle">
+    <portalref portal="oShipNameSingle"/>
+    <portalref portal="oShipDetailSingle"/>
+    <portalref portal="oTraitsSingle"/>
+    <portalref portal="oAttribute"/>
+    <portalref portal="oDiscip"/>
+	<templateref template="oShipService" thing="actor"/>
+	<templateref template="oShipStats" thing="actor"/>
     <position><![CDATA[
       ~position the hero name at the top with the hero details beneath the name
-      perform portal[oShipName].autoplace[0]
-      perform portal[oHeroInfo].autoplace[15]
+      perform portal[oShipNameSingle].autoplace[0]
+      perform portal[oShipDetailSingle].autoplace[10]
 
+      perform template[oShipService].autoplace[20]
+	  
+      perform portal[oTraitsSingle].autoplace[20]
+	  
       ~position the tables next
-      ~perform portal[oAttribute].autoplace
-      ~perform portal[oDiscip].autoplace
-      ~perform portal[oDerived].autoplace
+      perform portal[oAttribute].autoplace[20]
+      perform portal[oDiscip].autoplace
+	  
+      perform template[oShipStats].autoplace[20]
+	  
+      ~perform portal[oDerived].autoplace[10]
 
       ~our layout height is the extent of the elements within
       height = autoextent
       ]]></position>
-    </layout>	
+    </layout>
+
+  <!-- oShipTop layout
+        This layout is rendered down the left side of the sheet and contains the
+        name and description details for the character, as well as the table of
+        table of attributes, table of health/powers, and table of derived traits.
+  -->
+  <layout
+    id="oShipRightSingle">
+    <portalref portal="oWeaponHeader"/>
+    <portalref portal="oArmorySingle"/>
+    <portalref portal="oTalentHeader"/>
+    <portalref portal="oTalentSingle"/>
+    <templateref template="oPortrait" thing="actor"/>
+    <position><![CDATA[
+      ~position the character portrait at the top and the various tables beneath
+      perform template[oPortrait].autoplace
+      perform portal[oWeaponHeader].autoplace
+      perform portal[oArmorySingle].autoplace
+      perform portal[oTalentHeader].autoplace
+      perform portal[oTalentSingle].autoplace
+
+      ~our layout height is the extent of the elements within
+      height = autoextent
+      ]]></position>
+    </layout>
+	
   <!-- singlepage sheet
         This is the first page of the stanard character sheet, which coordinates the
         output of a whole bunch of layouts containing different pieces of information
@@ -147,10 +442,10 @@
   <sheet
     id="shipsinglepage"
     name="1-Page character sheet"
-	landscape="yes">
+	landscape="no">
     <layoutref layout="oShipLogos"/>
-    <layoutref layout="oShipLeft"/>
-    <layoutref layout="oRightSideSingle"/>
+    <layoutref layout="oShipLeftSingle"/>
+    <layoutref layout="oShipRightSingle"/>
     <layoutref layout="oAdjust"/>
     <layoutref layout="oValidate"/>
     <position><![CDATA[
@@ -182,9 +477,9 @@
         endif
 
       ~position the leftside layout in the upper left corner
-      layout[oShipLeft].width = colwidth
-      layout[oShipLeft].height = extent - layout[oShipLeft].top
-      perform layout[oShipLeft].render
+      layout[oShipLeftSingle].width = colwidth
+      layout[oShipLeftSingle].height = extent - layout[oShipLeftSingle].top
+      perform layout[oShipLeftSingle].render
 
       ~position the activated adjustments at the bottom on the left; this will
       ~establish the remaining space available on the left for armor and weapons
@@ -194,7 +489,7 @@
 
       ~position the armory layout within the remaining space on the left
       ~layout[oArmory].width = colwidth
-      ~layout[oArmory].top = layout[oShipLeft].bottom + autogap
+      ~layout[oArmory].top = layout[oShipLeftSingle].bottom + autogap
       ~layout[oArmory].height = layout[oAdjust].top - autogap - layout[oArmory].top
       ~perform layout[oArmory].render
 
@@ -204,11 +499,11 @@
       layout[oShipLogos].left = width - colwidth
 
       ~position the rightside layout in the remaining space on the right
-      layout[oRightSideSingle].width = colwidth
-      layout[oRightSideSingle].top = layout[oShipLogos].bottom + autogap
-      layout[oRightSideSingle].left = layout[oShipLogos].left
-      layout[oRightSideSingle].height = extent - layout[oRightSideSingle].top
-      perform layout[oRightSideSingle].render
+      layout[oShipRightSingle].width = colwidth
+      layout[oShipRightSingle].top = layout[oShipLogos].bottom + autogap
+      layout[oShipRightSingle].left = layout[oShipLogos].left
+      layout[oShipRightSingle].height = extent - layout[oShipRightSingle].top
+      perform layout[oShipRightSingle].render
       ]]></position>
     </sheet>
 

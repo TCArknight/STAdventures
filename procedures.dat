@@ -860,5 +860,19 @@
     infotext = infotext & spacing
     ]]></procedure>
 
+  <procedure id="GetDivisionColor" context="info"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var division as string
+    division = ""
 
+    ~ Color based on Division, Era
+	if (hero.tagis[IsDivision.Command] <> 0) then
+      division = "{text A30E24}"
+	elseif (hero.tagis[IsDivision.Operations] <> 0) then
+      division = "{text FF8800}"
+	elseif (hero.tagis[IsDivision.Science] <> 0) then
+      division = "{text 006EFF}"
+	  endif
+		  
+    ]]></procedure>
   </document>
