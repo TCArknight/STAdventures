@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing
-    id="trCustom"
-    name="== Custom Trait =="
-    compset="Trait"
-    isunique="no"
-    description="Description here.">
-	<fieldval field="UserName" value="Custom Trait"/>
+  <thing id="trCustom" name="== Custom Trait ==" description="Description here." compset="Trait">
+    <fieldval field="UserName" value="Custom Trait"/>
     <tag group="Helper" tag="CustomItem"/>
     <tag group="User" tag="NameRep"/>
     <tag group="User" tag="NeedDomain"/>
     <tag group="TraitCat" tag="Custom"/>
     </thing>
-
   <thing id="trHuman" name="Human" description="Humans are adaptable and resilient, and their resolve and ambition often allow them to resist great hardship and triumph despite great adversity. However, Humans can also be reckless and stubborn, irrational, and unpredictable." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
@@ -30,12 +24,12 @@
   <thing id="trBajoran" name="Bajoran" description="For obvious reasons, Bajorans tend to be hostile towards Cardassians, and resentful of those who are dismissive of, or turned a blind eye to, the suffering of the Bajoran people. While not all Bajorans are spiritual or religious to the same degree, most have a cultural understanding of the Prophets’ place in Bajoran society." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
-    <tag group="SpeciesTrait" tag="spcBajoran"/>
+    <tag group="SpeciesTrait" tag="spcBajor"/>
     </thing>
   <thing id="trBetazoid" name="Betazoid" description="All Betazoids are telepathic to varying degrees, and even when not actively using their abilities, they are highly perceptive of others around them, but also highly sensitive to telepathic disturbances and mental assaults. They have little familiarity with lies and deception, due to their open culture and ability to read the thoughts and emotions of others. As they are sensitive to the minds of other living beings, they tend not to be comfortable around animals, for fear of losing themselves in the minds of wild creatures." compset="Trait">
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Race"/>
-    <tag group="SpeciesTrait" tag="spcBetazoidid"/>
+    <tag group="SpeciesTrait" tag="spcBetazoid"/>
     </thing>
   <thing id="trDenob" name="Denobulan" description="Denobulans have a robust immune system, but a vulnerability to various forms of radiation poisoning. They are naturally adept climbers, scuttling up sheer walls like some forms of terrestrial lizard. Denobulans do not need to sleep, but must hibernate for several days each year, becoming disoriented if kept awake during this period." compset="Trait" uniqueness="unique">
     <usesource source="ENT"/>
@@ -99,13 +93,8 @@
     <usesource source="TNG"/>
     <tag group="TraitCat" tag="Ship"/>
     </thing>
-  <thing
-    id="trShipCustom"
-    name="== Custom Trait =="
-    compset="Trait"
-    isunique="no"
-    description="Description here.">
-	<fieldval field="UserName" value="Custom Trait"/>
+  <thing id="trShipCustom" name="== Custom Trait ==" description="Description here." compset="Trait">
+    <fieldval field="UserName" value="Custom Trait"/>
     <tag group="Helper" tag="CustomItem"/>
     <tag group="User" tag="NameRep"/>
     <tag group="User" tag="NeedDomain"/>

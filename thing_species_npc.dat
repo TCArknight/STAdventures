@@ -104,6 +104,7 @@
     <bootstrap thing="trJemHadar"></bootstrap>
     </thing>
   <thing id="spchdrNPC" name="Adversary Species" compset="Species" uniqueness="unique" isshowonly="yes">
+    <tag group="Helper" tag="IsHeader"/>
     <tag group="SpecCat" tag="NPC"/>
     </thing>
 

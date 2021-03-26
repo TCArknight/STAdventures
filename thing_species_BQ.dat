@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="spcArdanan" name="Ardanan" description="Ardanan citizens have a long history of societal division. The two castes that still hold sway over an Ardanian’s potential are the city-dwellers of the floating city, Stratos, and the surface dwelling Troglytes. While anatomically no different, for years the Troglytes suffered from conditions and mental difficulties that reduced their higher brain functions. This was due to exposure to the zenite mines where they labored and, once the Federation Bureau of Industrialization got involved, breathing apparatus was quickly made mandatory.\n\nIn contrast the beautiful City of Stratos, floating in the lower atmosphere of Ardana, is home to a people entirely devoted to art, government and culture.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Fitness, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Ardanan." compset="Species" uniqueness="unique">
+  <thing id="spcArdanan" name="Ardanan" description="{b}ATTRIBUTES:{/b} +1 Fitness, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Nothing Is More Beautiful Than a City in the Sky {/i}\n\nArdanan citizens have a long history of societal division. The two castes that still hold sway over an Ardanian’s potential are the city-dwellers of the floating city, Stratos, and the surface dwelling Troglytes. While anatomically no different, for years the Troglytes suffered from conditions and mental difficulties that reduced their higher brain functions. This was due to exposure to the zenite mines where they labored and, once the Federation Bureau of Industrialization got involved, breathing apparatus was quickly made mandatory.\n\nIn contrast the beautiful City of Stratos, floating in the lower atmosphere of Ardana, is home to a people entirely devoted to art, government and culture." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trArdanan"></bootstrap>
-    <exprreq message="Original Series or Next Generation only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Original Series or Next Generation only"><![CDATA[#isera[TOS] + #isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcBenzite" name="Benzite" description="Benzite physiology gives this species’ skin a hairless blue-to-green complexion. The Benzite skull has a thick protrusion that extends over the brow and nose, with two facial tendrils above the lip. Until 2370 Benzites in Starfleet had trouble breathing a standard nitrogen/oxygen atmosphere and relied on breathing apparatus. Their apparent change in condition, which allows the species to go without breathing aids, is rumored to be thanks to genetic engineering, though reports are unconfirmed. Highly meticulous, a Benzite Starfleet officer is a valuable resource when it comes to exploration and investigation.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Reason.\n\n{b}TRAIT:{/b} Benzite." compset="Species" uniqueness="unique">
+  <thing id="spcBenzite" name="Benzite" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Report Only What You Know {/i}\n\nBenzite physiology gives this species’ skin a hairless blue-to-green complexion. The Benzite skull has a thick protrusion that extends over the brow and nose, with two facial tendrils above the lip. Until 2370 Benzites in Starfleet had trouble breathing a standard nitrogen/oxygen atmosphere and relied on breathing apparatus. Their apparent change in condition, which allows the species to go without breathing aids, is rumored to be thanks to genetic engineering, though reports are unconfirmed. Highly meticulous, a Benzite Starfleet officer is a valuable resource when it comes to exploration and investigation." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <bootstrap thing="trBenzite"></bootstrap>
-    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcBolian" name="Bolian" description="From the planet Bolarus IX, Bolians are well known for their hospitality and outgoing personalities. Identified by a cartilaginous ridge that extends down their head, vertically, down the center of the face to the chest, with skin color ranging from light blues, to dark greens and muted purples with darker banding across the head. They are predominantly bald, though some females are known to have hair on their heads. Bolian marriages have more than two partners, of both sexes, but procreation with other species isn’t all that common, given the Bolians’ incompatibility with others. Humans, in particular, have noted several side effects of inter-species relations, including nausea, fatigue, and inflammation.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}TRAIT:{/b} Bolian." compset="Species" uniqueness="unique">
+  <thing id="spcBolian" name="Bolian" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}EXAMPLE VALUE:{/b} {i}A Broad Smile and Warm Heart {/i}\n\nFrom the planet Bolarus IX, Bolians are well known for their hospitality and outgoing personalities. Identified by a cartilaginous ridge that extends down their head, vertically, down the center of the face to the chest, with skin color ranging from light blues, to dark greens and muted purples with darker banding across the head. They are predominantly bald, though some females are known to have hair on their heads. Bolian marriages have more than two partners, of both sexes, but procreation with other species isn’t all that common, given the Bolians’ incompatibility with others. Humans, in particular, have noted several side effects of inter-species relations, including nausea, fatigue, and inflammation." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trBolian"></bootstrap>
-    <exprreq message="Next Generation Only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation Only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcDeltan" name="Deltan" description="These humanoids from the Delta system differ in appearance only slightly from Humans, with very little hair across their bodies, aside from eye brows and lashes. As a telepathic and empathic species, the Deltans rank themselves alongside the Vulcans and Betazoids as able to read and communicate via thoughts and feelings. Indeed, some Deltan genealogists have theorized Betazoids are a distant cousin species.\n\nWith some of the most potent pheromones the Federation has ever encountered, many other species find the Deltans very sexually appealing. The vast majority of Deltans in Starfleet, therefore, take an oath of celibacy, ensuring their sexuality is not a distraction to their colleagues. By all accounts this is a good thing, as the Deltan act of intimacy involves not only their bodies but also their telepathic minds, possibly endangering the mental health of other species.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}TRAIT:{/b} Deltan." compset="Species" uniqueness="unique">
+  <thing id="spcDeltan" name="Deltan" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}EXAMPLE VALUE:{/b} {i}Bodies and Minds as One {/i}\n\nThese humanoids from the Delta system differ in appearance only slightly from Humans, with very little hair across their bodies, aside from eye brows and lashes. As a telepathic and empathic species, the Deltans rank themselves alongside the Vulcans and Betazoids as able to read and communicate via thoughts and feelings. Indeed, some Deltan genealogists have theorized Betazoids are a distant cousin species.\n\nWith some of the most potent pheromones the Federation has ever encountered, many other species find the Deltans very sexually appealing. The vast majority of Deltans in Starfleet, therefore, take an oath of celibacy, ensuring their sexuality is not a distraction to their colleagues. By all accounts this is a good thing, as the Deltan act of intimacy involves not only their bodies but also their telepathic minds, possibly endangering the mental health of other species." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpecCat" tag="Player"/>
+    <tag group="Species" tag="Empathy"/>
     <bootstrap thing="trDeltan"></bootstrap>
-    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[#isera[TOS] + #isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcEfrosian" name="Efrosian" description="Hailing from the planet Efros Delta, Efrosians are renowned musicians and historians. Their society is dedicated to oral teaching, most notably in the form of a musical language that all Efrosian children are taught in some form or another. They are also excellent navigators and are often sought out as helm and navigation officers, as well as translators thanks to being natural linguists and communications experts. While their cranial ridges bear some similarity to Klingon physiology (though less pronounced), a male’s hair is almost always white from birth while females exhibit darker colors. Males grow long moustaches and both male and female Efrosians grow their hair out down their backs.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Fitness, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Efrosian." compset="Species" uniqueness="unique">
+  <thing id="spcEfrosian" name="Efrosian" description="{b}ATTRIBUTES:{/b} +1 Fitness, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Specialization Furthers Knowledge {/i}\n\nHailing from the planet Efros Delta, Efrosians are renowned musicians and historians. Their society is dedicated to oral teaching, most notably in the form of a musical language that all Efrosian children are taught in some form or another. They are also excellent navigators and are often sought out as helm and navigation officers, as well as translators thanks to being natural linguists and communications experts. While their cranial ridges bear some similarity to Klingon physiology (though less pronounced), a male’s hair is almost always white from birth while females exhibit darker colors. Males grow long moustaches and both male and female Efrosians grow their hair out down their backs." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <bootstrap thing="trEfrosian"></bootstrap>
-    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[#isera[TOS] + #isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcKlingon" name="Klingon" description="Klingon characters are typically large, physically powerful, and proud, with an aggressive approach to everything they do, and a propensity for violence that makes them extremely dangerous. They are predatory, with a primarily carnivorous diet, and a preference for either still-living food or wild prey from a hunt. Culturally, Klingons revere physical prowess, victory in battle, and a code of personal and familial honor that influences most of their politics, though not all Klingons live up to this; in some Klingons, this only keeps them from performing shameful acts so long as they can avoid the repercussions.\n\n{i}EXAMPLE VALUE: Today is a Good Day to Die.{/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence.\n\n{b}TRAIT:{/b} Klingon." compset="Species" uniqueness="unique">
+  <thing id="spcKlingon" name="Klingon" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence.\n\n{b}EXAMPLE VALUE:{/b} {i}Honor is More Important Than Life {/i}\n\nKlingon characters are typically large, physically powerful, and proud, with an aggressive approach to everything they do, and a propensity for violence that makes them extremely dangerous. They are predatory, with a primarily carnivorous diet, and a preference for either still-living food or wild prey from a hunt. Culturally, Klingons revere physical prowess, victory in battle, and a code of personal and familial honor that influences most of their politics, though not all Klingons live up to this; in some Klingons, this only keeps them from performing shameful acts so long as they can avoid the repercussions." compset="Species" uniqueness="unique">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
@@ -55,26 +56,26 @@
     <tag group="SpeciesBon" tag="attrsys03"/>
     <bootstrap thing="trKlingon"></bootstrap>
     </thing>
-  <thing id="spcRigelChelon" name="Rigellian Chelon" description="Chelons are a hardy race, sharing their home solar system of Rigel with Rigellian Jelna. They are descendants of saber-toothed turtles and, though bipedal, they have retained their ancestral beaks, claws and hard shells. Chelons are androgynous and take on masculine or feminine societal roles at varying points in their lives, reproducing like most reptilians by laying eggs and fertilizing those eggs. Some traditionalists within Chelon society maintain a neutral gender, and refuse to take on male or female roles.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}TRAIT:{/b} Rigellian Chelon." compset="Species" uniqueness="unique">
+  <thing id="spcRigelChelon" name="Rigellian Chelon" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Insight.\n\n{b}EXAMPLE VALUE:{/b} {i}Real Power is in the Service of Others {/i}\n\nChelons are a hardy race, sharing their home solar system of Rigel with Rigellian Jelna. They are descendants of saber-toothed turtles and, though bipedal, they have retained their ancestral beaks, claws and hard shells. Chelons are androgynous and take on masculine or feminine societal roles at varying points in their lives, reproducing like most reptilians by laying eggs and fertilizing those eggs. Some traditionalists within Chelon society maintain a neutral gender, and refuse to take on male or female roles." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
-    <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
     <tag group="SpeciesBon" tag="attrsys02"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
-    <bootstrap thing="trRigellianChelon"></bootstrap>
+    <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="wpClawStrike"></bootstrap>
-    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    <bootstrap thing="trRigellianChelon"></bootstrap>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[#isera[TOS] + #isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcRigelJelna" name="Rigellian Jelna" description="The Jelna, like the Chelon, are natives of the Rigel system and come from Rigel V. A diligent and hard-working species, the Jelna were the first Rigellians to engage in space flight. Although they took to commerce and system-wide government quicker than the Chelon, the Jelna weren’t aggressive, and they made sure that of democratic representation for all Rigellian species on the Governing Board and the Rigellian Trade Commission. The humanoid Jelnas have four genders: two male and two female genders. Male and female exosexes contain an additional Z chromosome, and they outnumber the endosexes 2 to 1. Exosexes are the more resilient and physically adept members of the species, while endosexes are more comparable to the male and female sexes typically found in other humanoid species.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Fitness, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Rigellian Jelna." compset="Species" uniqueness="unique">
+  <thing id="spcRigelJelna" name="Rigellian Jelna" description="{b}ATTRIBUTES:{/b} +1 Fitness, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Governance and Trade for the Prosperity of All {/i}\n\nThe Jelna, like the Chelon, are natives of the Rigel system and come from Rigel V. A diligent and hard-working species, the Jelna were the first Rigellians to engage in space flight. Although they took to commerce and system-wide government quicker than the Chelon, the Jelna weren’t aggressive, and they made sure that of democratic representation for all Rigellian species on the Governing Board and the Rigellian Trade Commission. The humanoid Jelnas have four genders: two male and two female genders. Male and female exosexes contain an additional Z chromosome, and they outnumber the endosexes 2 to 1. Exosexes are the more resilient and physically adept members of the species, while endosexes are more comparable to the male and female sexes typically found in other humanoid species." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
-    <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trRigellianJelna"></bootstrap>
-    <exprreq message="Original Series or Next Generation Only"><![CDATA[hero.tagis[source.TOS] + hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Original Series or Next Generation Only"><![CDATA[#isera[TOS] + #isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcRisian" name="Risian" description="Risa was a planet of fierce storms and tectonic instability before the Risians took it upon themselves to essentially terraform their planet. It is now colloquially known throughout the Federation as a “pleasure planet.” It’s a wonder the Risians evolved into the ceremonial society they have today, with tradition and ceremony being central to Risa society. \n\nRisians have an honest and open attitude to sexuality, renowned throughout the Galaxy. Potential mates with a sexual appetite display ceremonial icons, called a {i}horga’hn{/i}, that invite partners to participate in the sexual rite {i}jamaharon{/i}.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}TRAIT:{/b} Risian." compset="Species" uniqueness="unique">
+  <thing id="spcRisian" name="Risian" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}EXAMPLE VALUE:{/b} {i}All That is Ours is Yours {/i}\n\nRisa was a planet of fierce storms and tectonic instability before the Risians took it upon themselves to essentially terraform their planet. It is now colloquially known throughout the Federation as a “pleasure planet.” It’s a wonder the Risians evolved into the ceremonial society they have today, with tradition and ceremony being central to Risa society. \n\nRisians have an honest and open attitude to sexuality, renowned throughout the Galaxy. Potential mates with a sexual appetite display ceremonial icons, called a {i}horga’hn{/i}, that invite partners to participate in the sexual rite {i}jamaharon{/i}." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
@@ -82,16 +83,16 @@
     <tag group="SpeciesBon" tag="attrsys04"/>
     <bootstrap thing="trRisian"></bootstrap>
     </thing>
-  <thing id="spcXindiArboreal" name="Xindi-Arboreal" description="The intelligent Arboreal species of the Xindi are a contrast some of their cousins on Xindus in that they are known to have an incredibly calm demeanor, some would call them lethargic. But with a relaxed pace comes an appreciation for logical thought and considered discussion. Since becoming members of the Federation, Xindi–Arboreals have worked in Starfleet and the Federation as mediators, counsellors, diplomats and administrators.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Reason.\n\n{b}TRAIT:{/b} Xindi-Aboreal." compset="Species" uniqueness="unique">
+  <thing id="spcXindiArboreal" name="Xindi-Arboreal" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Calm Focuses the Mind {/i}.\n\nThe intelligent Arboreal species of the Xindi are a contrast some of their cousins on Xindus in that they are known to have an incredibly calm demeanor, some would call them lethargic. But with a relaxed pace comes an appreciation for logical thought and considered discussion. Since becoming members of the Federation, Xindi–Arboreals have worked in Starfleet and the Federation as mediators, counsellors, diplomats and administrators." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <bootstrap thing="trXindiArboreal"></bootstrap>
-    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcXindiPrimate" name="Xindi-Primate" description="Xindi-Primates were the second Xindus species to evolve intelligence, after the Xindi–Aquatics. Primates are talented engineers and are often fair, honest and trusted. The Xindi inclusion into the United Federation of Planets in 2311 enabled Xindi-Primates to enhance their learning, and find positions in design, architecture, engineering, along with research and development. They, more than most species to attend the Academy, find themselves in the command division upon graduation, given their adaptability and audaciousness.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Xindi-Primate." compset="Species" uniqueness="unique">
+  <thing id="spcXindiPrimate" name="Xindi-Primate" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}{i}Honesty Never Makes a Problem Worse {/i}\n\nXindi-Primates were the second Xindus species to evolve intelligence, after the Xindi–Aquatics. Primates are talented engineers and are often fair, honest and trusted. The Xindi inclusion into the United Federation of Planets in 2311 enabled Xindi-Primates to enhance their learning, and find positions in design, architecture, engineering, along with research and development. They, more than most species to attend the Academy, find themselves in the command division upon graduation, given their adaptability and audaciousness." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="Player"/>
@@ -99,33 +100,33 @@
     <tag group="SpeciesBon" tag="attrsys05"/>
     <bootstrap thing="trXindiArboreal"></bootstrap>
     <bootstrap thing="trXindiPrimate"></bootstrap>
-    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcXindiReptilian" name="Xindi-Reptilian" description="The Reptilian species from Xindus rival the insectoids in aggression, and are likely to resort to force to achieve their goals. They’re also notably dishonest and impatient when it comes to dealing with other species, including other Xindi. It is rare for Reptilians to apply to Starfleet Academy, and rarer still for them to be accepted, as their temperament can lead to confrontations. Those Xindi-Reptilians who do join Starfleet rival the Klingons in martial prowess, Tellarites in aptitude for debate, and Zakdorn in tactical expertise.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence.\n\n{b}TRAIT:{/b} Xindi-Reptillian." compset="Species" uniqueness="unique">
+  <thing id="spcXindiReptilian" name="Xindi-Reptilian" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence.\n\n{b}EXAMPLE VALUE:{/b} {i}Patience is for the Dead {/i}\n\nThe Reptilian species from Xindus rival the insectoids in aggression, and are likely to resort to force to achieve their goals. They’re also notably dishonest and impatient when it comes to dealing with other species, including other Xindi. It is rare for Reptilians to apply to Starfleet Academy, and rarer still for them to be accepted, as their temperament can lead to confrontations. Those Xindi-Reptilians who do join Starfleet rival the Klingons in martial prowess, Tellarites in aptitude for debate, and Zakdorn in tactical expertise." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
-    <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys02"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trXindiReptilian"></bootstrap>
-    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcXindiInsectoid" name="Xindi-Insectoid" description="Among Xindus species, Xindi-Insectoids are considered one of the most aggressive and decisive. They, and the Reptilians are responsible for the destruction of their original homeworld, after detonating vast explosions beneath several seismically active points. Their language is the most complex among the Xindi species with 67 different dialects of clicks and chirps that other species find hard to replicate. Insectoid names grow longer as the individual ages, carrying more meaning and life history than many other species’ given names.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Reason.\n\n{b}TRAIT:{/b} Xindi-Insectoid." compset="Species" uniqueness="unique">
+  <thing id="spcXindiInsectoid" name="Xindi-Insectoid" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Protect your Off-spring at the Expense of Self {/i}\n\nAmong Xindus species, Xindi-Insectoids are considered one of the most aggressive and decisive. They, and the Reptilians are responsible for the destruction of their original homeworld, after detonating vast explosions beneath several seismically active points. Their language is the most complex among the Xindi species with 67 different dialects of clicks and chirps that other species find hard to replicate. Insectoid names grow longer as the individual ages, carrying more meaning and life history than many other species’ given names." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
-    <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys02"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trXindiInsectoid"></bootstrap>
-    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
-  <thing id="spcZakdorn" name="Zakdorn" description="Seen as easily the best tactical minds in the Galaxy, the Zakdorn excel at complex strategic thinking. This asset has enabled the Federation to streamline its defensive policy over the years, with Zakdorn officials overseeing training exercises and “war games” for Starfleet. Their personal confidence and conviction is often considered boasting and hubris, particularly given that no rival species has ever tested the Zakdorn military. Zakdorn strategists have, however, helped Starfleet and the Federation immeasurably since they joined in the early 24th Century.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Zakdorn." compset="Species" uniqueness="unique">
+  <thing id="spcZakdorn" name="Zakdorn" description="{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}A Coherent Strategy is the First Line of Defense {/i}\n\nSeen as easily the best tactical minds in the Galaxy, the Zakdorn excel at complex strategic thinking. This asset has enabled the Federation to streamline its defensive policy over the years, with Zakdorn officials overseeing training exercises and “war games” for Starfleet. Their personal confidence and conviction is often considered boasting and hubris, particularly given that no rival species has ever tested the Zakdorn military. Zakdorn strategists have, however, helped Starfleet and the Federation immeasurably since they joined in the early 24th Century." compset="Species" uniqueness="unique">
     <usesource source="QuadBeta"/>
     <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <bootstrap thing="trZakdorn"></bootstrap>
-    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    <exprreq message="Next Generation only"><![CDATA[#isera[TNG] <> 0]]></exprreq>
     </thing>
   </document>

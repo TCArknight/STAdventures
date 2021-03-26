@@ -34,6 +34,7 @@
       component="Gear"
       showtemplate="grGrPick"
       choosetemplate="grGrThing"
+	  choosesortset="GearByName"
       buytemplate="BuyCash"
       selltemplate="SellCash">
       <list>component.Equipment</list>
@@ -91,7 +92,15 @@
 
       ~if this is a "sizing" calculation, we're done
       doneif (issizing <> 0)
-
+	  
+      ~if this is a show-only thing, hide the cost, then position the name
+      if (tagis[thing.showonly] <> 0) then
+        perform portal[name].setstyle[lblNormal]
+        portal[cost].visible = 0
+        portal[name].width = width
+        done
+        endif
+		
       ~position the cost portal on the far right
       perform portal[cost].alignedge[right,0]
 

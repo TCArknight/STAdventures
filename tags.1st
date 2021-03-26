@@ -43,7 +43,9 @@
     <value id="NotUserSel"/>  <!-- Item not user selectable -->
     <value id="UserUnlock"/>  <!-- Unlock user adjustment of Attributes, Disciplines, etc. -->
     <value id="NoCost"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
-    <value id="UserDesc"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
+    <value id="IsHeader"/>    
+    <value id="UserDesc"/>     
+    <value id="BorgImplant"/> <!-- Indicates a piece of gear is a Borg Implant -->  
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -88,6 +90,7 @@
     <value id="Ship"/>        <!-- Indicates that the hero is a Ship -->
     <value id="Creature"/>    <!-- Indicates that the hero is a Creature -->
     <value id="MixedHeritage"/>  <!-- Indicates that the hero is a Creature -->
+    <value id="NPC"/>            <!-- Indicates that the hero is an NPC -->
     </group>
 
   <!-- DashTacCon group - behaviors associated with the Dashboard and/or Tactical Console
@@ -257,12 +260,14 @@
 
   <group
     id="GearCat"
-    sequence="explicit">
-    <value id="General" order="1"/>
-    <value id="Engineer" order="2"/>
-    <value id="Medical" order="3"/>
-    <value id="Cyber" order="4"/>
-    <value id="Other" order="5"/>
+    sequence="explicit"
+	dynamic="yes">
+    <value id="Custom" order="0"/>
+    <value id="General" order="10"/>
+    <value id="Engineer" order="20"/>
+    <value id="Medical" order="30"/>
+    <value id="Cyber" order="40"/>
+    <value id="Other" order="50"/>
     </group>
 	
   <!-- Equipped group - used for sorting equipped weapons first
@@ -491,6 +496,13 @@
     <value id="Med"/> 
     <value id="Sci"/> 
     <value id="Sec"/> 
+    </group>
+
+  <group
+    id="Species"
+	dynamic="yes">
+    <value id="Empathy" name="Empathic Race"/>
+    <value id="Telepathy" name="Telepathic Race"/>
     </group>
 	
   <!-- SpeciesBon group -->

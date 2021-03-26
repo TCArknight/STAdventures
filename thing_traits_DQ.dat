@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_todo></info_todo>
+    </fileinfo>
+  <thing id="trAnkari" name="Ankari" description="Ankari are reptilian humanoids and possess many of the{br}biological attributes common to those species. Their skin is coarse and thick,{br}with light to dark brown coloring. Like most reptilian species, the Ankari do not{br}possess body hair – though they do have soft spines that run along the back of{br}their skulls. These, along with their brows, provide the Ankari with the ability to{br}detect faint vibrations and act as a form of sixth sense. Their native, harmonic{br}language likely developed due to this additional sense" compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcAnkari"/>
+    </thing>
+  <thing id="trJye" name="Jye" description="The Jye have developed a reputation for effective administration{br}and coordination of large projects and organizations. Most are trained{br}in this area of expertise professionally, and while Jye are capable of{br}physical feats similar to those of Humans, they are not known for their{br}physical attributes. Jye originate from a frigid Class-M planet at the very{br}far edge of its star’s habitable zone. It is a world of dim solar light and cold,{br}relentless winters, and the Jye have evolved with a resistance to the cold.{br}{br}Conversely, the Jye struggle more than other humanoids in hot temperatures." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcJye"/>
+    </thing>
+  <thing id="trLiberatedBorg" name="Liberated Borg" description="As they come from so many different species, Liberated Borg have little physically in common with each other. They retain some of the cybernetic implants common to Borg drones, as not all of theses can be safely removed. Their original traits slowly begin to reassert their influence the longer the drone remains free from the collective. Borg are highly resistant to natural diseases, but are weak to electric shocks and exotic radiation. Those with the right implants can survive vacuum and other harsh environments, though they may still be susceptible to influence from the collective, and failing implants can be hazardous to a Liberated Borgs health. The Liberated Borg do not sleep conventionally, requiring routine access to a Borg regeneration alcove." compset="Trait">
+    <usesource source="CharacterVoy" parent="Characters" name="Voyager Characters"/>
+    <usesource source="QuadDelta"/>
+    <tag group="SpeciesTrait" tag="spcVOYLiberBorg" name="Liberated Borg" abbrev="Liberated Borg"/>
+    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    </thing>
+  <thing id="trLokirrim" name="Lokirrim" description="Lokirrim are strikingly similar to Humans,{br}save for the signature “v” shape ridge that runs from the{br}bridge of their nose up toward their hairline. Their world{br}is a temperate one, with mild seasons and fair weather.{br}{br}Unfortunately, it is also lacking in natural resources –{br}{br}which forced the Lokirrim to mine deep into the planet’s{br}crust and eventually reach out into their solar system.{br}{br}While they may have used holograms to perform most{br}manual labor, the Lokirrim retained their physical stature{br}and endurance. Most Lokirrim have a deep distrust or{br}outright aggressive response to holograms." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcLokirrim"/>
+    </thing>
+  <thing id="trMari" name="Mari" description="Mari are a gentle, telepathic species,{br}who uphold a state of mental pacifism through the use{br}of memory purging – not dissimilar to Vulcan mental{br}conditioning. Physically they are nearly indistinguishable{br}from Humans and possess similar physical{br}characteristics. Their technological level is a century{br}or more behind the Federation, though their medical{br}techniques, especially those relating to the adjustment{br}of thought patterns, is significantly advanced. The Mari{br}homeworld is pleasantly temperate and, given their warm{br}nature, could easily be a vacation spot in the quadrant{br}– were it not for their justice system. While rare, it is not{br}unheard of to encounter Mari off-world, though this is{br}usually as a passenger on another species’ ship." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcMari"/>
+    </thing>
+  <thing id="trMonean" name="Monean" description="As their new world suggests, the Moneans likely evolved{br}from an amphibioid-mammalian or other similar aquatic species. This theory is{br}supported by their physical appearance. Monean skin coloration and markings all{br}reflect an aquatic origin. As such, Moneans are capable swimmers and can hold their{br}breath for an extended period. Despite this, however, Moneans require an atmosphere{br}similar to Humans and are an air-breathing species." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcMonean"/>
+    </thing>
+  <thing id="trOcampa" name="Ocampa" description="Ocampa are an interesting and unique{br}humanoid species. Their development is more closely{br}akin to that of insects than to Humans. Long-time{br}support, provided by the enigmatic Caretaker, has left{br}the species in somewhat of a socially stunted state, and{br}their society has since become entirely dependent upon{br}the services the Caretaker provided. When separated{br}from this welfare state, Ocampa are curious and studious{br}learners – voraciously devouring information with incredible speed. Further still, they are capable of truly{br}astounding psychic feats." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcOcampa"/>
+    <eval phase="Final" priority="5000"><![CDATA[doneif (#hastalent[talTelepat] = 0)
+
+#appenddesc[talTelepat,"While all Ocampa are telepathic, their short lifespan and rapid development means that a young Ocampa character may not fully develop their abilities until later in life, so it is possible to choose the Talent after character creation. Unlike other telepathic/empathic species, the Ocampa have demonstrated the ability to develop even greater psychic abilities, including precognition, mental projection, telekinesis, and the ability to manipulate matter at a subatomic level.",field[name].text]]]></eval>
+    </thing>
+  <thing id="trPendari" name="Pendari" description="By their outward appearance, Pendari{br}look to be a species of near-Humans – with hair and{br}skin tones similar to those of Humans and other similar{br}humanoids. They do possess strong bone and cartilage{br}growth along the bridge of the nose and on their brows{br}up to their hair line. The likeness, however, ends there.{br}{br}Physiologically, Pendari are significantly more robust, and{br}possess redundant pulmonary and neurological systems{br}that allow them to withstand tremendous physical{br}punishment. This, combined with a nearly genetic{br}predisposition to aggressive behavior, makes them{br}natural born warriors." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcPendari"/>
+    </thing>
+  <thing id="trSikarian" name="Sikarian" description="Physically, Sikarians are very similar{br}to Humans and other near-Human species. They are{br}of similar height and mass, with a similar range of skin{br}tones and hair colors. Their utopian existence has nearly{br}eliminated all forms of hard labor, and the Sikarians, by{br}and large, enjoy lives of leisure. This can be seen in both{br}their slight frames and their style of dress. Sikarians prefer{br}loose, flowing robes and delicate wireframe headwear." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcSikarian"/>
+    </thing>
+  <thing id="trTalaxian" name="Talaxian" description="While humanoid in most respects,{br}Talaxians do have several interesting biological{br}adaptations. First and foremost, Talaxians are capable{br}of enduring heat well beyond what the average Human{br}can comfortably tolerate and can go much longer without{br}water. Talaxian skulls have much more pronounced{br}ridges where the plates meet. Talaxian hair tends to be{br}thin and wispy, and large portions of their heads are bald{br}to allow for greater cooling. Talaxian sight is a touch less{br}refined than that of a Human, though their senses of taste{br}and smell are much keener." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcTalaxian"/>
+    </thing>
+  <thing id="trTurei" name="Turei" description="The Turei are an ancient spacefaring species, once under the thrall of the{br}Vaadwaur. The Turei are now the controlling power of the Underspace – a strange{br}extradimensional realm. With their command of the Underspace, the Turei are powerful and feared.{br}{br}The Turei are a resilient species, both mentally and physically. Their skin is extremely thick and much{br}of their body is covered with cartilage-like protrusions. Lacking a proper nose, the Turei instead{br}possess the ability to “smell” the air through glands along their tongue, similar to a snake." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcTurei"/>
+    </thing>
+  <thing id="trZahl" name="Zahl" description="The Zahl are advanced and enjoy the{br}benefits of that technological capability. Having{br}eliminated want throughout their territory, the Zahl{br}are well known for their kind, welcoming nature and{br}generosity. Before their world was climate regulated,{br}the Zahl were no strangers to environmental extremes,{br}and are capable of thriving in both extreme cold{br}and heat. Their bodies are covered in dermal ridges{br}that regulate their body temperature in a manner far{br}superior to most species." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    <tag group="SpeciesTrait" tag="spcZahl"/>
+    </thing>
+  <thing id="trMimeticDoppel" name="Mimetic Doppelganger" description="A mimetic doppelgänger is essentially an exact copy of the individual that was touched by a mimetic deuterium life-form, and is even capable of sexual reproduction." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trDisconnectBorg" name="Disconnected Borg" description="A Disconnected Borg Drone is still Borg, having only been recently disconnected from the Collective. As such, these individuals still possess all of the statistics and characteristics of Borg Drones – which can be found in the Adversaries section of the {b}{i}Star Trek Adventures{/b}{/i} core rulebook. While it is possible to make these Main Characters, it is not recommended, as these individuals,  such as they are, continue to be Borg and their motivations and goals remain those of the Collective. While there are exceptions, these characters will usually make every attempt to reconnect to the hive mind should the opportunity present itself." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="trResurrectKobali" name="Resurrected Kobali" description="As a member of the Kobali, this trait is reflective of their\nunique physiology, cultural identity, and language. Their method of reproduction is seen by many to be a violation of the host species’ burial or death rituals, and this has brought the Kobali into conflict with numerous species.\n\nA significant number of Kobali lose the majority of their past life memories when they are reborn – though it is not unheard of for a Kobali to awaken with their memory mostly\nintact. Unfortunately, individuals who retain their memories\noften have the most difficult time adjusting to their new life.\n\nFurther, Kobali characters will likely be confronted with the\nimplications of their resurrection – either from hostile species who object to the process, lost family members seeking reconnection, or from the Kobali wishing them to return to be with their new Kobali family." compset="Trait">
+    <usesource source="QuadDelta"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  </document>

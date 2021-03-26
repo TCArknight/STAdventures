@@ -50,5 +50,10 @@
     <bootstrap thing="talVeteran">
       <autotag group="Helper" tag="NoCost"/>
       </bootstrap>
+    <eval index="1" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resTalent] += 1
+      #resspent[resTalent] += 1
+      ]]></eval>
 	</thing>
   </document>

@@ -1,4 +1,18 @@
 History:
+v1.10
+Release: --/--/21
+Fixed -
+Career (Veteran Officer): now correctly counts the Veteran talent for the Talent tab to display 4 of 4 talents.
+"Courier New" font for "fntLarge" replaced by Arial
+fixed several species traits that prevented them from being used with Mixed Heritage "Add Traits" 
+Editor (Traits): changed from it_tagPick to it_taglist for Trait Category
+Stock characters updated for new version
+
+New -
+Editor (Traits): added it_tagPick option to select SpeciesTrait.? for trait
+Delta Quadrant Sourcebook
++ New Species and related Traits and Talents
+
 v1.9
 Release: 03/17/20
 Fixed -

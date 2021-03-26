@@ -106,15 +106,16 @@
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Deltan required."><![CDATA[#isspecies[spcDeltan] <> 0]]></exprreq>
     </thing>
-  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another character the Bolian may use their Presence Attribute instead of their own. Further, both the Bolian and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent">
+  <thing id="talWarmWelcome" name="Warm Welcome" description="A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever assisting another character, the Zahl may use the active character’s Presence Attribute instead of their own. Further, both the Zahl and the character being assisted may ignore any increases in Complication Range for the Task." compset="Talent" summary="Whenever assisting another character, the character with this talent may use the active character’s Presence Attribute instead of their own. Further, both the character with this talent and the character being assisted may ignore any increases in Complication Range for the Task." uniqueness="useronce">
     <usesource source="QuadBeta"/>
+    <usesource source="QuadDelta"/>
     <tag group="TalentCat" tag="Racial"/>
-    <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>
+    <exprreq message="Bolian or Zahl Required"><![CDATA[#isspecies[spcBolian]  + #isspecies[spcZahl] <> 0]]></exprreq>
     </thing>
   <thing id="talBornNearWarpC" name="Born Near A Warp Core" description="Bolian traditions say that a child born near an active Warp Core has an improved, more positive, disposition. Optimism and an upbeat attitude certainly lends credence to this tradition, allowing the Bolian to weather misfortune. When they suffer a Complication from a Task, roll 1 A; if the result is an Effect, the Complication is ignored. Once a Complication has been ignored in this way, the Bolian may not ignore another Complication for the remainder of the scene." compset="Talent">
     <usesource source="QuadBeta"/>
     <tag group="TalentCat" tag="Racial"/>
-    <exprreq message="Bolian Required"><![CDATA[#isspecies[spcBolian] <> 0]]></exprreq>
+    <exprreq message="Bolian or Zahl Required"><![CDATA[#isspecies[spcBolian]<> 0]]></exprreq>
     </thing>
   <thing id="talMeticAnalysis" name="Meticulous Analysis" description="When you encounter unidentified phenomena through sensors, you may immediately make a Swift Task, without the need to spend Momentum or an increase in Difficulty. This Task may only be used to attempt to analyze the preliminary data you have received using Reason + Science and a relevant Focus." compset="Talent">
     <usesource source="QuadBeta"/>

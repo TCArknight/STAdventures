@@ -41,8 +41,8 @@
 
   <release
     major="1"
-    minor="8"
-    required="6.1g"
+    minor="10"
+    required="8.9h"
     summary=""><![CDATA[{align center}{bmp logo}
 	{b}{text ffff80}{align center}Star Trek Adventures for Hero Lab{text 010101}{/b}
 
@@ -172,6 +172,16 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     result="hero.tagis[CountsAsSpecies.#species]"/>
 
   <scriptmacro
+    name="isera"
+    param1="era"
+    result="hero.tagis[source.#era]"/>
+
+  <scriptmacro
+    name="ischaractertype"
+    param1="type"
+    result="hero.tagis[CharType.#type]"/>
+	
+  <scriptmacro
     name="haschoice1"
     param1="myComp"
     result="hero.childfound[#myComp].field[usrChosen1].ischosen"/>
@@ -240,6 +250,19 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="isstarbase"
     result="hero.tagis[CharType.typBase]"/>
+
+  <scriptmacro
+    name="prependdesc"
+    param1="thing"
+    param2="append"
+    result="perform state.thing[#thing].amendthing[description,#append &amp; &quot;{br}{br}&quot; &amp; state.thing[#thing].field[descript].text]"/>
+	
+  <scriptmacro
+    name="appenddesc"
+    param1="thing"
+    param2="append"
+	param3="source"
+    result="perform state.thing[#thing].amendthing[description,state.thing[#thing].field[descript].text &amp; &quot;{br}{br}{b}&quot; &amp; #source &amp; &quot;:{/b}{br}&quot; &amp; #append]"/>
 	
   <!-- Decoration character used in summary panel headertitle scripts -->
   <scriptmacro

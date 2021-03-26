@@ -256,7 +256,12 @@
     <inputthing
       name="Category"
       helptext="Select the category this Trait belongs to.">
-      <it_taglist group="TraitCat" tag="?"/>
+      <it_tagpick  group="TraitCat" tag="?" require="yes" deftag="Main"/>
+      </inputthing>
+    <inputthing
+      name="Species Trait?"
+      helptext="Specify which Species this trait belongs to.">
+      <it_tagpick group="SpeciesTrait" tag="?"/>
       </inputthing>
     <inputthing
       name="Starship Only?"
@@ -365,7 +370,17 @@
       helptext="Select the traits provided by the species here.">
       <it_bootlist compset="Trait"/>
       </inputthing>
-    <inputthing>
+    <inputthing
+      name="Empathic Race?"
+      helptext="Species may take Empathy-related talents and abilities.">
+      <it_tagcheck group="Species" tag="Empathy"/>
+      </inputthing>
+    <inputthing
+      name="Telepathic Race?"
+      helptext="Species may take Empathy-related talents and abilities.">
+      <it_tagcheck group="Species" tag="Telepathy"/>
+      </inputthing>
+	<inputthing>
       <it_groupref id="ChooseGrp2"/>
       </inputthing>
     <inputthing>

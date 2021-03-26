@@ -1,84 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- This file contains the assortment of miscellaneous gear/equipment for the game
-      system. Most gear is just mundane items, but a few confer special benefits via
-      scripts. There are also a few that can be used as generic entries that users can
-      customize without having to add new entries via the Editor.
-
-      The behaviors of each piece of gear are controlled via a combination of field
-      values, tags, and XML attributes. A brief summary of the most important of these
-      is provided below:
-
-      "stacking" attribute: controls the behavior of multiple pieces of the gear with
-          respect to merging separate pieces or always keeping them distinct
-      "private" attribute: controls whether the gear is made visible to the user within
-          the Editor when creating a new piece of gear as a copy of an existing thing
-      "isunique" attribute: controls whether the user can only ever add a single
-          instance of the thing to an actor versus adding multiple instances
-      "Equipment" tags: The "Equipment.CustomGear" tag indicates gear that the user can
-          modify the name for
-      "thing" tags: The "thing.holder" tag indicates gear that can both be held within
-          other holders and can hold other gear, while the "thing.holder_top" tag
-          indicates gear that can only hold other (but cannot be held); omitting both
-          of these tags implies the gear can only be held by suitably flagged holders
-      "grUserName" field: If the "Equipment.CustomGear" tag is assigned, this field
-          provides the default name for the item until the user changes it
--->
-
 <document signature="Hero Lab Data">
-
-  <!-- Customizable Gear gear -->
-  <thing
-    id="eqCustom"
-    name=" – Custom Gear –"
-    compset="Equipment"
-    stacking="new"
-    isprivate="yes"
-    description="This item can be customized to represent whatever you want.">
+  <thing id="eqCustom" name=" – Custom Gear –" description="This item can be customized to represent whatever you want." compset="Equipment" stacking="new" isprivate="yes">
     <fieldval field="UserName" value="New Gear"/>
     <tag group="Helper" tag="CustomItem"/>
+    <tag group="GearCat" tag="Custom"/>
     </thing>
-
-  <!-- Customizable Top-Holder gear -->
-  <thing
-    id="eqCustTop"
-    name=" – Custom Location –"
-    compset="Equipment"
-    stacking="never"
-    isprivate="yes"
-    holdable="no"
-    description="Use this item to represent a place to store your gear - for example, a house, or as buried treasure somewhere.">
+  <thing id="eqCustTop" name=" – Custom Location –" description="Use this item to represent a place to store your gear - for example, a house, or as buried treasure somewhere." compset="Equipment" stacking="never" holdable="no" isprivate="yes">
     <fieldval field="UserName" value="New Location"/>
     <tag group="Helper" tag="CustomItem"/>
     <tag group="thing" tag="holder_top"/>
+    <tag group="GearCat" tag="Custom"/>
     </thing>
-
-  <!-- Customizable Holder gear -->
-  <thing
-    id="eqCustHold"
-    name=" – Custom Container –"
-    compset="Equipment"
-    stacking="solo"
-    isprivate="yes"
-    description="Use this item to represent a bag or other container in which gear can be carried around.">
+  <thing id="eqCustHold" name=" – Custom Container –" description="Use this item to represent a bag or other container in which gear can be carried around." compset="Equipment" isprivate="yes">
     <fieldval field="UserName" value="New Container"/>
     <tag group="Helper" tag="CustomItem"/>
     <tag group="thing" tag="holder"/>
+    <tag group="GearCat" tag="Custom"/>
     </thing>
-
-  <!-- Dropped to Ground location - automatically bootstrapped to every hero -->
-  <thing
-    id="eqGround"
-    name="Dropped to Ground"
-    compset="Equipment"
-    isprivate="yes"
-    uniqueness="unique"
-    description="Any equipment dropped to the ground is held in this container.{br}You can move an item from one container to another by clicking the &quot;Gear&quot; button beside its info button.">
+  <thing id="eqGround" name="Dropped to Ground" description="Any equipment dropped to the ground is held in this container.{br}You can move an item from one container to another by clicking the &quot;Gear&quot; button beside its info button." compset="Equipment" uniqueness="unique" isprivate="yes">
     <tag group="Helper" tag="Bootstrap"/>
     <tag group="thing" tag="holder_top"/>
     <tag group="Print" tag="NoPrint"/>
     </thing>
-
-
-
+  <thing id="hdrCybernetics" name="-- Cybernetics --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="Cyber"/>
+    </thing>
+  <thing id="hdrMedical" name="-- Medical --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="hdrEngineer" name="-- Engineering --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="Engineer"/>
+    </thing>
+  <thing id="hdrGeneral" name="-- General --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="General"/>
+    </thing>
+  <thing id="hdrOther" name="-- Other --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="Other"/>
+    </thing>
+  <thing id="hdrCustom" name="-- Custom --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="Custom"/>
+    </thing>
   </document>

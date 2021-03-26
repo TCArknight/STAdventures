@@ -170,12 +170,22 @@
     name="Delta Quadrant Sourcebook"
     parent="Quadrants"
     default="no"
-    selectable="no"
     reportable="no"
     sortorder="4"
     description="Options from the Delta Quadrant sourcebook.">
     </source>
 
+  <source
+    id="CharacterEnt"
+    name="Enterprise Characters"
+    parent="Characters"
+    default="no"
+    selectable="no"
+    reportable="no"
+    sortorder="0"
+    description="Options from the Enterprise Characters supplement.">
+    </source>
+	
   <source
     id="CharacterTOS"
     name="Original Series Characters"
@@ -219,6 +229,7 @@
     sortorder="4"
     description="Options from the Voyager Characters supplement.">
     </source>	
+	
   <source
     id="Era"
     name="Campaign Era"
@@ -415,7 +426,12 @@
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
 
-  
+  <!-- GearSort - Gear sortset -->
+  <sortset id="GearByName" name="Gear By Name">
+    <sortkey isfield="no" id="GearCat"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+	
   <!-- FrameSort - Species sortset -->
   <sortset id="FrameSort" name="Starship Frame Sort">
     <sortkey isfield="no" id="ShipType"/>
