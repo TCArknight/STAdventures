@@ -1,6 +1,6 @@
 History:
 v1.10
-Release: --/--/21
+Release: 03/29/21
 Fixed -
 Career (Veteran Officer): now correctly counts the Veteran talent for the Talent tab to display 4 of 4 talents.
 "Courier New" font for "fntLarge" replaced by Arial
