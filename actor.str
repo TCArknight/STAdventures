@@ -173,10 +173,15 @@
       type="derived"
       defvalue="56">
       <calculate phase="Initialize" priority="4000"><![CDATA[
+	    var systemPoints as number
+		
  	  	if (hero.tagis[CharType.typMain] = 1) then
 	      @value = 56
 	    elseif (hero.tagis[CharType.typSupport] = 1) then
 	      @value = 54
+	    elseif (hero.tagis[CharType.typStarship] = 1) then
+		  call GetShipSystemPoints
+	      @value = systemPoints
 		else
 		  @value = 99
 	      endif       
@@ -192,10 +197,15 @@
       type="derived"
       defvalue="16">
 	  <calculate phase="Initialize" priority="4000"><![CDATA[
+	    var deptPoints as number
+		
  	  	if (hero.tagis[CharType.typMain] = 1) then
 	      @value = 16
 	    elseif (hero.tagis[CharType.typSupport] = 1) then
 	      @value = 13
+	    elseif (hero.tagis[CharType.typStarship] = 1) then
+		  call GetShipDeptPoints
+	      @value = deptPoints
 		else
 		  @value = 99
 	      endif       

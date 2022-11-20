@@ -24,7 +24,7 @@
 
     <!-- Make sure that we have a race selected -->
     <evalrule index="1" phase="Validate" priority="8000" message="Must be selected"><![CDATA[
-	  validif (hero.tagis[CharType.typShip] <> 0)
+	  validif (hero.tagis[CharType.typStarship] <> 0)
 	  
       ~if we have a race selected, we're good
       validif (hero.tagis[Species.?] <> 0)

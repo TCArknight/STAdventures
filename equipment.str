@@ -324,6 +324,7 @@
 		var tags as string
 		var totD as number
 		var scale as number
+		var tractStr as number
 		var sec as number
 		var delDmg as number
 		
@@ -332,10 +333,20 @@
 		if (tagis[Weapon.NoDamage] <> 0) then
 	      txt = "*"
 		else
-		  txt = totD & "{size 40}{meta bmpfull}{bmp StarTrekArrow}{revert}"
+		  txt = totD & " {size 40}{meta bmpfull}{bmp StarTrekArrow}{revert}"
           endif
 		  
 	    tags = tagnames[DmgEffect.?,", "] 
+		
+		foreach pick in hero where "component.ShipInfo"
+          scale = eachpick.field[shipScale].value
+		  if (tagis[component.StarshipWeapon] <> 0) then
+		    tractStr = scale - 1 + field[wpSTracBonus].value
+			endif
+		nexteach
+		
+		tags = replace(tags, "Persistant X", "Persistant " & scale,0)
+		tags = replace(tags, "Strength X", "Strength " & tractStr,0)
 		
 		if (empty(txt) = 0) then
 		
@@ -360,6 +371,7 @@
 		var tags as string
 		var totD as number
 		var scale as number
+		var tractStr as number
 		var sec as number
 		var delDmg as number
 		
@@ -372,6 +384,16 @@
           endif
 		  
 	    tags = tagnames[DmgEffect.?,", "] 
+		
+		foreach pick in hero where "component.ShipInfo"
+          scale = eachpick.field[shipScale].value
+		  if (tagis[component.StarshipWeapon] <> 0) then
+		    tractStr = scale - 1 + field[wpSTracBonus].value
+			endif
+		nexteach
+		
+		tags = replace(tags, "Persistant X", "Persistant " & scale,0)
+		tags = replace(tags, "Strength X", "Strength " & tractStr,0)
 		
 		if (empty(txt) = 0) then
 		
@@ -397,6 +419,7 @@
 		var dmgAttr as number
 		var totD as number
 		var scale as number
+		var tractStr as number
 		var sec as number
 		var delDmg as number
 		
@@ -407,7 +430,11 @@
 		if (tagis[Armory.Melee] <> 0) then
 		  mySumm &= "Melee, "
 		else
-		  mySumm &= "Ranged, "
+		  if (tagis[component.StarshipWeapon] <> 0) then
+		    mySumm &= field[wpSRange].text & ", "
+		  else
+		    mySumm &= "Ranged, "
+			endif
 		  endif
 		
 		~damage rating
@@ -422,18 +449,37 @@
 		mySumm &= txt 
 		
 		~effects
-	    mySumm &= " " & tagnames[DmgEffect.?,", "] 
+	    mySumm &= " "
+		
+		tags = tagnames[DmgEffect.?,", "]
+
+		foreach pick in hero where "component.ShipInfo"
+          scale = eachpick.field[shipScale].value
+		  if (tagis[component.StarshipWeapon] <> 0) then
+		    tractStr = scale - 1 + field[wpSTracBonus].value
+			endif
+		nexteach
+		
+		tags = replace(tags, "Persistant X", "Persistant " & scale,0)
+		tags = replace(tags, "Strength X", "Strength " & tractStr,0)
+		
+		mySumm &= tags
 		
 		~ weapon size
-		if (tagis[Equipment.TwoHand] <> 0) then
-		  mySumm &= ", Size 2H,"
-		else
-		  mySumm &= ", Size 1H,"
+		if (tagis[component.StarshipWeapon] = 0) then
+		  if (tagis[Equipment.TwoHand] <> 0) then
+		    mySumm &= ", Size 2H,"
+		  else
+		    mySumm &= ", Size 1H,"
+		    endif
 		  endif
 		  
         ~ qualities
-		mySumm &= " " & tagnames[GearQual.?,", "]
-
+		txt = tagnames[GearQual.?,", "]
+		if (empty(txt) = 0) then
+		  mySumm &= "; " & txt
+          endif
+		  
 		mySumm &= ")"
 		
 	    @text = mySumm
@@ -564,8 +610,10 @@
         scale = eachpick.field[shipScale].value
 		nexteach
 
-      if (hero.tagis[CharType.typShip] = 1) then
-		totD += scale
+      if (hero.tagis[CharType.typStarship] + hero.tagis[CharType.typSmallCraft] + hero.tagis[CharType.typStarbase] <> 0) then
+	    if (tagis[Weapon.NoScale] = 0) then
+		  totD += scale
+		  endif
 		delDmg = tagvalue[Delivery.?]
         totD += delDmg
         endif

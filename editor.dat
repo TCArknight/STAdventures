@@ -447,7 +447,7 @@
       </inputthing>
     </editthing>
 
-  <!-- Starship (typShip) specific tabe -->
+  <!-- Starship (typStarship) specific tabe -->
   <!-- Spaceframe editthing -->
   <editthing
     group="Starship"
@@ -460,11 +460,6 @@
       name="Ship Info"
       helptext="Other options.">
       <it_separator/>
-      </inputthing>
-    <inputthing
-      name="Small Craft?"
-      helptext="Is this frame for a Small Craft?">
-      <it_tagcheck group="Ship" tag="SmallCraft"/>
       </inputthing>
     <inputthing
       name="Ship Type"
@@ -486,6 +481,28 @@
       helptext="This is the year that the spaceframe was retired from service.">
       <it_field field="fraYearRet"/>
       </inputthing>
+
+	<inputthing
+      name="Shipyards"
+      helptext="This is the Shipyards listing of the ship.">
+      <it_field field="fraShipyard"/>
+      </inputthing>
+	<inputthing
+      name="Capabilities"
+      helptext="This is the capabilities listing of the ship.">
+      <it_field field="fraCapabilities"/>
+      </inputthing>
+	<inputthing
+      name="Refits and Variants"
+      helptext="This is the Refits listing of the ship.">
+      <it_field field="fraRefVar"/>
+      </inputthing>
+	<inputthing
+      name="Suggested Profiles"
+      helptext="This is the suggested profiles listing of the ship.">
+      <it_field field="fraSuggPro"/>
+      </inputthing>
+	  
     <inputthing
       name="Ship Scale"
       helptext="This is the scale of the ship.">
@@ -500,11 +517,6 @@
       name="Ship Crew Rating"
       helptext="For typical ships of this type, this is the crew aboard the ship.">
       <it_field field="fraCrewRating"/>
-      </inputthing>
-	<inputthing
-      name="Capabilities"
-      helptext="This is the capabilities listing of the ship.">
-      <it_field field="fraCap"/>
       </inputthing>
     <inputthing
       name="Systems"
@@ -557,24 +569,24 @@
       <it_field field="fraConn"/>
       </inputthing>
     <inputthing
+      name="Security"
+      helptext="Security Rating">
+      <it_field field="fraSecur"/>
+      </inputthing>
+    <inputthing
       name="Engineering"
       helptext="Engineering Rating">
       <it_field field="fraEng"/>
       </inputthing>
 	<inputthing
-      name="Medicine"
-      helptext="Medicine Rating">
-      <it_field field="fraMed"/>
-      </inputthing>
-    <inputthing
-      name="Security"
-      helptext="Security Rating">
-      <it_field field="fraSecur"/>
-      </inputthing>
-	<inputthing
       name="Sciences"
       helptext="Sciences Rating">
       <it_field field="fraSci"/>
+      </inputthing>
+	<inputthing
+      name="Medicine"
+      helptext="Medicine Rating">
+      <it_field field="fraMed"/>
       </inputthing>
 	<inputthing
       name="Traits"
@@ -596,6 +608,11 @@
       <it_separator/>
       </inputthing>
     <inputthing
+      name="Allow Saucer Seperation?"
+      helptext="Specify whether Saucer Seperation talent is valid for this starship.">
+      <it_tagcheck group="Ship" tag="SaucerSep"/>
+      </inputthing>
+    <inputthing
       name="Allow Mission Pods?"
       helptext="Specify whether Mission Pods are valid for this starship.">
       <it_tagcheck group="Ship" tag="MissionPod"/>
@@ -604,11 +621,6 @@
       name="Number of Pods"
       helptext="Number of Mission Pods able to be selected for the frame.">
       <it_field field="fraPods"/>
-      </inputthing>
-    <inputthing
-      name="Allow Saucer Seperation?"
-      helptext="Specify whether Saucer Seperation talent is valid for this starship.">
-      <it_tagcheck group="Ship" tag="SaucerSep"/>
       </inputthing>
 	<inputthing
       name="Talents"
@@ -630,11 +642,43 @@
       <it_separator/>
       </inputthing>
 	<inputthing
-      name="Starship Weapons"
+      name="Energy Weapons"
       helptext="Select the weapons on the starship here.">
       <it_bootlist compset="Energy">
+	    <match>
+		  !thing.showonly
+		  </match>
 	    </it_bootlist>
       </inputthing>	  
+	<inputthing
+      name="Torpedos"
+      helptext="Select the weapons on the starship here.">
+      <it_bootlist compset="Torpedo">
+	    <match>
+		  !thing.showonly
+		  </match>
+	    </it_bootlist>
+      </inputthing>	
+	<inputthing
+      name="Mines"
+      helptext="Select the weapons on the starship here.">
+      <it_bootlist compset="Mine">
+	    <match>
+		  !thing.showonly
+		  </match>
+	    </it_bootlist>
+      </inputthing>	
+	<inputthing
+      name="Special"
+      helptext="Any Special Items for the frame.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Special Rules"
+      helptext="Select any special rules for the frame here.">
+      <it_bootlist compset="StarshipSpecial">
+	    </it_bootlist>
+      </inputthing>	
     <inputthing>
       <it_groupref id="SourceInfo"/>
       </inputthing>
@@ -648,9 +692,14 @@
     prefix="pro"
     description="."
     summary="Defines a mission profile that can be selected.">
+    <inputthing
+      name="Ship Type"
+      helptext="Select the type of ship this profile belongs to.">
+      <it_taglist group="ShipType" tag="?"/>
+      </inputthing>
 	<inputthing
       name="Departments"
-      helptext="Department ratings for the frame.">
+      helptext="Department ratings for the profile.">
       <it_separator/>
       </inputthing>
     <inputthing
@@ -692,8 +741,8 @@
       name="Talents"
       helptext="Select the talents selectable by this Mission Profile.">
       <it_taglist group="MisProTal" tag="?">
-		</it_taglist>
-      </inputthing>	   
+		</it_taglist> 
+      </inputthing> 
     <inputthing>
       <it_groupref id="SourceInfo"/>
       </inputthing>
@@ -761,6 +810,146 @@
       <it_groupref id="SourceInfo"/>
       </inputthing>
     </editthing>
+	
+  <!-- Ship Torpedoes editthing -->
+  <editthing
+    group="Starship"
+    compset="Torpedo"
+    name="Ship Torpedoes"
+    prefix="sh"
+    description="Starship Torpedoes."
+    summary="Defines a starship torpedo that can be selected.">
+	<inputthing
+      name="Weapon Category"
+      helptext="ShipWepCat.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Category"
+      helptext="Type of Weapon.">
+      <it_taglist group="ShipWepCat" tag="?"/>
+      </inputthing>
+	<inputthing
+      name="Combat"
+      helptext="Combat details for weapon.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Weapon Range"
+      helptext="Specify the Range of the weapon.">
+      <it_field field="wpSRange"/>
+      </inputthing>
+    <inputthing
+      name="Fixed Base Damage?"
+      helptext="Specify if this weapon has a fixed base damage.">
+      <it_tagcheck group="Weapon" tag="FixedBase"/>
+      </inputthing>
+    <inputthing
+      name="Base Damage"
+      helptext="Specify the damage of the weapon.">
+      <it_field field="wpSBasDmg"/>
+      </inputthing>
+	<inputthing
+      name="Qualities"
+      helptext="Qualities for the weapon.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Qualities"
+      helptext="Qualities of the weapon.">
+      <it_taglist group="GearQual" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Effects"
+      helptext="Damage Effects of the weapon.">
+      <it_taglist group="DmgEffect" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Delivery"
+      helptext="Delivery Method for the weapon.">
+      <it_taglist group="Delivery" tag="?"/>
+      </inputthing>
+	<inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
+  <!-- Ship Torpedoes editthing -->
+  <editthing
+    group="Starship"
+    compset="Mine"
+    name="Ship Mines"
+    prefix="sh"
+    description="Starship Mines."
+    summary="Defines a starship mine that can be selected.">
+	<inputthing
+      name="Weapon Category"
+      helptext="ShipWepCat.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Category"
+      helptext="Type of Weapon.">
+      <it_taglist group="ShipWepCat" tag="?"/>
+      </inputthing>
+	<inputthing
+      name="Combat"
+      helptext="Combat details for weapon.">
+      <it_separator/>
+      </inputthing>
+	<inputthing
+      name="Weapon Range"
+      helptext="Specify the Range of the weapon.">
+      <it_field field="wpSRange"/>
+      </inputthing>
+    <inputthing
+      name="Fixed Base Damage?"
+      helptext="Specify if this weapon has a fixed base damage.">
+      <it_tagcheck group="Weapon" tag="FixedBase"/>
+      </inputthing>
+    <inputthing
+      name="Base Damage"
+      helptext="Specify the damage of the weapon.">
+      <it_field field="wpSBasDmg"/>
+      </inputthing>
+	<inputthing
+      name="Qualities"
+      helptext="Qualities for the weapon.">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Qualities"
+      helptext="Qualities of the weapon.">
+      <it_taglist group="GearQual" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Effects"
+      helptext="Damage Effects of the weapon.">
+      <it_taglist group="DmgEffect" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Delivery"
+      helptext="Delivery Method for the weapon.">
+      <it_taglist group="Delivery" tag="?"/>
+      </inputthing>
+	<inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>	
+
+  <!-- StarshipSpecial editthing - Special Rules for starships -->
+  <editthing
+    group="Starship"
+    compset="StarshipSpecial"
+    name="Special Rules"
+    prefix="ssr"
+    description="."
+    summary="Defines a special rule that can be selected.">
+	
+	<inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>	
 	
   <!-- Equipment editthing - for basic gear -->
   <editthing
@@ -948,9 +1137,23 @@
   <editthing
     group="Starship"
     compset="MissionPod"
+    prefix="mp"
     name="Mission Pods"
     description="A mission pod, typically for a Nebula Class starship, can have any sort of Talent or bonuses to Systems or Departments."
     summary="Defines a simple Mission Pod item that can have a script added to improve the ship it is attached to.">
+
+    <inputthing
+      name="Ship Type"
+      helptext="Select the type of ship this pod belongs to.">
+      <it_taglist group="ShipType" tag="?"/>
+      </inputthing>	
+    <inputthing
+      name="Talents"
+      helptext="Select the talents provided by this Mission Profile.">
+      <it_bootlist compset="Talent">
+	    <match>TalentCat.Ship &amp; !thing.showonly</match>
+	    </it_bootlist>
+      </inputthing>
     </editthing>
 
   <!-- Mechanics editthing -->
@@ -961,5 +1164,18 @@
     summary="Defines a set of custom behaviors that are defined by the user and applied to each character.">
     </editthing>
 
+  <!-- CharRole editthing - for character roles -->
+  <editthing
+    compset="CharRole"
+    name="Role"
+    prefix="rol"
+	group="Hero"
+    description="Character roles provide abilities..."
+    summary="Defines a character role that can be selected on the Personal tab.">
+
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+	</editthing>
 
   </document>

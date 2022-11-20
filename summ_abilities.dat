@@ -34,8 +34,9 @@
     id="smTalent"
     style="tblInvisSm">
     <table_fixed
-      component="Talent"
+      component="TalentBase"
       showtemplate="smTalent"
+	  showsortset="TalentSort"
       scrollable="no">
       <headertitle><![CDATA[
       @text = #summtitle_decoration[] & " Talents " & #summtitle_decoration[]

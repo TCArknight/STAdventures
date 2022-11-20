@@ -647,7 +647,19 @@
       alignment="center">
       </style_label>
     </style>
-
+	
+  <!-- generic 'bright' label
+        -for highlighting material to stand out
+  -->
+  <style
+    id="lblBrightLeft">
+    <style_label
+      textcolorid="clrbright"
+      font="fntnormal"
+      alignment="left">
+      </style_label>
+    </style>
+	
   <!-- generic 'warning' label
         -for identifying invalid selections and erroneous choices
   -->

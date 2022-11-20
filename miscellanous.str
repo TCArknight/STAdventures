@@ -11,6 +11,13 @@
     name="Expression Helper">
 
     <field
+      id="ehSpecRuleExp"
+      name="Special Rules Expression"
+      type="derived"
+	  maxlength="500">
+	  </field>
+	  
+    <field
       id="ehTraitExp"
       name="Trait Expression"
       type="derived"
@@ -382,7 +389,27 @@
     name="Mechanics">
 
     </component>
+	
+  <component
+    id="TalentBase"
+    name="Base Talent">
 
+    <!-- Text for whether character is shaken -->
+    <field
+      id="talSummary"
+      name="Summary for output"
+      type="derived"
+      maxlength="250">
+      </field>
+	  
+	<!--  -->
+    <eval index="1" phase="Render" priority="9000"><![CDATA[
+      ~default the outSummary field to the text in the summary field
+      field[talSummary].text = field[summary].text
+	  
+      ]]></eval>	  
+	  
+    </component>
 
   <!-- CharType component
         Used for specifying character types (usually "Player", "NPC" or "Monster").
@@ -445,8 +472,41 @@
     <!-- Make sure the choose template has enough width for our names -->
     <tag group="SimpleItem" tag="width300"/>
 
-    </component>	
+    </component>
+	
+  <!-- CharRole component
+        Used for specifying the role the hero plays. Selected on the 
+  -->
+  <component
+    id="CharRole"
+    name="Character Role"
+	autocompset="no">
+	
+    <!-- Each role  needs its own CharRole tag  -->
+    <identity group="CharRole"/>
+	
+	<!-- All abilities get the same tag for sorting purposes -->
+    <tag group="TalentCat" tag="Role"/>
+	
+    <!-- calculate the net cash possessed for the character -->
+    <eval index="1" phase="Initialize" priority="500"><![CDATA[
+      ~forward char type to hero
+	  perform forward[CharRole.?]
+      ]]></eval>
+	  
+	<!-- Each role that is allocated by the user takes 1 slot -->
+    <eval index="2" phase="Ability" priority="10000">
+      <before name="Calc resLeft"/>
+      <after name="Bound abiUser"/><![CDATA[
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
 
+      ~adjust the resource appropriately
+      hero.child[resCharRole].field[resSpent].value += 1
+      ]]></eval>
+	  
+    </component>
+	
   <!-- Define various component sets associated with the components defined above.
   -->
 
@@ -467,5 +527,10 @@
     id="Transact">
     <compref component="Transact"/>
     </compset>
-
+	
+  <compset
+    id="CharRole">
+    <compref component="CharRole"/>
+    <compref component="TalentBase"/>
+    </compset>
   </document>

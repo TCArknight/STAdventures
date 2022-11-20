@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- This file contains the definition of the "Skills" tab panel. This tab is where
+      the user selects and adjusts the skills for the character.
+
+      All public visual elements used with this tab panel start with the prefix "sk"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+  <template
+    id="cfFrameDesc"
+    name="Frame Description Template"
+    compset="Frame"
+    marginhorz="3"
+    marginvert="2">
+	
+    <portal
+      id="cfYardTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Primary Shipyards"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cfShipyards"
+      style="editNormal">
+	  <edit 
+        field="fraShipyard"
+		ismultiline="yes">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="cfOverTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Overview"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cfOverview"
+      style="editNormal">
+	  <edit 
+        field="fraOverview"
+		ismultiline="yes">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="cfCapTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Capabilities"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cfCapabil"
+      style="editNormal">
+	  <edit 
+        field="fraCapabilities"
+		ismultiline="yes">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="cfRefVarTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Refits & Variants"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cfRefit"
+      style="editNormal">
+	  <edit 
+        field="fraRefVar"
+		ismultiline="yes">
+        </edit>
+      </portal>	  
+	  
+    <portal
+      id="cfSuggProTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Suggested Profiles"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cfSuggPro"
+      style="editNormal">
+	  <edit 
+        field="fraSuggPro"
+		ismultiline="yes">
+        </edit>
+      </portal>		
+	  
+    <portal
+      id="cfNamConvTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Naming Conventions"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cfNamConv"
+      style="editNormal">
+	  <edit 
+        field="fraNamConv"
+		ismultiline="yes">
+        </edit>
+      </portal>	 
+	  
+	<position><![CDATA[
+      portal[cfOverTitle].height = 20
+      portal[cfYardTitle].height = 20
+	
+      portal[cfYardTitle].top = 0
+      portal[cfYardTitle].left = 0
+      portal[cfYardTitle].width = width
+      
+      portal[cfShipyards].top = portal[cfOverTitle].bottom + 5
+      portal[cfShipyards].left = 0
+      portal[cfShipyards].width = width
+      portal[cfShipyards].height = 50
+	  
+      portal[cfOverTitle].top = portal[cfShipyards].bottom + 5
+      portal[cfOverTitle].left = 0
+      portal[cfOverTitle].width = width
+	  
+      portal[cfOverview].top = portal[cfOverTitle].bottom + 5
+      portal[cfOverview].left = 0
+      portal[cfOverview].width = width
+      portal[cfOverview].height = 150
+	  
+      portal[cfCapTitle].top = portal[cfOverview].bottom + 5
+      portal[cfCapTitle].left = 0
+      portal[cfCapTitle].width = width
+	  
+      portal[cfCapabil].top = portal[cfCapTitle].bottom + 5
+      portal[cfCapabil].left = 0
+      portal[cfCapabil].width = width
+      portal[cfCapabil].height = 150
+	  
+	  portal[cfRefVarTitle].top = portal[cfCapabil].bottom + 5
+      portal[cfRefVarTitle].left = 0
+      portal[cfRefVarTitle].width = width
+	  
+      portal[cfRefit].top = portal[cfRefVarTitle].bottom + 5
+      portal[cfRefit].left = 0
+      portal[cfRefit].width = width
+      portal[cfRefit].height = 50
+	  
+	  portal[cfSuggProTitle].top = portal[cfRefit].bottom + 5
+      portal[cfSuggProTitle].left = 0
+      portal[cfSuggProTitle].width = width
+	  
+      portal[cfSuggPro].top = portal[cfSuggProTitle].bottom + 5
+      portal[cfSuggPro].left = 0
+      portal[cfSuggPro].width = width
+      portal[cfSuggPro].height = 25
+	  
+	  portal[cfNamConvTitle].top = portal[cfSuggPro].bottom + 5
+      portal[cfNamConvTitle].left = 0
+      portal[cfNamConvTitle].width = width
+	  
+      portal[cfNamConv].top = portal[cfNamConvTitle].bottom + 5
+      portal[cfNamConv].left = 0
+      portal[cfNamConv].width = width
+      portal[cfNamConv].height = 50
+	  
+      ]]></position>
+
+    </template>	
+  <!-- species layout
+        This layout orchestrates the display of the visual elements that comprise
+        the Skills tab. This amounts to a title at the top and a dynamic table below
+        where the user can add and adjust the skills he wants.
+
+        The logic for this layout is similar to (albeit much simpler than) the
+        logic for the Basics tab. So please refer to the Basics tab for more details.
+  -->
+  <layout
+    id="custframe2">
+    <templateref template="cfFrameDesc" useagent="yes"/>
+    <!-- <templateref template="cfCustFrame" useagent="yes"/> -->
+	<!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+
+      ~both tables span the full width
+      perform template[cfFrameDesc].autoplace[10]
+
+      ]]></position>
+
+    </layout>
+
+  <!-- custom frame panel -->
+  <panel
+    id="custframe2"
+    name="Frame 2"
+    marginhorz="5"
+    marginvert="5"
+    order="2"
+    agentcompset="Frame"
+    agentlive="CustomFrame"
+    agentname="UserName"
+    >
+    <live>!HideTab.profile</live>
+    <layoutref layout="custframe2"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+
+
+  </document>

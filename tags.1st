@@ -46,6 +46,11 @@
     <value id="IsHeader"/>    
     <value id="UserDesc"/>     
     <value id="BorgImplant"/> <!-- Indicates a piece of gear is a Borg Implant -->  
+    <value id="AddedWeapon"/> <!-- Indicates an additional ship weapon -->      
+    <value id="FrameTalent"/> <!-- Indicates an ship weapon that is from a custom frame -->  
+    <value id="FrameTrait"/> <!-- Indicates an ship weapon that is from a custom frame -->  
+    <value id="FrameWeapon"/> <!-- Indicates an ship weapon that is from a custom frame -->  
+    <value id="FrameSpecRule"/> <!-- Indicates an ship weapon that is from a custom frame -->    
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -117,6 +122,8 @@
     <value id="StartEquip" name="Gear starts out equipped"/>      <!-- Identifies equipment that is equipped by default -->
     <value id="AutoEquip" name="Gear is auto-equipped"/>          <!-- Identifies equipment that is automatically equipped (e.g. natural attacks) -->
     <value id="Natural" name="Natural weapon/armor/etc."/>        <!-- Identifies equipment that is a natural form and exempt from various behaviors -->
+    <value id="Encumbered"/>  									  <!-- Identifies equipment that adds the trait Encumbered when equipped -->  
+    <value id="Slow"/>                                            <!-- Identifies equipment that adds the trait Encumbered when equipped --> 
     </group>
 
   <!-- Weapon group - helper tags for weapon special abilities
@@ -127,6 +134,7 @@
     id="Weapon">
     <value id="SpecRange" name="Range is special"/>                     <!-- Identifies a weapon with a special range -->
     <value id="NoDamage" name="Weapon does no damage."/>                <!-- Identifies a weapon with no damage -->
+    <value id="NoScale" name="Weapon damage doesn't include Scale."/>   <!-- Identifies a weapon with Scale-based damage -->
     <value id="FixedBase" name="Weapon has fixed base damage."/>        <!-- Identifies a weapon with a specific base damage -->
     <value id="Tractor" name="Weapon functions like a Tractor Beam."/>  <!-- Identifies a weapon that is a Tractor Beam style weapon -->
     </group>
@@ -545,6 +553,7 @@
   <group
     id="TalentCat"
     sequence="explicit">
+    <value id="Role" order="1"/>
     <value id="Custom" order="5"/>
     <value id="Ship" order="10"/>
     <value id="General" order="10"/>
@@ -598,7 +607,8 @@
     sequence="explicit">
     <value id="Beam" order="10"/>
     <value id="Torpedo" order="20"/>
-    <value id="Other" order="30"/>
+    <value id="Mine" order="30"/>
+    <value id="Other" order="40"/>
    </group>
    
   <!-- GearCost group -->
@@ -616,10 +626,12 @@
   <!-- DmgEffect group -->
   <group
     id="Delivery"
-	dynamic="no">
-    <value id="Cannons2" name="Cannons"/>
-    <value id="Banks1" name="Banks"/>
-    <value id="Arrays" />
+	dynamic="no"
+    sequence="explicit">
+    <value id="Cannons2" name="Cannons" order="30"/>
+    <value id="Banks1" name="Banks" order="20"/>
+    <value id="Arrays" order="10"/>
+    <value id="Lance3" name="Spinal Lance" order="40"/>
 	</group>
 	
   <!-- DmgEffect group -->
@@ -627,15 +639,16 @@
     id="DmgEffect"
 	dynamic="no">
     <value id="Area" />
+    <value id="AreaSpread" name="Area or Spread" />
     <value id="Intense" />
     <value id="Knockdown" />
     <value id="Piercing1" name="Piercing 1" />
     <value id="Piercing2" name="Piercing 2"/>
     <value id="Vicious1" name="Vicious 1"/>
     <value id="Vicious2" name="Vicious 2"/>
-    <value id="Versa1" name="Versatile 1"/>
-    <value id="Versa2" name="Versatile 2"/>
     <value id="Persist" name="Persistant"/>
+    <value id="Persist4" name="Persistant 4"/>
+    <value id="PersistX" name="Persistant X"/>
     <value id="Str1" name="Strength 1"/>
     <value id="Str2" name="Strength 2"/>
     <value id="Str3" name="Strength 3"/>
@@ -645,6 +658,9 @@
     <value id="Str7" name="Strength 7"/>
     <value id="Str8" name="Strength 8"/>
     <value id="Str9" name="Strength 9"/>
+    <value id="StrengthX" name="Strength X"/>
+    <value id="Dampening" />
+    <value id="Depleting" />
 	</group>
 
   <!-- GearQual group -->
@@ -663,6 +679,11 @@
     <value id="NonLethal" name="Non-Lethal" />
     <value id="HiYield" name="High Yield" />
     <value id="Calib" name="Calibration" />
+    <value id="Devastating" />
+    <value id="Versa1" name="Versatile 1"/>
+    <value id="Versa2" name="Versatile 2"/>
+    <value id="Slowing" name="Slowing" />
+    <value id="Jamming" name="Jamming" />
    </group>
 
   <!-- Ship Alliance -->
@@ -670,11 +691,20 @@
     id="ShipAlliance"
     dynamic="yes">
     <value id="Civilian"/>
-    <value id="Federation"/>
-    <value id="Klingon"/>
-    <value id="Romulan"/>
-    <value id="Orion"/>
-    <value id="Gorn"/>
+    </group>
+	
+  <!-- Ship System Point Category 
+       Cat  Year  Sys Points
+	   1    2200  40 (+/- 1 point / 10 yrs)
+	   2    2150  35 (-1 point / 50 yrs early)
+	   3    2400  60 (+1 point / 50 yrs later)
+  -->
+  <group
+    id="ShipSysPointCat"
+    dynamic="yes">
+    <value id="1"/>
+    <value id="2"/>
+    <value id="3"/>
     </group>
 	
   <!-- Ship group -->
@@ -684,14 +714,17 @@
     <value id="SmallCraft" name="Small Craft"/>
     <value id="SaucerSep"/>
     <value id="MissionPod"/>
+    <value id="NoShields"/>
     </group>
 
   <!-- ShipType group -->
   <group
     id="ShipType"
+    sequence="explicit"
     dynamic="no">
-    <value id="typShip" name="Starship"/>
-    <value id="typBase" name="Starbase"/>
+    <value id="typSmallCraft" name="Small Craft" order="10"/>
+    <value id="typStarship" name="Starship" order="20"/>
+    <value id="typStarbase" name="Starbase" order="30"/>
     </group>
 	
   <!-- Refit group -->
@@ -700,7 +733,13 @@
     dynamic="no">
     <value id="Refit"/>
     </group>
-
+	
+  <group
+    id="CustomFrame"
+    dynamic="yes">
+    <value id="Custom"/>
+    </group>
+	
   <!-- CreateMethod group - what type of character creation method used
         Right now there is only one tag for the Lifepath method. Later this will be expanded to offer other types of creation methods
   -->
@@ -723,5 +762,19 @@
     <value id="Operations"/>
     <value id="Science"/>
     </group>
+
+  <group
+    id="Reference1"
+    dynamic="yes"
+    visible="no">
+    <value id="Dummy"/> 
+    </group>
+	
+  <group
+    id="Target1"
+	visible="no"
+    dynamic="yes"
+    inherit="Reference1">
+    </group>	
 	
    </document>

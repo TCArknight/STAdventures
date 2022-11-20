@@ -20,7 +20,7 @@
     publisher="Modiphius"
     website="https://www.modiphius.net/collections/star-trek-adventures"
     copyright="TBD"
-    legaloutput="TBD">
+    legaloutput="STAR TREK and related marks and logos are trademarks of CBS Studios Inc. STAR TREK ADVENTURES, the 2d20 system, related marks &amp; logos are copyright of Modiphius Entertainment Ltd. All Rights Reserved.">
     </game>
 
   <!-- The "author" element is where you'll provide details about yourself as the
@@ -41,7 +41,7 @@
 
   <release
     major="1"
-    minor="10"
+    minor="11"
     required="8.9h"
     summary=""><![CDATA[{align center}{bmp logo}
 	{b}{text ffff80}{align center}Star Trek Adventures for Hero Lab{text 010101}{/b}
@@ -180,6 +180,11 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     name="ischaractertype"
     param1="type"
     result="hero.tagis[CharType.#type]"/>
+
+  <scriptmacro
+    name="ischaracterrole"
+    param1="role"
+    result="hero.tagis[CharType.#role]"/>
 	
   <scriptmacro
     name="haschoice1"
@@ -207,7 +212,7 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="resistnon"
     result="hero.childfound[trResist].field[abiValue1].value"/>
-	
+		
   <scriptmacro
     name="resistbonus"
     result="hero.childfound[trResist].field[abiBonus].value"/>	
@@ -232,12 +237,74 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     result="hero.child[#department].field[abiFinal].value"/>
 	
   <scriptmacro
+    name="comms"
+    result="hero.child[attrsys01].field[abiFinal].value"/>	
+  <scriptmacro
+    name="computers"
+    result="hero.child[attrsys02].field[abiFinal].value"/>
+  <scriptmacro
+    name="engines"
+    result="hero.child[attrsys03].field[abiFinal].value"/>
+  <scriptmacro
+    name="sensors"
+    result="hero.child[attrsys04].field[abiFinal].value"/>
+  <scriptmacro
+    name="structure"
+    result="hero.child[attrsys05].field[abiFinal].value"/>
+  <scriptmacro
+    name="weapons"
+    result="hero.child[attrsys06].field[abiFinal].value"/>
+	
+  <scriptmacro
+    name="command"
+    result="hero.child[discdept01].field[abiFinal].value"/>	
+  <scriptmacro
+    name="conn"
+    result="hero.child[discdept02].field[abiFinal].value"/>
+  <scriptmacro
+    name="security"
+    result="hero.child[discdept03].field[abiFinal].value"/>
+  <scriptmacro
+    name="engineering"
+    result="hero.child[discdept04].field[abiFinal].value"/>
+  <scriptmacro
+    name="science"
+    result="hero.child[discdept05].field[abiFinal].value"/>
+  <scriptmacro
+    name="medicine"
+    result="hero.child[discdept06].field[abiFinal].value"/>	
+	
+  <scriptmacro
     name="shipyear"
     result="hero.childfound[mscShip].field[shipYear].text"/>
+  <scriptmacro
+    name="shipyearvalue"
+    result="int(hero.childfound[mscShip].field[shipYear].text)"/>
+
+  <scriptmacro
+    name="shiplaunch"
+    result="hero.childfound[mscShip].field[shipLaunchYear].text"/>
+  <scriptmacro
+    name="shiplaunchvalue"
+    result="int(hero.childfound[mscShip].field[shipLaunchYear].text)"/>
 
   <scriptmacro
     name="shipscale"
     result="hero.childfound[mscShip].field[shipScale].value"/>
+	
+  <scriptmacro
+    name="framescale"
+    result="hero.findchild[Frame].field[fraScale].value" />
+	
+  <scriptmacro
+    name="framesystempoints"
+    result="hero.findchild[Frame].field[fraSystemPoints].value" />
+  <scriptmacro
+    name="framedeptpoints"
+    result="hero.findchild[Frame].field[fraDeptPoints].value" />
+  <scriptmacro
+    name="framepodsallowed"
+    result="hero.findchild[Frame].field[fraPodsAllowed].value" />
 	
   <scriptmacro
     name="ischaracter"
@@ -245,11 +312,15 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
 	
   <scriptmacro
     name="isstarship"
-    result="hero.tagis[CharType.typShip]"/>
+    result="hero.tagis[CharType.typStarship]"/>
+	
+  <scriptmacro
+    name="issmallcraft"
+    result="hero.tagis[CharType.typSmallCraft]"/>
 	
   <scriptmacro
     name="isstarbase"
-    result="hero.tagis[CharType.typBase]"/>
+    result="hero.tagis[CharType.typStarbase]"/>
 
   <scriptmacro
     name="prependdesc"

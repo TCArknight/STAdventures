@@ -1,4 +1,38 @@
 History:
+v1.12
+Release: xx/xx/2021
+Known Issues:
+* Starship Character Sheet needs updated
+
+Updated -
+TOS_Player_Characters.stock
+TNG_Player_Characters.stock
+DS9_Player_Characters.stock
+
+WIP - 
+VOY_Player_Characters.stock
+
+Fixed -
+Added missing Ushaan-tor to melee weapons
+Fixed "Ship Mission Pods: Resource Overspent." message for various starships
+
+New - 
+Roles - Added selection of Character Role
+Shackleton Expanse Campaign Guide
++ New Species
+
+v1.11
+Release: 05/05/2021
+Fixed -
+Intrepid starship: Scale of 4 is missing
+Miranda starship: Year entered service should be 2274
+Photon Torpedo damage too high
+
+New - 
+Allow custom selection of additional weapons for Starships
+Delta Quadrant Sourcebook
++ Starship Talent - Hot Rod, Voth High Resolution Sensors, Voth Cloaking Device
+
 v1.10
 Release: 03/29/21
 Fixed -

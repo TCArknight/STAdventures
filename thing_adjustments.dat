@@ -166,4 +166,20 @@
     <tag group="InPlay" tag="TempOK"/>
     </thing>
 
+  <!-- Role Slot Adjustment -->
+  <thing
+    id="adjRoleSlots"
+    name="Role Slots"
+    compset="Adjustment"
+    description="Select this adjustment to apply a bonus/penalty to your number of Role slots.">
+    <tag group="AdjustShow" tag="Increment"/>
+    <tag group="Helper" tag="UserAdjust"/>
+    <tag group="InPlay" tag="PermOK"/>
+    <tag group="InPlay" tag="TempOK"/>
+    <eval phase="Setup" priority="8000"><![CDATA[
+      if (tagis[Helper.Activated] <> 0) then
+        #resmax[resCharRole] += field[adjUser].value
+        endif
+      ]]></eval>
+    </thing>
   </document>

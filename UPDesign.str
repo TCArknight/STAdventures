@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definitions of components associated with traits such as
+      attributes, skills, special abilities, etc.
+-->
+
+<document signature="Hero Lab Structure">
+  <!-- Components -->
+  <!-- Polity component
+       Polities are the political entities the ship is being designed for.
+  -->
+  <component
+    id="Polity"
+    name="Political Entity"
+    autocompset="yes">
+	
+    <!-- Each polity needs its own identity tags to configure the hero appropriately -->
+    <identity group="Polity"/>
+    <identity group="ShipAlliance"/>
+	
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Polity.?]
+      perform forward[IsFrame.?]
+      ]]></eval>
+	  
+    </component> 	
+	
+  <!-- Compsets -->
+
+
+  </document>

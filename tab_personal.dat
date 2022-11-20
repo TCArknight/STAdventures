@@ -99,6 +99,37 @@
       </table_dynamic>
     </portal>
 
+  <!-- peRole portal
+
+  -->
+  <portal
+    id="peRole"
+    style="tblNormal">
+    <table_dynamic
+      component="CharRole"
+      showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+      showfixedlast="yes"
+      addpick="resCharRole">
+      <candidate>!Hide.Value</candidate>
+      <titlebar><![CDATA[
+        @text = "Add a Role - " & hero.child[resCharRole].field[resSummary].text
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Roles: " & hero.child[resCharRole].field[resSummary].text
+        ]]></headertitle>
+      <additem><![CDATA[
+        ~set the color based on whether the proper number of slots are allocated
+        if (field[resLeft].value = 0) then
+          @text = "{text clrgrey}"
+        elseif (field[resLeft].value < 0) then
+          @text = "{text clrwarning}"
+          endif
+        @text &= "Add New Role"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
 
   <!-- peImage template
         This template shows a user-added character image. The height is calculated
@@ -365,6 +396,8 @@
       portal[role].top = portal[lblRole].top
       portal[role].left = portal[lblRole].right + 5
 	  portal[role].width = width - portal[role].left -5	
+	  portal[lblRole].visible = 0
+	  portal[role].visible = portal[lblRole].visible
 
       height = portal[lblRole].bottom + 10	  
       ]]></position>
@@ -620,6 +653,7 @@
     id="personal">
     <portalref portal="peImages" taborder="20"/>
     <portalref portal="peAdjust" taborder="30"/>
+    <portalref portal="peRole" taborder="6"/>
     <templateref template="peService" thing="mscService" taborder="5"/>
     <templateref template="peDetails" thing="mscPerson" taborder="10"/>
 
@@ -646,17 +680,23 @@
       portal[peImages].left = width - portal[peImages].width
       portal[peImages].height = portal[peAdjust].top - portal[peImages].top - 10
 
-	  
       ~allocate the remaining width to the personal details template
       template[peService].width = width - portal[peImages].width - 10
       template[peDetails].width = width - portal[peImages].width - 10
 
       ~position the service template in the upper left corner
 	  template[peService].top = 0
-      template[peService].height = 100 
+      template[peService].height = 100
+	  
+      ~position the role table under the service template
+	  portal[peRole].top = template[peService].bottom + 5
+      portal[peRole].left = template[peService].left
+      portal[peRole].width = template[peService].width
+	  
+      portal[peImages].height = portal[peAdjust].top - portal[peImages].top - 10
 
       ~position the details template between the service template and the adjustment
-	  template[peDetails].top = template[peService].bottom + 20
+	  template[peDetails].top = portal[peRole].bottom + 20
       template[peDetails].height = portal[peAdjust].top - template[peDetails].top
       ]]></position>
 
@@ -677,7 +717,7 @@
     marginhorz="5"
     marginvert="5"
     order="310">
-    <live>!HideTab.personal &amp; !CharType.typShip</live>
+    <live>!HideTab.personal &amp; !CharType.typStarship</live>
     <layoutref layout="personal"/>
     <position><![CDATA[
       ]]></position>

@@ -14,45 +14,52 @@
         character. This portal is identical to "arMelee" above, except that it
         manages ranged weapons instead of melee weapons, resulting in a few minor
         but important differences from the melee weapons table.
-  
-  <portal
-    id="shEnergy"
-    style="tblNormal">
-    <table_dynamic
-      component="Gear"
-      showtemplate="shWpnPick"
-      choosetemplate="shWpnThing"
-      buytemplate="BuyCash"
-      selltemplate="SellCash">
-      <list>component.WeapEnergy</list>
-      <candidate inheritlist="yes">!Equipment.Natural</candidate>
-      <titlebar><![CDATA[
-        @text = "Select Starship Energy Weapons from the List Below"
-        ]]></titlebar>
-      <headertitle><![CDATA[
-        @text = "Energy Weapons"
-        ]]></headertitle>
-      <additem><![CDATA[
-        @text = "Add New Starship Energy Weapons"
-        ]]></additem>
-      </table_dynamic>
-    </portal>
-	-->
 	<portal 
-	  id="shEnergy" 
+	  id="shWeapons" 
 	  style="tblInvis">
 	  <table_fixed 
 	    component="Gear" 
 		scrollable="no"
 		showtemplate="shWpnPick"
 		showsortset="explicit">
-		<list>component.WeapEnergy</list>
+		<list>component.WeaponStarship</list>
         <headertitle><![CDATA[
-          @text = "Energy Weapons"
+          @text = "Starship Weapons"
           ]]></headertitle>
 		</table_fixed>
 	  </portal>	
-
+	-->
+  
+  <portal
+    id="shWeapons"
+    style="tblInvis">
+    <table_dynamic
+      component="Gear"
+      showtemplate="shWpnPick"
+      choosetemplate="shWpnThing"
+	  showsortset="ShipWeapDeliv"
+	  choosesortset="ShipWeapDeliv"
+	  addpick="resAddWeapons"
+	  showfrozenfixed="yes"
+	  >
+      <list>component.WeaponStarship</list>
+      <candidate inheritlist="yes">!Equipment.Natural</candidate>
+      <autotag group="Helper" tag="AddedWeapon"/>
+      <titlebar><![CDATA[
+        @text = "Select Starship Weapons from the List Below"
+        ]]></titlebar>
+      <headertitle><![CDATA[
+        @text = "Starship Weapons"
+		if (hero.child[resAddWeapons].field[resLeft].value <> 0) then 
+		  @text &= " - " & hero.child[resAddWeapons].field[resSummary].text 
+		  endif
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add New Starship Weapons"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
   <!-- arWpnThing template
         Derived from the SimpleItem template, this template includes the weapon
         damage and purchase cost. It is specifically for showing things for the
@@ -76,40 +83,17 @@
     <portal
       id="name"
       style="lblNormal">
-      <label
-        field="name">
-        </label>
-      </portal>
-
-    <portal
-      id="damage"
-      style="lblNormal">
-      <label
-        field="wpDamageSummary">
-        </label>
-      </portal>
-
-    <portal
-      id="range"
-      style="lblDisable">
       <label>
-        <labeltext><![CDATA[
-          if (tagis[component.Energy] <> 0) then
-            @text = field[wpSRange].text
-          else
-            @text = ""
-            endif
-          ]]></labeltext>
-        </label>
-      </portal>
-
-    <portal
-      id="cost"
-      style="lblNormal">
-      <label>
-        <labeltext><![CDATA[
-          @text = field[grCost].text
-          ]]></labeltext>
+	    <labeltext><![CDATA[
+		  @text = field[name].text
+		  
+		  doneif (tagis[Weapon.NoDamage] = 0)
+		  
+		  if (tagis[DmgEffect.?] <> 0) then
+		    @text &= " (" & tagnames[DmgEffect.?,","] & ")"
+			endif
+			
+		  ]]></labeltext>
         </label>
       </portal>
 
@@ -117,29 +101,26 @@
       ~set up our dimensions, with a width that we dictate; our width can vary
       ~between weapon types, since ranged weapons require extra space for the range
       height = portal[name].height
-      if (tagis[component.WeapRange] <> 0) then
-        width = 350
-      else
-        width = 250
-        endif
 
       ~if this is a "sizing" calculation, we're done
       doneif (issizing <> 0)
 
       ~position the cost portal on the far right
-      perform portal[cost].alignedge[right,0]
+      ~perform portal[cost].alignedge[right,0]
 
       ~position the damage portal to the left of the cost; we want the damage to
       ~be centered in its own column relative to a centerpoint position
-      perform portal[damage].centerpoint[horz,180]
+      ~perform portal[damage].centerpoint[horz,180]
 
       ~position the range portal to be centered in its own column relative to a
       ~centerpoint position
-      perform portal[range].centerpoint[horz,260]
+      ~perform portal[range].centerpoint[horz,260]
 
       ~position the name on the left and let it use all available space
       portal[name].left = 0
-      portal[name].width = minimum(portal[name].width,portal[range].left - 10)
+      portal[name].width = width 
+	  ~ minimum(portal[name].width,portal[range].left - 10)
+	  
       ]]></position>
 
     </template>
@@ -170,7 +151,7 @@
 
     <portal
       id="quality"
-      style="lblDisableLeft">
+      style="lblBrightLeft">
       <label>
 	    <labeltext><![CDATA[
           @text = "Qualities: " & field[wpQualSumm].text
@@ -180,7 +161,7 @@
 
     <portal
       id="damage"
-      style="lblDisableLeft">
+      style="lblBrightLeft">
       <label>
 	    <labeltext><![CDATA[
 		  var txt as string
@@ -204,7 +185,7 @@
 
     <portal
       id="range"
-      style="lblDisableLeft">
+      style="lblBrightLeft">
       <label>
         <labeltext><![CDATA[
           @text = "Range: " & field[wpSRange].text
@@ -229,7 +210,15 @@
         action="delete">
         </action>
       </portal>
-
+	
+    <portal
+      id="wepSep"
+      style="sepHorz">
+      <separator
+        isvertical="no">
+        </separator>
+      </portal>
+	
     <position><![CDATA[
       ~center the portals vertically
       perform portal[delete].centervert
@@ -237,7 +226,9 @@
       perform portal[quality].centervert
       perform portal[damage].centervert
       perform portal[range].centervert
-      perform portal[name].centervert      
+      perform portal[name].centervert  
+      perform portal[wepSep].centervert
+      perform portal[wepSep].centerhorz    
 	  
 	  var top1 as number
 	  var top2 as number
@@ -275,9 +266,13 @@
 	  perform portal[quality].alignrel[ltor,damage,8]
 
       ~if this is not a energy weapon, hide the range portal
-      portal[range].visible = tagis[component.WeapEnergy]
-
-	  height = portal[damage].bottom + 5
+      portal[range].visible = tagis[component.StarshipWeapon]
+	  
+	  portal[wepSep].top = portal[damage].bottom + 10
+	  portal[wepSep].width = width/2
+	  portal[wepSep].left = width/4
+	  
+	  height = portal[wepSep].bottom + 5
       ]]></position>
 
     </template>
@@ -302,7 +297,7 @@
   -->
   <layout
     id="sh_armory">
-    <portalref portal="shEnergy" taborder="10"/>
+    <portalref portal="shWeapons" taborder="10"/>
 
     <!-- This script sizes and positions the layout and its child visual elements. -->
     <position><![CDATA[
@@ -310,19 +305,24 @@
       var gap as number
       gap = 13
 
+      if (hero.child[resAddWeapons].field[resLeft].value = 0) then
+	    portal[shWeapons].freeze = 1
+		endif
+		
       ~set the width of all tables to the full width of the layout
-      portal[shEnergy].width = width
+      portal[shWeapons].width = width
 
       ~position the armor/shield table at the bottom, allowing for at most two rows
       ~portal[arDefense].maxrows = 2
       ~portal[arDefense].top = height - portal[arDefense].height
 
       ~position the melee table at the top
-      portal[shEnergy].top = 0
+      portal[shWeapons].top = 0
 
       ~set the heights of the two weapon tables to use all the space available
-      portal[shEnergy].height = height
+      portal[shWeapons].height = height
 
+		
       ~determine how much space we have left for the two tables; be sure to exclude
       ~the extra title and the extra spacing we'll use inbetween
       ~NOTE! If a value of 10 is added to the bottom coordinate of a portal, the
@@ -338,17 +338,17 @@
 
       ~if the height of both tables exceeds what we have left, we need to divvy up
       ~that space between the two tables
-      ~if (portal[arMelee].height + portal[shEnergy].height > remain) then
+      ~if (portal[arMelee].height + portal[shWeapons].height > remain) then
 
         ~if the melee table is less than half the space, limit the ranged table
         ~to whatever space is leftover
        ~ if (portal[arMelee].height < remain / 2) then
-       ~   portal[shEnergy].height = remain - portal[arMelee].height
+       ~   portal[shWeapons].height = remain - portal[arMelee].height
 
         ~if the ranged table is less than half the space, limit the melee table
         ~to whatever space is leftover
-        ~elseif (portal[shEnergy].height < remain / 2) then
-        ~  portal[arMelee].height = remain - portal[shEnergy].height
+        ~elseif (portal[shWeapons].height < remain / 2) then
+        ~  portal[arMelee].height = remain - portal[shWeapons].height
 
         ~otherwise, both tables are larger than half the space, so we need to limit
         ~the height of both of them
@@ -359,18 +359,18 @@
         ~remaining space, then subtract that table's final height from our remaining
         ~space, and finally set that as the height for the second table.
         ~else
-        ~  portal[shEnergy].height = remain / 2
-        ~  portal[arMelee].height = remain - portal[shEnergy].height
+        ~  portal[shWeapons].height = remain / 2
+        ~  portal[arMelee].height = remain - portal[shWeapons].height
         ~  endif
         ~endif
 
       ~position the ranged weapons table beneath the melee table
-      ~portal[shEnergy].top = portal[arMelee].bottom + gap
+      ~portal[shWeapons].top = portal[arMelee].bottom + gap
 
       ~position the armor/shields table beneath the ranged weapons table
       ~NOTE! we already positioned this table, but the above logic could result in
       ~a gap between the tables, so we close that gap by repositioning again
-      ~portal[arDefense].top = portal[shEnergy].bottom + gap
+      ~portal[arDefense].top = portal[shWeapons].bottom + gap
 
       ~set the height of the armor/shields table to the whatever height is left;
       ~if the armor list is long and the weapon lists are short, this will show as
@@ -395,7 +395,7 @@
     marginhorz="5"
     marginvert="5"
     order="210">
-    <live>!HideTab.armory &amp; CharType.typShip</live>
+    <live>!HideTab.armory &amp; ShowTab.Starship</live>
     <layoutref layout="sh_armory"/>
     <position><![CDATA[
       ]]></position>

@@ -42,7 +42,7 @@
         ]]></titlebar>
       <description/>
       <headertitle><![CDATA[
-        @text = "Step 3: Refits - " & hero.child[resShipRef].field[resSummary].text
+        @text = "Refits - " & hero.child[resShipRef].field[resSummary].text
         ]]></headertitle>
       <additem><![CDATA[
         @text &= "Add New Refit"
@@ -55,7 +55,7 @@
     style="lblTitle">
     <label>
       <labeltext>
-        @text = "Step 1: Frame"
+        @text = "Frame"
         </labeltext>
       </label>
     </portal>
@@ -84,13 +84,13 @@
         ]]></titlebar>
       </chooser_table>
     </portal>
-
+	  
   <portal 
     id="hdrProfile" 
     style="lblTitle">
     <label>
       <labeltext>
-        @text = "Step 2: Mission Profile"
+        @text = "Mission Profile"
         </labeltext>
       </label>
     </portal>
@@ -102,6 +102,10 @@
     <chooser_table
       component="Profile"
       choosetemplate="SimpleItem">
+	  <needtag
+        container="CharType"
+        thing="ShipType">
+        </needtag>
       <chosen><![CDATA[
         if (@ispick = 0) then
           @text = "{text clrwarning}Select Mission Profile"
@@ -110,10 +114,93 @@
           endif
         ]]></chosen>
       <titlebar><![CDATA[
-        @text = "Choose the Mission Profile for your character"
+        @text = "Choose the Mission Profile for your ship"
         ]]></titlebar>
       </chooser_table>
     </portal>
+
+  <!-- shPod portal
+  -->
+  <portal
+    id="shPod"
+    style="tblNormal">
+    <table_dynamic
+      component="MissionPod"
+      showtemplate="shPickPod"
+      choosetemplate="SimpleItem"
+      showfixedlast="no"
+      addpick="resShipPod">
+	  <needtag
+        container="CharType"
+        thing="ShipType">
+        </needtag>
+      <titlebar><![CDATA[
+        @text = "Add a Mission Pod - " & hero.child[resShipPod].field[resSummary].text
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Mission Pods: " & hero.child[resShipPod].field[resSummary].text
+        ]]></headertitle>
+      <additem><![CDATA[
+        ~set the color based on whether the proper number of slots are allocated
+        if (field[resLeft].value = 0) then
+          @text = "{text clrgrey}"
+        elseif (field[resLeft].value < 0) then
+          @text = "{text clrwarning}"
+          endif
+        @text &= "Add New Pod"
+        ]]></additem>
+      </table_dynamic>
+    </portal>	
+	
+  <template
+    id="fraCustomFrame"
+    name="Custom Frame"
+    compset="Frame"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="lblCustName"
+      style="lblNormal">
+      <label
+        text="Frame Name:">
+        </label>
+      </portal>
+
+    <portal
+      id="CustName"
+      style="editNormal">
+      <edit 
+        field="UserName">
+        </edit>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[lblCustName].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[CustName].top = 0
+
+      ~center the other portals vertically
+      perform portal[lblCustName].centervert
+
+      ~position the label portal on the far left
+      perform portal[lblCustName].alignedge[left,0]
+
+      ~position the name on the left and let it use all available space
+      ~portal[CustName].left = portal[CustName].right + 5
+	  ~ perform portal[CustName].alignedge[right,0]
+	  perform portal[CustName].alignrel[ltor,lblCustName,5]
+      portal[CustName].width = width - portal[lblCustName].right
+
+      ]]></position>
+
+    </template>
 	
   <template
     id="fraPick"
@@ -195,6 +282,22 @@
       </portal>
   
     <portal
+      id="lblLaunch"
+      style="lblNormal">
+      <label
+        text="Entered Service:">
+        </label>
+      </portal>
+
+    <portal
+      id="launch"
+      style="editNormal">
+      <edit 
+        field="shipLaunchYear">
+        </edit>
+      </portal>
+  
+    <portal
       id="lblYear"
       style="lblNormal">
       <label
@@ -209,7 +312,7 @@
         field="shipYear">
         </edit>
       </portal>
-
+	  
     <portal
       id="lblSumm"
       style="lblNormal">
@@ -273,8 +376,12 @@
 	  portal[affil].top = portal[lblAffil].top
 	  portal[affil].left = portal[lblAffil].right + 5
 	  portal[affil].width = width - portal[affil].left
+      portal[lblLaunch].left = 0
+      perform portal[lblLaunch].alignrel[ttob,lblAffil,5]
+	  portal[launch].top = portal[lblLaunch].top
+	  portal[launch].left = portal[lblLaunch].right + 5
       portal[lblYear].left = 0
-      perform portal[lblYear].alignrel[ttob,lblAffil,5]
+      perform portal[lblYear].alignrel[ttob,lblLaunch,5]
 	  portal[year].top = portal[lblYear].top
 	  portal[year].left = portal[lblYear].right + 5
 	  portal[lblSumm].left = 0
@@ -294,17 +401,90 @@
       ]]></position>
 
     </template>
+  <!-- talPick template
+        Displays the name of the pick/thing and an info button with the basic
+        description text. This is basically the "SimpleItem" template, with one
+        key difference. Auto-added abilities such as those conferred by races are
+        sorted and colored differently to distinguish their nature.
+  -->
+  <template
+    id="shPickPod"
+    name="Mission Pod Pick"
+    compset="MissionPod"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+	  
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+	  
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+	  
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the name on the left and use availble space, with a gap for menus
+      portal[name].left = 0
+      portal[name].width = maximum(portal[name].width,portal[info].left - portal[name].left - 50)
+	  perform portal[name].sizetofit[10]
+		
+      ~if the ability is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>	
 	
   <layout
     id="shipcreate">
     <portalref portal="hdrFrame" />
     <portalref portal="hdrProfile" />
-    <portalref portal="shFrame" taborder="10"/>
-    <portalref portal="shProfile" taborder="20"/>
-    <portalref portal="shRefit" taborder="30"/>
-    <portalref portal="shImages" taborder="40"/>
-    <portalref portal="peAdjust" taborder="50"/>
-    <templateref template="shDetails" thing="mscShip" taborder="35"/>
+    <portalref portal="shFrame" taborder="10" />
+    <portalref portal="shProfile" taborder="20" />
+    <portalref portal="shRefit" taborder="30" />
+    <portalref portal="shPod" taborder="35" />
+    <portalref portal="shImages" taborder="40" />
+    <portalref portal="peAdjust" taborder="50" />
+    <templateref template="shDetails" thing="mscShip" taborder="35" />
 
     <!-- This script sizes and positions the layout and its child visual elements. 
 	    <portalref portal="hoFrame" taborder="10"/>
@@ -317,6 +497,7 @@
         portal[shFrame].freeze = 1
         portal[hdrProfile].freeze = 1
         portal[shProfile].freeze = 1
+        portal[shPod].freeze = 1
         endif
 
       ~depending on our overall height, allow the permanent adjustments table to
@@ -353,6 +534,7 @@
       portal[shFrame].height = 20
       portal[shFrame].width = portal[hdrFrame].width
 	  
+      ~position the details template between the service template and the adjustment
       portal[hdrProfile].top = portal[shFrame].bottom + 10
       portal[hdrProfile].height = 20
       portal[hdrProfile].width = portal[hdrFrame].width
@@ -361,12 +543,35 @@
       portal[shProfile].height = 20
       portal[shProfile].width = portal[hdrFrame].width
 	  
-      portal[shRefit].top = portal[shProfile].bottom + 10
-      ~portal[shRefit].height = 20
+	  if (hero.tagis[CharType.typSmallCraft] <> 0) then
+	    portal[hdrProfile].visible = 0
+	    portal[shProfile].visible = 0
+		
+        portal[shRefit].top = portal[shFrame].bottom + 10
+	  else
+	    portal[hdrProfile].visible = 1
+	    portal[shProfile].visible = 1
+		
+        portal[shRefit].top = portal[shProfile].bottom + 10
+		endif
+	  
+      ~ portal[shRefit].top = portal[shProfile].bottom + 10
+      ~ portal[shRefit].height = 20
       portal[shRefit].width = portal[hdrFrame].width
 	  
+	  portal[shPod].visible = #framepodsallowed[]
+	  
+      portal[shPod].top = portal[shRefit].bottom + 10
+      portal[shPod].width = portal[hdrFrame].width
+	  
       ~position the details template between the service template and the adjustment
-	  template[shDetails].top = portal[shRefit].bottom + 10
+	  
+	  if (portal[shPod].visible <> 0) then
+	    template[shDetails].top = portal[shPod].bottom + 10
+	  else
+	    template[shDetails].top = portal[shRefit].bottom + 10
+		endif
+		
       template[shDetails].height = portal[peAdjust].top - template[shDetails].top
 	  
       ]]></position>
@@ -378,7 +583,7 @@
     name="Ship Details"
     marginhorz="5"
     marginvert="5"
-    order="5">
+    order="4">
 	<live>ShowTab.Starship</live>
     <layoutref layout="shipcreate"/>
     <position><![CDATA[

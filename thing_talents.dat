@@ -43,6 +43,7 @@
     </thing>
   <thing id="talUshaan" name="The Ushaan" description="You are experienced in the tradition of honor-dueling known as the Ushaan, having spilt much blood upon the ice. When you make a melee Attack, or are targeted by a melee Attack, and buy one or more d20s by adding to Threat, you may re-roll the dice pool for the Task. Further, you own an Ushaan-tor, a razor-sharp ice-miner’s tool used in these duels." compset="Talent" summary="When you make a melee Attack, or are targeted by a melee Attack, and buy one or more d20s by adding to Threat, you may re-roll the dice pool for the Task.">
     <tag group="TalentCat" tag="Racial"/>
+    <bootstrap thing="wpUshaantor"></bootstrap>
     <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndorian] <> 0]]></exprreq>
     </thing>
   <thing id="talKolinah" name="Kolinahr" description="You have undergone the ritual journey to purge all emotion. You reduce the Difficulty of all Tasks to resist coercion, mental intrusion, pain, and other mental attacks by two." compset="Talent" summary="You reduce the Difficulty of all Tasks to resist coercion, mental intrusion, pain, and other mental attacks by two.">
@@ -73,7 +74,7 @@
     <tag group="User" tag="CreateOnly"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Trill Required"><![CDATA[#isspecies[spcTrill] <> 0]]></exprreq>
-    <exprreq message="Cannot also have the Former Initiate talent."><![CDATA[#hastalent[talFormIni] = 0]]></exprreq>
+    <exprreq message="Cannot also have the Former Initiate talent.">#hastalent[talFormIni] = 0</exprreq>
     </thing>
   <thing id="talFormIni" name="Former Initiate" description="You joined the Initiate Program, hoping to be chosen by the Symbiosis Commission to become Joined. As there are far more Initiates than there are Symbionts, you were one of the many who failed, but the quality of even a failed initiate is enough for Starfleet to recruit you. When you attempt a Task using Control or Reason, and spend Determination to buy a bonus d20 for that Task, you may re-roll your dice pool. Former Initiate cannot be taken if the character has the Joined Talent — they are mutually exclusive." compset="Talent">
     <usesource source="TOS"/>
@@ -81,7 +82,7 @@
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <exprreq message="Trill Required" severity="warning"><![CDATA[#isspecies[spcTrill] <> 0]]></exprreq>
-    <exprreq message="Cannot also have the Joined talent."><![CDATA[#hastalent[talJoined] = 0]]></exprreq>
+    <exprreq message="Cannot also have the Joined talent.">#hastalent[talJoined] = 0</exprreq>
     </thing>
   <thing id="talSturdy" name="Sturdy" description="You have a blend of physical resilience and mental fortitude such that you’re difficult to subdue. You reduce the cost to resist being knocked prone by the Knockdown damage effect by one, to a minimum of 0, and gain +1 Soak against all non-lethal attacks." compset="Talent" summary="You reduce the cost to resist being knocked prone by the Knockdown damage effect by one, to a minimum of 0, and gain +1 Soak against all non-lethal attacks.">
     <usesource source="ENT"/>
@@ -102,8 +103,8 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Racial"/>
-    <eval phase="Stress" priority="1000"><![CDATA[~+3 Stress
-      herofield[acStrBon].value += 3]]></eval>
+    <eval phase="Stress" priority="1000">~+3 Stress
+      herofield[acStrBon].value += 3</eval>
     <exprreq message="Human Required"><![CDATA[#isspecies[spcHuman] <> 0]]></exprreq>
     </thing>
   <thing id="talSpirDis" name="Spirit of Discovery" description="You have the drive, spirit, and courage to voyage into the unknown. You may spend one Determination to add three points to the group Momentum pool. The normal conditions for spending Determination still apply." compset="Talent" summary="You may spend one Determination to add three points to the group Momentum pool.">
@@ -148,7 +149,7 @@
       <assignval field="UserName" value="Orb Experience"/>
       <assignval field="UserDesc" value="You have received insights from a vision through one of the Orbs. "/>
       </bootstrap>
-    <eval phase="PreAbility" priority="5000"><![CDATA[#resmax[resValue] += 1]]>
+    <eval phase="PreAbility" priority="5000">#resmax[resValue] += 1
       <before name="Calc abiFinal"/>
       </eval>
     <exprreq message="Bajoran Required"><![CDATA[#isspecies[spcBajor] <> 0]]></exprreq>
@@ -158,7 +159,7 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Racial"/>
-    <eval phase="PreAbility" priority="5000"><![CDATA[~#resistance += 4]]>
+    <eval phase="PreAbility" priority="5000">~#resistance += 4
       <before name="Calc abiFinal"/>
       </eval>
     <exprreq message="Changeling Required"><![CDATA[#isspecies[spcChange] <> 0]]></exprreq>
@@ -168,14 +169,14 @@
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="Hide" tag="Talent"/>
-    <eval phase="Initialize" priority="1000"><![CDATA[perform hero.assign[Hero.Untapped]]]></eval>
+    <eval phase="Initialize" priority="1000">perform hero.assign[Hero.Untapped]</eval>
     </thing>
   <thing id="talVeteran" name="Veteran" description="The character is wise and experienced, and draws upon inner reserves of willpower and determination in a more measured and considered way. Whenever the character spends a point of Determination, roll 1{meta bmpfull}{bmp StarTrekArrow}{revert}. If an Effect is rolled, immediately regain that spent point of Determination. The character has a rank of at least Lieutenant Commander." compset="Talent">
     <usesource source="ENT"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="Hide" tag="Talent"/>
-    <eval phase="Initialize" priority="1000"><![CDATA[perform hero.assign[Hero.Veteran]]]></eval>
+    <eval phase="Initialize" priority="1000">perform hero.assign[Hero.Veteran]</eval>
     </thing>
   <thing id="talBold" name="Bold" description="You must choose a single Discipline when you select this Talent. Whenever you attempt a Task with that Discipline, and you buy one or more d20s by adding to Threat, you may re-roll a single d20. You may select this Talent multiple times, once for each Discipline. You may not select this Talent for any Discipline for which you already have the Cautious Talent." compset="Talent">
     <fieldval field="usrCandid1" value="component.DiscDept"/>
@@ -287,7 +288,7 @@ field[usrCandid1].text &= tempStr]]></eval>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="General"/>
-    <exprreq message="Main Character required"><![CDATA[hero.tagis[CharType.typMain] = 1]]></exprreq>
+    <exprreq message="Main Character required">hero.tagis[CharType.typMain] = 1</exprreq>
     </thing>
   <thing id="talAdvisor" name="Advisor" description="Whenever you assist another character using your Command Discipline, the character being assisted may re-roll one d20." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
@@ -315,7 +316,7 @@ field[usrCandid1].text &= tempStr]]></eval>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Command"/>
-    <exprreq message="Main Character required"><![CDATA[hero.tagis[CharType.typMain] = 1]]></exprreq>
+    <exprreq message="Main Character required">hero.tagis[CharType.typMain] = 1</exprreq>
     </thing>
   <thing id="talFlyBy" name="Fly-By" description="Whenever you use the Swift Task Momentum Spend, you do not increase the Difficulty of the second Task if one of the Tasks you attempt is to pilot a vessel or vehicle." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>
@@ -407,8 +408,8 @@ validif (#abilfinal[discdept05]   >= 3)]]></validate>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
     <tag group="TalentCat" tag="Security"/>
-    <eval phase="Setup" priority="1000"><![CDATA[~add Vicious 1 to Unarmed Strike
-perform hero.childfound[wpUnarmed].assign[DmgEffect.Vicious1]]]></eval>
+    <eval phase="Setup" priority="1000">~add Vicious 1 to Unarmed Strike
+perform hero.childfound[wpUnarmed].assign[DmgEffect.Vicious1]</eval>
     </thing>
   <thing id="talPacTac" name="Pack Tactics" description="Whenever you assist another character during combat, the character you assisted gains one bonus Momentum if they succeed." compset="Talent" uniqueness="useronce">
     <usesource source="ENT"/>

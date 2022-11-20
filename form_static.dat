@@ -133,7 +133,7 @@
       perform portal[cash].alignrel[ltor,stress,15]
 
       ~hide any portals that don't fully fit within the visible horizontal space
-	  if (hero.tagis[CharType.typShip] = 1) then
+	  if (hero.tagis[CharType.typStarship] = 1) then
 	    portal[stress].visible = 0
 		endif
       ~if (portal[cash].right > width) then

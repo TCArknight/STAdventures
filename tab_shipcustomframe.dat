@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- This file contains the definition of the "Skills" tab panel. This tab is where
+      the user selects and adjusts the skills for the character.
+
+      All public visual elements used with this tab panel start with the prefix "sk"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+
+  <portal
+    id="cfSpecRules"
+    style="tblNormal">
+    <table_dynamic
+      component="StarshipSpecial"
+      showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+	  candidatepick="ExprHelp"
+	  candidatefield="ehSpecRuleExp"
+	  alwaysupdate="yes">
+      <list>Helper.FrameSpecRule</list>
+      <autotag group="Helper" tag="FrameSpecRule"/>
+      <titlebar><![CDATA[
+        @text = "Add a Special Rule"
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Special Rules (Frame)"
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add New Special Rule"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
+  <portal
+    id="cfTrait"
+    style="tblNormal">
+    <table_dynamic
+      component="Trait"
+      showtemplate="trPick"
+	  showsortset="AltTraitSort"
+      choosetemplate="SimpleItem"
+	  choosesortset="TraitSort"
+	  candidatepick="ExprHelp"
+	  candidatefield="ehTraitExp"
+	  alwaysupdate="yes">
+      <list>Helper.FrameTrait</list>
+      <autotag group="Helper" tag="FrameTrait"/>
+      <titlebar><![CDATA[
+        @text = "Add a Trait"
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Traits (Frame)"
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add New Trait"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+  <portal
+    id="cfTalent"
+    style="tblNormal">
+    <table_dynamic
+      component="Talent"
+      showtemplate="talPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="TalentSort"
+	  candidatepick="ExprHelp"
+	  candidatefield="ehTalExp">
+      <list>Helper.FrameTalent</list>
+      <autotag group="Helper" tag="FrameTalent"/>
+      <titlebar><![CDATA[
+        @text = "Add a Talent"
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Talents (Frame)"
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add New Talent"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+  <portal
+    id="cfWeapons"
+    style="tblInvis">
+    <table_dynamic
+      component="Gear"
+      showtemplate="SimpleItem"
+      choosetemplate="shWpnThing"
+	  showsortset="ShipWeapDeliv"
+	  choosesortset="ShipWeapDeliv" 
+	  >
+      <list>component.WeaponStarship</list>
+      <candidate inheritlist="yes">!Equipment.Natural</candidate>
+      <autotag group="Helper" tag="FrameWeapon"/>
+      <titlebar><![CDATA[
+        @text = "Select Starship Weapons from the List Below"
+        ]]></titlebar>
+      <headertitle><![CDATA[
+        @text = "Starship Weapons (Frame)"
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add New Starship Weapons"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+
+
+  <template
+    id="cfCustFrame"
+    name="Custom Frame Template"
+    compset="Frame"
+    marginhorz="3"
+    marginvert="2">
+	
+    <portal
+      id="lblCustName"
+      style="lblNormal">
+      <label
+        text="Frame Name:">
+        </label>
+      </portal>
+
+    <portal
+      id="cfCustName"
+      style="editCenter">
+      <edit 
+        field="UserName">
+        </edit>
+      </portal>
+	 
+    <portal
+      id="lblService"
+      style="lblNormal">
+      <label
+        text="Entered Service:">
+        </label>
+      </portal>
+
+    <portal
+      id="cfService"
+      style="editCenter">
+      <edit 
+        field="fraYearEnt">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="lblScale"
+      style="lblNormal">
+      <label
+        text="Scale:">
+        </label>
+      </portal>
+
+    <portal
+      id="cfScale"
+      style="editCenter">
+      <edit 
+        field="fraScale">
+        </edit>
+      </portal>
+
+    <!-- Frame Systems -->
+
+    <portal
+      id="cfSystemPoints"
+      style="lblNormal">
+      <label>
+        <labeltext><![CDATA[
+          @text = "System Points Available - " & #framesystempoints[]
+          ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblComm"
+      style="lblRight">
+      <label
+        text="Comms:">
+        </label>
+      </portal>	
+    <portal
+      id="cfComm"
+      style="editCenter">
+	  <edit 
+        field="fraComm">
+        </edit>
+      </portal>
+    <portal
+      id="lblComp"
+      style="lblRight">
+      <label
+        text="Computers:">
+        </label>
+      </portal>	
+    <portal
+      id="cfComp"
+      style="editCenter">
+	  <edit 
+        field="fraComp">
+        </edit>
+      </portal>	
+    <portal
+      id="lblEngine"
+      style="lblRight">
+      <label
+        text="Engines:">
+        </label>
+      </portal>	
+    <portal
+      id="cfEngine"
+      style="editCenter">
+	  <edit 
+        field="fraEngine">
+        </edit>
+      </portal>	
+    <portal
+      id="lblSensors"
+      style="lblRight">
+      <label
+        text="Sensors:">
+        </label>
+      </portal>	
+    <portal
+      id="cfSensor"
+      style="editCenter">
+	  <edit 
+        field="fraSens">
+        </edit>
+      </portal>	
+    <portal
+      id="lblStructure"
+      style="lblRight">
+      <label
+        text="Structure:">
+        </label>
+      </portal>	
+    <portal
+      id="cfStructure"
+      style="editCenter">
+	  <edit 
+        field="fraStruc">
+        </edit>
+      </portal>	
+    <portal
+      id="lblWeapons"
+      style="lblRight">
+      <label
+        text="Weapons:">
+        </label>
+      </portal>	
+    <portal
+      id="cfWeapons"
+      style="editCenter">
+	  <edit 
+        field="fraWeap">
+        </edit>
+      </portal>
+ 
+    <!-- Frame Departments -->
+    <portal
+      id="cfDeptPoints"
+      style="lblNormal">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Department Points Available - " & #framedeptpoints[]
+          ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblCommand"
+      style="lblRight">
+      <label
+        text="Command:">
+        </label>
+      </portal>	
+    <portal
+      id="cfCommand"
+      style="editCenter">
+	  <edit 
+        field="fraCmd">
+        </edit>
+      </portal>
+    <portal
+      id="lblConn"
+      style="lblRight">
+      <label
+        text="Conn:">
+        </label>
+      </portal>	
+    <portal
+      id="cfConn"
+      style="editCenter">
+	  <edit 
+        field="fraConn">
+        </edit>
+      </portal>	
+    <portal
+      id="lblSecurity"
+      style="lblRight">
+      <label
+        text="Security:">
+        </label>
+      </portal>	
+    <portal
+      id="cfSecurity"
+      style="editCenter">
+	  <edit 
+        field="fraSecur">
+        </edit>
+      </portal>	
+    <portal
+      id="lblEnginnering"
+      style="lblRight">
+      <label
+        text="Engineering:">
+        </label>
+      </portal>	
+    <portal
+      id="cfEngineering"
+      style="editCenter">
+	  <edit 
+        field="fraEng">
+        </edit>
+      </portal>	
+    <portal
+      id="lblScience"
+      style="lblRight">
+      <label
+        text="Science:">
+        </label>
+      </portal>	
+    <portal
+      id="cfScience"
+      style="editCenter">
+	  <edit 
+        field="fraSci">
+        </edit>
+      </portal>	
+    <portal
+      id="lblMedicine"
+      style="lblRight">
+      <label
+        text="Medicine:">
+        </label>
+      </portal>	
+    <portal
+      id="cfMedicine"
+      style="editCenter">
+	  <edit 
+        field="fraMed">
+        </edit>
+      </portal>
+	
+    <portal
+      id="lblPods"
+      style="lblRight">
+      <label
+        text="Pods Allowed?">
+        </label>
+      </portal>  
+	  
+    <portal
+      id="podscheck"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to equip this gear.">
+      <checkbox
+        field="fraPodsAllowed">
+        </checkbox>
+      </portal>	
+	  
+    <portal
+      id="lblNumPods"
+      style="lblRight">
+      <label
+        text="Number of Pods:">
+        </label>
+      </portal>	
+    <portal
+      id="cfNumPods"
+      style="editCenter">
+	  <edit 
+        field="fraPods">
+        </edit>
+      </portal>  
+	  
+    <position><![CDATA[
+      ~set up our dimensions, with a width that we dictate; our width can vary
+      var last as number
+	  
+
+      portal[lblCustName].top = 0
+      perform portal[lblCustName].alignedge[left,0]
+	  
+	  perform portal[cfCustName].alignrel[ltor,lblCustName,5]
+	  portal[cfCustName].top = portal[lblCustName].top
+	  portal[cfCustName].width = (width/2) - portal[cfCustName].left
+	  
+      portal[lblService].top = portal[lblCustName].top
+      perform portal[lblService].alignrel[ltor,cfCustName,5]
+	  
+	  portal[cfService].top = portal[lblService].top
+	  perform portal[cfService].alignrel[ltor,lblService,10]
+	  portal[cfService].width = 100
+	  ~(width/2) - portal[cfService].left
+	  
+	  portal[lblScale].top = portal[lblCustName].bottom + 10
+      perform portal[lblScale].alignedge[left,0]
+	  
+	  portal[cfScale].top = portal[lblScale].top
+	  perform portal[cfScale].alignrel[ltor,lblScale,10]
+	  portal[cfScale].width = 100
+	  
+	  portal[cfSystemPoints].top = portal[lblScale].bottom + 10
+	  perform portal[cfSystemPoints].alignedge[left,0]
+	  portal[cfSystemPoints].width = width/2
+	  
+	  ~ System labels same size
+	  portal[lblComm].width = portal[lblEnginnering].width
+	  portal[lblComp].width = portal[lblEnginnering].width
+	  portal[lblEngine].width = portal[lblEnginnering].width
+	  portal[lblSensors].width = portal[lblEnginnering].width
+	  portal[lblStructure].width = portal[lblEnginnering].width
+	  portal[lblWeapons].width = portal[lblEnginnering].width
+	  
+	  portal[lblComm].top = portal[cfSystemPoints].bottom + 10
+      perform portal[lblComm].alignedge[left,0]
+	  portal[lblComm].width = portal[lblComp].width
+	  portal[cfComm].top = portal[lblComm].top
+	  perform portal[cfComm].alignrel[ltor,lblComm,10]
+	  portal[cfComm].width = 50 
+	  
+	  portal[lblComp].top = portal[lblComm].bottom + 10
+      perform portal[lblComp].alignedge[left,0]
+	  portal[cfComp].top = portal[lblComp].top
+	  portal[cfComp].left = portal[cfComm].left
+	  portal[cfComp].width = 50
+	  
+	  portal[lblEngine].top = portal[lblComm].top
+      portal[lblEngine].left = portal[cfComm].right + 10
+	  portal[cfEngine].top = portal[lblComm].top
+	  perform portal[cfEngine].alignrel[ltor,lblEngine,10]
+	  portal[cfEngine].width = 50 
+	  
+	  portal[lblSensors].top = portal[lblEngine].bottom + 10
+      portal[lblSensors].left = portal[lblEngine].left
+	  portal[cfSensor].top = portal[lblSensors].top
+	  portal[cfSensor].left = portal[cfEngine].left
+	  portal[cfSensor].width = 50
+	  
+	  portal[lblStructure].top = portal[lblComm].top
+      portal[lblStructure].left = portal[cfEngine].right + 10
+	  portal[cfStructure].top = portal[lblStructure].top
+	  perform portal[cfStructure].alignrel[ltor,lblStructure,10]
+	  portal[cfStructure].width = 50 
+	  
+	  portal[lblWeapons].top = portal[lblStructure].bottom + 10
+      portal[lblWeapons].left = portal[lblStructure].left
+	  portal[cfWeapons].top = portal[lblWeapons].top
+	  portal[cfWeapons].left = portal[cfStructure].left
+	  portal[cfWeapons].width = 50
+	  
+	  portal[cfDeptPoints].top = portal[lblComp].bottom + 10
+	  perform portal[cfDeptPoints].alignedge[left,0]
+	  portal[cfDeptPoints].width = width/2
+	  
+	  ~ Department labels same size
+	  portal[lblCommand].width = portal[lblEnginnering].width
+	  portal[lblConn].width = portal[lblEnginnering].width
+	  portal[lblSecurity].width = portal[lblEnginnering].width
+	  portal[lblScience].width = portal[lblEnginnering].width
+	  portal[lblMedicine].width = portal[lblEnginnering].width
+	  
+	  portal[lblCommand].top = portal[cfDeptPoints].bottom + 10
+      perform portal[lblCommand].alignedge[left,0]
+	  portal[cfCommand].top = portal[lblCommand].top
+	  perform portal[cfCommand].alignrel[ltor,lblCommand,10]
+	  portal[cfCommand].width = 50 
+	  
+	  portal[lblConn].top = portal[lblCommand].bottom + 10
+      perform portal[lblConn].alignedge[left,0]
+	  portal[cfConn].top = portal[lblConn].top
+	  portal[cfConn].left = portal[cfCommand].left
+	  portal[cfConn].width = 50
+	  
+	  portal[lblSecurity].top = portal[lblCommand].top
+      portal[lblSecurity].left = portal[cfCommand].right + 10
+	  portal[cfSecurity].top = portal[lblSecurity].top
+	  perform portal[cfSecurity].alignrel[ltor,lblSecurity,10]
+	  portal[cfSecurity].width = 50 
+	  
+	  portal[lblEnginnering].top = portal[lblConn].top
+      portal[lblEnginnering].left = portal[lblSecurity].left
+	  portal[cfEngineering].top = portal[lblEnginnering].top
+	  portal[cfEngineering].left = portal[cfSecurity].left
+	  portal[cfEngineering].width = 50
+	  
+	  portal[lblScience].top = portal[lblCommand].top
+      portal[lblScience].left = portal[cfSecurity].right + 10
+	  portal[cfScience].top = portal[lblScience].top
+	  perform portal[cfScience].alignrel[ltor,lblScience,10]
+	  portal[cfScience].width = 50 
+	  
+	  portal[lblMedicine].top = portal[lblEnginnering].top
+      portal[lblMedicine].left = portal[lblScience].left
+	  portal[cfMedicine].top = portal[lblMedicine].top
+	  portal[cfMedicine].left = portal[cfScience].left
+	  portal[cfMedicine].width = 50
+	  
+	  portal[lblPods].top = portal[cfConn].bottom + 10
+      perform portal[lblPods].alignedge[left,0]
+	  portal[cfScience].top = portal[lblScience].top
+	  perform portal[cfScience].alignrel[ltor,lblScience,10]
+	  portal[cfScience].width = 50
+	  
+	  portal[podscheck].top = portal[lblPods].top
+      portal[podscheck].left = portal[lblPods].right + 5
+	  portal[podscheck].top = portal[lblPods].top
+	  ~portal[podscheck].width = 50
+	  
+	  portal[lblNumPods].top = portal[lblPods].top
+      perform portal[lblNumPods].alignedge[left,0]
+	  perform portal[lblNumPods].alignrel[ltor,podscheck,10]
+	  portal[cfNumPods].top = portal[lblNumPods].top
+	  perform portal[cfNumPods].alignrel[ltor,lblNumPods,10]
+	  portal[cfNumPods].width = 50 
+	  portal[lblNumPods].visible = #framepodsallowed[] 
+	  portal[cfNumPods].visible = #framepodsallowed[] 
+	  
+	  last = portal[podscheck].bottom + 10
+      
+	  height = last
+      ]]></position>
+
+    </template>	
+
+  <!-- species layout
+        This layout orchestrates the display of the visual elements that comprise
+        the Skills tab. This amounts to a title at the top and a dynamic table below
+        where the user can add and adjust the skills he wants.
+
+        The logic for this layout is similar to (albeit much simpler than) the
+        logic for the Basics tab. So please refer to the Basics tab for more details.
+  -->
+  <layout
+    id="custframe">
+    <portalref portal="cfTrait" taborder="10"/>
+    <portalref portal="cfTalent" taborder="20"/>
+    <portalref portal="cfWeapons" taborder="30"/>
+    <portalref portal="cfSpecRules" taborder="30"/>
+    <templateref template="cfCustFrame" useagent="yes"/>
+	<!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+
+      ~both tables span the full width
+      perform template[cfCustFrame].autoplace[0]
+      perform portal[cfTrait].autoplace[0]
+      perform portal[cfTalent].autoplace[10]
+      perform portal[cfWeapons].autoplace[10]
+      perform portal[cfSpecRules].autoplace[10]
+
+      ]]></position>
+
+    </layout>
+
+  <!-- custom frame panel -->
+  <panel
+    id="custframe"
+    name="Frame"
+    marginhorz="5"
+    marginvert="5"
+    order="1"
+    agentcompset="Frame"
+    agentlive="CustomFrame"
+    agentname="UserName"
+    >
+    <live>!HideTab.profile</live>
+    <layoutref layout="custframe"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+
+
+  </document>

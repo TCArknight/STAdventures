@@ -102,7 +102,7 @@
     var tagexpr as string
     var ismore as number
     ismore = 0
-    foreach pick in hero where tagexpr
+    foreach pick in hero where tagexpr sortas TalentSort
       if (ismore <> 0) then
         append ", "
         endif
@@ -125,15 +125,17 @@
 	var txt as string
 	
 	txt = ""
-	role = hero.findchild[Service].field[serRole].text
+	
+	~ role = hero.findchild[Service].field[serRole].text
 	assign = hero.findchild[Service].field[serAssign].text
 	
-	if (empty(role) <> 0) then
-      txt = ""
-	else
-	  txt = role
-      endif
-	  
+	~if (empty(role) <> 0) then
+    ~  txt = ""
+	~else
+	~  txt = role
+    ~  endif
+	call sbcharrole
+	
 	if (empty(assign) <> 0) then
       txt = txt
 	else
@@ -146,6 +148,25 @@
 	
     append txt
     append @newline
+    ]]></procedure>
+
+  <!-- Procedure sbcharrole
+        Output all of the values or focuses that satisfy the provided tag expression, reporting
+        the name and final value for each. The "tagexpr" text variable specifies the
+        constraints that must be satisfied for the list of traits.
+  -->
+  <procedure id="sbcharrole" scripttype="synthesize"><![CDATA[
+    var txt as string
+    var ismore as number
+    ismore = 0
+    foreach pick in hero from CharRole
+      if (ismore <> 0) then
+        txt &= "/"
+        endif
+      txt &= eachpick.field[name].text
+      ismore = 1
+      nexteach
+    
     ]]></procedure>
 	
   <!-- Procedure sbvalfoc
@@ -180,11 +201,17 @@
     ismore = 0
     foreach pick in hero from WeaponBase sortas Armory
       ismore = 1
-	  if (eachpick.tagis[component.WeapEnergy] = 0) then
+	  
+	  if (eachpick.tagis[component.StarshipWeapon] = 0) then
         append @indent & eachpick.field[wpNetAtk].value 
 		append " - "
 		endif
 	  
+	  if (eachpick.tagis[GearCost.Esc?] + eachpick.tagis[GearCost.Opp?] <> 0) then
+        append @boldon & eachpick.tagnames[GearCost.?,", "] 
+		append @boldoff & " "
+		endif
+		
 	  append eachpick.field[name].text
       append " - " & eachpick.field[wpDamageSummarySB].text
 		
@@ -202,6 +229,7 @@
         endif
       append @newline
       nexteach
+	  
     ~if we have no weapons, output that fact
     if (ismore = 0) then
       append @indent & "-none-" & @newline
@@ -341,7 +369,11 @@
     var tagexpr as string
 	
 	~output ship info
-	txt = hero.findchild[ShipInfo].field[shipClass].text
+	if (hero.findchild[Frame].tagis[Helper.CustomItem] <> 0) then
+	  txt = hero.findchild[Frame].field[UserName].text
+	else
+	  txt = hero.findchild[ShipInfo].field[shipClass].text
+	  endif
 	append @boldon & "Ship Class: " & @boldoff & txt & @newline & @newline
 	
 	~output ship service
@@ -355,17 +387,22 @@
 	append @boldon & "Power: " & @boldoff & txt & @newline
     
 	txt = hero.findchild[ShipInfo].field[shipShield].text
-	append @boldon & "Shields: " & @boldoff & txt & @newline
+	append @boldon 
+	if (hero.tagis[Ship.NoShields] <> 0) then
+	  append @boldon & "Hull Rating: " & @boldoff & txt & @newline
+	else 
+	  append @boldon & "Shields: " & @boldoff & txt & @newline
+	  endif
     
 	txt = hero.findchild[ShipInfo].field[shipRes].text
 	append @boldon & "Resistance: " & @boldoff & txt & @newline & @newline
 	
-    txt = hero.findchild[ShipInfo].field[shipCrew].text
-	append @boldon & "Crew Support: " & @boldoff & txt & @newline 
-	
-	if (hero.tagis[Ship.SmallCraft] <> 0) then
+	if (hero.tagis[CharType.typSmallCraft] <> 0) then
       txt = hero.findchild[ShipInfo].field[shipCrewSumm].text
 	  append @boldon & "Crew Details: " & @boldoff & txt & @newline
+	else
+	  txt = hero.findchild[ShipInfo].field[shipCrew].text
+	  append @boldon & "Crew Support: " & @boldoff & txt & @newline 
 	  endif
 	  
 	append @newline
@@ -388,7 +425,31 @@
 	call sbattributes
 			
     ]]></procedure>
-
+	
+  <!-- Procedure sbspecrules -->
+  <procedure id="sbspecrules" scripttype="synthesize"><![CDATA[
+	var txt as string
+	var ismore as number
+	
+    txt = ""
+	ismore = 0
+	
+    foreach pick in hero from StarshipSpecial
+	  ismore = 1
+	  
+      txt &= @indent & @boldon & eachpick.field[name].text & ": " & @boldoff 
+	  txt &= eachpick.field[descript].text & @newline
+      nexteach
+	
+    ~if we have no resources, output that fact
+    if (ismore = 0) then
+      append @indent & "-none-" & @newline
+	else
+	  append txt
+      endif
+	  
+    ]]></procedure>
+	
   <!-- Define the statblock as a text-based dossier. The "synthesize" script actually
         generates the output.
   -->
@@ -430,7 +491,7 @@
 					
 		  ~output special abilities
 		  append @boldon & "Talents: " & @boldoff
-		  tagexpr = "component.Talent"
+		  tagexpr = "component.TalentBase"
 		  call sbtalents
 
 		  ~output Stress
@@ -494,11 +555,16 @@
 		  call sbtalents
 		  
 		  append @newline
+		  
 		  ~output weapons/attacks
 		  call sbweapons
 		  
+		  ~output Special Rules
+		  append @newline & @boldon & "Special Rules: " & @boldoff & @newline
+		  call sbspecrules
+		  
 		  ~Overview
-		  ~txt = hero.findchild[ShipInfo].field[shipOver].text
+		  ~txt = hero.findchild[ShipInfo].field[shipOverview].text
 		  ~append @newline & @boldon & "Overview: " & @boldoff & txt & @newline
 		  
 		endif

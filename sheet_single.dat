@@ -31,16 +31,19 @@
       <labeltext><![CDATA[
 	  	var txt as string
 	    var role as string
+		var rolesumm as string
 	    var assign as string
 		var division as string
-
+		var ismore as number
+		
 	    txt = ""
 		role = ""
+		rolesumm = ""
+		
 		assign = ""
 		division = ""
 		
 		txt = hero.findchild[Service].field[serRank].text
-	    role = hero.findchild[Service].field[serRole].text
 	    assign = hero.findchild[Service].field[serAssign].text
 	
 		if (empty(txt) = 0) then
@@ -56,6 +59,17 @@
           endif
 		  
 	
+		ismore = 0
+        foreach pick in hero from CharRole
+		  if (ismore <> 0) then
+            role &= " / "
+            rolesumm &= ". "
+            endif
+		  role &= eachpick.field[name].text
+		  rolesumm &= eachpick.field[summary].text
+		  ismore = 1
+		  nexteach
+		  
 	    if (empty(role) <> 0) then
           txt = ""
 	    else
@@ -319,8 +333,9 @@
     id="oTalentSingle"
     style="outNormal">
     <output_table
-      component="Talent"
-      showtemplate="oAbilPickSingle"
+      component="TalentBase"
+      showtemplate="oTalPickSingle"
+	  showsortset="TalentSort"
 	  varyheight="yes">
       <list><![CDATA[
         ]]></list>
@@ -356,15 +371,15 @@
       </output_label>
     </portal>
 
-  <!-- oAbilPickSingle template
+  <!-- oTalPickSingle template
         This template presents the Special Abilities, consisting of the prominent
         name and the summary text in small letters next to it. We use a small margin
         for vertical spacing between abilities.
   -->
   <template
-    id="oAbilPickSingle"
+    id="oTalPickSingle"
     name="Output Talents Table"
-    compset="Talent"
+    compset="TalentBase"
     marginvert="2">
 
     <portal
@@ -377,7 +392,11 @@
 		  
 		  call GetDivisionColor
 		  @text &= division
-          @text &= "{b}" & field[name].text & ":{/b}{text 000000} " & field[outSummary].text
+          @text &= "{b}" & field[name].text
+		  if (tagis[TalentCat.Role] <> 0) then
+		    @text &= " [Role]"
+		    endif
+		  @text &= ":{/b}{text 000000} " & field[talSummary].text
           ]]></labeltext>
         </output_label>
       </portal>

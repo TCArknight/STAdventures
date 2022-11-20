@@ -112,10 +112,11 @@
       <calculate phase="Ability" priority="3000" name="Calc abiFinal"><![CDATA[
         ~Note! If you change this calculation, you may need to change the similar
         ~       calculation in the "Derived" component.
+		
         @value = field[abiUser].value + field[abiBonus].value + field[abiInPlay].value
         ]]></calculate>
       </field>
-
+	
     <!-- Set the delta for the user value to be the current bonuses
         NOTE! This is necessary so incrementers have proper values when edited by the user.
         -->
@@ -141,6 +142,7 @@
       field[outSummary].text = field[summary].text
 	  
       ]]></eval>
+
     </component>
 
 
@@ -201,6 +203,8 @@
     <!-- Each attribute needs its own identity tag for use as alternate Attack/Damage value -->
     <identity group="AltAttack"/>
     <identity group="AltDamage"/>
+    <!--  <identity group="Target1"/> -->
+    <identity group="Reference1"/>
 	
     <!-- Set fields based on AttrSys type -->
     <eval index="1" phase="Initialize" priority="4000"><![CDATA[
@@ -222,21 +226,30 @@
 			
     <!-- Attributes have a minimum ability value of 7 -->
     <eval index="2" phase="Initialize" priority="5000"><![CDATA[
-	
-	    if (hero.tagis[CharType.typShip] = 0) then
-			field[abiMinimum].value = 7
+		
+	  if (hero.tagis[CharType.typStarship] <> 0) then
+		
+		field[abiMinimum].value = 0
+	    field[abiMaximum].value = 12
+      elseif (hero.tagis[CharType.typSmallCraft] <> 0) then
+		
+	    field[abiMinimum].value = 0
+	    field[abiMaximum].value = 12
+      elseif (hero.tagis[CharType.typStarbase] <> 0) then
+		
+		field[abiMinimum].value = 0
+	    field[abiMaximum].value = 30			
+	  else
+		field[abiMinimum].value = 7
 		  
-			if (hero.tagis[Hero.Untapped] <> 0) then
-			  field[abiMaximum].value = 11
-			else
-			  field[abiMaximum].value = 12
-			  endif	
-	    else 
-		    field[abiMinimum].value = 0
-	        field[abiMaximum].value = 12
+		if (hero.tagis[Hero.Untapped] <> 0) then
+	      field[abiMaximum].value = 11
+	    else
+		  field[abiMaximum].value = 12
+	      endif
 		endif
 		
-            ]]></eval>
+        ]]></eval>
 
     <!-- Each attribute point above one that is allocated by the user costs 1 Attribute point -->
     <eval index="3" phase="Ability" priority="3500"><![CDATA[
@@ -325,6 +338,8 @@
     <!-- Each Dept/Disc needs its own identity tag for use as alternate Attack/Damage value -->
     <identity group="AltAttack"/>
     <identity group="AltDamage"/>
+    <!--  <identity group="Target1"/> -->
+    <identity group="Reference1"/>
 	
     <!-- Set fields based on DiscDept type -->
     <eval index="1" phase="Initialize" priority="4000"><![CDATA[
@@ -347,13 +362,22 @@
     <!-- Disc/Dept have a minimum ability value of 0 -->
     <eval index="2" phase="Initialize" priority="5000"><![CDATA[
 
-      if (hero.tagis[CharType.typShip] = 1) then
+      if (hero.tagis[CharType.typStarship] <> 0) then
+		field[abiMinimum].value = 0
+      elseif (hero.tagis[CharType.typSmallCraft] <> 0) then
 	    field[abiMinimum].value = 0
-      elseif (hero.tagis[CharType.typShip] = 0) then 
-	    field[abiMinimum].value = 1
+      elseif (hero.tagis[CharType.typStarbase] <> 0) then
+		field[abiMinimum].value = 0
+	  else
+		field[abiMinimum].value = 1
 		endif
-		
-	  field[abiMaximum].value = 5		
+        		
+	  
+      if (hero.tagis[CharType.typStarbase] <> 0) then
+	    field[abiMaximum].value = 10
+	  else
+	    field[abiMaximum].value = 5	
+        endif		
       ]]></eval>
 
 	<!-- Each attribute point above one that is allocated by the user costs 1 Discipline point-->
@@ -434,8 +458,26 @@
         perform assign[Helper.Activated]
         perform forward[Activated.?]
         endif
+      ]]></eval>	  
+	  
+    <!-- If the ability is activated, designate it appropriately -->
+    <eval index="4" phase="Render" priority="100"><![CDATA[
+	  trustme
+	  
+	  ~ done if this doesn't have a Target1 tag
+	  doneif (tagcount[Target1.?] <> 1)
+	  
+	  ~ if we do have a Target1 tag, we need to set the usrChosen1 to the target
+	  var myRef as string
+	  var tagexpr as string
+	  
+	  myRef = tagids[Target1.?,"|"]
+      myRef = replace(myRef,"Target1","Reference1",0)
+	  
+	  perform this.field[usrChosen1].setchosen[Ability,myRef,hero]
+	  
       ]]></eval>
-
+	  
     <!-- Verify abilities that are only available at creation -->
     <prereq message="Only available during character creation.">
       <validate><![CDATA[
@@ -978,6 +1020,13 @@
       ]]></evalrule>
 	  
 	  </component>
+
+  <component
+    id="BaseScore"
+    name="Base Score"
+    autocompset="yes">
+
+	  </component>
 	  
   <!-- Define various component sets associated with the components defined above.
   -->
@@ -990,6 +1039,7 @@
     forceunique="yes">
     <compref component="AttrSys"/>
     <compref component="Ability"/>
+    <compref component="BaseScore"/>
     <compref component="CanAdvance"/>
     </compset>
 	
@@ -998,6 +1048,7 @@
     forceunique="yes">
     <compref component="DiscDept"/>
     <compref component="Ability"/>
+    <compref component="BaseScore"/>
     <compref component="CanAdvance"/>
     </compset>
 
@@ -1005,6 +1056,7 @@
   <compset
     id="Talent">
     <compref component="Talent"/>
+    <compref component="TalentBase"/>
     <compref component="Ability"/>
     <compref component="Domain"/>
     <compref component="UserSelect"/>

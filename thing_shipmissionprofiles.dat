@@ -14,6 +14,7 @@
     <tag group="MisProTal" tag="talDiploSu"/>
     <tag group="MisProTal" tag="talEWS"/>
     <tag group="MisProTal" tag="talExtShut"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   <thing id="proPatRec" name="Pathfinder and Reconaissance Operations" description="Long-range missions often employ the most advanced stellar cartography and astrometric facilities, allowing them to chart and navigate unknown regions of space effectively. These vessels are relied upon for extended exploratory missions, intelligence-gathering military operations, and risky &apos;pathfinder&apos; operations into the unknown." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
@@ -28,6 +29,7 @@
     <tag group="MisProTal" tag="talImpRCS"/>
     <tag group="MisProTal" tag="talImpWarp"/>
     <tag group="MisProTal" tag="talRuggDes"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   <thing id="proTecTest" name="Technical Testbed" description="The ship is equipped with an abundance of state-of-theart or even prototype technologies, allowing them to be tested and studied in practical conditions, so that the flaws can be discovered and overcome, and the systems can be refined and improved upon. These ships are often deployed on a broad range of missions, to provide the most diverse conditions for equipment testing." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="1"/>
@@ -44,6 +46,7 @@
     <tag group="MisProTal" tag="talHighRes"/>
     <tag group="MisProTal" tag="talImpPowS"/>
     <tag group="MisProTal" tag="talImpWarp"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   <thing id="proTacOps" name="Tactical Operations" description="While Starfleet is not a military, the defense of the Federation is one of Starfleet’s responsibilities, and Starfleet has been required to prepare for war on numerous occasions. Thus, many ships are equipped for police and military actions, though the number of vessels outfitted in this manner varies depending on the politics of the day." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
@@ -59,7 +62,8 @@
     <tag group="MisProTal" tag="talFastTar"/>
     <tag group="MisProTal" tag="talImpDamC"/>
     <tag group="MisProTal" tag="talImpImp"/>
-    <tag group="MisProTal" tag="talQuanTor"/>
+    <tag group="MisProTal" tag="talUPExpMunitions"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   <thing id="proSciSur" name="Scientific and Survey Operations" description="Starfleet’s mission of exploration and discovery means that they employ many vessels for purely scientific missions, studying unknown phenomena or supporting ongoing research. While most Federation starships are expected to have at least some capacity for scientific endeavor, some vessels are equipped specifically for such missions." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
@@ -75,6 +79,7 @@
     <tag group="MisProTal" tag="talAdvSenS"/>
     <tag group="MisProTal" tag="talHighRes"/>
     <tag group="MisProTal" tag="talModLab"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   <thing id="proCriEmer" name="Crisis and Emergency Response" description="These vessels are equipped to respond quickly to a crisis, whatever it may be. Normally capable of supporting expansive shuttlebays, they can deploy large quantities of personnel or cargo to, or evacuate large populations from, disaster areas. Such vessels also serve as hospital ships and troop transports during times of war." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
@@ -90,6 +95,7 @@
     <tag group="MisProTal" tag="talEMH"/>
     <tag group="MisProTal" tag="talExtShut"/>
     <tag group="MisProTal" tag="talModLab"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   <thing id="proMultiEx" name="Multirole Explorer" description="Some of Starfleet’s most renowned and revered vessels have been jacks-of-all-trades, rather than specialized for a single type of mission. This versatility allowed the likes of Jonathan Archer and James Kirk to explore strange new worlds, seek out new life and new civilizations, and to boldly go where no one has gone before." compset="Profile" uniqueness="unique">
     <fieldval field="proCmd" value="2"/>
@@ -106,5 +112,143 @@
     <tag group="MisProTal" tag="talRedSys"/>
     <tag group="MisProTal" tag="talRuggDes"/>
     <tag group="MisProTal" tag="talSecReac"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPBattlecruise" name="Battlecruiser" description="In the mid-23rd century, the lessons of the Earth-Romulan War are still firmly in the minds of those on the core Federation worlds, and some vessels are outfitted as vessels of war in case hostilities begin with the Klingon or Romulan Empires. These vessels are rare in Starfleet, and those outfitted as such rarely stray far from important starbases or worlds that they guard." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talCmdShip"/>
+    <tag group="MisProTal" tag="talFastTar"/>
+    <tag group="MisProTal" tag="talImpDamC"/>
+    <tag group="MisProTal" tag="talRFTorp"/>
+    <tag group="MisProTal" tag="talAblaAr"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPCivMerMar" name="Civilian Merchant Marine" description="Many decommissioned Starfleet vessels find their way into the Merchant Marines, an active reserve where starships and personnel go to continue service to the Federation in a less formal and less risky way. Merchant Marines may be called upon by Starfleet to serve as logistical vessels in times of need, and many of these starships act in the place of active service Starfleet vessels when no others are available." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="3"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talBackEPS"/>
+    <tag group="MisProTal" tag="talExtShut"/>
+    <tag group="MisProTal" tag="talImpPowS"/>
+    <tag group="MisProTal" tag="talRuggDes"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPColonySupp" name="Colony Support" description="Vessels equipped to assist colonies in their initial stages can be placed under the command of the individual legacy navies of the member world founding the colony, though most worlds are multi-species endeavors and fall to Starfleet to assist with. These vessels provide needed cargo transfer capabilities as well as scientific and medical backup to new colony worlds, the kind of places that deal with the unknowns which still appear even after years of survey and study." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="1"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="3"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talExtShut"/>
+    <tag group="MisProTal" tag="talAdvSick"/>
+    <tag group="MisProTal" tag="talUPAdvTransport"/>
+    <tag group="MisProTal" tag="talHPTract"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPEntPleasure" name="Entertainment/Pleasure Ship" description="There are many civilian vessels in Federation space that act as tourist destinations in their own right, or serve in the same way as cruise ships on the oceans of prewarp societies. Decommissioned Starfleet vessels that are museum ships often serve as entertainment venues, taking interested citizens on journeys across space and letting them relive the past or showcasing Starfleet traditions and service." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="3"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="3"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talAdvSick"/>
+    <tag group="MisProTal" tag="talDiploSu"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPEspIntel" name="Espionage/Intelligence" description="Vessels equipped for espionage are rare in active Starfleet service, but are used by non-intelligence agency Starfleet members. These vessels are often equipped with highly sensitive electronic monitoring devices, sensors capable of watching targets parsecs away, and stealth systems that verge on breaking the Treaty of Algeron. These vessels tend to range close to - and over - hostile borders, and service on them is often dangerous." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talHighRes"/>
+    <tag group="MisProTal" tag="talImpRCS"/>
+    <tag group="MisProTal" tag="talUPSlimSensSil"/>
+    <tag group="MisProTal" tag="talEWS"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPFlagship" name="Flagship" description="Flagships are an even more specialist form of command ship, with a dedicated flag bridge for an admiral at the core of the vessel. These vessels can also act as mobile fleet headquarters, with systems and personnel dedicated to ensuring the operations of whole fleets, or even serving as a vessel for continuity of Federation government following a disaster." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="3"/>
+    <fieldval field="proConn" value="1"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talUPDedSubSpaceA"/>
+    <tag group="MisProTal" tag="talDiploSu"/>
+    <tag group="MisProTal" tag="talRedSys"/>
+    <tag group="MisProTal" tag="talCmdShip"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPLogQuart" name="Logistical/Quartermaster" description="These vessels provide the backbone of any fleet even in the era of the replicator. Whenever vital equipment or personnel need to be moved, Starfleet’s Department of Logistics often has a vessel moving from one place to the other with said object or person, often before the destination even knows they need it." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="3"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talImpWarp"/>
+    <tag group="MisProTal" tag="talRuggDes"/>
+    <tag group="MisProTal" tag="talExtShut"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPPatrol" name="Patrol" description="Patrol vessels are dedicated to acting as law enforcement in regions of space where hostility is not only possible, but expected. These vessels tend to operate along borders with other polities, and act as picket vessels during fleet actions. In times of peace, patrol vessels can also be assigned to survey missions to continue Starfleet’s primary mission of exploring the final frontier." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="3"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talHighRes"/>
+    <tag group="MisProTal" tag="talImpPowS"/>
+    <tag group="MisProTal" tag="talFastTar"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPResFleet" name="Reserve Fleet" description="These starships are often older vessels that have been taken off active duty and equipped as standby vessels in case of disasters both natural and manufactured. Some new manufacture starships also are outfitted in this manner, but are referred to as “fleet support,” assisting flotillas in deployments away from the supply lines of the core worlds." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="3"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="2"/>
+    <tag group="MisProTal" tag="talAdvSick"/>
+    <tag group="MisProTal" tag="talExtShut"/>
+    <tag group="MisProTal" tag="talImpHull"/>
+    <tag group="MisProTal" tag="talSecReac"/>
+    <tag group="ShipType" tag="typStarship"/>
+    </thing>
+  <thing id="proUPWarship" name="Warship" description="In times of war, Starfleet sometimes finds the need to outfit a small number of its starships as true weapons of war, dedicated to little more than transporting firepower to a needed area to deter the enemies of the Federation from continuing in their pursuits." compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="MisProTal" tag="talUPExpMunitions"/>
+    <tag group="MisProTal" tag="talFastTar"/>
+    <tag group="MisProTal" tag="talImpDamC"/>
+    <tag group="MisProTal" tag="talRFTorp"/>
+    <tag group="MisProTal" tag="talAblaAr"/>
+    <tag group="ShipType" tag="typStarship"/>
     </thing>
   </document>

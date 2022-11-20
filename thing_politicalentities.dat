@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the assortment of derived traits for the game system. Derived
+      traits are calculated via scripts and based on the attributes from which they
+      are derived.
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Polities -->
+  <thing
+    id="UnitedEarth"
+    name="United Earth"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Federation"
+    name="Federation"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Klingon"
+    name="Klingon"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Romulan"
+    name="Romulan"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Vulcan"
+    name="Vulcan"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Andorian"
+    name="Andorian"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Tellar"
+    name="Tellarite"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Orion"
+    name="Orion"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Gorn"
+    name="Gorn"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="VulcanPreFed"
+    name="Vulcan (Pre-Federation)"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="AndorianPreFed"
+    name="Andorian (Pre-Federation)"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="TellarPreFed"
+    name="Tellarite (Pre-Federation)"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="RomulanEarly"
+    name="Romulan (Early)"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+
+  </document>

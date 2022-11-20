@@ -259,6 +259,12 @@
 	  portal[crewdetails].top = portal[lblCrewDetails].top
 	  perform portal[crewdetails].alignrel[ltor,lblCrewDetails,10]
 	  
+	  ~ if a Small Craft, hide Crew Support
+	  if (hero.tagis[CharType.typSmallCraft] <> 0) then
+	    portal[lblCrew].visible = 0
+	    portal[crew].visible = 0
+	    endif
+		
 	  ~if no summary, hide portals
 	  if (field[shipCrewSumm].isempty <> 0) then
 	    portal[lblCrewDetails].visible = 0
@@ -266,8 +272,8 @@
 		endif
 
 	  ~if not a Small Craft, hide portals
-	  portal[lblCrewDetails].visible = hero.tagis[Ship.SmallCraft]
-	  portal[crewdetails].visible = hero.tagis[Ship.SmallCraft]
+	  portal[lblCrewDetails].visible = hero.tagis[CharType.typSmallCraft]
+	  portal[crewdetails].visible = hero.tagis[CharType.typSmallCraft]
 
       ~height of the portal is the botom of the lowest portal + 10
 	  height = portal[lblCrewDetails].bottom + 20
@@ -716,7 +722,7 @@
     name="Basics"
     marginhorz="5"
     marginvert="5"
-    order="1">
+    order="5">
     <live>!HideTab.basics</live>
     <layoutref layout="basics"/>
     <position><![CDATA[

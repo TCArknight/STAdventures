@@ -181,9 +181,9 @@
       <list><![CDATA[
         User.Resistance | User.Combat
         ]]></list>
-      <headertitle><![CDATA[
+      <!--<headertitle><![CDATA[
         @text = "Derived Traits"
-        ]]></headertitle>
+        ]]></headertitle>  -->
       </output_table>
     </portal>
 
@@ -216,8 +216,9 @@
     id="oTalent"
     style="outNormal">
     <output_table
-      component="Talent"
-      showtemplate="oAbilPick"
+      component="TalentBase"
+      showtemplate="oTalentPick"
+	  showsortset="TalentSort"
 	  varyheight="yes">
       <list><![CDATA[
         ]]></list>
@@ -616,15 +617,15 @@
     </template>
 
 
-  <!-- oAbilPick template
+  <!-- oTalentPick template
         This template presents the Special Abilities, consisting of the prominent
         name and the summary text in small letters next to it. We use a small margin
         for vertical spacing between abilities.
   -->
   <template
-    id="oAbilPick"
+    id="oTalentPick"
     name="Output Talents Table"
-    compset="Talent"
+    compset="CharRole"
     marginvert="2">
 
     <portal
@@ -633,7 +634,7 @@
       <output_label
 	    ismultiline="yes">
         <labeltext><![CDATA[
-          @text = "{b}" & field[name].text & ":{/b} " & field[outSummary].text
+          @text = "{b}" & field[name].text & ":{/b} " & field[talSummary].text
           ]]></labeltext>
         </output_label>
       </portal>
@@ -1304,8 +1305,14 @@
         ~position the Hero Lab logo beneath the game system logo
         perform portal[oHLLogo].alignrel[ttob,oGameLogo,logogap]
 
+        portal[oHLLogo].visible = 0
+		
         ~our total height is the bottom of the lower logo
-        height = portal[oHLLogo].bottom
+		if (portal[oHLLogo].visible <> 0) then
+          height = portal[oHLLogo].bottom
+		else
+		  height = portal[oGameLogo].bottom
+		  endif
 
       ~ Otherwise, position them side by side
       else
@@ -1323,6 +1330,7 @@
         perform portal[oGameLogo].centervert
         perform portal[oHLLogo].centervert
         endif
+	  
       ]]></position>
     </layout>
 

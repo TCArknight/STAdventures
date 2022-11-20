@@ -162,6 +162,12 @@
       portal[mpTalent].width = width / 2
 	  portal[mpTalent].height = (height - 10)/2
       portal[mpTalent].visible = 1
+	  
+	  if (hero.tagis[CharType.typStarbase] <> 0) then
+	    portal[mpTalent].visible = 0
+		
+	    template[mpProTemp].height = height - 50
+	    endif
 
       ]]></position>
 

@@ -172,6 +172,22 @@
       ]]></eval>
     </thing>	
 	
+  <!-- CharRole slot resource to track the pool of ability slots being spent -->
+  <thing
+    id="resCharRole"
+    name="Role Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="CharRole"/>
+
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 1
+      ]]></eval>
+    </thing>
+	
   <!-- Focus slot resource to track the pool of focus slots being spent -->
   <thing
     id="resFocus"
@@ -201,25 +217,30 @@
     <!-- Use the starting ability slots as our initial maximum -->
     <eval index="1" phase="Setup" priority="5500"><![CDATA[
 	  var refCount as number
-	  var stYear as number
-	  var enYear as number
-	  var diYear as number
+	  var startYear as number
+	  var launchYear as number
+	  var yearSteps as number
+	  var adjSteps as number
+	  var systemPoints as number
 	  
 	  field[resMax].value = 0
 	  
 	  ~If we're not a starship, we're good
-	  doneif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0  )
+	  doneif (#ischaracter[] <> 0  )
 	  
 	  ~If we haven't chosen a frame, we're good
 	  doneif (hero.tagis[IsFrame.?] = 0)
 	  
-	  stYear = int(hero.firstchild["component.Frame"].field[fraYearEnt].text)
-	  enYear = hero.childfound[mscShip].field[shipYear].text
-	  diYear = (enYear - stYear) / 10
+	  startYear = #shipyearvalue[]
+	  launchYear = #shiplaunchvalue[]
 	  
-	  refCount = round(diYear,0,-1)
+	  yearSteps = (startYear - launchYear) / 10
+      adjSteps = round(yearSteps,0,-1)
 	  
-      field[resMax].value += refCount
+      field[resMax].value += adjSteps
+	  
+	  ~ increase system points by adjsutment
+	  #resmax[resAttrib] += adjSteps
 	  
       ]]></eval>
     </thing>
@@ -318,7 +339,21 @@
       ]]></eval>
 
     </thing>
+	
+  <thing
+    id="resAddWeapons"
+    name="Additional Weapon Slots"
+    compset="Resource">
+    <fieldval field="resObject" value="Talent"/>
 
+    <!-- Automatically add the resource to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+
+    <!-- Use the starting ability slots as our initial maximum -->
+    <eval index="1" phase="Setup" priority="1000"><![CDATA[
+      field[resMax].value = 0
+      ]]></eval>
+    </thing>
 
   <!-- Power points tracker so the user can manage the expenditure of power points -->
   <thing
@@ -363,8 +398,28 @@
     </thing>
 	
   <thing
-    id="typShip"
+    id="typStarship"
     name="Type: Starship"
+    compset="CharType">
+	<!-- Use the Starship creation tab by default -->
+    <eval index="1" phase="Initialize" priority="1000"><![CDATA[
+	  perform hero.assign[ShowTab.Starship]
+      ]]></eval>
+    </thing>
+	
+  <thing
+    id="typSmallCraft"
+    name="Type: Small Craft"
+    compset="CharType">
+	<!-- Use the Starship creation tab by default -->
+    <eval index="1" phase="Initialize" priority="1000"><![CDATA[
+	  perform hero.assign[ShowTab.Starship]
+      ]]></eval>
+    </thing>
+	
+  <thing
+    id="typStarbase"
+    name="Type: Starbase"
     compset="CharType">
 	<!-- Use the Starship creation tab by default -->
     <eval index="1" phase="Initialize" priority="1000"><![CDATA[

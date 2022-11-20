@@ -63,4 +63,9 @@
     <bootstrap thing="trVOYLiberBorg"></bootstrap>
     <pickreq thing="spcMixedHer"/>
     </thing>
+  <thing id="talVOYTheoryPract" name="Theory Into Practice" description="When gaining a d20 via the Testing a Theory Talent, reduce the Difficulty of the Task by 2, to a minimum of zero." compset="Talent">
+    <usesource source="CharacterVoy"/>
+    <tag group="TalentCat" tag="Science"/>
+    <pickreq thing="talTestThe"/>
+    </thing>
   </document>

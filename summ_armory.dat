@@ -70,7 +70,7 @@
     id="smEnergy"
     style="tblInvisSm">
     <table_fixed
-      component="WeapEnergy"
+      component="StarshipWeapon"
       showtemplate="smWeapon"
       scrollable="no">
       <headertitle><![CDATA[

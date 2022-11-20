@@ -209,7 +209,9 @@
     ~based on the nature of the item, synthesize the appropriate details that are
     ~specific to the particular item type
     iteminfo = ""
-    if (tagis[component.WeapRange] <> 0) then
+    if (tagis[component.StarshipWeapon] <> 0) then
+      call InfoEnergy
+    elseif (tagis[component.WeapRange] <> 0) then
       call InfoRange
     elseif (tagis[component.WeapMelee] <> 0) then
       call InfoMelee
@@ -229,20 +231,21 @@
 	
     ~if this is a piece of gear, append proper info to the item-specific details
     if (tagis[component.Gear] <> 0) then
+      if (tagis[component.StarshipWeapon] = 0) then
+		~if this is a thing, append the cost
+		if (ispick = 0) then
+		  iteminfo &= "Cost: " & field[grCost].text & "{br}"
+		  endif
 
-      ~if this is a thing, append the cost
-      if (ispick = 0) then
-        iteminfo &= "Cost: " & field[grCost].text & "{br}"
-        endif
-
-      ~append the item's weight
-      iteminfo &= "Weight: "
-      if (field[gearWeight].value > 0) then
-        iteminfo &= field[gearWeight].text & " each"
-      else
-        iteminfo &= chr(150)
-        endif
-      iteminfo &= "{br}"
+		~append the item's weight
+		iteminfo &= "Weight: "
+		if (field[gearWeight].value > 0) then
+		  iteminfo &= field[gearWeight].text & " each"
+		else
+		  iteminfo &= chr(150)
+		  endif
+		iteminfo &= "{br}"
+		endif
       endif
 
     ~append our item-specific info to the synthesized details text
@@ -393,6 +396,25 @@
     call InfoWeapSp
     ]]></procedure>
 
+  <!-- Procedure InfoEnergy
+        Generate details specific to a starship energy weapon. The text is placed into the
+        "iteminfo" variable for subsequent use by our caller.
+
+        Outbound parameter: iteminfo
+  -->
+  <procedure id="InfoEnergy" context="info"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var iteminfo as string
+
+    ~start with generic details for all weapons
+    call InfoWeapon
+
+    ~add the range details for the weapon
+    iteminfo &= "Range: " & field[wpSRange].text & "{br}"
+
+    ~finish with generic special abilities for all weapons
+    call InfoWeapSp
+    ]]></procedure>
 
   <!-- Procedure InfoDef
         Generate details specific to defensive gear, including armor and shields.
@@ -874,5 +896,77 @@
       division = "{text 006EFF}"
 	  endif
 		  
+    ]]></procedure>
+	
+  <procedure id="GetShipDeptPoints" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+	var deptPoints as number
+  	
+	~If we're not a starship, we're good
+	doneif (#ischaracter[] <> 0  )
+	
+	~ default to 3 points for starships (-1 if can use Mission Pods)
+	deptPoints = 3 - #framepodsallowed[]
+	
+	~ other variables
+	#framedeptpoints[] = deptPoints
+    ]]></procedure>
+	
+  <procedure id="GetShipSystemPoints" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+	var systemPoints as number
+	var deptPoints as number
+	
+    var refCount as number
+	var startYear as number
+	var launchYear as number
+	var yearSteps as number
+	var adjSteps as number
+	var ScaleAdj as number
+	  
+	~If we're not a starship, we're good
+	doneif (#ischaracter[] <> 0  )
+	  
+	~If we haven't chosen a frame, we're good
+	~ doneif (hero.tagis[IsFrame.?] = 0)
+	  
+	startYear = #shipyearvalue[]
+	launchYear = #shiplaunchvalue[]
+	ScaleAdj = #framescale[] - 4
+	  
+	~notify "Scale Adjust: " & ScaleAdj
+	
+	~Cat  Year  Sys Points
+	~ 1    2200  40 (+/- 1 point / 10 yrs)
+	~ 2    2150  35 (-1 point / 50 yrs early)
+	~ 3    2400  60 (+1 point / 50 yrs later)
+	  
+	if (launchYear <= 2150) then
+	  systemPoints = 35
+	  yearSteps = (2150 - launchYear) / 50
+	  adjSteps = round(yearSteps,0,-1)
+	  systemPoints -= adjSteps
+	elseif (launchYear < 2200) then
+	  systemPoints = 40
+	  yearSteps = (2200 - launchYear) / 10
+	  adjSteps = round(yearSteps,0,-1)
+	  systemPoints -= adjSteps
+	elseif (launchYear >= 2200) then
+	  systemPoints = 40
+	  yearSteps = (launchYear - 2200) / 10
+	  adjSteps = round(yearSteps,0,-1)
+	  systemPoints += adjSteps
+	elseif (launchYear >= 2400) then
+	  systemPoints = 60
+	  yearSteps = (launchYear - 2400) / 50
+	  adjSteps = round(yearSteps,0,-1)
+	  systemPoints += adjSteps
+	  endif
+	  
+	systemPoints += ScaleAdj
+	
+	#framesystempoints[] = systemPoints
+
+	
     ]]></procedure>
   </document>

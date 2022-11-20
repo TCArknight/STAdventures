@@ -720,7 +720,7 @@
         field[shortname].text &= " (" & choices & ")"
         endif
       ]]></eval>
-
+	  
     <!-- Report a validation error if no selection has been made for a menu selection -->
     <evalrule phase="Validate" priority="10000" message="You must choose an option" summary="Choose!"><![CDATA[
       ~determine the number of menus that NEED selection
@@ -761,7 +761,7 @@
         linkvalid = 0
         endif
       ]]></evalrule>
-
+	  
     </component>
 
 

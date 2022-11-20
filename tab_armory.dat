@@ -738,7 +738,7 @@
     marginhorz="5"
     marginvert="5"
     order="210">
-    <live>!HideTab.armory &amp; !CharType.typShip</live>
+    <live>!(HideTab.armory|ShowTab.Starship)</live>
     <layoutref layout="armory"/>
     <position><![CDATA[
       ]]></position>

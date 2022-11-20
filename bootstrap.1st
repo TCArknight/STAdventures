@@ -23,10 +23,10 @@
     component.DiscDept
     ]]></enmasse>	
 
-  <!-- Add all derived traits to the actor -->
+  <!-- Add all derived traits to the actor 
   <enmasse><![CDATA[
     component.Derived
-    ]]></enmasse>
+    ]]></enmasse> -->
 
   <!-- Add all mechanics things to the actor -->
   <enmasse><![CDATA[

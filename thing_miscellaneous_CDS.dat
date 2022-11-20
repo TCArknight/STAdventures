@@ -9,16 +9,5 @@
 
 <document signature="Hero Lab Data">
 
-  <!-- Types of characters you might want to build -->
-  <thing
-    id="typBase"
-    name="Type: Starbase"
-    compset="CharType">
-	<usesource source="StarbaseUn"/>
-	<!-- Use the Starship creation tab by default -->
-    <eval index="1" phase="Initialize" priority="1000"><![CDATA[
-	  perform hero.assign[ShowTab.Starship]
-      ]]></eval>
-    </thing>
 
     </document>

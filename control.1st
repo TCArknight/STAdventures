@@ -79,11 +79,29 @@
     </source>
 
   <source
+    id="UtopiaPlanetia"
+    name="Utopia Planetia Sourcebook"
+    parent="Supplement"
+    selectable="yes"
+    sortorder="0"
+    description="Starfleet Starship Sourcebook">
+    </source>
+	
+  <source
+    id="Campaigns"
+    name="Campaign Sourcebooks"
+    parent="Supplement"
+    selectable="no"
+    sortorder="1"
+    description="Campaign Sourcebooks">
+    </source>
+	
+  <source
     id="Divisions"
     name="Division Sourcebooks"
     parent="Supplement"
     selectable="no"
-    sortorder="1"
+    sortorder="2"
     description="Sourcebooks for each division">
     </source>
 
@@ -92,17 +110,48 @@
     name="Quadrant Sourcebooks"
     parent="Supplement"
     selectable="no"
-    sortorder="2"
+    sortorder="3"
     description="Sourcebooks for each quadrant">
     </source>
-
+	
   <source
     id="Characters"
     name="Character Collections"
     parent="Supplement"
     selectable="no"
-    sortorder="2"
+    sortorder="4"
     description="Character compilations">
+    </source>
+	
+  <source
+    id="PlayerGuide"
+    name="Player's Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    sortorder="0"
+    description="Options from the Player's Guide">
+    </source>
+	
+  <source
+    id="GMGuide"
+    name="Gamemaster's Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    selectable="no"
+    sortorder="1"
+    description="Options from the Gamemaster's Guide">
+    </source>
+	
+  <source
+    id="Shackleton"
+    name="Shackleton Expanse Campaign Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    sortorder="2"
+    description="Options from the Shackleton Expanse Campaign Guide">
     </source>
 	
   <source
@@ -436,6 +485,13 @@
   <sortset id="FrameSort" name="Starship Frame Sort">
     <sortkey isfield="no" id="ShipType"/>
     <sortkey isfield="no" id="ShipAlliance"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+
+  <!-- FrameSort - Species sortset -->
+  <sortset id="ShipWeapDeliv" name="Starship Weapons Sort">
+    <sortkey isfield="no" id="Delivery"/>
+    <sortkey isfield="no" id="ShipWepCat"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
   </document>

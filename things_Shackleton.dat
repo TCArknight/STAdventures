@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="spcSCGAkaru" name="Akaru" description="A sentient humanoid species indigenous to the planet Setu within the Shackleton Expanse, the Akaru are relative newcomers in developing warp technology and are only just starting to explore nearby systems and the interior of the Expanse. They are a highly competent and curious species, and are eager to meet and trade with beings from other cultures and worlds. Their global leader and religious icon, Iryax Nedaon, actively encourages technological development oriented toward space travel and stellar exploration, and regional universities have increased the number of degree programs in related fields of study.\n\nWhile a population of 1.3 billion generally should not be described by one word, a common note through all Akaru society is that of efficiency. Their cities, vessels, farms, and processes are all designed toward maximizing resources, space, and personnel. That dedication to communal efficiency permeates Akaru relationships as well, sometimes to a given relationship’s potential detriment. If a family determines that the whole would be rendered more efficient by adding or removing specific individuals, adjustments are carried out, often with the assistance of trained counselors, in order to mitigate potential complications and ensure a successful and efficient family unit.\n\n{i}{b}Example Value:{/b} Never Knowingly Engage in Inefficiency{/I}" compset="Species" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="trSCGAkaru"></bootstrap>
+    </thing>
+  <thing id="trSCGAkaru" name="Akaru" description="The Akaru are a bipedal, mammalian species that resembles Romulans and Vulcans to some extent – possessing copper-based blood and slightly pointed ears – but as a whole have more widely-set eyes, more robust physical frames, and generational instances of digital fusion or vestigial webbing between fingers and toes. Their mindset is something of a blend of Romulan and Vulcan perspectives – Akaru are an enthusiastic and passionate species who embrace efficiency of thought and operation, with a keen focus on the betterment of all, be it the individual, the family, or the entire Akaru culture." compset="Trait" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcSCGAkaru"/>
+    </thing>
+  <thing id="spcSCGCalMirran" name="Cal-Mirran" description="A race of peacemakers birthed by lightning on an oceanic world, the Cal-Mirran people have evolved to seek balance in the midst of extremes. They are crystalline, water-based life-forms held together by a bio-electric charge, able to shift their state of matter at will. Cal-Mirrans are a deeply spiritual people who are known for analytical theorizing, meticulous ethics, and abstract art. While unity is a core value of Cal-Mirran society, a small minority choose to reside away from civilization in the planet’s harshest climes. This division, and the unrest it occasionally sows, tests the equity-focused civil system on which Cal-Mirrans pride themselves\n\n{i}{b}Example Value:{/b} Peaceful Persistence{/I}" compset="Species" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="trSCGCalMirran"></bootstrap>
+    </thing>
+  <thing id="spcSCGOrion" name="Orion" description="The Orions are a paradoxical species. An Orion will be warm and welcoming to newcomers and be open to talking about a variety of topics as they get to know them. Too often this is a ruse, as Orion culture is based around seizing the advantage in all things and working out the best deals to benefit their society. Though they proudly claim to be strictly neutral in the affairs of the galaxy, the Orions are the founders of two organizations that have profoundly impacted Starfleet and other empires: the Orion Trade Union and the Orion Syndicate. Too often Orions are members of both of these organizations and the species they interact with will learn too late which group they are dealing with. Though the Orion Syndicate is a menace that is the target of dozens of law enforcement agencies, their persuasive negotiating skills and extensive criminal empire have guaranteed their continued existence.\n\nOrion society is broken down along binary gender lines. Orion females are typically the leaders of Orion society, and have evolved an advantage where their bodies secrete special pheromones that cause a hypnotic effect in males of some species. Orion males were second-class citizens for centuries and only recently gained full recognition in Orion society, though they are still most commonly seen as laborers and crew on Orion outposts and vessels. When it comes to the Syndicate, Orions prefer to let members of other species work for them; this not only guarantees that the Orion can continue their claim of strict neutrality, but they also avoid the risk of fallout from their criminal enterprises.\n\n{i}{b}Example Value:{/b} Everything is a Deal{/I}" compset="Species" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <bootstrap thing="trSCGOrion"></bootstrap>
+    </thing>
+  <thing id="spcSCGQofuari" name="Qofuari" description="These egalitarian people from the planet Lilafas are generally unassuming and content, happy to do whatever chores are necessary to support their modest tribal lifestyles while keeping ample time free to be alone in quiet philosophical reflection or to pursue recreational activities with family and friends. Many devote their free time to pure research, imagining technology far in advance of what they use in real life. This is not merely the wishful thinking of science fiction, however, but the detailed mental imaging, down to the tiniest detail, of fully realizable apparatuses; from tricorders to warp engines, they carry three-dimensional blueprints and schematics in their minds as easily as other species recall what they ate for breakfast. \n\nMembers of the Future Builders faction, most of whom are part of the younger generations of Qofuari, are more outgoing and wish to construct the high-tech devices not allowed by tradition. Once the Qofuari encounter the Federation, some Future Builders request leave from their homeworld to explore the Beta Quadrant and beyond.\n\n{i}{b}Example Value:{/b} Everyone is Equal{/I}" compset="Species" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <bootstrap thing="trSCGQofuari"></bootstrap>
+    </thing>
+  <thing id="spcSCGVinShari" name="VinShari" description="The VinShari are the dominant humanoid species in their system within the Shackleton Expanse – and they are spreading out. Highly adaptable, utilizing the spaceborne Ha’kiv beings as an energy resource, the VinShari saved themselves from self-annihilation and went from their first space flight to warp speed in under a century. Organic technology is woven into every part of VinShari life as is their artistry and history. The VinShari have the capacity to be friendly or brutal, but everything they do is from a position of strength, and with an innate desire to dominate.\n\nThe Order of the Midajah-Ka believe in power through knowledge and information rather than brute force, and only resort to violence when necessary.\n\nMembers of the Ar-Ka-Se faction are unlike other VinShari: they believe harvesting Ha’kiv is morally wrong, and they actively resist the VinShari government. They also believe the VinShari mandate of dominance and power will ultimately lead to the destruction of their species. The Ar-Ka-Se see cooperation and peaceful coexistence as the only viable options in a growing galactic community.\n\n{i}{b}Example Value:{/b} Power is Our Birthright!{/I}" compset="Species" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
+    <bootstrap thing="trSCGVinShari"></bootstrap>
+    </thing>
+  <thing id="trSCGCalMirran" name="Cal-Mirran" description="Cal-Mirrans are graceful, adaptive, persistent, and highly analytical. They have strong logic skills and excel at long-term problem solving. Because their bodies can shift states, they can tolerate extremes – heat, cold, pressure, vacuum – but are sensitive to vibration and certain types of radiation, which can disrupt the cohesion of their consciousness. Since their physiology is crystalline, physical injuries (separation of body mass) reduce dexterity and speed." compset="Trait" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcSCGCalMirran"/>
+    </thing>
+  <thing id="trSCGOrion" name="Orion" description="Orions thrive in Class-M environments and are well suited to long voyages through space. The Orions are a dimorphic species where the females secrete special pheromones that can stimulate the adrenal systems of other species and make them become fascinated with them, which the Orion women have used to maintain control over not only Orion males but to manipulate other species." compset="Trait" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcSCGOrion"/>
+    </thing>
+  <thing id="trSCGQofuari" name="Qofuari" description="Qofuari tend to live in harmony with each other and their environment. They are natural swimmers and nimble climbers. Their mental capacity is huge, allowing them to think through complicated problems in their minds before taking action." compset="Trait" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcSCGQofuari"/>
+    </thing>
+  <thing id="trSCGVinShari" name="Vinshari" description="Hunted as prey in their early history caused the VinShari to become evolutionary survivors. Psychologically, they learned to thrive and adapt in stressful situations. Physically, the VinShari have bone collars they use for self-defense. They are resistant to most forms of radiation, have a robust immune system, can see into various visual spectrums, and have perfect night vision. Traditional VinShari see the Galaxy through their evolutionary lens and believe they must dominate to survive. Other VinShari, like the Ar-Ka-Se, believe in equal coexistence." compset="Trait" uniqueness="unique">
+    <usesource source="Shackleton"/>
+    <tag group="TraitCat" tag="Race" name="Race" abbrev="Race"/>
+    <tag group="SpeciesTrait" tag="spcSCGVinShari"/>
+    </thing>
+  <thing id="talSCGABetterPath" name="A Better Path" description="Akaru value efficiency in all things, including when working on problems or tasks. Whenever you succeed at a task during an extended task, add 1A to your dice pool to determine Work completed." compset="Talent" summary="Whenever you succeed at a task during an extended task, add 1A to your dice pool to determine Work completed." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Akaru Required"><![CDATA[#isspecies[spcSCGAkaru] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGCharmDemean" name="Charming Demeanor" description="Akaru are a robust and passionate people, and readily build relationships with others. Whenever you engage in a social interaction or social conflict with another character, you may re-roll a single d20 in your dice pool. In addition, if you succeed in that task, you gain 1 bonus Momentum." compset="Talent" summary="Whenever you engage in a social interaction or social conflict with another character, you may re-roll a single d20 in your dice pool. In addition, if you succeed in that task, you gain 1 bonus Momentum." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Akaru Required"><![CDATA[#isspecies[spcSCGAkaru] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGWaterGlass" name="Water Glassing" description="A Cal-mirran can learn to “glass” water on contact, i.e., harden it temporarily, similar to freezing, but without expansion or temperature change. Glassing can create tools or be used for defense. It is a skill that must be mastered, and requires concentration. Advanced glassers can harden anywhere from their body volume of water, to large swaths of ocean, but the larger the volume and the longer it is held, the greater the strain on the Cal-Mirran mind. Glassing requires a Fitness + Science task, with a Difficulty determined by the quantity of water being affected. After a successful use of this ability, the character is sluggish and will be unable to use this talent or change their own body’s state for the remainder of the scene." compset="Talent" summary="You can temporarily harden and shape water on contact." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Cal-Mirran Required"><![CDATA[#isspecies[spcSCGCalMirran] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGTimeRefract" name="Time Refraction" description="With training, Cal-Mirrans can absorb tachyon radiation and use it to refract space-time, bending their surroundings slightly into the future or past. The more radiation, the further the slide, but the greater the risk – too much refraction can result in severe physical or mental damage and a weakening of their crystalline matrix. By spending a point of Determination and attempting an Insight + Science task, the character can perceive a glimpse of the past or future as if they were in that location at that time. The Difficulty of this task is based on how far into the past or future the character is looking; a glimpse of up to a minute earlier or later is Difficulty 1, up to an hour is Difficulty 2, up to a day is Difficulty 3, and longer durations have a higher Difficulty at the gamemaster’s discretion. Success allows the character to ask one question, plus one extra question per Momentum spent, about events in that time and place. Glimpses of the future are subject to change, as future events are not fixed." compset="Talent" summary="By spending a point of Determination and attempting an Insight + Science task, the character can perceive a glimpse of the past or future as if they were in that location at that time." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Cal-Mirran Required"><![CDATA[#isspecies[spcSCGCalMirran] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGWasntMe" name="That Wasn&apos;t Me" description="The Orions are known as one of the most untrustworthy species in the Galaxy next to the Ferengi, and yet people are always willing to do business with them or are continually tricked by them. This is due to the subtle dance of social interactions and the release of pheromones that make the Orion endearing to whom they are dealing with, and can be used to gain their trust. An Orion adds 1 bonus Momentum to their pool when they have successfully completed a task to win a target’s trust." compset="Talent" summary="An Orion adds 1 bonus Momentum to their pool when they have successfully completed a task to win a target’s trust." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Orion Required"><![CDATA[#isspecies[spcSCGOrion] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGCriminalUnd" name="Criminal Understanding" description="Orion culture is based around understanding the complicated meanings behind words and plans. They do not take things at face value but look to see the underlying scheme going on behind the scenes, whether it is noticing a word that was omitted from a contract agreement to understanding how a pickpocket slipped a watch off their victim’s wrist. When trying to understand a matter involving intrigue or guile, an Orion may roll an additional d20 when attempting to decipher the hidden meaning behind the action." compset="Talent" summary="When trying to understand a matter involving intrigue or guile, an Orion may roll an additional d20 when attempting to decipher the hidden meaning behind the action." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Orion Required"><![CDATA[#isspecies[spcSCGOrion] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGMentalImagi" name="Mental Imaging" description="You can envision complicated technology and project the details forward, yielding results with the accuracy of real-world testing. Provided with a schematic or the time to inspect an unfamiliar device, you can quickly determine its use and any necessary repairs. This also makes you an excellent game player; imagine multiple choices and follow their consequences along branching paths to develop the best response. When you attempt a task involving Reason, you may re-roll one d20. In addition, when you succeed at a Reason-based task which is subject to time pressure, the Momentum cost to reduce the time taken is reduced by 1." compset="Talent" summary="When you attempt a task involving Reason, you may re-roll one d20. In addition, when you succeed at a Reason-based task which is subject to time pressure, the Momentum cost to reduce the time taken is reduced by 1." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Qofuari Required"><![CDATA[#isspecies[spcSCGQofuari] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGNimble" name="Nimble" description="Your long, flexible body makes you an excellent swimmer. You can move rapidly and acrobatically on land. Maneuvering and climbing in cramped spaces tubes is easier for you than humanoids evolved for fully upright walking. When you attempt a Fitness test to maneuver through water, within a tight space, or when climbing, gain one additional d20 in your dice pool." compset="Talent" summary="When you attempt a Fitness test to maneuver through water, within a tight space, or when climbing, gain one additional d20 in your dice pool." uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Qofuari Required"><![CDATA[#isspecies[spcSCGQofuari] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGSilentScr" name="Silent Scream" description="The VinShari’s bone collars allow them to attenuate their vocal cords to achieve harmonic resonance in a silent scream that can cause pain, unconsciousness, and death. Two or more VinShari harmonizing together can shatter bone. The silent scream can be used as a ranged weapon (2A, Area and Piercing 1 effects). Other VinShari with this talent may assist these attacks, and each VinShari providing assistance increases the Stress inflicted by 1A." compset="Talent" uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="VinShari Required"><![CDATA[#isspecies[spcSCGVinShari] <> 0]]></exprreq>
+    </thing>
+  <thing id="talSCGVocalGymn" name="Vocal Gymnastics" description="VinShari are among the best singers in the Shackleton Expanse, perhaps even the Beta Quadrant. They are also experts at ventriloquism and mimicking voices. A VinShari with this talent can mimic any voice they have heard, and most non-vocal sounds they hear, accurate to a degree where even a computer analysis cannot distinguish the mimicry from the real thing. When you attempt to distract or deceive someone using this mimicry, you may re-roll your entire dice pool." compset="Talent" summary="A VinShari with this talent can mimic any voice they have heard, and most non-vocal sounds they hear, accurate to a degree where even a computer analysis cannot distinguish the mimicry from the real thing. (you may re-roll your entire dice pool)" uniqueness="useronce">
+    <usesource source="Shackleton"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="VinShari Required"><![CDATA[#isspecies[spcSCGVinShari] <> 0]]></exprreq>
+    </thing>
+  <thing id="eqSCGBioVacSuit" name="BioVac Suit" description="Biological sampling has been a part of Starfleet exploratory practices since its formation in the 22nd century. The technology used for sampling and studying lifeforms has little changed from even centuries before then. The discovery of space-based multicellular life forms meant this technology was adapted as best it could be. By the mid-23rd century the Federation Science Council, along with the InterSpecies Medical Exchange, began development of a set of tools and analysis equipment that would allow astrobiologists to better study these creatures in their own environment. The MegaFauna and Space Based Life Form Sample Equipment (simply known as BioVac) consists of two parts. \n\nThe first part is a simple vacuum protection suit that allows for common humanoid forms to have full dexterous movement of their digits. This suit also has an outer layer of adaptive molecular film that adapts to the space environment around them to better stay invisible to a creature with little energy cost. This energy savings is needed as the suit uses a tiny anti-grav generator for propulsion at a maximum of 0.01g, emitting no reaction mass that may startle a lifeform." compset="Equipment">
+    <usesource source="Shackleton"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqSCGBioVacPlat" name="BioVac Platform" description="Biological sampling has been a part of Starfleet exploratory practices since its formation in the 22nd century. The technology used for sampling and studying lifeforms has little changed from even centuries before then. The discovery of space-based multicellular life forms meant this technology was adapted as best it could be. By the mid-23rd century the Federation Science Council, along with the InterSpecies Medical Exchange, began development of a set of tools and analysis equipment that would allow astrobiologists to better study these creatures in their own environment. The MegaFauna and Space Based Life Form Sample Equipment (simply known as BioVac) consists of two parts. \n\nThe second part of BioVac is a semi-autonomous tool platform that stays within two meters of the user as a default, also coated in the adaptive film and utilizing anti-grav. This tool platform contains slots for tricorders, biological sample return jars and dishes, and a small surgical toolset for removing tissue, if needed. Additionally, the tool platform can attach itself to large creatures and act as a tag, transmitting life signs and other data back to any subspace relay in the sector for up to a standard year." compset="Equipment">
+    <usesource source="Shackleton"/>
+    <tag group="GearCat" tag="Medical"/>
+    </thing>
+  <thing id="eqSCGCIAD" name="Computer Informational Analysis Device (CIAD)" description="The CIAD is a device approximately the same size as a tricorder from the mid-23rd century. At its back are multiple connection devices and wires that allow a user to interface the CIAD with another device. The front of the CIAD has a foldable PADD interface that can be expanded to a half meter square to display information. Once attached to an unknown device, the user begins experimenting with inputs on the unknown device, while the CIAD analyzes informational pathways, logic circuits, display output, and memory storage, slowly learning how the device works and building a virtual console on its PADD display for any user to use. Once the analysis is complete, taking between several minutes and days for more complex computers, the user may access any nonsecurity limited functions available to a native user and read any data available in a language and display of their choosing, as long as the CIAD remains attached." compset="Equipment">
+    <usesource source="Shackleton"/>
+    <tag group="GearCat" tag="Engineer"/>
+    <tag group="GearCost" tag="Opportun2"/>
+    </thing>
+  <thing id="eqSCGVUT" name="Visual Universal Translator" description="The VUT, or Visual Universal Translator, is an extension of the standard audio universal translator. The VUT consists of lenses that fit over the eyes of most humanoid species, and includes braces to wear around ears and perch on a nose, or an adhesive surface to attach to skin or bone. A small data wire runs from the end of one of these braces and connects to a standard Starfleet tricorder. When operational, the VUT translates written language into a language pre-selected by the user and displays the translation as written text on the lens for the user to read, or as an audio translation to a device inserted into the user’s auditory organ. A character wearing this device gains the advantage of Xenoliterate and is able to read languages as long as a standard universal translator would be able to translate the spoken language. However, as there are millions of known written languages in the Federation alone, the VUT tends to see these languages in everything, from the pattern of colors refracting from a crystal vase, to random scratches on a work surface. Thus, while a character is wearing a VUT, all tasks for that character have their complication range increased by 1, including for reading and understanding written text." compset="Equipment">
+    <usesource source="Shackleton"/>
+    <tag group="GearCat" tag="Engineer"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="armSCGRadProGear" name="Radiation Protective Gear" description="Many worlds inside the Shackleton Expanse exist near high-energy events, such as stars that are flaring, nova-like events from the Shackleton Pinwheel, or orbiting around gas giants with powerful magnetic fields. This protective suit exists in a middle ground between a standard duty uniform and a full environment suit, using the atmosphere around the wearer as the source for breathable gases, but shielding the user from the harshest effects of ionizing radiation. This shielding is provided via multiple layers of woven duranium-cadmium alloys, long carbon nanotubes laced with boron, and plates of easily manufactured or replicated steel-enclosed lead.\n\nCharacters wearing this gear may ignore any negative effects of Class I, II, and III radiation storms while on a planetary surface. Class IV and V radiation storms have their Stress rating reduced by 1. Characters wearing this gear gain the trait Encumbered. As this suit is heavy and has no powered assistance in its movement, characters using this equipment suffer 1 Stress per scene while using it. The gamemaster may increase this to 2 Stress if the character is also in a high gravity environment." compset="Armor">
+    <usesource source="Shackleton"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="Equipment" tag="Encumbered"/>
+    <bootstrap thing="trSCGEncumbered">
+      <containerreq phase="Initialize" priority="1000">hero#Equipment.Encumbered</containerreq>
+      </bootstrap>
+    <eval phase="Initialize" priority="200"><![CDATA[if (field[grIsEquip].value <> 0) then
+  perform forward[Equipment.Encumbered]
+  endif]]></eval>
+    </thing>
+  <thing id="trSCGEncumbered" name="Encumbered" compset="Trait">
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="armSCGEPES" name="Extreme Pressure Environmental Suit" description="The Starfleet Corps of Engineers designed the EPES for use in high-pressure environments that standard EVA suits were not suitable for, such as away teams operating at depth in gas giants or at the bottom of bodies of water. The EPES provides the same environmental protection as the standard EVA suit, including atmospheric composition and temperature control. The EPES differs in that heavy plating is braced over a skeleton of duranium alloys. Electrical pulses are generated when the innermost layer of the suit senses the user attempting to move their limbs, and these pulses are sent to artificial muscles laced below the outer plating, providing slow and deliberate movement of the heavy suit, but also another layer of protection from extreme pressures.\n\nCharacters using the EPES may safely explore high pressure environments to extremes as determined by the gamemaster. Additionally, the heavy plating and multiple protective layers of the EPES can serve as armor, providing the wearer with an additional 1A of Resistance. Characters wearing the EPES also gain the traits Slow and Encumbered. While the EPES has power-assisted movement, a character will suffer 1 Stress from each scene using this equipment to represent the constant strain put on limbs to make the suit move." compset="Armor">
+    <fieldval field="defResist" value="1"/>
+    <tag group="GearCost" tag="Opportun2"/>
+    <tag group="Equipment" tag="Encumbered"/>
+    <tag group="Equipment" tag="Slow"/>
+    <bootstrap thing="trSCGEncumbered">
+      <containerreq phase="Initialize" priority="1000">hero#Equipment.Encumbered</containerreq>
+      </bootstrap>
+    <bootstrap thing="trSCGSlow">
+      <containerreq phase="Initialize" priority="1000">hero#Equipment.Slow</containerreq>
+      </bootstrap>
+    <eval phase="Initialize" priority="200"><![CDATA[if (field[grIsEquip].value <> 0) then
+  perform forward[Equipment.Encumbered]
+  perform forward[Equipment.Slow]
+  endif]]></eval>
+    </thing>
+  <thing id="trSCGSlow" name="Slow" compset="Trait">
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="mpSCGCovert" name="Covert Ops Pod" description="This pod grants the runabout the talents Electronic Warfare Systems and Redundant Systems: Communications, along with +1 to the Science department." compset="MissionPod">
+    <usesource source="Shackleton"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <bootstrap thing="talRedSys">
+      <assignval field="usrChosen1" value="attrsys01" behavior="pick"/>
+      </bootstrap>
+    <bootstrap thing="talEWS"></bootstrap>
+    <eval phase="PreAbility" priority="1000">~ +1 to Science
+hero.child[discdept05].field[abiBonus].value += 1</eval>
+    <pickreq thing="fraDanube"/>
+    <exprreq message="Small Craft only"><![CDATA[hero.tagis[ShipType.typSmallCraft] <> 0]]></exprreq>
+    </thing>
+  <thing id="mpSCGCovertCloak" name="Covert Ops Pod (Cloaking)" description="This pod grants the runabout the talents Electronic Warfare Systems and Cloaking Device, along with +1 to the Science department." compset="MissionPod">
+    <usesource source="Shackleton"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <bootstrap thing="talEWS"></bootstrap>
+    <bootstrap thing="talCloakDevice"></bootstrap>
+    <eval phase="PreAbility" priority="1000">~ +1 to Science
+hero.child[discdept05].field[abiBonus].value += 1</eval>
+    <pickreq thing="fraDanube"/>
+    <exprreq message="Small Craft only"><![CDATA[hero.tagis[ShipType.typSmallCraft] <> 0]]></exprreq>
+    </thing>
+  </document>

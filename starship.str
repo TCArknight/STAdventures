@@ -13,7 +13,22 @@
   <component
     id="ShipInfo"
     name="Starship Info">
-
+	  
+    <field
+      id="shipFraUserName"
+      name="Frame Custom Name"
+      type="derived"
+	  maxlength="50">
+      </field>
+	  
+    <field
+      id="shipLaunchYear"
+      name="Year of First Launch"
+      type="user"
+	  defvalue="1960"
+	  maxlength="4">
+      </field>
+	  
     <field
       id="shipYear"
       name="Current Ship Year"
@@ -33,7 +48,7 @@
       id="shipScale"
       name="Scale"
       type="derived"
-	  defvalue="1">
+	  defvalue="4">
       </field>
 
     <field
@@ -41,13 +56,7 @@
       name="Shields"
       type="derived"
       minvalue="0"
-      maxvalue="15">
-	  <!-- Calculate the final value from the three distinct pieces -->
-      <calculate phase="Ability" priority="10000"><![CDATA[
-        ~Note! If you change this calculation, you may need to change the similar
-        ~       calculation in the "Derived" component.
-        @value = #shipsystem[attrsys05] + #shipdept[discdept03] + field[bonShields].value
-        ]]></calculate>
+      maxvalue="25">
       </field>
 
     <field
@@ -56,26 +65,14 @@
       type="derived"
       minvalue="0"
       maxvalue="15">
-	  <!-- Calculate the final value from the three distinct pieces -->
-      <calculate phase="Ability" priority="10000"><![CDATA[
-        ~Note! If you change this calculation, you may need to change the similar
-        ~       calculation in the "Derived" component.
-        @value = #shipsystem[attrsys03] + field[bonPower].value
-        ]]></calculate>
-	  </field>
+      </field>
 
     <field
       id="shipRes"
       name="Resistance"
       type="derived"
       minvalue="1"
-      maxvalue="15">
-	  <!-- Calculate the final value from the three distinct pieces -->
-      <calculate phase="Ability" priority="10000"><![CDATA[
-        ~Note! If you change this calculation, you may need to change the similar
-        ~       calculation in the "Derived" component.
-        @value = field[shipScale].value + field[bonResist].value
-        ]]></calculate>
+      maxvalue="25">
       </field>
 
     <!-- Bonuses applied to the Shields (e.g. from other abilities) -->
@@ -114,19 +111,49 @@
       </field>
 	  
     <field
-      id="shipOver"
+      id="shipShipyard"
+      name="Shipyard"
+      type="derived"
+      maxlength="10000">
+      </field>
+	  
+    <field
+      id="shipOverview"
       name="Overview"
       type="derived"
       maxlength="10000">
       </field>
 	  
     <field
-      id="shipCap"
+      id="shipCapabilities"
       name="Capabilities"
       type="derived"
       maxlength="10000">
       </field>
 
+    <field
+      id="shipRefVar"
+      name="Refits and Variants"
+      type="derived"
+      maxlength="2000">
+      </field>
+	  
+    <!-- Suggested Profiles -->
+    <field
+      id="shipSuggPro"
+      name="Suggested Profiles"
+      type="user"
+      maxlength="1000">
+      </field>
+	  
+    <!-- Naming Conventions -->
+    <field
+      id="shipNamConv"
+      name="Suggested Profiles"
+      type="user"
+      maxlength="1000">
+      </field>	
+	  
     <field
       id="shipCrew"
       name="Crew Support"
@@ -178,13 +205,39 @@
       maxlength="50"
       type="user">
       </field>
-
+	  
+    <!-- Affiliation -->
+    <field
+      id="shipAddWeapons"
+      name="Additional Weapons"
+      type="derived"
+	  minvalue="0"
+	  defvalue="0">
+      </field>
+	  
     <!-- Role -->
     <field
       id="shipProfile"
       name="Mission Profile"
       maxlength="50"
       type="derived">
+      </field>
+
+    <!-- Saucer Separation? -->
+    <field
+      id="shipAllowSaucer"
+      name="Saucer Separation Allowed?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+	  
+    <field
+      id="shipPodsAllowed"
+      name="Mission Pods Allowed?"
+      type="derived"
+      minvalue="0"
+      maxvalue="1">
       </field>
 	  
     <creation><![CDATA[
@@ -216,6 +269,10 @@
       ]]></eval>
 
     <eval index="2" phase="Setup" priority="5000"><![CDATA[
+	  if (hero.tagis[source.UtopiaPlanetia] <> 0) then
+        perform hero.assign[Helper.UserUnlock]
+        endif
+		
 	  ~ fill out the Mission Profile if one has been selected
       if (hero.tagis[HasProfile.?] <> 0) then
         field[shipProfile].text = hero.findchild[Profile].field[name].text
@@ -227,7 +284,55 @@
         endif
       ]]></eval>
 
-  
+    <eval index="3" phase="Ability" priority="1000"><![CDATA[
+	  ~ fill out the Mission Profile if one has been selected
+      if (hero.tagis[HasProfile.?] <> 0) then
+        field[shipProfile].text = hero.findchild[Profile].field[name].text
+        endif
+		
+      ~ Assign a tag if the user hasn't specified any background text
+      if (field[shipAddWeapons].value <> 0) then
+        #resmax[resAddWeapons] += field[shipAddWeapons].value
+        endif
+      ]]></eval>
+ 
+    <eval index="4" phase="Ability" priority="5000" name="Calc Ship Derived"><![CDATA[
+	  var scale as number
+	  var pwr as number
+	  var shields as number
+	  
+	  scale = field[shipScale].value
+	  pwr = #engines[] 
+	  shields = #structure[] + #security[]
+	  
+	  ~ crew support, resistance 
+      field[shipCrew].value = scale
+	  field[shipRes].value = scale 
+	  
+	  ~ power
+	  if (#issmallcraft[] <> 0) then
+	    pwr = round(pwr/2,0,1)
+	    endif
+		  
+	  pwr += field[bonPower].value
+	  
+      field[shipPower].value = pwr
+
+	  ~ shields 
+	  if (#issmallcraft[] <> 0) then
+	    shields = round(shields/2,0,-1)
+	  elseif (#isstarbase[] <> 0) then
+	    if (hero.tagis[Ship.NoShields] <> 0) then
+	      shields -= #security[]
+		  endif
+	    endif
+		  
+	  shields += field[bonShields].value
+		
+      field[shipShield].value = shields  
+	 
+	  
+      ]]></eval> 
     </component>
 
   <!-- Frame component
@@ -242,7 +347,7 @@
     <field
       id="fraYearEnt"
       name="Entered Service"
-      type="derived"
+      type="user"
 	  maxlength="4">
       </field>
 	  
@@ -266,23 +371,61 @@
     <field
       id="fraScale"
       name="Frame Scale"
-      type="derived">
+      type="user"
+	  defvalue="4">
+      </field>
+  
+    <!-- Frame Capabilities -->	  
+    <field
+      id="fraShipyard"
+      name="Shipyards"
+      type="user"
+      maxlength="2000">
       </field>
 	  
     <!-- Frame Overview (Description becomes overview)-->
+	<field
+      id="fraOverview"
+      name="Overview"
+      type="user"
+      maxlength="10000">
+      </field> 
 	  
     <!-- Frame Capabilities -->	  
     <field
-      id="fraCap"
+      id="fraCapabilities"
       name="Capabilities"
       type="user"
       maxlength="10000">
       </field>
-
+	  
+    <!-- Frame Suggested Profiles -->
+    <field
+      id="fraSuggPro"
+      name="Suggested Profiles"
+      type="user"
+      maxlength="1000">
+      </field>
+	  
+    <!-- Frame Naming Conventions -->
+    <field
+      id="fraNamConv"
+      name="Suggested Profiles"
+      type="user"
+      maxlength="1000">
+      </field>	
+	  
+    <!-- Frame Refits and Variants -->	  
+    <field
+      id="fraRefVar"
+      name="Refits and Variants"
+      type="user"
+      maxlength="10000">
+      </field>
     <!-- Frame Capabilities -->	  
     <field
       id="fraCrewSize"
-      name="Capabilities"
+      name="Crew Size"
       type="user"
       maxlength="100">
       </field>
@@ -290,100 +433,133 @@
     <!-- Frame Capabilities -->	  
     <field
       id="fraCrewRating"
-      name="Capabilities"
+      name="Crew Ratings"
       type="user"
       maxlength="100">
       </field>
 	  
     <!-- Frame Systems -->
+	<field
+      id="fraSystemPoints"
+      name="Total System Points"
+      type="derived">
+      </field>
     <field
       id="fraComm"
       name="Communication"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraComp"
       name="Computer"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraEngine"
       name="Engines"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraSens"
       name="Sensors"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraStruc"
       name="Structure"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraWeap"
       name="Weapons"
-      type="derived">
+      type="user">
       </field>
 	  
     <!-- Frame Departments -->
+	<field
+      id="fraDeptPoints"
+      name="Total Department Points"
+      type="derived">
+      </field>
+	  
     <field
       id="fraCmd"
       name="Command"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraConn"
       name="Conn"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraEng"
       name="Engineering"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraMed"
       name="Medicine"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraSecur"
       name="Security"
-      type="derived">
+      type="user">
       </field>
 
     <field
       id="fraSci"
       name="Science"
-      type="derived">
+      type="user">
       </field>
 
+    <!-- Saucer Separation? -->
+    <field
+      id="fraAllowSaucer"
+      name="Saucer Separation Allowed?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+	  
+    <!-- Mission Pods? -->
+    <field
+      id="fraPodsAllowed"
+      name="Mission Pods Allowed?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+	  
     <field
       id="fraPods"
       name="Number of Mission Pods"
-      type="derived"
+      type="user"
 	  defvalue="0">
       </field>
 	  
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Frame"/>
     <identity group="IsFrame"/>
+    <identity group="CustomFrame"/>
 
     <!-- Track the race on the actor by assigning the appropriate tags -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Frame.?]
       perform forward[IsFrame.?]
+	  if (tagis[Helper.CustomItem] <> 0) then
+        perform forward[CustomFrame.?]
+	    endif
       ]]></eval>
 
     <!-- Increase Systems and Departments -->
@@ -419,18 +595,24 @@
 	  var txt as string
 	  var shortname as string
 	  var shortlen as number
+	  var scale as number
 	  
 	  txt = field[fraYearRet].text
+	  scale = field[fraScale].value
 	  
 	  field[fraSerSumm].text = field[fraYearEnt].text
 	  
       if (empty(txt) = 0) then
 	    field[fraSerSumm].text &= " (Retired: " & field[fraYearRet].text & ")"
 		endif
-
+		
+      if (empty(field[descript].text) = 0) then 
+		field[fraOverview].text = field[descript].text
+	    endif
+		  
       foreach pick in hero where "component.ShipInfo"
-        eachpick.field[shipScale].value = field[fraScale].value
-		eachpick.field[shipCrew].value = field[fraScale].value
+		~ Power, Resistance, crew based on scale
+        eachpick.field[shipScale].value = scale
 		
 		eachpick.field[shipClass].text = field[name].text
 		
@@ -438,12 +620,33 @@
 		shortname = mid(field[name].text, 0, shortlen)
 		eachpick.field[shipClassShort].text = shortname
 		
-		eachpick.field[shipOver].text = field[descript].text
-		eachpick.field[shipCap].text = field[fraCap].text
+		eachpick.field[shipLaunchYear].text = field[fraYearEnt].text
+		eachpick.field[shipShipyard].text = field[fraShipyard].text
+		eachpick.field[shipOverview].text = field[fraOverview].text
+		eachpick.field[shipCapabilities].text = field[fraCapabilities].text
+		eachpick.field[shipRefVar].text = field[fraRefVar].text
+		eachpick.field[shipSuggPro].text = field[fraSuggPro].text
+		eachpick.field[shipNamConv].text = field[fraNamConv].text
+		
 		eachpick.field[shipServ].text = field[fraSerSumm].text
 		eachpick.field[shipCrewSize].text = field[fraCrewSize].text
 		eachpick.field[shipCrewRating].text = field[fraCrewRating].text
 		eachpick.field[shipSerSumm].text = field[fraSerSumm].text
+		
+		if (tagis[Ship.SaucerSep] <> 0) then
+		  field[fraAllowSaucer].value = tagis[Ship.SaucerSep]
+		elseif (field[fraAllowSaucer].value <> 0) then
+		  perform assign[Ship.SaucerSep]
+		  endif
+		  
+		if (tagis[Ship.MissionPod] <> 0) then
+		  field[fraPodsAllowed].value = tagis[Ship.MissionPod]
+		elseif (field[fraPodsAllowed].value <> 0) then
+		  perform assign[Ship.MissionPod]
+		  endif 
+				  
+		eachpick.field[shipAllowSaucer].value = field[fraAllowSaucer].value
+		eachpick.field[shipPodsAllowed].value = field[fraPodsAllowed].value
 		
 		nexteach
 
@@ -530,7 +733,7 @@
 	  hero.child[discdept06].field[abiBonus].value += field[proMed].value
 	  hero.child[discdept03].field[abiBonus].value += field[proSecur].value
 	  hero.child[discdept05].field[abiBonus].value += field[proSci].value
-
+	  
 	  var txt as string
 	  txt = tagids[MisProTal.?,"|"]
 	  txt = replace(txt,"MisProTal","thingid",0)
@@ -540,11 +743,27 @@
 	    endif
 	  
       ]]></eval>
-
+	  
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="3" phase="Setup" priority="5500"><![CDATA[
+      ~ increase system points by adjsutment
+	  #resmax[resDiscip] += field[proCmd].value
+	  #resmax[resDiscip] += field[proConn].value
+	  #resmax[resDiscip] += field[proEng].value
+	  #resmax[resDiscip] += field[proMed].value
+	  #resmax[resDiscip] += field[proSecur].value
+	  #resmax[resDiscip] += field[proSci].value
+      ]]></eval>
+	  
+      
     <!-- Report a validation error if no selection has been made for a lifepath selection -->
     <evalrule index="1" phase="Validate" priority="10000" message="Not enough Mission Profile Talents" summary="Select Talent for Mission Profile!"><![CDATA[
       ~if we're not using the starship creation, we're good.
 	  validif (hero.tagis[ShowTab.Starship] = 0)
+	  
+	  ~if we're a small craft or starbase, we're good.
+	  validif (hero.tagis[CharType.typSmallCraft] <> 0)
+	  validif (hero.tagis[CharType.typStarbase] <> 0)
 	  
 	  ~we're good if we have chosen a mission profile talent
 	  validif (hero.tagis[Profile.Talent] <> 0)
@@ -559,16 +778,16 @@
 	<!-- No compsets are auto-defined for the component -->
 
   <!-- Starship weapon components -->
-  <!-- WeapEnergy component -->
+  <!-- StarshipWeapon component -->
   <component
-    id="WeapEnergy"
-    name="Starship Energy Weapon"
+    id="StarshipWeapon"
+    name="Starship Weapon Base"
     autocompset="no">
 
     <!-- Synthesized text ranges for the weapon -->
-    <field
+	<field
       id="wpSRange"
-      name="Range"
+      name="Damage"
       type="derived"
       maxlength="30">
       </field>
@@ -579,6 +798,14 @@
       name="Damage"
       type="derived"
       maxvalue="10">
+      </field>
+	  
+	<!-- Tractor Bonus Value (used for Tractor Beam Strength calculations) -->  
+    <field
+      id="wpSTracBonus"
+      name="Tractor Bonus"
+      type="derived"
+      defvalue="0">
       </field>
 	  
     <!-- All ranged weapons get the same tag for sorting purposes -->
@@ -595,7 +822,7 @@
 		endif
 	  
       ]]></eval>
-
+	  
     <!-- Prepend any derived special notes to the appropriate field -->
     <eval index="2" phase="Render" priority="2000"><![CDATA[
       var special as string
@@ -607,7 +834,59 @@
       ]]></eval>
 
     </component>
+
+  <!-- Torpedo component
+        Starship Torpedoes use this component in addition to the Energy component to handle torpedo-specific details
+  -->
+  <component
+    id="Torpedo"
+    name="Torpedo"
+    autocompset="no">
+	  
+    <!-- Torpedos don't include ship scale in their damage calculations -->
+    <tag group="Weapon" tag="NoScale"/>
+	  
+    </component>
 	
+  <!-- Mine component
+        Starship Mines use this component in addition to the Energy component to handle mine specific details
+  -->
+  <component
+    id="Mine"
+    name="Mine"
+    autocompset="no">
+	  
+    <!-- Torpedos don't include ship scale in their damage calculations -->
+    <tag group="Weapon" tag="NoScale"/>
+	  
+    </component>
+	
+  <component
+    id="WeaponStarship"
+    name="Weapon (Starship)"
+    autocompset="yes">
+	
+    <!-- Calculate the net attack roll for the weapon -->
+    <eval index="1" phase="Ability" priority="7000" ><![CDATA[
+	  if (tagis[Helper.AddedWeapon] <> 0) then
+        #resspent[resAddWeapons] += 1
+		endif
+	  
+      ]]></eval>
+    </component>
+	
+  <component
+    id="StarshipSpecial"
+    name="Special Rule"
+    autocompset="no">
+	  
+    <identity group="ShipSpecialRule"/>
+	
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[ShipSpecialRule.?]
+      ]]></eval>
+	  
+    </component>	
   <!-- Appearance component
         Used for specifying a bonus for Supporting characters making multiple appearances
   -->
@@ -657,6 +936,7 @@
     id="Frame"
     forceunique="yes">
     <compref component="Frame"/>
+    <compref component="Custom"/>
     <compref component="UserSelect"/>
     </compset>
 	
@@ -686,10 +966,42 @@
   <compset
     id="Energy"
     stackable="yes">
+    <compref component="StarshipWeapon"/>
+    <compref component="WeaponStarship"/>
     <compref component="WeaponBase"/>
-    <compref component="WeapEnergy"/>
     <compref component="Equippable"/>
     <compref component="Gear"/>
     </compset>
 	
+  <!-- Torpedo - Starship Torpedo weapons -->
+  <compset
+    id="Torpedo"
+    stackable="yes">
+    <compref component="Torpedo"/>
+    <compref component="StarshipWeapon"/>
+    <compref component="WeaponStarship"/>
+    <compref component="WeaponBase"/>
+    <compref component="Equippable"/>
+    <compref component="Gear"/>
+    </compset>	
+	
+  <!-- Mine - Starship Mine weapons -->
+  <compset
+    id="Mine"
+    stackable="yes">
+    <compref component="Mine"/>
+    <compref component="StarshipWeapon"/>
+    <compref component="WeaponStarship"/>
+    <compref component="WeaponBase"/>
+    <compref component="Equippable"/>
+    <compref component="Gear"/>
+    </compset>
+	
+  <!-- StarshipSpecial - Starship special rules -->
+  <compset
+    id="StarshipSpecial"
+    stackable="no">
+    <compref component="StarshipSpecial"/>
+    <compref component="SpecialTab"/>
+    </compset>	
   </document>
