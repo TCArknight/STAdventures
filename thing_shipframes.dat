@@ -2542,6 +2542,16 @@ hero.childfound[mscShip].field[bonShields].value += definc</eval>
     <tag group="Helper" tag="CustomItem"/>
     <tag group="ShipType" tag="typStarship"/>
     </thing>
+  <thing id="fraCustomSmall" name="* Custom Frame *" compset="Frame" uniqueness="unique">
+    <fieldval field="fraCapabilities" value="Testing Custom Capabilities"/>
+    <fieldval field="fraRefVar" value="Testing Refits and Variants"/>
+    <usesource source="UtopiaPlanetia"/>
+    <tag group="ShipAlliance" tag="Custom" name="- Custom -"/>
+    <tag group="CustomFrame" tag="Custom"/>
+    <tag group="Helper" tag="CustomItem"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
+    </thing>
+	
   <preclude id="talSTAHotRod" source="UtopiaPlanetia"/>
   <preclude id="fraSmDeepSpaOut" source="UtopiaPlanetia"/>
   </document>

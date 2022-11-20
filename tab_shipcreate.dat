@@ -401,6 +401,7 @@
       ]]></position>
 
     </template>
+	
   <!-- talPick template
         Displays the name of the pick/thing and an info button with the basic
         description text. This is basically the "SimpleItem" template, with one
@@ -583,7 +584,7 @@
     name="Ship Details"
     marginhorz="5"
     marginvert="5"
-    order="4">
+    order="1">
 	<live>ShowTab.Starship</live>
     <layoutref layout="shipcreate"/>
     <position><![CDATA[

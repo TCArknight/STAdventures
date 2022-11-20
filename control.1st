@@ -124,6 +124,15 @@
     </source>
 	
   <source
+    id="Continuing"
+    name="Continuing Missions (Unofficial)"
+    parent="Supplement"
+    selectable="yes"
+    sortorder="0"
+    description="Material from the Continuing Missions website">
+    </source>
+	
+  <source
     id="PlayerGuide"
     name="Player's Guide"
     parent="Campaigns"

@@ -577,7 +577,7 @@
     name="Frame"
     marginhorz="5"
     marginvert="5"
-    order="1"
+    order="2"
     agentcompset="Frame"
     agentlive="CustomFrame"
     agentname="UserName"

@@ -184,6 +184,9 @@
 
     <!-- Use the starting ability slots as our initial maximum -->
     <eval index="1" phase="Setup" priority="1000"><![CDATA[
+	  ~ Starships and Small craft don't have Role slots
+	  doneif (hero.tagis[CharType.typSmallCraft] + hero.tagis[CharType.typStarship] <> 0)
+	  
       field[resMax].value = 1
       ]]></eval>
     </thing>

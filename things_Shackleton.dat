@@ -169,23 +169,27 @@
   <thing id="mpSCGCovert" name="Covert Ops Pod" description="This pod grants the runabout the talents Electronic Warfare Systems and Redundant Systems: Communications, along with +1 to the Science department." compset="MissionPod">
     <usesource source="Shackleton"/>
     <tag group="Ship" tag="MissionPod"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
     <bootstrap thing="talRedSys">
       <assignval field="usrChosen1" value="attrsys01" behavior="pick"/>
       </bootstrap>
     <bootstrap thing="talEWS"></bootstrap>
     <eval phase="PreAbility" priority="1000">~ +1 to Science
-hero.child[discdept05].field[abiBonus].value += 1</eval>
+hero.child[discdept05].field[abiBonus].value += 1
+~ +1 Talent
+#resmax[resTalent] += 1</eval>
     <pickreq thing="fraDanube"/>
-    <exprreq message="Small Craft only"><![CDATA[hero.tagis[ShipType.typSmallCraft] <> 0]]></exprreq>
     </thing>
   <thing id="mpSCGCovertCloak" name="Covert Ops Pod (Cloaking)" description="This pod grants the runabout the talents Electronic Warfare Systems and Cloaking Device, along with +1 to the Science department." compset="MissionPod">
     <usesource source="Shackleton"/>
     <tag group="Ship" tag="MissionPod"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
     <bootstrap thing="talEWS"></bootstrap>
     <bootstrap thing="talCloakDevice"></bootstrap>
     <eval phase="PreAbility" priority="1000">~ +1 to Science
-hero.child[discdept05].field[abiBonus].value += 1</eval>
+hero.child[discdept05].field[abiBonus].value += 1
+~ +1 Talent
+#resmax[resTalent] += 1</eval>
     <pickreq thing="fraDanube"/>
-    <exprreq message="Small Craft only"><![CDATA[hero.tagis[ShipType.typSmallCraft] <> 0]]></exprreq>
     </thing>
   </document>

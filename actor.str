@@ -381,23 +381,40 @@
       ]]></evalrule>
 
     <!-- Report a validation error if no selection has been made for a lifepath selection -->
-    <evalrule index="2" phase="Validate" priority="10000" message="Not enough Ship component selections made." summary="Select ship components options!"><![CDATA[
+    <evalrule index="2" phase="Validate" priority="10000" message="No Ship Frame selected." summary="Select Ship Frame!"><![CDATA[
       ~if we're not using the starship creation, we're good.
 	  validif (hero.tagis[ShowTab.Starship] = 0)
 	  
 	  var steps as number
 	  steps = 0
 	  
-	  steps += hero.tagis[IsFrame.?]
-	  steps += hero.tagis[HasProfile.?]
+	  steps = hero.tagis[IsFrame.?]
 	  
-	  validif (steps >= 2)
+	  validif (steps <> 0)
 	  
       ~mark lifepath tabs as invalid
       container.panelvalid[shipcreate] = 0
 	  
       ]]></evalrule>
 	  
+    <evalrule index="3" phase="Validate" priority="10000" message="No Mission Profile selected." summary="Select Mission Profile!"><![CDATA[
+      ~if we're not using the starship creation, we're good.
+	  validif (hero.tagis[ShowTab.Starship] = 0)
+	  
+	  ~ small craft don't have a mission profile
+	  validif (hero.tagis[CharType.typSmallCraft] <> 0)
+	  
+	  var steps as number
+	  steps = 0
+	  
+	  steps = hero.tagis[HasProfile.?]
+	  
+	  validif (steps <> 0)
+	  
+      ~mark lifepath tabs as invalid
+      container.panelvalid[shipcreate] = 0
+	  
+      ]]></evalrule>	  
     </component>
 	
   <!-- Service component

@@ -29,9 +29,9 @@
       <headertitle><![CDATA[
         @text = herofield[acASHdrTxt].text
 		
-        if (hero.tagis[Helper.UserUnlock] = 1) then
-          @text &= "  -  " & hero.child[resAttrib].field[resSummary].text
-          endif
+		doneif (hero.tagis[Helper.UserUnlock] = 0)
+		
+        @text &= "  -  " & hero.child[resAttrib].field[resSummary].text
         ]]></headertitle>
       </table_fixed>
     </portal>
@@ -51,9 +51,10 @@
       scrollable="no">
       <headertitle><![CDATA[
         @text = herofield[acDDHdrTxt].text
-		if (hero.tagis[Helper.UserUnlock] = 1) then
-          @text &= "  -  " & hero.child[resDiscip].field[resSummary].text
-          endif
+		
+		doneif (hero.tagis[Helper.UserUnlock] = 0)
+		
+        @text &= "  -  " & hero.child[resDiscip].field[resSummary].text
         ]]></headertitle>
       </table_fixed>
     </portal>

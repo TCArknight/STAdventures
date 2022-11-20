@@ -25,7 +25,6 @@
       id="shipLaunchYear"
       name="Year of First Launch"
       type="user"
-	  defvalue="1960"
 	  maxlength="4">
       </field>
 	  
@@ -270,7 +269,9 @@
 
     <eval index="2" phase="Setup" priority="5000"><![CDATA[
 	  if (hero.tagis[source.UtopiaPlanetia] <> 0) then
-        perform hero.assign[Helper.UserUnlock]
+	    if (hero.tagis[CustomFrame.?] <> 0) then
+          perform hero.assign[Helper.UserUnlock]
+		  endif
         endif
 		
 	  ~ fill out the Mission Profile if one has been selected
@@ -620,7 +621,10 @@
 		shortname = mid(field[name].text, 0, shortlen)
 		eachpick.field[shipClassShort].text = shortname
 		
-		eachpick.field[shipLaunchYear].text = field[fraYearEnt].text
+		if (eachpick.field[shipLaunchYear].isempty <> 0) then
+		  eachpick.field[shipLaunchYear].text = field[fraYearEnt].text
+		  endif
+		
 		eachpick.field[shipShipyard].text = field[fraShipyard].text
 		eachpick.field[shipOverview].text = field[fraOverview].text
 		eachpick.field[shipCapabilities].text = field[fraCapabilities].text
