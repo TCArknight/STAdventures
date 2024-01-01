@@ -11,8 +11,7 @@
 
     <portal
       id="mpTalent"
-      style="tblNormal"
-      width="150">
+      style="tblNormal">
       <table_dynamic
         component="Talent"
         showtemplate="talPick"
@@ -154,21 +153,22 @@
     <position><![CDATA[
 
       ~both tables span the full width
-      template[mpProTemp].width = width
-	  template[mpProTemp].height = height/2
-      template[mpProTemp].visible = 1
+      ~template[mpProTemp].width = width
+	  ~template[mpProTemp].height = height/2
+      ~template[mpProTemp].visible = 1
 
-      portal[mpTalent].top = template[mpProTemp].bottom + 30
-      portal[mpTalent].width = width / 2
-	  portal[mpTalent].height = (height - 10)/2
-      portal[mpTalent].visible = 1
+      ~portal[mpTalent].top = template[mpProTemp].bottom + 30
+      ~portal[mpTalent].width = width
+	  ~portal[mpTalent].height = (height - 10)/2
+      ~portal[mpTalent].visible = 1
 	  
 	  if (hero.tagis[CharType.typStarbase] <> 0) then
 	    portal[mpTalent].visible = 0
 		
 	    template[mpProTemp].height = height - 50
 	    endif
-
+      perform template[mpProTemp].autoplace[0]
+	  perform portal[mpTalent].autoplace[15]
       ]]></position>
 
     </layout>
