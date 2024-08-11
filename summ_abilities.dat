@@ -14,6 +14,22 @@
   <!-- smTalent portal - table of special abilities
   -->
   <portal
+    id="smSpeciesAbil"
+    style="tblInvisSm">
+    <table_fixed
+      component="SpeciesAbility"
+      showtemplate="smSpeciesAbil"
+      scrollable="no"
+	  alwaysupdate="yes">
+      <headertitle><![CDATA[
+      @text = #summtitle_decoration[] & " Species Ability " & #summtitle_decoration[]
+      ]]></headertitle>
+      </table_fixed>
+    </portal>
+	
+  <!-- smTalent portal - table of special abilities
+  -->
+  <portal
     id="smTrait"
     style="tblInvisSm">
     <table_fixed
@@ -58,6 +74,37 @@
       ]]></headertitle>
       </table_fixed>
     </portal>
+
+  <!-- smSpeciesAbil template
+        This template shows the names of each special ability ability, providing
+        mouse-over behavior to show the details of each ability.
+  -->
+  <template
+    id="smSpeciesAbil"
+    name="Summary Species Ability Pick"
+    compset="SpeciesAbility">
+
+    <portal
+      id="name"
+      style="lblSummary">
+      <label
+        field="name">
+        </label>
+      <mouseinfo/>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[name].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~the name is the only portal to position
+      portal[name].left = 0
+      portal[name].top = 0
+      ]]></position>
+    </template>
 
   <!-- smTalent template
         This template shows the names of each special ability ability, providing
@@ -158,15 +205,17 @@
   -->
   <layout
     id="smTalVal">
+    <portalref portal="smSpeciesAbil"/>
     <portalref portal="smTrait"/>
     <portalref portal="smTalent"/>
     <portalref portal="smValue"/>
 
     <position><![CDATA[
       ~position and size the tables to span the full layout
-      perform portal[smTrait].autoplace
-      perform portal[smTalent].autoplace[20]
-      perform portal[smValue].autoplace[20]
+      perform portal[smSpeciesAbil].autoplace
+      perform portal[smTrait].autoplace[10]
+      perform portal[smTalent].autoplace[10]
+      perform portal[smValue].autoplace[10]
       ]]></position>
 
     </layout>
@@ -185,7 +234,7 @@
   -->
   <panel
     id="smTalent"
-    name="Talents and Values"
+    name="Abilities and Values"
     order="10020"
     marginhorz="2"
     marginvert="2"

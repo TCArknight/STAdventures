@@ -319,7 +319,7 @@
       ~our height must encompass the alliance portal and be at least 225 pixels high
       ~Note: Using a minimum height ensures that the displayed list of user-selected
       ~settings has some reasonable vertical space to show them to the user.
-      height = maximum(225,portal[cnfAlly].bottom)
+      height = maximum(350,portal[cnfAlly].bottom)
 
       ~the summary extends the full height of the layout/form
       portal[cnfSummary].height = height - portal[cnfSummary].top

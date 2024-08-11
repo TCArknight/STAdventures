@@ -498,6 +498,7 @@
     desc = field[ddDescript].text
     
     ]]></procedure>
+
 <!-- ##################
       The folowing procedures are used with transactions for buying and selling items
      ##################
@@ -882,6 +883,10 @@
     infotext = infotext & spacing
     ]]></procedure>
 
+  <!-- Procedure GetDivisionColor
+        
+        Outbound parameter: division
+  -->
   <procedure id="GetDivisionColor" context="info"><![CDATA[
     ~declare variables that are used to communicate with our caller
     var division as string
@@ -969,4 +974,88 @@
 
 	
     ]]></procedure>
+	
+
+  <!-- Procedure WeaponDamage
+        
+        
+		Inbound parameter: totDmg
+        Outbound parameter: dmgTxt
+  -->
+   <procedure id="WeaponDamage" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var totDmg as number
+    var shipWpn as number
+    var shipscale as number
+	var effTags as string
+    var noDmg as number
+    var tractStr as number
+    var dmgTxt as string
+      
+	if (noDmg <> 0) then
+	  dmgTxt = "*"
+	else
+	  dmgTxt = totDmg 
+	  
+	  ~ 1st Edition damage string
+	  if (#isfirstedition[] <> 0) then
+	    dmgTxt &= " {size 40}{meta bmpfull}{bmp StarTrekArrow}{revert}"
+		
+		if (shipWpn <> 0) then
+		  effTags = replace(effTags, "Persistant X", "Persistant " & shipscale,0)
+		  effTags = replace(effTags, "Strength X", "Strength " & tractStr,0)
+	      endif
+		
+		if (empty(dmgTxt) = 0) then
+		  dmgTxt &= " " & effTags
+		  endif
+		
+	    endif
+		
+      endif
+
+    ]]></procedure>
+
+  <!-- Procedure WeaponDamageSB
+        Synthesize a damage entry for use in Statblocks/plain text.
+        
+		Inbound parameter: totDmg
+        Outbound parameter: dmgTxt
+  -->
+   <procedure id="WeaponDamageSB" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var totDmg as number
+    var shipWpn as number
+    var shipscale as number
+	var effTags as string
+    var noDmg as number
+    var tractStr as number
+    var dmgTxt as string
+      
+	if (noDmg <> 0) then
+	  dmgTxt = "*"
+	else
+	  dmgTxt = totDmg 
+	  
+	  ~ 1st Edition damage string
+	  if (#isfirstedition[] <> 0) then
+	    dmgTxt &= " [CD]"
+		
+		if (shipWpn <> 0) then
+		  effTags = replace(effTags, "Persistant X", "Persistant " & shipscale,0)
+		  effTags = replace(effTags, "Strength X", "Strength " & tractStr,0)
+	      endif
+		
+		if (empty(dmgTxt) = 0) then
+		  dmgTxt &= " " & effTags
+		  endif
+		
+	    endif
+		
+      endif
+
+    ]]></procedure>	
+	
+
+ 	
   </document>

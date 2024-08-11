@@ -57,10 +57,32 @@
   <template
     id="spSpcMenus"
     name="Species Menus"
-    compset="UserSelect"
+    compset="Species"
     marginhorz="3"
     marginvert="2">
-
+	
+	<portal 
+	  id="chkAugment" 
+	  style="chkNormal" 
+	  showinvalid="yes"
+	  tiptext="Click if hero is Augmented">
+	  <checkbox 
+	    field="spcIsAugment"
+		message="Character is an Augment?"
+		/>
+	  </portal>
+	
+	<portal 
+	  id="chkCyborg" 
+	  style="chkNormal" 
+	  showinvalid="yes"
+	  tiptext="Click if hero is a Cyborg">
+	  <checkbox 
+	    field="spcIsCyborg"
+		message="Character is a Cyborg?"
+		/>
+	  </portal>
+  
     <portal
       id="lblmenu1"
       style="lblBrdLeft">
@@ -150,6 +172,16 @@
 	  portal[menu3].top = portal[menu2].bottom + 10
 	  portal[menu3].left = portal[menu1].left
 	  portal[menu3].width = portal[menu1].width
+	  
+      portal[chkAugment].top = portal[lblmenu3].bottom + 10
+      portal[chkAugment].height = portal[menu1].height
+	  portal[chkAugment].left = portal[lblmenu1].left
+	  portal[chkAugment].width = portal[lblmenu1].width + 50
+	  
+      portal[chkCyborg].top = portal[chkAugment].bottom + 10
+      portal[chkCyborg].height = portal[menu1].height
+	  portal[chkCyborg].left = portal[lblmenu1].left
+	  portal[chkCyborg].width = portal[lblmenu1].width + 50
 	  
       ~determine whether our portals are visible; we only show them if requested
       ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
@@ -258,6 +290,7 @@
 		  var txt as string
 	      var myTrait as string
 		  var myAttributes as string
+	      var mySpecAbil as string
 	  
 	      if (field[spcPrimary].ischosen <> 0) then
 	        primary = field[spcPrimary].chosen.idstring
@@ -270,6 +303,16 @@
 		    
 			perform hero.addpick[trTrait,myTrait]
 			
+			if (#issecondedition[] <> 0) then
+			  txt = "Species." & primary
+			  
+			  foreach thing in SpeciesAbility where txt
+			    mySpecAbil = eachthing.idstring
+			    nexteach
+			
+			  perform hero.addpick[trSpeciesAbil,mySpecAbil]
+			  endif
+			  
 			endif
 			
 	      if (field[spcSecondary].ischosen <> 0) then
@@ -288,6 +331,9 @@
           ]]></trigger>
         <buttontext><![CDATA[
           @text = "Add Traits"
+		  if (#issecondedition[] <> 0) then
+		    @text &= " & Species Ability"
+			endif
           ]]></buttontext>
         </action>
       </portal>
@@ -311,10 +357,16 @@
 	  portal[menuSecondary].width = portal[menuPrimary].width
 	  
 	  ~position trait button to the right of the menus
-	  portal[addtraits].top = (portal[menuPrimary].top + portal[menuPrimary].bottom) / 2
+	  portal[addtraits].top = portal[menuPrimary].top
 	  portal[addtraits].height = 20
 	  portal[addtraits].left = portal[menuPrimary].right + 10
 	  portal[addtraits].width = 80
+	  
+	  if (#issecondedition[] <> 0) then
+	    portal[addtraits].height = 50
+	  else
+	    portal[addtraits].height = 20
+		endif
 		
       ~if a menu is visible, make sure it has a selection
 	  portal[lblmenuPrimary].visible = hero.tagis[Hero.MixedHeritage] 

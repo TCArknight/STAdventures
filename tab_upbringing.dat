@@ -105,8 +105,14 @@
     <portal
       id="lblmenu1"
       style="lblBrdLeft">
-      <label
-        field="usrLabel1">
+      <label>
+        <labeltext><![CDATA[
+		  if (#issecondedition[] <> 0) then
+            @text = "+1 to Department:"
+		  else
+            @text = "+1 to Discipline:"
+		    endif
+          ]]></labeltext>
         </label>
       </portal>
 
@@ -114,7 +120,7 @@
       id="lblmenu2"
       style="lblBrdLeft">
       <label
-        field="usrLabel1">
+        field="usrLabel2">
         </label>
       </portal>
 
@@ -122,7 +128,7 @@
       id="lblmenu3"
       style="lblBrdLeft">
       <label
-        field="usrLabel1">
+        field="usrLabel3">
         </label>
       </portal>
 

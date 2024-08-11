@@ -1,307 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- This file contains the assortment of derived traits for the game system. Derived
-      traits are calculated via scripts and based on the attributes from which they
-      are derived.
--->
-
 <document signature="Hero Lab Data">
-
-  <!-- Career Events -->
-  <thing
-    id="evShipDes"
-    name="Ship Destroyed"
-    compset="Event"
-    isunique="yes"
-    description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.\n\nAttribute: Daring\nDiscipline: Security">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys02] += 1
+  <thing id="evShipDes" name="Ship Destroyed" description="The ship the character was serving on was lost, destroyed during a mission, and the character was one of the few who survived.\n\nATTRIBUTE: +1 Daring\nDEPARTMENT: + 1 Security\nFOCUS SUGGESTIONS: Extra Vehicular Operations, Small Craft, Survival" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="17"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys02] += 1
 	  #abilbonus[discdept03] += 1
-	  
-      ]]></eval>    
+      <before name="Calc abiFinal"/>
+      </eval>
     </thing>
-
-  <thing
-    id="evBetIde"
-    name="Betrayed Ideals For A Superior"
-    compset="Event"
-    isunique="yes"
-    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow the superior.\n\nAttribute: Presence\nDiscipline: Command">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys05] += 1
-	  #abilbonus[discdept01] += 1
-	  
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evDeathFriend"
-    name="Death of a Friend"
-    compset="Event"
-    isunique="yes"
-    description="During an important mission, one of the character’s friends was killed in action.\n\nAttribute: Insight\nDiscipline: Medicine">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys04] += 1
+  <thing id="evBetIde" name="Betrayed Ideals For A Superior" description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and they chose to follow the superior.\n\n{b}ATTRIBUTE:{/b} +1 Presence\n{b}DEPARTMENT:{/b} + 1 Command\n{b}FOCUS SUGGESTIONS:{/b} Persuasion, Inspiration, Investigation" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys05] += 1
+#abilbonus[discdept01] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evDeathFriend" name="Death of a Friend" description="One of the character’s friends was killed in action.\n\nATTRIBUTE: +1 Insight\nDEPARTMENT: + 1 Medicine\nFOCUS SUGGESTIONS: Counseling, but it may also represent a skill or pursuit the character takes up in their fallen friend’s memory" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="6"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys04] += 1
 	  #abilbonus[discdept06] += 1
-	  
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evLaudCulture"
-    name="Lauded By Another Culture"
-    compset="Event"
-    isunique="yes"
-    description="The character was involved in a mission that earned the official praise of a non-Federation culture; they are now considered to be a friend to that people.\n\nAttribute: Presence\nDiscipline: Science">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys05] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evLaudCulture" name="Lauded By Another Culture" description="The character was involved in a mission that earned the official praise of a non-Federation culture; they are now considered to be a friend to that people.\n\nAttribute: Presence\nDiscipline: Science" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys05] += 1
 	  #abilbonus[discdept05] += 1
-	  
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evNegTreaty"
-    name="Negotiate a Treaty"
-    compset="Event"
-    isunique="yes"
-    description="The character was part of a delegation that helped negotiate a treaty, agreement, or alliance with a culture outside the Federation.\n\nAttribute: Control\nDiscipline: Command">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys01] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evNegTreaty" name="Negotiate a Treaty" description="The character was part of a delegation that helped negotiate a treaty, agreement, or alliance with a culture outside the Federation.\n\nAttribute: Control\nDiscipline: Command" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys01] += 1
 	  #abilbonus[discdept01] += 1
-	  
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evReqTakeCommand"
-    name="Required To Take Command"
-    compset="Event"
-    isunique="yes"
-    description="During a mission, a crisis left the mission’s leader unable to lead. This required the character to take command, something they may not have been prepared for.\n\nAttribute: Daring\nDiscipline: Command">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys02] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evReqTakeCommand" name="Required To Take Command" description="During a mission, a crisis left the mission’s leader unable to lead. This required the character to take command, something they may not have been prepared for.\n\nATTRIBUTE: +1 Daring\nDEPARTMENT: + 1 Command\nFOCUS SUGGESTIONS: Inspiration or Composure" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="15"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys02] += 1
 	  #abilbonus[discdept01] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evEncAlienBeing"
-    name="Encounter With A Truly Alien Being"
-    compset="Event"
-    isunique="yes"
-    description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.\n\nAttribute: Reason\nDiscipline: Science">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys06] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evEncAlienBeing" name="Encounter With A Truly Alien Being" description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.\n\nAttribute: Reason\nDiscipline: Science" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys06] += 1
 	  #abilbonus[discdept05] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evSeriousInj"
-    name="Serious Injury"
-    compset="Event"
-    isunique="yes"
-    description="The character was seriously hurt, and needed to spend a considerable amount of time recovering.\n\nAttribute: Fitness\nDiscipline: Medicine">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys03] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evSeriousInj" name="Serious Injury" description="The character was seriously hurt, and needed to spend a considerable amount of time recovering.\n\nAttribute: Fitness\nDiscipline: Medicine" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys03] += 1
 	  #abilbonus[discdept06] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evConfHostileCult"
-    name="Conflict With A Hostile Culture"
-    compset="Event"
-    isunique="yes"
-    description="The character was involved in a major battle with a hostile force, and is unlikely to forget the experience.\n\nAttribute: Fitness\nDiscipline: Security">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys03] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evConfHostileCult" name="Conflict With A Hostile Culture" description="The character was involved in a major battle with a hostile force, and is unlikely to forget the experience.\n\nAttribute: Fitness\nDiscipline: Security\n\nThe character was involved in a battle with a hostile force.\n\n{b}ATTRIBUTE:{/b} +1 Fitness\n{b}DEPARTMENT:{/b} +1 Security\n{b}FOCUS SUGGESTIONS:{/b} Hand Phasers, Hand-to-Hand Combat, Tactical Systems" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="4"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys03] += 1
 	  #abilbonus[discdept03] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evMentored"
-    name="Mentored"
-    compset="Event"
-    isunique="yes"
-    description="A highly-respected officer took notice of the character’s career. For a time, the character served as the officer’s pilot and aide, gaining the benefit of the officer’s experiences and lessons.\n\nAttribute: Choose One\nDiscipline: Conn">
-	<fieldval field="usrLabel1" value="Attribute:"/>
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evMentored" name="Mentored" description="A highly-respected officer took notice of the character’s career. For a time, the character served as the officer’s pilot and aide, gaining the benefit of the officer’s experiences and lessons.\n\nATTRIBUTE: +1 Any\nDEPARTMENT: + 1 Conn\nFOCUS SUGGESTIONS: Composure or Etiquette, any focus reflecting the officer’s specialties" compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys"/>
     <fieldval field="usrSource1" value="1"/>
+    <fieldval field="evRoll" value="12"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-	  #abilbonus[discdept02] += 1
+    <eval phase="PreAbility" priority="5000">#abilbonus[discdept02] += 1
 	  
       doneif (field[usrChosen1].ischosen = 0)
 
       field[usrChosen1].chosen.field[abiBonus].value += 1
-	  
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evTransporterAcc"
-    name="Transporter Accident"
-    compset="Event"
-    isunique="yes"
-    description="The character suffered some manner of strange accident while using a Transporter.\n\nAttribute: Control\nDiscipline: Conn">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys01] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evTransporterAcc" name="Transporter Accident" description="The character suffered some manner of strange accident while using a Transporter.\n\nATTRIBUTE: +1 Control\nDEPARTMENT: + 1 Conn\nFOCUS SUGGESTIONS: Transporters &amp; Replicators, Small Craft, Quantum Mechanics" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="20"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys01] += 1
 	  #abilbonus[discdept02] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evDealPlague"
-    name="Dealing With A Plague"
-    compset="Event"
-    isunique="yes"
-    description="The character’s starship was assigned to provide aid to a world deal with an epidemic.\n\nAttribute: Insight\nDiscipline: Medicine">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys04] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evDealPlague" name="Dealing With A Plague" description="The character’s starship was assigned to provide aid to a world deal with an epidemic.\n\nAttribute: Insight\nDiscipline: Medicine" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys04] += 1
 	  #abilbonus[discdept06] += 1
-      ]]></eval>
-	</thing>
-	
-  <thing
-    id="evCalledOut"
-    name="Called Out A Superior"
-    compset="Event"
-    isunique="yes"
-    description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and chose to follow their ideals.\n\nAttribute: Reason\nDiscipline: Conn">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys06] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evCalledOut" name="Called Out A Superior" description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and they chose to follow their ideals.\n\n{b}ATTRIBUTE:{/b} +1 Reason\n{b}DEPARTMENT:{/b} +1 Conn\n{b}FOCUS SUGGESTIONS:{/b} Uniform Code of Justice, History, Starfleet Protocol" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="3"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys06] += 1
 	  #abilbonus[discdept02] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evNewBattleStrat"
-    name="New Battle Strategy"
-    compset="Event"
-    isunique="yes"
-    description="In combat with a hostile force, the character devised a new strategy or tactic.\n\nAttribute: Daring\nDiscipline: Security">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys02] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evNewBattleStrat" name="New Battle Strategy" description="In combat with a hostile force, the character devised a new strategy or tactic.\n\nATTRIBUTE: +1 Daring\nDEPARTMENT: + 1 Security\nFOCUS SUGGESTIONS: Combat Tactics or Hazard Awareness" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="14"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys02] += 1
 	  #abilbonus[discdept03] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evLearnLanguage"
-    name="Learns Unique Language"
-    compset="Event"
-    isunique="yes"
-    description="The character encounters a species with an unusual form of communication, and learns to communicate with them.\n\nAttribute: Insight\nDiscipline: Science">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys04] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evLearnLanguage" name="Learns Unique Language" description="The character encounters a species with an unusual form of communication, and learns to communicate with them.\n\nAttribute: Insight\nDiscipline: Science" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys04] += 1
 	  #abilbonus[discdept05] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evDiscArtefact"
-    name="Discovers An Artefact"
-    compset="Event"
-    isunique="yes"
-    description="During a survey mission, the character discovered a device or fragment of technology from a now-extinct civilization.\n\nAttribute: Reason\nDiscipline: Engineering">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys06] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evDiscArtefact" name="Discovers An Artefact" description="During a survey mission, the character discovered a device or fragment of technology from a now-extinct civilization.\n\nAttribute: Reason\nDiscipline: Engineering" compset="Event" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys06] += 1
 	  #abilbonus[discdept04] += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evSpecCommen"
-    name="Special Commendation"
-    compset="Event"
-    isunique="yes"
-    description="During a crisis, the character saved the lives of several colleagues, helping them to safety. This earned the character a special commendation.\n\nAttribute: Fitness\nDiscipline: Choose One">
-	<fieldval field="usrLabel1" value="Discipline:"/>
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evSpecCommen" name="Special Commendation" description="During a crisis, the character saved the lives of several colleagues, helping them to safety. This earned the character a special commendation.\n\nATTRIBUTE: +1 Fitness\nDEPARTMENT: + 1 Any\nFOCUS SUGGESTIONS: Athletics, Survival, Emergency Medicine" compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/>
+    <fieldval field="evRoll" value="19"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys03] += 1
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys03] += 1
 	 
       doneif (field[usrChosen1].ischosen = 0)
 
       field[usrChosen1].chosen.field[abiBonus].value += 1
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evSolveEngCrisis"
-    name="Solved An Engineering Crisis"
-    compset="Event"
-    isunique="yes"
-    description="The character was instrumental in ending a crisis caused by malfunctioning technology, and saved many lives in the process.\n\nAttribute: Control\nDiscipline: Engineering">
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys01] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evSolveEngCrisis" name="Solved An Engineering Crisis" description="The character was instrumental in ending a crisis caused by malfunctioning technology, and saved many lives in the process.\n\nATTRIBUTE: +1 Control\nDEPARTMENT: + 1 Engineering\nFOCUS SUGGESTIONS: Electro-Plasma Power Systems, Fusion Reactors, Warp Engines" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="18"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys01] += 1
 	  #abilbonus[discdept04] += 1
-      ]]></eval>
-	</thing>
-
-
-  <thing
-    id="evBreakInvent"
-    name="Breakthrough Or Invention"
-    compset="Event"
-    isunique="yes"
-    description="The character made an important technological discovery, devised a new way of using a particular technology, or invented some new technology that will be invaluable in the future.\n\nAttribute: Choose one\nDiscipline: Engineering">
-	<fieldval field="usrLabel1" value="Attribute:"/>
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evBreakInvent" name="Breakthrough Or Invention" description="The character made an important technological discovery, devised a new way of using a particular technology, or invented some new technology that will be invaluable in the future.\n\nAttribute: Choose one\nDiscipline: Engineering" compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Attribute:"/>
     <fieldval field="usrCandid1" value="component.AttrSys"/>
     <fieldval field="usrSource1" value="1"/>
+    <usesource source="1stEdition"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-	  #abilbonus[discdept04] += 1
+    <eval phase="PreAbility" priority="5000">#abilbonus[discdept04] += 1
 	  
       doneif (field[usrChosen1].ischosen = 0)
 
       field[usrChosen1].chosen.field[abiBonus].value += 1
-	  
-      ]]></eval>
-	</thing>
-
-  <thing
-    id="evFirstContact"
-    name="First Contact"
-    compset="Event"
-    isunique="yes"
-    description="The character was chosen to be involved in one of the most important of Starfleet’s missions: first contact with another culture.\n\nAttribute: Presence\nDiscipline: Choose One">
-	<fieldval field="usrLabel1" value="Discipline:"/>
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="evFirstContact" name="First Contact" description="The character was chosen to be involved in one of the most important of Starfleet’s missions: first contact with another culture.\n\nATTRIBUTE: +1 Presence\nDEPARTMENT: + 1 Any\nFOCUS SUGGESTIONS: Cultural Studies, Diplomacy, Infiltration" compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept"/>
     <fieldval field="usrSource1" value="1"/>
+    <fieldval field="evRoll" value="9"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #abilbonus[attrsys05] += 1
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys05] += 1
 	 
       doneif (field[usrChosen1].ischosen = 0)
 
       field[usrChosen1].chosen.field[abiBonus].value += 1
-      ]]></eval>
-	</thing>
-	
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2EBreakInvent" name="Breakthrough Or Invention" description="The character was placed in a situation where they had to choose between a trusted superior and their own ideals, and they chose to follow the superior.\n\n{b}ATTRIBUTE:{/b} +1 to Any\n{b}DEPARTMENT:{/b} + 1 Engineering\n{b}FOCUS SUGGESTIONS:{/b} Experimental Technology, Invention, or Improvisation\n{b}TRAIT:{/b} The character may gain trait Inventor of X, where X is the name of the technology invented." compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Attribute:"/>
+    <fieldval field="usrCandid1" value="component.AttrSys"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="evRoll" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[discdept04] += 1
+	  
+      doneif (field[usrChosen1].ischosen = 0)
+
+      field[usrChosen1].chosen.field[abiBonus].value += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2EDealtPlague" name="Dealing With A Plague" description="The character’s ship was assigned to provide aid to a world dealing with an epidemic.\n\nATTRIBUTE: +1 Insight\nDEPARTMENT: + 1 Medicine\nFOCUS SUGGESTIONS: Infectious Diseases, Emergency Medicine, Triage" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="5"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys04] += 1
+	  #abilbonus[discdept06] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2EDiscArtifact" name="Discovered An Artefact" description="The character discovered a device or fragment of technology from a now-extinct civilization.\n\nATTRIBUTE: +1 Reason\nDEPARTMENT: + 1 Engineering\nFOCUS SUGGESTIONS: Ancient Technology, Computers, Reverse Engineering" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="7"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys06] += 1
+	  #abilbonus[discdept04] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2EEncAlienBeing" name="Encountered A Truly Alien Being" description="The character encountered a life-form which is truly alien, something barely within the comprehension of humanoid life. It might have been some godlike entity, or a creature that swims through space, but whatever it was, it was not life as we know it.\n\nATTRIBUTE: +1 Reason\nDEPARTMENT: + 1 Science\nFOCUS SUGGESTIONS: Empathy, Philosophy, Xenobiology" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="8"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys06] += 1
+	  #abilbonus[discdept05] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2ELaudedAnoCult" name="Lauded By Another Culture" description="The character was involved in a mission that earned the\nofficial praise of a non-Federation culture; they are now\nconsidered to be a friend to those people.\n\nATTRIBUTE: +1 Presence\nDEPARTMENT: + 1 Science\nFOCUS SUGGESTIONS: A focus of X Culture, replacing the X with the name of that culture or any that represent skills or techniques specific to that culture.\nTRAIT: A good example might be Friend to the X, replacing the X with the name of the culture. This reflects the character’s renown among that culture, and the benefits and problems such status brings." compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="10"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys05] += 1
+	  #abilbonus[discdept05] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2ELearnedLang" name="Learned Unique Language" description="The character encounters a species with an unusual form of communication and learns to communicate with them.\n\nATTRIBUTE: +1 Insight\nDEPARTMENT: + 1 Science\nFOCUS SUGGESTIONS: Linguistics, Cultural Studies, Negotiations" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="11"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys04] += 1
+	  #abilbonus[discdept05] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2ENegTreaty" name="Negotiated a Treaty" description="The character was part of a delegation that helped negotiate a treaty, agreement, or alliance with a culture outside the Federation.\n\nATTRIBUTE: +1 Control\nDEPARTMENT: + 1 Command\nFOCUS SUGGESTIONS: Diplomacy, Negotiation, Galactic Politics" compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="13"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys01] += 1
+	  #abilbonus[discdept01] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ev2ESeriousInj" name="Serious Injury" description="The character was seriously hurt and needed to spend a considerable amount of time recovering.\n\nATTRIBUTE: +1 Fitness\nDEPARTMENT: + 1 Medicine\nFOCUS SUGGESTIONS: The focus should reflect the circumstances of the character’s injury, something that helped them through recovery, or something they took up after recovering.\nTRAIT: The character may gain a trait, which should reflect some lasting effect of the character’s injury or the way they recovered. Examples: Prosthetic Implant or some form of disability." compset="Event" uniqueness="unique">
+    <fieldval field="evRoll" value="16"/>
+    <usesource source="2ndEdition"/>
+    <eval phase="PreAbility" priority="5000">#abilbonus[attrsys03] += 1
+	  #abilbonus[discdept06] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
   </document>

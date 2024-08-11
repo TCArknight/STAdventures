@@ -355,7 +355,7 @@
     <field
       id="usrLabel1"
       name="Thing Menu Label #1"
-      type="static"
+      type="derived"
       maxlength="50">
       </field>
 
@@ -401,7 +401,7 @@
     <field
       id="usrLabel2"
       name="Thing Menu Label #2"
-      type="static"
+      type="derived"
       maxlength="50">
       </field>
 
@@ -447,7 +447,7 @@
     <field
       id="usrLabel3"
       name="Thing Menu Label #3"
-      type="static"
+      type="derived"
       maxlength="50">
       </field>
 
@@ -663,7 +663,7 @@
           endif
         endif
       ]]></creation>
-
+	  
     <!-- Integrate the various user selections into the name of the pick
           NOTE! Must be scheduled after the "shortname" field is synthesized at Render/100.
     -->

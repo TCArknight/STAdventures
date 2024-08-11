@@ -67,7 +67,7 @@
     <chooser_table
       component="Frame"
       choosetemplate="SimpleItem"
-	  choosesortset="FrameSort">
+	  choosesortset="FrameByEra">
 	  <needtag
         container="CharType"
         thing="ShipType">

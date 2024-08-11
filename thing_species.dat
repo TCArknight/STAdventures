@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="spcAndorian" name="Andorian" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Control, +1 Presence.\n\n{b}EXAMPLE VALUE:{/b} {i}Proud Son/Daughter of Andoria\n\nAn aggressive, passionate people from the frozen moon Andoria, the Andorians have been part of the United Federation of Planets since its foundation, having been firm allies of Humanity for several years beforehand. Their blue skin, pale hair, and antennae give them a distinctive appearance, and while the Andorian Imperial Guard was demobilized when the Federation was founded, they still maintain strong military traditions, and a tradition of ritualized honor-duels known as Ushaan, using razorsharp ice-mining tools." compset="Species" uniqueness="unique">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="SpecCat" tag="Player"/>
-    <tag group="SpeciesBon" tag="attrsys02"/>
+  <thing id="spcAndorian" name="Andorian" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Daring,  +1 Presence.\n\n{b}EXAMPLE VALUES:{/b} \n- I always repay my debts\n- No challenge unmet\n- Proud child of Andoria\n- Question my word, question my honor\n\nAn aggressive, passionate people from the frozen moon Andoria, the Andorians have been part of the United Federation of Planets since its foundation, having been firm allies of Humanity for several years beforehand. Their blue skin, pale hair, and antennae give them a distinctive appearance, and while the Andorian Imperial Guard was demobilized when the Federation was founded, they still maintain strong military traditions, and a tradition of ritualized honor-duels known as Ushaan, using razorsharp ice-mining tools.\n\nAndorians have developed powerful traditions of ritual, convention, and personal honor to help direct their intensity and energy towards constructive ends.\n\n{i}EXAMPLE CHARACTERS: Thy’lek Shran (Enterprise), Jennifer Sh’reyan (Lower Decks), Ryn (Discovery){/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
     <bootstrap thing="trAndorian"></bootstrap>
+    <bootstrap thing="saIntense"></bootstrap>
     </thing>
-  <thing id="spcBajor" name="Bajoran" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Daring, +1 Insight.\n\n{b}EXAMPLE VALUE:{/b} {i}Faith in the Prophets{/i}\n\nA spiritual, dauntless people from the planet Bajor, the Bajorans have lost much after decades of occupation by the Cardassian Union. Many Bajorans were scattered across the Alpha Quadrant during the occupation, while those who remained on Bajor often acted as insurgents or toiled in labor camps under Cardassian rule. The occupation ended a few years ago, but the scars it left will take generations to heal. Bajor is not a member of the Federation, but many Bajorans scattered by the diaspora have found their way into Starfleet. Bajoran culture places a strong belief in the Prophets, celestial beings who are said to have watched over Bajor for millennia; modern religious doctrinestates that the Bajoran Wormhole is the Prophets’ Celestial Temple." compset="Species" uniqueness="unique">
-    <usesource source="TNG"/>
+  <thing id="spcBajor" name="Bajoran" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Daring, +1 Insight.\n\n{b}EXAMPLE VALUES:{/b} \n- I help others to be closer to the Prophets\n- Survival at any cost\n- We are in the hands of the Prophets\n- You cannot explain faith to those who lack it\n\nA spiritual, dauntless people from the planet Bajor, the Bajorans have lost much after decades of occupation by the Cardassian Union. Many Bajorans were scattered across the Alpha Quadrant during the occupation, while those who remained on Bajor often acted as insurgents or toiled in labor camps under Cardassian rule. The occupation ended a few years ago, but the scars it left will take generations to heal. Bajor is not a member of the Federation, but many Bajorans scattered by the diaspora have found their way into Starfleet. Bajoran culture places a strong belief in the Prophets, celestial beings who are said to have watched over Bajor for millennia; modern religious doctrinestates that the Bajoran Wormhole is the Prophets’ Celestial Temple.\n\nBajoran spirituality has long been a powerful factor in their lives, even for Bajorans who did not believe strongly in the Prophets. The unifying presence of their religion provided a source of hope and courage. A common sign of this faith is the D’ja pagh, a symbolic earring.\n\n{i}EXAMPLE CHARACTERS: Kira Nerys (Deep Space Nine), Lt. Shaxs (Lower Decks)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys02"/>
+    <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
-    <tag group="SpeciesBon" tag="attrsys02"/>
-    <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trBajoran"></bootstrap>
+    <bootstrap thing="saWillProphets"></bootstrap>
     </thing>
-  <thing id="spcBetazoid" name="Betazoid" description="{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Compassion through Understanding{/i}\n\nThe peaceful Betazoid people hail from the idyllic, verdant world Betazed. The world is a valued member of the Federation, and its people can be found across Federation space, including Starfleet. Betazoids appear almost identical to Humans, but differ in one major way: they are naturally telepathic, developing mental abilities during adolescence. The potency of this ability varies between individuals, but it has resulted in a culture where honesty and directness are fundamental: it is difficult to keep secrets when everyone around you can read minds." compset="Species" uniqueness="unique">
-    <usesource source="TNG"/>
-    <tag group="SpeciesBon" tag="attrsys05"/>
-    <tag group="SpeciesBon" tag="attrsys06"/>
+  <thing id="spcBetazoid" name="Betazoid" description="{b}ATTRIBUTES:{/b} +1 Insight, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUES:{/b}\n- A lie is a story told in bad faith\n- Do not be what others expect you to be\n- I can feel your pain\n- I’m just saying what you’re thinking\n\nThe peaceful Betazoid people hail from the idyllic, verdant world Betazed. The world has long been a valued member of the Federation, and its people can be found across Federation space, including Starfleet. Betazoids appear almost identical to Humans but differ in one major way: they are naturally telepathic, developing mental abilities during adolescence. The potency of this ability varies between individuals.\n\nDue to their widespread telepathy, Betazoids have a culture of honesty and directness—there is little reason to be evasive or deceitful in a culture where everyone can read your mind and sense your emotions. Among non-telepaths, and even telepaths of other species, this can result in some Betazoids seeming blunt or even rude. Betazoids who spend a lot of time among other cultures tend to either lean into this notion or choose to temper their honesty with tact.\n\n{i}EXAMPLE CHARACTERS: Deanna Troi (The Next Generation), Lon Suder (Voyager)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpecCat" tag="Player"/>
     <tag group="Species" tag="Empathy"/>
     <tag group="Species" tag="Telepathy"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
     <bootstrap thing="trBetazoid"></bootstrap>
+    <bootstrap thing="saBetaTelepathic"></bootstrap>
     </thing>
-  <thing id="spcDenob" name="Denobulan" description="{b}ATTRIBUTES:{/b} +1 Fitness, +1 Insight, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Safety in Numbers{/i}\n\nHailing from the planet Denobula, Denobulans are a gregarious, inquisitive people who have been allies of Humanity since the 2130s. Though Denobula was not one of the founders of the Federation, the Denobulans joined soon after. Denobulans are a sociable people, with distinctive expressive features, who are used to living in close, communal conditions, and whose extended family groups are large and complex — a Denobulan may have several spouses, each of whom may have several partners of their own, and dozens of children between them. Culturally, they are intellectually curious, perceptive, and interested in a wide range of philosophies, though their scholarly nature, large families, and gregarious nature means that relatively few of them venture far from their homeworld." compset="Species" uniqueness="unique">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="SpeciesBon" tag="attrsys04"/>
-    <tag group="SpeciesBon" tag="attrsys03"/>
+  <thing id="spcDenob" name="Denobulan" description="{b}ATTRIBUTES:{/b} +1 Fitness, +1 Insight, +1 Reason.\n\n{b}EXAMPLE VALUES:{/b} \n- You cannot truly learn about people unless you talk to them\n- Comfort in numbers\n- There&apos;s always someone new to meet\n- My patience exceeds your stubbornness\n\nHailing from the planet Denobula, Denobulans are a gregarious, inquisitive people who have been allies of humanity since the 2130s. Denobulans are long-lived and highly sociable, with large families—Denobulans are typically polyamorous, with individuals potentially having several spouses, each of whom may have several spouses of their own, and dozens of children between them—living in relatively close, communal environments. Culturally, Denobulans are an intellectually curious people, highly perceptive, and interested in a wide range of philosophies, with their long lives allowing them to pursue a wide range of fields of study, often granting them unusual perspectives on the different philosophies and fields of expertise they’ve studied.\n\nDenobulans enjoy learning new things, meeting new people, and they revel in the drama, intrigue, and gossip that come from a rich and complex social environment. They are extraordinarily patient, taking a long view of the changes that happen in life, but they dislike solitude, and even a busy starship or starbase can sometimes seem a little empty to a Denobulan.\n\n{i}EXAMPLE CHARACTERS: Phlox (Enterprise)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
     <bootstrap thing="trDenob"></bootstrap>
+    <bootstrap thing="saBreadthStudy"></bootstrap>
     </thing>
-  <thing id="spcHuman" name="Human" description="{b}ATTRIBUTES:{/b} +1 to three different attributes.\n\n{b}EXAMPLE VALUE:{/b} {i}The Drive for Exploration{/i}\n\nOriginating on the planet Earth in the Sol system, Humans are a resilient, diverse, and adaptable species, who developed from fractious, warring nations on the brink of mutual annihilation to a united, peaceful society in less than a century, and managed to forge alliances between former enemies within a century of achieving interstellar space flight. Earth is a founder and pivotal member of the United Federation of Planets, and many of the Federation’s institutions can be found on Earth. Humans often exhibit a dichotomy in their nature — being both driven to strong emotion and careful reason — and while they have largely grown beyond their warlike and divisive past, their drive and capacity for aggression are as much a part of their success as their curiosity and analytical minds." compset="Species" uniqueness="unique">
+  <thing id="spcHuman" name="Human" description="{b}ATTRIBUTES:{/b} +1 to three different attributes.\n\n{b}EXAMPLE VALUES:{/b} \n- I believe in what the Federation stands for\n- Learn something new every day\n- We are stronger together\n- Seek out new life and new civilizations\n\nOriginating on the planet Earth in the Sol system, Humans are a resilient, diverse, and adaptable species, who developed from fractious, warring nations on the brink of mutual annihilation to a united, peaceful society in less than a century, and managed to forge alliances between former enemies within a century of achieving interstellar space flight. Earth is a founder and pivotal member of the United Federation of Planets, and many of the Federation’s institutions can be found on Earth. Humans often exhibit a dichotomy in their nature — being both driven to strong emotion and careful reason — and while they have largely grown beyond their warlike and divisive past, their drive and capacity for aggression are as much a part of their success as their curiosity and analytical minds.\n\nHumans tend to draw upon two sets of cultural values. As a central and founding member of the Federation, the traditions and ideals of the Federation (or even those of Starfleet) are often regarded as synonymous with “Human culture” (though the Federation draws a lot from each of its members), to the point where nobody is entirely sure where Earth ends and the Federation begins. Yet, conversely, this can also lead to Humans finding value in preserving the traditions and cultures of their pre-warp ancestors.\n\n{i}EXAMPLE CHARACTERS: Ben Sisko (Deep Space Nine), Kathryn Janeway (Voyager)\n{/i}" compset="Species" uniqueness="unique">
     <fieldval field="usrLabel4" value="+1 to Attribute:"/>
     <fieldval field="usrCandid4" value="component.AttrSys"/>
     <fieldval field="usrLabel5" value="+1 to Attribute:"/>
@@ -54,6 +58,7 @@
     <tag group="User" tag="NoAutoName"/>
     <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trHuman"></bootstrap>
+    <bootstrap thing="saFaithHeart"></bootstrap>
     <eval phase="PreAbility" priority="1000"><![CDATA[
 	  var tempStr as string
 	  
@@ -75,34 +80,35 @@
 		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
 		endif]]></eval>
     </thing>
-  <thing id="spcTellar" name="Tellarite" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Insight.\n\n{b}EXAMPLE VALUE:{/b} {i}All Ideas must Withstand Scrutiny{/i}\n\nThe stout, hirsute Tellarite species comes from Tellar Prime, a temperate planet in the Alpha Quadrant. Theirs is a culture noted for being abrasive and argumentative, with a stubborn pride, quick tempers, and little patience. However, this is only a superficial view: while Tellarites are argumentative, it comes from a sense of intellectual honesty and rigorous skepticism. To a Tellarite, no idea, concept, or person is beyond challenge or analysis, and any notion that cannot stand up to scrutiny is an unworthy one. Tellarites revel in debates, and tend to greet one another with criticisms, complaints, and even insults; failing to respond in kind is poorly-regarded, as it displays a weakness of character and an unwillingness to confront flaws." compset="Species" uniqueness="unique">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+  <thing id="spcTellar" name="Tellarite" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Insight.\n\n{b}EXAMPLE VALUES:{/b}\n- No notion is above proper scrutiny\n- No voice silenced, no perspective unheard\n- You’ll never get an answer if you don’t ask questions\n- An idea left unchallenged can be dangerous\n\nThe stubborn, argumentative Tellarite species originated upon Tellar Prime, a temperate planet in the Alpha Quadrant. Their bodies are thick-set and covered in dense hair, and they stand a little shorter than Humans on average. Many male Tellarites possess tusks to some degree, though they vary in size and prominence.\n\nTellarites are known to be highly argumentative, even rude by the standards of other cultures, often complaining frequently or insulting others as part of social interactions. In truth, this comes from a sense of intellectual honesty and rigorous skepticism. To a Tellarite, no idea, concept or person is beyond challenge or analysis, and any notion that cannot stand up to scrutiny is an unworthy one. Tellarites revel in debates, and enjoy arguing, and the criticisms, complaints, and insults issued during conversations are intended to be met in kind: to do otherwise is to display a weak character, an inability to stand up for oneself, or an unwillingness to confront one’s own flaws.\n\n{i}EXAMPLE CHARACTERS: Jankom Pog (Prodigy), Zus Tlaggul (Strange New Worlds)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpecCat" tag="Player"/>
     <tag group="SpeciesBon" tag="attrsys04"/>
     <tag group="SpeciesBon" tag="attrsys03"/>
-    <tag group="SpeciesBon" tag="attrsys01"/>
-    <tag group="SpecCat" tag="Player"/>
     <bootstrap thing="trTellar"></bootstrap>
+    <bootstrap thing="saSturdy"></bootstrap>
     </thing>
-  <thing id="spcTrill" name="Trill" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}Four Lifetimes of Adventure{/i}\n\nThe Trill species, from their homeworld of the same name, appear almost identical to Humans, but for rows of spots running down the sides of their bodies, from head to toe. However, this superficial similarity conceals a considerable difference — the Trill are capable of bonding with a symbiotic organism known as a symbiont, creating a distinct being from the two individual creatures. The symbionts can live for many centuries, and are placed with successive hosts, carrying the memories and knowledge of previous hosts into a new joining with each new generation. This fact isn’t widely known outside the Trill themselves, but it isn’t a secret — it simply isn’t widely discussed, and the number of joined Trill is relatively small. The Trill have been part of the Federation for well over a century, with several renowned Trill serving important roles in shaping the Federation. The Trill, as a culture, tend to be focused on intellectual pursuits first and foremost, as learning and wisdom are prized by the symbionts in their hosts." compset="Species" uniqueness="unique">
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="SpeciesBon" tag="attrsys06"/>
-    <tag group="SpeciesBon" tag="attrsys01"/>
+  <thing id="spcTrill" name="Trill" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUES:{/b}\n- Several lifetimes of experience\n- What will this mean a century from now?\n- What can I discover today?\n- Who I was is only part of who I am\n\nThe Trill are a pair of species who originate from a world of the same name. The Trill that most outsiders know appear almost identical to Humans or Betazoids, but for a row of irregular spots running down the sides of their bodies. The other Trill species are small invertebrates, which dwell in subterranean caverns. There are relatively few of this second species, species, but they are extremely intelligent and capable of living for centuries.\n\nWhile not a secret, it is not widely discussed that a small portion of humanoid Trill are capable of bonding with the invertebrates, commonly referred to as symbionts, and in this bond—called a Joining—creates a gestalt person, a combination of the minds, memories, and personalities of both creatures. While a symbiont cannot be removed without killing its host, upon a host’s death, a symbiont will be passed to a new host, preserving knowledge and memory over generations.\n\nTrill society has been shaped by the Joined, with Trill culture tending to take a long view of social development, and pursuing intellectual and philosophical development over interpersonal conflict. The Trill are a firm anddedicated member of the Federation.\n\n{i}EXAMPLE CHARACTERS: Jadzia Dax (Deep Space Nine), Gray Tal (Discovery)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpecCat" tag="Player"/>
-    <bootstrap thing="trTrill"></bootstrap>
-    </thing>
-  <thing id="spcVulcan" name="Vulcan" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}The Needs of the Many Outweigh the Needs of the Few, or the One.{/i}\n\nThe Vulcans are a stoic, rational people. Widely claimed to be emotionless, in truth the Vulcans feel deeply and intensely, to their own detriment. Their stoicism comes from a culture of logic and self-discipline, where emotions are analyzed and dissected to rob them of their potency, so that they cannot overwhelm or control the individual. Vulcans embrace science and reason, but their lives are not purely devoted to logic: they also have a deeply philosophical side, with art and music as vital to their culture as logic. They are also an intensely private people, with many aspects of their culture — such as the rites of pon farr — which are not discussed amongst outsiders." compset="Species" uniqueness="unique">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
-    <tag group="SpeciesBon" tag="attrsys03"/>
+    <bootstrap thing="trTrill"></bootstrap>
+    <bootstrap thing="saPatient"></bootstrap>
+    </thing>
+  <thing id="spcVulcan" name="Vulcan" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason.\n\n{b}EXAMPLE VALUE:{/b} {i}\n- Logic is the beginning of wisdom, not the end\n- Nothing that is, is unimportant\n- The needs of the many outweigh the needs of the few or the one\n- In accepting the inevitable, one finds peace{/i}\n\nThe first species to contact Humans, Vulcans are stoic, rational people. Widely claimed to be emotionless, Vulcans in fact feel emotions deeply and intensely, to their own detriment. Ancient Vulcans were prone to murderous rage and fits of paranoia, and nearly destroyed themselves millennia ago, before Surak taught logic and the purging of emotion. His teachings led to peace among the Vulcans and the establishment of a culture driven by reason.\n\nVulcans embrace science and logic, but their lives are not purely devoted to such things: they have a deeply philosophical and spiritual side, with art and music as vital to their culture as logic. They are also an intensely private people, with many aspects of their culture largely kept secret from outsiders.\n\n{i}EXAMPLE CHARACTERS: Spock (Star Trek), T’Pol (Enterprise), Tuvok (Voyager)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys03"/>
     <bootstrap thing="trVulcan"></bootstrap>
+    <bootstrap thing="saMentalDisc"></bootstrap>
     </thing>
   <thing id="spchdrPlay" name="Player Species" compset="Species" uniqueness="unique" isshowonly="yes">
     <usesource source="ENT"/>
@@ -113,9 +119,30 @@
     </thing>
   <thing id="spcMixedHer" name="Mixed Heritage" description="The character is of Mixed Heritage. Choose 2 species and determine which one is the Dominant of the two. Choose two of the attrributes associated with that race. Choose the third attribute from one of the attributes from your secondary species. You get the trait for both species, and are considered both species in regards to any talents." compset="Species" uniqueness="unique">
     <fieldval field="spcIsMixed" value="1"/>
-    <tag group="User" tag="NoAutoName"/>
+    <usesource source="1stEdition"/>
     <tag group="SpecCat" tag="PlayerMixed"/>
     <tag group="Hero" tag="MixedHeritage"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval phase="PreAbility" priority="1000" index="2"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the +1 modifier to selected attribute
+	  if (field[usrChosen4].ischosen <> 0) then
+        
+		tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen5].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen5].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen5].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif
+	  if (field[usrChosen6].ischosen <> 0) then
+        tempStr = "SpeciesBon." & field[usrChosen6].chosen.idstring
+		perform hero.assignstr[tempStr]
+		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
+		endif]]></eval>
     <eval phase="PreAbility"><![CDATA[
 	    var primary as string
 		var primaryspecies as string
@@ -184,12 +211,135 @@
 		  field[usrCandid6].text = myAttributes
 			
 		  endif]]></eval>
+    </thing>
+  <thing id="trMixedHeri" name="Mixed Heritage" description="The person is decendant of two species and is considered one of each." compset="Trait">
+    <usesource source="ENT"/>
+    <usesource source="TOS"/>
+    <usesource source="TNG"/>
+    <tag group="TraitCat" tag="Race"/>
+    </thing>
+  <thing id="saIntense" name="Intense" description="When you succeed at a task where you purchased one or more d20s by adding to Threat, you generate 1 bonus Momentum for each d20 purchased. Bonus Momentum may not be saved." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcAenar"/>
+    </thing>
+  <thing id="spcAenar" name="Aenar" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence\n\n{b}EXAMPLE VALUES:{/b} \n- Do not mistake my blindness for helplessness\n- I perceive things your eyes do not\n- Life is incomplete without purpose\n- Pacifism is not passive\n\nThe Aenar are a subspecies of Andorians originally native to an isolated region of the northern wastes of Andoria. Though typically blind, they are telepathic, and their other senses are heightened. Once believed to be a myth, the Aenar are few and most prefer to remain within their isolated settlements, and they rarely bother themselves with matters outside their own communities. They lack the distinctive blue skin pigmentation of other Andorians, instead having skin tones that range from white, to ice blue, to pale gray. Aenar deplore violence, and commonly follow a strictly pacifist ideology.\n\nCompared to their Andorian kin, Aenar often seem calm and restrained. They are no less proud of their heritage, but they express that pride differently, often taking great pride in their skills and the work they do. The few Aenar who leave their homeworld often come off as highly motivated and sure of themselves, maintaining their sense of self even when far from their families.\n\n{i}EXAMPLE CHARACTERS: Jhamel (Enterprise), Hemmer (Strange New Worlds){/i}" compset="Species" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys01"/>
+    <tag group="SpeciesBon" tag="attrsys05"/>
+    <tag group="SpecCat" tag="Player"/>
+    <tag group="SpeciesBon" tag="attrsys04"/>
+    <tag group="Species" tag="Telepathy"/>
+    <bootstrap thing="saAenarTelepathic"></bootstrap>
+    <bootstrap thing="trAenar"></bootstrap>
+    </thing>
+  <thing id="trAenar" name="Aenar" description="Biologically similar to Andorians, Aenar differ in a number of ways. Aenar are typically blind, but their other senses are heightened to a degree that more than compensates for their lack of sight. They are also telepathic which further contributes to their awareness of their environment. Aenar are typically pacifists, and thus may be reluctant, or even outright refuse, to carry out violent acts." compset="Trait" uniqueness="useronce">
+    <tag group="TraitCat" tag="Main"/>
+    <tag group="SpeciesTrait" tag="spcAenar"/>
+    </thing>
+  <thing id="saAenarTelepathic" name="Telepathic" description="Aenar can sense the minds of other living creatures in their vicinity, and can read the thoughts of others, though they have strict taboos about reading a mind without permission. See the Telepathy talent for more details." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcAenar"/>
+    </thing>
+  <thing id="saWillProphets" name="The Will Of The Prophets" description="You may find strength in the Prophets even when the situation is dire: once per adventure, when the gamemaster spends 3 or more Threat at once, you gain 1 Determination." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcBajor"/>
+    </thing>
+  <thing id="saBetaTelepathic" name="Telepathic" description=" Betazoids can sense the minds of living creatures in their vicinity and can read the thoughts and emotions of others. Each Betazoid has either Telepathy or Empathy (see page 155-page 156 for more details). Part-Betazoid characters generally have Empathy rather than Telepathy." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcBetazoid"/>
+    </thing>
+  <thing id="saHealthySusp" name="Healthy Suspicions" description="You may add 1 Threat when interacting with an NPC to ask the gamemaster if that NPC is lying about something. The gamemaster must answer either Yes or No, and this answer must be accurate, but the gamemaster does not have to specify what the NPC is lying about." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spc2ECardassian"/>
+    </thing>
+  <thing id="saBreadthStudy" name="Breadth of Study" description="You may select two additional focuses." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcDenob"/>
+    <eval phase="Effects" priority="5000">#resmax[resFocus] += 2</eval>
+    </thing>
+  <thing id="saGreatMatCont" name="The Great Material Continuum" description="Once per session, when obtaining additional equipment, you may reduce the Opportunity Cost of an item by 1, to a minimum of 0." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spc2EFerengi"/>
+    </thing>
+  <thing id="saFaithHeart" name="Faith of the Heart" description="When you use one of your values to spend or gain Determination, you may also add 1 Momentum to the group pool." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcHuman"/>
+    </thing>
+  <thing id="saBraklul" name="Brak&apos;Lul" description="You gain 1 Protection which stacks with the benefits of any armor worn. Further, when another character attempts First Aid to heal you, they may re-roll a d20." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spc2EKlingon"/>
+    </thing>
+  <thing id="saNeverFaceValue" name="Never At Face Value" description="Once per scene, you may add 1 Threat to ask the gamemaster a question about the situation, as if you had spent {b}Momentum{/b} to {i}Obtain Information{/i}." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spc2EOrion"/>
+    </thing>
+  <thing id="saParanoia" name="Paranoia" description="When an action scene begins, if the gamemaster wishes an adversary to take the first turn, they must spend 1 Threat more than normal." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spc2ERomulan"/>
+    </thing>
+  <thing id="saSturdy" name="Sturdy" description="You gain +1 Protection against {i}Stun Attacks{/i} only. Further, when you suffer a complication that represents a physical hindrance or being stunned, dazed, or disoriented, you may take 1 Stress to ignore that complication (and remove any associated trait)." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcTellar"/>
+    </thing>
+  <thing id="saPatient" name="Patient" description="When you succeed at a task where you purchased one or more d20s by spending Momentum, you generate 1 bonus Momentum for each d20 purchased. Bonus Momentum may not be saved." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcTrill"/>
+    </thing>
+  <thing id="saMentalDisc" name="Mental Discipline" description="While Vulcans have some psychic capabilities, they require training to use it effectively (see the Mind Meld talent, page 154). Further, your maximum Stress is based on your Control rather than your Fitness, and you may suffer 2 Stress to avoid suffering any trait that represents an emotional state. However, if you become Fatigued, you increase the Potency of any such emotion-related trait by 1." compset="SpeciesAbility" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="Species" tag="spcVulcan"/>
+    </thing>
+  <thing id="spc2EMixedHer" name="Mixed Heritage" description="Many Starfleet officers have parents from different species. To create mixed-heritage characters, choose two species (one for each parent), and then select one of those two as the primary species—the species which the character takes after the most. Characters may have more than two species, if one (or both) of their parents are mixed heritage, but in game terms, select only the two most prominent species of all of those the character is descended from.\n\nThe character is treated as a member of the primary species for attribute bonuses and their Species Ability. The character gains the species traits of both parent species and counts as a member of both species for the purposes of talent requirements. The gamemaster may rule on any game mechanics that may conflict: for example, a part-Andorian, part-Aenar character might not be blind, but their other senses may not be as heightened." compset="Species" uniqueness="unique">
+    <fieldval field="spcIsMixed" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Hero" tag="MixedHeritage"/>
+    <tag group="User" tag="NoAutoName"/>
+    <tag group="SpecCat" tag="PlayerMixed"/>
+    <eval phase="PreAbility"><![CDATA[
+	    var primary as string
+		var primaryspecies as string
+	    var secondary as string
+		var secondaryspecies as string
+		var txt as string
+	    var myTrait as string
+		var myAttributes as string
+	  
+	    if (field[spcPrimary].ischosen <> 0) then
+	      primary = field[spcPrimary].chosen.idstring
+	      primaryspecies = field[spcPrimary].chosen.field[name].text
+
+	      txt = "SpeciesTrait." & primary
+		
+		  ~tag primary trait with MixedHeritage.Primary
+		  foreach pick in hero from Trait where txt
+			perform eachpick.assign[MixedHeritage.Primary]
+			nexteach
+			  
+		  ~ populate usrCandid4 and usrCandid5 with species attribute selections
+		  ~ get SpeciesBon.? tags from selected species
+		  txt = field[spcPrimary].chosen.tagids[SpeciesBon.?,"|"]
+	 			
+		  if (empty(txt) <> 0) then
+			~select from all attributes
+			myAttributes = "component.AttrSys"
+		  else
+			~select from attributes specific to species
+			txt = replace(txt,"SpeciesBon","thingid",0)
+			myAttributes = txt 
+			endif
+			
+		  field[usrLabel4].text = "+1 to Attribute:"
+		  field[usrCandid4].text = myAttributes
+		  field[usrLabel5].text = "+1 to Attribute:"
+		  field[usrCandid5].text = myAttributes
+		  field[usrLabel6].text = "+1 to Attribute:"
+		  field[usrCandid6].text = myAttributes
+		  endif]]></eval>
     <eval phase="PreAbility" priority="1000" index="2"><![CDATA[
 	  var tempStr as string
 	  
 	  ~assign tags to apply the +1 modifier to selected attribute
 	  if (field[usrChosen4].ischosen <> 0) then
-        
 		tempStr = "SpeciesBon." & field[usrChosen4].chosen.idstring
 		perform hero.assignstr[tempStr]
 		perform field[usrChosen4].chosen.assignstr["SpeciesBon.Chosen"]	
@@ -205,10 +355,58 @@
 		perform field[usrChosen6].chosen.assignstr["SpeciesBon.Chosen"]	
 		endif]]></eval>
     </thing>
-  <thing id="trMixedHeri" name="Mixed Heritage" description="The person is decendant of two species and is considered one of each." compset="Trait">
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="TraitCat" tag="Race"/>
+  <thing id="spc2ECardassian" name="Cardassian" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Presence, +1 Reason.\n\n{b}EXAMPLE VALUES:{/b}\n- Everyone is guilty of something, but who and of what?\n- State above family; family above self\n- If you don&apos;t want me knowing, hide it better\n- All my stories are true, especially the lies\n\nOften vilified and distrusted due to the actions of their government, Cardassians have a reputation for being ruthless, deceitful, and aggressive. Due to a dearth of natural resources and an economic collapse, Cardassian culture was overtaken by an oppressive authoritarian regime dominated by the military, which began a decades-long campaign of expansion, conquest, and exploitation, including the occupation of Bajor and a lengthy border conflict with the Federation. In the aftermath of the Dominion War, with the military government overthrown, the rebuilding of Cardassia was a difficult process, not least because of long-held feelings of resentment towards the Cardassians.\n\nCardassians are a creative, dedicated people, with a strong cultural fascination with intrigue. Cardassians are inclined to keep secrets, and to regard suspicion as wisdom, and the uncovering of secrets is regarded as a valuable skill.\n\n{i}EXAMPLE CHARACTERS: Elim Garak (Deep Space Nine), Seska (Voyager)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys01" name="Control/Comm" abbrev="Control/Comm"/>
+    <tag group="SpeciesBon" tag="attrsys05" name="Presence/Structure" abbrev="Presence/Structure"/>
+    <tag group="SpeciesBon" tag="attrsys06" name="Reason/Weapons" abbrev="Reason/Weapons"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="saHealthySusp"></bootstrap>
+    <bootstrap thing="trCardassi"></bootstrap>
+    <exprreq message="Next Generation only"><![CDATA[hero.tagis[source.TNG] <> 0]]></exprreq>
+    </thing>
+  <thing id="spc2EFerengi" name="Ferengi" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}EXAMPLE VALUES:{/b} \n- 9TH RULE: Opportunity plus instinct equals profit\n- 62ND RULE: The riskier the road, the greater the profit\n- 125TH RULE: You can’t make a deal if you’re dead\n- 263RD RULE: Never allow doubt to tarnish your lust for latinum\n\nAn acquisitive species native to Ferenginar, the Ferengi are unimposing beings, known mostly as merchants and traders. Their culture promotes the accumulation of material wealth, and their society is capitalistic, with most routine activities accompanied by an exchange of money, typically in the form of gold-pressed latinum (a non-replicable liquid metal, suspended within “slips,” “strips,” “bars,” and “bricks” of gold). Ferengi society is strongly patriarchal, with female Ferengi traditionally disallowed from owning property or even wearing clothing (and male Ferengi often having deeply unpleasant attitudes towards non-Ferengi women), though these attitudes start to change by the late 24th century.\n\nFerengi pride themselves on their ability to acquire wealth, though there are many different approaches to this. For centuries, Ferengi culture has been dominated by the philosophies and lessons of the Rules of Acquisition, though these can be interpreted in a variety of different ways and applied to a Ferengi’s life.\n\n{i}EXAMPLE CHARACTERS: Quark (Deep Space Nine), Nog (Deep Space Nine)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys01" name="Control/Comm" abbrev="Control/Comm"/>
+    <tag group="SpeciesBon" tag="attrsys04" name="Insight/Sensors" abbrev="Insight/Sensors"/>
+    <tag group="SpeciesBon" tag="attrsys05" name="Presence/Structure" abbrev="Presence/Structure"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="saGreatMatCont"></bootstrap>
+    <bootstrap thing="trFerengi"></bootstrap>
+    </thing>
+  <thing id="spc2EKlingon" name="Klingon" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence.\n\n{b}EXAMPLE VALUES:{/b} \n- It is a good day to die!\n- Own the day!\n- Revenge is a dish best served cold\n- I am a Klingon warrior; if you doubt it, a demonstration can be arranged!\n\nKlingons are a proud, martial people, native to the planet Qo’noS in the Beta Quadrant. Their tall, strong physiques, sharp teeth, and the distinctive dense crest that runs from their brow, over their heads, and down their spines, all contribute to an appearance that is synonymous with martial prowess and ferocity. Hardy and aggressive, Klingons combine a sense of pride and personal conviction with a fatalistic streak, regarding honorable death to be preferable to what they would deem a shameful or cowardly life.\n\nKlingons embrace life and death alike without fear. They are also a people with a powerful sense of honor, both personal and familial, and they are quick to anger when attacked; the greatest slights can result in generations-long blood feuds." compset="Species" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys02" name="Daring/Computers" abbrev="Daring/Computers"/>
+    <tag group="SpeciesBon" tag="attrsys03" name="Fitness/Engines" abbrev="Fitness/Engines"/>
+    <tag group="SpeciesBon" tag="attrsys05" name="Presence/Structure" abbrev="Presence/Structure"/>
+    <tag group="SpecCat" tag="Player" name="Player" abbrev="Player"/>
+    <bootstrap thing="trKlingon"></bootstrap>
+    <bootstrap thing="saBraklul"></bootstrap>
+    </thing>
+  <thing id="spc2EOrion" name="Orion" description="{b}ATTRIBUTES:{/b} +1 Daring, +1 Fitness, +1 Presence\n\n{b}EXAMPLE VALUES:{/b}\n- Everything has a price\n- Your expectations limit you\n- I am not who you expect me to be\n- I thrive because I do not ignore opportunities\n\nA species with a colorful reputation, the Orions are subject to rumor, speculation, and flights of fancy, to the point where there are numerous common misconceptions about their species and culture. This seems to be at least partially by design. Orions are accustomed to taking full advantage of any opportunity that passes their way, and the uncertainty and misdirection that surrounds them is a considerable advantage. The influence of Orion traders and the Orion Syndicate can be felt across the Alpha and Beta Quadrants, often in ways that flout the laws of other cultures, and often employing agents of other species.\n\nOrion culture appears to be divided along gender lines, and there is evidence to suggest they have a broadly matriarchal culture, with the women serving in leadership roles, while Orion males more often serving as muscle, laborers, and minor operatives, though this has shifted somewhat over the centuries. This appears to be due to a trait of some Orion females, who have been observed to produce pheromones that can make male Orions (and males of some other species, including Humans) compliant. It isn’t known how widespread this trait is.\n\n{i}EXAMPLE CHARACTERS: D’Vana Tendi (Lower Decks), Osyraa (Discovery)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys02" name="Daring/Computers" abbrev="Daring/Computers"/>
+    <tag group="SpeciesBon" tag="attrsys03" name="Fitness/Engines" abbrev="Fitness/Engines"/>
+    <tag group="SpeciesBon" tag="attrsys05" name="Presence/Structure" abbrev="Presence/Structure"/>
+    <tag group="SpecCat" tag="Player" name="Player" abbrev="Player"/>
+    <bootstrap thing="trSCGOrion"></bootstrap>
+    <bootstrap thing="saNeverFaceValue"></bootstrap>
+    </thing>
+  <thing id="spc2ERomulan" name="Romulan" description="{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason.\n\n{b}EXAMPLE VALUES:{/b}\n- I give my life to the service of the Empire\n- Secrecy is a shield against betrayal\n- Every secret I discover is another weapon in my arsenal\n- Even my secrets have secrets!\n\nA divergent offshoot of the Vulcan species, Romulans fled their original homeworld millennia ago. These Vulcans, “those who marched beneath the Raptor’s wings,” refused to accept the teachings of Surak, and thus did not embrace logic or stoicism, and eventually their ships would reach the worlds known as Romulus and Remus. Much of what is known about the Romulans has been pieced together from secondary and tertiary sources, as the Romulans themselves are secretive bordering on paranoia and do not disclose any information about themselves unless they deem it vital. Indeed, the Federation didn’t even know what Romulans looked like until a century after the Earth-Romulan War.\n\nTo the Romulans, trust is something to be placed in only a few, for misplaced trust can be a deadly weapon. A Romulan trusts only their closest family members, and places increasing layers of secrecy, obfuscation, and misdirection as relationships grow more distant. There are exceptions to this, such as the scrupulously candid order Qowat Milat, but most Romulans are highly guardedand suspicious of everyone.\n\n{i}EXAMPLE CHARACTERS: Elnor (Picard), T’Rul (Deep Space Nine)\n{/i}" compset="Species" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="SpeciesBon" tag="attrsys03" name="Fitness/Engines" abbrev="Fitness/Engines"/>
+    <tag group="SpeciesBon" tag="attrsys06" name="Reason/Weapons" abbrev="Reason/Weapons"/>
+    <tag group="SpeciesBon" tag="attrsys01" name="Control/Comm" abbrev="Control/Comm"/>
+    <tag group="SpecCat" tag="Player"/>
+    <bootstrap thing="saParanoia"></bootstrap>
+    <bootstrap thing="trRomulan"></bootstrap>
+    </thing>
+  <thing id="trAugment" name="Augment" description="In much of the Alpha and Beta Quadrants, the use of genetic engineering is regarded warily. The Federation has had laws restricting genetic manipulation since it was founded, growing out of the devastating lessons of Earth’s Eugenics Wars. The Klingons have their own poor experiences with genetic engineering, and largely regard genetic augmentation as a form of unearned power, and deeply dishonorable. While genetics as a science is not expressly outlawed, genetic engineering of sapient life-forms is approached with caution and heavily regulated.\n\nIn the more lawless regions of space, less scrupulous genetic engineers pursue their craft free from what they see as persecution, but the unrestricted nature of their work often results in unforeseen side-effects, with unrestricted tampering of the genome often resulting in mental, emotional, or physical impairments, mutated diseases, or other problems." compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trCyborg" name="Cyborg" description="Another potential form of augmentation is using cybernetics. These are not as strictly regulated, and the Federation has fewer laws about the use of biomechanical and biosynthetic implants, and there have been numerous periods of history—particularly in the wake of wartime—where people with cybernetic implants are commonplace. Where possible, organic prostheses are preferred, but these are not always available or viable, so cybernetics are about as common as biosynthetic replacements. While some augmentation is possible, there are limits to what the body can withstand, and an implant with capabilities far beyond what a body can normally achieve are liable to place a body under extreme stress or have other side-effects." compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
     </thing>
   </document>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "static" form for the game system.
+      The "static" form represents the region at the top of the main window that
+      is always visible for every actor (hence the term "static"). It's an area of
+      limited vertical height that spans the entire width of the main window, less
+      the region needed for the validation button and the dashboard (if visible).
+
+      In general, the "static" form should contain the character's name and core
+      aspects of the character that the user will often want to refer to. However,
+      there are no hard requirements for what is placed in the "static" form.
+
+      NOTE! The unique id of the "static" form is specially recognized by Hero Lab
+      as the form to be used across the top of the main window. A form with the
+      id "static" is required within your data files.
+-->
+
+<document signature="Hero Lab Data">
+
+
+  <!-- stArchetype portal
+        Displays a chooser wherein the user can select the archetype for the character.
+
+        We use the "LargeItem" template for selecting the adjustments, since all we
+        need is basic information.
+
+        The "chosen" script shows the selected archetype with a suitable prefix. If no
+        archetype is yet selected, a prompt it shown with appropriate color highlighting.
+  -->
+	
+  <!-- Ammunition portal 
+      candidatepick="GearHelper"
+	  candidatefield="ghAmmoExpr"
+	  -->
+  <portal
+    id="amAmmunition"
+    style="tblNormal">
+    <table_dynamic
+      component="Ammunition"
+      showtemplate="amAmmoThing"
+      choosetemplate="amAmmoThing"
+      alwaysupdate="yes"
+      scrollable="yes"
+      addpick="GearHelper"
+      headerpick="GearHelper"
+      candidatepick="GearHelper"
+	  candidatefield="ghAmmoExpr">
+      <titlebar><![CDATA[
+        @text = "Load Ammunition"
+        ]]></titlebar>
+      <headertitle><![CDATA[
+        @text = "Ammunition Reloads"
+        ]]></headertitle>
+      <additem><![CDATA[
+        @text = "Add New Ammunition"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
+  <template
+    id="amAmmoChooser"
+    name="Ammo Chooser"
+    compset="GearHelper"
+    marginhorz="3"
+    marginvert="2">	
+
+    <portal
+      id="lblmenu"
+      style="lblSecond">
+      <label>
+		<labeltext><![CDATA[
+		  ~ field="ghAmmoLabel"
+		  @text = "Ammo Load:"
+		  ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal 
+      id="menu" 
+	  style="menuNormal">
+      <menu_things 
+	    field="ghAmmoChosen" 
+	    component="none" 
+	    maxvisible="20"
+        usepicksfield="ghAmmoPick" 
+	    candidatefield="ghAmmoExpr">
+        <candidate>
+	      </candidate>
+        </menu_things>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[lblmenu].height
+	  
+	  ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[lblmenu].top = 0
+
+      ~center the other portals vertically
+      perform portal[menu].centervert
+	  
+	  if (field[ghAmmoExpr].isempty <> 0) then
+        portal[lblmenu].visible = 0
+        portal[menu].visible = 0
+        endif
+
+	  
+      perform portal[lblmenu].alignedge[left,0]
+	  portal[menu].width = 250
+	  ~portal[lblmenu].width = 100
+      perform portal[menu].alignrel[ltor,lblmenu,5]
+	  
+	  
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="amAmmoThing"
+    name="AmmoThing"
+    compset="Ammunition"
+    marginhorz="3"
+    marginvert="2">
+	
+    <portal
+      id="tname"
+      style="lblNormal"
+      showinvalid="yes">
+      <label>
+	    <labeltext><![CDATA[
+		  @text = field[name].text
+		  ]]></labeltext>
+        </label>
+      </portal>	
+	  
+    <portal
+      id="name"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to equip this item">
+      <checkbox
+        field="grIsEquip"
+        dynamicfield="grStkName">
+        </checkbox>
+      </portal>
+
+    <portal
+      id="cost"
+      style="lblNormal"
+      showinvalid="yes">
+      <label>
+	    <labeltext><![CDATA[
+		  @text = "$"
+		  if (@ispick = 0) then
+		    @text &= container.child[GearHelper].field[ghAmmoReloadCost].text
+		  else
+		    @text &= field[grTotalCost].value
+		    endif
+		  ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if we've been assigned a non-default width for use when showing things, adopt
+      ~that width now
+      if (ispick = 0) then
+        var size as number
+        size = tagvalue[SimpleItem.width?]
+        if (size > 0) then
+          width = size
+          endif
+        endif
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[tname].centervert
+      perform portal[name].centervert
+      perform portal[delete].centervert
+      perform portal[cost].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~if we're showing a thing, the info and delete buttons are irrelevant, since
+      ~we should be showing within a chooser, in which case there's nothing to
+      ~delete and we have the description already visible
+      var edge as number
+      if (ispick = 0) then
+        portal[info].visible = 0
+        portal[delete].visible = 0
+        portal[name].visible = 0
+		
+		~position the info portal to the left of the delete button
+        perform portal[cost].alignedge[right,0]
+      else
+        portal[tname].visible = 0
+		
+		~position the info portal to the left of the delete button
+        perform portal[cost].alignrel[rtol,info,-8]
+        endif
+      
+	  edge = portal[cost].left - 5
+      
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,edge)
+	  
+      portal[tname].left = 0
+      portal[tname].width = minimum(portal[tname].width,edge)
+	  
+      ~center the name if requested or this is a show-only thing
+      if (tagis[SimpleItem.CenterName] + tagis[thing.showonly] <> 0) then
+        perform portal[name].centerhorz
+		perform portal[tname].centerhorz
+        endif
+
+      ]]></position>
+
+    </template>
+
+	
+  <template
+    id="amDamages"
+    name="Damages"
+    compset="GearHelper"
+    marginhorz="3"
+    marginvert="2">	
+
+    <portal
+      id="lbldamage"
+      style="lblSecond">
+      <label>
+		<labeltext><![CDATA[
+		  ~ field="ghAmmoLabel"
+		  @text = "Damages:"
+		  ]]></labeltext>
+        </label>
+      </portal>
+	  	  
+    <portal
+      id="damage1"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to add point of damage to item">
+      <checkbox
+        field="ghDamage1">
+        </checkbox>
+      </portal>
+	  	  
+    <portal
+      id="damage2"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to add point of damage to item">
+      <checkbox
+        field="ghDamage2">
+        </checkbox>
+      </portal>
+	  	  
+    <portal
+      id="damage3"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to add point of damage to item">
+      <checkbox
+        field="ghDamage3">
+        </checkbox>
+      </portal>
+	  	  
+    <portal
+      id="damage4"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to add point of damage to item">
+      <checkbox
+        field="ghDamage4">
+        </checkbox>
+      </portal>
+
+    <portal
+      id="damage5"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to add point of damage to item">
+      <checkbox
+        field="ghDamage5">
+        </checkbox>
+      </portal>
+	  	  
+    <portal
+      id="damage6"
+      style="chkNormal"
+      showinvalid="yes"
+      tiptext="Click to add point of damage to item">
+      <checkbox
+        field="ghDamage6">
+        </checkbox>
+      </portal>
+	  
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[lbldamage].height + portal[damage1].height + 5
+	  
+	  ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[lbldamage].top = 0
+      portal[damage1].top = portal[lbldamage].bottom + 5
+      portal[damage2].top = portal[damage1].top
+      portal[damage3].top = portal[damage1].top
+      portal[damage4].top = portal[damage1].top
+      portal[damage5].top = portal[damage1].top
+      portal[damage6].top = portal[damage1].top
+	
+	  portal[lbldamage].width = 100
+	  
+      perform portal[lbldamage].alignedge[left,0]
+      perform portal[damage1].alignedge[left,0]
+      perform portal[damage2].alignrel[ltor,damage1,5]
+      perform portal[damage3].alignrel[ltor,damage2,5]
+      perform portal[damage4].alignrel[ltor,damage3,5]
+      perform portal[damage5].alignrel[ltor,damage4,5]
+      perform portal[damage6].alignrel[ltor,damage5,5]
+	  
+      ]]></position>
+
+    </template>
+	
+
+  <!--   -->
+  <layout
+    id="ammo">
+    <!-- <portalref portal="amAmmunition" taborder="10"/> -->
+    <templateref template="amAmmoChooser" thing="GearHelper"/>
+    <templateref template="amDamages" thing="GearHelper"/>
+
+    <!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+      width = 350
+	  
+	  perform template[amAmmoChooser].autoplace[0]
+	  perform template[amDamages].autoplace[10]
+	  
+	  height = autoextent
+	  
+      ]]></position>
+
+    </layout>
+
+
+  <!-- static form
+        This is the "static" form shown at the top of the main window within Hero
+        Lab.
+
+        NOTE! The unique id of this form is specially recognized by Hero Lab as
+        the form to be used across the top of the main window. A form with this
+        id is required within your data files.
+
+        NOTE! By default, this form is 40 pixels in height, and it must always be
+        set to be at least 40 pixels in height.
+  -->
+  <form
+    id="equipgiz"
+    name="Ammunition">
+    <layoutref layout="ammo"/>
+    <position><![CDATA[
+      layout[ammo].width = 150
+      perform layout[ammo].render
+      width = layout[ammo].width
+      height = layout[ammo].height
+      ]]></position>
+    </form>
+
+  </document>

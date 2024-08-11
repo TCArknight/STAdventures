@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document signature="Hero Lab Data">
-  <thing id="upAgriRur" name="Agricultural or Rural" description="The character grew up surrounded more by nature than by people, in rural communities, on the frontier, or somewhere else distanced from the bustle of cities. They might be heavily involved in agriculture, growing real food to supplement synthesized or replicated meals.\n\nAccept: Fitness +2, Control +1\nReject: Reason +2, Presence +1\n\nDiscipline: Conn, Medicine, or Security" compset="Upbringing" uniqueness="unique">
+  <thing id="upAgriRur" name="Agricultural or Rural" description="The character grew up surrounded more by nature than by people, in rural communities, on the frontier, or somewhere else distanced from the bustle of cities. They might be heavily involved in agriculture, growing real food to supplement synthesized or replicated meals.\n\nATTRIBUTES\nIf the character {b}accepted{/b} this Upbringing, the tough, practical life on the land breeds a strong work ethic and a healthy body, increasing their Control by 1 and their Fitness by 2.\n\nIf the character {b}rebelled{/b} against this Upbringing, they are likely to have embraced science, technology, and the fruits of civilization, increasing their Presence by 1 and their Reason by 2.\n\nDEPARTMENTS, FOCUS, AND TALENT\nThe character’s living off the land and growing up on the edge of civilization allows them to increase one of Conn, Security, or Medicine\n\nThe character’s focus should relate to the character’s rural lifestyle, and the skills they learned there. Examples include: Animal Handling, Athletics, Emergency Medicine, Endurance, Ground Vehicles, Infectious Diseases, Navigation, Toxicology, Survival Training.\n\nThe character also gains a single talent." compset="Upbringing" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept02|thingid.discdept03|thingid.discdept06)"/>
     <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
+    <fieldval field="upRoll" value="3"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <usesource source="ENT"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+    <eval phase="PreAbility" priority="5000"><![CDATA[
       if (hero.tagis[Upbringing.Rebel] = 0) then
 	    #abilbonus[attrsys03] += 2
 	    #abilbonus[attrsys01] += 1
@@ -19,20 +20,18 @@
 
 	  doneif (field[usrChosen1].ischosen <> 0)
 		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
+	  field[usrChosen1].chosen.field[abiBonus].value += 1]]></eval>
     </thing>
-
-  <thing id="upArtCre" name="Artistic and Creativity" description="The character’s life was filled with arts and creativity of all kinds, and no matter what pursuits the character favors, they are exposed to the great works of many cultures, and given every opportunity to express themselves.\n\nAccept: Presence +2, Insight +1\nReject: Fitness +2, Daring +1\n\nDiscipline: Command, Engineering, Science" compset="Upbringing" uniqueness="unique">
+  <thing id="upArtCre" name="Artistic and Creativity" description="The character’s life was filled with arts and creativity of all kinds, and no matter what pursuits the character favors, they are exposed to the great works of many cultures, and given every opportunity to express themselves.\n\nATTRIBUTES\nIf the character {b}accepted{/b} this Upbringing, they develop a greater understanding of emotion and communication, increasing their Insight by 1 and their Presence by 2. \n\nIf the character {b}rebelled{/b} against this Upbringing, the character is more inclined to action than to expression, increasing their Daring by 1 and their Fitness by 2.\n\nDEPARTMENTS, FOCUS, AND TALENT\nThe character’s ease with creativity and self-expression lend themselves to many pursuits, allowing the character to increase one of Command, Engineering, or Science. The character’s focus should relate to the character’s preferred way of applying their skills. Examples include: Botany, Cultural Studies, Holoprogramming, Linguistics, Music, Observation, Persuasion, Psychology. \n\nThe character also gains a single talent." compset="Upbringing" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept05)"/>
     <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
+    <fieldval field="upRoll" value="6"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <usesource source="ENT"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+    <eval phase="PreAbility" priority="5000"><![CDATA[
       if (hero.tagis[Upbringing.Rebel] = 0) then
 	    #abilbonus[attrsys04] += 1
 	    #abilbonus[attrsys05] += 2
@@ -43,20 +42,18 @@
 
 	  doneif (field[usrChosen1].ischosen <> 0)
 		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
+	  field[usrChosen1].chosen.field[abiBonus].value += 1]]></eval>
     </thing>
-
-  <thing id="upBusTra" name="Business or Trade" description="The character’s family may have connections on countless worlds, overseeing and directing some grand business endeavor. They might have been traders or involved in interplanetary freight. Either way, the character has grown up encountering people from all walks of life, including those from outside the Federation, and their outlook on life has been shaped accordingly.\n\nAccept: Presence +2, Daring +1\nReject: Insight +2, Reason +1\n\nDiscipline: Command, Engineering, or Science" compset="Upbringing" uniqueness="unique">
+  <thing id="upBusTra" name="Business or Trade" description="The character’s family may have connections on countless worlds, overseeing and directing some grand business endeavor. They might have been traders or involved in interplanetary freight. Either way, the character has grown up encountering people from all walks of life, including those from outside their civilization, and their outlook on life has been shaped accordingly.\n\nATTRIBUTES\nIf the character accepted this Upbringing, a cosmopolitan, ambitious lifestyle increases their Daring by 1 and their Presence by 2.\n\nIf the character rebelled against this Upbringing, stepping away from the family business to find their own identity increases their Insight by 2 and their Reason by 1.\n\nDEPARTMENTS, FOCUS, AND TALENT\nThe character’s experiences with their family business allows them to increase any one of Command, Engineering, or Science.\n\nThe character’s focus should relate to the nature of their family’s business, covering skills that are valuable during trade, or which were useful to the family business in other ways. Examples include: Finances, Geology, Linguistics, Manufacturing, Metallurgy, Negotiation, Survey.\n\nThe character also gains a single talent." compset="Upbringing" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept  &amp; (thingid.discdept01|thingid.discdept04|thingid.discdept05)"/>
     <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
+    <fieldval field="upRoll" value="9"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <usesource source="ENT"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+    <eval phase="PreAbility" priority="5000"><![CDATA[
       if (hero.tagis[Upbringing.Rebel] = 0) then
 	    #abilbonus[attrsys02] += 1
 	    #abilbonus[attrsys05] += 2
@@ -67,20 +64,18 @@
 
 	  doneif (field[usrChosen1].ischosen <> 0)
 		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
+	  field[usrChosen1].chosen.field[abiBonus].value += 1]]></eval>
     </thing>
-
-  <thing id="upDipPol" name="Diplomacy and Politics" description="The character has been exposed to the complexities of political thought and the nuances of diplomacy since they were young, perhaps because a family member was involved in those fields.\n\nAccept: Presence +2, Control +1\nReject: Reason +2, Fitness +1\n\nDiscipline: Command, Conn, or Security" compset="Upbringing" uniqueness="unique">
+  <thing id="upDipPol" name="Diplomacy and Politics" description="The character has been exposed to the complexities of political thought and the nuances of diplomacy since they were young, perhaps because a family member was involved in those fields.\n\nATTRIBUTES\nIf the character accepted this Upbringing, they’re disciplined and well-versed in the arts of debate, increasing their Control by 1 and their Presence by 2.\n\nIf the character rebelled against this Upbringing, then they’ve instead sought more tangible things to focus on, increasing their Fitness by 1 and their Reason by 2.\n\nDEPARTMENTS, FOCUS, AND TALENT\nThe character’s familiarity with the practices and perils of diplomacy, politics, and the law allow them to increase any one of Command, Conn, or Security by 1.\n\nThe character’s focus should relate to the character’s preferred way of applying their skills. Examples include: Composure, Debate, Diplomacy, Espionage, Interrogation, Law, Philosophy, Starfleet Protocol.\n\nThe character also gains a single talent." compset="Upbringing" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept03|thingid.discdept02)"/>
     <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
+    <fieldval field="upRoll" value="12"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <usesource source="ENT"/>
     <tag group="User" tag="NoAutoName"/>
-	<eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+    <eval phase="PreAbility" priority="5000"><![CDATA[
       if (hero.tagis[Upbringing.Rebel] = 0) then
 	    #abilbonus[attrsys05] += 2
 	    #abilbonus[attrsys01] += 1
@@ -91,20 +86,18 @@
 
 	  doneif (field[usrChosen1].ischosen <> 0)
 		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
+	  field[usrChosen1].chosen.field[abiBonus].value += 1]]></eval>
     </thing>
-
-  <thing id="upSciTech" name="Science and Technology" description="The character’s home was one filled with the potential of science, and cutting edge developments were familiar ground. Perhaps the character was raised by scientists or engineers, or had mentors and teachers who encouraged a talent for the technical.\n\nAccept: Control +2, Reason +1\nReject: Insight+2, Daring +1\n\nDiscipline: Conn, Engineering, Medicine, or Science" compset="Upbringing" uniqueness="unique">
+  <thing id="upSciTech" name="Science and Technology" description="The character’s home was one filled with the potential of science, and cutting-edge developments were familiar ground. Perhaps the character was raised by scientists, engineers, or had mentors and teachers who encouraged a talent for the technical.\n\nATTRIBUTES\nIf the character accepted this Upbringing, they are rational, methodical, and precise, increasing their Control by 2 and their Reason by 1.\n\nIf the character rebelled against this Upbringing, they don’t lack technical talent, but they haven’t developed that talent and instead rely more on instinct, increasing their Daring by 1 and their Insight by 2.\n\nDEPARTMENTS, FOCUS, AND TALENT\nThe character’s familiarity with cutting-edge science and the latest research allows them to increase one of Conn, Engineering, Science, or Medicine by 1.\n\nThe character’s focus should relate to the character’s favored fields of study and inquiry. Examples include: Astrophysics, Astronavigation, Computers, Cybernetics, Power Systems, Genetics, Physics, Subspace Communications, Surgery, Quantum Mechanics, Warp Field Dynamics, Xenobiology.\n\nThe character also gains a single talent." compset="Upbringing" uniqueness="unique">
     <fieldval field="usrLabel1" value="+1 to Discipline:"/>
     <fieldval field="usrCandid1" value="component.DiscDept &amp; !(thingid.discdept01|thingid.discdept03)"/>
     <fieldval field="usrSource1" value="1"/>
-    <usesource source="ENT"/>
+    <fieldval field="upRoll" value="15"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
+    <usesource source="ENT"/>
     <tag group="User" tag="NoAutoName"/>
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+    <eval phase="PreAbility" priority="5000"><![CDATA[
       if (hero.tagis[Upbringing.Rebel] = 0) then
 	    #abilbonus[attrsys01] += 2
 	    #abilbonus[attrsys06] += 1
@@ -115,21 +108,27 @@
 
 	  doneif (field[usrChosen1].ischosen <> 0)
 		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
+	  field[usrChosen1].chosen.field[abiBonus].value += 1]]></eval>
     </thing>
-
-  <thing id="upStarfl" name="Starfleet" description="The character’s family may have a strong tradition of Starfleet service, with at least one member of the family in every generation serving the Federation in this way. Perhaps both the character’s parents were Starfleet officers, who met in service. Either way, the character’s formative years were influenced by Starfleet.\n\nAccept: Control +2, Fitness +1\nReject: Daring +2, Insight +1\n\nDiscipline: Choose One" compset="Upbringing" uniqueness="unique">
-    <fieldval field="usrLabel1" value="+1 to Discipline:"/>
+  <thing id="upStarfl" name="Starfleet or Military" description="The character’s family may have a strong tradition of naval service, with at least one member of the family in every generation serving their people in this way. Perhaps both the character’s parents served in the military, who met in service. Either way, the character’s formative years were influenced by a military life. In the Federation, this will normally refer to Starfleet, but it may just as easily apply to groups like the Bajoran Militia, the Andorian Imperial Guard, the Klingon Defense Fleet, Imperial Romulan Navy, or any of a number of other military forces.\n\nATTRIBUTES\nIf the character accepted this Upbringing, the orderly, purposeful life increases their Control by 2 and their Fitness by 1.\n\nIf the character rebelled against this Upbringing, their bold and self-determined living increases their Daring by 2 and their Insight by 1.\n\nDEPARTMENTS, FOCUS, AND TALENT\nThe character’s exposure to the ways and traditions of Starfleet allows them to increase any one department rating by 1.\n\nThe character’s focus should relate to their connection to Starfleet, covering skills learned during the character’s formative years. Examples include: Astronavigation, Composure, Extra-Vehicular Activity, Hand-to-Hand Combat (may be renamed to a specific martial art), Hand Phasers, Small Craft, Starfleet Protocol, Starship Recognition, or History.\n\nThe character also gains a single talent." compset="Upbringing" uniqueness="unique">
+    <fieldval field="usrLabel1" value="+1 to "/>
     <fieldval field="usrCandid1" value="component.DiscDept"/>
-    <fieldval field="usrSource1" value="1"/> 
-	<usesource source="ENT"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="upRoll" value="18"/>
     <usesource source="TOS"/>
     <usesource source="TNG"/>
-    <tag group="User" tag="NoAutoName"/>	
-    <tag group="ChooseSrc1" tag="Container"/>	
-    <eval index="1" phase="PreAbility" priority="5000"><![CDATA[
+    <usesource source="ENT"/>
+    <tag group="ChooseSrc1" tag="Container"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval phase="PreAbility" priority="5000"><![CDATA[
+	trustme
+	
+	  if (#issecondedition[] <> 0) then
+	    field[usrLabel1].text &= "Department:"
+	  else
+	    field[usrLabel1].text &= "Discipline:"
+	    endif
+		
       if (hero.tagis[Upbringing.Rebel] = 0) then
 	    #abilbonus[attrsys01] += 2
 	    #abilbonus[attrsys03] += 1
@@ -140,10 +139,6 @@
 
 	  doneif (field[usrChosen1].ischosen <> 0)
 		
-	  field[usrChosen1].chosen.field[abiBonus].value += 1
-		
-      ]]></eval>
-	  
+	  field[usrChosen1].chosen.field[abiBonus].value += 1]]></eval>
     </thing>
-
   </document>

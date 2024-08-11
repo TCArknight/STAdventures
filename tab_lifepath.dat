@@ -9,53 +9,210 @@
 
 <document signature="Hero Lab Data">
 
-  <portal 
-    id="hdrSpecies" 
-    style="lblTitle">
-    <label>
-      <labeltext>
-        @text = "Step 1: Species"
-        </labeltext>
-      </label>
-    </portal>
-          
   <portal
-    id="hoSpecies"
-    style="chsNormal"
-    width="110">
-    <chooser_table
-      component="Species"
-      choosetemplate="SimpleItem"
-	  choosesortset="SpecSort">
-      <chosen><![CDATA[
-        if (@ispick = 0) then
-          @text = "{text clrwarning}Select Species"
-        else
-          @text = "Species: " & field[name].text
-          endif
-        ]]></chosen>
-      <titlebar><![CDATA[
-        @text = "Choose the Species for your character"
-        ]]></titlebar>
-      </chooser_table>
-    </portal>
-<!-- 	
-  <portal
-    id="hoSpecies"
+    id="lpSpecies"
     style="tblNormal"
     width="110">
 	<table_dynamic
       component="Species"
-	  showtemplate="SimpleItem"
+	  showtemplate="hoPick"
       choosetemplate="SimpleItem"
-	  choosesortset="SpecSort">
+	  choosesortset="SpeciesSort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="Species"/>
       <titlebar><![CDATA[
         @text = "Choose the Species for your character"
         ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 1: Species"
+        </headertitle>
 	  <additem><![CDATA[
+        @text &= "Add Species"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>  
+	
+  <portal
+    id="lpEnvironment"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="Environ"
+	  showtemplate="lpEnvPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="EnvironSort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="Environment"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Species for your character"
+        ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 2: Environment"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Environment"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+	
+  <portal
+    id="lpUpbringing"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="Upbringing"
+	  showtemplate="lpUpbPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="UpbringSort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="Upbringing"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Upbringing for your character"
+        ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 3: Upbringing"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Upbringing"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+	
+  <portal
+    id="lpAcademy"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="Academy"
+	  showtemplate="lpAcadPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="AcademySort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="Academy"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Academy for your character"
+        ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 4: Academy"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Academy"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+	
+  <portal
+    id="lpCareerPath"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="CareerPath"
+	  showtemplate="lpCPathPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="CPathSort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="CareerPath"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Career Path for your character"
+        ]]></titlebar>
+      <description/>
+      <headertitle> 
+        @text = "Step 4: Career Path"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Career Path"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+	
+  <portal
+    id="lpCareerTrack"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="CareerTrack"
+	  showtemplate="lpCPathPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="CTrackSort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="CareerTrack"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Career Track for your character"
+        ]]></titlebar>
+      <description/>
+      <headertitle> 
+        @text = "Step 4a: Career Track"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Career Track"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+	
+  <portal
+    id="lpCareerExp"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="CareerExp"
+	  showtemplate="lpCExpPick"
+      choosetemplate="SimpleItem"
+	  choosesortset="CExpSort"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="LifepathSelected" tag="Experience"/>
+      <titlebar><![CDATA[
+        @text = "Choose the experience level for your character"
+        ]]></titlebar>
+      <description/>
+      <headertitle> 
+        @text = "Step 5: Experience"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Experience level"
+        ]]></additem>
+	  </table_dynamic>
+    </portal>
+
+
+
+  <!-- evEvent portal
+        Presents a dynamic table where the user can add career events for the
+        character.
+  -->
+  <portal
+    id="lpEvents"
+    style="tblNormal">
+    <table_dynamic
+      component="Event"
+      showtemplate="evPick"
+      choosetemplate="SimpleItem"
+	  showfrozenfixed="yes"
+      showfixedlast="yes"
+      addpick="resEvent"
+	  scrollable="no">
+      <candidate>!Hide.Event</candidate>
+      <titlebar><![CDATA[
+        @text = "Add a Event - " & hero.child[resEvent].field[resSummary].text
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Events: " & hero.child[resEvent].field[resSummary].text
+        ]]></headertitle>
+      <additem><![CDATA[
         ~if we're in advancement mode, we've been frozen, so display accordingly
         if (state.iscreate = 0) then
-          @text = "{text clrgrey}Add Talents Via Advances Tab"
+          @text = "{text clrgrey}You cannot add Career Events after initial creation."
           done
           endif
 
@@ -65,99 +222,9 @@
         elseif (field[resLeft].value < 0) then
           @text = "{text clrwarning}"
           endif
-        @text &= "Add New Talent"
+        @text &= "Add New Event"
         ]]></additem>
-	  </table_dynamic>
-    </portal>
--->	
-  <portal 
-    id="hdrEnviron" 
-    style="lblTitle">
-    <label>
-      <labeltext>
-        @text = "Step 2: Environment"
-        </labeltext>
-      </label>
-    </portal>
-           
-  <portal
-    id="hoEnviron"
-    style="chsNormal"
-    width="150">
-    <chooser_table
-      component="Environ"
-      choosetemplate="SimpleItem">
-      <chosen><![CDATA[
-        if (@ispick = 0) then
-          @text = "{text clrwarning}Select Environment"
-        else
-          @text = "Environment: " & field[name].text
-          endif
-        ]]></chosen>
-      <titlebar><![CDATA[
-        @text = "Choose the Environment for your character"
-        ]]></titlebar>
-      </chooser_table>
-    </portal>
-	
-  <portal 
-    id="hdrUpbring" 
-    style="lblTitle">
-    <label>
-      <labeltext>
-        @text = "Step 3: Upbringing"
-        </labeltext>
-      </label>
-    </portal>
-           
-  <portal
-    id="hoUpbring"
-    style="chsNormal"
-    width="150">
-    <chooser_table
-      component="Upbringing"
-      choosetemplate="SimpleItem">
-      <chosen><![CDATA[
-        if (@ispick = 0) then
-          @text = "{text clrwarning}Select Upbringing"
-        else
-          @text = "Upbringing: " & field[name].text
-          endif
-        ]]></chosen>
-      <titlebar><![CDATA[
-        @text = "Choose the Upbringing for your character"
-        ]]></titlebar>
-      </chooser_table>
-    </portal>
-	
-  <portal 
-    id="hdrAcad" 
-    style="lblTitle">
-    <label>
-      <labeltext>
-        @text = "Step 4: Starfleet Academy"
-        </labeltext>
-      </label>
-    </portal>
-           
-  <portal
-    id="hoAcad"
-    style="chsNormal"
-    width="150">
-    <chooser_table
-      component="Academy"
-      choosetemplate="SimpleItem">
-      <chosen><![CDATA[
-        if (@ispick = 0) then
-          @text = "{text clrwarning}Select Starfleet Academy Track"
-        else
-          @text = "Academy Track: " & field[name].text
-          endif
-        ]]></chosen>
-      <titlebar><![CDATA[
-        @text = "Choose the Academy Track for your character"
-        ]]></titlebar>
-      </chooser_table>
+      </table_dynamic>
     </portal>
 	
   <portal 
@@ -168,26 +235,6 @@
         @text = "Step 5 &amp; 6: Career &amp; Events"
         </labeltext>
       </label>
-    </portal>
-	
-  <portal
-    id="hoCareer"
-    style="chsNormal"
-    width="150">
-    <chooser_table
-      component="Career"
-      choosetemplate="SimpleItem">
-      <chosen><![CDATA[
-        if (@ispick = 0) then
-          @text = "{text clrwarning}Select Career Experience"
-        else
-          @text = "Career: " & field[name].text
-          endif
-        ]]></chosen>
-      <titlebar><![CDATA[
-        @text = "Choose the Academy Track for your character"
-        ]]></titlebar>
-      </chooser_table>
     </portal>
 	
   <portal 
@@ -206,6 +253,39 @@
     <separator
       isvertical="no">
       </separator>
+    </portal>
+
+  <!-- lpRole portal
+
+  -->
+  <portal
+    id="lpRole"
+    style="tblNormal">
+    <table_dynamic
+      component="CharRole"
+      showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+      showfixedlast="yes"
+      addpick="resCharRole"
+	  scrollable="no">
+      <candidate>!Hide.Value</candidate>
+      <titlebar><![CDATA[
+        @text = "Add a Role - " & hero.child[resCharRole].field[resSummary].text
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Roles: " & hero.child[resCharRole].field[resSummary].text
+        ]]></headertitle>
+      <additem><![CDATA[
+        ~set the color based on whether the proper number of slots are allocated
+        if (field[resLeft].value = 0) then
+          @text = "{text clrgrey}"
+        elseif (field[resLeft].value < 0) then
+          @text = "{text clrwarning}"
+          endif
+        @text &= "Add New Role"
+        ]]></additem>
+      </table_dynamic>
     </portal>
 	
   <template
@@ -231,6 +311,16 @@
         action="info">
         </action>
       <mouseinfo/>
+      </portal>
+
+    <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="spcNotes">
+        </action>
       </portal>
 
     <portal
@@ -262,9 +352,413 @@
       ~position the info portal to the left of the delete button
       perform portal[info].alignrel[rtol,delete,-8]
 
+      ~position the notes button to the left of the info button
+      perform portal[notes].alignrel[rtol,info,-6]
+      perform portal[notes].centeron[vert,info]
+
       ~position the name on the left and let it use all available space
       portal[name].left = 0
-      portal[name].width = minimum(portal[name].width,portal[info].left - 5)
+      portal[name].width = minimum(portal[name].width,portal[notes].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="lpEnvPick"
+    name="Environment Pick"
+    compset="Environ"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="envNotes">
+        </action>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the notes button to the left of the info button
+      perform portal[notes].alignrel[rtol,info,-6]
+      perform portal[notes].centeron[vert,info]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[notes].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="lpUpbPick"
+    name="Upbringing Pick"
+    compset="Upbringing"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="upNotes">
+        </action>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the notes button to the left of the info button
+      perform portal[notes].alignrel[rtol,info,-6]
+      perform portal[notes].centeron[vert,info]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[notes].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="lpAcadPick"
+    name="Academy Pick"
+    compset="Academy"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="acNotes">
+        </action>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the notes button to the left of the info button
+      perform portal[notes].alignrel[rtol,info,-6]
+      perform portal[notes].centeron[vert,info]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[notes].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="lpCPathPick"
+    name="Career Path Pick"
+    compset="CareerPath"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="cpNotes">
+        </action>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the notes button to the left of the info button
+      perform portal[notes].alignrel[rtol,info,-6]
+      perform portal[notes].centeron[vert,info]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[notes].left - 5)
+
+      ~if the Talent is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="lpCExpPick"
+    name="Career Experience Pick"
+    compset="CareerExp"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="ceNotes">
+        </action>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the notes button to the left of the info button
+      perform portal[notes].alignrel[rtol,info,-6]
+      perform portal[notes].centeron[vert,info]
+
+      ~position the name on the left and let it use all available space
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,portal[notes].left - 5)
 
       ~if the Talent is auto-added, change its font to indicate that fact
       if (candelete = 0) then
@@ -274,86 +768,224 @@
 
     </template>
 
+  <template
+    id="lpPersonal"
+    name="Personal"
+    compset="Personal">
+	  
+    <portal
+      id="lblPasttime"
+      style="lblTitle">
+      <label
+        text="Pastime"
+	    istitle="yes">
+        </label>
+      </portal>
+
+    <portal
+      id="pastime"
+      style="editNormal">
+      <edit
+        field="perPastime">
+        </edit>
+      </portal>
+	  
+    <position><![CDATA[
+	  
+	  ~position the assignment portals beneath the rank in the upper right
+      portal[lblPasttime].top = 0
+      portal[lblPasttime].left = 0
+      portal[lblPasttime].width = width
+	  
+      portal[pastime].top = portal[lblPasttime].bottom + 5
+      portal[pastime].left = portal[lblPasttime].left
+	  portal[pastime].width = portal[lblPasttime].width  
+
+      height = portal[lblPasttime].bottom + 10	  
+      ]]></position>
+
+    </template>
+
+  <template
+    id="lpService"
+    name="Service"
+    compset="Service">
+
+    <portal
+      id="title"
+      style="lblTitle">
+      <label
+        istitle="yes"
+        text="Service Information">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblAffil"
+      style="lblNormal">
+      <label
+        text="Affiliation:">
+        </label>
+      </portal>
+
+    <portal
+      id="affil"
+      style="editNormal">
+      <edit
+        field="serAffil">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="lblAssign"
+      style="lblNormal">
+      <label
+        text="Assignment:">
+        </label>
+      </portal>
+
+    <portal
+      id="assign"
+      style="editNormal">
+      <edit
+        field="serAssign">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="lblRank"
+      style="lblNormal">
+      <label
+        text="Rank:">
+        </label>
+      </portal>
+
+    <portal
+      id="rank"
+      style="editNormal">
+      <edit
+        field="serRank">
+        </edit>
+      </portal>
+	  
+    <position><![CDATA[
+      ~position the title to span the full width
+      portal[title].width = width
+
+	  ~position the affiliation portals beneath the title in the upper right
+      portal[lblAffil].top = portal[title].bottom + 5
+      portal[lblAffil].left = 0
+      portal[lblAffil].width = 100
+      portal[affil].top = portal[lblAffil].top
+      portal[affil].left = portal[lblAffil].right + 5
+	  portal[affil].width = width - portal[affil].left -5
+	  
+	  ~position the rank portals beneath the affiliation in the upper right
+      portal[lblRank].top = portal[lblAffil].bottom + 15
+      portal[lblRank].left = 0
+      portal[lblRank].width = 100
+      portal[rank].top = portal[lblRank].top
+      portal[rank].left = portal[lblRank].right + 5
+	  portal[rank].width = width - portal[rank].left -5
+	  
+	  ~position the assignment portals beneath the rank in the upper right
+      portal[lblAssign].top = portal[lblRank].bottom + 5
+      portal[lblAssign].left = 0
+      portal[lblAssign].width = 100
+      portal[assign].top = portal[lblAssign].top
+      portal[assign].left = portal[lblAssign].right + 5
+	  portal[assign].width = width - portal[assign].left -5	  
+
+      height = portal[lblAssign].bottom + 10	  
+      ]]></position>
+
+    </template>
+
+ 
   <layout
     id="lifepath">
-    <portalref portal="hdrSpecies" />
-    <portalref portal="hdrEnviron" />
-    <portalref portal="hdrUpbring" />
-    <portalref portal="hdrAcad" />
-    <portalref portal="hdrCareer" />
     <portalref portal="hdrFinish" />
-    <portalref portal="hoSpecies" taborder="10"/>
-    <portalref portal="hoEnviron" taborder="20"/>
-    <portalref portal="hoUpbring" taborder="30"/>
-    <portalref portal="hoAcad" taborder="40"/>
-    <portalref portal="hoCareer" taborder="50"/>
-    <portalref portal="hoHoriz1" />
+    <portalref portal="lpSpecies" 		taborder="10"/>
+    <portalref portal="lpEnvironment" 	taborder="20"/>
+    <portalref portal="lpUpbringing" 	taborder="30"/>
+    <portalref portal="lpAcademy" 		taborder="40"/>
+    <portalref portal="lpCareerPath" 	taborder="40"/>
+    <portalref portal="lpCareerTrack" 	taborder="40"/>
+    <portalref portal="lpCareerExp" 	taborder="50"/>
+    <portalref portal="lpEvents" 		taborder="50"/>
+    <portalref portal="lpRole" 			taborder="60"/>
+    <templateref template="lpService" 	thing="mscService" 	taborder="70"/>
+    <templateref template="lpPersonal" 	thing="mscPerson" 	taborder="10"/>
 
     <!-- This script sizes and positions the layout and its child visual elements. 
-	    <portalref portal="hoSpecies" taborder="10"/>
+	    <portalref portal="lpSpecies" taborder="10"/>
  -->
     <position><![CDATA[
       ~freeze our table in advancement mode to disable adding new choices
       ~Note: All freezing must be done *before* any positioning is performed.
       if (state.iscreate = 0) then
-        portal[hdrSpecies].freeze = 1
-        portal[hoSpecies].freeze = 1
-        portal[hdrEnviron].freeze = 1
-        portal[hoEnviron].freeze = 1
-        portal[hdrUpbring].freeze = 1
-        portal[hoUpbring].freeze = 1
-        portal[hdrAcad].freeze = 1
-        portal[hoAcad].freeze = 1
-        portal[hdrCareer].freeze = 1
-        portal[hoCareer].freeze = 1
+        portal[lpSpecies].freeze = 1
+        portal[lpEnvironment].freeze = 1
+        portal[lpUpbringing].freeze = 1
+        portal[lpAcademy].freeze = 1
+        portal[lpCareerPath].freeze = 1
+        portal[lpCareerTrack].freeze = 1
+        portal[lpCareerExp].freeze = 1
+        portal[lpEvents].freeze = 1
         portal[hdrFinish].freeze = 1
+	  else		
+        portal[lpSpecies].freeze = hero.tagis[LifepathSelected.Species]
+        portal[lpEnvironment].freeze = hero.tagis[LifepathSelected.Environment]
+        portal[lpUpbringing].freeze = hero.tagis[LifepathSelected.Upbringing]
+        portal[lpAcademy].freeze = hero.tagis[LifepathSelected.Academy]
+        portal[lpCareerPath].freeze = hero.tagis[LifepathSelected.CareerPath]
+        portal[lpCareerTrack].freeze = hero.tagis[LifepathSelected.CareerTrack]
+        portal[lpCareerExp].freeze = hero.tagis[LifepathSelected.Experience]
+		if (#resleft[resEvent] = 0) then 
+          portal[lpEvents].freeze = 1
+		  endif
         endif
-
+	  
       ~position and size the table to span the full layout; it will only use the
       ~vertical space that it actually needs
-      portal[hdrSpecies].top = 0
-      portal[hdrSpecies].height = 20
-      portal[hdrSpecies].width = width
-      
-      portal[hoSpecies].top = portal[hdrSpecies].bottom + 5
-      portal[hoSpecies].height = 20
-      portal[hoSpecies].width = width
+	  var nextBottom as number
+	  
+	  perform portal[lpSpecies].autoplace[0]
+	  perform portal[lpEnvironment].autoplace[10]
+	  perform portal[lpUpbringing].autoplace[10]
+	  
+	  if (hero.tagis[source.2ndEdition] <> 0) then
+	    perform portal[lpCareerPath].autoplace[10]
+	    perform portal[lpCareerTrack].autoplace[10]
+		portal[lpCareerTrack].visible = hero.tagis[Hero.TrackRequired]
+		portal[lpAcademy].visible = 0
+		portal[lpAcademy].top = height - 60
+		nextBottom = portal[lpCareerTrack].bottom
+	  else
+		perform portal[lpAcademy].autoplace[10]
+		portal[lpCareerPath].visible = 0
+		nextBottom = portal[lpAcademy].bottom
+		endif
+		
+	  perform portal[lpCareerExp].autoplace[10]
+	  perform portal[lpEvents].autoplace[10]
+	  nextBottom = portal[lpEvents].bottom
 
-	  portal[hdrEnviron].top = portal[hoSpecies].bottom + 5
-      portal[hdrEnviron].height = 20
-      portal[hdrEnviron].width = width
-	  
-	  portal[hoEnviron].top = portal[hdrEnviron].bottom + 5
-      portal[hoEnviron].height = 20
-      portal[hoEnviron].width = width
-
-	  portal[hdrUpbring].top = portal[hoEnviron].bottom + 5
-      portal[hdrUpbring].height = 20
-      portal[hdrUpbring].width = width
-	  
-	  portal[hoUpbring].top = portal[hdrUpbring].bottom + 5
-      portal[hoUpbring].height = 20
-      portal[hoUpbring].width = width
-
-	  portal[hdrAcad].top = portal[hoUpbring].bottom + 5
-      portal[hdrAcad].height = 20
-      portal[hdrAcad].width = width
-	  
-	  portal[hoAcad].top = portal[hdrAcad].bottom + 5
-      portal[hoAcad].height = 20
-      portal[hoAcad].width = width
-	  
-	  portal[hdrCareer].top = portal[hoAcad].bottom + 5
-      portal[hdrCareer].height = 20
-      portal[hdrCareer].width = width
-	  
-	  portal[hoCareer].top = portal[hdrCareer].bottom + 5
-      portal[hoCareer].height = 20
-      portal[hoCareer].width = width
-
-	  portal[hdrFinish].top = portal[hoCareer].bottom + 5
+	  portal[hdrFinish].top = nextBottom + 10
       portal[hdrFinish].height = 20
       portal[hdrFinish].width = width
+	  nextBottom = portal[hdrFinish].bottom
+
+	  template[lpService].top = nextBottom + 10
+      template[lpService].width = (width/2) - 2
+	  
+	  portal[lpRole].top = nextBottom + 10
+      portal[lpRole].left = template[lpService].right + 4
+      portal[lpRole].width = (width/2) - 2
+	  
+	  template[lpPersonal].top  = portal[lpRole].bottom + 10
+	  template[lpPersonal].left = portal[lpRole].left
+      template[lpPersonal].width = (width/2) - 2
 	  
       ]]></position>
 

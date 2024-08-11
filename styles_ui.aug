@@ -179,6 +179,17 @@
 
   <!-- font used within checkboxes -->
   <resource
+    id="fntchecksm">
+    <font
+      face="Arial"
+      size="36"
+      style="bold">
+      </font>
+    </resource>
+
+
+  <!-- font used within checkboxes -->
+  <resource
     id="fntcheck">
     <font
       face="Arial"
@@ -186,7 +197,6 @@
       style="bold">
       </font>
     </resource>
-
 
 <!-- ##### Fonts - Incrementers ##### -->
 
@@ -1321,7 +1331,7 @@
       up="editup" down="editdn" off="editof">
       </style_action>
     </style>
-
+	
   <!-- style used on the gear action button - bitmap-only with no text -->
   <style
     id="actGear">
@@ -2588,6 +2598,15 @@
 
 
 <!-- ##### Styles - Checkboxes ##### -->
+
+  <!-- style used on the standard checkbox -->
+  <style
+    id="chkSmall">
+    <style_checkbox
+      textcolorid="clrnormal"
+      font="fntchecksm">
+      </style_checkbox>
+    </style>
 
   <!-- style used on the standard checkbox -->
   <style

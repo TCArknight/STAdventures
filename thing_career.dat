@@ -1,59 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- This file contains the assortment of derived traits for the game system. Derived
-      traits are calculated via scripts and based on the attributes from which they
-      are derived.
--->
-
 <document signature="Hero Lab Data">
-
-  <!-- Career -->
-  <thing
-    id="caYoungOff"
-    name="Young Officer"
-    compset="Career"
-    isunique="yes"
-    description="The character is defined by their potential more than their skill. Their raw talent and their expectations of what the universe is like have not yet been tempered by reality.\n\nThe character is inexperienced, but talented and with a bright future in Starfleet. The character may not have or increase any Attribute above 11, or any Discipline above 4 while they have this Talent (and may have to adjust Attributes and Disciplines accordingly at the end of character creation). Whenever the character succeeds at a Task for which they bought one or more additional dice with either Momentum or Threat, they may roll 1[D]. The character receives bonus Momentum equal to the roll, and adds one point to Threat if an Effect is rolled. The character cannot gain any higher rank than lieutenant (junior grade) while they possess this Talent.\n\nTalent: Untapped Potential"> 
-	<bootstrap thing="vaCustom">
-	  <assignval field="UserName" value="Experience - Young"/>
-	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
-      </bootstrap>	
+  <thing id="caYoungOff" name="Young" description="The character is defined by their potential more than their skill. Their raw talent and their expectations of what the universe is like have not yet been tempered by reality.\n\nThe character is inexperienced, but talented and with a bright future in Starfleet. The character may not have or increase any Attribute above 11, or any Discipline above 4 while they have this Talent (and may have to adjust Attributes and Disciplines accordingly at the end of character creation). Whenever the character succeeds at a Task for which they bought one or more additional dice with either Momentum or Threat, they may roll 1[D]. The character receives bonus Momentum equal to the roll, and adds one point to Threat if an Effect is rolled. The character cannot gain any higher rank than lieutenant (junior grade) while they possess this Talent.\n\nTalent: Untapped Potential" compset="CareerExp" uniqueness="unique">
+    <usesource source="1stEdition"/>
     <bootstrap thing="talUnPot">
       <autotag group="Helper" tag="NoCost"/>
       </bootstrap>
-	</thing>
-  <thing
-    id="caExper"
-    name="Experienced"
-    compset="Career"
-    isunique="yes"
-    description="The character has several years of experience in service of Starfleet, and is enjoying a promising career. This is the default assumption for characters created using these rules.\n\nTalent: Choice of Talent"> 
-	<bootstrap thing="vaCustom">
-	  <assignval field="UserName" value="Experience - Experienced"/>
-	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s experience in some way."/>
+    <bootstrap thing="vaCustom">
+      <assignval field="UserName" value="Experience - Young"/>
+      <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
       </bootstrap>
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #resmax[resTalent] += 1
-      ]]></eval>	  
-	</thing>
-  <thing
-    id="caVeteran"
-    name="Veteran Officer"
-    compset="Career"
-    isunique="yes"
-    description="The character has decades of experience in the service of Starfleet, and has served on many ships, and starbases. The character’s judgement and opinions are highly-regarded by subordinates, peers, and even superiors.\n\nThe character is wise and experienced, and draws upon inner reserves of willpower and determination in a more measured and considered way. Whenever the character spends a point of Determination, roll 1[D]. If an Effect is rolled, immediately regain that spent point of Determination. The character has a rank of at least Lieutenant Commander.\n\nTalent: Veteran"> 
-	<bootstrap thing="vaCustom">
-	  <assignval field="UserName" value="Experience - Veteran"/>
-	  <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
-      </bootstrap>	
+    </thing>
+  <thing id="caExper" name="Experienced" description="The character has several years of experience in service of Starfleet, and is enjoying a promising career. This is the default assumption for characters created using these rules.\n\nTalent: Choice of Talent" compset="CareerExp" uniqueness="unique">
+    <usesource source="1stEdition"/>
+    <bootstrap thing="vaCustom">
+      <assignval field="UserName" value="Experience - Experienced"/>
+      <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s experience in some way."/>
+      </bootstrap>
+    <eval phase="PreAbility" priority="5000">#resmax[resTalent] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="caVeteran" name="Veteran" description="The character has decades of experience in the service of Starfleet, and has served on many ships, and starbases. The character’s judgement and opinions are highly-regarded by subordinates, peers, and even superiors.\n\nThe character is wise and experienced, and draws upon inner reserves of willpower and determination in a more measured and considered way. Whenever the character spends a point of Determination, roll 1[D]. If an Effect is rolled, immediately regain that spent point of Determination. The character has a rank of at least Lieutenant Commander.\n\nTalent: Veteran" compset="CareerExp" uniqueness="unique">
+    <usesource source="1stEdition"/>
     <bootstrap thing="talVeteran">
       <autotag group="Helper" tag="NoCost"/>
       </bootstrap>
-    <eval index="1" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #resmax[resTalent] += 1
+    <bootstrap thing="vaCustom">
+      <assignval field="UserName" value="Experience - Veteran"/>
+      <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
+      </bootstrap>
+    <eval phase="PreAbility" priority="5000">#resmax[resTalent] += 1
       #resspent[resTalent] += 1
-      ]]></eval>
-	</thing>
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="ce2ENovice" name="Novice" description="You’re defined by your potential more than your experience. Your raw talent and expectations of what the universe is like have not yet been tempered by reality.\n\n{b}VALUE:{/b} The character receives a value, which must reflect the character’s inexperience and naïveté in some way. Examples include:\n- I can’t wait to see what’s out there\n- The Galaxy isn’t what I expected\n- I must prove myself\n\n{b}TALENT:{/b} The character receives a single talent: {b}Untapped Potential{/b}," compset="CareerExp" uniqueness="unique">
+    <fieldval field="ceRoll" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Hero" tag="Novice"/>
+    <bootstrap thing="vaCustom">
+      <assignval field="UserName" value="Experience - Novice"/>
+      <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
+      </bootstrap>
+    <bootstrap thing="tal2EUntappedPot">
+      <autotag group="Helper" tag="NoCost"/>
+      </bootstrap>
+    <eval phase="Initialize" priority="1000">perform hero.assign[MaxAttrSys.11]
+perform hero.assign[MaxDiscDept.4]</eval>
+    </thing>
+  <thing id="cp2EExperienced" name="Experienced" description="You have many years of experience in your chosen field, and you’re enjoying a promising career. This is the default assumption for characters created using these rules.\n\n{b}VALUE:{/b} The character receives a value, which may be chosen freely.\n{b}TALENT:{/b} The character receives a single talent, which may be chosen freely." compset="CareerExp" uniqueness="unique">
+    <fieldval field="ceRoll" value="4"/>
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="vaCustom">
+      <assignval field="UserName" value="Experience - Experienced"/>
+      <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s experience in some way."/>
+      </bootstrap>
+    <eval phase="PreAbility" priority="5000">#resmax[resTalent] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
+  <thing id="cp2EVeteran" name="Veteran" description="You have decades of experience in your chosen profession, and you’ve likely seen much of the Alpha and Beta Quadrants, if not more of the Galaxy. Your judgement and opinions are highly regarded by those around you, even those who hold higher rank or status.\n\n{b}VALUE:{/b} The character receives a value, which must reflect the character’s years of experience and the beliefs they’ve formed over their long career. Examples include:\n- There’s not much that can surprise me anymore\n- You don’t survive this long without facing loss\n- I’ve trusted my instincts long enough to doubt\nthem now\n\n{b}TALENT:{/b} The character receives a single talent: {b}Veteran{/b}" compset="CareerExp" uniqueness="unique">
+    <fieldval field="ceRoll" value="6"/>
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="tal2EVeteran">
+      <autotag group="Helper" tag="NoCost"/>
+      </bootstrap>
+    <bootstrap thing="vaCustom">
+      <assignval field="UserName" value="Experience - Veteran"/>
+      <assignval field="UserDesc" value="The character gains a single Value, which should reflect the character’s inexperience and naïveté in some way."/>
+      </bootstrap>
+    <eval phase="PreAbility" priority="5000">#resmax[resTalent] += 1
+      #resspent[resTalent] += 1
+      <before name="Calc abiFinal"/>
+      </eval>
+    </thing>
   </document>

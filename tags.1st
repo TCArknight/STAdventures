@@ -45,12 +45,12 @@
     <value id="NoCost"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
     <value id="IsHeader"/>    
     <value id="UserDesc"/>     
-    <value id="BorgImplant"/> <!-- Indicates a piece of gear is a Borg Implant -->  
-    <value id="AddedWeapon"/> <!-- Indicates an additional ship weapon -->      
-    <value id="FrameTalent"/> <!-- Indicates an ship weapon that is from a custom frame -->  
-    <value id="FrameTrait"/> <!-- Indicates an ship weapon that is from a custom frame -->  
-    <value id="FrameWeapon"/> <!-- Indicates an ship weapon that is from a custom frame -->  
-    <value id="FrameSpecRule"/> <!-- Indicates an ship weapon that is from a custom frame -->    
+    <value id="BorgImplant"/> 		<!-- Indicates a piece of gear is a Borg Implant -->  
+    <value id="AddedWeapon"/> 		<!-- Indicates an additional ship weapon -->      
+    <value id="FrameTalent"/> 		<!-- Indicates an ship weapon that is from a custom frame -->  
+    <value id="FrameTrait"/> 		<!-- Indicates an ship weapon that is from a custom frame -->  
+    <value id="FrameWeapon"/> 		<!-- Indicates an ship weapon that is from a custom frame -->  
+    <value id="FrameSpecRule"/> 	<!-- Indicates an ship weapon that is from a custom frame -->  
     </group>
 
   <!-- User group - general helper tags that can be assigned by users via the Editor
@@ -61,19 +61,23 @@
   -->
   <group
     id="User">
-    <value id="CreateOnly"/>    <!-- Whether an ability is selectable only during creation -->
-    <value id="Activation"/>    <!-- Whether an ability can be activated to invoke dynamic changes -->
-    <value id="NeedDomainOpt"/> <!-- Whether an ability requires the user to specify a domain -->
-    <value id="NeedDomain"/>    <!-- Whether an ability requires the user to specify a domain -->
-    <value id="NeedChoice"/>    <!-- Whether an ability requires the user to specify a menu choice -->
-    <value id="NoAutoName"/>    <!-- Whether to not automatically amend the naming of a pick with selections -->
-    <value id="Resistance"/>    <!-- Identifies a resistance trait -->
-    <value id="NameRep"/>       <!-- Whether to not replace the livename with the domain name -->
-    <value id="Power"/>         <!-- Identifies a power trait -->
-    <value id="Combat"/>        <!-- Identifies a combat trait -->
-    <value id="ChooseAttr"/>    <!-- Choose among AttrSys -->
-    <value id="ChooseDisc"/>    <!-- Choose among DiscDept -->
-    <value id="Reset"/>         <!-- Reset abiUser -->
+    <value id="CreateOnly"/>    	<!-- Whether an ability is selectable only during creation -->
+    <value id="Activation"/>    	<!-- Whether an ability can be activated to invoke dynamic changes -->
+    <value id="NeedDomainOpt"/> 	<!-- Whether an ability requires the user to specify a domain -->
+    <value id="NeedDomain"/>    	<!-- Whether an ability requires the user to specify a domain -->
+    <value id="NeedChoice"/>    	<!-- Whether an ability requires the user to specify a menu choice -->
+    <value id="NoAutoName"/>    	<!-- Whether to not automatically amend the naming of a pick with selections -->
+    <value id="Resistance"/>    	<!-- Identifies a resistance trait -->
+    <value id="NameRep"/>       	<!-- Whether to not replace the livename with the domain name -->
+    <value id="Power"/>         	<!-- Identifies a power trait -->
+    <value id="Combat"/>        	<!-- Identifies a combat trait -->
+    <value id="ChooseAttr"/>    	<!-- Choose among AttrSys -->
+    <value id="ChooseDisc"/>    	<!-- Choose among DiscDept -->
+    <value id="SpeciesDomain"/> 	<!-- Choose among Species -->
+    <value id="Reset"/>          	<!-- Reset abiUser -->
+    <value id="ChooseTrait"/>    	<!-- Reset abiUser -->
+    <value id="JoinedTrait"/>   	<!-- Indicates trait provided by the Joined Talent for Trills -->
+    <value id="ArtificialSense"/>	<!-- Indicates trait provided by the Replacement Sense Talent for Cyborgs -->
     </group>
 
   <!-- Hero group - Helper tags assigned exclusively to the hero/actor
@@ -84,20 +88,49 @@
   -->
   <group
     id="Hero">
-    <value id="Untapped"/>    <!-- Indicates hero has Untapped Potential talent -->
-    <value id="Veteran"/>     <!-- Indicates hero has Veteran talent -->
-	<value id="Dead"/>        <!-- Indicates hero is dead or otherwise out of combat -->
-    <value id="NoDamage"/>    <!-- Indicates no damage history exists for the hero -->
-    <value id="Hand"/>        <!-- Each tag indicates one hand worth of weapons equipped -->
-    <value id="RerollInit"/>  <!-- Indicates that the hero can re-roll initiative values -->
-    <value id="Main"/>        <!-- Indicates that the hero is a Main Character -->
-    <value id="Support"/>     <!-- Indicates that the hero is a Supporting Character -->
-    <value id="Ship"/>        <!-- Indicates that the hero is a Ship -->
-    <value id="Creature"/>    <!-- Indicates that the hero is a Creature -->
-    <value id="MixedHeritage"/>  <!-- Indicates that the hero is a Creature -->
-    <value id="NPC"/>            <!-- Indicates that the hero is an NPC -->
+    <value id="Untapped"/>    		<!-- Indicates hero has Untapped Potential talent -->
+    <value id="Novice"/>    		<!-- Indicates hero is a Novice experience level -->
+    <value id="Veteran"/>     		<!-- Indicates hero is a veteran experience level -->
+	<value id="Dead"/>        		<!-- Indicates hero is dead or otherwise out of combat -->
+    <value id="NoDamage"/>    		<!-- Indicates no damage history exists for the hero -->
+    <value id="Hand"/>        		<!-- Each tag indicates one hand worth of weapons equipped -->
+    <value id="RerollInit"/>  		<!-- Indicates that the hero can re-roll initiative values -->
+    <value id="Main"/>        		<!-- Indicates that the hero is a Main Character -->
+    <value id="Support"/>     		<!-- Indicates that the hero is a Supporting Character -->
+    <value id="Ship"/>        		<!-- Indicates that the hero is a Ship -->
+    <value id="Creature"/>    		<!-- Indicates that the hero is a Creature -->
+    <value id="MixedHeritage"/>  	<!-- Indicates that the hero is a Creature -->
+    <value id="NPC"/>            	<!-- Indicates that the hero is an NPC -->  
+    <value id="TrackRequired"/> 	<!-- Career Path requires selection of a Track -->
     </group>
-
+	
+  <!-- MaxAttribute - indicates the highest level for an Attribute/System
+  -->
+  <group
+    id="MaxAttrSys">
+    <value id="1"/>
+    <value id="2"/>
+    <value id="3"/>
+    <value id="4"/>
+    <value id="5"/>
+    <value id="6"/>
+    <value id="7"/>
+    <value id="8"/>
+    <value id="9"/>
+    <value id="10"/>
+    <value id="11"/>
+    <value id="12"/>
+    <value id="13"/>
+    <value id="14"/>
+    <value id="15"/>
+    </group>
+	
+  <group
+    id="MaxDiscDept"
+    inherit="MaxAttrSys">
+    </group>
+	
+	
   <!-- DashTacCon group - behaviors associated with the Dashboard and/or Tactical Console
         All tags that control behaviors relating to the Dashboard or TacCon should be
         defined in this group.
@@ -139,6 +172,19 @@
     <value id="Tractor" name="Weapon functions like a Tractor Beam."/>  <!-- Identifies a weapon that is a Tractor Beam style weapon -->
     </group>
 
+  <!-- Weapon group - helper tags for weapon special abilities
+        If a tag is used to indicate a special ability for a weapon, it should be
+        defined in this group.
+  -->
+  <group
+    id="WeaponRange">
+    <value id="Reach" />		<!-- Immediately Adjacent -->
+    <value id="Close" />       <!-- 0 Zones -->
+    <value id="Medium" />      <!-- 1 Zones -->
+    <value id="Long" />       	<!-- 2 Zones -->
+    <value id="Extreme" />		<!-- 3+ Zones -->
+    </group>
+	
   <!-- InPlay group - tags used to control behaviors associated with in-play effects
         Behaviors that govern in-play adjustments, permanenent adjustments, or other
         in-play effects belong in the group.
@@ -376,6 +422,7 @@
     visible="no"
     inherit="ChooseSrc1">
     </group>	
+	
   <!-- SpecialTab group - used for sort order control on Special tab
         Every type of thing that is reported on the Special tab needs to be assigned
         a unique sort order so that all of the information shown on the Special tab
@@ -390,10 +437,23 @@
   <group
     id="SpecialTab"
     sequence="explicit">
+    <value id="Species" order="5"/>
     <value id="Talent" order="10"/>
     <value id="Unknown" order="80"/>
     </group>
 
+
+  <group
+    id="Era">					<!-- Setting time period -->
+    <value id="ENT" 	name="Enterprise"							order="10"/>  
+    <value id="DIS" 	name="ST: Discovery"						order="20"/>  
+    <value id="SNW"		name="ST: Strange New Worlds"				order="30"/> 
+    <value id="TOS"		name="The Original Series/Movies"			order="40"/> 
+    <value id="TLY"		name="The Lost Years (pre-TNG)"				order="50"/>  
+    <value id="TNG"		name="The Next Generation (TNG, DS9, Voy)"	order="60"/>  
+    <value id="PIC"		name="ST: Picard (2390+)"					order="70"/>  
+    </group>
+	
   <group
     id="Lifepath">
     <value id="Stage1"/>  <!-- Lifepath Stage complete -->
@@ -509,6 +569,8 @@
   <group
     id="Species"
 	dynamic="yes">
+    <value id="Augment" name="Augment"/>
+    <value id="Cyborg" name="Cyborg"/>
     <value id="Empathy" name="Empathic Race"/>
     <value id="Telepathy" name="Telepathic Race"/>
     </group>
@@ -553,18 +615,21 @@
   <group
     id="TalentCat"
     sequence="explicit">
-    <value id="Role" order="1"/>
-    <value id="Custom" order="5"/>
-    <value id="Ship" order="10"/>
-    <value id="General" order="10"/>
-    <value id="Command" order="20"/>
-    <value id="Conn" order="30"/>
-    <value id="Engineer" order="40"/>
-    <value id="Medicine" order="50"/>
-    <value id="Science" order="60"/>
-    <value id="Security" order="70"/>
-    <value id="Racial" order="80"/>
-   </group>	
+    <value id="Role" 									order="1"/>
+    <value id="Custom" 									order="5"/>
+    <value id="Ship" 									order="10"/>
+    <value id="Augment" 	name="Augment/Cybernetics"	order="10"/>
+    <value id="Esoteric" 								order="20"/>
+    <value id="Racial" 		name="Species"				order="30"/>
+    <value id="General"  								order="40"/>
+    <value id="Command"  								order="50"/>
+    <value id="Conn"  									order="60"/>
+    <value id="Engineer"  								order="70"/>
+    <value id="Medicine"  								order="80"/>
+    <value id="Science"  								order="90"/>
+    <value id="Security" 								order="95"/>
+   </group>
+   
   <!-- Talent Category group -->
   <group
     id="FocusCat"
@@ -615,23 +680,40 @@
   <group
     id="GearCost"
 	dynamic="no">
-    <value id="NotAvail" name="Not Available"/>
-    <value id="Standard" name="Standard Issue"/>
-    <value id="Opportun1" name="Opportunity 1"/>
-    <value id="Opportun2" name="Opportunity 2"/>
-    <value id="Escalat1" name="Escalation 1"/>
-    <value id="Escalat2" name="Escalation 2"/>
+    <value id="NotAvail" 	name="Not Available"/>
+    <value id="Standard" 	name="Standard Issue"/>
+    <value id="Opportun1" 	name="Opportunity 1"/>
+    <value id="Opportun2" 	name="Opportunity 2"/>
+    <value id="Escalat1" 	name="Escalation 1"/>
+    <value id="Escalat2" 	name="Escalation 2"/>
    </group>
+   
+  <!-- GearSize group -->
+  <group
+    id="GearSize"
+	dynamic="no">
+    <value id="OneHand" 	name="One Handed"	abbrev="1H"/>
+    <value id="TwoHand" 	name="Two Handed"	abbrev="2H"/>
+   </group>
+   
+  <!-- WeaponInjury - Type of injury the weapon causes
+  -->
+  <group
+    id="WeaponInjury">
+    <value id="Special" 	name="Special"/>	<!-- Identifies a weapon with a special type of injury -->
+    <value id="Stun" 		name="Stun"/>		<!-- Identifies a weapon that deals stun damage -->
+    <value id="Deadly" 		name="Deadly"/>		<!-- Identifies a weapon that deals deadly damage -->
+    </group>   
 
   <!-- DmgEffect group -->
   <group
     id="Delivery"
 	dynamic="no"
     sequence="explicit">
-    <value id="Cannons2" name="Cannons" order="30"/>
-    <value id="Banks1" name="Banks" order="20"/>
-    <value id="Arrays" order="10"/>
-    <value id="Lance3" name="Spinal Lance" order="40"/>
+    <value id="Arrays" 								order="10"/>
+    <value id="Banks1" 		name="Banks" 			order="20"/>
+    <value id="Cannons2" 	name="Cannons"			order="30"/>
+    <value id="Lance3" 		name="Spinal Lance" 	order="40"/>
 	</group>
 	
   <!-- DmgEffect group -->
@@ -668,29 +750,45 @@
     id="GearQual"
 	dynamic="no">
     <value id="Accurate" />
+    <value id="Area" />
     <value id="Charge" />
-    <value id="Cumber" name="Cumbersome" />
+    <value id="Cumber" 		name="Cumbersome" />
     <value id="Deadly" />
-    <value id="Debil" name="Debilitating"/>
+    <value id="Debil" 		name="Debilitating"/>
     <value id="Grenade"/>
-    <value id="Hidden1" name="Hidden 1"/>
-    <value id="Hidden2" name="Hidden 2"/>
-    <value id="Inaccur" name="Inaccurate"/>
-    <value id="NonLethal" name="Non-Lethal" />
-    <value id="HiYield" name="High Yield" />
-    <value id="Calib" name="Calibration" />
+    <value id="Hidden1" 	name="Hidden 1"/>
+    <value id="Hidden2" 	name="Hidden 2"/>
+    <value id="Hidden3" 	name="Hidden 3"/>
+    <value id="Hidden4" 	name="Hidden 4"/>
+    <value id="Hidden5" 	name="Hidden 5"/>
+    <value id="Inaccur" 	name="Inaccurate"/>
+    <value id="Intense" 	name="Intense"/>
+    <value id="NonLethal" 	name="Non-Lethal" />
+    <value id="HiYield" 	name="High Yield" />
+	
+	<!-- additional Starship Weapon Qualities -->
+    <value id="AreaSpread" name="Area or Spread" />
+    <value id="Calib" 		name="Calibration" />
+    <value id="Dampening" />
+    <value id="Depleting" />
     <value id="Devastating" />
-    <value id="Versa1" name="Versatile 1"/>
-    <value id="Versa2" name="Versatile 2"/>
-    <value id="Slowing" name="Slowing" />
-    <value id="Jamming" name="Jamming" />
+    <value id="HighYield"	name="High Yield"/>
+    <value id="Jamming" />
+    <value id="Persistent" />
+    <value id="Piercing" />
+    <value id="Slowing" />
+    <value id="Versatile1" name="Versatile 1"/>
+    <value id="Versatile2" name="Versatile 2"/>
+    <value id="Versatile3" name="Versatile 3"/>
+    <value id="Versatile4" name="Versatile 4"/>
+    <value id="Versatile5" name="Versatile 5"/>
    </group>
 
   <!-- Ship Alliance -->
   <group
     id="ShipAlliance"
     dynamic="yes">
-    <value id="Civilian"/>
+    <value id="Civilian" order="99"/>
     </group>
 	
   <!-- Ship System Point Category 
@@ -748,6 +846,19 @@
     <value id="Lifepath"/>    <!-- Lifepath method of character creation -->
     </group>
 
+  <group
+    id="LifepathSelected"
+    dynamic="no"
+    sequence="explicit">
+    <value id="Species"		order="1"/>
+    <value id="Environment"	order="2"/>
+    <value id="Upbringing"	order="3"/>
+    <value id="Academy"		order="4"/>
+    <value id="CareerPath"	order="4"/>
+    <value id="CareerTrack"	order="5"/>
+    <value id="Experience"	order="6"/>
+    </group>
+	
   <group
     id="Profile"
     dynamic="yes">

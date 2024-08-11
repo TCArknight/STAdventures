@@ -11,7 +11,7 @@
     </thing>
 
   <thing id="spcFerengi" name="Ferengi" description="Ferengi are short, unimposing beings, noted more as merchants and traders than as warriors, scientists, or engineers. Their culture promotes the acquisition of material wealth, and their society is extremely capitalistic, with most routine activities accompanied by the exchange of a precious, non-replicable substance called latinum (a room-temperature liquid metal, often stored within gold “slips,” “bricks” or “bars”). Ferengi discriminate between their genders considerably, with female Ferengi not being permitted to own property or wear clothing; enterprising female Ferengi invariably find a way around these restrictions.\n\n{i}EXAMPLE VALUE: Greed is eternal. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Insight, +1 Presence.\n\n{b}TRAIT:{/b} Ferengi." compset="Species" uniqueness="unique">
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <usesource source="CharacterDS9"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
     <tag group="SpeciesBon" tag="attrsys04"/>

@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="hdrAugCyber" name="– Augment / Cybernetic –" compset="Talent" isshowonly="yes">
+    <tag group="TalentCat" tag="Augment"/>
+    </thing>
+  <thing id="hdrEsoteric" name="– Esoteric –" compset="Talent" isshowonly="yes">
+    <tag group="TalentCat" tag="Esoteric"/>
+    </thing>
+  <thing id="tal2EUntappedPot" name="Untapped Potential" description="{b}REQUIREMENT:{/b} Novice (only available during character creation)\n\nSelect one of your attributes when you receive this talent. You’re inexperienced, but talented and with a bright future. You may not have or increase any attribute to above 11, or any department to above 4 while you have this talent (and may have to adjust attributes and departments accordingly at the end of character creation).\n\nWhenever you succeed at a task for which you bought one or more additional dice (by any means), roll a d20 after the roll. If you roll equal to or less than the chosen attribute, gain 1 bonus Momentum; if you roll higher, add 1 Threat instead. While you possess this talent, you cannot gain any higher rank than Lieutenant (junior grade), or a higher enlisted rate than Petty Officer." compset="Talent" summary="No attribute may be higher than 11 and no Department may be higher than 4.  Whenever you succeed at a task for which you bought one or more additional dice, roll a d20 after the roll. Under chosen attribute gains +1 bonus momentum, else +1 threat.">
+    <fieldval field="usrLabel1" value="Attribute: "/>
+    <fieldval field="usrCandid1" value="component.AttrSys"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Hero" tag="Novice"/>
+    <tag group="User" tag="CreateOnly"/>
+    <tag group="Hide" tag="Talent" name="Talent" abbrev="Talent"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    </thing>
+  <thing id="tal2EVeteran" name="Veteran" description="{b}REQUIREMENT:{/b} Veteran (during character creation, or at gamemaster’s discretion)\n\nYou’re wise and experienced, and draw upon inner reserves of willpower and determination in a measured and considered way. Whenever you spend Determination, roll a d20. If you roll equal to or less than your Control rating, you immediately regain that point of Determination. If you are Starfleet or military, you hold a rank of at least lieutenant commander, or an enlisted rate of at least chief petty officer." compset="Talent" summary="Whenever you spend Determination, roll a d20. If you roll equal to or less than your Control rating, you immediately regain that point of Determination.">
+    <usesource source="2ndEdition"/>
+    <tag group="Hide" tag="Talent" name="Talent" abbrev="Talent"/>
+    <tag group="Hero" tag="Veteran"/>
+    <tag group="User" tag="CreateOnly"/>
+    </thing>
+  <thing id="tal2EBackupPlans" name="Back-up Plans" description="REQUIREMENT: Control 9+\n\nWhenever you or an ally fail a task (so long as you are present in the scene), you may add 1 point to the group’s Momentum pool." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Control 9+"><![CDATA[#abilfinal[attrsys01] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EBold" name="Bold" description="Choose a department when you select this talent. \n\nWhenever you attempt a task from that department, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may select this talent multiple times, once for each department. You may not select this talent for any department for which you have the Cautious talent." compset="Talent">
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <tag group="ChooseSrc1" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    <eval phase="Final" priority="1000" index="2"><![CDATA[var tempStr as string
+
+
+~we're done if we don't have the Bold talent
+doneif (#hastalent[talCautio] = 0)
+
+~we're done if the Bold talent doesn't have a choice
+doneif (#haschoice1[talCautio] = 0)
+
+tempStr = " & (!thingid." & #choiceid[talCautio] & ")"
+
+field[usrCandid1].text &= tempStr]]></eval>
+    <eval phase="Render" priority="11000"><![CDATA[var mySumm as string
+mySumm = "Whenever you attempt a Task with "
+
+if (field[usrChosen1].ischosen <> 0) then
+  mySumm &= field[usrChosen1].chosen.field[name].text
+else
+  mySumm &= "your chosen discipline"
+  endif
+
+mySumm &= " and you buy one or more d20s by adding to Threat, you may re-roll a single d20."
+
+field[outSummary].text = mySumm]]></eval>
+    </thing>
+  <thing id="tal2ECalmLogical" name="Calm and Logical" description="REQUIREMENT: Reason 11+\n\nWhen you gain a trait which represents a mood or emotional state, you may suppress that trait (ignoring its effect) for the duration of a single task or a single turn in combat by suffering 1 Stress." compset="Talent" summary="When you gain a trait which represents a mood or emotional state, you may suppress that trait (ignoring its effect) for the duration of a single task or a single turn in combat by suffering 1 Stress.">
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <tag group="ChooseSrc1" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    </thing>
+  <thing id="tal2ECautious" name="Cautious" description="Choose a department when you select this talent. Whenever you attempt a task with that department, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may select this talent multiple times, once for each department. You may not select this talent for any department for which you have the Bold talent." compset="Talent">
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <tag group="ChooseSrc1" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    <eval phase="Final" priority="1000" index="2"><![CDATA[var tempStr as string
+
+
+~we're done if we don't have the Bold talent
+doneif (#hastalent[talBold] = 0)
+
+~we're done if the Bold talent doesn't have a choice
+doneif (#haschoice1[talBold] = 0)
+
+tempStr = " & (!thingid." & #choiceid[talBold] & ")"
+
+field[usrCandid1].text &= tempStr]]></eval>
+    <eval phase="Render" priority="11000"><![CDATA[var mySumm as string
+mySumm = "Whenever you attempt a Task with "
+
+if (field[usrChosen1].ischosen <> 0) then
+  mySumm &= field[usrChosen1].chosen.field[name].text
+else
+  mySumm &= "your chosen discipline"
+  endif
+
+mySumm &= " and you buy one or more d20s by spending Momentum, you may re-roll a single d20."
+
+field[outSummary].text = mySumm]]></eval>
+    </thing>
+  <thing id="tal2ECloseKnitCre" name="Close-Knit Crew" description="When a scene begins, if there are fewer points of Momentum in the group pool than there are characters in the scene who have this talent, immediately add 1 Momentum to the group pool." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Control 9+"><![CDATA[#abilfinal[attrsys01] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2ECollab" name="Collaboration" description="Choose a single department when you select this talent. Whenever an ally attempts a task using that department, you may spend 1 Momentum (Immediate) to allow them to use your rating for that department and one of your relevant focuses." compset="Talent" summary="Whenever an ally attempts a task using yout chosen department, you may spend 1 Momentum (Immediate) to allow them to use your rating for that department and one of your relevant focuses." uniqueness="useronce">
+    <fieldval field="usrCandid1" value="component.DiscDept"/>
+    <fieldval field="usrSource1" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <tag group="ChooseSrc1" tag="Container" name="All Picks on Container" abbrev="All Picks on Container"/>
+    </thing>
+  <thing id="tal2EConstantPres" name="Constant Presence" description="REQUIREMENTS: Supporting character only, must have at least two values and at least two other talents\n\nYou’re a regular fixture of away missions and other important work, relied upon by the senior staff for your expertise and judgment. Introducing this supporting character in subsequent adventures no longer costs Crew Support, and the supporting character gains 1 Determination the first time they are used in an adventure." compset="Talent" summary="Introducing this supporting character in subsequent adventures no longer costs Crew Support, and the supporting character gains 1 Determination the first time they are used in an adventure.">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Two Focus required"><![CDATA[#valuecount[] >= 2]]></exprreq>
+    <exprreq message="At least two other talents required."><![CDATA[#talentcount[] >= 2]]></exprreq>
+    <exprreq message="Requires being a Support Character "><![CDATA[#issupportcharacter[] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EConstantWatc" name="Constantly Watching" description="At the start of an action scene, the gamemaster must spend an additional 2 Threat to have an NPC take the first turn. You may also re-roll 1d20 on any task attempted to locate a hidden enemy or danger." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    </thing>
+  <thing id="tal2EDauntless" name="Dauntless" description="Whenever another character attempts to intimidate or threaten you, you may suffer 2 Stress to ignore their attempt." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    </thing>
+  <thing id="tal2EExtraEffort" name="Extra Effort" description="When you attempt a task, you may reduce the Difficulty of the task by 1, to a minimum of 0. However, once the task is completed, you immediately take Stress equal to the original Difficulty of the task." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Fitness 9+"><![CDATA[#abilfinal[attrsys03] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EIndefatigabl" name="Indifatigable" description="When you fail a task, and attempt that task again during  the same scene, reduce the Difficulty of the second attempt (and any subsequent attempts if you still fail) by 1." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Fitness 11+"><![CDATA[#abilfinal[attrsys03] >= 11]]></exprreq>
+    </thing>
+  <thing id="tal2EGutFeeling" name="Gut Feeling" description="REQUIREMENT: Insight 11+\n\nWhen the gamemaster spends Threat to introduce reinforcements or to cause a Reversal, they must spend 2 additional Threat to do so. This is 2 extra Threat in total, not per reinforcement." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Insight 11+"><![CDATA[#abilfinal[attrsys04] >= 11]]></exprreq>
+    </thing>
+  <thing id="tal2EMethodPlan" name="Methodical Planning" description="REQUIREMENT: Reason 9+\n\nWhen an ally attempts a task which benefits from a trait you created which represents your plan or strategy, then you may Assist that ally’s task even if you are not present. In combat, this assistance does not require you to use your task to Assist that ally." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Reason 9+"><![CDATA[#abilfinal[attrsys05] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2ENoHesitation" name="No Hesitation" description="REQUIREMENT: Daring 9+\n\nAt the start of any round in an action scene, you may add 1 Threat to take the first turn, regardless of who would otherwise have acted first." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Daring 9+"><![CDATA[#abilfinal[attrsys02] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2ENoPainNoGain" name="No Pain, No Gain" description="REQUIREMENT: Daring 11+\n\nWhen you fail a task (but not an opposed task) which used your Daring, you may always choose to Succeed at Cost." compset="Talent" summary="When you fail a task (but not an opposed task) which used your Daring, you may always choose to {i}Succeed at Cost{/i}." uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Daring 11+"><![CDATA[#abilfinal[attrsys02] >= 11]]></exprreq>
+    </thing>
+  <thing id="tal2EPersonalEff" name="Personal Effects" description="REQUIREMENT: Main character You possess some significant and uncommon item or device which is not standard issue, but which is nevertheless useful for missions. You may select this talent multiple times, gaining a different item each time." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Main Character required">hero.tagis[CharType.typMain] = 1</exprreq>
+    </thing>
+  <thing id="tal2EQuickSurvey" name="Quick Survey" description="REQUIREMENT: Insight 9+\n\nAt the start of a scene, you may immediately ask one question, as if you had spent 1 Momentum on the {i}Obtain Information{/i} Momentum Spend. The answer can only provide information that you could obtain with your own senses: you cannot gain information from equipment in such a short time." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Insight 9+"><![CDATA[#abilfinal[attrsys04] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EReassuring" name="Reassuring" description="REQUIREMENT: Presence 9+\n\nWhen you succeed at a task using your Presence, you may spend Momentum to reassure your allies, so long as they are able to hear you. You may spend 1 Momentum (Repeatable) to allow one ally who can see and hear you to recover 1 Stress. That ally may not recover more than 3 Stress from one use of this talent." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <exprreq message="Presence 9+"><![CDATA[#abilfinal[attrsys05] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2ESecondWind" name="Second WInd" description="You may spend Determination at the start of your turn to remove the Defeated state, and to recover up to half of your maximum Stress. The normal requirements for spending a point of Determination still apply." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    </thing>
+  <thing id="tal2ESelfReliant" name="Self-Reliant" description="REQUIREMENT: Control 11+\n\nWhenever you succeed at a task where you did not purchase additional dice by spending Momentum or adding to Threat, you generate bonus Momentum equal to the task’s Difficulty. Bonus Momentum cannot be saved." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Control 11+"><![CDATA[#abilfinal[attrsys01] >= 11]]></exprreq>
+    </thing>
+  <thing id="tal2EStudious" name="Studious" description="Whenever you spend 1 or more Momentum to Obtain Information, you may ask one additional question (in total, not per Momentum spent on Obtain Information)." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    </thing>
+  <thing id="tal2ETechExpertis" name="Technical Expertise" description="Whenever you attempt a task assisted by the ship’s Computers or Sensors, you may re-roll one d20 in your pool, or you may allow the ship to re-roll its d20." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    </thing>
+  <thing id="tal2ETough" name="Tough" description="Your maximum Stress is increased by 2." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    <eval phase="Stress" priority="1000">herofield[acStressBonus].value += 2</eval>
+    </thing>
+  <thing id="tal2EVoiceAuthor" name="Voice of Authority" description="REQUIREMENT: Presence 11+\n\nWhen you Assist someone, and use your Presence to do so, you may add 2 Threat to treat your assistance die as if it had rolled a 1 instead of rolling it." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Presence 11+"><![CDATA[#abilfinal[attrsys05] >= 11]]></exprreq>
+    </thing>
+  <thing id="tal2EWellInform" name="Well Informed" description="You have contacts everywhere and you listen to news and rumors from far and wide. At the start of a scene, you may add 1 Threat to ask the gamemaster two questions about the situation or location, as if you had spent Momentum on the Obtain Information spend. The answers you receive will be knowledge you’ve gained from your contacts and the news and rumors you’ve heard." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General" name="General" abbrev="General"/>
+    </thing>
+  <thing id="tal2EProudHonor" name="Proud and Honorable" description="REQUIREMENT: Andorian, or gamemaster’s permission\n\nWhenever you attempt a task to resist being coerced into breaking a promise, betraying your allies, or otherwise acting dishonorably, you may add Threat to immediately succeed at the task. The amount of Threat you add is equal to the task’s Difficulty." compset="Talent" summary="Whenever you attempt a task to resist being coerced into breaking a promise, betraying your allies, or otherwise acting dishonorably, you may add Threat to immediately succeed at the task. The amount of Threat added is equal to the task’s Difficult">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndorian] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ETheUshaan" name="The Ushaan" description="REQUIREMENT: Andorian, or gamemaster’s permission\n\nYou are experienced in the tradition of honor-dueling known as the Ushaan. When you make a Melee Attack, or are targeted by a Melee Attack, and buy one or more d20s by adding to Threat, you may re-roll any number of dice in your dice pool for the task. Further, you own an Ushaan-tor, a razor-sharp ice-miner’s tool used in these duels. The Ushaan-tor is a blade (see page 242), and it counts as standard issue for you." compset="Talent" summary="You own an Ushaan-tor which counts as standard equipment for you. When you make a Melee Attack, or are targeted by a Melee Attack, and buy one or more d20s by adding to Threat, you may re-roll any number of dice in your dice pool for the task.">
+    <usesource source="1stEdition" parent="CoreRules" name="1st Edition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <bootstrap thing="wpUshaantor"></bootstrap>
+    <exprreq message="Andorian Required"><![CDATA[#isspecies[spcAndorian] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EAcuteSenses" name="Acute Senses" description="REQUIREMENT: Aenar, or gamemaster’s permission\n\nThe Aenar have honed their senses to the point that they are able to respond to stimuli just as well as, if not superior to, those who possess the ability to see. When attempting a task to detect something which is hidden from conventional senses, or which would normally be difficult to perceive, you may re-roll 1d20." compset="Talent" summary="When attempting a task to detect something which is hidden from conventional senses, or which would normally be difficult to perceive, you may re-roll 1d20.">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcAenar] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EOpenBook" name="Open Book" description="REQUIREMENT: Betazoid, or gamemaster’s permission\n\nWhen a character enters a scene, you may spend 1 Momentum (Immediate) to immediately ask the gamemaster one question about that character’s current emotions or surface thoughts. You cannot do this for characters immune to telepathy." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcBetazoid] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EOrbExp" name="Orb Experience" description="REQUIREMENT: Bajoran, or gamemaster’s permission\n\nYou have received a vision from the Bajoran Prophets, through one of the Orbs. This rare experience, though confusing at first, has shaped your life and outlook. You have one additional value, which represents some prophecy or insight into the future gained from your vision. Furthermore, once per session, when that value is used, you gain twice the normal benefit: if you spend Determination, you may gain two benefits listed, while if you would gain Determination, you gain 2 points instead of 1." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcBajor] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EChosenSpeak" name="Chosen Speaker" description="REQUIREMENT: Aenar, or gamemaster’s permission\n\nAmong Aenar communities, leaders and mediators are chosen as and when the need arises, nominating an individual to serve as Speaker. You’ve been chosen for this role often and are adept at using your senses and your telepathy to aid communication. When attempting a task to communicate telepathically with a willing being, you may re-roll 1d20." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcAenar] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EStrongPagh" name="Strong Pagh" description="REQUIREMENT: Bajoran, or gamemaster’s permission\n\nYou believe profoundly in the Prophets, and you rely upon that faith to see you through hardship. Whenever you attempt a task to resist being coerced or threatened, you may take Stress equal to the Difficulty of the task to automatically succeed." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcBajor] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EAbrInsights" name="Abrupt Insights" description="REQUIREMENT: Betazoid, or gamemaster’s permission\n\nYour insight into the minds of others can give you an edge when interacting with them, though not everyone is comfortable having someone else speak their mind. When you attempt a task as part of a social conflict, you can increase the complication range by 1, 2, or 3; if you succeed, you generate bonus Momentum equal to the complication range increase. Bonus Momentum may not be saved." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcBetazoid] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ERegimentMind" name="Regimented Mind" description="REQUIREMENT: Cardassian, or gamemaster’s permission\n\nWhen you spend Momentum to Obtain Information, you may reduce the Difficulty of one task later in the same scene by 1, so long as that task relates to the information gained." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spc2ECardassian] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EEndJustifies" name="The End Justifies The Means" description="REQUIREMENT: Cardassian, or gamemaster’s permission\n\nWhen you spend Determination because of a Directive, you may select two of the benefits for spending Determination, rather than one." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spc2ECardassian] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ECulturalFlex" name="Cultural Flexibility" description="REQUIREMENT: Denobulan, or gamemaster’s permission\n\nYou are at ease when meeting new cultures, and you adapt to unfamiliar social structures easily. When you attempt a task to learn about an unfamiliar culture, or to act in an appropriate manner when interacting with members of such a culture, you may re-roll 1d20." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcDenob] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EParentFigure" name="Parent Figure" description="REQUIREMENT: Denobulan, or gamemaster’s permission\n\nYou have a large family, with many children, nieces, and nephews, and you’ve learned how to coordinate even the most unruly and fractious of groups when necessary. When attempting or assisting a task, and two or more other characters are involved in the task, the first complication generated on the task—either by the character attempting the task, or one of the assistants—may be ignored." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Aenar Required"><![CDATA[#isspecies[spcDenob] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EGreedEternal" name="Greed Is Eternal" description="REQUIREMENT: Ferengi, or gamemaster’s permission\n\nWhen engaged in negotiations—including in social conflict—that have the potential for you to profit personally, you may add 1 Threat to re-roll your dice pool." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Ferengi Required"><![CDATA[#isspecies[spc2EFerengi] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ENeverPlaceFr" name="Never Place Friendship Above Profit" description="REQUIREMENT: Ferengi, or gamemaster’s permission\n\nWhen you assist someone else (including using the Direct action), and one or more complications occur, you may add 1 Threat to avoid suffering any ill-effect from that complication (other characters involved are affected normally)." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Ferengi Required"><![CDATA[#isspecies[spc2EFerengi] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EResolute" name="Resolute" description="REQUIREMENT: Humans, or gamemaster’s permission\n\nYour Maximum Stress increases by an amount equal to your Command rating." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <eval phase="Stress" priority="1000">herofield[acStressBonus].value += #command[]</eval>
+    <exprreq message="Human Required"><![CDATA[#isspecies[spcHuman] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ESpiritDiscov" name="Spirit Of Discovery" description="REQUIREMENT: Human, or gamemaster’s permission\n\nYou have an additional option you may pick when you spend Determination: you may immediately add 3 Momentum to the group pool." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <eval phase="Stress" priority="1000">herofield[acStressBonus].value += #command[]</eval>
+    <exprreq message="Human Required"><![CDATA[#isspecies[spcHuman] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EKillerInst" name="Killer&apos;s Instinct" description="REQUIREMENT: Klingon, or gamemaster’s permission\n\nSo familiar are you with the intent to kill that you can even see it in others when you look them in the eyes. When you make a Deadly Attack, reduce the amount you add to Threat to 0. In addition, when an enemy attempts to make a Deadly Attack against you, you may add 1 Threat to increase the Difficulty of their Attack by 1, as you react to their intent." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <eval phase="Stress" priority="1000">herofield[acStressBonus].value += #command[]</eval>
+    <exprreq message="Klingon Required"><![CDATA[#isspecies[spc2EKlingon] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EWarriorsSpi" name="Warrior&apos;s Spirit" description="REQUIREMENT: Klingon, or gamemaster’s permission\n\nWhen you make a Melee Attack, or are targeted by a Melee Attack, and you buy one or more d20s by adding Threat, you may re-roll the dice pool for your task roll. Further, you own either a mek’leth (a blade) or a bat’leth (a heavy blade) at your discretion, which counts as standard issue for you." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <eval phase="Stress" priority="1000">herofield[acStressBonus].value += #command[]</eval>
+    <exprreq message="Klingon Required"><![CDATA[#isspecies[spc2EKlingon] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EPheromones" name="Pheromones" description="REQUIREMENT: Orion female, or gamemaster’s permission\n\nYou are capable of emitting pheromones which can render Orion males (and others) suggestible. These pheromones affect several other species—including Humans—in a similar way. When dealing with males of a species affected by these pheromones, you gain 2 bonus Momentum on all tasks to persuade or command them. However, female members of species affected often suffer headaches because of the pheromones, increasing the complication range of tasks to interact with them by 1. Vulcans are known to be unaffected, while Denobulans experience a different effect and become drowsy. The gamemaster’s discretion applies as to which species are affected, which are immune, and which suffer unexpected effects, but most species are affected similarly to Humans and Orions." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <eval phase="Stress" priority="1000">herofield[acStressBonus].value += #command[]</eval>
+    <exprreq message="Orion Required"><![CDATA[#isspecies[spc2EOrion] <> 0]]></exprreq>
+    <exprreq message="Female Required">#isgender[] = 1</exprreq>
+    </thing>
+  <thing id="tal2EThatWasntMe" name="That Wasn&apos;t Me" description="REQUIREMENT: Orion, or gamemaster’s permission\n\nThe Orions are known as one of the most untrustworthy species in the Galaxy, next to the Ferengi, and yet people are willing to do business with them or are often tricked or misled by them. You’ve learned the subtle interplay of social interactions, reputations, and plausible denials that allow others to trust you despite what they’ve heard about ‘those other Orions’. When another character attempts a task to determine if they can trust you, you may spend 2 Momentum if you are sincere, or add 2 Threat if you’re attempting to deceive them. Either way, the character does not need to make a task roll: you convince them you are trustworthy." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Orion Required"><![CDATA[#isspecies[spc2EOrion] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EGuileCunning" name="Guile and Cunning" description="REQUIREMENT: Romulan, or gamemaster’s permission\n\nWhen you attempt to remain hidden or for your actions to remain unnoticed, you may add 1 Threat to add 1 to the Difficulty of any task to detect you or reveal the nature of your actions." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Romulan Required"><![CDATA[#isspecies[spc2ERomulan] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EWary" name="Wary" description="REQUIREMENT: Romulan, or gamemaster’s permission\n\nWhen you attempt a task to detect an enemy or hazard, you may re-roll one d20." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Romulan Required"><![CDATA[#isspecies[spc2ERomulan] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EIncisiveScr" name="Incisive Scrutiny" description="REQUIREMENT: Tellarite, or gamemaster’s permission\n\nWhen you succeed at a task using Control or Insight, you may ask one question, as if you had spent Momentum to Obtain Information." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Tellarite Required"><![CDATA[#isspecies[spcTellar] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EAskingRightQ" name="Asking The Right Questions" description="REQUIREMENT: Tellarite, or gamemaster’s permission\n\nWhen you attempt a task that relates to information you’ve received from Obtain Information questions in the current scene, you may re-roll 1d20." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Tellarite Required"><![CDATA[#isspecies[spcTellar] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EJoined" name="Joined" description="REQUIREMENT: Trill, or gamemaster’s permission\n\nYou are bonded with a symbiont and have lifetimes of memories to draw upon. You gain an additional character trait, which is the name of the symbiont; this reflects potential advantages of being Joined, as well as the ability to perform rites and rituals to awaken past hosts’ memories, and the vulnerabilities inherent in the connection. Furthermore, up to twice per adventure, you may declare that a past Host had experience or expertise in a particular field: you gain an additional focus when you do this, which remains for the rest of the adventure." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <tag group="User" tag="NeedDomain"/>
+    <tag group="DomainTerm" tag="SymbName" name="Symbiote Name"/>
+    <bootstrap thing="trCustom">
+      <autotag group="User" tag="JoinedTrait"/>
+      <assignval field="domDomain" value="Testing"/>
+      <assignval field="UserName" value="Joined"/>
+      </bootstrap>
+    <eval phase="Final" priority="1000"><![CDATA[doneif (empty(field[domDomain].text) <> 0)
+trustme
+
+foreach pick in hero from Trait where "User.JoinedTrait"
+  eachpick.field[domDomain].text = "Joined (" & field[domDomain].text & ")"
+  nexteach]]></eval>
+    <exprreq message="Trill Required"><![CDATA[#isspecies[spcTrill] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EFmrInitiate" name="Former Initiate" description="REQUIREMENT: Trill, or gamemaster’s permission\n\nYou joined the Initiate Program, hoping to be chosen by the Symbiosis Commission to become Joined. As there are far more Initiates than there are symbionts, you were one of many who failed, but the capabilities of even a failed Initiate are highly sought after by Starfleet and other organizations. When you attempt a task using Control or Reason, and you spend Determination to set a die as a 1, you may also re-roll your dice pool after the roll. You cannot select this talent if you have the Joined talent." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <pickreq thing="tal2EJoined" ispreclude="yes"/>
+    <exprreq message="Trill Required"><![CDATA[#isspecies[spcTrill] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EKolinahr" name="Kolinahr" description="REQUIREMENT: TVulcan, or gamemaster’s permission\n\nYou have undergone the ritual journey to purge all emotion, allowing you to dispassionately observe and dissect your emotional responses and render them powerless. When you ignore emotions using your Mental Discipline Species Ability, you may avoid emotional traits by taking 1 Stress instead of 2, and you no longer increase the potency of emotional traits when Fatigued." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Vulcan Required"><![CDATA[#isspecies[spcVulcan] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EMindMeld" name="Mind Meld" description="REQUIREMENT: TVulcan, or gamemaster’s permission\n\nYou’ve undergone training in telepathic techniques that allow the melding of minds through physical contact. This always requires a task (normally Control + Sciences) with a Difficulty of at least 1, which can be opposed by an unwilling participant. If successful, you link minds with the participant, sharing thoughts and memories. Momentum may be spent to gain more information or perform deeper telepathic exchanges. This link goes both ways, and it is a tiring and potentially hazardous process. Complications can result in taking Stress, pain, disorientation, or lingering emotional or behavioral difficulties." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <exprreq message="Vulcan Required"><![CDATA[#isspecies[spcVulcan] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ENervePinch" name="Nerve Pinch" description="REQUIREMENT: TVulcan, or gamemaster’s permission\n\nYou have learned numerous techniques for the stimulation and control of nerve impulses—collectively called neuropressure. Some applications of neuropressure can be used to incapacitate assailants swiftly and non-lethally. The nerve pinch counts as a Melee Attack which inflicts Stun Injuries with a Severity of 3 and the Intense quality. You may use Science or Medicine instead of Security when attempting a {i}Nerve Pinch Attack{i}." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Racial" name="Racial" abbrev="Racial"/>
+    <bootstrap thing="wp2ENervePinch"></bootstrap>
+    <exprreq message="Vulcan Required"><![CDATA[#isspecies[spcVulcan] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EAugmentedAbi" name="Augmented Ability" description="REQUIREMENT: Augment trait\n\nChoose a single attribute when this talent is selected. You gain the Extraordinary Attribute 1 special rule (page 350) for the chosen attribute, granting one automatic success on all tasks using that attribute. When you use this ability, increase the complication range by 2 for that task. This talent may be selected multiple times, choosing a different attribute each time." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Augment"/>
+    <bootstrap thing="sr2EExtAttribute">
+      <assignval field="srRuleLevel" value="1"/>
+      </bootstrap>
+    <exprreq message="Augment trait Required."><![CDATA[#isaugment[] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EDurability" name="Durability" description="REQUIREMENT: Augment or Cyborg trait\n\nWhether through genetic engineering or cybernetic implants, you’re more durable than most people. You gain Protection 2." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Augment"/>
+    <exprreq message="Augment or Cyborg trait Required."><![CDATA[(#isaugment[] + #iscyborg[] ) <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ENeuralInterf" name="Neural Interface" description="REQUIREMENT: Cyborg trait\n\nYou have a cybernetic device implanted directly into your brain, allowing you to interface with computers and similar technologies with their thoughts. Initiating or breaking the link between your mind and a computer system takes a minor action, and while you are connected, you may reroll one d20 on any task using that computer (including a ship’s Computer system). However, if the computer (or the ship containing it) is damaged, you immediately suffer a Deadly 4 Injury with the Piercing quality." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Augment"/>
+    <exprreq message="Cyborg trait Required."><![CDATA[#iscyborg[] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ESenseReplace" name="Sensory Replacement" description="REQUIREMENT: Cyborg trait\n\nYou have a cybernetic device that replaces one of your senses—most commonly sight or hearing. You gain the Artificial Sense trait, which represents the ways that your senses differ from those of other members of your species. Further, when you attempt a task to locate something hidden or concealed, or to detect details not normally perceptible to that sense, you may re-roll a single d20." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Augment"/>
+    <tag group="User" tag="NeedDomain"/>
+    <bootstrap thing="trCustom">
+      <autotag group="User" tag="ArtificialSense"/>
+      <assignval field="UserName" value="Artificial Sense"/>
+      </bootstrap>
+    <eval phase="Final" priority="1000"><![CDATA[doneif (empty(field[domDomain].text) <> 0)
+trustme
+
+foreach pick in hero from Trait where "User.ArtificialSense"
+  notify eachpick.idstring & " " &  eachpick.field[UserName].text
+  eachpick.field[domDomain].text = "Artificial Sense (" & field[domDomain].text & ")"
+  nexteach]]></eval>
+    <exprreq message="Cyborg trait Required."><![CDATA[#iscyborg[] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EEmpathy" name="Empathy" description="You can sense the emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar. You cannot choose not to sense the emotions of those nearby, except for those who are resistant to telepathy. It may require effort and a task to pick out the emotions of a specific individual in a crowd, or to block out the emotions of those nearby. Increase the Difficulty of this task if the situation is stressful, if there are a lot of beings present, if the target has resistance to telepathy, and other relevant factors." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Esoteric"/>
+    </thing>
+  <thing id="tal2EESP" name="Extrasensory Perception" description="You have an ability to perceive things beyond the normal limits of humanoid senses, allowing you to gain knowledge of people, places, and objects beyond your ability to sense them conventionally. This is known as extrasensory perception, or ESP. It is not directly under your control but instead tends to come in the form of accurate guesses, strong feelings, or flashes of insight. Such sensitivity often leaves you vulnerable to psychic dangers as well. At any point during play, you may ask the gamemaster for hints or insights about the current situation, and the gamemaster may similarly offer you information about the current situation that you would not normally be able to determine. Each hint adds 1 Threat, and you may always refuse to accept the hints offered." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Esoteric"/>
+    </thing>
+  <thing id="tal2ETelepathProj" name="Telepathic Projection" description="REQUIREMENT: Telepathy\n\nYour telepathic ability is more potent than most, and you are accustomed to projecting your thoughts into other minds. You can send your thoughts into the minds of other creatures—other than those immune to telepathy—even if those creatures are not telepathic themselves. You can ‘hear’ their responses by reading their minds. You are also capable of using this ability offensively, overwhelming a target’s mind with pain-inducing psychic noise. This requires a Presence + Security task with a Difficulty of 2 (increasing by 1 for each range category beyond Close); success inflicts a Stun or Deadly Injury with Severity 3 and the Piercing effect." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Esoteric"/>
+    <bootstrap thing="wp2EPsychicNoise"></bootstrap>
+    <pickreq thing="tal2ETelepathy"/>
+    </thing>
+  <thing id="wp2EPsychicNoise" name="Psychic Noise" description="You are capable of using your Telepathic Projection as a weapon, overwhelming a target’s mind with pain-inducing psychic noise. This requires a Presence + Security task with a Difficulty of 2 (increasing by 1 for each range category beyond Close); success inflicts a Stun or Deadly Injury with Severity 3 and the Piercing effect." compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <fieldval field="wpSpecial" value="D:2, +1/range beyond Close"/>
+    <usesource source="2ndEdition"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearQual" tag="Piercing"/>
+    <tag group="Equipment" tag="Natural"/>
+    <tag group="WeaponRange" tag="Close"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <child entity="gearQual"></child>
+    </thing>
+  <thing id="tal2ETelepathy" name="Telepathy" description="You can sense the surface thoughts and emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar. You cannot choose not to sense the emotions or read the surface thoughts of those nearby, except for those resistant to telepathy. It requires effort and a task to pick out the emotions or thoughts of a specific individual in a crowd, to search a creature’s mind for specific thoughts or memories, or to block out the minds of those nearby. Increase the Difficulty if the situation is stressful, if there are many beings present, if the target target is resistant to telepathy, etc." compset="Talent" uniqueness="useronce">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Esoteric"/>
+    </thing>
+  <thing id="tal2EAdvTeamDyn" name="Advanced Team Dynamics" description="REQUIREMENTS: Command 4+, main character only, commanding officer or executive officer only\n\nThe first time you introduce a supporting character in a mission, that supporting character may take one additional option to improve the supporting character" compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required."><![CDATA[#command[] >= 4]]></exprreq>
+    <exprreq message="Main character required."><![CDATA[#ischaractertype[typMain] <> 0]]></exprreq>
+    <exprreq message="Commanding Officer or Executive Officer required."><![CDATA[#ischaracterrole[rol2ECommandOff] + #ischaracterrole[rol2EExecOfficer] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EBargain" name="Bargain" description="REQUIREMENTS: Command 3+\n\nWhen you use Negotiation to make an offer to someone during social conflict, you may re-roll a single d20 on your next Persuade task to convince that person. If the social conflict with that person involves an extended task, your Impact is increased by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EBolster" name="Bolster" description="REQUIREMENTS: Command 3+\n\nWhen you succeed at any task using your Command during an action scene, you may spend Momentum to recover Stress suffered by your allies. When you spend 1 Momentum (Repeatable), one ally who can see and hear you recovers 1 Stress. You may affect multiple allies, but each ally affected may only recover 1 Stress in this way each time this talent is used." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ECallOutTarg" name="Call Out Targets" description="REQUIREMENTS: Command 3+ and Security 3+\n\nWhen you Assist a character in an Attack, the assisted character generates 2 bonus Momentum if their Attack succeeds. Bonus Momentum cannot be saved." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ECallAction" name="Call To Action" description="REQUIREMENTS: Command 3+\n\nIn a conflict, you may use the Prepare minor action to grant one ally who you can communicate with a minor action of their choice, which they perform immediately." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EColdReading" name="Cold Reading" description="REQUIREMENTS: Command 4+\n\nWhen you succeed at a task during social conflict, you generate 1 bonus Momentum which must be used for the Obtain Information Momentum spend to gain knowledge about one of the people you’re interacting with. If the social conflict with that person involves an extended task, you may ignore any Resistance the extended task has." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ECoordEfforts" name="Coordinated Efforts" description="REQUIREMENTS: Command 4+\n\nWhen you Assist another character during an extended task, the character you Assist increases their Impact by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EDecisiveLead" name="Decisive Leadership" description="REQUIREMENTS: Command 4+\n\nIn a conflict, once per round, you or your allies may Keep the Initiative for free." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required."><![CDATA[#command[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EDefuseTens" name="Defuse The Tension" description="REQUIREMENTS: Command 3+\n\nWhenever you attempt a task to persuade someone not to resort to violence, the first d20 you purchase for that task is free." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EFollowMyLead" name="Follow My Lead" description="REQUIREMENTS: Command 3+\n\nWhen you succeed at a task during combat or another perilous situation, you may spend Determination. If you do, choose a single ally who can hear you. The next task that ally attempts counts as having assistance from you, using your Presence + Command. On this task, do not roll your assistance die: it counts as having already rolled a 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EMultiDisc" name="Multi-Discipline" description="REQUIREMENTS: Command 3+, not the commanding officer\n\nYou may select one additional Role Benefit, which may not be Commanding Officer." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    <exprreq message="Must not be the Commanding Officer">#ischaracterrole[rol2ECommandOff] = 0</exprreq>
+    </thing>
+  <thing id="tal2EPlanOfAction" name="Plan Of Action" description="REQUIREMENTS: Command 4+\n\nWhenever an ally succeeds at a task that was made possible, or had a reduced Difficulty, because of a trait you created, and that trait represented a plan, strategy, or course of action, they generate 2 bonus Momentum. Bonus Momentum cannot be saved." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required."><![CDATA[#command[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPrecautions" name="Precautions" description="REQUIREMENTS: Command 4+\n\nOnce per scene, when an ally suffers an Injury or the ship suffers a Breach, prevent that Injury or Breach; describe what precaution you took to prevent the issue." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 4+ required."><![CDATA[#command[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2ESupervisor" name="Supervisor" description="REQUIREMENTS: Main character only\n\nThe ship’s Crew Support increases by 1. This increase is cumulative if multiple main characters select it." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Main character required."><![CDATA[#ischaractertype[typMain] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2ETeacher" name="Teacher" description="REQUIREMENTS: Command 3+\n\nWhen you create a trait for an ally that represents your guidance or advice, that ally may re-roll one d20 on a single task they attempt which benefits from that trait." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Command"/>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EAttackRun" name="Attack Run" description="REQUIREMENTS: Conn 4+\n\nWhenever you succeed at the Attack Pattern major action, enemy Attacks against you do not reduce in Difficulty due to that action." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2ECoverAdvance" name="Covering Advance" description="REQUIREMENTS: Conn 3+\n\nWhen you succeed at a task to maneuver your ship, you may spend 2 Momentum to provide cover for allied ships. When an enemy vessel next makes an Attack, before the beginning of your next turn, if you are the closest ship to that attacker but they do not target you, the difficulty of their Attack is equal to your ship’s Scale." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EEffEvasion" name="Efficient Evasion" description="REQUIREMENTS: Conn 3+\n\nWhen you attempt an Evasive Action major action for the second or subsequent time in a row during a scene, you add 1 Momentum to the group pool." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EFlyBy" name="Fly-By" description="REQUIREMENTS: Conn 2+\n\nWhenever you use the Swift Action Momentum spend, you do not increase the Difficulty of the second task if one of the tasks you attempt is to pilot a vessel." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 2+ required."><![CDATA[#conn[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2EGlancingImp" name="Glancing Impact" description="REQUIREMENTS: Conn 4+\n\nWhenever you succeed at the Evasive Action major action, increase the Resistance of the ship you are piloting by 2; this bonus lasts until the start of your next turn." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EHandsOnPilot" name="Hands-On Pilot" description="REQUIREMENTS: Conn 3+ and Engineering 3+\n\nWhen you perform the Warp, Evasive Action, or Attack Pattern major actions, the ship may count its focus range as double the relevant department rating (i.e., if the ship has a Conn of 3, it will score a critical success on any roll of 6 or less). However, when anyone else pilots the ship, increase the complication range by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EInertia" name="Inertia" description="REQUIREMENTS: Conn 3+\n\nWhen you use the Impulse minor action, you may spend 1 Momentum to move one additional zone so long as you used the Impulse minor action or Warp major action in your previous turn." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EMultiTasking" name="Multi-tasking" description="REQUIREMENTS: Conn 3+\n\nWhen you attempt the Override major action while at a bridge station that includes one or both helm or navigator positions, you may use your Conn department instead of the department usually required for that task.." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EPathfinder" name="Pathfinder" description="REQUIREMENTS: Conn 4+\n\nWhenever you attempt a task to plot a course through unknown territory, reduce the Difficulty of the task by 1, 2, or 3, to a minimum of 1. For each point by which you reduce the Difficulty, increase the complication range of that task." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPreEvasion" name="Precise Evasion" description="REQUIREMENTS: Conn 4+\n\nWhenever you use the Evasive Action major action, the ship does not suffer the increased Difficulty for Attacks normally caused by Evasive Action." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPrecisionMan" name="Precision Maneuvering" description="REQUIREMENTS: Conn 4+\n\nWhenever you attempt a task that requires precise or careful maneuvering, or where there is a risk of colliding with another object, you may re-roll 1d20." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="General"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPushLimits" name="Push The Limits" description="REQUIREMENTS: Conn 4+\n\nWhen you attempt a Conn task that has increased in Difficulty due to environmental conditions or damage to the engines, you may add 1 Threat to ignore the difficulty increase." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2ESpacewalk" name="Spacewalk" description="REQUIREMENTS: Conn 3+\n\nWhenever the Difficulty of a task would be increased due to low- or zero-gravity, ignore that Difficulty increase. If a task that was normally possible would be made impossible because of low- or zero-gravity, you may attempt the task at +1 Difficulty instead." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EStarshipExp" name="Starship Expert" description="REQUIREMENTS: Conn 3+\n\nWhenever you succeed at a Conn task to identify a type of starship, or to try to understand an unknown form of starship, you gain 1 bonus Momentum, which may only be used on the Obtain Information Momentum spend, or to pay part of the cost of the Create Trait Momentum spend (where the trait must represent some form of known or observed weakness in the ship being studied)." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EStrafingRun" name="Strafing Run" description="REQUIREMENTS: Conn 3+\n\nWhenever you succeed at the Attack Pattern task and then Keep the Initiative, the cost to Keep the Initiative is reduced to 0. If the character taking the next turn makes an Attack, they may re-roll one d20." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EThreadNeedle" name="Thread The Needle" description="REQUIREMENTS: Conn 4+\n\nWhen you perform the Impulse minor action or Warp major action when piloting a starship, enemy Attacks from ships with a greater Scale than yours increase in difficulty by +1. If attacked by a ship with a Scale that is double or more the Scale of your ship, then you increase the Difficulty by 2 instead." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Conn 4+ required."><![CDATA[#conn[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EVisitEverySt" name="Visit Every Star" description="REQUIREMENTS: Conn 3+ and Science 2+\n\nYou gain an additional focus, and one of your focuses (either the one gained from this talent, or an existing one) must relate to Astronavigation, Stellar Cartography, or a similar field of space science. Further, when you succeed at a navigation-related task, you gain 1 bonus Momentum due to your knowledge and familiarity. Bonus Momentum cannot be saved." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Science 2+ required."><![CDATA[#science[] >= 2]]></exprreq>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EZeroGCombat" name="Zero-G Combat" description="REQUIREMENTS: Conn 3+ and Security 3+\n\nIn combat, when you make an Attack while in a zero-gravity or micro-gravity environment, you may use the higher of your Conn or Security departments for the task, and you ignore any difficulty increases caused by the lack of gravity. In addition, enemies who lack similar training increase the Difficulty of Attacks against you by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Conn"/>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EKnowMyShip" name="I Know My Ship" description="REQUIREMENTS: Engineering 4+\n\nWhenever you attempt a task to determine the source of a technical problem with your ship, the first bonus d20 you purchase is free." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 4+ required."><![CDATA[#engineering[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EGivingItAll" name="I&apos;m Giving It All She&apos;s Got!" description="REQUIREMENTS: Engineering 4+\n\nOnce per scene, when the ship has no Reserve Power remaining at the start of your turn, you may add 2 Threat to gain Reserve Power." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 4+ required."><![CDATA[#engineering[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EInNickTime" name="In The Nick Of Time" description="REQUIREMENTS: Engineering 3+ or Science 3+\n\nWhenever you succeed at an Engineering or Science task as part of an extended task, you increase your Impact by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <prereq message="Engineering 3+ or Science 3+">
+      <validate><![CDATA[validif (#engineering[] >= 3)
+validif (#science[] >= 3)]]></validate>
+      </prereq>
+    </thing>
+  <thing id="tal2EJuryRig" name="Jury-Rig" description="REQUIREMENTS: Engineering 4+\n\nWhenever you attempt an Engineering task to perform repairs, you may reduce the Difficulty by 2, to a minimum of 0. If you do this, however, then the repairs are only temporary and will last only a single scene before they fail again; you may increase this duration by one scene by spending 1 Momentum (Repeatable). Jury-rigged repairs can only be applied once, and the Difficulty to repair a device that has been Jury-rigged increases by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 4+ required."><![CDATA[#engineering[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EMaintainSpec" name="Maintenance Specialist" description="REQUIREMENTS: Engineering 3+\n\nYou may ignore the first complication rolled on any Engineering task. Further, when you create any equipment trait, any character who uses that piece of equipment in a task may ignore the first complication rolled." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EMeticulous" name="Meticulous" description="REQUIREMENTS: Engineering 3+ and Control of 10+\n\nDuring a timed challenge or extended task, before rolling, you may take one die and treat it as if it had already rolled a 1, but if you do, the task will take one additional interval." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    <exprreq message="Control 10+ required."><![CDATA[#control[] >= 10]]></exprreq>
+    </thing>
+  <thing id="tal2EMiracleWork" name="Miracle Worker" description="REQUIREMENTS: Engineering 5\n\nWhenever you succeed at an Engineering task to overcome an extended task, you may increase your Impact by 1 by spending 1 Momentum instead of 2." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 5 required."><![CDATA[#engineering[] >= 5]]></exprreq>
+    </thing>
+  <thing id="tal2EMorePower" name="More Power!" description="REQUIREMENTS: Engineering 3+\n\nWhenever you use the Reroute Power major action, you may spend 2 Momentum to give Reserve Power to two systems, rather than one." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EPastRedline" name="Past The Redline" description="REQUIREMENTS: Engineering 4+ and Daring 9+\n\nWhen you use advanced technology, including attempting a task assisted by the ship, you may choose to increase the complication range by 1, 2, or 3. If you succeed, then you gain bonus Momentum equal to the amount by which the complication range was increased. Bonus Momentum cannot be saved." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 4+ required."><![CDATA[#engineering[] >= 4]]></exprreq>
+    <exprreq message="Daring 9+ required."><![CDATA[#daring[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EPercMainten" name="Percussive Maintenance" description="REQUIREMENTS: Engineering 4+\n\nWhen you attempt a Control + Engineering task, you may add 1 Threat to use your Daring instead of your Control. If you do this, and the task succeeds, then you may reduce the time taken by 1 interval without spending Momentum." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 4+ required."><![CDATA[#engineering[] >= 4]]></exprreq>
+    <exprreq message="Daring 9+ required."><![CDATA[#daring[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EProcCompli" name="Procedural Compliance" description="REQUIREMENTS: Engineering 3+ and Conn 2+\n\nWhen you attempt an Engineering task, you may remove one d20 from your dice pool before rolling. If you do so, you gain one automatic success on your task." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 4+ required."><![CDATA[#engineering[] >= 4]]></exprreq>
+    <exprreq message="Conn 2+ required."><![CDATA[#conn[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2ERepairTeamL" name="Repair Team Leader" description="REQUIREMENTS: Engineering 3+ and Command 2+\n\nYou are trained to direct and lead damage repair teams during emergencies, giving them your guidance and expert knowledge of the ship’s systems. If you succeed at the Damage Control major action (page 303) you may spend 2 Momentum (Repeatable) to repair one additional Breach." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    <exprreq message="Command 2+ required."><![CDATA[#command[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2ERightToolJob" name="Right Tool For The Right Job" description="REQUIREMENTS: Engineering 3+\n\nWhenever you acquire an engineering tool with an Opportunity Cost, that equipment trait of that tool gains +1 Potency (typically this will result in Potency 2). If the tool is used in an extended task, whoever is using that tool increases their Impact by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ESaboteur" name="Saboteur" description="REQUIREMENTS: Engineering 3+\n\nWhen you make an Attack against a structure, machine, or stationary vehicle while in personal combat (i.e., you aren’t using a ship’s weapons to make the Attack), you may use your Engineering instead of your Security to resolve the Attack." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ETransporterC" name="Transporter Chief" description="REQUIREMENTS: Engineering 3+\n\nYou’re well-versed in the operation of transporter systems and can often get them to function in extreme circumstances or to achieve outcomes that few could manage. Such efforts are never without risk, given the delicacy of the technology. When you attempt a task to use, repair, or modify a transporter, you may add 2 Threat to reduce the Difficulty of the task by 2, to a minimum of 0." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Engineer"/>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EAmbushTac" name="Ambush Tactics" description="REQUIREMENTS: Security 3+\n\nWhen you succeed at an Attack against an enemy who is unaware of your presence, or who is suffering from a trait or complication which represents a weakness or vulnerability, increase the Severity of the Attack by 2." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    </thing>
+  </document>

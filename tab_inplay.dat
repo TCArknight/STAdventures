@@ -561,9 +561,9 @@
         <labeltext><![CDATA[
           ~show the current health; if the character is incurring any extra penalties
           ~due to excessive damage, append them
-          @text = herofield[acStrNow].text & "{text clrgrey}{size 40} /" & herofield[acStrMax].text
-          if (herofield[acStrPenal].value < 0) then
-            @text &= " " & herofield[acStrPenal].text
+          @text = herofield[acStressNow].text & "{text clrgrey}{size 40} /" & herofield[acStressMax].text
+          if (herofield[acStressPenal].value < 0) then
+            @text &= " " & herofield[acStressPenal].text
             endif
           ]]></labeltext>
         </label>

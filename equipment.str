@@ -298,7 +298,8 @@
       type="derived">
       </field>
 
-    <!-- Damage rating of the weapon -->
+    <!-- Damage rating of the weapon 
+	     In 2E this is Severity -->
     <field
       id="wpDamage"
       name="Damage"
@@ -321,45 +322,37 @@
 	  <!-- Final value for display is a blending of the various range values -->
       <finalize><![CDATA[
         var txt as string
-		var tags as string
-		var totD as number
-		var scale as number
+		var effTags as string
+		var totDmg as number
+		var noDmg as number
+		var shipWpn as number
+		var dmgTxt as string
+		
+		var shipscale as number
 		var tractStr as number
 		var sec as number
 		var delDmg as number
 		
-		totD = field[wpTotalDamage].value
+		totDmg = field[wpTotalDamage].value
+		noDmg = tagis[Weapon.NoDamage]
+	    effTags = tagnames[DmgEffect.?,", "] 
+        shipscale = #shipscale[]
+		shipWpn = tagis[component.StarshipWeapon]
 		
-		if (tagis[Weapon.NoDamage] <> 0) then
-	      txt = "*"
-		else
-		  txt = totD & " {size 40}{meta bmpfull}{bmp StarTrekArrow}{revert}"
-          endif
-		  
-	    tags = tagnames[DmgEffect.?,", "] 
-		
-		foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  if (tagis[component.StarshipWeapon] <> 0) then
-		    tractStr = scale - 1 + field[wpSTracBonus].value
-			endif
-		nexteach
-		
-		tags = replace(tags, "Persistant X", "Persistant " & scale,0)
-		tags = replace(tags, "Strength X", "Strength " & tractStr,0)
-		
-		if (empty(txt) = 0) then
-		
-		  txt &= " " & tags
-		  
+		if (shipWpn <> 0) then
+		  tractStr = shipscale - 1 + field[wpSTracBonus].value
 		  endif
 		
-	    @text = txt
+		dmgTxt = ""
+		
+        Call WeaponDamage
+		
+	    @text = dmgTxt
 		
         ]]></finalize>
       </field>
 
-	<!-- Damage summary of the weapon -->
+	<!-- Statblock - Damage summary of the weapon -->
     <field
       id="wpDamageSummarySB"
       name="Damage"
@@ -368,44 +361,37 @@
 	  <!-- Final value for display is a blending of the various range values -->
       <finalize><![CDATA[
         var txt as string
-		var tags as string
-		var totD as number
-		var scale as number
+		var effTags as string
+		var totDmg as number
+		var noDmg as number
+		var shipWpn as number
+		var dmgTxt as string
+		
+		var shipscale as number
 		var tractStr as number
 		var sec as number
 		var delDmg as number
 		
-		totD = field[wpTotalDamage].value
+		totDmg = field[wpTotalDamage].value
+		noDmg = tagis[Weapon.NoDamage]
+	    effTags = tagnames[DmgEffect.?,", "] 
+        shipscale = #shipscale[]
+		shipWpn = tagis[component.StarshipWeapon]
 		
-		if (tagis[Weapon.NoDamage] <> 0) then
-	      txt = "*"
-		else
-	      txt = totD & " [CD]"
-          endif
-		  
-	    tags = tagnames[DmgEffect.?,", "] 
-		
-		foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  if (tagis[component.StarshipWeapon] <> 0) then
-		    tractStr = scale - 1 + field[wpSTracBonus].value
-			endif
-		nexteach
-		
-		tags = replace(tags, "Persistant X", "Persistant " & scale,0)
-		tags = replace(tags, "Strength X", "Strength " & tractStr,0)
-		
-		if (empty(txt) = 0) then
-		
-		  txt &= " " & tags
-		  
+		if (shipWpn <> 0) then
+		  tractStr = shipscale - 1 + field[wpSTracBonus].value
 		  endif
 		
-	    @text = txt
+		dmgTxt = ""
+		
+        Call WeaponDamageSB
+		
+	    @text = dmgTxt
 		
         ]]></finalize>
       </field>
-	<!-- Damage summary of the weapon -->
+
+	<!-- Output Sheet - Damage summary of the weapon -->
     <field
       id="wpDamageSummaryOS"
       name="Damage"
@@ -487,6 +473,7 @@
 		
         ]]></finalize>
       </field>
+
     <field
       id="wpQualSumm"
       name="Qualities"
@@ -502,8 +489,6 @@
 		
 		if (empty(tags) = 0) then
 		  txt &= " " & tags
-		else
-		  txt &= "-"
 		  endif
 		  
 	    @text = txt
@@ -511,6 +496,54 @@
         ]]></finalize>
       </field>
 
+    <field
+      id="wpInjuryType"
+      name="Injury Type"
+      type="derived"
+	  maxlength="75"
+	  maxfinal="75">
+	  <!-- Final value for display is a blending of the various range values -->
+      <finalize><![CDATA[
+        var txt as string
+		
+		var tags as string
+		tags = tagnames[WeaponInjury.?,"/"] 
+		
+		if (empty(tags) = 0) then
+		  txt &= tags
+		else
+		  txt &= "--"
+		  endif
+		  
+	    @text = txt
+		
+        ]]></finalize>
+      </field>
+
+    <field
+      id="wpGearSize"
+      name="Gear Size"
+      type="derived"
+	  maxlength="75"
+	  maxfinal="75">
+	  <!-- Final value for display is a blending of the various range values -->
+      <finalize><![CDATA[
+        var txt as string
+		
+		var tags as string
+		tags = tagabbrevs[GearSize.?,"/"] 
+		
+		if (empty(tags) = 0) then
+		  txt &= tags
+		else
+		  txt &= "--"
+		  endif
+		  
+	    @text = txt
+		
+        ]]></finalize>
+      </field>
+	  
     <!-- Special details about the weapon -->
     <field
       id="wpSpecial"
@@ -548,36 +581,59 @@
     <eval index="1" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
 	  var attribute as number
 	  var discipline as number
+	  var attk as number
 	  var tagexpr as string
 	  
-	  attribute = #abilfinal[attrsys01]
-	  discipline = #abilfinal[discdept03]
 	  
-	  ~ check for alternate attribute values to use
-	  if (tagcount[AltAttack.?] <> 0) then
+	  if (#isfirstedition[] <> 0) then
+	    attribute = #command[]
+	    discipline = #security[]
 	  
-	  ~ check for alternate attribute values to use
-	    tagexpr = tagids[AltAttack.attrsys?,"|"]
-		foreach pick in hero from DiscDept where tagexpr
-		  if (eachpick.field[abiFinal].value > attribute) then
-		    attribute = eachpick.field[abiFinal].value
-			endif
-		  nexteach
+	    ~ check for alternate attribute values to use
+	    if (tagcount[AltAttack.?] <> 0) then
+	  
+	    ~ check for alternate attribute values to use
+	      tagexpr = tagids[AltAttack.attrsys?,"|"]
+		  foreach pick in hero from DiscDept where tagexpr
+		    if (eachpick.field[abiFinal].value > attribute) then
+		      attribute = eachpick.field[abiFinal].value
+			  endif
+		    nexteach
 
-	  ~ check for alternate discipline values to use
-	    tagexpr = tagids[AltAttack.discdept?,"|"]
-		foreach pick in hero from DiscDept where tagexpr
-		  if (eachpick.field[abiFinal].value > discipline) then
-		    discipline = eachpick.field[abiFinal].value
-			endif
-		  nexteach
+	    ~ check for alternate discipline values to use
+	      tagexpr = tagids[AltAttack.discdept?,"|"]
+		  foreach pick in hero from DiscDept where tagexpr
+		    if (eachpick.field[abiFinal].value > discipline) then
+		      discipline = eachpick.field[abiFinal].value
+			  endif
+		    nexteach
 		  
+	      endif
+	 
+	  elseif (#issecondedition[] <> 0) then 
+	    if (tagis[component.WeapMelee] <> 0) then
+	      attribute = #daring[]
+	      discipline = #security[]
+		  
+        elseif (tagis[component.WeapRange] <> 0) then
+	      attribute = #control[]
+	      discipline = #security[]
+		  
+        elseif (tagis[component.StarshipWeapon] <> 0) then
+	      attribute = #weapons[]
+	      discipline = #security[]
+          
+          endif		  
+		
 	    endif
 	  
-      field[wpNetAtk].value = attribute + discipline + field[wpBonus].value + field[wpPenalty].value
+	  attk = attribute + discipline + field[wpBonus].value + field[wpPenalty].value	
+	  
+      field[wpNetAtk].value = attk
+	  
       ]]></eval>
 	  
-    <!-- Calculate the net attack roll for the weapon -->
+    <!-- Calculate total damage roll for the weapon -->
     <eval index="2" phase="Final" priority="7000" name="Calc wpTotalDamage"><![CDATA[
       var txt as string
 	  var tags as string
@@ -590,34 +646,36 @@
 	  var discipline as number
 	  var tagexpr as string
 	  
-      ~ damage from attribute/discipline
-	  dmgAttr = #ability[discdept03]
+	  if (#isfirstedition[] <> 0) then
+        ~ damage from attribute/discipline
+	    dmgAttr = #ability[discdept03]
 	  
-	  ~ check for alternate attribute values to use
-	  if (tagcount[AltDamage.?] <> 0) then		
-	    ~ check for alternate discipline values to use
-	    tagexpr = tagids[AltDamage.discdept?,"|"]
-		foreach pick in hero from DiscDept where tagexpr
-		  if (eachpick.field[abiFinal].value > dmgAttr) then
-		    dmgAttr = eachpick.field[abiFinal].value
-			endif
-		  nexteach		
-        endif
+	    ~ check for alternate attribute values to use
+	    if (tagcount[AltDamage.?] <> 0) then		
+	      ~ check for alternate discipline values to use
+	      tagexpr = tagids[AltDamage.discdept?,"|"]
+		  foreach pick in hero from DiscDept where tagexpr
+		    if (eachpick.field[abiFinal].value > dmgAttr) then
+		      dmgAttr = eachpick.field[abiFinal].value
+		      endif
+		    nexteach		
+          endif
 		
-	  totD = dmgAttr
+	    totD = dmgAttr
 	  
-	  foreach pick in hero where "component.ShipInfo"
-        scale = eachpick.field[shipScale].value
-		nexteach
+	    foreach pick in hero where "component.ShipInfo"
+          scale = eachpick.field[shipScale].value
+		  nexteach
 
-      if (hero.tagis[CharType.typStarship] + hero.tagis[CharType.typSmallCraft] + hero.tagis[CharType.typStarbase] <> 0) then
-	    if (tagis[Weapon.NoScale] = 0) then
-		  totD += scale
-		  endif
-		delDmg = tagvalue[Delivery.?]
-        totD += delDmg
-        endif
-	  
+        if (hero.tagis[CharType.typStarship] + hero.tagis[CharType.typSmallCraft] + hero.tagis[CharType.typStarbase] <> 0) then
+	      if (tagis[Weapon.NoScale] = 0) then
+		    totD += scale
+		    endif
+		  delDmg = tagvalue[Delivery.?]
+          totD += delDmg
+          endif
+	    endif
+		
 	  totD += int(field[wpDamage].value)
 	  
       field[wpTotalDamage].value = totD
@@ -698,7 +756,11 @@
         if (tagis[Weapon.SpecRange] <> 0) then
           @text = "Special"
         else
-          @text = field[wpShort].value & "/" & field[wpMedium].value & "/" & field[wpLong].value
+		  if (#issecondedition[] <> 0) then
+		    @text = tagnames[WeaponRange.?,", "]
+		  else
+            @text = field[wpShort].value & "/" & field[wpMedium].value & "/" & field[wpLong].value
+			endif
           endif
         ]]></finalize>
       </field>
@@ -972,6 +1034,22 @@
       ]]></eval>	  
     </component>
 
+  <!-- Component for gear qualities -->
+  <component
+    id="GearQuality"
+    name="Gear Quality"
+    autocompset="yes">
+	  
+    </component>
+
+  <!-- Helper component for gear qualities gizmo -->
+  <component
+    id="GearHelp"
+    name="Gear Helper"
+    autocompset="yes">
+	  
+    </component>
+
   <!-- Define various component sets associated with the components defined above.
   -->
 
@@ -1062,4 +1140,11 @@
     <compref component="Gear"/>
     </compset>
 
+  <!-- An entity for Gear Qualities -->
+  <entity
+    id="gearQual"
+    form="grGearQualities">
+    <bootstrap thing="GearHelper"/>
+    </entity>
+	
   </document>

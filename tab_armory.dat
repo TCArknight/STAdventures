@@ -56,15 +56,14 @@
       showtemplate="arWpnPick"
       choosetemplate="arWpnThing"
       buytemplate="BuyCash"
-      selltemplate="SellCash">
+      selltemplate="SellCash"
+	  headertemplate="arMeleeHdr"
+	  scrollable="no">
       <list>component.WeapMelee</list>
       <candidate inheritlist="yes">!Equipment.Natural</candidate>
       <titlebar><![CDATA[
         @text = "Select Melee Weapons to Purchase from the List Below"
         ]]></titlebar>
-      <headertitle><![CDATA[
-        @text = "Melee Weapons"
-        ]]></headertitle>
       <additem><![CDATA[
         @text = "Add New Melee Weapons"
         ]]></additem>
@@ -86,7 +85,8 @@
       showtemplate="arWpnPick"
       choosetemplate="arWpnThing"
       buytemplate="BuyCash"
-      selltemplate="SellCash">
+      selltemplate="SellCash"
+	  scrollable="no">
       <list>component.WeapRange</list>
       <candidate inheritlist="yes">!Equipment.Natural</candidate>
       <titlebar><![CDATA[
@@ -120,7 +120,8 @@
       choosetemplate="arDefThing"
       showsortset="Armory"
       buytemplate="BuyCash"
-      selltemplate="SellCash">
+      selltemplate="SellCash"
+	  scrollable="no">
       <list>component.Defense</list>
       <candidate inheritlist="yes">!Equipment.Natural</candidate>
       <titlebar><![CDATA[
@@ -245,7 +246,7 @@
 
     <portal
       id="name"
-      style="chkNormal"
+      style="chkSmall"
       showinvalid="yes"
       tiptext="Click to equip this weapon">
       <checkbox
@@ -280,17 +281,35 @@
         ]]></mouseinfo>
       </portal>
 
-    <portal
+    <!-- <portal
       id="quality"
-      style="lblNormal">
+      style="lblSmall">
       <label
         field="wpQualSumm">
+        </label>
+      </portal>
+-->
+    <portal
+      id="injury"
+      style="lblSmall">
+      <label
+        field="wpInjuryType">
+        </label>
+      </portal>
+
+    <portal
+      id="size"
+      style="lblSmall">
+      <label>
+        <labeltext><![CDATA[
+          @text = field[wpGearSize].text
+          ]]></labeltext>
         </label>
       </portal>
 
     <portal
       id="damage"
-      style="lblNormal">
+      style="lblSmall">
       <label
         field="wpDamageSummary">
         </label>
@@ -311,7 +330,7 @@
       </portal>
 
     <portal
-      id="special"
+      id="quality"
       style="imgNormal">
       <image_literal
         image="special.bmp"
@@ -319,7 +338,7 @@
         istransparent="yes">
         </image_literal>
       <mouseinfo><![CDATA[
-        @text = "Special: " & field[wpNotes].text
+        @text = field[wpQualSumm].text
         ]]></mouseinfo>
       </portal>
 
@@ -363,11 +382,13 @@
       perform portal[quality].centervert
       perform portal[damage].centervert
       perform portal[range].centervert
-      perform portal[special].centervert
+      ~ perform portal[special].centervert
       perform portal[gearmanage].centervert
       perform portal[delete].centervert
       perform portal[strreq].centervert
       perform portal[heldby].centervert
+      perform portal[injury].centervert
+      perform portal[size].centervert
 
       ~position the delete portal on the far right
       perform portal[delete].alignedge[right,0]
@@ -379,7 +400,7 @@
       perform portal[gearmanage].alignrel[rtol,info,-8]
 
       ~position the quality portal to the left of the gear button
-      perform portal[quality].alignrel[rtol,gearmanage,-8]
+      ~ perform portal[quality].alignrel[rtol,gearmanage,-8]
 
       ~position the range portal to the left of the delete button; we want the
       ~damage to be centered in its own column relative to a centerpoint position
@@ -388,15 +409,18 @@
 
       ~position the damage portal to the left of the range column; we want the
       ~damage to be centered in its own column relative to a centerpoint position
-      ~perform portal[quality].centerpoint[horz,250]
+      perform portal[quality].centerpoint[horz,290]
+      perform portal[size].centerpoint[horz,250]
 
       ~position the attack portal to the left of damage column; we want the
       ~attack to be centered in its own column relative to a centerpoint position
       perform portal[damage].centerpoint[horz,210]
+	  
+	  perform portal[injury].centerpoint[horz,160]
 
       ~position the name on the left and let it use all available space
       var limit as number
-      limit = portal[damage].left - 8 - portal[heldby].width - 5 - portal[strreq].width - 2
+      limit = portal[injury].left - 4 - portal[heldby].width - 5 - portal[strreq].width - 2
       portal[name].left = 0
       portal[name].width = minimum(portal[name].width,limit)
 
@@ -418,11 +442,134 @@
         endif
 
       ~only show the special portal if there are special abilities/notes to view
-      portal[special].visible = 1 - field[wpNotes].isempty
+      portal[quality].visible = 1 - field[wpQualSumm].isempty
+	  
+	  ~ fit name in space
+      perform portal[name].sizetofit[32]
+	  
+	  ~ hide portals based on edition
+      if (#issecondedition[] <> 0) then
+        ~portal[info].centervert
+        ~portal[name].centervert
+        ~portal[quality].centervert
+        ~portal[damage].centervert
+        ~portal[range].centervert
+        ~portal[special].centervert
+        ~portal[gearmanage].centervert
+        ~portal[delete].centervert
+        ~portal[strreq].centervert
+        ~portal[heldby].centervert
+        ~portal[injury].centervert
+		endif
+	  
       ]]></position>
 
     </template>
+	
+  <template
+    id="arMeleeHdr"
+    name="Melee Header"
+    compset="Weapon"
+    marginhorz="3"
+    marginvert="3">
+	
+    <portal
+      id="hdrTitle"
+      style="lblTitle"
+      isheader="yes">
+      <label
+        istitle="yes"
+        text="Melee Weapons">
+        </label>
+      </portal>
+	  
+    <portal
+      id="hdrName"
+      style="lblHeader"
+      isheader="yes">
+      <label>
+	    <labeltext><![CDATA[
+          @text = "Weapon"
+		  ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal
+      id="hdrInjury"
+      style="lblHeader"
+      isheader="yes">
+      <label>
+	    <labeltext><![CDATA[
+          @text = "Injury"
+		  ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal
+      id="hdrDamage"
+      style="lblHeader"
+      isheader="yes">
+      <label>
+	    <labeltext><![CDATA[
+		  if (#issecondedition[] <> 0) then
+            @text = "Severity"
+		  else
+            @text = "Damage"
+			endif
+		  ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <portal
+      id="hdrSize"
+      style="lblHeader"
+      isheader="yes">
+      <label>
+	    <labeltext><![CDATA[
+		  @text = "Size"
+		  ]]></labeltext>
+        </label>
+      </portal>
 
+    <portal
+      id="hdrQualities"
+      style="lblHeader"
+      isheader="yes">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Qualities"
+          ]]></labeltext>
+        </label>
+      </portal>
+	  
+    <header><![CDATA[
+      ~our header height is the title plus a gap plus the header text
+      height = portal[hdrTitle].height + portal[hdrName].height + 2
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~our title spans the full width of the template
+      portal[hdrTitle].width = width
+
+      ~each of our header labels has the same width as the corresponding data beneath
+      perform portal[hdrName].centerpoint[horz,100]
+      perform portal[hdrInjury].centerpoint[horz,160]
+      perform portal[hdrDamage].centerpoint[horz,210]
+      perform portal[hdrSize].centerpoint[horz,250]
+      perform portal[hdrQualities].centerpoint[horz,290]
+	  
+      ~align all header labels at the bottom of the header region
+      perform portal[hdrName].alignedge[bottom,0]
+      perform portal[hdrInjury].alignedge[bottom,0]
+      perform portal[hdrDamage].alignedge[bottom,0]
+      perform portal[hdrSize].alignedge[bottom,0]
+      perform portal[hdrQualities].alignedge[bottom,0]
+
+      height = portal[hdrName].bottom
+      ]]></header>
+	  
+    </template>
 
   <!-- arDefThing template
         Derived from the SimpleItem template, this includes the defense rating and

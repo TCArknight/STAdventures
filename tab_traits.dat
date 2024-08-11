@@ -27,7 +27,8 @@
       addpick="resTrait"
 	  candidatepick="ExprHelp"
 	  candidatefield="ehTraitExp"
-	  alwaysupdate="yes">
+	  alwaysupdate="yes"
+	  scrollable="no">
       <titlebar><![CDATA[
         @text = "Add a Trait - " & hero.child[resTrait].field[resSummary].text
         ]]></titlebar>
@@ -52,8 +53,69 @@
         ]]></additem>
       </table_dynamic>
     </portal>
+	
+  <portal
+    id="trSpeciesAbil"
+    style="tblNormal">
+    <table_dynamic
+      component="SpeciesAbility"
+      showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+      showfixedlast="yes"
+	  showfrozenfixed="yes"
+	  scrollable="no"
+	  alwaysupdate="yes">
+      <candidate></candidate>
+      <titlebar><![CDATA[
+        @text = "Add a Species Ability - "
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Species Ability"
+        ]]></headertitle>
+      <additem><![CDATA[
+        ~if we're in advancement mode, we've been frozen, so display accordingly
+        if (state.iscreate = 0) then
+          @text = "{text clrgrey}Add Traits Via Advances Tab"
+          done
+          endif
 
+        @text &= "Add New Species Ability"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
+  <portal
+    id="trSpecialRule"
+    style="tblNormal">
+    <table_dynamic
+      component="SpecialRule"
+      showtemplate="trSpecRulePick"
+      choosetemplate="SimpleItem"
+      showfixedlast="yes"
+	  showfrozenfixed="yes"
+	  scrollable="no"
+	  alwaysupdate="yes">
+      <candidate></candidate>
+      <titlebar><![CDATA[
+        @text = "Add a Special Rule - "
+        ]]></titlebar>
+      <description/>
+      <headertitle><![CDATA[
+        @text = "Special Rule"
+        ]]></headertitle>
+      <additem><![CDATA[
+        ~if we're in advancement mode, we've been frozen, so display accordingly
+        if (state.iscreate = 0) then
+          @text = "{text clrgrey}Add Traits Via Advances Tab"
+          done
+          endif
 
+        @text &= "Add New Special Rule"
+        ]]></additem>
+      </table_dynamic>
+    </portal>
+	
   <!-- trPick template
         Displays the name of the pick/thing and an info button with the basic
         description text. This is basically the "SimpleItem" template, with one
@@ -148,7 +210,143 @@
 
     </template>
 
+  <template
+    id="trSpecRulePick"
+    name="Special Rule Pick"
+    compset="SpecialRule"
+    marginhorz="3"
+    marginvert="2">
 
+    <portal
+      id="name"
+      style="lblNormal"
+      showinvalid="yes">
+      <label
+        field="name">
+        </label>
+      </portal>
+
+    <portal
+      id="lbldomain"
+      style="lblDisable">
+      <label>
+        <labeltext><![CDATA[
+          if (tagis[DomainTerm.?] <> 0) then
+            @text = tagnames[DomainTerm.?,"|"]
+          else
+            @text = ""
+            endif
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+	<portal
+	  id="domain"
+	  style="editNormal">
+	  <edit
+	    field="domDomain">
+	    </edit>
+	  </portal>
+	  
+    <portal
+      id="menu1"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen1"
+        component="none"
+        maxvisible="10"
+        usepicksfield="usrSource1"
+        candidatefield="usrCandid1">
+        </menu_things>
+      </portal>
+	  
+    <portal
+      id="info"
+      style="actInfo">
+      <action
+        action="info">
+        </action>
+      <mouseinfo/>
+      </portal>
+
+    <portal
+      id="delete"
+      style="actDelete"
+      tiptext="Click to delete this item">
+      <action
+        action="delete">
+        </action>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[info].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~determine whether our menus are visible
+      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
+      if (field[usrCandid1].isempty <> 0) then
+        portal[menu1].visible = 0
+        endif
+		
+      ~position our tallest portal at the top
+      portal[info].top = 0
+
+      ~center the other portals vertically
+      perform portal[name].centervert
+      perform portal[delete].centervert
+      perform portal[domain].centervert
+      perform portal[menu1].centervert
+	  
+      ~position the delete portal on the far right
+      perform portal[delete].alignedge[right,0]
+
+      ~position the info portal to the left of the delete button
+      perform portal[info].alignrel[rtol,delete,-8]
+      
+	  ~if we don't need a domain, hide the portals
+	  if (tagis[User.NeedDomain] = 0) then
+	    portal[lbldomain].visible = 0
+	    portal[domain].visible = 0
+
+        ~position the name on the left and use availble space, with a gap for menus
+        portal[name].left = 0
+        portal[name].width = minimum(portal[name].width,portal[info].left - portal[name].left - 75)
+
+	    ~position the menus to the right of the name in the available space
+        perform portal[menu1].alignrel[ltor,name,10]
+        portal[menu1].width = (portal[info].left - portal[menu1].left - 20) / 2
+	  else
+	    ~position the domain portal to the left of the info
+        perform portal[domain].alignrel[rtol,info,-85]
+        perform portal[lbldomain].alignrel[rtol,domain,-15]
+		
+        ~portal[domain].width = minimum(150,portal[info].left - portal[domain].left - 100)
+        portal[domain].width = 125
+		portal[lbldomain].width = 100
+		
+        ~position the name on the left and let it use all available space
+        portal[name].left = 0
+        portal[name].width = minimum(portal[name].width,portal[lbldomain].left - 5)
+        endif
+		
+      ~if a menu is visible, make sure it has a selection
+      if (portal[menu1].visible <> 0) then
+        if (field[usrChosen1].ischosen = 0) then
+          perform portal[menu1].setstyle[menuErrSm]
+          endif
+        endif
+		
+      ~if the ability is auto-added, change its font to indicate that fact
+      if (candelete = 0) then
+        perform portal[name].setstyle[lblAuto]
+        endif
+      ]]></position>
+
+    </template>
+	
   <!-- traits layout
         This layout orchestrates the display of the visual elements that comprise
         the Abilities tab. This amounts to a title at the top and a dynamic table
@@ -159,7 +357,9 @@
   -->
   <layout
     id="traits">
-    <portalref portal="trTrait" taborder="10"/>
+    <portalref portal="trSpeciesAbil" taborder="10"/>
+    <portalref portal="trTrait" taborder="15"/>
+    <portalref portal="trSpecialRule" taborder="15"/>
 
     <!-- This script sizes and positions the layout and its child visual elements. -->
     <position><![CDATA[
@@ -169,9 +369,15 @@
         portal[trTrait].freeze = 1
         endif
 
+      portal[trSpeciesAbil].freeze = 1
+      portal[trSpecialRule].freeze = 1
+	  
       ~position and size the table to span the full layout; it will only use the
       ~vertical space that it actually needs
       perform portal[trTrait].autoplace
+      perform portal[trSpeciesAbil].autoplace[10]
+      perform portal[trSpecialRule].autoplace[10]
+	  
       ]]></position>
 
     </layout>

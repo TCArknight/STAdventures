@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="gqAccurate" name="Natural Armor" description="Description goes here" compset="GearQuality" uniqueness="unique" >
+    </thing>
+	
+  </document>

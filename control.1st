@@ -292,7 +292,7 @@
     id="Era"
     name="Campaign Era"
     selectable="no"
-	sortorder="0"
+	sortorder="10"
     description="Various Eras for the game.">
     </source>
 
@@ -300,30 +300,60 @@
     id="ENT"
     name="Enterprise"
     parent="Era"
-    default="no"
+    default="yes"
     reportable="no"
     sortorder="1"
     description="Archer and Crew">
     </source>
 
   <source
+    id="Disco"
+    name="Discovery"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="2"
+    description="Discovery and Crew">
+    </source>
+
+  <source
     id="TOS"
     name="The Original Series"
     parent="Era"
-    default="no"
+    default="yes"
     reportable="no"
-    sortorder="2"
+    sortorder="3"
     description="Kirk and Crew">
     </source>
 
+  <source
+    id="LostYears"
+    name="The Lost Years"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="4"
+    description="Between the Movies and TNG">
+    </source>
+	
   <source
     id="TNG"
     name="The Next Generation"
     parent="Era"
     default="yes"
     reportable="no"
-    sortorder="3"
+    sortorder="5"
     description="Picard and Crew">
+    </source>
+	
+  <source
+    id="25th"
+    name="25th Century"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="5"
+    description="ST:Picard (2400+)">
     </source>
 
   <source
@@ -345,6 +375,38 @@
 	selectable="no"
     sortorder="1"
     description="Unofficial rules for Starbase Construction.">
+    </source>
+
+  <source
+    id="CoreRules"
+    name="Core Rules"
+    selectable="no"
+	sortorder="0"
+    description="Which edition of the ruleset in use.">
+    </source>
+
+  <source
+    id="1stEdition"
+    name="1st Edition"
+    abbrev="1stEd"
+    parent="CoreRules"
+    default="yes"
+    reportable="yes"
+	selectable="yes"
+    sortorder="1"
+    description="Character uses the 1st edition core ruleset.">
+    </source>
+
+  <source
+    id="2ndEdition"
+    name="2nd Edition"
+    abbrev="2ndEd"
+    parent="CoreRules"
+    default="no"
+    reportable="yes"
+	selectable="yes"
+    sortorder="1"
+    description="Character uses the 2nd edition core ruleset.">
     </source>
 	
   <source
@@ -478,9 +540,45 @@
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
   
-  <!-- SpecSort - Species sortset -->
-  <sortset id="SpecSort" name="Species Sort">
+  <!-- SpeciesSort - Species sortset -->
+  <sortset id="SpeciesSort" name="Species Sort">
     <sortkey isfield="no" id="SpecCat"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+  
+  <!-- EnvironSort - Species sortset -->
+  <sortset id="EnvironSort" name="Environment Sort">
+    <sortkey isfield="yes" id="envRoll"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+  
+  <!-- UpbringSort - Upbringing sortset -->
+  <sortset id="UpbringSort" name="Upbringing Sort">
+    <sortkey isfield="yes" id="upRoll"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+  
+  <!-- UpbringSort - Academy sortset -->
+  <sortset id="AcademySort" name="Academy Sort">
+    <sortkey isfield="yes" id="acRoll"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+  
+  <!-- UpbringSort - CareerPath sortset -->
+  <sortset id="CPathSort" name="Career Path Sort">
+    <sortkey isfield="yes" id="cpRoll"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+  
+  <!-- UpbringSort - CareerPath sortset -->
+  <sortset id="CTrackSort" name="Career Path Sort">
+    <sortkey isfield="yes" id="ctRoll"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+  
+  <!-- UpbringSort - CareerPath sortset -->
+  <sortset id="CExpSort" name="Career Path Sort">
+    <sortkey isfield="yes" id="ceRoll"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
 
@@ -494,6 +592,14 @@
   <sortset id="FrameSort" name="Starship Frame Sort">
     <sortkey isfield="no" id="ShipType"/>
     <sortkey isfield="no" id="ShipAlliance"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+	
+  <!-- FrameSort - Species sortset -->
+  <sortset id="FrameByEra" name="Starship Frame by Era">
+    <sortkey isfield="no" id="Era"/>
+    <sortkey isfield="no" id="ShipAlliance"/>
+    <sortkey isfield="no" id="ShipType"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
 

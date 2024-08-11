@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document signature="Hero Lab Data">
+
+  <portal 
+    id="gqQualities" 
+    style="tblInvis">
+    <table_fixed 
+	  component="GearQuality" 
+	  scrollable="no"
+      showtemplate="SimpleItem" 
+	  showsortset="explicit">
+      <headertitle>
+        @text = "Qualities"
+        </headertitle>
+      </table_fixed>
+    </portal>
+
+  <!--   -->
+  <layout
+    id="gearqual">
+    <portalref portal="gqQualities" taborder="10"/> 
+    <!-- <templateref template="amAmmoChooser" thing="GearHelper"/>
+    <templateref template="amDamages" thing="GearHelper"/> -->
+
+    <!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+      width = 350
+	  
+	  perform portal[gqQualities].autoplace[0]
+	  
+	  height = autoextent
+	  
+      ]]></position>
+
+    </layout>
+
+
+  <!-- Gear Quality Form
+  -->
+  <form
+    id="grGearQualities"
+    name="Gear Qualities">
+    <layoutref layout="gearqual"/>
+    <position><![CDATA[
+      layout[gearqual].width = 150
+      perform layout[gearqual].render
+      width = layout[gearqual].width
+      height = layout[gearqual].height
+      ]]></position>
+    </form>
+
+  </document>

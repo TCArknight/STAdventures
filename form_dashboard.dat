@@ -108,7 +108,7 @@
       style="lblSmall">
       <label>
         <labeltext><![CDATA[
-          @text = field[acStrSumm].text
+          @text = field[acStressSumm].text
           ]]></labeltext>
         </label>
       </portal>

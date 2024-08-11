@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- This file contains the definition of the "Skills" tab panel. This tab is where
+      the user selects and adjusts the skills for the character.
+
+      All public visual elements used with this tab panel start with the prefix "sk"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+	  
+  <template
+    id="cpPathTemp"
+    name="Career Path Template"
+    compset="CareerPath"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="cpPathTitle"
+      style="lblTitle">
+      <label>
+        <labeltext><![CDATA[
+          @text = "Description"
+          ]]></labeltext>
+        </label>
+      </portal>
+      
+    <portal
+      id="cpPathDesc"
+      style="lblBrdLeft">
+      <label
+        field="descript"
+        ismultiline="yes">
+        </label>
+      </portal>
+                
+    <position><![CDATA[
+      ~set up our dimensions, with a width that we dictate; our width can vary
+     
+      portal[cpPathTitle].height = 20
+
+      ~position the description on the left and let it use all available space
+      portal[cpPathTitle].top = 0
+      portal[cpPathTitle].left = 0
+      portal[cpPathTitle].width = width
+      
+      portal[cpPathDesc].top = portal[cpPathTitle].bottom + 5
+      portal[cpPathDesc].left = 0
+      portal[cpPathDesc].width = width
+      portal[cpPathDesc].height = height
+
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="cpPathChk"
+    name="Attribute Checkbox Template"
+    compset="CareerPath"
+    marginhorz="3"
+    marginvert="2">
+
+
+	<portal
+	  id="mnuCareerTrait"
+	  style="chsNormal"
+	  width="150">
+	  <chooser_table
+		component="Trait"
+		choosetemplate="SimpleItem"
+		candidatepick="CareerHelper"
+		candidatefield="chTraitExpr">
+		<chosen><![CDATA[
+		  if (@ispick = 0) then
+			@text = "{text clrwarning}Select Trait"
+		  else
+			@text = "Trait: " & field[name].text
+			endif
+		  ]]></chosen>
+		<titlebar><![CDATA[
+		  @text = "Choose the career Trait for your character"
+		  ]]></titlebar>
+		</chooser_table>
+      </portal>
+	
+    <portal
+      id="mnuAttrChs"
+      style="menuNormal">
+      <menu_literal
+        field="cpAttrBon">
+          <choice value="0" display="Attribute Bonus: +2 to 1 attribute, +1 to another"/>
+          <choice value="1" display="Attribute Bonus: +1 to 3 attributes"/>
+        </menu_literal>
+      </portal>
+	  
+    <position><![CDATA[
+      ~set up our dimensions, with a width that we dictate; our width can vary
+	  
+      portal[mnuAttrChs].top = 0
+	  portal[mnuAttrChs].height = 20
+	  portal[mnuAttrChs].left = 0
+	  portal[mnuAttrChs].width = width
+	  
+	  if (tagis[Hero.TrackRequired] <> 0) then
+	    portal[mnuAttrChs].visible = 0
+		endif
+	  
+      portal[mnuCareerTrait].top = portal[mnuAttrChs].bottom + 5
+	  portal[mnuCareerTrait].height = 20
+	  portal[mnuCareerTrait].left = 0
+	  portal[mnuCareerTrait].width = width
+	  portal[mnuCareerTrait].visible = tagis[User.ChooseTrait]
+	  
+      ]]></position>
+
+    </template>
+	
+  <template
+    id="cpPathMenus"
+    name="Career Path Menus"
+    compset="UserSelect"
+    marginhorz="3"
+    marginvert="2">
+
+    <portal
+      id="lblmenu1"
+      style="lblBrdLeft">
+      <label
+        field="usrLabel1">
+        </label>
+      </portal>
+
+    <portal
+      id="lblmenu2"
+      style="lblBrdLeft">
+      <label
+        field="usrLabel2">
+        </label>
+      </portal>
+
+    <portal
+      id="lblmenu3"
+      style="lblBrdLeft">
+      <label
+        field="usrLabel3">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblmenu4"
+      style="lblBrdLeft">
+      <label
+        field="usrLabel4">
+        </label>
+      </portal>
+
+    <portal
+      id="lblmenu5"
+      style="lblBrdLeft">
+      <label
+        field="usrLabel5">
+        </label>
+      </portal>
+
+    <portal
+      id="lblmenu6"
+      style="lblBrdLeft">
+      <label
+        field="usrLabel6">
+        </label>
+      </portal>
+	  
+    <portal
+      id="menu1"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen1"
+        component="none"
+        maxvisible="10"
+        usepicksfield="usrSource1"
+        candidatefield="usrCandid1">
+        </menu_things>
+      </portal>
+
+    <portal
+      id="menu2"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen2"
+        component="none"
+        maxvisible="10"
+        usepicksfield="usrSource2"
+        candidatefield="usrCandid2">
+        </menu_things>
+      </portal>
+
+    <portal
+      id="menu3"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen3"
+        component="none"
+        maxvisible="10"
+        usepicksfield="usrSource3"
+        candidatefield="usrCandid3">
+        </menu_things>
+      </portal>
+	  
+    <portal
+      id="menu4"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen4"
+		namefield="asName"
+        component="none"
+        maxvisible="6"
+        usepicksfield="usrSource4"
+        candidatefield="usrCandid4">
+        </menu_things>
+      </portal>
+	  
+    <portal
+      id="menu5"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen5"
+        component="none"
+		namefield="asName"
+        maxvisible="6"
+        usepicksfield="usrSource5"
+        candidatefield="usrCandid5">
+        </menu_things>
+      </portal>
+	  
+    <portal
+      id="menu6"
+      style="menuNormal">
+      <menu_things
+        field="usrChosen6"
+		namefield="asName"
+        component="none"
+        maxvisible="6"
+        usepicksfield="usrSource6"
+        candidatefield="usrCandid6">
+        </menu_things>
+      </portal>
+	  
+    <position><![CDATA[
+      ~position our labels on the left
+	  var lblwidth as number
+	  var menuwidth as number
+	  menuwidth = width / 4
+	  lblwidth = menuwidth
+	  
+      portal[lblmenu4].top = 0
+      portal[lblmenu4].height = portal[menu1].height
+	  portal[lblmenu4].left = portal[lblmenu1].left
+	  portal[lblmenu4].width = lblwidth
+
+	  portal[menu4].top = portal[lblmenu4].top
+	  portal[menu4].height = portal[menu1].height
+	  portal[menu4].left = portal[lblmenu4].right + 5
+	  portal[menu4].width = menuwidth
+	  
+      portal[lblmenu5].top = portal[lblmenu4].bottom + 10
+      portal[lblmenu5].height = portal[menu1].height
+	  portal[lblmenu5].left = portal[lblmenu1].left
+	  portal[lblmenu5].width = lblwidth
+
+	  portal[menu5].top = portal[lblmenu5].top
+	  portal[menu5].height = portal[menu1].height
+	  portal[menu5].left = portal[lblmenu5].right + 5
+	  portal[menu5].width = menuwidth
+	  
+      portal[lblmenu6].top = portal[lblmenu5].bottom + 10
+      portal[lblmenu6].height = portal[menu1].height
+	  portal[lblmenu6].left = portal[lblmenu1].left
+	  portal[lblmenu6].width = lblwidth
+
+	  portal[menu6].top = portal[lblmenu6].top
+	  portal[menu6].height = portal[menu1].height
+	  portal[menu6].left = portal[lblmenu6].right + 5
+	  portal[menu6].width = menuwidth
+	  
+      portal[lblmenu1].top = portal[lblmenu6].bottom + 20
+      portal[lblmenu1].height = portal[menu1].height
+	  portal[lblmenu1].left = 0
+	  portal[lblmenu1].width = lblwidth
+
+	  portal[menu1].top = portal[lblmenu1].top
+	  portal[menu1].left = portal[lblmenu1].right + 5
+	  portal[menu1].width = menuwidth
+
+      portal[lblmenu2].top = portal[lblmenu1].bottom + 10
+	  portal[lblmenu2].height = portal[menu1].height
+	  portal[lblmenu2].left = portal[lblmenu1].left
+	  portal[lblmenu2].width = lblwidth
+
+	  portal[menu2].top = portal[menu1].bottom + 10
+	  portal[menu2].left = portal[menu1].left
+	  portal[menu2].width = menuwidth
+
+      portal[lblmenu3].top = portal[lblmenu2].bottom + 10
+      portal[lblmenu3].height = portal[menu1].height
+	  portal[lblmenu3].left = portal[lblmenu1].left
+	  portal[lblmenu3].width = lblwidth
+
+	  portal[menu3].top = portal[menu2].bottom + 10
+	  portal[menu3].left = portal[menu1].left
+	  portal[menu3].width = menuwidth
+
+	  
+      ~determine whether our portals are visible; we only show them if requested
+      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
+      if (field[usrCandid1].isempty <> 0) then
+        portal[lblmenu1].visible = 0
+        portal[menu1].visible = 0
+      elseif (field[usrLabel1].isempty <> 0) then
+        portal[lblmenu1].visible = 0
+        endif
+	  
+      if (field[usrCandid2].isempty <> 0) then
+        portal[lblmenu2].visible = 0
+        portal[menu2].visible = 0
+      elseif (field[usrLabel2].isempty <> 0) then
+        portal[lblmenu2].visible = 0
+        endif
+
+      if (field[usrCandid3].isempty <> 0) then
+        portal[lblmenu3].visible = 0
+        portal[menu3].visible = 0
+      elseif (field[usrLabel3].isempty <> 0) then
+        portal[lblmenu3].visible = 0
+        endif
+
+      if (field[usrCandid4].isempty <> 0) then
+        portal[lblmenu4].visible = 0
+        portal[menu4].visible = 0
+      elseif (field[usrLabel4].isempty <> 0) then
+        portal[lblmenu4].visible = 0
+        endif
+
+      if (field[usrCandid5].isempty <> 0) then
+        portal[lblmenu5].visible = 0
+        portal[menu5].visible = 0
+      elseif (field[usrLabel5].isempty <> 0) then
+        portal[lblmenu5].visible = 0
+        endif
+
+      if (field[usrCandid6].isempty <> 0) then
+        portal[lblmenu6].visible = 0
+        portal[menu6].visible = 0
+      elseif (field[usrLabel6].isempty <> 0) then
+        portal[lblmenu6].visible = 0
+        endif
+		
+      ~if a menu is visible, make sure it has a selection
+      if (portal[menu1].visible <> 0) then
+        if (field[usrChosen1].ischosen = 0) then
+          perform portal[menu1].setstyle[menuError]
+          endif
+        endif
+      if (portal[menu2].visible <> 0) then
+        if (field[usrChosen2].ischosen = 0) then
+          perform portal[menu2].setstyle[menuError]
+          endif
+        endif
+      if (portal[menu3].visible <> 0) then
+        if (field[usrChosen3].ischosen = 0) then
+          perform portal[menu3].setstyle[menuError]
+          endif
+        endif
+      if (portal[menu4].visible <> 0) then
+        if (field[usrChosen4].ischosen = 0) then
+          perform portal[menu4].setstyle[menuError]
+          endif
+        endif
+      if (portal[menu5].visible <> 0) then
+        if (field[usrChosen5].ischosen = 0) then
+          perform portal[menu5].setstyle[menuError]
+          endif
+        endif
+      if (portal[menu6].visible <> 0) then
+        if (field[usrChosen6].ischosen = 0) then
+          perform portal[menu6].setstyle[menuError]
+          endif
+        endif		
+	]]></position>
+
+    </template>	
+	
+  <!-- species layout
+        This layout orchestrates the display of the visual elements that comprise
+        the Skills tab. This amounts to a title at the top and a dynamic table below
+        where the user can add and adjust the skills he wants.
+
+        The logic for this layout is similar to (albeit much simpler than) the
+        logic for the Basics tab. So please refer to the Basics tab for more details.
+  -->
+  <layout
+    id="careerpath">
+    <templateref template="cpPathTemp" useagent="yes"/>
+    <templateref template="cpPathMenus" useagent="yes"/>
+    <templateref template="cpPathChk" useagent="yes"/>
+
+    <!-- This script sizes and positions the layout and its child visual elements. -->
+    <position><![CDATA[
+
+      ~both tables span the full width
+      template[cpPathTemp].width = width
+	  template[cpPathTemp].height = height/3
+      template[cpPathTemp].visible = 1
+
+      template[cpPathChk].top = template[cpPathTemp].bottom + 30
+      template[cpPathChk].width = width
+	  template[cpPathChk].height = 50
+      template[cpPathChk].visible = 1
+
+      template[cpPathMenus].top = template[cpPathChk].bottom
+      template[cpPathMenus].width = width
+	  template[cpPathMenus].height = (height - 10)/2
+      template[cpPathMenus].visible = 1
+
+      ]]></position>
+
+    </layout>
+
+  <!-- sorcery panel
+        This is the "Sorcery" panel shown within Hero Lab.
+  -->
+  <panel
+    id="careerpath"
+    name="Career Path"
+    marginhorz="5"
+    marginvert="5"
+    order="40"
+    agentcompset="CareerPath"
+    agentlive="HasCareerPath"
+    agentname="name"
+    >
+    <live>!HideTab.academy</live>
+    <layoutref layout="careerpath"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+
+
+  </document>

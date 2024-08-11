@@ -21,6 +21,22 @@
 
   <!-- Damage transaction handler for use when applying damage on the In-Play tab -->
   <thing
+    id="CareerHelper"
+    name="Career Helper"
+    compset="CareerHelp">
+	
+    </thing>
+
+  <!-- Damage transaction handler for use when applying damage on the In-Play tab -->
+  <thing
+    id="GearHelper"
+    name="Gear Helper"
+    compset="GearHelp">
+
+    </thing>
+	
+  <!-- Damage transaction handler for use when applying damage on the In-Play tab -->
+  <thing
     id="mscDamage"
     name="Damage"
     compset="Damage">
@@ -385,6 +401,14 @@
     name="Type: Character (Main)"
     compset="CharType"> 
     <bootstrap thing="wpUnarmed">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.1stEdition
+		</containerreq>
+	  </bootstrap>
+    <bootstrap thing="wp2EUnarmed">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
 	  </bootstrap>
 	<!-- Use the Lifepath creation method by default -->
     <eval index="1" phase="Initialize" priority="1000"><![CDATA[
@@ -396,6 +420,13 @@
   <thing
     id="typSupport"
     name="Type: Character (Supporting)"
+    compset="CharType">
+    <bootstrap thing="wpUnarmed"></bootstrap>
+    </thing>
+	
+  <thing
+    id="typNPC"
+    name="Type: Character (NPC)"
     compset="CharType">
     <bootstrap thing="wpUnarmed"></bootstrap>
     </thing>

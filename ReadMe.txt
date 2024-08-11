@@ -1,6 +1,35 @@
 History:
+v1.5
+Release: xx/xx/xx
+
+TODO: Advances
+
+Known Issues:
+
+Fixed - 
+
+New - 
+Core rules 2.0 !!!
+
+v1.13
+Release: 02/20/2023
+Known Issues:
+* Starship Character Sheet needs updated
+
+Fixed -
+Additional Propulsion System: Displacement-activated Spore Hub Drive missing description
+
+Enhancements -
+[Starships] Talent selection portal widened for better access to dropdowns
+[Starships] Display any Ship Special Rule entries on the Talents tab as well as the Special tab
+
+New -
+Utopia Planetia 
++ New Spaceframes
+
+
 v1.12
-Release: 11/20/2022
+Release: 02/20/2023
 Known Issues:
 * Starship Character Sheet needs updated
 

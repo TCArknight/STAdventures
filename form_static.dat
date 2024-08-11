@@ -105,21 +105,17 @@
       style="lblStatic">
       <label>
         <labeltext><![CDATA[
-          @text = "Stress: " & herofield[acStrSumm].text
+          @text = "Stress: " & herofield[acStressSumm].text
           ]]></labeltext>
         </label>
       </portal>
 
     <portal
-      id="cash"
+      id="resist"
       style="lblStatic">
       <label>
         <labeltext><![CDATA[
-          var moneyvalue as number
-          var money as string
-          moneyvalue = herofield[acCashNet].value
-          call Money
-          @text = "Cash: " & money
+          @text = "Resistance: " & hero.childfound[trResist].field[outSummary].text
           ]]></labeltext>
         </label>
       </portal>
@@ -130,18 +126,19 @@
 
       ~position the portals horizontally
       portal[stress].left = 0
-      perform portal[cash].alignrel[ltor,stress,15]
+      perform portal[resist].alignrel[ltor,stress,15]
 
       ~hide any portals that don't fully fit within the visible horizontal space
 	  if (hero.tagis[CharType.typStarship] = 1) then
 	    portal[stress].visible = 0
+        portal[resist].visible = 0
 		endif
-      ~if (portal[cash].right > width) then
-        portal[cash].visible = 0
-      ~  endif
+      if (portal[resist].right > width) then
+        portal[resist].visible = 0
+        endif
 
       ~our height is the bottommost extent of our portals
-      height = portal[cash].bottom
+      height = portal[resist].bottom
       ]]></position>
 
     </template>

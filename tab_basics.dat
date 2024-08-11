@@ -282,7 +282,7 @@
       ]]></position>
 
     </template>
-
+	  
   <!-- baAttrPick template
         Displays one attribute within the table of attributes. We setup suitable
         margins around each template, which provides substantial spacing between

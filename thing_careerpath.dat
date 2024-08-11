@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="cpStarfleetOff" name="Starfleet (Officer)" description="You are a Starfleet officer, and a graduate of Starfleet Academy. After passing grueling entrance exams, you spent four years at the Academy, dividing your time between academic study, physical training, and gaining practical experience. Much of your time was spent at the main campus in San Francisco on Earth, but you probably also spent time at other facilities across the Federation, as well as aboard starships and starbases.\n\nA graduate of the Academy receives a commission as an officer of Starfleet, holding the rank of ensign, after which they are assigned to their first posting. Some cadets—particularly those pursuing a higher education, such as a doctorate—extend their time at the Academy by a year or two, and graduate at the rank of Lieutenant (junior grade).\n\nThe Academy provides different training depending upon a cadet’s aptitudes and desired role within Starfleet, referred to as track. When you select this option, choose (or roll on the Random Starfleet Division table) which Academy track the character pursues: Command, Operations, or Sciences." compset="CareerPath" uniqueness="unique">
+    <fieldval field="cpRoll" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Hero" tag="TrackRequired"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trStarfleetOff"></bootstrap>
+    </thing>
+  <thing id="cpStarfleetEnl" name="Starfleet (Enlisted)" description="While Starfleet is best known for its highly competent officers, they are not the only personnel in Starfleet. Each year, a great many people enlist in Starfleet rather than joining the Academy. This is often the case for those who do not meet the requirements for the Academy, or who only wish to serve for a few years to gain some life experience.\n\nEnlisted crew receive basic training in starship procedures and protocols, as well as any specific courses required for their position, at the Starfleet Technical Services Academy on Mars, before being posted to a starship, starbase, or other facility.\n\nThe demand for these enlisted crew varies over time, with major recruitment drives occurring during times when Starfleet is expanding, or needs to replenish losses from disasters or times of conflict. Still, it’s a rare ship that has no enlisted personnel, typically within the Operations department, and experienced non-commissioned officers (NCOs) are highly prized for their practical knowledge and hard-won experience. A few NCOs obtain a commission later in their careers, becoming full officers.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Janice Rand (Star Trek), Miles O&apos;Brien (Deep Space Nine){i}\n\n{b}TRAIT:{/b} The character gains the trait Starfleet Crew.\n\n{b}VALUE:{b} The character gains a single value, which should reflect some aspect of the character’s beliefs that developed during their early years in Starfleet. Examples include:\n- The satisfaction of a job well-done is worth the effort\n- Nowhere else can I get this experience\n- Don’t call me sir; I work for a living\n\n{b}ATTRIBUTES:{/b} The character gains three points, which may be split between two or three attributes (increase three attributes by 1 each, or increase one by 2 and another by 1). The character may pick these attributes freely.\n\n{b}DEPARTMENTS:{/b} The player must select one of Conn, Security, Engineering, or Science, and increase it by 2. Then, choose any two other departments, and increase them by 1 each. A character may not have any department higher than 4 at this stage.\n\n{b}FOCUSES:{/b} The character selects three focuses, at least one of which should relate to whichever department was increased by +2.\n\n{i}Examples include: Computers, Electro-Plasma Power Systems, Emergency Medicine, EVA, Hand Phasers, Hand-to-hand Combat, Helm Operations, Shipboard Tactical Systems, Small Craft, Survival, Transporters and Replicators{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <fieldval field="cpRoll" value="8"/>
+    <usesource source="2ndEdition"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trStarfleetCrew"></bootstrap>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    </thing>
+  <thing id="cpStarfleetIntel" name="Starfleet (Intelligence)" description="Starfleet maintains an intelligence division which monitors and analyzes the activities of its neighbors, assessing threats, identifying future problems or challenges, and carrying out covert operations. A lot of this work is passive, carried out as a natural part of Starfleet’s operations, by analysts and computer algorithms sifting through mission logs, sensor records, and similar data, but it cannot be done exclusively in this way.\n\nStarfleet Intelligence recruits operatives and assets across the Federation, and sometimes even beyond. Most established operatives are handlers and analysts, gathering information from a variety of sources and establishing their own networks of informants, who live ordinary lives and only occasionally pass on information. When Starfleet Intelligence needs to perform more significant actions, it often selects personnel from elsewhere in Starfleet to carry out the work. Many starbases and a few starships have an Intelligence officer on board, who serve as a point of contact for their commanding officers and spend much of their time gathering and summarizing information that may be of use to ongoing missions.\n\nOther civilizations in the Galaxy have comparable intelligence agencies, such as the Romulan Tal Shiar or the Cardassian Obsidian Order, both of which are infamous examples feared both within and beyond those civilizations.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Raffaela Musiker (Picard), Ro Laren (The Next Generation) {i}\n\n{b}TRAIT:{/b} The character gains the trait {b}Intelligence Operative{/b}.\n\n{b}VALUE:{b} The character gains a single value, which should reflect some aspect of the character’s beliefs that developed during their early years in Starfleet. \n\nExamples include:\n- Trust, but verify\n- Insufficient information can result in disaster\n- Secrets are my business\n\n{b}ATTRIBUTES:{/b} The character gains three points, which may be split between two or three attributes (increase three attributes by 1 each, or increase one by 2 and another by 1). The character may pick these attributes freely.\n\n{b}DEPARTMENTS:{/b} The player must select one of Command or Security and increase it by 2. Then, choose any two other departments, and increase them by 1 each. A character may not have any department higher than 4 at this stage.\n\n{b}FOCUSES:{/b} The character selects three focuses, at least one of which should relate to whichever department was increased by +2.\n\n{i}Examples include: Computers, Diplomacy, Espionage, Hand Phasers, Hand-to-hand Combat, Infiltration, Interrogation, Linguistics, Persuasion, Politics{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <fieldval field="cpRoll" value="10"/>
+    <usesource source="2ndEdition"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trIntelOperative"></bootstrap>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    </thing>
+  <thing id="cpDiplomaticCorp" name="Diplomatic Corp" description="Whether you’ve spent a lifetime in politics and diplomacy, or you became an honorary diplomat after an illustrious career, you are now part of the network of ambassadors and envoys who connect distant worlds and interstellar nations.\n\nWhen entering diplomatic service, you may speak on behalf of a single world, or on behalf of an interplanetary entity such as the Federation. The most respected diplomats may be roving ambassadors-at-large, leveraging their reputation and experience to arrange summits and treaties and speak on major international matters, constantly moving from place to place as the situation demands.\n\nStarfleet, and the militaries of other civilizations, commonly provide protection and support for diplomatic missions, and thus ambassadors can often be found on Starfleet vessels and similar.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Sarek (Star Trek), Curzon Dax (Deep Space Nine){i}\n \n{b}TRAIT:{/b} The character gains the trait Diplomat or Ambassador. You may adjust this to reflect the specifics of your diplomatic posting, noting who you represent, where you’re posted, or both: for example, Federation Ambassador-at-large, or Klingon Ambassador to Vulcan.\n\n{b}VALUE:{b} The character gains a single value, which should reflect some aspect of the character’s beliefs that developed during their early years in Starfleet. Examples include:\n- Eventually, everyone comes back to the table to talk\n- The right words can shape countless lives\n- You don’t get a better world if you don’t work for it\n\n{b}ATTRIBUTES:{/b} The character gains three points, which may be split between two or three attributes (increase three attributes by 1 each, or increase one by 2 and another by 1). The character may pick these attributes freely.\n\n{b}DEPARTMENTS:{/b} The player increases Command by 2. Then, choose any two other departments, and increase them by 1 each. A character may not have any department higher than 4 at this stage.\n\n{b}FOCUSES:{/b} The character selects three focuses, at least one of which should relate to whichever department was increased by +2.\n\n{i}Examples include: Anthropology, Composure, Diplomacy, Espionage, History, Linguistics, Literature, Persuasion, Philosophy, Politics{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <fieldval field="cpRoll" value="12"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TraitSelect" tag="trDiplomat"/>
+    <tag group="User" tag="NoAutoName"/>
+    <tag group="User" tag="ChooseTrait"/>
+    <tag group="TraitSelect" tag="trAmbassador"/>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    </thing>
+  <thing id="cpCivilianPhys" name="Civilian (Physician)" description="You’ve devoted your life to healing others. You may be trained as a doctor, a paramedic, a counselor, or you may be a medical researcher rather than a practicing physician, but either way, the goal is to help people who are hurt in some way. Your skills are in demand across explored space, and even civilian-trained physicians can find themselves aboard Starfleet and military ships.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Phlox (Enterprise){i}\n \n{b}TRAIT:{/b} The character gains the trait Physician. This can be adjusted to reflect a particular specialty, such as Surgeon or Geneticist.\n\n{b}VALUE:{b} You gain a single value, which should reflect the character’s beliefs developed during their studies, or which led them to enter medicine in the first place. Examples include:\n- The Hippocratic Oath\n- I must respect my patient’s wishes\n- An ounce of prevention is worth a pound of cure\n\n{b}ATTRIBUTES:{/b} You gain three points, which may be divided among two or three attributes freely (either one gets 2 and the other gets 1, or all three get 1). These may be assigned freely.\n\n{b}DEPARTMENTS:{/b} You increase your Medicine by 2, and two other departments by 1. In addition, you may reduce one of your other departments by 1 and add that point to any department not already increased.\n\n{b}FOCUSES:{/b} The character selects three focuses, at least one of which should relate to whichever department was increased by +2.\n\n{i}Examples include: Emergency Medicine, Surgery, Psychiatry, Virology, Cybernetics, Genetics, Xenobiology{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <fieldval field="cpRoll" value="14"/>
+    <usesource source="2ndEdition"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trPhysician"></bootstrap>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    </thing>
+  <thing id="cpCivilianSci" name="Civilian (Scientist)" description="You pursue scientific truth or technological progress, seeking to become your generation’s Zephram Cochrane or Richard Daystrom. You probably specialize in a single field of scientific study or technical expertise, or a small number of related fields. You may end up working with Starfleet or a military, but this is more because they are interested in your work.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Leah Brahms (The Next Generation), Ruon Tarka (Discovery){i}\n \n{b}TRAIT:{/b} The character gains the trait Scientist or Engineer. Adjust this to reflect the specifics of the character’s profession, such as Cyberneticist or Transporter Expert.\n\n{b}VALUE:{b} You gain a single value, which should reflect the character’s beliefs developed during their studies, or which led them to enter medicine in the first place. Examples include:\n- I have devoted my career to this research\n- Science allows us to seek truth and understanding\n- With the right tools, we can solve any problem\n\n{b}ATTRIBUTES:{/b} You gain three points, which may be divided among two or three attributes freely (either one gets 2 and the other gets 1, or all three get 1). At least one of the attributes you increase must be Reason, as nobody gets far in science or engineering without a keen intellect.\n\n{b}DEPARTMENTS:{/b} You increase your Science of Engineering by 2, and two other departments by 1. In addition, you may reduce one of your other departments by 1 and add that point to any department not already increased.\n\n{b}FOCUSES:{/b} The character selects three focuses, at least one of which should relate to whichever department was increased by +2.\n\n{i}Examples include: Astrophysics, Botany, Cybernetics, Exo-Tectonics, Genetics, Quantum Mechanics, Subspace Mechanics, Temporal Mechanics, Transporters and Replicators, Warp Field Dynamics{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="cpRoll" value="15"/>
+    <fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TraitSelect" tag="trScientist"/>
+    <tag group="User" tag="NoAutoName"/>
+    <tag group="TraitSelect" tag="trEngineer"/>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    <evalrule phase="Final" priority="1000" message="Must select Reason as one of Attributes to increase."><![CDATA[var SelMade as number
+SelMade = field[usrChosen4].ischosen + field[usrChosen5].ischosen + field[usrChosen6].ischosen
+
+~ if we haven't made any selections, we're good. 
+validif ( SelMade = 0)
+	  
+var steps as number
+var choice1 as string
+var choice2 as string
+var choice3 as string
+
+choice1 = field[usrChosen4].chosen.idstring
+choice2 = field[usrChosen5].chosen.idstring
+choice3 = field[usrChosen6].chosen.idstring
+
+if (compare(choice1,"attrsys06") = 0) then
+  steps = 1
+  endif
+if (compare(choice2,"attrsys06") = 0) then
+  steps = 1
+  endif
+if (compare(choice3,"attrsys06") = 0) then
+  steps = 1
+  endif
+
+validif (steps = 1)
+	  
+~mark lifepath tab as invalid
+container.panelvalid[careerpath] = 0]]></evalrule>
+    </thing>
+  <thing id="cpCivilianOff" name="Civilian (Official)" description="You are a civil servant, operating within the structure of a civilization to ensure that if continues to function smoothly and to the benefit of its people. Your role may be narrowly focused upon a specific area of government, or you may be responsible for overseeing large departments or ministries, your decisions impacting millions or even billions of lives. Either way, your role is important, and you take pride in the necessary work you carry out. \n\nSuch officials may have duties that require travel aboard a starship, or being stationed on a starbase. Starbases often have a large civilian population, necessitating a civilian administration parallel with a Starfleet or military command.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Nathan Samuels (Enterprise), Shakaar Edon (Deep Space Nine){i}\n \n{b}TRAIT:{/b} The character gains a trait which reflects their title or role, such as Administrator. This should be adjusted to fit the specific title the character possesses.\n\n{b}VALUE:{b} You gain a single value, which should reflect the character’s beliefs developed during their studies, or which led them to enter public service in the first place. Examples include:\n- Keeping the wheels of civilization turning is vital\n- My decisions can affect a great many people; I must choose carefully\n- The law should serve the needs of the people\n\n{b}ATTRIBUTES:{/b} You gain three points, which may be divided among two or three attributes freely (either one gets 2 and the other gets 1, or all three get 1). At least one of the attributes you increase must be Insight or Presence, as good instincts and a strong personality are valuable for getting into office.\n\n{b}DEPARTMENTS:{/b} You increase your Command by 2, and two other departments by 1. In addition, you may reduce one of your other departments by 1 and add that point to any department not already increased.\n\n{b}FOCUSES:{/b} The character selects three focuses, at least one of which should relate to whichever department was increased by +2.\n\n{i}Examples include: Bureaucracy, Diplomacy, Politics, Linguistics, History, Philosophy, or something related to your role in public service{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Major Study:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01|thingid.discdept02)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Minor Study:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Minor Study:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <fieldval field="cpRoll" value="18"/>
+    <usesource source="2ndEdition"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trAdministrator"></bootstrap>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    <evalrule phase="Final" priority="1000" message="Must select Insight or Presence as one of Attributes to increase."><![CDATA[var SelMade as number
+SelMade = field[usrChosen4].ischosen + field[usrChosen5].ischosen + field[usrChosen6].ischosen
+
+~ if we haven't made any selections, we're good. 
+validif ( SelMade = 0)
+	  
+var steps as number
+var choice1 as string
+var choice2 as string
+var choice3 as string
+
+choice1 = field[usrChosen4].chosen.idstring
+choice2 = field[usrChosen5].chosen.idstring
+choice3 = field[usrChosen6].chosen.idstring
+
+if (compare(choice1,"attrsys04") = 0) then
+  steps = 1
+  endif
+if (compare(choice1,"attrsys05") = 0) then
+  steps = 1
+  endif
+if (compare(choice2,"attrsys04") = 0) then
+  steps = 1
+  endif
+if (compare(choice2,"attrsys05") = 0) then
+  steps = 1
+  endif
+if (compare(choice3,"attrsys04") = 0) then
+  steps = 1
+  endif
+if (compare(choice3,"attrsys05") = 0) then
+  steps = 1
+  endif
+
+validif (steps = 1)
+	  
+~mark lifepath tab as invalid
+container.panelvalid[careerpath] = 0]]></evalrule>
+    </thing>
+  <thing id="cpCivilianTra" name="Civilian (Trader)" description="You exchange money for goods or services. Within the Federation, the actual transactions are a trivial matter, but other civilizations still make more overt use of money, with gold-pressed latinum serving as a common economic standard, easily exchanged for the Cardassian lek, Bajoran lita, or Klingon darsek. You’re a part of that galactic economy, providing a service or trading in valuable goods (or both) in exchange for latinum, currency, or other goods or services in turn.\n\nStarbases and space stations are a good place to find civilian traders, as they’re hubs of activity that see lots of traffic. Starships—particularly exploratory vessels—may take a trader aboard as a guide or local expert when venturing through unfamiliar regions of space.\n\n{b}EXAMPLE CHARACTERS:{/b} {i}Quark (Deep Space Nine), Cleveland &quot;Book&quot; Booker (Discovery){i}\n \n{b}TRAIT:{/b} The character gains the trait Merchant. This can be adjusted further to reflect the character’s specific profession, such as Bartender or Free Trader.\n\n{b}VALUE:{b} You gain a single value, which should reflect the character’s beliefs developed during their studies, or which led them to enter public service in the first place. Examples include:\n- Today’s strangers are tomorrow’s customers\n- When all your needs are met, it’s the experience that matters\n- You wouldn’t begrudge me a little profit in this venture?\n\n{b}ATTRIBUTES:{/b} You gain three points, which may be divided among two or three attributes freely (either one gets 2 and the other gets 1, or all three get 1). At least one of the attributes you increase must be Insight or Presence, as a successful trader is often a “people person.”\n\n{b}DEPARTMENTS:{/b} You increase your Command by 2, and two other departments by 1. In addition, you may reduce one of your other departments by 1 and add that point to any department not already increased.\n\n{b}FOCUSES:{/b} You select three focuses. \n\n{i}Examples include: Art, Cooking, Psychology, Economics, Logistics, Persuasion, Tailoring, Disruptors{/i}\n\n{b}TALENT:{/b} The character gains a single talent." compset="CareerPath" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Primary:"/>
+    <fieldval field="usrCandid1" value="component.DiscDept &amp; (thingid.discdept01)"/>
+    <fieldval field="usrSource1" value="1"/>
+    <fieldval field="usrLabel2" value="Secondary:"/>
+    <fieldval field="usrCandid2" value="component.DiscDept"/>
+    <fieldval field="usrSource2" value="1"/>
+    <fieldval field="usrLabel3" value="Secondary:"/>
+    <fieldval field="usrCandid3" value="component.DiscDept"/>
+    <fieldval field="usrSource3" value="1"/>
+    <fieldval field="cpRoll" value="20"/>
+    <usesource source="2ndEdition"/>
+    <tag group="User" tag="NoAutoName"/>
+    <bootstrap thing="trMerchant"></bootstrap>
+    <eval phase="Setup" priority="1000"><![CDATA[doneif (field[usrChosen1].ischosen = 0)
+
+var choice1 as string
+choice1 = "thingid." & field[usrChosen1].chosen.idstring
+
+field[usrCandid2].text &= " & !" & choice1
+field[usrCandid3].text &= " & !" & choice1]]></eval>
+    <evalrule phase="Final" priority="1000" message="Must select Insight or Presence as one of Attributes to increase."><![CDATA[var SelMade as number
+SelMade = field[usrChosen4].ischosen + field[usrChosen5].ischosen + field[usrChosen6].ischosen
+
+~ if we haven't made any selections, we're good. 
+validif ( SelMade = 0)
+	  
+var steps as number
+var choice1 as string
+var choice2 as string
+var choice3 as string
+
+choice1 = field[usrChosen4].chosen.idstring
+choice2 = field[usrChosen5].chosen.idstring
+choice3 = field[usrChosen6].chosen.idstring
+
+if (compare(choice1,"attrsys04") = 0) then
+  steps = 1
+  endif
+if (compare(choice1,"attrsys05") = 0) then
+  steps = 1
+  endif
+if (compare(choice2,"attrsys04") = 0) then
+  steps = 1
+  endif
+if (compare(choice2,"attrsys05") = 0) then
+  steps = 1
+  endif
+if (compare(choice3,"attrsys04") = 0) then
+  steps = 1
+  endif
+if (compare(choice3,"attrsys05") = 0) then
+  steps = 1
+  endif
+
+validif (steps = 1)
+	  
+~mark lifepath tab as invalid
+container.panelvalid[careerpath] = 0]]></evalrule>
+    </thing>
+  <thing id="trDiplomat" name="Diplomat" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trAmbassador" name="Ambassador" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trIntelOperative" name="Intelligence Operative" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trStarfleetCrew" name="Starfleet Crew" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trStarfleetOff" name="Starfleet Officer" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trPhysician" name="Physician" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trScientist" name="Scientist" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trEngineer" name="Engineer" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trAdministrator" name="Administrator" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  <thing id="trMerchant" name="Merchant" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Main"/>
+    </thing>
+  </document>

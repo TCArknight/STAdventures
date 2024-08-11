@@ -61,6 +61,17 @@
         <before name="Calc abiFinal"/><![CDATA[
         @minimum = field[abiMinimum].value
         @maximum = field[abiMaximum].value - field[abiBonus].value
+		
+		if (tagis[component.AttrSys] <> 0) then
+		  if (hero.tagis[MaxAttrSys.?] <> 0) then
+		    @maximum = tagvalue[MaxAttrSys.?]
+		    endif
+		elseif (tagis[component.DiscDept] <> 0) then
+		  if (hero.tagis[MaxDiscDept.?] <> 0) then
+		    @maximum = tagvalue[MaxDiscDept.?]
+		    endif
+		  endif
+		  
         ]]></bound>
       <!-- Final value for display is the fully adjusted net value that incorporates
             all adjustments from other sources
@@ -525,6 +536,32 @@
     name="Species"
     autocompset="no">
 
+    <!-- Background description of the actor -->
+    <field
+      id="spcNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
+      </field>
+
+    <!--  -->
+    <field
+      id="spcIsAugment"
+      name="Is an Augment?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+
+    <!-- -->
+    <field
+      id="spcIsCyborg"
+      name="Is a Cyborg?"
+      type="user"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+
     <!-- mixed heritage or not - we're not mixed heritage by default -->
     <field
       id="spcIsMixed"
@@ -555,9 +592,21 @@
     <identity group="SpeciesTrait"/>
     <identity group="IsSpecies"/>
     <identity group="CountsAsSpecies"/>
-
+	
+	<bootstrap thing="trAugment">
+	  <containerreq phase="Setup" priority="2000">
+		hero#Species.Augment
+		</containerreq>
+	  </bootstrap>
+	
+	<bootstrap thing="trCyborg">
+	  <containerreq phase="Setup" priority="2000">
+		hero#Species.Cyborg
+		</containerreq>
+	  </bootstrap>
+  
     <!-- Track the race on the actor by assigning the appropriate tags -->
-    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+    <eval index="1" phase="Setup" priority="5000" name="Forward Species Tags"><![CDATA[
 	  var primary as string
 	  var secondary as string
 	  var txt as string
@@ -576,6 +625,7 @@
       perform forward[IsSpecies.?]
 	  perform forward[SpeciesBon.?]
 	  perform forward[CountsAsSpecies.?]
+	  perform forward[LifepathSelected.?]
       ]]></eval>
 
     <!-- Increase Trait and Talent counts -->
@@ -593,9 +643,35 @@
 	    perform hero.assign[Hero.MixedHeritage]
 	    perform delete[CountsAsSpecies.spcMixedHer]
 		endif
-	  
+		
+	  if (field[spcIsAugment].value <> 0) then
+	    perform hero.assign[Species.Augment]
+	    endif
+		
+	  if (field[spcIsCyborg].value <> 0) then
+	    perform hero.assign[Species.Cyborg]
+	    endif
 	  ]]></eval>
 	  
+    </component>
+
+  <!-- SpeciesAbility component
+        Each species ability is based upon this component
+  -->
+  <component
+    id="SpeciesAbility"
+    name="Species Ability"
+    autocompset="no">
+
+    <identity group="SpeciesAbility"/>
+	
+    <!-- All species abilities get the same tag for sorting purposes -->
+    <tag group="SpecialTab" tag="Species"/>
+	
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[SpeciesAbility.?]
+      ]]></eval>
+
     </component>
 
 	
@@ -605,10 +681,21 @@
   <component
     id="Trait"
     name="Trait"
-    autocompset="no">
+    autocompset="no"
+	hasshortname="yes">
+
+    <!--  -->
+    <field
+      id="trTraitLevel"
+      name="Trait Level"
+      type="derived"
+      defvalue="0"
+      minvalue="0">
+      </field>
 
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Trait"/>
+    <identity group="TraitSelect"/>
 
     <!-- Track the race on the actor by assigning the appropriate tag -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
@@ -625,6 +712,23 @@
       ~adjust the resource appropriately
       hero.child[resTrait].field[resSpent].value += 1
       ]]></eval>
+	
+    <eval index="3" phase="Render" priority="1000"><![CDATA[
+	  doneif (field[trTraitLevel].value = 0)
+	  
+	  if (empty(field[livename].text) <> 0) then
+        field[livename].text &= " " & field[trTraitLevel].value
+        if (tagis[component.shortname] <> 0) then
+          field[shortname].text &= " " & field[trTraitLevel].value
+          endif
+	  else
+        field[livename].text = field[name].text & " " & field[trTraitLevel].value
+        if (tagis[component.shortname] <> 0) then
+          field[shortname].text &= " " & field[trTraitLevel].value
+          endif
+	    endif
+		
+      ]]></eval>
     </component>
 	
   <!-- Environment component
@@ -635,6 +739,23 @@
     name="Environment"
     autocompset="no">
 
+    <!-- Highest roll to get component -->
+    <field
+      id="envRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="envNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
+      </field>
+	  
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Environ"/>
     <identity group="HasEnviron"/>
@@ -643,6 +764,7 @@
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Environ.?]
       perform forward[HasEnviron.?]
+	  perform forward[LifepathSelected.?]
       ]]></eval>
 
     <!-- Increase Value counts -->
@@ -661,9 +783,6 @@
 	  if (field[usrChosen2].ischosen <> 0) then
         field[usrChosen2].chosen.field[abiBonus].value += 1	
 		endif
-	  if (field[usrChosen3].ischosen <> 0) then
-        field[usrChosen3].chosen.field[abiBonus].value += 1	
-		endif
 		]]>
 		</eval>
 	  
@@ -677,6 +796,15 @@
     name="Upbringing"
     autocompset="no">
 
+    <!-- Highest roll to get component -->
+    <field
+      id="upRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+
     <!-- Is the character a rebel against their upbringing? -->
     <field
       id="upIsRebel"
@@ -684,6 +812,14 @@
       type="user"
       minvalue="0"
       maxvalue="1">
+      </field>
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="upNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
       </field>
 	  
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
@@ -707,6 +843,7 @@
     <eval index="2" phase="Setup" priority="5000"><![CDATA[
       perform forward[Upbringing.?]
       perform forward[HasUpbring.?]
+      perform forward[LifepathSelected.?]
       ]]></eval>
 
     <!-- Increase Focus and Talent counts -->
@@ -742,6 +879,15 @@
     name="Academy"
     autocompset="no">
 
+    <!-- Highest roll to get component -->
+    <field
+      id="acRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+
     <!-- attribute bonus selection 
 	(0=+2 to one attribute, +1 to second
 	 1=+1 to three attributes	) -->
@@ -762,7 +908,15 @@
           @text = "No Bonus"
           endif
         ]]></finalize>
-      </field>	  
+      </field>	
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="acNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
+      </field>  
 	  
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Academy"/>
@@ -773,6 +927,7 @@
       perform forward[Academy.?]
       perform forward[HasAcademy.?]
       perform forward[IsDivision.?]
+      perform forward[LifepathSelected.?]
       ]]></eval>
 
 	<!-- Each skill point that is allocated by the user costs 1 slot -->
@@ -872,6 +1027,24 @@
     name="Career"
     autocompset="no"
 	panellink="career">
+	
+    <!-- number of career events -->
+    <field
+      id="caEvents"
+      name="Career Events"
+      type="derived"
+      minvalue="0"
+	  defvalue="2">
+      </field>
+	
+    <!-- number of values gained -->
+    <field
+      id="caValues"
+      name="Career Values"
+      type="derived"
+      minvalue="0"
+	  defvalue="1">
+      </field>
 
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Career"/>
@@ -881,14 +1054,16 @@
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Career.?]
       perform forward[HasCareer.?]
+      perform forward[Hero.?]
+      perform forward[LifepathSelected.?]
       ]]></eval>
 	  
     <!-- Increase Value counts -->
     <eval index="2" phase="PreAbility" priority="5000">
       <before name="Calc abiFinal"/><![CDATA[
       ~Start with 2 career events, 
-	  #resmax[resEvent] += 2
-      #resmax[resValue] += 1
+	  #resmax[resEvent] += field[caEvents].value
+      #resmax[resValue] += field[caValues].value
 	  
 	  if (#resleft[resEvent] = 0) then
 	    #resmax[resValue] += 1
@@ -906,6 +1081,23 @@
     name="Career Event"
     autocompset="no"
 	panellink="events">
+	  
+    <!-- Highest roll to get component -->
+    <field
+      id="evRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="evNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
+      </field>
 
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Event"/>
@@ -975,8 +1167,265 @@
       ]]></evalrule>
 	  
 	  </component>
+	
+  <!-- (2E) CareerPath component
+        Each Career Path derives from this component
+  -->
+  <component
+    id="CareerPath"
+    name="Career Path"
+    autocompset="no">
+	  
+    <!-- Highest roll to get component -->
+    <field
+      id="cpRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+	  
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="CareerPath"/>
+    <identity group="HasCareerPath"/>
 
 
+    <!-- A Custom Values is added for each Path -->
+    <bootstrap thing="vaCustom">
+      <assignval 
+	    field="UserName" 
+		value="Career Path "/>
+      <assignval 
+	    field="UserDesc" 
+		value="At this step, the character gains a single Value. This Value should reflect the career path the character has chosen."/>
+      </bootstrap>
+		
+    <!-- Build helper selection expressions -->
+    <eval index="5" phase="Effects" priority="5000"><![CDATA[
+	  var mytags as string
+	  mytags = tagids[TraitSelect.?,"|"]
+	  mytags = replace(mytags, "TraitSelect", "thingid",0)
+	  
+	  if (empty(mytags) = 0) then
+        hero.childfound[CareerHelper].field[chTraitExpr].text = "thingid.trCustom|" & mytags
+	  else
+        hero.childfound[CareerHelper].field[chTraitExpr].text = mytags
+        endif
+      ]]></eval>
+	  
+    </component>
+
+  <component
+    id="CareerHelp"
+    name="Career Helper">
+	  
+    <!-- Dynamic tagexpr for trait selection -->
+    <field
+      id="chTraitExpr"
+      name="Trait TagExp"
+      type="derived"
+      maxlength="1000">
+      </field>
+	
+    <!-- add this to every actor -->
+    <tag group="Helper" tag="Bootstrap"/>
+	  
+    </component>
+
+  <component
+    id="CareerTrack"
+    name="Career Track"
+    autocompset="no">
+	  
+    <!-- Highest roll to get component -->
+    <field
+      id="ctRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+	
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="CareerTrack"/>
+    <identity group="HasCareerTrack"/>
+	  
+	  
+    </component>	
+
+  <component
+    id="CareerBase"
+    name="Career Base">
+
+    <!-- attribute bonus selection 
+	(0=+2 to one attribute, +1 to second
+	 1=+1 to three attributes	) -->
+    <field
+      id="cpAttrBon"
+      name="Attribute Bonus"
+      type="user"
+      minvalue="0"
+      maxvalue="1"
+      maxfinal="100"
+      nevercache="yes">
+      <finalize><![CDATA[
+        if (@value = 0) then
+          @text = "+2/+1"
+        elseif (@value = 1) then
+          @text = "+1 to three"
+        else
+          @text = "No Bonus"
+          endif
+        ]]></finalize>
+      </field>	
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="cpNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
+      </field>  
+	  
+    <!-- Dynamic tagexpr for trait selection -->
+    <field
+      id="cpTraitExpr"
+      name="Trait TagExp"
+      type="derived"
+      maxlength="1000"
+      defvalue="TRUE">
+      </field>
+
+    <!-- Does path require selection of a Track/Profession? -->
+    <field
+      id="cpTrackRequired"
+      name="Track Required?"
+      type="derived"
+      minvalue="0"
+      maxvalue="1"
+	  defvalue="0">
+      </field>
+	  
+    <!-- Number of Talents provided -->
+    <field
+      id="cpNumTalents"
+      name="Number of Talents"
+      type="derived"
+      minvalue="0"
+	  defvalue="1">
+      </field>
+	  
+    <!-- Number of Focus provided -->
+    <field
+      id="cpNumFocus"
+      name="Number of Focus"
+      type="derived"
+      minvalue="0"
+	  defvalue="3">
+      </field>
+	  
+    <!-- Number of Values provided -->
+    <field
+      id="cpNumValues"
+      name="Number of Values"
+      type="derived"
+      minvalue="0"
+	  defvalue="1">
+      </field>
+	
+    <!-- Track the race on the actor by assigning the appropriate tag -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[CareerPath.?]
+      perform forward[HasCareerPath.?]
+      perform forward[CareerTrack.?]
+      perform forward[HasCareerTrack.?]
+      perform forward[LifepathSelected.?]
+      perform forward[Hero.?]
+      ]]></eval>  
+	  
+    <eval index="2" phase="PreAbility" priority="1000"><![CDATA[
+	  var tempStr as string
+	  
+	  ~assign tags to apply the +1 modifier to selected component
+	  if (field[usrChosen1].ischosen <> 0) then
+        tempStr = " & !(thingid." & field[usrChosen1].chosen.idstring & ")"
+		perform field[usrChosen1].chosen.assign[Academy.Major]
+		field[usrChosen1].chosen.field[abiBonus].value += 2
+		field[usrCandid2].text &= tempStr
+		field[usrCandid3].text &= tempStr
+		endif
+	  if (field[usrChosen2].ischosen <> 0) then
+		perform field[usrChosen2].chosen.assign[Academy.Minor]
+		field[usrChosen2].chosen.field[abiBonus].value += 1
+		endif
+	  if (field[usrChosen3].ischosen <> 0) then
+		perform field[usrChosen3].chosen.assign[Academy.Minor]
+		field[usrChosen3].chosen.field[abiBonus].value += 1
+		endif
+      
+	  if (field[cpAttrBon].value = 0) then
+	  	if (field[usrChosen4].ischosen <> 0) then
+		  field[usrChosen4].chosen.field[abiBonus].value += 2
+		  endif
+	  	if (field[usrChosen5].ischosen <> 0) then
+		  field[usrChosen5].chosen.field[abiBonus].value += 1
+		  endif
+      elseif (field[cpAttrBon].value = 1) then
+	  	if (field[usrChosen4].ischosen <> 0) then
+		  field[usrChosen4].chosen.field[abiBonus].value += 1
+		  endif
+	  	if (field[usrChosen5].ischosen <> 0) then
+		  field[usrChosen5].chosen.field[abiBonus].value += 1
+		  endif
+	  	if (field[usrChosen6].ischosen <> 0) then
+		  field[usrChosen6].chosen.field[abiBonus].value += 1
+		  endif		  
+	    endif
+		
+	  ]]></eval>
+	
+    <eval index="3" phase="Initialize" priority="1000"><![CDATA[trustme
+	  var tempStr as string
+	  var bonus1 as number
+	  
+	  field[cpTrackRequired].value = tagis[Hero.TrackRequired]
+	  
+	  doneif (tagis[Hero.TrackRequired] <> 0)
+	  
+	  if (field[cpAttrBon].value = 0) then
+	  ~ +2 to one attribute, +1 to second attribute
+	    field[usrLabel4].text = "+2 to Attribute" 
+	    field[usrCandid4].text = "component.AttrSys" 
+	    field[usrLabel5].text = "+1 to Attribute" 
+	    field[usrCandid5].text = "component.AttrSys" 
+		if (field[usrChosen4].ischosen <> 0) then
+          field[usrCandid5].text &= " & !(thingid." & field[usrChosen4].chosen.idstring & ")"
+		  endif
+	  
+	  elseif (field[cpAttrBon].value = 1) then
+	    ~ +1 to three attributes
+	    field[usrLabel4].text = "+1 to Attribute" 
+	    field[usrCandid4].text = "component.AttrSys" 
+	    field[usrLabel5].text = "+1 to Attribute" 
+	    field[usrCandid5].text = "component.AttrSys" 
+	    field[usrLabel6].text = "+1 to Attribute" 
+	    field[usrCandid6].text = "component.AttrSys"
+	  endif
+	  
+	  
+	  ]]>
+	  </eval>
+
+    <!-- Increase Value counts -->
+    <eval index="4" phase="PreAbility" priority="5000">
+      <before name="Calc abiFinal"/><![CDATA[
+      #resmax[resValue] += field[cpNumValues].value
+	  #resmax[resFocus] += field[cpNumFocus].value
+      #resmax[resTalent] += field[cpNumTalents].value
+      
+      ]]></eval>	  
+    </component>	
+	
   <!-- Focus component
         Each value derives from this component
   -->
@@ -1027,7 +1476,31 @@
     autocompset="yes">
 
 	  </component>
+
+  <component
+    id="CareerExp"
+    name="Career Experience"
+    autocompset="no">
 	  
+    <!-- Highest roll to get component -->
+    <field
+      id="ceRoll"
+      name="Max Roll"
+      type="derived"
+      minvalue="0"
+	  defvalue="0">
+      </field>
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="ceNotes"
+      name="Player Notes"
+      type="user"
+      maxlength="5000">
+      </field>  
+
+	  </component>
+	  	  
   <!-- Define various component sets associated with the components defined above.
   -->
 
@@ -1080,6 +1553,18 @@
     <compref component="UserSelect"/>
     </compset>
 
+  <!-- SpeciesAbility - all races derive from this compset -->
+  <compset
+    id="SpeciesAbility"
+    forceunique="yes">
+    <compref component="SpeciesAbility"/>
+    <compref component="Domain"/>
+    <compref component="UserSelect"/>
+    <compref component="SpecialTab"/>
+    <compref component="CanAdvance"/>
+    <compref component="Custom"/>
+    </compset>
+
   <!-- Environ - all environments derive from this compset -->
   <compset
     id="Environ"
@@ -1104,13 +1589,39 @@
     <compref component="UserSelect"/>
     </compset>
 
+  <!-- CareerPath - all CareerPaths derive from this compset -->
+  <compset
+    id="CareerPath"
+    forceunique="yes">
+    <compref component="CareerPath"/>
+    <compref component="CareerBase"/>
+    <compref component="UserSelect"/>
+    </compset>
+
+  <!-- CareerPath - all CareerPaths derive from this compset -->
+  <compset
+    id="CareerTrack"
+    forceunique="yes">
+    <compref component="CareerTrack"/>
+    <compref component="CareerBase"/>
+    <compref component="UserSelect"/>
+    </compset>
+
   <!-- Career - all career types derive from this compset -->
   <compset
     id="Career"
     forceunique="yes">
     <compref component="Career"/>
     </compset>
-
+	
+  <!-- Career - all career types derive from this compset -->
+  <compset
+    id="CareerExp"
+    forceunique="yes">
+    <compref component="CareerExp"/>
+    <compref component="Career"/>
+    </compset>
+	
   <!-- Career - all career types derive from this compset -->
   <compset
     id="Event"

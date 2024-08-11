@@ -94,6 +94,16 @@
       </portal>
 
     <portal
+      id="notes"
+      style="actNotesSm"
+      tiptext="Click here to edit detailed notes for the journal entry.">
+      <action
+        action="notes"
+        field="evNotes">
+        </action>
+      </portal>
+
+    <portal
       id="delete"
       style="actDelete"
       tiptext="Click to delete this item">
@@ -128,10 +138,13 @@
 
       ~position the info portal to the left of the delete button
       perform portal[info].alignrel[rtol,delete,-8]
+
+      ~position the info portal to the left of the delete button
+      perform portal[notes].alignrel[rtol,info,-8]
 	  
       ~position the name on the left and use availble space, with a gap for menus
       portal[name].left = 0
-      portal[name].width = minimum(portal[name].width,portal[info].left - portal[name].left - 75)
+      portal[name].width = minimum(portal[name].width,portal[notes].left - portal[name].left - 75)
 
 	  ~position the menus to the right of the name in the available space
       perform portal[menu1].alignrel[ltor,name,10]

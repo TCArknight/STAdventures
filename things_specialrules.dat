@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="sr2EExtAttribute" name="Extraordinary Attribute" description="One or more of the creature’s attributes are far beyond the normal range for humanoids. This is indicated by a number, which is added as automatic successes on tasks using that attribute. For example, a creature with Extraordinary Reason 1 gains one success on all tasks using Reason. Extraordinary attributes will be noted next to the attribute as an extra value in parentheses." compset="SpecialRule">
+    <fieldval field="usrLabel1" value="Attribute"/>
+    <fieldval field="usrCandid1" value="component.AttrSys"/>
+    <fieldval field="shortname" value="Ext. Attr."/>
+    <usesource source="2ndEdition"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    </thing>
+  </document>

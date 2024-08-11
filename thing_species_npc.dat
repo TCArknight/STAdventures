@@ -9,9 +9,7 @@
     <tag group="SpeciesTrait" tag="spcRomulan"/>
     </thing>
   <thing id="spcRomulan" name="Romulan" description="Romulans are similar, but not quite identical, to Vulcans, having diverged from their common ancestors, though they did not adopt the stoicism and logic of their cousins. Rather, Romulans are a cruel and ruthless people, quick to anger, and easily moved to emotion.\n\nA culture of military discipline seems to keep their worst members directed towards useful ends, though paranoia and self-interest motivate Romulan politics as much as a desire for collective benefit; at times, it seems that the only things keeping the Romulan Star Empire together are the fact that they despise other species more than they despise one another.\n\n{i}EXAMPLE VALUE: {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Fitness, +1 Reason.\n\n{b}TRAIT:{/b} Romulan." compset="Species" uniqueness="unique">
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <usesource source="ENT"/>
+    <usesource source="firstedition"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="NPC"/>
     <tag group="SpeciesBon" tag="attrsys01"/>
@@ -67,9 +65,7 @@
     <tag group="SpeciesTrait" tag="spcCardas"/>
     </thing>
   <thing id="spcCardas" name="Cardassian" description="Cardassians are tall, grey-skinned humanoids with pronounced ridges on their bodies and faces. Their culture demands absolute loyalty to family and to the state — with Cardassian morality plays often depicting conflicts between familial loyalty and loyalty to the state — and they prize individual cunning, self-control, and the ability to endure hardship. Cardassians are a secretive people, even amongst close friends and family, and being suspicious and skeptical of others is regarded as wise and prudent. They value educational attainment and knowledge, and they are fond of conversation and lively debate. They are frequently regarded as domineering, ruthless, arrogant, and duplicitous.\n\n{i}EXAMPLE VALUE: Family is everything. {/i}\n\n{b}ATTRIBUTES:{/b} +1 Control, +1 Presence, +1 Reason.\n\n{b}TRAIT:{/b} Cardassian." compset="Species" uniqueness="unique">
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <usesource source="QuadAlpha"/>
+    <usesource source="firstedition"/>
     <tag group="SpeciesBon" tag="attrsys05"/>
     <tag group="SpeciesBon" tag="attrsys06"/>
     <tag group="SpecCat" tag="NPC"/>

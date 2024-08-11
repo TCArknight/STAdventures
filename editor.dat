@@ -25,7 +25,17 @@
       <it_separator/>
       </inputthing>
     <inputthing
-      name="Weapon Damage"
+      name="Injury"
+      helptext="Select what type of damage the weapon does.">
+      <it_taglist group="WeaponInjury" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="1H/2H?"
+      helptext="Select size of the weapon.">
+      <it_taglist group="GearSize" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Weapon Damage / Severity"
       helptext="Specify the damage rating of the weapon.">
       <it_field field="wpDamage"/>
       </inputthing>
@@ -321,6 +331,9 @@
       <it_tagcheck group="User" tag="CreateOnly"/>
       </inputthing>
     <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
       <it_groupref id="ChooseGrp1"/>
       </inputthing>
     <inputthing>
@@ -370,6 +383,11 @@
       helptext="Select the traits provided by the species here.">
       <it_bootlist compset="Trait"/>
       </inputthing>
+	<inputthing
+      name="Species Ability"
+      helptext="(2e) Select the Species Ability provided by the species here.">
+      <it_bootlist compset="SpeciesAbility"/>
+      </inputthing>
     <inputthing
       name="Empathic Race?"
       helptext="Species may take Empathy-related talents and abilities.">
@@ -387,7 +405,28 @@
       <it_groupref id="SourceInfo"/>
       </inputthing>
     </editthing>
-
+	
+  <!-- SpeciesAbility editthing -->
+  <editthing
+    group="Hero"
+    compset="SpeciesAbility"
+    name="Species Abilities"
+    prefix="sa"
+    description="."
+    summary="Defines a Species Ability that provided to the hero by a species.">
+    <inputthing
+      name="Species"
+      helptext="Select the category this ability belongs to.">
+      <it_tagpick group="Species" tag="?"/>
+      </inputthing>
+	<inputthing>
+      <it_groupref id="ChooseGrp2"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
   <!-- Environ editthing -->
   <editthing
     group="Hero"
@@ -396,6 +435,11 @@
     prefix="env"
     description="."
     summary="Defines an Environment that can be selected by a character.">
+    <inputthing
+      name="Max roll"
+      helptext="Specify the highest roll for random selection of the environment.">
+      <it_field field="envRoll"/>
+      </inputthing>
     <inputthing>
       <it_groupref id="DomainGrp"/>
       </inputthing>
@@ -420,6 +464,114 @@
     prefix="up"
     description="."
     summary="Defines an Upbringing that can be selected by a character.">
+    <inputthing
+      name="Max roll"
+      helptext="Specify the highest roll for random selection of the upbringing.">
+      <it_field field="upRoll"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
+  <!-- Career Experience editthing -->
+  <editthing
+    group="Hero"
+    compset="CareerExp"
+    name="Career Experience"
+    prefix="cp"
+    description="."
+    summary="Defines a Career Experience that can be selected by a character.">
+    <inputthing
+      name="Max roll"
+      helptext="Specify the highest roll for random selection of the path.">
+      <it_field field="ceRoll"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
+  <!-- Career Path editthing -->
+  <editthing
+    group="Hero"
+    compset="CareerPath"
+    name="Career Path"
+    prefix="cp"
+    description="."
+    summary="Defines a Career Path that can be selected by a character.">
+    <inputthing
+      name="Requires a Track?"
+      helptext="Specify whether this career path requires additional selection of a track.">
+      <it_tagcheck group="Hero" tag="TrackRequired"/>
+      </inputthing>
+    <inputthing
+      name="Max roll"
+      helptext="Specify the highest roll for random selection of the path.">
+      <it_field field="cpRoll"/>
+      </inputthing>
+	<inputthing
+      name="Automatic Traits"
+      helptext="Select the traits provided by the starship here.">
+      <it_bootlist compset="Trait">
+	    </it_bootlist>
+      </inputthing>
+    <inputthing
+      name="Choose Trait(s)?"
+      helptext="Specify whether this career path requires additional selection of a track.">
+      <it_tagcheck group="User" tag="ChooseTrait"/>
+      </inputthing>
+    <inputthing
+      name="Choose from Traits"
+      helptext="Select the traits for the career path to choose from.">
+      <it_taglist group="TraitSelect" tag="?"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
+  <!-- Career Path editthing -->
+  <editthing
+    group="Hero"
+    compset="CareerTrack"
+    name="Career Track"
+    prefix="ct"
+    description="."
+    summary="Defines a Career Path that can be selected by a character.">
+    <inputthing
+      name="Requires a Track?"
+      helptext="Specify whether this career path requires additional selection of a track.">
+      <it_tagcheck group="Hero" tag="TrackRequired"/>
+      </inputthing>
+    <inputthing
+      name="Max roll"
+      helptext="Specify the highest roll for random selection of the path.">
+      <it_field field="ctRoll"/>
+      </inputthing>
+	<inputthing
+      name="Automatic Traits"
+      helptext="Select the traits provided by the starship here.">
+      <it_bootlist compset="Trait">
+	    </it_bootlist>
+      </inputthing>
+    <inputthing
+      name="Choose Traits"
+      helptext="Select the traits for the career path to choose from.">
+      <it_taglist group="TraitSelect" tag="?"/>
+      </inputthing>
     <inputthing>
       <it_groupref id="DomainGrp"/>
       </inputthing>
@@ -442,6 +594,17 @@
     prefix="ev"
     description="."
     summary="Defines a career event that can be selected by a character.">
+    <inputthing
+      name="Max roll"
+      helptext="Specify the highest roll for random selection of the event.">
+      <it_field field="evRoll"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
     <inputthing>
       <it_groupref id="SourceInfo"/>
       </inputthing>
@@ -460,6 +623,11 @@
       name="Ship Info"
       helptext="Other options.">
       <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Era"
+      helptext="Select the era that this frame is first available.">
+      <it_taglist group="Era" tag="?"/>
       </inputthing>
     <inputthing
       name="Ship Type"
@@ -1006,6 +1174,7 @@
 
   <!-- Melee editthing - for melee weapons -->
   <editthing
+    defchild="gearQual"
     compset="Melee"
     name="Melee Weapon"
     prefix="wp"
@@ -1046,6 +1215,7 @@
 
   <!-- Ranged editthing - for ranged weapons -->
   <editthing
+    defchild="gearQual"
     compset="Ranged"
     name="Ranged Weapon"
     prefix="wp"
@@ -1077,6 +1247,11 @@
       name="Long Range"
       helptext="Specify the long range distance of the weapon.">
       <it_field field="wpLong"/>
+      </inputthing>
+    <inputthing
+      name="Weapon Range"
+      helptext="Specify the range of the weapon.">
+      <it_taglist group="WeaponRange" tag="?"/>
       </inputthing>
     <inputthing
       name="Special Behaviors"
@@ -1178,4 +1353,25 @@
       </inputthing>
 	</editthing>
 
+  <!-- SpecialRule editthing - for special rules -->
+  <editthing
+    compset="SpecialRule"
+    name="Special Rule"
+    prefix="sr"
+    description="Special Rules to be applied to heroes/npcs."
+    summary="Defines a special rule.">
+    <inputthing
+      name="Rule Level"
+      helptext="Specify the level of the Rule.">
+      <it_field field="srRuleLevel"/>
+      </inputthing>
+
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+	
   </document>

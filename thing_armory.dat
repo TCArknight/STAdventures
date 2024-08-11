@@ -29,6 +29,8 @@
     <tag group="GearQual" tag="NonLethal"/>
     <tag group="DmgEffect" tag="Knockdown"/>
     <tag group="GearCost" tag="Standard"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <child entity="gearQual"></child>
     </thing>
   <thing id="wpNervPinc" name="Nerve Pinch" description="Neuropressure Attack. You may use Science or Medicine instead of Security when attempting a nerve pinch Attack, and may increase damage by your Science or Medicine Discipline instead of Security." compset="Melee" summary="Vulcan Nerve Pinch" uniqueness="unique" holdable="no">
     <fieldval field="shortname" value="Nerve"/>
@@ -67,20 +69,20 @@
     </thing>
   <thing id="shPhaCan" name="Phaser Cannons" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy">
     <fieldval field="wpSRange" value="Close"/>
-    <tag group="GearQual" tag="Versa2"/>
+    <tag group="GearQual" tag="Versatile2"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPhaBan" name="Phaser Banks" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="Delivery" tag="Banks1"/>
-    <tag group="GearQual" tag="Versa2"/>
+    <tag group="GearQual" tag="Versatile2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPhaArr" name="Phaser Arrays" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy" holdable="no">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="Delivery" tag="Arrays"/>
-    <tag group="GearQual" tag="Versa2"/>
+    <tag group="GearQual" tag="Versatile2"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
@@ -264,16 +266,24 @@
     </thing>
   <thing id="wpUshaantor" name="Ushaan-tor" description="A razor sharp Andorian ice-miner&apos;s tool used in Ushaan duels." compset="Melee">
     <fieldval field="wpDamage" value="2"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <usesource source="ENT"/>
+    <usesource source="1stEdition"/>
     <tag group="DmgEffect" tag="Vicious1"/>
+    </thing>
+  <thing id="wp2EUshaantor" name="Ushaan-tor" description="A razor sharp Andorian ice-miner&apos;s tool used in Ushaan duels." compset="Melee">
+    <fieldval field="wpDamage" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearQual" tag="Cumber"/>
+    <tag group="GearQual" tag="Deadly"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="OneHand"/>
     </thing>
   <thing id="shPulseCan" name="Phase Cannons" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
     <fieldval field="wpSRange" value="Close"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Cannons2" name="Cannons" abbrev="Cannons"/>
-    <tag group="GearQual" tag="Versa1"/>
+    <tag group="GearQual" tag="Versatile2"/>
     </thing>
   <thing id="shTorSpa" name="Spatial Torpedoes" compset="Torpedo">
     <fieldval field="wpSRange" value="Medium"/>
@@ -485,27 +495,27 @@
   <thing id="shUPPhaLan" name="Phaser Lance" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy">
     <fieldval field="wpSRange" value="Long"/>
     <tag group="Delivery" tag="Lance3"/>
-    <tag group="GearQual" tag="Versa2"/>
+    <tag group="GearQual" tag="Versatile2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPPhaseArr" name="Phase Array" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Arrays"/>
-    <tag group="GearQual" tag="Versa1"/>
+    <tag group="GearQual" tag="Versatile2"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPPhaseBan" name="Phase Banks" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
     <fieldval field="wpSRange" value="Medium"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Banks1"/>
-    <tag group="GearQual" tag="Versa1"/>
+    <tag group="GearQual" tag="Versatile2"/>
     </thing>
   <thing id="shUPPhaseLan" name="Phase Lance" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
     <fieldval field="wpSRange" value="Long"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Lance3"/>
-    <tag group="GearQual" tag="Versa1"/>
+    <tag group="GearQual" tag="Versatile2"/>
     </thing>
   <thing id="shUPPolLan" name="Phased Polaron Beam Lance" compset="Energy">
     <fieldval field="wpSRange" value="Long"/>
@@ -792,5 +802,23 @@
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="StrengthX"/>
     <tag group="ShipWepCat" tag="Other"/>
+    </thing>
+  <thing id="wp2EUnarmed" name="Unarmed Strike" description="While not really equipment, every character has the means to make an unarmed attack, striking with fists, feet, knees, elbows, head, or otherwise using brute force without a weapon. Countless martial arts, such as Klingon mok’bara, Vulcan suus mahna, and Human styles like boxing or aikido, exist to allow individuals to hone their ability to disable foes without weapons." compset="Melee" uniqueness="unique" holdable="no">
+    <fieldval field="shortname" value="Unarmed"/>
+    <fieldval field="wpDamage" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="Equipment" tag="Natural"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <child entity="gearQual"></child>
+    </thing>
+  <thing id="wp2ENervePinch" name="Nerve Pinch" description="Neuropressure Attack. You may use Science or Medicine instead of Security when attempting a nerve pinch Attack, and may increase damage by your Science or Medicine Discipline instead of Security." compset="Melee" summary="Vulcan Nerve Pinch" uniqueness="unique" holdable="no">
+    <fieldval field="wpDamage" value="3"/>
+    <tag group="AltAttack" tag="discdept05"/>
+    <tag group="AltAttack" tag="discdept06"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="Equipment" tag="Natural"/>
+    <tag group="GearQual" tag="Intense"/>
     </thing>
   </document>

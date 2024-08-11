@@ -54,7 +54,7 @@
 
   <!-- And one personal info pick -->
   <bootstrap index="10" thing="mscPerson"/> 
-  
+    
   <!-- The "autoadd" elements identify individual things that should be automatically
         added to every new character by Hero Lab. The key difference from "bootstrap"
         entries is that each "autoadd" is added through a specified portal, thereby

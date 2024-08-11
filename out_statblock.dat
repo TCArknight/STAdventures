@@ -197,6 +197,7 @@
   <procedure id="sbweapons" scripttype="synthesize"><![CDATA[
     var ismore as number
     append @boldon & "Weapons/Attacks: " & @boldoff & @newline
+	
     ~output a list of all weapons (equipped first)
     ismore = 0
     foreach pick in hero from WeaponBase sortas Armory

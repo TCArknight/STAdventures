@@ -66,7 +66,7 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
 
   <structure
     folder="stadventures"
-    summarymax="250">
+    summarymax="300">
     </structure>
 
   <!-- The "behavior" element specifies assorted behavioral aspects of the data files
@@ -184,7 +184,7 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="ischaracterrole"
     param1="role"
-    result="hero.tagis[CharType.#role]"/>
+    result="hero.tagis[CharRole.#role]"/>
 	
   <scriptmacro
     name="haschoice1"
@@ -203,11 +203,11 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
 	
   <scriptmacro
     name="stressmax"
-    result="herofield[acStrMax].value"/>
+    result="herofield[acStressMax].value"/>
 
   <scriptmacro
     name="stressnow"
-    result="herofield[acStrNow].value"/>
+    result="herofield[acStressNow].value"/>
 
   <scriptmacro
     name="resistnon"
@@ -235,6 +235,25 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     name="shipdept"
     param1="department"
     result="hero.child[#department].field[abiFinal].value"/>
+	
+  <scriptmacro
+    name="control"
+    result="hero.child[attrsys01].field[abiFinal].value"/>	
+  <scriptmacro
+    name="daring"
+    result="hero.child[attrsys02].field[abiFinal].value"/>
+  <scriptmacro
+    name="fitness"
+    result="hero.child[attrsys03].field[abiFinal].value"/>
+  <scriptmacro
+    name="insight"
+    result="hero.child[attrsys04].field[abiFinal].value"/>
+  <scriptmacro
+    name="presence"
+    result="hero.child[attrsys05].field[abiFinal].value"/>
+  <scriptmacro
+    name="reason"
+    result="hero.child[attrsys06].field[abiFinal].value"/>
 	
   <scriptmacro
     name="comms"
@@ -311,6 +330,26 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     result="(hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport])"/>
 	
   <scriptmacro
+    name="valuecount"
+    result="(hero.tagcount[Value.?])"/>
+	
+  <scriptmacro
+    name="focuscount"
+    result="(hero.tagcount[Focus.?])"/>
+	
+  <scriptmacro
+    name="talentcount"
+    result="(hero.tagcount[HasTalent.?])"/>
+	
+  <scriptmacro
+    name="issupportcharacter"
+    result="(hero.tagis[CharType.typSupport])"/>
+	
+  <scriptmacro
+    name="ismaincharacter"
+    result="(hero.tagis[CharType.typMain])"/>
+	
+  <scriptmacro
     name="isstarship"
     result="hero.tagis[CharType.typStarship]"/>
 	
@@ -321,6 +360,26 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="isstarbase"
     result="hero.tagis[CharType.typStarbase]"/>
+
+  <scriptmacro
+    name="isfirstedition"
+    result="hero.tagis[source.1stEdition]"/>
+
+  <scriptmacro
+    name="issecondedition"
+    result="hero.tagis[source.2ndEdition]"/>
+
+  <scriptmacro
+    name="isaugment"
+    result="hero.tagis[Species.Augment]"/>
+
+  <scriptmacro
+    name="iscyborg"
+    result="hero.tagis[Species.Cyborg]"/>
+
+  <scriptmacro
+    name="isgender"
+    result="hero.childfound[mscPerson].field[perGender].value"/>
 
   <scriptmacro
     name="prependdesc"

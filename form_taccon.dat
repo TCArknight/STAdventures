@@ -286,7 +286,7 @@
       <label
         ismultiline="yes">
         <labeltext><![CDATA[
-          @text = "{size 30}HP: {size 36}" & field[acStrSumm].text
+          @text = "{size 30}HP: {size 36}" & field[acStressSumm].text
           ]]></labeltext>
         </label>
       </portal>

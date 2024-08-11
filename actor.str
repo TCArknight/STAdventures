@@ -47,7 +47,7 @@
 
     <!-- Minimum (starting) health for the actor -->
     <field
-      id="acStrMin"
+      id="acStressMin"
       name="Min Stress"
       type="derived">
       <!-- Calculate the base health value for the actor from its pieces. We have to
@@ -56,55 +56,55 @@
             for derived traits, since derived traits may be influenced by the net health
             (e.g. attack penalties after taking sufficient damage).
       -->
-      <calculate phase="Stress" priority="1000" name="Calc acStrMin"><![CDATA[
+      <calculate phase="Stress" priority="1000" name="Calc acStressMin"><![CDATA[
         @value = #abilfinal[attrsys03] + #abilfinal[discdept03] + #abilinplay[trStress]
         ]]></calculate>
       </field>
 
     <!-- Bonus health for the actor -->
     <field
-      id="acStrBon"
+      id="acStressBonus"
       name="Bonus Stress"
       type="derived">
       <!-- Calculate any health bonus that the actor receives from other sources.
       -->
-      <calculate phase="Ability" priority="5000" name="Calc acStrBon"><![CDATA[
+      <calculate phase="Ability" priority="5000" name="Calc acStressBonus"><![CDATA[
         ~.... add any suitable code here to calculate this for the game system ....
-        @value = 0
+        @value += 0
         ]]></calculate>
       </field>
 
     <!-- Maximum health for the actor -->
     <field
-      id="acStrMax"
+      id="acStressMax"
       name="Max Stress"
       type="derived">
       <!-- Calculate the maximum health for the actor as the minimum plus any bonus.
       -->
-      <calculate phase="Stress" priority="1002" name="Calc acStrMax">
-        <after name="Calc acStrMin"/>
-        <after name="Calc acStrBon"/><![CDATA[
-        @value = field[acStrMin].value + field[acStrBon].value
+      <calculate phase="Stress" priority="1002" name="Calc acStressMax">
+        <after name="Calc acStressMin"/>
+        <after name="Calc acStressBonus"/><![CDATA[
+        @value = field[acStressMin].value + field[acStressBonus].value
         ]]></calculate>
       </field>
 
     <!-- Current health -->
     <field
-      id="acStrNow"
+      id="acStressNow"
       name="Current Stress"
       type="derived">
       <!-- Calculate the current health for the actor based on the maximum and any
             actual damage that has been sustained.
       -->
-      <calculate phase="Stress" priority="5100" name="Calc acStrNow">
-        <after name="Calc acStrMax"/><![CDATA[
-        @value = field[acStrMax].value - hero.usagepool[DmgNet].value
+      <calculate phase="Stress" priority="5100" name="Calc acStressNow">
+        <after name="Calc acStressMax"/><![CDATA[
+        @value = field[acStressMax].value - hero.usagepool[DmgNet].value
         ]]></calculate>
       </field>
 
     <!-- Stress penalty adjustment due to damage effects -->
     <field
-      id="acStrPenal"
+      id="acStressPenal"
       name="Stress Penalty"
       type="derived"
       maxfinal="50">
@@ -112,11 +112,11 @@
             For example, if the actor has sustained enough damage, he might suffer
             penalties on attack roles.
       -->
-      <calculate phase="Stress" priority="5200" name="Calc acStrPenal">
-        <after name="Calc acStrNow"/><![CDATA[
+      <calculate phase="Stress" priority="5200" name="Calc acStressPenal">
+        <after name="Calc acStressNow"/><![CDATA[
         ~for our example, once an actor is down to 25% of health or less, a -1 is
         ~incurred on all attacks
-        if (field[acStrNow].value / field[acStrMax].value <= .25) then
+        if (field[acStressNow].value / field[acStressMax].value <= .25) then
           @value = -1
         else
           @value = 0
@@ -134,7 +134,7 @@
 
     <!-- Stress summary for display -->
     <field
-      id="acStrSumm"
+      id="acStressSumm"
       name="Stress Summary"
       type="derived"
       maxfinal="50">
@@ -143,17 +143,17 @@
             its pieces changes, which triggers the finalized value to be updated.
       -->
       <calculate phase="Render" priority="1000">
-        <after name="Calc acStrNow"/><![CDATA[
+        <after name="Calc acStressNow"/><![CDATA[
         ~make sure this value consists of the elements that could cause the summary to change
-        @value = field[acStrNow].value * 10000 + field[acStrMax].value * 100 + field[acStrPenal].value
+        @value = field[acStressNow].value * 10000 + field[acStressMax].value * 100 + field[acStressPenal].value
         ]]></calculate>
       <!-- Final value for display show the current and maximum health, plus any
             penalty value in parentheses.
       -->
       <finalize><![CDATA[
-        @text = field[acStrNow].value & " / " & field[acStrMax].value
-        if (field[acStrPenal].value < 0) then
-          @text &= " {text clrwarning}(" & field[acStrPenal].value & "){text clrreset}"
+        @text = field[acStressNow].value & " / " & field[acStressMax].value
+        if (field[acStressPenal].value < 0) then
+          @text &= " {text clrwarning}(" & field[acStressPenal].value & "){text clrreset}"
           endif
         ]]></finalize>
       </field>
@@ -275,11 +275,11 @@
     <!-- Assign tags relating to important damage states -->
     <eval index="1" phase="Final" priority="1000"><![CDATA[
       ~if no damage has been incurred, assign a tag to indicate that state
-      if (field[acStrNow].value >= field[acStrMax].value) then
+      if (field[acStressNow].value >= field[acStressMax].value) then
         perform hero.assign[Hero.NoDamage]
 
       ~if the hero is dead or otherwise out of combat, indicate that state
-      elseif (field[acStrNow].value = 0) then
+      elseif (field[acStressNow].value = 0) then
         perform hero.assign[Hero.Dead]
         endif
       ]]></eval>
@@ -298,7 +298,7 @@
       field[acCashNet].value = field[acCashCfg].value + hero.usagepool[TotalCash].value
       ]]></eval>
 	  
-    <!-- calculate the net cash possessed for the character -->
+    <!-- calculate the name used for Attributes possessed by the character -->
     <eval index="4" phase="Initialize" priority="1000"><![CDATA[
 	  var temp as string
 
@@ -310,10 +310,14 @@
 		
       field[acASHdrTxt].text = temp
 		
-      if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0) then
-        temp = "Discipline"
-      else
+      if (#issecondedition[] <> 0) then
         temp = "Department"
+	  else
+	    if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0) then
+          temp = "Discipline"
+        else
+          temp = "Department"
+          endif
         endif
 		
       field[acDDHdrTxt].text = temp
@@ -802,6 +806,14 @@
       maxlength="10000">
       </field>
 
+    <!-- Pastime -->
+    <field
+      id="perPastime"
+      name="Pastime"
+      maxlength="50"
+      type="user">
+      </field>
+
     <eval index="1" phase="Setup" priority="1000"><![CDATA[
       ~ Assign a tag if the user hasn't specified any background text
       if (field[perInfo].isempty <> 0) then
@@ -810,8 +822,51 @@
       ]]></eval>
 
     </component>
+	
+  <!-- SpecialRule component
+        All Special Rules derive from this component
+  -->
+  <component
+    id="SpecialRule"
+    name="Special Rule"
+	autocompset="no"
+	panellink="traits"
+	hasshortname="yes">
 
+    <!-- Pastime -->
+    <field
+      id="srRuleLevel"
+      name="Rule Level"
+      type="derived"
+	  minvalue="0">
+      </field>
+	  
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="SpecialRule"/>
+	
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[SpecialRule.?]
+      ]]></eval>
+	
+    <eval index="2" phase="Render" priority="1000"><![CDATA[
+	  doneif (field[srRuleLevel].value = 0)
+	  
+	  if (empty(field[livename].text) <> 0) then
+        field[livename].text &= " " & field[srRuleLevel].value
+        if (tagis[component.shortname] <> 0) then
+          field[shortname].text &= " " & field[srRuleLevel].value
+          endif
+	  else
+        field[livename].text = field[name].text & " " & field[srRuleLevel].value
+        if (tagis[component.shortname] <> 0) then
+          field[shortname].text &= " " & field[srRuleLevel].value
+          endif
+	    endif
+		
+      ]]></eval>
 
+    </component>
+	
   <!-- Define various component sets associated with the components defined above.
   -->
 
@@ -823,5 +878,14 @@
     <compref component="Actor"/>
     </compset>
 
+
+  <!-- CareerPath - all CareerPaths derive from this compset -->
+  <compset
+    id="SpecialRule">
+    <compref component="SpecialRule"/>
+    <compref component="UserSelect"/>
+    <compref component="Domain"/>
+    <compref component="Custom"/>
+    </compset>
 
   </document>
