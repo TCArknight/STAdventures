@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="eq2EPersSuppCmd" name="Personnel Support (Command)" description="While not technically equipment, personnel can be used in a comparable manner—a team of engineers or scientists can help a character, making tasks easier or allowing them to attempt activities they could not perform alone. And, just like equipment, characters can obtain assistants with relative ease, so long as they’re willing to take the time to gather those personnel." compset="Equipment">
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  <thing id="eq2EPersSuppConn" name="Personnel Support (Conn)" description="While not technically equipment, personnel can be used in a comparable manner—a team of engineers or scientists can help a character, making tasks easier or allowing them to attempt activities they could not perform alone. And, just like equipment, characters can obtain assistants with relative ease, so long as they’re willing to take the time to gather those personnel." compset="Equipment">
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  <thing id="eq2EPersSuppEng" name="Personnel Support (Engineering)" description="While not technically equipment, personnel can be used in a comparable manner—a team of engineers or scientists can help a character, making tasks easier or allowing them to attempt activities they could not perform alone. And, just like equipment, characters can obtain assistants with relative ease, so long as they’re willing to take the time to gather those personnel." compset="Equipment">
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  <thing id="eq2EPersSuppSci" name="Personnel Support (Science)" description="While not technically equipment, personnel can be used in a comparable manner—a team of engineers or scientists can help a character, making tasks easier or allowing them to attempt activities they could not perform alone. And, just like equipment, characters can obtain assistants with relative ease, so long as they’re willing to take the time to gather those personnel." compset="Equipment">
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  <thing id="eq2EPersSuppMed" name="Personnel Support (Medicine)" description="While not technically equipment, personnel can be used in a comparable manner—a team of engineers or scientists can help a character, making tasks easier or allowing them to attempt activities they could not perform alone. And, just like equipment, characters can obtain assistants with relative ease, so long as they’re willing to take the time to gather those personnel." compset="Equipment">
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  <thing id="eq2EPersSuppSec" name="Personnel Support (Security)" description="While not technically equipment, personnel can be used in a comparable manner—a team of engineers or scientists can help a character, making tasks easier or allowing them to attempt activities they could not perform alone. And, just like equipment, characters can obtain assistants with relative ease, so long as they’re willing to take the time to gather those personnel." compset="Equipment">
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearCost" tag="Escalat1"/>
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  <thing id="hdr2EPersonnel" name="-- Personnel --" compset="Equipment" isshowonly="yes">
+    <tag group="GearCat" tag="Personnel"/>
+    </thing>
+  </document>

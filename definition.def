@@ -254,6 +254,24 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="reason"
     result="hero.child[attrsys06].field[abiFinal].value"/>
+  <scriptmacro
+    name="bonuscontrol"
+    result="hero.child[attrsys01].field[abiBonus].value"/>	
+  <scriptmacro
+    name="bonusdaring"
+    result="hero.child[attrsys02].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusfitness"
+    result="hero.child[attrsys03].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusinsight"
+    result="hero.child[attrsys04].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonuspresence"
+    result="hero.child[attrsys05].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusreason"
+    result="hero.child[attrsys06].field[abiBonus].value"/>
 	
   <scriptmacro
     name="comms"
@@ -272,7 +290,25 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     result="hero.child[attrsys05].field[abiFinal].value"/>
   <scriptmacro
     name="weapons"
-    result="hero.child[attrsys06].field[abiFinal].value"/>
+    result="hero.child[attrsys06].field[abiFinal].value"/>	
+  <scriptmacro
+    name="bonuscomms"
+    result="hero.child[attrsys01].field[abiBonus].value"/>	
+  <scriptmacro
+    name="bonuscomputers"
+    result="hero.child[attrsys02].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusengines"
+    result="hero.child[attrsys03].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonussensors"
+    result="hero.child[attrsys04].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusstructure"
+    result="hero.child[attrsys05].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusweapons"
+    result="hero.child[attrsys06].field[abiBonus].value"/>
 	
   <scriptmacro
     name="command"
@@ -292,6 +328,24 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="medicine"
     result="hero.child[discdept06].field[abiFinal].value"/>	
+  <scriptmacro
+    name="bonuscommand"
+    result="hero.child[discdept01].field[abiBonus].value"/>	
+  <scriptmacro
+    name="bonusconn"
+    result="hero.child[discdept02].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonussecurity"
+    result="hero.child[discdept03].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusengineering"
+    result="hero.child[discdept04].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusscience"
+    result="hero.child[discdept05].field[abiBonus].value"/>
+  <scriptmacro
+    name="bonusmedicine"
+    result="hero.child[discdept06].field[abiBonus].value"/>	
 	
   <scriptmacro
     name="shipyear"
@@ -311,9 +365,17 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     name="shipscale"
     result="hero.childfound[mscShip].field[shipScale].value"/>
 	
+	
   <scriptmacro
     name="framescale"
     result="hero.findchild[Frame].field[fraScale].value" />
+
+  <scriptmacro
+    name="shipcrewrating"
+    result="hero.childfound[mscShip].field[shipCrewRating].text"/>
+  <scriptmacro
+    name="shipcrew"
+    result="hero.childfound[mscShip].field[shipCrew].text"/>
 	
   <scriptmacro
     name="framesystempoints"
@@ -362,11 +424,11 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
     result="hero.tagis[CharType.typStarbase]"/>
 
   <scriptmacro
-    name="isfirstedition"
+    name="is1stedition"
     result="hero.tagis[source.1stEdition]"/>
 
   <scriptmacro
-    name="issecondedition"
+    name="is2ndedition"
     result="hero.tagis[source.2ndEdition]"/>
 
   <scriptmacro
@@ -380,6 +442,22 @@ STAR TREK ADVENTURES, the 2d20 system and related marks and logos are copyright 
   <scriptmacro
     name="isgender"
     result="hero.childfound[mscPerson].field[perGender].value"/>
+	
+  <scriptmacro
+    name="shipresist"
+    result="hero.childfound[mscShip].field[shipRes].value"/>
+	
+  <scriptmacro
+    name="shipshields"
+    result="hero.childfound[mscShip].field[shipShield].value"/>
+	
+  <scriptmacro
+    name="shipshieldbonus"
+    result="hero.childfound[mscShip].field[bonShields].value"/>
+	
+  <scriptmacro
+    name="shipwpndmgbonus"
+    result="hero.childfound[mscShip].field[bonWeaponDmg].value"/>
 
   <scriptmacro
     name="prependdesc"

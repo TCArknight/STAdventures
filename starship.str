@@ -67,10 +67,25 @@
       </field>
 
     <field
+      id="shipReservePwr"
+      name="Reserve Power"
+      type="derived"
+      minvalue="0"
+      maxvalue="1">
+      </field>
+
+    <field
+      id="shipReservePwrTxt"
+      name="Reserve Power Text"
+      type="derived"
+      maxlength="15">
+      </field>
+
+    <field
       id="shipRes"
       name="Resistance"
       type="derived"
-      minvalue="1"
+      minvalue="0"
       maxvalue="25">
       </field>
 
@@ -78,6 +93,13 @@
     <field
       id="bonShields"
       name="Bonus Shield Value"
+      type="derived">
+      </field>
+
+    <!-- Bonuses applied to weapon damage (e.g. from other abilities) -->
+    <field
+      id="bonWeaponDmg"
+      name="Bonus Weapon Damage"
       type="derived">
       </field>
 
@@ -119,22 +141,25 @@
     <field
       id="shipOverview"
       name="Overview"
-      type="derived"
-      maxlength="10000">
+      type="user"
+      maxlength="10000"
+	  defvalue="Overview">
       </field>
 	  
     <field
       id="shipCapabilities"
       name="Capabilities"
-      type="derived"
-      maxlength="10000">
+      type="user"
+      maxlength="10000"
+	  defvalue="Capabilities">
       </field>
 
     <field
       id="shipRefVar"
       name="Refits and Variants"
-      type="derived"
-      maxlength="2000">
+      type="user"
+      maxlength="2000"
+	  defvalue="Refits and Variants">
       </field>
 	  
     <!-- Suggested Profiles -->
@@ -142,15 +167,17 @@
       id="shipSuggPro"
       name="Suggested Profiles"
       type="user"
-      maxlength="1000">
+      maxlength="1000"
+	  defvalue="Suggested Mission Profiles">
       </field>
 	  
     <!-- Naming Conventions -->
     <field
       id="shipNamConv"
-      name="Suggested Profiles"
+      name="Naming Conventions"
       type="user"
-      maxlength="1000">
+      maxlength="1000"
+	  defvalue="Naming Conventions">
       </field>	
 	  
     <field
@@ -181,6 +208,13 @@
       maxlength="250">
       </field>
 	  
+    <field
+      id="shipSmallCraft"
+      name="Small Craft Readiness"
+      type="derived"
+      minvalue="0">
+      </field>
+	  
     <!-- Year Frame Entered Service -->
     <field
       id="shipSerSumm"
@@ -195,6 +229,15 @@
       name="Ship Detail Text"
       type="user"
       maxlength="10000">
+      </field>
+	  
+    <!-- Background description of the actor -->
+    <field
+      id="shipRegistry"
+      name="Ship Registry"
+      type="user"
+      maxlength="20"
+	  defvalue="Registry">
       </field>
 	  
     <!-- Affiliation -->
@@ -237,6 +280,14 @@
       type="derived"
       minvalue="0"
       maxvalue="1">
+      </field>
+  
+    <!-- Frame Shuttlecraft notes -->	  
+    <field
+      id="shipShuttleNotes"
+      name="Shuttlecraft Notes"
+      type="user"
+      maxlength="2000">
       </field>
 	  
     <creation><![CDATA[
@@ -297,20 +348,83 @@
         endif
       ]]></eval>
  
-    <eval index="4" phase="Ability" priority="5000" name="Calc Ship Derived"><![CDATA[
-	  var scale as number
-	  var pwr as number
+    <eval index="6" phase="Ability" priority="5000" name="Calc Crew and Craft"><![CDATA[
+	  
+	  ~ crew support
+      field[shipCrew].value = #shipscale[]
+	  
+	  ~ small craft Readiness
+	  field[shipSmallCraft].value = #shipscale[] - 1
+	 
+      ]]></eval> 
+ 
+    <eval index="7" phase="Ability" priority="5000" name="Calc Ship Shields"><![CDATA[
 	  var shields as number
+	  var shldBonus as number
+	  	  	  
+	  ~ shields 
+	  shields = 0
 	  
-	  scale = field[shipScale].value
-	  pwr = #engines[] 
-	  shields = #structure[] + #security[]
+	  if (hero.tagis[ShipShields.Scale] <> 0) then
+	    shields += #shipscale[]
+	    endif
 	  
-	  ~ crew support, resistance 
-      field[shipCrew].value = scale
-	  field[shipRes].value = scale 
+	  if (hero.tagis[ShipShields.Structure] <> 0) then
+	    shields += #structure[]
+	    endif
+	  
+	  if (hero.tagis[ShipShields.Security] <> 0) then
+	    if (hero.tagis[Ship.NoShields] = 0) then
+	      shields += #security[]
+		  endif
+		endif
+      
+	  ~ for small craft in 1E, shields rating is halved
+	  if (#issmallcraft[] <> 0) then
+	    if (#is1stedition[] <> 0) then 
+	      shields = round(shields/2,0,-1)
+		  endif
+	    endif
+	
+	  shields += field[bonShields].value
+	  
+      field[shipShield].value = shields  
+	 
+      ]]></eval> 
+ 
+    <eval index="8" phase="Ability" priority="5000" name="Calc Ship Resistance"><![CDATA[
+	  var totResist as number
+      var structBonus as number
+	  
+	  if (#isstarship[] <> 0) then
+	    totResist = #shipscale[]
+		endif
+	  
+	  ~ if 2nd edition, add resistance bonus from structure
+	  if (#is2ndedition[] <> 0) then
+	  
+	    if (#issmallcraft[] <> 0) then
+	      call ResistStructBonus
+	      field[bonResist].value += structBonus
+		  endif
+		  
+		endif
+	  
+	  totResist += field[bonResist].value
+	  
+	  field[shipRes].value = totResist 
+	 
+      ]]></eval>
+ 
+    <eval index="9" phase="Ability" priority="5000" name="Calc Ship Power"><![CDATA[
+	  var pwr as number
+	  
+	  ~ 2nd edition doesn't use the power rating, so no need to calculate it.
+	  doneif (#is2ndedition[] <> 0)
 	  
 	  ~ power
+	  pwr = #engines[] 
+	  
 	  if (#issmallcraft[] <> 0) then
 	    pwr = round(pwr/2,0,1)
 	    endif
@@ -318,22 +432,26 @@
 	  pwr += field[bonPower].value
 	  
       field[shipPower].value = pwr
-
-	  ~ shields 
-	  if (#issmallcraft[] <> 0) then
-	    shields = round(shields/2,0,-1)
-	  elseif (#isstarbase[] <> 0) then
-	    if (hero.tagis[Ship.NoShields] <> 0) then
-	      shields -= #security[]
-		  endif
-	    endif
-		  
-	  shields += field[bonShields].value
-		
-      field[shipShield].value = shields  
 	 
+      ]]></eval>
+
+    <!-- Use the starting power points as our initial maximum -->
+    <eval index="10" phase="Final" priority="1100" name="Determine Reserve Pwr"><![CDATA[
+	  var avail as number
 	  
-      ]]></eval> 
+	  avail = hero.childfound[trkReservePower].field[trkUser].value
+	  
+      field[shipReservePwr].value = avail
+	  if (avail = 0) then
+	    field[shipReservePwrTxt].text = "Unavailable"
+	  else
+	    field[shipReservePwrTxt].text = "Available"
+	    endif
+		
+		
+      ]]></eval>
+	  
+	  
     </component>
 
   <!-- Frame component
@@ -548,18 +666,38 @@
       type="user"
 	  defvalue="0">
       </field>
-	  
+  
+    <!-- Frame Shuttlecraft notes -->	  
+    <field
+      id="fraShuttleNotes"
+      name="Shuttlecraft Notes"
+      type="user"
+      maxlength="2000">
+      </field>
+	
     <!-- Each race needs its own identity tag to configure the hero appropriately -->
     <identity group="Frame"/>
     <identity group="IsFrame"/>
     <identity group="CustomFrame"/>
+	  
+    <!-- By Default, all ships use these to calculate shield ratings -->
+    <tag group="ShipShields" tag="Scale"/>
+    <tag group="ShipShields" tag="Structure"/>
+    <tag group="ShipShields" tag="Security"/>
 
     <!-- Track the race on the actor by assigning the appropriate tags -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Frame.?]
       perform forward[IsFrame.?]
+	  perform forward[StarshipSelected.?]
+	  perform forward[ShipShields.?]
+		
 	  if (tagis[Helper.CustomItem] <> 0) then
         perform forward[CustomFrame.?]
+	    endif
+		
+	  if (field[fraPodsAllowed].value <> 0) then
+	    perform hero.assign[ShipSelectAllow.Pod]
 	    endif
       ]]></eval>
 
@@ -613,7 +751,7 @@
 		  
       foreach pick in hero where "component.ShipInfo"
 		~ Power, Resistance, crew based on scale
-        eachpick.field[shipScale].value = scale
+        eachpick.#shipscale[] = scale
 		
 		eachpick.field[shipClass].text = field[name].text
 		
@@ -636,6 +774,7 @@
 		eachpick.field[shipCrewSize].text = field[fraCrewSize].text
 		eachpick.field[shipCrewRating].text = field[fraCrewRating].text
 		eachpick.field[shipSerSumm].text = field[fraSerSumm].text
+		eachpick.field[shipShuttleNotes].text = field[fraShuttleNotes].text
 		
 		if (tagis[Ship.SaucerSep] <> 0) then
 		  field[fraAllowSaucer].value = tagis[Ship.SaucerSep]
@@ -662,7 +801,7 @@
     <!-- Increase Trait and Talent counts -->
     <eval index="4" phase="PreAbility" priority="5000"><![CDATA[
 	  #resmax[resTrait] += 1
-	  #resmax[resTalent] += hero.childfound[mscShip].field[shipScale].value
+	  #resmax[resTalent] += hero.childfound[mscShip].#shipscale[]
       #resmax[resShipPod] += field[fraPods].value
       ]]></eval>
 	  </component>
@@ -727,6 +866,7 @@
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       perform forward[Profile.?]
       perform forward[HasProfile.?]
+	  perform forward[StarshipSelected.?]
       ]]></eval>
 
     <!-- Increase Systems and Departments -->
@@ -782,31 +922,68 @@
 	<!-- No compsets are auto-defined for the component -->
 
   <!-- Starship weapon components -->
-  <!-- StarshipWeapon component -->
+  <!-- BaseWeaponShip component -->
   <component
-    id="StarshipWeapon"
+    id="BaseWeaponShip"
     name="Starship Weapon Base"
     autocompset="no">
 
-    <!-- Synthesized text ranges for the weapon -->
 	<field
-      id="wpSRange"
-      name="Damage"
+      id="wpShipWpnName"
+      name="Range"
       type="derived"
       maxlength="30">
       </field>
 
-    <!-- Synthesized text ranges for the weapon -->
+	<field
+      id="wpShipWpnType"
+      name="Weapon Type"
+      type="derived"
+      maxlength="20">
+      </field>
+
+	<field
+      id="wpShipWpnRange"
+      name="Range"
+      type="derived"
+      maxlength="30">
+      </field>
+
     <field
-      id="wpSBasDmg"
+      id="wpShipBaseDmg"
       name="Damage"
       type="derived"
       maxvalue="10">
       </field>
+
+    <field
+      id="wpShipBaseDmgBon"
+      name="Damage"
+      type="derived"
+      maxvalue="10">
+      </field>
+	
+    <!-- Synthesized text Qualities for the weapon -->
+	<field
+      id="wpShipWpnQuals"
+      name="Qualities"
+      type="derived"
+      maxlength="150">
+      </field>
+	
+    <!-- Synthesized text Qualities for the weapon -->
+	<field
+      id="wpShipWpnQualArr"
+      name="Qualities"
+      type="derived"
+	  style="array"
+      maxlength="150"
+	  arrayrows="10">
+      </field>
 	  
 	<!-- Tractor Bonus Value (used for Tractor Beam Strength calculations) -->  
     <field
-      id="wpSTracBonus"
+      id="wpShipTractBonus"
       name="Tractor Bonus"
       type="derived"
       defvalue="0">
@@ -814,21 +991,49 @@
 	  
     <!-- All ranged weapons get the same tag for sorting purposes -->
     <tag group="Armory" tag="Range"/>
+	
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+	  field[wpShipWpnType].text = tagnames[ShipWeaponType.?," | "]
+      ]]></eval>
 
-    <!-- Calculate the net attack roll for the weapon -->
-    <eval index="1" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
-	  ~notify "Ship Scale: " & #shipscale
+    <!-- Calculate the base damage for the weapon -->
+    <eval index="2" phase="Final" priority="7000" name="Calc Ship Weapon Damage"><![CDATA[
+	  var comp as number
+	  var fixedBase as number
+	  var baseDmg as number
+	  var bonusDmg as number
+	  var sysBonus as number
+      var totDamage as number
 	  
-	  if (tagis[Weapon.FixedBase] <> 0) then
-        field[wpDamage].value = #shipdept[discdept03]
-	  else
-	    field[wpDamage].value = field[wpSBasDmg].value
+	  
+	  comp = tagis[component.Energy]
+	  fixedBase = tagis[Weapon.FixedBase]
+	  
+	  baseDmg = field[wpShipBaseDmg].value
+	  
+	  if (#is1stedition[] <> 0) then
+	    bonusDmg +=  #shipscale[]
+	  
+	    if (tagis[Weapon.FixedBase] <> 0) then
+          field[wpDamage].value = #security[]
 		endif
+		
+	  elseif (#is2ndedition[] <> 0) then
+	    ~ if it's 2nd Edition, we need to calculate based on 2E rules.
+		baseDmg = field[wpShipBaseDmg].value
+		bonusDmg += field[wpShipBaseDmgBon].value
+		bonusDmg += hero.childfound[mscShip].field[bonWeaponDmg].value
+		endif
+		
+	  Call ShipWpnDamage
+		
+	  field[wpDamage].value = totDamage
+		
 	  
       ]]></eval>
 	  
     <!-- Prepend any derived special notes to the appropriate field -->
-    <eval index="2" phase="Render" priority="2000"><![CDATA[
+    <eval index="3" phase="Render" priority="2000"><![CDATA[
       var special as string
 
       ~assign any appropriate special notes to the "special" variable here
@@ -836,7 +1041,252 @@
       ~prepend any existing special details with the notes for this weapon
       field[wpNotes].text = splice(special,field[wpNotes].text,", ")
       ]]></eval>
+	  
+    <!-- Prepend any derived special notes to the appropriate field -->
+    <eval index="4" phase="Final" priority="5000"><![CDATA[
+	  ~make sure we're in a gizmo (non-zero if there is a child gizmo)
+	  doneif (isgizmo = 0)
+	
+      var qualities as string
+				
+      ~assign any appropriate special notes to the "special" variable here
+	  foreach pick in gizmo from GearQuality
+	    qualities = splice(qualities,eachpick.field[gqQualName].text,", ")
+	    nexteach
+		
+	  ~declare variables that are used to communicate with our sort procedure
+      var InputStr as string
+      var StrSep as string
+      var SortedStr as string
+		
+      InputStr = qualities
+	  StrSep = ", "
+	  
+	  call StringSort
+	  
+      ~prepend any existing special details with the notes for this weapon
+      field[wpShipWpnQuals].text = SortedStr
+	  
+      ]]></eval>
+	  
+    <eval index="5" phase="Final" priority="9000"><![CDATA[
+	  ~make sure we're in a gizmo (non-zero if there is a child gizmo)
+	  doneif (isgizmo = 0)
+	  
+      var systems as string
+      var qualities as string
+      var temptxt as string
+		
+	  ~declare variables that are used to communicate with our sort procedure
+      var InputStr as string
+      var StrSep as string
+      var SortedStr as string
+	  var sepcnt as number
+	  var curpos as number
+	  var curlen as number
+	  var overalllen as number
+	  var sect as number
+	  var lastsep as number
+	  
+	  var i as number
+	  
+      ~assign any appropriate special notes to the "special" variable here
+	  foreach pick in gizmo from DeliverySystem
+	    systems = " " & eachpick.field[name].text
+		
+		~ if the pick has a gizmo (qualities of it's own)
+		~ then add those qualities to the weapon qualities
+		if (eachpick.isgizmo <> 0) then 
+		  
+		  foreach pick in eachpick.gizmo from GearQuality
+		    qualities = splice(qualities, eachpick.field[gqQualName].text,", ")
+		    nexteach
+			
+          temptxt = splice(field[wpShipWpnQuals].text,qualities,", ")
+		  
+		  endif
 
+		
+        InputStr = temptxt
+	    StrSep = ", "
+	  
+	    call StringSort
+	  
+		field[wpShipWpnQuals].text = SortedStr  
+	    nexteach
+
+      ~ convert qualities to the array
+	  ~ count % in string
+	  temptxt = field[wpShipWpnQuals].text
+	  
+	~ set up while loop for stripping duplicates
+	var cur_pos as number
+	var srch_str as string
+	var cur_str as string
+	var build_str as string
+
+	~ move temptxt -> cur_str  for debugging purposes
+	~ debug temptxt
+	cur_str = temptxt
+	cur_pos = pos(temptxt,"%")
+	    
+	i = 0
+	
+	while (cur_pos <> -1)
+
+		~ strip any leading separators
+		while (cur_pos = 0)
+			cur_str = mid(cur_str,1,length(cur_str))
+			cur_pos = pos(cur_str,"%")
+			loop
+
+		~ cur_pos now has the position of the separator
+		~ since pos is 0 based, cur_pos is the length of  
+		~ the search string we want
+		~ build up new string from srch_str
+		srch_str = mid(cur_str,0,cur_pos)
+		cur_str = replace(cur_str,srch_str,"",0)
+		
+		field[wpShipWpnQualArr].arraytext[i] = srch_str
+
+		~ find position of out next separator for next time around the loop
+		~ when we cannot find any separators any more we exit the loop
+		cur_pos = pos(cur_str,"%")
+	    i += 1
+		
+		loop
+		
+    ~ sort the resulting array
+	var n as number
+	var j as number
+	var temp as string
+	var text1 as string
+	var text2 as string
+	
+	~ get number of elements in array
+	i = 0
+	while (empty(field[wpShipWpnQualArr].arraytext[i]) = 0)
+	    i += 1
+		loop
+    lastsep = i
+	
+	n = 0
+	while (n < lastsep)
+	  j = 0
+	  i = (lastsep - n - 1)
+	  
+	  debug "n - " & n
+	  
+	  while (j < i)
+	    text1 = field[wpShipWpnQualArr].arraytext[j]
+	    text2 = field[wpShipWpnQualArr].arraytext[j+1]
+		debug "T1 - " & text1
+		debug "T2 - " & text2
+		~ debug "compare - " & compare(text1,text2)
+		
+		if (compare(text1,text2) > 0) then
+		  debug "T2 comes before T1, move it"
+		  
+		  ~ debug "j - " & j
+		  
+          temp = text1
+		  field[wpShipWpnQualArr].arraytext[j] = text2
+		  field[wpShipWpnQualArr].arraytext[j+1] = temp
+
+		  ~ debug "field[wpShipWpnQualArr].arraytext[j] - " & field[wpShipWpnQualArr].arraytext[j]
+		  ~ debug "field[wpShipWpnQualArr].arraytext[j+1] - " & field[wpShipWpnQualArr].arraytext[j+1]
+		elseif (compare(text1,text2) < 0) then
+		  debug " T1 comes before T2, no need to move"
+          endif	
+		  
+        j += 1		  
+	    loop
+	  n += 1
+	  loop
+
+      ~ repopulate field with array contents
+	  i = 0
+	  temp = ""
+	  
+	  while (i < lastsep)
+		if (i <> 0) then
+		  temp &= ", "
+		  endif
+	    temp &= field[wpShipWpnQualArr].arraytext[i]
+		i += 1
+	    loop
+
+      field[wpShipWpnQuals].text = temp
+	  
+	  ~prepend any existing special details with the notes for this weapon
+      field[wpShipWpnName].text = field[name].text & systems
+      ]]></eval>
+	  
+    <eval index="6" phase="Final" priority="10000" name="Set Weapon Livename"><![CDATA[
+      var name as string
+				
+      name = field[wpShipWpnName].text
+	  
+      ~prepend any existing special details with the notes for this weapon
+      field[livename].text = name
+      ]]></eval>
+
+    </component>
+
+  <!-- Component for gear qualities -->
+  <component
+    id="DeliverySystem"
+    name="Delivery System"
+    autocompset="yes">
+
+    <!-- Value -->
+    <field
+      id="dsRange"
+      name="System Range"
+      type="derived"
+      maxlength="10">
+      </field>
+
+    <!-- Summary -->
+    <field
+      id="dsDamage"
+      name="System Damage"
+      type="derived">
+      </field>
+	  
+    <!-- Assign any derived special notes to the appropriate field -->
+    <eval index="1" phase="Final" priority="1000"><![CDATA[
+      var range as string
+	  var damage as number
+	  
+      range = field[dsRange].text
+	  damage = field[dsDamage].value
+	  
+	  perform parent.setfocus
+	  
+	  focus.field[wpShipWpnRange].text = range
+	  focus.field[wpShipBaseDmgBon].value += damage
+      
+      ]]></eval>	
+	  
+    </component>
+
+  <!-- Energy component
+        Starship Energy Weapons (Phasers, Disruptors, etc.) use this component
+  -->
+  <component
+    id="Energy"
+    name="Energy Weapon"
+    autocompset="no">
+	  
+    <!-- Torpedos don't include ship scale in their damage calculations -->
+    <tag group="ShipWeaponType" tag="Energy"/>
+	
+	<eval index="1" phase="Final" priority="500"><![CDATA[
+      field[wpShipBaseDmgBon].value += hero.childfound[mscShip].field[bonWeaponDmg].value
+      
+      ]]></eval>
+	  
     </component>
 
   <!-- Torpedo component
@@ -848,7 +1298,13 @@
     autocompset="no">
 	  
     <!-- Torpedos don't include ship scale in their damage calculations -->
+    <tag group="ShipWeaponType" tag="Torpedo"/>
     <tag group="Weapon" tag="NoScale"/>
+	
+	<eval index="1" phase="Final" priority="500"><![CDATA[
+      field[wpShipBaseDmgBon].value += hero.childfound[mscShip].field[bonWeaponDmg].value
+      
+      ]]></eval>
 	  
     </component>
 	
@@ -861,6 +1317,7 @@
     autocompset="no">
 	  
     <!-- Torpedos don't include ship scale in their damage calculations -->
+    <tag group="ShipWeaponType" tag="Mine"/>
     <tag group="Weapon" tag="NoScale"/>
 	  
     </component>
@@ -887,6 +1344,7 @@
     <identity group="ShipSpecialRule"/>
 	
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[Ship.?]
       perform forward[ShipSpecialRule.?]
       ]]></eval>
 	  
@@ -913,7 +1371,7 @@
     <!-- Each ability that is added by the user costs 1 slot -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
       ~we must ignore bootstrapped abilities from races and abilities added via advances
-      hero.child[resShipRef].field[resSpent].value += 1
+      hero.child[resShipRefits].field[resSpent].value += 1
       ]]></eval>
 	  
     </component>
@@ -924,7 +1382,7 @@
   <component
     id="MissionPod"
     name="Mission Pod"
-    autocompset="yes">
+    autocompset="no">
 
     <!-- Each ability that is added by the user costs 1 slot -->
     <eval index="1" phase="Setup" priority="5000"><![CDATA[
@@ -933,6 +1391,132 @@
       ]]></eval>
 	  
     </component>
+	
+  <component
+    id="ServiceRecord"
+    name="Service Record"
+    autocompset="yes">
+	
+    <!-- Each race needs its own identity tag to configure the hero appropriately -->
+    <identity group="ServiceRecord"/>
+    <identity group="HasServiceRec"/>
+
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="Setup" priority="5000"><![CDATA[
+      perform forward[ServiceRecord.?]
+      perform forward[HasServiceRec.?]
+	  perform forward[StarshipSelected.?]
+      ]]></eval>
+	  
+    </component>
+	
+  <component
+    id="BonusAttrSys"
+    name="Appearances"
+    autocompset="yes">
+	
+      <!-- Systems -->
+      <field
+        id="bonComm"
+        name="Command"
+        type="derived">
+        </field>
+
+      <field  
+        id="bonComp"
+        name="Conn"
+        type="derived">
+        </field>
+
+      <field
+        id="bonEngines"
+        name="Engineering"
+        type="derived">
+        </field>
+
+      <field
+        id="bonSens"
+        name="Medicine"
+        type="derived">
+        </field>
+
+      <field
+        id="bonStruct"
+        name="Security"
+        type="derived">
+        </field>
+
+      <field
+        id="bonWeap"
+        name="Science"
+        type="derived">
+        </field>
+
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="PreAbility" priority="1000"><![CDATA[
+      #bonuscommand[] += field[bonComm].value
+      #bonusconn[] += field[bonComp].value
+      #bonusengineering[] += field[bonEngines].value
+      #bonusmedicine[] += field[bonSens].value
+      #bonussecurity[] += field[bonStruct].value
+      #bonusscience[] += field[bonWeap].value
+      ]]></eval>
+		
+    </component>
+	
+  <component
+    id="BonusDiscDept"
+    name="Appearances"
+    autocompset="yes">
+	
+      <!-- Profile Departments -->
+      <field
+        id="bonCmd"
+        name="Command"
+        type="derived">
+        </field>
+
+      <field  
+        id="bonConn"
+        name="Conn"
+        type="derived">
+        </field>
+
+      <field
+        id="bonEng"
+        name="Engineering"
+        type="derived">
+        </field>
+
+      <field
+        id="bonMed"
+        name="Medicine"
+        type="derived">
+        </field>
+
+      <field
+        id="bonSecur"
+        name="Security"
+        type="derived">
+        </field>
+
+      <field
+        id="bonSci"
+        name="Science"
+        type="derived">
+        </field>
+
+    <!-- Track the race on the actor by assigning the appropriate tags -->
+    <eval index="1" phase="PreAbility" priority="1000"><![CDATA[
+      #bonuscommand[] += field[bonCmd].value
+      #bonusconn[] += field[bonConn].value
+      #bonusengineering[] += field[bonEng].value
+      #bonusmedicine[] += field[bonMed].value
+      #bonussecurity[] += field[bonSecur].value
+      #bonusscience[] += field[bonSci].value
+      ]]></eval>
+		
+    </component>	
 	
   <!-- Compsets -->
 
@@ -951,6 +1535,16 @@
     forceunique="yes">
     <compref component="Profile"/>
     <compref component="UserSelect"/>
+    <compref component="Domain"/>
+    <compref component="Custom"/>
+    </compset>
+	
+  <!-- Frame - all races derive from this compset -->
+  <compset
+    id="MissionPod">
+    <compref component="MissionPod"/>
+    <compref component="BonusAttrSys"/>
+    <compref component="BonusDiscDept"/>
     </compset>
 	
   <!-- Transact - all transactions utilize this compset -->
@@ -971,7 +1565,8 @@
   <compset
     id="Energy"
     stackable="yes">
-    <compref component="StarshipWeapon"/>
+    <compref component="Energy"/>
+    <compref component="BaseWeaponShip"/>
     <compref component="WeaponStarship"/>
     <compref component="WeaponBase"/>
     <compref component="Equippable"/>
@@ -983,7 +1578,7 @@
     id="Torpedo"
     stackable="yes">
     <compref component="Torpedo"/>
-    <compref component="StarshipWeapon"/>
+    <compref component="BaseWeaponShip"/>
     <compref component="WeaponStarship"/>
     <compref component="WeaponBase"/>
     <compref component="Equippable"/>
@@ -995,7 +1590,7 @@
     id="Mine"
     stackable="yes">
     <compref component="Mine"/>
-    <compref component="StarshipWeapon"/>
+    <compref component="BaseWeaponShip"/>
     <compref component="WeaponStarship"/>
     <compref component="WeaponBase"/>
     <compref component="Equippable"/>
@@ -1008,5 +1603,8 @@
     stackable="no">
     <compref component="StarshipSpecial"/>
     <compref component="SpecialTab"/>
+    <compref component="UserSelect"/>
+    <compref component="Domain"/>
+    <compref component="Custom"/>
     </compset>	
   </document>

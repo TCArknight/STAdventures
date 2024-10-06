@@ -2,6 +2,7 @@
 <document signature="Hero Lab Data">
   <thing id="talBafflingBrief" name="Baffling Briefing" description="When the character engages in a Social Conflict using deception, the character may use Science in place of Command so long as their technical knowledge is used to mislead their opponent." compset="Talent">
     <usesource source="DivSci"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Science"/>
     <exprreq message="Presence 9+ required"><![CDATA[#abilfinal[attrsys05] >= 9]]></exprreq>
     <exprreq message="Science 3+ required."><![CDATA[#abilfinal[discdept05] >= 3]]></exprreq>
@@ -10,6 +11,7 @@
     <fieldval field="usrLabel1" value="Focus"/>
     <fieldval field="usrCandid1" value="component.Focus"/>
     <usesource source="DivSci"/>
+    <usesource source="1stEdition"/>
     <tag group="ChooseSrc1" tag="Hero"/>
     <tag group="TalentCat" tag="Science"/>
     <exprreq message="Science 4+ required."><![CDATA[#abilfinal[discdept05] >= 4]]></exprreq>

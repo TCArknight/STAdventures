@@ -70,14 +70,32 @@
     id="smEnergy"
     style="tblInvisSm">
     <table_fixed
-      component="StarshipWeapon"
+      component="Energy"
       showtemplate="smWeapon"
+	  showsortset="ShipWeapDeliv"
       scrollable="no">
       <headertitle><![CDATA[
       @text = #summtitle_decoration[] & " Energy Weapons " & #summtitle_decoration[]
       ]]></headertitle>
       </table_fixed>
     </portal>
+
+  <!-- smTorp portal - table of energy weapons
+  -->
+  <portal
+    id="smTorp"
+    style="tblInvisSm">
+    <table_fixed
+      component="Torpedo"
+      showtemplate="smWeapon"
+	  showsortset="ShipWeapDeliv"
+      scrollable="no">
+      <headertitle><![CDATA[
+      @text = #summtitle_decoration[] & " Torpedoes " & #summtitle_decoration[]
+      ]]></headertitle>
+      </table_fixed>
+    </portal>
+	
 	
   <!-- smGear portal - table of non-weapon gear
   -->
@@ -227,6 +245,7 @@
     <portalref portal="smRange"/>
     <portalref portal="smMelee"/>
     <portalref portal="smEnergy"/>
+    <portalref portal="smTorp"/>
     <portalref portal="smGear"/>
 
     <position><![CDATA[
@@ -235,6 +254,7 @@
       perform portal[smRange].autoplace[20]
       perform portal[smMelee].autoplace[20]
       perform portal[smEnergy].autoplace[20]
+      perform portal[smTorp].autoplace[20]
       perform portal[smGear].autoplace[20]
       ]]></position>
 

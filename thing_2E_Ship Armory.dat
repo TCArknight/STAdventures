@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="sh2EPhaserCannon" name="Phaser" description="Common to Starfleet and a few civilizations’ fleets, phasers are a precise and adaptable weapon." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="2"/>
+        </bootstrap>
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      </child>
+    </thing>
+  <thing id="ds2ECannon" name="Cannon" description="Compact weapon systems designed to produce short, powerful pulses or bolts of energy at the target." compset="DeliverySystem">
+    <fieldval field="dsRange" value="Close"/>
+    <fieldval field="dsDamage" value="2"/>
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ds2EArrays" name="Arrays" description="Long linked strips of emitters allow the weapon to discharge at any point along the strip, and often at multiple points along the strip if needed. This versatility allows a vessel to fire at multiple targets, or maintain fire on a moving target, from any direction." compset="DeliverySystem">
+    <fieldval field="dsRange" value="Medium"/>
+    <usesource source="2ndEdition"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EAreaSpread"></bootstrap>
+      </child>
+    </thing>
+  <thing id="gq2EAreaSpread" name="Area or Spread" description="Area:\nThis weapon impacts a wider area and can affect several targets at once. When you succeed at an attack, additional targets in the same zone may be hit by spending 1 Momentum for each additional target (Repeatable). This attack may Succeed at Cost.\n\nSpread:\nAttacks with this weapon reduce the cost of the Devastating Attack Momentum spend to 1. This is Repeatable." compset="GearQuality" summary="When attck is made, choose to use either the Area or the Spread quality.">
+    <usesource source="2ndEdition" parent="CoreRules" name="2nd Edition"/>
+    <tag group="QualityCategory" tag="Weapon" name="Weapon" abbrev="Weapon"/>
+    </thing>
+  <thing id="sh2EPhaserArr" name="Phaser" description="Common to Starfleet and a few civilizations’ fleets, phasers are a precise and adaptable weapon." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="2"/>
+        </bootstrap>
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      </child>
+    </thing>
+  <thing id="ds2EBanks" name="Banks" description="An energy weapon bank consists of multiple emitters packed together, producing a focused beam or several longer pulses, inflicting damage to enemies." compset="DeliverySystem">
+    <fieldval field="dsRange" value="Medium"/>
+    <fieldval field="dsDamage" value="1"/>
+    <usesource source="2ndEdition"/>
+    <child entity="gearQual"></child>
+    </thing>
+  <thing id="ds2ESpinalLance" name="Spinal Lance" description="Some ships integrate large weapon systems into their hulls, often running the length of the ship. These weapons are very powerful, but difficult to bring to bear against a target." compset="DeliverySystem">
+    <fieldval field="dsRange" value="Long"/>
+    <fieldval field="dsDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2ECumbersome"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaserBank" name="Phaser" description="Common to Starfleet and a few civilizations’ fleets, phasers are a precise and adaptable weapon." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="2"/>
+        </bootstrap>
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaserLance" name="Phaser" description="Common to Starfleet and a few civilizations’ fleets, phasers are a precise and adaptable weapon." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="2"/>
+        </bootstrap>
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EAntiprotonArr" name="Antiproton Beam" description="Pulsed beams of antiprotons especially damaging to a ship’s hull and physical systems." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EAntiprotonBan" name="Antiproton Beam" description="Pulsed beams of antiprotons especially damaging to a ship’s hull and physical systems." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EAntiprotonCan" name="Antiproton Beam" description="Pulsed beams of antiprotons especially damaging to a ship’s hull and physical systems." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EAntiprotonLan" name="Antiproton Beam" description="Pulsed beams of antiprotons especially damaging to a ship’s hull and physical systems." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EDisruptorArr" name="Disruptor" description="Disruptors are potent, damaging weapons favored by Klingons, Romulans, and a variety of other civilizations’ fleets." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EDisruptorBank" name="Disruptor" description="Disruptors are potent, damaging weapons favored by Klingons, Romulans, and a variety of other civilizations’ fleets." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EDisruptorCan" name="Disruptor" description="Disruptors are potent, damaging weapons favored by Klingons, Romulans, and a variety of other civilizations’ fleets." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EDisruptorLan" name="Disruptor" description="Disruptors are potent, damaging weapons favored by Klingons, Romulans, and a variety of other civilizations’ fleets." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EElectIonArr" name="Electromagnetic / Ionic" description="Electromagnetic or ionic weapons can disrupt power systems, draining power from the ships they hit." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EDampening"></bootstrap>
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EElectIonBank" name="Electromagnetic / Ionic" description="Electromagnetic or ionic weapons can disrupt power systems, draining power from the ships they hit." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EDampening"></bootstrap>
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EElectIonCan" name="Electromagnetic / Ionic" description="Electromagnetic or ionic weapons can disrupt power systems, draining power from the ships they hit." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EDampening"></bootstrap>
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EElectIonLance" name="Electromagnetic / Ionic" description="Electromagnetic or ionic weapons can disrupt power systems, draining power from the ships they hit." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EDampening"></bootstrap>
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EFreeEleLasArr" name="Free Electron Laser" description="Used for both defense and mining during the early years of Human interstellar travel, these are not especially effective as weapons." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EFreeEleLasCan" name="Free Electron Laser" description="Used for both defense and mining during the early years of Human interstellar travel, these are not especially effective as weapons." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EFreeEleLasLan" name="Free Electron Laser" description="Used for both defense and mining during the early years of Human interstellar travel, these are not especially effective as weapons." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EGravBeamArr" name="Graviton Beam" description="These weapons fire high-energy gravitons intended to inflict intense gravitational stresses on a target’s superstructure." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      <bootstrap thing="gq2EDevastating"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EFreeEleLasBan" name="Free Electron Laser" description="Used for both defense and mining during the early years of Human interstellar travel, these are not especially effective as weapons." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPulArr" name="Phase/Pulse" description="The predecessor to phasers, phase weapons were used by the United Earth Starfleet, and the Federation Starfleet that succeeded it, in the 22nd century, but had largely been replaced by phasers in the 23rd century." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="1"/>
+        </bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPolBeamArr" name="Phased Polaron Beam" description="Favored by the Dominion, phased polaron weapons are highly effective at cutting through deflector shields and other starship defenses." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EProtonBeam" name="Proton Beam" description="Focused proton beams can leave lingering disruptive energy that wears away at the target’s shields and hull over time." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      <bootstrap thing="gq2EPersistent"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ETetryBeamArr" name="Tetryon Beam" description="Beams of concentrated tetryon radiation have an effect which can disrupt standard starship deflector shields." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EArrays"></bootstrap>
+      <bootstrap thing="gq2EDepleting"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ETorpQuantum" name="Quantum Torpedoes" description="A more advanced torpedo developed by the Federation in the wake of their clashes with the Borg, these destructive weapons add quantum vacuum energy to the energy released from their matter/antimatter reaction, giving them destructive power greater than the payload alone would normally produce." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ETractorBeam" name="Tractor Beam" description="Though usually used for sublight towing of  disabled vessels or asteroids, tractor beams are often as useful as destructive weapons when in ship combat, especially in the hands of an experienced officer. Throughout history, the ability to keep an enemy ship from moving away with low energy graviton beams has prevented entire battles. The utility of being able to pull objects closer or push them out of the way has been so beneficial that almost every Starfleet vessel has an emitter installed." compset="Energy">
+    <fieldval field="wpShipWpnRange" value="--"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Weapon" tag="NoDamage" name="Weapon does no damage." abbrev="Weapon does no damage."/>
+    <tag group="ShipWepCat" tag="TractorBeam"/>
+    <tag group="Weapon" tag="Tractor" name="Weapon functions like a Tractor Beam." abbrev="Weapon functions like a Tractor Beam."/>
+    </thing>
+  <thing id="sh2ETricobaltTorp" name="Tricobalt Torpedoes" description="Borderline illegal due to potential subspace interactions, tricobalt explosives can be delivered as a torpedo payload. The resultant device is potent for demolitions—destroying stationary facilities, asteroids, comets, and other targets far larger than starships—but tend to be unwieldy for use in combat." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="6"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnArea"></bootstrap>
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2ECumbersome"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ETransphasTorp" name="Transphasic Torpedoes" description="Originally developed as an anti-Borg countermeasure in an alternate future, these torpedoes exist in multiple, dimensional phases at once, bypassing defenses that do not exist in every such phase." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2EDevastating"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ESpatialTorp" name="Spatial Torpedoes" description="Standard chemical explosive warheads fitted to a guided missile. These were used by the United Earth Starfleet during the 22nd century but were eventually replaced by early photonic torpedoes." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Medium"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual"></child>
+    </thing>
+  <thing id="sh2EPhotonicTorp" name="Photonic Torpedoes" description="The precursor to photon torpedoes, photonic torpedoes operate by the same method—a matter/antimatter reaction—but are less refined and the reaction less controlled." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EChronitonTorp" name="Chroniton Torpedoes" description="These advanced weapons, employed by highly advanced cultures who have developed temporal technology. If they pierce shields, they can induce a temporal displacement effect in a vessel, hindering its ability to respond to attack." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2ESlowing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhotonTorp" name="Photon Torpedoes" description="Commonly used by many civilizations, photon torpedoes use a controlled matter/antimatter reaction to create a devastating blast and burst of energy." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ENeutronicTorp" name="Neutronic Torpedoes" description="An evolution of the technology behind quantum torpedoes, neutronic torpedoes douse a target with neutronic radiation, disrupting power systems." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2EDampening"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPolaronTorp" name="Polaron Torpedoes" description="Installed on several Klingon vessels after the Dominion War, polaron torpedoes are more able to pierce a target’s shields and other defenses." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ENuclearTorp" name="Nuclear Torpedoes" compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Medium"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPositronTorp" name="Positron Torpedoes" description="Introduced by the Dominion by the Kessok, positron torpedoes are slow-moving compared to other torpedoes of the time, and easy to avoid or intercept. However, their payload is large and potent." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="5"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2ECumbersome"></bootstrap>
+      <bootstrap thing="gq2EDampening"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPlasmaTorp" name="Plasma Torpedoes" description="A common armament of Romulan warships, plasma torpedoes generate a field of destructive plasma around the target, which continues to damage the target over time." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="5"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2ECumbersome"></bootstrap>
+      <bootstrap thing="gq2EPersistent"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2ETetryonTorp" name="Tetryonic Torpedoes" description="Originally of Tzenkethi design, tetryon torpedoes are primarily used against hardened targets—those with heavy defenses, strong shields, and armored hulls. After depleting shields, they are liable to cause major damage." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EDepleting"></bootstrap>
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EGravimetTorp" name="Gravimetric Torpedoes" description="A technology employed by the Borg—and likely taken from an assimilated culture—gravimetric torpedoes use graviton inversion fields to tear at an enemy’s hull." compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="5"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EWpnCalibrate"></bootstrap>
+      <bootstrap thing="gq2ECumbersome"></bootstrap>
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPolBeaLan" name="Phased Polaron Beam" description="Favored by the Dominion, phased polaron weapons are highly effective at cutting through deflector shields and other starship defenses." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPolBeaBan" name="Phased Polaron Beam" description="Favored by the Dominion, phased polaron weapons are highly effective at cutting through deflector shields and other starship defenses." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPolBeaCan" name="Phased Polaron Beam" description="Favored by the Dominion, phased polaron weapons are highly effective at cutting through deflector shields and other starship defenses." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      <bootstrap thing="gq2EIntense"></bootstrap>
+      <bootstrap thing="gq2EPiercing"></bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPulLance" name="Phase/Pulse" description="The predecessor to phasers, phase weapons were used by the United Earth Starfleet, and the Federation Starfleet that succeeded it, in the 22nd century, but had largely been replaced by phasers in the 23rd century." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2ESpinalLance"></bootstrap>
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="1"/>
+        </bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPulBank" name="Phase/Pulse" description="The predecessor to phasers, phase weapons were used by the United Earth Starfleet, and the Federation Starfleet that succeeded it, in the 22nd century, but had largely been replaced by phasers in the 23rd century." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2EBanks"></bootstrap>
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="1"/>
+        </bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EPhaPulCan" name="Phase/Pulse" description="The predecessor to phasers, phase weapons were used by the United Earth Starfleet, and the Federation Starfleet that succeeded it, in the 22nd century, but had largely been replaced by phasers in the 23rd century." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipWepCat" tag="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="1"/>
+        </bootstrap>
+      </child>
+    </thing>
+  <thing id="sh2EGrappleCable" name="Grappler Cables" description="Though usually used for sublight towing of  disabled vessels or asteroids, tractor beams are often as useful as destructive weapons when in ship combat, especially in the hands of an experienced officer. Throughout history, the ability to keep an enemy ship from moving away with low energy graviton beams has prevented entire battles. The utility of being able to pull objects closer or push them out of the way has been so beneficial that almost every Starfleet vessel has an emitter installed." compset="Energy">
+    <fieldval field="wpShipWpnRange" value="--"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Weapon" tag="NoDamage" name="Weapon does no damage." abbrev="Weapon does no damage."/>
+    <tag group="ShipWepCat" tag="TractorBeam"/>
+    <tag group="Weapon" tag="Tractor" name="Weapon functions like a Tractor Beam." abbrev="Weapon functions like a Tractor Beam."/>
+    </thing>
+  </document>

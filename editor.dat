@@ -116,6 +116,21 @@
   <inputthinggroup
     id="ChooseGrp1">
     <inputthing
+      name="Selection Array"
+      helptext="User Entry">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Menu #1 Label"
+      helptext="Specify the label used to identify choices for display in the array. If empty, no label is shown.">
+      <it_field field="usrLabelAr"/>
+      </inputthing>
+    <inputthing
+      name="Selections"
+      helptext="Specify the entries for the user array.">
+      <it_field field="usrArray"/>
+      </inputthing>
+    <inputthing
       name="Selections"
       helptext="User Selections">
       <it_separator/>
@@ -175,51 +190,129 @@
       <it_separator/>
       </inputthing>
     <inputthing
-      name="Menu #1 Label"
+      name="Menu #4 Label"
       helptext="Specify the label used to identify choices for display in the first menu. If empty, no first label is shown.">
       <it_field field="usrLabel4"/>
       </inputthing>
     <inputthing
-      name="Menu #1 Source"
+      name="Menu #4 Source"
       helptext="Specify the source from which to retrieve choices for display in the first menu.">
       <it_tagpick group="ChooseSrc4" tag="?"/>
       </inputthing>
     <inputthing
-      name="Menu #1 Tag Expression"
+      name="Menu #4 Tag Expression"
       helptext="Specify the tag expression used to identify choices for display in the first menu. If empty, no first menu is shown.">
       <it_field field="usrCandid4"/>
       </inputthing>
     <inputthing
-      name="Menu #2 Label"
+      name="Menu #5 Label"
       helptext="Specify the label used to identify choices for display in the second menu. If empty, no second label is shown.">
       <it_field field="usrLabel5"/>
       </inputthing>
     <inputthing
-      name="Menu #2 Source"
+      name="Menu #5 Source"
       helptext="Specify the source from which to retrieve choices for display in the second menu.">
       <it_tagpick group="ChooseSrc5" tag="?"/>
       </inputthing>
     <inputthing
-      name="Menu #2 Tag Expression"
+      name="Menu #5 Tag Expression"
       helptext="Specify the tag expression used to identify choices for display in the second menu. If empty, no second menu is shown.">
       <it_field field="usrCandid5"/>
       </inputthing>
     <inputthing
-      name="Menu #3 Label"
+      name="Menu #6 Label"
       helptext="Specify the label used to identify choices for display in the third menu. If empty, no third label is shown.">
       <it_field field="usrLabel6"/>
       </inputthing>
     <inputthing
-      name="Menu #3 Source"
+      name="Menu #6 Source"
       helptext="Specify the source from which to retrieve choices for display in the second menu.">
       <it_tagpick group="ChooseSrc6" tag="?"/>
       </inputthing>
     <inputthing
-      name="Menu #3 Tag Expression"
+      name="Menu #6 Tag Expression"
       helptext="Specify the tag expression used to identify choices for display in the third menu. If empty, no second menu is shown.">
       <it_field field="usrCandid6"/>
       </inputthing>
 	</inputthinggroup>
+
+  <inputthinggroup
+    id="BonusAttrSysGrp">
+    <inputthing
+      name="Attribute Bonus"
+      helptext="Bonus to Attributes">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Comms"
+      helptext="Specify the bonus to the attribute.">
+      <it_field field="bonComm"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Computers"
+      helptext="Specify the bonus to the attribute.">
+      <it_field field="bonComp"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Engines"
+      helptext="Specify the bonus to the attribute.">
+      <it_field field="bonEngines"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Sensors"
+      helptext="Specify the bonus to the attribute.">
+      <it_field field="bonSens"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Structure"
+      helptext="Specify the bonus to the attribute.">
+      <it_field field="bonStruct"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Weapons"
+      helptext="Specify the bonus to the attribute.">
+      <it_field field="bonWeap"/>
+      </inputthing>
+    </inputthinggroup>	
+
+  <inputthinggroup
+    id="BonusDiscDeptGrp">
+    <inputthing
+      name="Department Bonus"
+      helptext="Bonus to Departments">
+      <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Command"
+      helptext="Specify the bonus to the department.">
+      <it_field field="bonCmd"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Conn"
+      helptext="Specify the bonus to the department.">
+      <it_field field="bonConn"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Engineering"
+      helptext="Specify the bonus to the department.">
+      <it_field field="bonEng"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Security"
+      helptext="Specify the bonus to the department.">
+      <it_field field="bonSecur"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Medicine"
+      helptext="Specify the bonus to the department.">
+      <it_field field="bonMed"/>
+      </inputthing>
+    <inputthing
+      name="Bonus to Science"
+      helptext="Specify the bonus to the department.">
+      <it_field field="bonSci"/>
+      </inputthing>
+    </inputthinggroup>	
 
   <!-- Focus editthing -->
   <editthing
@@ -656,6 +749,11 @@
       <it_field field="fraShipyard"/>
       </inputthing>
 	<inputthing
+      name="Overview"
+      helptext="This is the capabilities listing of the ship.">
+      <it_field field="fraOverview"/>
+      </inputthing>
+	<inputthing
       name="Capabilities"
       helptext="This is the capabilities listing of the ship.">
       <it_field field="fraCapabilities"/>
@@ -669,6 +767,11 @@
       name="Suggested Profiles"
       helptext="This is the suggested profiles listing of the ship.">
       <it_field field="fraSuggPro"/>
+      </inputthing>
+	<inputthing
+      name="Naming Conventions"
+      helptext="This is the suggested profiles listing of the ship.">
+      <it_field field="fraNamConv"/>
       </inputthing>
 	  
     <inputthing
@@ -737,24 +840,24 @@
       <it_field field="fraConn"/>
       </inputthing>
     <inputthing
-      name="Security"
-      helptext="Security Rating">
-      <it_field field="fraSecur"/>
-      </inputthing>
-    <inputthing
       name="Engineering"
       helptext="Engineering Rating">
       <it_field field="fraEng"/>
       </inputthing>
-	<inputthing
-      name="Sciences"
-      helptext="Sciences Rating">
-      <it_field field="fraSci"/>
+    <inputthing
+      name="Security"
+      helptext="Security Rating">
+      <it_field field="fraSecur"/>
       </inputthing>
 	<inputthing
       name="Medicine"
       helptext="Medicine Rating">
       <it_field field="fraMed"/>
+      </inputthing>
+	<inputthing
+      name="Science"
+      helptext="Sciences Rating">
+      <it_field field="fraSci"/>
       </inputthing>
 	<inputthing
       name="Traits"
@@ -912,12 +1015,19 @@
 		</it_taglist> 
       </inputthing> 
     <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
+    <inputthing>
       <it_groupref id="SourceInfo"/>
       </inputthing>
     </editthing>
 
   <!-- Ship Weapons editthing -->
   <editthing
+    defchild="gearQual"
     group="Starship"
     compset="Energy"
     name="Energy Weapons"
@@ -942,7 +1052,7 @@
 	<inputthing
       name="Weapon Range"
       helptext="Specify the Range of the weapon.">
-      <it_field field="wpSRange"/>
+      <it_field field="wpShipWpnRange"/>
       </inputthing>
     <inputthing
       name="Fixed Base Damage?"
@@ -952,12 +1062,32 @@
     <inputthing
       name="Base Damage"
       helptext="Specify the damage of the weapon.">
-      <it_field field="wpSBasDmg"/>
+      <it_field field="wpShipBaseDmg"/>
       </inputthing>
 	<inputthing
       name="Qualities"
       helptext="Qualities for the weapon.">
       <it_separator/>
+      </inputthing>
+    <inputthing
+      name="Weapon Qualities"
+      helptext="Choose any weapon qualities this weapon always comes with.">
+      <it_bootcustom compset="GearQuality" target="child">
+        <match><![CDATA[
+          QualityCategory.Weapon & !thing.showonly
+          ]]></match>
+        <inputthing
+          name="Value"
+          helptext="If this gear is only available at a specific rating, specify that here.">
+          <it_field field="gqValue"/>
+          </inputthing>
+        </it_bootcustom>
+      </inputthing>
+    <inputthing
+      name="Weapon Delivery System"
+      helptext="Choose any delivery system this weapon always comes with.">
+      <it_bootcustom compset="DeliverySystem" target="child">
+        </it_bootcustom>
       </inputthing>
     <inputthing
       name="Qualities"
@@ -981,6 +1111,7 @@
 	
   <!-- Ship Torpedoes editthing -->
   <editthing
+    defchild="gearQual"
     group="Starship"
     compset="Torpedo"
     name="Ship Torpedoes"
@@ -1005,7 +1136,7 @@
 	<inputthing
       name="Weapon Range"
       helptext="Specify the Range of the weapon.">
-      <it_field field="wpSRange"/>
+      <it_field field="wpShipWpnRange"/>
       </inputthing>
     <inputthing
       name="Fixed Base Damage?"
@@ -1015,7 +1146,7 @@
     <inputthing
       name="Base Damage"
       helptext="Specify the damage of the weapon.">
-      <it_field field="wpSBasDmg"/>
+      <it_field field="wpShipBaseDmg"/>
       </inputthing>
 	<inputthing
       name="Qualities"
@@ -1023,7 +1154,21 @@
       <it_separator/>
       </inputthing>
     <inputthing
-      name="Qualities"
+      name="Weapon Qualities"
+      helptext="Choose any weapon qualities this weapon always comes with.">
+      <it_bootcustom compset="GearQuality" target="child">
+        <match><![CDATA[
+          QualityCategory.Weapon & !thing.showonly
+          ]]></match>
+        <inputthing
+          name="Value"
+          helptext="If this gear is only available at a specific rating, specify that here.">
+          <it_field field="gqValue"/>
+          </inputthing>
+        </it_bootcustom>
+      </inputthing>
+    <inputthing
+      name="Qualities (1E)"
       helptext="Qualities of the weapon.">
       <it_taglist group="GearQual" tag="?"/>
       </inputthing>
@@ -1031,11 +1176,6 @@
       name="Effects"
       helptext="Damage Effects of the weapon.">
       <it_taglist group="DmgEffect" tag="?"/>
-      </inputthing>
-    <inputthing
-      name="Delivery"
-      helptext="Delivery Method for the weapon.">
-      <it_taglist group="Delivery" tag="?"/>
       </inputthing>
 	<inputthing>
       <it_groupref id="SourceInfo"/>
@@ -1068,7 +1208,7 @@
 	<inputthing
       name="Weapon Range"
       helptext="Specify the Range of the weapon.">
-      <it_field field="wpSRange"/>
+      <it_field field="wpShipWpnRange"/>
       </inputthing>
     <inputthing
       name="Fixed Base Damage?"
@@ -1078,7 +1218,7 @@
     <inputthing
       name="Base Damage"
       helptext="Specify the damage of the weapon.">
-      <it_field field="wpSBasDmg"/>
+      <it_field field="wpShipBaseDmg"/>
       </inputthing>
 	<inputthing
       name="Qualities"
@@ -1118,6 +1258,20 @@
       <it_groupref id="SourceInfo"/>
       </inputthing>
     </editthing>	
+
+  <!-- StarshipSpecial editthing - Special Rules for starships -->
+  <editthing
+    group="Starship"
+    compset="ServiceRecord"
+    name="Service Record"
+    prefix="srv"
+    description="."
+    summary="Defines a service record ability that can be selected for a starship.">
+	
+	<inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
 	
   <!-- Equipment editthing - for basic gear -->
   <editthing
@@ -1308,6 +1462,52 @@
       </inputthing>
     </editthing>
 
+  <!-- GearQuality editthing -->
+  <editthing
+    compset="GearQuality"
+    name="Gear Quality"
+    prefix="gq"
+	group="Gear"
+    description="These apply to various types of gear."
+    summary="Defines a quality that can be applied to gear.">
+    <inputthing
+      name="Category"
+      helptext="Select the type of equipment this is.">
+      <it_taglist group="QualityCategory" tag="?"/>
+      </inputthing>
+    <inputthing
+      name="Quality Value"
+      helptext="Specify the exact value used for the quality.">
+      <it_field field="gqValue"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
+  <!-- GearQuality editthing -->
+  <editthing
+    compset="DeliverySystem"
+    name="Delivery System"
+    prefix="ds"
+	group="Gear"
+    description="These apply to various types of gear."
+    summary="Defines a delivery system that can be applied to a starship energy weapon.">
+    <inputthing
+      name="Range"
+      helptext="Specify the range provided by the system.">
+      <it_field field="dsRange"/>
+      </inputthing>
+    <inputthing
+      name="Damage Bonus"
+      helptext="Specify the bonus to damage provided by the system.">
+      <it_field field="dsDamage"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
+      </inputthing>
+    </editthing>
+
   <!-- Mission Pod editthing -->
   <editthing
     group="Starship"
@@ -1328,6 +1528,15 @@
       <it_bootlist compset="Talent">
 	    <match>TalentCat.Ship &amp; !thing.showonly</match>
 	    </it_bootlist>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="BonusAttrSysGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="BonusDiscDeptGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="SourceInfo"/>
       </inputthing>
     </editthing>
 

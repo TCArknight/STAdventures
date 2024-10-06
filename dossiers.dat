@@ -17,7 +17,8 @@
     name="Single Page Character Sheet">
     <dossier_sheet
       grouping="AtTop"
-      default="yes">
+      default="no">
+	  <live>source.1stEdition &amp; CharType.typMain</live>
       <sheetref sheet="singlepage"/>
       </dossier_sheet>
     </dossier>
@@ -34,7 +35,25 @@
     <dossier_sheet
       grouping="AtTop"
       default="no">
+	  <live>source.1stEdition &amp; CharType.typStarship</live>
       <sheetref sheet="shipsinglepage"/>
+      </dossier_sheet>
+    </dossier>	
+	
+  <!-- 1 page Starship sheet
+        This is the default character sheet for any actor, consisting of two pages.
+        The first page includes all the core information for the character and will
+        usually be all that is needed. The sheet contents are defined in the file 
+		"sheet_single.dat".
+  -->
+  <dossier
+    id="starship2"
+    name="Single Page Starship Sheet">
+    <dossier_sheet
+      grouping="AtTop"
+      default="no">
+	  <live>source.2ndEdition &amp; CharType.typStarship</live>
+      <sheetref sheet="shipsinglepage2E"/>
       </dossier_sheet>
     </dossier>	
 	
@@ -52,11 +71,23 @@
     <dossier_sheet
       grouping="AtTop"
       default="no">
+	  <live>CharType.typMain</live>
       <sheetref sheet="standard1"/>
       <sheetref sheet="standard2"/>
       </dossier_sheet>
     </dossier>
-
+	
+  <dossier
+    id="2Estandard"
+    name="Standard Character Sheet">
+    <dossier_sheet
+      grouping="AtTop"
+      default="yes">
+	  <live>source.2ndEdition &amp; CharType.typMain</live>
+      <sheetref sheet="2Estandard1"/>
+      </dossier_sheet>
+    </dossier>
+	
   <!-- Journal output
         This dossier outputs the character's journal entries as a kind of diary. The
         sheet contents are defined in the file "sheet_journal.dat".
@@ -66,6 +97,7 @@
     name="Journal Contents">
     <dossier_sheet
       grouping="journal">
+	  <live>CharType.typMain</live>
       <sheetref sheet="journal"/>
       </dossier_sheet>
     </dossier>
@@ -80,8 +112,20 @@
     name="Standard Character Sheet &amp; Journal">
     <dossier_sheet
       grouping="last">
+	  <live>source.1stEdition &amp; CharType.typMain</live>
       <sheetref sheet="standard1"/>
       <sheetref sheet="standard2"/>
+      <sheetref sheet="journal"/>
+      </dossier_sheet>
+    </dossier>
+	
+  <dossier
+    id="2Ecomplete"
+    name="Standard Character Sheet &amp; Journal">
+    <dossier_sheet
+      grouping="last">
+	  <live>source.2ndEdition &amp; CharType.typMain</live>
+      <sheetref sheet="2Estandard1"/>
       <sheetref sheet="journal"/>
       </dossier_sheet>
     </dossier>

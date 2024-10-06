@@ -15,12 +15,37 @@
     compset="AdvDetails">
     </thing>
 
+  <!-- New Focus advance
+  -->
+  <thing
+    id="advFocusMS"
+    name="Milestone (Gain a New Focus)"
+    compset="Advance"
+    description="Select a new focus of your choice.">
+    <fieldval field="advAction" value="New Focus"/>
+    <fieldval field="advDynamic" value="component.Focus"/>
+    <tag group="Advance" tag="AddNew"/>
+    <!-- Modify tagexpr to deny abilities that have already been added to the character -->
+    <eval index="1" phase="Render" priority="1000">
+      <before name="Assign Dynamic Tagexpr"/><![CDATA[
+      ~get the list of all abilities on the hero and assemble it as a list of precluded tags
+      var tagexpr as string
+      tagexpr = hero.tagids[Focus.?," & !"]
+      ~if there are any tags to exclude, append them to the tagexpr appropriately
+      field[advDynamic].text = splice(field[advDynamic].text,tagexpr," & !")
+      ]]></eval>
 
+    <!-- Attach the child entity for tracking the advance -->
+    <child entity="Advance">
+      <tag group="Advance" tag="MustChoose"/>
+      </child>
+    </thing>
+	
   <!-- New Talent advance
   -->
   <thing
-    id="advTalent"
-    name="Gain a New Talent"
+    id="advTalentMS"
+    name="Milestone (Gain a New Talent)"
     compset="Advance"
     description="Select a new talent of your choice.">
     <fieldval field="advAction" value="New Talent"/>
@@ -42,32 +67,64 @@
       </child>
     </thing>
 
-  <!-- Increase Skill advance
-  -->
+  <!-- Non-Milestone Adjust Attributes advance -->
   <thing
-    id="advSkill"
-    name="Increase Skill"
+    id="advAdjAttrib"
+    name="Adjustment (Attribute)"
     compset="Advance"
-    description="Select a skill to increase by one.">
-    <fieldval field="advAction" value="Increase Skill"/>
-    <fieldval field="advDynamic" value="component.Skill &amp; !Helper.Maximum &amp; !Hide.Skill"/>
-    <tag group="Advance" tag="Increase"/>
+    description="Select an attribute to increase/decrease by one.">
+    <fieldval field="advAction" value="Adjust (Attribute)"/>
+    <fieldval field="advDynamic" value="component.AttrSys &amp; (fieldval:abiFinal < 11) &amp; !Hide.Attribute "/>
+    <fieldval field="advDynamic2" value="component.AttrSys &amp; (fieldval:abiFinal > 7) &amp; !Hide.Attribute"/>
+    <tag group="Advance" tag="Adjust"/>
 
     <!-- Attach the child entity for tracking the advance -->
     <child entity="Advance">
-      <tag group="Advance" tag="MustChoose"/>
       </child>
-    </thing>
+    </thing> 
 
-  <!-- Increase Attribute advance
+  <!-- Milestone Increase Attribute advance
   -->
   <thing
-    id="advAttrib"
-    name="Increase Attribute"
+    id="advAttributeIncMS"
+    name="Milestone (Increase Attribute)"
     compset="Advance"
     description="Select an attribute to increase by one.">
-    <fieldval field="advAction" value="Increase Attribute"/>
-    <fieldval field="advDynamic" value="component.AttrSys &amp; !Helper.Maximum &amp; !Hide.Attribute"/>
+    <fieldval field="advAction" value="Milestone (Attribute)"/>
+    <fieldval field="advDynamic" value="component.AttrSys &amp; (fieldval:abiFinal < 11) &amp; !Hide.Attribute"/>
+    <tag group="Advance" tag="Increase"/>
+
+    <!-- Attach the child entity for tracking the advance -->
+    <child entity="Advance">
+      </child>
+    </thing>
+
+  <!-- Increase Department advance
+  -->
+  <thing
+    id="advDepartAdj"
+    name="Adjustment (Department)"
+    compset="Advance"
+    description="Select a department to increase by one.">
+    <fieldval field="advAction" value="Adjust (Department)"/>
+    <fieldval field="advDynamic" value="component.DiscDept &amp; (fieldval:abiFinal < 4) &amp; !Hide.Attribute"/>
+    <fieldval field="advDynamic2" value="component.DiscDept &amp; (fieldval:abiFinal > 1) &amp; !Hide.Attribute"/>
+    <tag group="Advance" tag="Adjust"/>
+
+    <!-- Attach the child entity for tracking the advance -->
+    <child entity="Advance">
+      </child>
+    </thing>
+
+  <!-- Increase Department advance
+  -->
+  <thing
+    id="advDepartIncMS"
+    name="Milestone (Increase Department)"
+    compset="Advance"
+    description="Select a department to increase by one.">
+    <fieldval field="advAction" value="Milestone (Department)"/>
+    <fieldval field="advDynamic" value="component.DiscDept &amp; (fieldval:abiFinal < 4) &amp; !Hide.Attribute"/>
     <tag group="Advance" tag="Increase"/>
 
     <!-- Attach the child entity for tracking the advance -->
@@ -76,4 +133,19 @@
     </thing>
 
 
+  <!-- Improve supporting character
+  -->
+  <thing
+    id="advSuppChar"
+    name="Adjustment (Supporting Char.)"
+    compset="Advance"
+    description="Help a supporting character in their training: adjust one of the supporting character’s attributes or departments, swap one of their focuses, or swap one of their talents. \n\nYou can list the name of the character in the Notation block, and note the actual adjustment in the User Notes.">
+    <fieldval field="advAction" value="Adj. Supp. Char."/>
+    <tag group="Advance" tag="Notation"/>
+
+    <!-- Attach the child entity for tracking the advance -->
+    <child entity="Advance">
+      </child>
+    </thing>
+	
   </document>

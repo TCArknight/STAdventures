@@ -5,73 +5,86 @@
     </fileinfo>
   <thing id="talFavoredFortune" name="Favored By Fortune" description="If the character is successful on a Task, the next Task performed during that scene gains one bonus Momentum if successful." compset="Talent" uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcAnkari"/>
     </thing>
   <thing id="talVibrationSense" name="Vibration Senses" description="The character has learned to use their unique physiology to allow them to detect vibrations, enhancing their ability to see and hear, even in darkness. Characters with this Talent reduce the Difficulty of perception-related Tasks by 1" compset="Talent" summary="Reduce the Difficulty of perception-related Tasks by 1." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcAnkari"/>
     </thing>
   <thing id="talMaxEfficiency" name="Maximized Efficiency" description="When assisting another character, the Jye may re-roll their assist die. In addition, if the assist die generated one or more successes, the lead character gains a bonus Momentum if the Task is successful." compset="Talent" summary="When assisting, may re-roll assist die. Also, if 1 or more successes, lead gains a bonus Momentum if task successful." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcJye"/>
     </thing>
   <thing id="talNatCoordinator" name="Natural Coordinator" description="When assisting, or being assisted, the character is always considered to have an applicable Focus for that Task. In addition, the character counts as having a Command of 4 for the purposes of learning Talents." compset="Talent" summary="When assisting, may re-roll assist die. Also, if 1 or more successes, lead gains a bonus Momentum if task successful." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcJye"/>
     </thing>
   <thing id="talBorgImplants" name="Borg Implants" description="A Liberated Borg character must select this Talent during character creation. When this Talent is chosen, pick one, two, or three Borg Implants (see sidebar). The character gains the benefits of those implants, but the Difficulty of Medicine Tasks performed on them increases by the number of implants they have. The character also increases the Complication range of all social interaction Tasks by the number of implants they have. An ordinary milestone may be used to remove one implant at a time, not the whole Talent; once all implants have been removed, this Talent can be\nswapped for another." compset="Talent" summary="Difficulty of Medicine Tasks  on character and the Complication Range of all social interactions is increased by number of implants" uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="User" tag="CreateOnly"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Liberated Borg required."><![CDATA[#isspecies[spcLiberatedBorg] <> 0]]></exprreq>
     </thing>
   <thing id="talDirNeuralInter" name="Direct Neural Interface" description="Having existed as an extension of one of the largest and most complex computer networks in the known Galaxy, Liberated Borg possess a natural affinity for computers and data processing equipment of all kinds, and are almost organic computers themselves. When the character attempts a Task that involves, or is assisted by, a computer (including the ship’s Computers system), the character gains a bonus d20 for their dice pool." compset="Talent" summary="When the character attempts a Task that involves, or is assisted by, a computer (including the ship’s Computers system), the character gains a bonus d20 for their dice pool." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <exprreq message="Liberated Borg required."><![CDATA[#isspecies[spcLiberatedBorg] <> 0]]></exprreq>
     </thing>
   <thing id="eqBIAdaptShield" name="Adaptive Shielding" description="Each time the character is Injured by an energy-based weapon, roll 1 Damage Die. If an Effect is rolled, the character becomes immune to that type of weapon for the remainder of the scene." compset="Equipment">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="eqBICardioStrengt" name="Cardiopulmonary Strengthener" description="The character reduces the Difficulty of any Fitness Task relating to fatigue and endurance by two." compset="Equipment">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="eqBICortArrGland" name="Cortical Array (Bio-Synthetic Gland)" description="The character becomes resistant to diseases and poisons, reducing the Difficulty of any Task related to overcoming their effects by 1." compset="Equipment">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="eqBICortArrNode" name="Cortical Array (Cortical Node)" description="The character becomes Immune to Pain and Fear, gaining +3 Resistance to non-lethal attacks and immunity to being intimidated or threatened." compset="Equipment">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="eqBICortArrInterN" name="Cortical Array (Interlink Node)" description="Allows the character to interface directly with technology. When the character gains assistance from a ship, they may reroll the ship’s d20." compset="Equipment" summary="When the character gains assistance from a ship, they may reroll the ship’s d20.">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="eqBICortArrNST" name="Cortical Array (Neural Subspace Transceiver)" description="Provides the character with a built-in short-range subspace communications device that cannot be removed without surgery. If the character also has the Ocular Sensory Enhancer, the character can “see” data transmissions as well as the entire EM spectrum." compset="Equipment" summary="Built-in short-range subspace communications device. If also has the Ocular Sensory Enhancer, the character can “see” data transmissions as well as the entire EM spectrum.">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="eqBICybArmTactic" name="Cybernetic Arm (Tactical)" description="The character gains the Assimilation Tubules weapon (Melee, 5 DMG,  Intense, Size 1H, Deadly, Debilitation)." compset="Equipment" summary="Gain the Assimilation Tubules weapon.">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <bootstrap thing="wpBorgAssimTub"></bootstrap>
@@ -80,12 +93,14 @@
   <thing id="wpBorgAssimTub" name="Assimilation Tubules" compset="Melee">
     <fieldval field="wpDamage" value="5"/>
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="Deadly"/>
     <tag group="GearQual" tag="Debil"/>
     <tag group="DmgEffect" tag="Intense"/>
     </thing>
   <thing id="eqBICybArmMed" name="Cybernetic Arm (Medical)" description="The character gains the Assimilation Tubules weapon (Melee, 5[CD] Intense, Size 1H, Deadly, Debilitation). The character also has built-in medical equipment, equivalent to a medkit." compset="Equipment" summary="Gain the Assimilation Tubules weapon. Built-in Medkit">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <bootstrap thing="wpBorgAssimTub"></bootstrap>
@@ -93,6 +108,7 @@
     </thing>
   <thing id="eqBICybArmEng" name="Cybernetic Arm (Engineering)" description="The character gains the Assimilation Tubules weapon (Melee, 5[CD] Intense, Size 1H, Deadly, Debilitation). The character also has built-in engineering equipment, equivalent to an engineer’s toolkit." compset="Equipment" summary="Gain the Assimilation Tubules weapon. Built-in Engineering toolkit">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <bootstrap thing="wpBorgAssimTub"></bootstrap>
@@ -100,6 +116,7 @@
     </thing>
   <thing id="eqBIExoPlating" name="Exo-Plating" description="Grants the character Resistance 2." compset="Equipment" summary="Gain Resistance 2">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <eval phase="PreAbility" priority="5000"><![CDATA[#resistbonus[] += 2]]></eval>
@@ -107,48 +124,57 @@
     </thing>
   <thing id="eqBIOcularSE" name="Ocular Sensory Enhancer" description="The character can scan the environment, like a tricorder, and Tasks do not suffer an increase in Difficulty due to darkness." compset="Equipment">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCat" tag="Cyber"/>
     <tag group="Helper" tag="BorgImplant" name="Borg Implant"/>
     <exprreq message="Requires Borg Implants talent."><![CDATA[#hastalent[talBorgImplants] <> 0]]></exprreq>
     </thing>
   <thing id="talHologramTask" name="Hologram Taskmaster" description="In decades past, the Lokirrim designed and utilized holograms to perform countless tasks. The character’s ship’s Crew Support is increased by 1. In addition, the character’s ship gains the {b}{i}Photonic Crew{/b}{/i} Trait. This increase can only be applied to a ship once, regardless of the number of Main Characters who possess this Talent." compset="Talent" summary="Ship&apos;s Crew Support rating increased by 1, gains the {b}{i}Photonic Crew{/b}{/i} trait." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcLokirrim"/>
     <exprreq message="Must be a Main character."><![CDATA[#ischaractertype[typMain] <> 0]]></exprreq>
     </thing>
   <thing id="talPhotonicPros" name="Photonic Prosecutor" description="The Lokirrim have a long history of interrogating rogue photonic individuals. When engaged in a Social Conflict with a hologram or other photonic character, this character is considered to have an Advantage." compset="Talent" summary="When engaged in a Social Conflict with a hologram or other photonic character, this character is considered to have an Advantage." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcLokirrim"/>
     </thing>
   <thing id="talPassivePersuad" name="Passive Persuader" description="During Social Conflict, the character reduces the Difficulty of all evidence and negotiation based Tasks but increases the Difficulty of intimidation Tasks by 1." compset="Talent" uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcMari"/>
     </thing>
   <thing id="talNomadHeritage" name="Nomadic Heritage" description="Generations of traversing the stars ingrained a natural affinity for navigation and positioning. The character may reroll a d20 during any Task associated with positioning, course determination, and other forms of navigation." compset="Talent" summary="The character may reroll a d20 during any Task associated with positioning, course determination, and other forms of navigation." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcMonean"/>
     </thing>
   <thing id="talSubmariner" name="Submariner" description="Having lived underwater for centuries, the Moneans have long since developed a keen understanding of navigating underwater environments. The character reduces any Difficulty penalties to Conn Tasks while navigating or piloting underwater by 1." compset="Talent" summary="The character reduces any Difficulty penalties to Conn Tasks while navigating or piloting underwater by 1." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcMonean"/>
     </thing>
   <thing id="talQuickLearner" name="Quick Learner" description="Ocampa possess keen minds and enjoy near-perfect memories, and they take to new situations and new challenges quickly. When a character with this talent attempts a Task which they have seen at least one ally perform during this mission, you may add an additional d20 to that Task." compset="Talent" summary="When you attempt a Task which you have seen at least one ally perform during this mission, you may add an additional d20 to that Task." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcOcampa"/>
     </thing>
   <thing id="talBornFight" name="Born To Fight" description="The character may reroll one d20 when making an attack. In addition, if an attack is successful, the character generates one point of bonus Momentum which may only be spent to re-roll the damage roll or to increase the total damage. Bonus Momentum may not be saved." compset="Talent" summary="The character may reroll one d20 when making an attack. In addition, if an attack is successful, the character generates one point of bonus Momentum which may only be spent to re-roll the damage roll or to increase the total damage." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcPendari"/>
     </thing>
   <thing id="talRobustPhys" name="Robust Physiology" description="Various physiological redundancies mean that wounds that would kill other humanoid species don’t affect Pendari as much. The character gains +2 Resistance against all  nonlethal attacks. In addition, whenever the Pendari is the target of a {i}First Aid{/i} Task, reduce the Difficulty of that Task by 1, to a minimum of 1." compset="Talent" summary="+2 Resistance against all  nonlethal attacks. In addition, whenever the Pendari is the target of a {i}First Aid{/i} Task, reduce the Difficulty of that Task by 1, to a minimum of 1." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <eval phase="PreAbility" priority="5000"><![CDATA[~ +2 additional resistance for non-lethal
 #resistnon[] += 2]]></eval>
@@ -156,54 +182,63 @@
     </thing>
   <thing id="talCanonicLaw" name="Canonic Law" description="A deep respect for and adherence to established laws provides the character with emotional assuredness. When spending Determination to bring one of their Values into play, the character may select two benefits instead of one. The circumstances of this Task and the Value being used must relate to the character’s belief and adherence to the laws of their people. This Talent may only be used once per mission, and it cannot be used when challenging the selected Value." compset="Talent" summary="When spending Determination to bring one of their Values into play the character may select two benefits instead of one." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcSikarian"/>
     </thing>
   <thing id="talRivetingStory" name="Riveting Storyteller" description="When engaged in a Social Conflict, if the character can tell a{br}story as part of their interaction, they may reroll a d20." compset="Talent" uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcSikarian"/>
     </thing>
   <thing id="talWellRegarded" name="Well Regarded" description="When engaged in a Social Conflict, the character increases{br}the Difficulty of Tasks that target them by 1." compset="Talent" uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcSikarian"/>
     </thing>
   <thing id="talBeingManyTal" name="Being Of Many Talents" description="The character has developed a degree of ability across a broad range of disciplines. When attempting a Task where more than one of the character’s Focuses apply, the character may reroll a d20." compset="Talent" summary="When attempting a Task where more than one of the character’s Focuses apply, the character may reroll a d20." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcTalaxian"/>
     </thing>
   <thing id="talInfectNature" name="Infectious Nature" description="The character comes from a race of social beings that are\noutgoing, good-natured, and enjoy the company of others. This exuberance has the pleasant side effect of improving the attitude and outlooks of the people around them – regardless of whether those beings like it or not. When engaged in a Social Conflict, the character may spend 2 Momentum to improve the outlook and attitude of those around them. This provides one of two effects. The character is considered to have an Advantage in subsequent social interactions with the individual affected by this Talent. In addition, the character may choose to allow the individual to recover Stress equal to the character’s Command score." compset="Talent" summary="When engaged in a Social Conflict, the character may spend 2 Momentum to gain Advantage in  in subsequent social interactions with the individual or the individual affected by this talent may recover Stress equal to the character’s Command score." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcTalaxian"/>
     </thing>
   <thing id="talWidelyTraveled" name="Widely Traveled" description="Having traveled space for more of their adult life, the character has seen much and has picked up bits of knowledge and unusual skills along the way. Once per mission, the character may add 1 to Threat to gain an additional Focus for the remainder of that mission, representing a specific skill or field of knowledge the character possesses which is useful in the current situation." compset="Talent" summary="Once per mission, the character may add 1 to Threat to gain an additional Focus for the remainder of that mission." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcTalaxian"/>
     </thing>
   <thing id="talDeepDeterminat" name="Deep Determination" description="Turei have a well-earned reputation for becoming deeply committed to a particular goal – a singleminded determination to achieve success. When a Character with this Talent succeeds at a Task where they could have spent a point of Determination, but chose not to, they may spend 3 Momentum to gain a point of Determination. This Talent may only be used once per mission." compset="Talent" summary="Once per mission When a Character with this Talent succeeds at a Task where they could have spent a point of Determination, but chose not to, they may spend 3 Momentum to gain a point of Determination." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <exprreq message="Turei or Ktarian required"><![CDATA[#isspecies[spcKtarian] + #isspecies[spcTurei] <> 0]]></exprreq>
     </thing>
   <thing id="talUnderdweller" name="Underdweller" description="When attempting any Task involving navigating subspace realms, such as Underspace corridors,{br}the character reduces the Difficulty of that Task by 1, to a minimum of 1." compset="Talent" uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <tag group="User" tag="CreateOnly"/>
     <pickreq thing="spcTurei"/>
     </thing>
   <thing id="talThermalRegulat" name="Thermal Regulation" description="This species is capable of regulating their body temperatures such that they can survive in hostile environments with ease. Reduce the severity of any negative Trait dealing with temperature by 1. This can eliminate any ongoing damage the character would normally be required to suffer due to these Traits." compset="Talent" summary="Reduce the severity of any negative Trait dealing with temperature by 1. This can eliminate any ongoing damage the character would normally be required to suffer due to these Traits." uniqueness="useronce">
     <usesource source="QuadDelta"/>
+    <usesource source="1stEdition"/>
     <tag group="TalentCat" tag="Racial"/>
     <pickreq thing="spcZahl"/>
     </thing>

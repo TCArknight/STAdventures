@@ -33,6 +33,15 @@
 	  endif
     else
 	  name = hero.actorname
+	  
+	  if (#isstarship[] <> 0) then 
+	    temp = hero.childfound[mscShip].field[shipRegistry].text
+		
+	    if (compare(temp,"Registry") <> 0) then
+	      name &= " (" & temp & ")"
+		  endif
+		  
+		endif
     endif
 	  
     ]]></procedure>
@@ -200,10 +209,10 @@
 	
     ~output a list of all weapons (equipped first)
     ismore = 0
-    foreach pick in hero from WeaponBase sortas Armory
+    foreach pick in hero from WeaponBase sortas ShipWeapDeliv
       ismore = 1
 	  
-	  if (eachpick.tagis[component.StarshipWeapon] = 0) then
+	  if (eachpick.tagis[component.BaseWeaponShip] = 0) then
         append @indent & eachpick.field[wpNetAtk].value 
 		append " - "
 		endif
@@ -237,7 +246,24 @@
       endif
     ]]></procedure>
 
-
+  <procedure id="sbshipweapons" scripttype="synthesize"><![CDATA[
+    var ismore as number
+    append @boldon & "Weapons/Attacks: " & @boldoff & @newline
+	
+    ~output a list of all weapons (equipped first)
+    ismore = 0
+    foreach pick in hero from BaseWeaponShip sortas ShipWeapDeliv
+      ismore = 1
+	  append @indent & eachpick.field[wpWeaponBlock].text
+      
+      append @newline
+      nexteach
+	  
+    ~if we have no weapons, output that fact
+    if (ismore = 0) then
+      append @indent & "-none-" & @newline
+      endif
+    ]]></procedure>
   <!-- Procedure sbarmor
         Output all of the armor possessed by the character, listing equipped gear
         first and including the defense value for eachpick.
@@ -271,6 +297,8 @@
     ~output the details of all gear (equipped first)
 	var ismore as number
     ismore = 0
+	append @indent 
+	
     ~ foreach pick in hero from Equipment where "!Print.NoPrint"
     foreach pick in hero from Gear where "!(Print.NoPrint|Equipment.Natural)"
       if (ismore <> 0) then
@@ -282,7 +310,7 @@
 	
 	~if we have no equipment, output that fact
     if (ismore = 0) then
-      append @indent & "-none-" & @newline
+      append "-none-" & @newline
       endif
 	  
     append @newline
@@ -383,9 +411,11 @@
 			
     txt = hero.findchild[ShipInfo].field[shipScale].text
 	append @boldon & "Scale: " & @boldoff & txt & @newline
-    
-	txt = hero.findchild[ShipInfo].field[shipPower].text
-	append @boldon & "Power: " & @boldoff & txt & @newline
+	
+	if (hero.tagis[source.1stEdition] <> 0) then
+	  txt = hero.findchild[ShipInfo].field[shipPower].text
+	  append @boldon & "Power: " & @boldoff & txt & @newline
+	  endif
     
 	txt = hero.findchild[ShipInfo].field[shipShield].text
 	append @boldon 
@@ -396,7 +426,14 @@
 	  endif
     
 	txt = hero.findchild[ShipInfo].field[shipRes].text
-	append @boldon & "Resistance: " & @boldoff & txt & @newline & @newline
+	append @boldon & "Resistance: " & @boldoff & txt & @newline 
+	
+	if (#is2ndedition[] <> 0) then
+	  txt = hero.findchild[ShipInfo].field[shipReservePwrTxt].text
+	  append @boldon & "Reserve Power: " & @boldoff & txt & @newline
+	  endif
+	
+	append @newline
 	
 	if (hero.tagis[CharType.typSmallCraft] <> 0) then
       txt = hero.findchild[ShipInfo].field[shipCrewSumm].text
@@ -404,6 +441,13 @@
 	else
 	  txt = hero.findchild[ShipInfo].field[shipCrew].text
 	  append @boldon & "Crew Support: " & @boldoff & txt & @newline 
+	  endif
+	
+	if (#is2ndedition[] <> 0) then
+	  if (#isstarship[] <> 0) then
+	    txt = hero.findchild[ShipInfo].field[shipSmallCraft].text
+	    append @boldon & "Small Craft Readiness: " & @boldoff & txt & @newline
+	    endif
 	  endif
 	  
 	append @newline
@@ -558,7 +602,7 @@
 		  append @newline
 		  
 		  ~output weapons/attacks
-		  call sbweapons
+		  call sbshipweapons
 		  
 		  ~output Special Rules
 		  append @newline & @boldon & "Special Rules: " & @boldoff & @newline

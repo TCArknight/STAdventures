@@ -17,7 +17,13 @@
     <value id="Increase"/>    <!-- Advancement increases the value of the associated trait -->
     <value id="Decrease"/>    <!-- Advancement decreases the value of the associated trait -->
     <value id="AddNew"/>      <!-- Advancement adds a new trait to the character -->
+    <value id="Adjust"/>      <!-- Advancement Increases/Decreases existing trait values to the character -->
     <value id="Notation"/>    <!-- Advancement provides place for a notation by the user (like a domain) -->
+    </group>
+	
+  <group
+    id="HasAdvance"
+    inherit="Advance">
     </group>
 
 
@@ -75,9 +81,19 @@
       ~Note: Since the advancement is displaced to the hero, it's "parent" is *not* the
       ~       gizmo, so we must explicitly reference through the "origin" container.
       if (origin.parent.tagis[Advance.Increase] > 0) then
-        linkage[basis].field[abiBonus].value += 1
+        perform linkage[basis].assign[Advance.Increase]
+		
       elseif (origin.parent.tagis[Advance.Decrease] > 0) then
-        linkage[basis].field[abiBonus].value -= 1
+        perform linkage[basis].assign[Advance.Decrease]
+		
+      elseif (origin.parent.tagis[Advance.Adjust] > 0) then
+	    
+		if (tagis[Advance.Increase] <> 0) then
+		  perform linkage[basis].assign[Advance.Increase]
+		elseif (tagis[Advance.Decrease] <> 0) then
+		  perform linkage[basis].assign[Advance.Decrease]
+		  endif
+		  
         endif
       ]]></eval>
 
@@ -100,6 +116,14 @@
     <field
       id="advDynamic"
       name="Dynamic TagExpr"
+      type="derived"
+      maxlength="1000">
+      </field>
+
+    <!-- Dynamic tagexpr for selecting what to improve -->
+    <field
+      id="advDynamic2"
+      name="Dynamic TagExpr 2"
       type="derived"
       maxlength="1000">
       </field>
@@ -152,6 +176,9 @@
       if (empty(field[advDynamic].text) = 0) then
         gizmo.child[advDetails].field[advTagexpr].text = field[advDynamic].text & " & !thing.showonly"
         endif
+      if (empty(field[advDynamic2].text) = 0) then
+        gizmo.child[advDetails].field[advTagexprDec].text = field[advDynamic2].text & " & !thing.showonly"
+        endif
       ]]></eval>
 
     <!-- Synthesize an appropriate name for the advancement -->
@@ -163,8 +190,80 @@
         field[livename].text = field[name].text & ": " & focus.field[advUser].text
         done
         endif
-
+      
+	  ~if this advancement is an adjsutment, there is no user-selection, so build
+      ~the name from our pieces and we're done
+	  var tempstr as string
+	  
+      if (tagis[Advance.Adjust] + tagis[Advance.Increase] + tagis[Advance.Decrease] <> 0) then
+        perform gizmo.child[advDetails].setfocus
+		
+		~ get the boosted Trait
+		foreach pick in gizmo where "Advance.Gizmo & Advance.Increase"
+		
+		  field[livename].text = "+1 to " 
+		  
+		  if (eachpick.tagis[component.AttrSys] <> 0) then
+			
+		    ~ If we're a main character we have attributes, so pull name of that tag
+		    if (hero.tagis[CharType.typMain] <> 0) then
+              field[livename].text &= eachpick.tagnames[AttrName.?,","]
+			else
+		      field[livename].text &= eachpick.tagnames[SysName.?,"|"]
+			  endif
+			
+		  elseif (eachpick.tagis[component.DiscDept] <> 0) then  
+		  
+		    ~ If we're a main character we have attributes, so pull name of that tag
+		    if (hero.tagis[CharType.typMain] <> 0) then
+			
+			  if (#is2ndedition[] <> 0) then
+		        field[livename].text &= eachpick.tagnames[DeptName.?,","]
+			  else
+		        field[livename].text &= eachpick.tagnames[DiscName.?,","]
+			    endif
+			else
+		      field[livename].text &= eachpick.tagnames[DeptName.?,"|"]
+			  endif
+			  
+		    endif
+		  nexteach
+		
+		~ get the decreased Trait
+		foreach pick in gizmo where "Advance.Gizmo & Advance.Decrease"
+		  if (eachpick.tagis[component.AttrSys] <> 0) then
+		  
+		    ~ If we're a main character we have attributes, so pull name of that tag
+		    if (hero.tagis[CharType.typMain] <> 0) then
+ 	          field[livename].text &= "; -1 to " & eachpick.tagnames[AttrName.?,","]
+			else
+		      field[livename].text &= "; -1 to " & eachpick.tagnames[SysName.?,"|"]
+			  endif
+			
+		  elseif (eachpick.tagis[component.DiscDept] <> 0) then  
+		  
+		    ~ If we're a main character we have attributes, so pull name of that tag
+		    if (hero.tagis[CharType.typMain] <> 0) then
+			
+			  if (#is2ndedition[] <> 0) then
+		        field[livename].text &= "; -1 to " & eachpick.tagnames[DeptName.?,","]
+			  else
+		        field[livename].text &= "; -1 to " & eachpick.tagnames[DiscName.?,","]
+			    endif
+			else
+		      field[livename].text &= "; -1 to " & eachpick.tagnames[DeptName.?,"|"]
+			  endif
+		  
+		    endif
+			
+		  nexteach
+		  
+        done
+        endif
+		
       ~start with the name of the selected advancement
+	  notify gizmo.findchild[none,"Advance.Gizmo"].field[name].text
+	  
       field[livename].text = gizmo.findchild[none,"Advance.Gizmo"].field[name].text
 
       ~determine the user-selected child associated with this advancement
@@ -192,7 +291,7 @@
   <component
     id="AdvDetails"
     name="Advancement Details"
-    ispublic="no">
+    ispublic="yes">
 
     <!-- Target of advancement (specific attribute, skill, etc. that is improved) -->
     <field
@@ -227,6 +326,14 @@
     <field
       id="advTagexpr"
       name="Dynamic TagExpr"
+      type="derived"
+      maxlength="1000">
+      </field>
+
+    <!-- Dynamic tagexpr for selecting what to decrease for adjustments -->
+    <field
+      id="advTagexprDec"
+      name="Dynamic TagExpr - Decrease"
       type="derived"
       maxlength="1000">
       </field>

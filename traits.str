@@ -83,6 +83,7 @@
         else
           @text = field[abiFinal].value
           endif
+		  
         ]]></finalize>
       </field>
 
@@ -116,6 +117,18 @@
 
     <!-- Final value for the ability -->
     <field
+      id="abiAdvAdjust"
+      name="Advance Adjustments Value"
+      type="derived">
+      <!-- Calculate the final value from the three distinct pieces -->
+      <calculate phase="Ability" priority="2500" name="Calc abiAdvAdjust"><![CDATA[
+		
+        @value = tagcount[Advance.Increase] - tagcount[Advance.Decrease]
+        ]]></calculate>
+      </field>
+
+    <!-- Final value for the ability -->
+    <field
       id="abiFinal"
       name="Final Value"
       type="derived">
@@ -124,7 +137,14 @@
         ~Note! If you change this calculation, you may need to change the similar
         ~       calculation in the "Derived" component.
 		
-        @value = field[abiUser].value + field[abiBonus].value + field[abiInPlay].value
+        @value = field[abiUser].value + field[abiAdvAdjust].value + field[abiBonus].value + field[abiInPlay].value
+		
+		if (tagis[component.DiscDept] + tagis[component.AttrSys] <> 0) then  
+		  if (@value = 0) then
+		    @text = "--"
+		    endif	  
+		endif
+		
         ]]></calculate>
       </field>
 	
@@ -132,7 +152,7 @@
         NOTE! This is necessary so incrementers have proper values when edited by the user.
         -->
     <eval index="1" phase="Render" priority="5000"><![CDATA[
-      field[abiUser].delta = field[abiBonus].value + field[abiInPlay].value
+      field[abiUser].delta = field[abiBonus].value + field[abiInPlay].value + field[abiAdvAdjust].value
       ]]></eval>
 
     <!-- If the ability is at its minimum/maximum, assign a tag to preclude further advancements -->
@@ -140,11 +160,13 @@
       ~base our test on the adjusted ability value, sans any in-play adjustments
       var ability as number
       ability = field[abiUser].value + field[abiBonus].value
+	  
       if (ability <= field[abiMinimum].value) then
         perform assign[Helper.Minimum]
       elseif (ability >= field[abiMaximum].value) then
         perform assign[Helper.Maximum]
         endif
+		
       ]]></eval>
 	  
     <!--  -->
@@ -238,18 +260,14 @@
     <!-- Attributes have a minimum ability value of 7 -->
     <eval index="2" phase="Initialize" priority="5000"><![CDATA[
 		
-	  if (hero.tagis[CharType.typStarship] <> 0) then
-		
+	  if (hero.tagis[CharType.typStarship] + hero.tagis[CharType.typSmallCraft] <> 0) then
 		field[abiMinimum].value = 0
 	    field[abiMaximum].value = 12
-      elseif (hero.tagis[CharType.typSmallCraft] <> 0) then
 		
-	    field[abiMinimum].value = 0
-	    field[abiMaximum].value = 12
       elseif (hero.tagis[CharType.typStarbase] <> 0) then
-		
 		field[abiMinimum].value = 0
-	    field[abiMaximum].value = 30			
+	    field[abiMaximum].value = 30		
+		
 	  else
 		field[abiMinimum].value = 7
 		  
@@ -264,9 +282,13 @@
 
     <!-- Each attribute point above one that is allocated by the user costs 1 Attribute point -->
     <eval index="3" phase="Ability" priority="3500"><![CDATA[
-	if (tagis[CharType.typMain] <> 1) then
-      hero.child[resAttrib].field[resSpent].value += field[abiFinal].value
-	  endif
+	  if (hero.tagis[CharType.typMain] <> 0) then
+        hero.child[resAttrib].field[resSpent].value += ( 2 + field[abiUser].value)
+		
+	  elseif (hero.tagis[CharType.typStarship] <> 0) then
+        hero.child[resAttrib].field[resSpent].value += field[abiFinal].value
+		
+	    endif
       ]]></eval>
 
 		  
@@ -375,20 +397,26 @@
 
       if (hero.tagis[CharType.typStarship] <> 0) then
 		field[abiMinimum].value = 0
+	    field[abiMaximum].value = 5	
+		
       elseif (hero.tagis[CharType.typSmallCraft] <> 0) then
 	    field[abiMinimum].value = 0
+		
+		if (#is2ndedition[] <> 0) then 
+	      field[abiMaximum].value = 2
+		else
+	      field[abiMaximum].value = 5	
+		  endif
+		  
       elseif (hero.tagis[CharType.typStarbase] <> 0) then
 		field[abiMinimum].value = 0
+	    field[abiMaximum].value = 10
+		
 	  else
 		field[abiMinimum].value = 1
-		endif
-        		
-	  
-      if (hero.tagis[CharType.typStarbase] <> 0) then
-	    field[abiMaximum].value = 10
-	  else
 	    field[abiMaximum].value = 5	
-        endif		
+		endif
+		
       ]]></eval>
 
 	<!-- Each attribute point above one that is allocated by the user costs 1 Discipline point-->
@@ -407,7 +435,7 @@
     id="Talent"
     name="Talent"
     autocompset="no"
-    panellink="talents">
+	panellink="talenttraits">
 
     <!-- Activation state of ability - we're not activated by default -->
     <field
@@ -686,7 +714,7 @@
 
     <!--  -->
     <field
-      id="trTraitLevel"
+      id="ttTraitLevel"
       name="Trait Level"
       type="derived"
       defvalue="0"
@@ -714,17 +742,17 @@
       ]]></eval>
 	
     <eval index="3" phase="Render" priority="1000"><![CDATA[
-	  doneif (field[trTraitLevel].value = 0)
+	  doneif (field[ttTraitLevel].value = 0)
 	  
 	  if (empty(field[livename].text) <> 0) then
-        field[livename].text &= " " & field[trTraitLevel].value
+        field[livename].text &= " " & field[ttTraitLevel].value
         if (tagis[component.shortname] <> 0) then
-          field[shortname].text &= " " & field[trTraitLevel].value
+          field[shortname].text &= " " & field[ttTraitLevel].value
           endif
 	  else
-        field[livename].text = field[name].text & " " & field[trTraitLevel].value
+        field[livename].text = field[name].text & " " & field[ttTraitLevel].value
         if (tagis[component.shortname] <> 0) then
-          field[shortname].text &= " " & field[trTraitLevel].value
+          field[shortname].text &= " " & field[ttTraitLevel].value
           endif
 	    endif
 		
@@ -1111,11 +1139,18 @@
     <eval index="2" phase="Ability" priority="10000">
       <before name="Calc resLeft"/>
       <after name="Bound abiUser"/><![CDATA[
+	  var myTag as string
+	  
       ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
       doneif (origin.ishero = 0)
-
+	  
       ~adjust the resource appropriately
       hero.child[resEvent].field[resSpent].value += 1
+	  
+	  ~ tag event for Index
+	  myTag = "Lifepath.CareerEvent" & hero.child[resEvent].field[resSpent].value
+	  perform assignstr[myTag]
+	  
       ]]></eval>
 	  
     <!-- Increase Value counts -->
@@ -1201,7 +1236,7 @@
       </bootstrap>
 		
     <!-- Build helper selection expressions -->
-    <eval index="5" phase="Effects" priority="5000"><![CDATA[
+    <eval index="1" phase="Effects" priority="5000"><![CDATA[
 	  var mytags as string
 	  mytags = tagids[TraitSelect.?,"|"]
 	  mytags = replace(mytags, "TraitSelect", "thingid",0)
@@ -1212,6 +1247,12 @@
         hero.childfound[CareerHelper].field[chTraitExpr].text = mytags
         endif
       ]]></eval>
+	
+    <eval index="2" phase="PreAbility" priority="5000"><![CDATA[
+	  
+	  #resmax[resFocus] += 3
+	  
+	  ]]></eval>
 	  
     </component>
 
@@ -1415,15 +1456,7 @@
 	  
 	  ]]>
 	  </eval>
-
-    <!-- Increase Value counts -->
-    <eval index="4" phase="PreAbility" priority="5000">
-      <before name="Calc abiFinal"/><![CDATA[
-      #resmax[resValue] += field[cpNumValues].value
-	  #resmax[resFocus] += field[cpNumFocus].value
-      #resmax[resTalent] += field[cpNumTalents].value
-      
-      ]]></eval>	  
+	  
     </component>	
 	
   <!-- Focus component
@@ -1498,8 +1531,155 @@
       type="user"
       maxlength="5000">
       </field>  
+	  
+	<!-- Each skill point that is allocated by the user costs 1 slot -->
+    <eval index="2" phase="Ability" priority="10000" name="Finishing Touches"><![CDATA[
+	  ~ if we've added two events, we're ready for FInishing touches, otherwise get out
+	  doneif (#resleft[resEvent] <> 0)
+	  
+      ~if this skill is not added directly to the hero (i.e. an advance), skip it entirely
+      doneif (origin.ishero = 0)
+
+      ~adjust the values appropriately
+	  #resmax[resValue] += 1
+	  #resmax[resTalent] += 1
+      ]]></eval>
+		
 
 	  </component>
+
+  <component
+    id="xCopyTracker"
+    name="Copy Tracker">
+    
+    <!-- Selection Tag Expressions -->
+    <field
+      id="xIndex"
+      name="Index of Copy"
+      type="derived"
+      defvalue="0">
+      </field>
+      
+    <field
+      id="xCount"
+      name="Number of Copies"
+      type="derived"
+      defvalue="0">
+      </field>
+    <!-- Stack name field - name is prefixed with the quantity if not a value of one,
+          which is important for stackable items that can have varying quantities
+    -->
+    <field
+      id="xCountName"
+      name="Name (Qty)"
+      type="derived"
+      maxfinal="100"
+      nevercache="yes">
+      <!-- Final value for display consists of the name with a prefixed quantity
+            if not one
+      -->
+      <finalize><![CDATA[
+        ~if we have a customized name already, use it; otherwise, use the default name
+        var name as string
+        if (field[livename].isempty = 0) then
+          name = field[livename].text
+        else
+          name = field[name].text
+          endif
+
+        @text = name
+		
+        if (field[xCount].value <> 1) then
+		  if (tagis[component.Specialty] <> 0) then
+            @text &= " (Rank "
+		  else
+            @text &= " (x" 
+			endif
+			
+		  @text &= field[xCount].value & ")"
+          endif
+        ]]></finalize>
+      </field>    
+	  
+    <eval index="1" phase="Effects" priority="155" name="Determine First Copy"><![CDATA[
+      doneif (tagis[Helper.FirstCopy] <> 0)
+
+      ~if we're not the first copy of a special ability, we need to set up a
+      ~redirection to the actual first copy. That means whenever another pick
+      ~does a "hero.child[x]" to find pick x, they always arrive at the first
+      ~copy. This allows the first copy to be determined at every evaluation,
+      ~and the first copy is then the one used to display the totals for the
+      ~ability, even if it's added in multiple places (e.g. sneak attack, which
+      ~can be added by multiple classes). The first copy is the one in the
+      ~quickfind list, so retrieve it.
+      perform quickfind.setfocus
+
+      ~if we found a copy to set our focus to, we're a secondary copy of this
+      ~ability, delete the Helper.OnlyCopy tag from the first (primary) copy.
+      ~That means the Helper.OnlyCopy tag will only be left on those picks that
+      ~are the only copy of their things.
+      if (state.isfocus <> 0) then
+        perform focus.redirect
+        perform assign[Helper.SpecUp]
+        perform focus.delete[Helper.OnlyCopy]
+        endif
+      ]]></eval>
+	  
+    <eval index="2" phase="Effects" priority="200" name="Calc xIndex"><![CDATA[
+      ~we only need to run this if we're not the only copy
+      ~if we aren't the only copy, we need to search the rest of our copies and get information
+      if (tagis[Helper.OnlyCopy] = 0) then
+
+        ~only run these for the first copy
+        if (tagis[Helper.FirstCopy] <> 0) then
+
+          var searchexpr as string
+          searchexpr = "thingid." & this.idstring
+
+          var index as number
+          index = 1
+
+          var runonce as number
+
+          foreach pick in hero from xCopyTracker where searchexpr
+            ~assign this thing the current index value, then increment the index for the next thing
+            eachpick.field[xIndex].value = index
+            index += 1
+			
+            nexteach
+
+        else
+          field[xCount].value += 1
+          endif
+      else
+        ~if we are the only copy, xIndex and xCount = 1
+        field[xIndex].value = 1
+        field[xCount].value = 1
+        endif
+
+      ]]></eval> 
+
+    <eval index="3" phase="Effects" priority="250" name="Calc xCount"><![CDATA[
+      ~we only need to run this if we're not the only copy
+      ~if we aren't the only copy, we need to search the rest of our copies and get information
+      doneif (tagis[Helper.OnlyCopy] <> 0)
+
+      var index as number
+      var source as string
+
+      ~only run these if we're the first copy
+      if (tagis[Helper.FirstCopy] <> 0) then
+        var searchexpr as string
+        searchexpr = "thingid." & this.idstring
+
+        foreach pick in hero from xCopyTracker where searchexpr 
+          field[xCount].value += 1
+          nexteach
+		  
+        endif
+
+      ]]></eval>	  
+    </component>
 	  	  
   <!-- Define various component sets associated with the components defined above.
   -->
@@ -1628,6 +1808,7 @@
     forceunique="yes">
     <compref component="Event"/>
     <compref component="UserSelect"/>
+    <compref component="xCopyTracker"/>
     </compset>
 	
   <!-- Trait - all traits derive from this compset -->
@@ -1636,6 +1817,7 @@
     <compref component="Trait"/>
     <compref component="Domain"/>
     <compref component="Custom"/>
+    <compref component="xCopyTracker"/>
     </compset>
 
   <!-- Focus - all focuses derive from this compset -->

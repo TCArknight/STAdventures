@@ -687,6 +687,315 @@ validif (#science[] >= 3)]]></validate>
   <thing id="tal2EAmbushTac" name="Ambush Tactics" description="REQUIREMENTS: Security 3+\n\nWhen you succeed at an Attack against an enemy who is unaware of your presence, or who is suffering from a trait or complication which represents a weakness or vulnerability, increase the Severity of the Attack by 2." compset="Talent">
     <usesource source="2ndEdition"/>
     <tag group="TalentCat" tag="Security"/>
+    <prereq message="Security 3+ or Command 3+ required.">
+      <validate><![CDATA[validif (#security[] >= 3)
+validif (#command[] >= 3)]]></validate>
+      </prereq>
+    </thing>
+  <thing id="tal2EAppliedForce" name="Applied Force" description="REQUIREMENTS: Security 4+, Fitness 9+\n\nWhen you succeed at an Attack against an enemy who is unaware of your presence, or who is suffering from a trait or complication which represents a weakness or vulnerability, increase the Severity of the Attack by 2." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <eval phase="Effects" priority="1000">hero.childfound[wp2EUnarmed].field[wpDamage].value += 1</eval>
+    <exprreq message="Fitness 9+ required."><![CDATA[#fitness[] >= 9]]></exprreq>
+    <exprreq message="Security 4+ required."><![CDATA[#security[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2ECrisisManage" name="Crisis Management" description="REQUIREMENTS: Security 3+ or Command 3+\n\nThe Momentum cost to use the Direct major action is removed." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <prereq message="Security 3+ or Command 3+ required.">
+      <validate><![CDATA[validif (#security[] >= 3)
+validif (#command[] >= 3)]]></validate>
+      </prereq>
+    </thing>
+  <thing id="tal2ECloseProtect" name="Close Protection" description="REQUIREMENTS: Security 4+\n\nWhen you make a successful Attack, you may spend 1 Momentum to protect a single ally within Close range. The next Attack against that ally before the start of your next turn increases in Difficulty by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 4+ required."><![CDATA[#security[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EDefTraining" name="Defensive Training" description="REQUIREMENTS: Security 2+\n\nSelect either Melee Attacks or Ranged Attacks when you acquire this talent. Attacks against you of the chosen type increase in Difficulty by 1." compset="Talent">
+    <arrayval field="usrArray" index="0" value="-- Choose --"/>
+    <arrayval field="usrArray" index="1" value="Melee"/>
+    <arrayval field="usrArray" index="2" value="Ranged"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 2+ required."><![CDATA[#security[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2EFireAtWill" name="Fire At Will" description="REQUIREMENTS: Security 3+\n\nIf you make an Attack, you may use the Swift Action Momentum spend for 1 Momentum rather than 2, but the second major action you take must also be an Attack." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
     <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EGetDown" name="Get Down!" description="REQUIREMENTS: Security 2+\n\nYou and any allies within Close range gain +1 Protection while in Cover." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 2+ required."><![CDATA[#security[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2EInterrogatio" name="Interrogation" description="REQUIREMENTS: Security 3+\n\nWhen you succeed at a task to coerce someone to reveal information in a social conflict, you may ask one question for free, as per the Obtain Information Momentum spend." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ELeadInvestig" name="Lead Investigator" description="REQUIREMENTS: Security 3+ or Conn 3+\n\nWhenever you attempt a task to retrieve or analyze evidence of a crime, you may re-roll 1d20. When you spend one or more Momentum to Obtain Information to ask questions about a crime scene or evidence, you may ask one additional question." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <prereq message="Security 3+ or Conn 3+ required.">
+      <validate><![CDATA[validif (#security[] >= 3)
+validif (#conn[] >= 3)]]></validate>
+      </prereq>
+    </thing>
+  <thing id="tal2EMartArtist" name="Martial Artist" description="REQUIREMENTS: Security 4+\n\nYour Unarmed Strike Attack may be used to inflict Deadly Injuries as well as Stun Injuries." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <tag group="User" tag="NeedDomain"/>
+    <eval phase="Effects" priority="1000">perform hero.childfound[wp2EUnarmed].setfocus
+
+doneif (state.isfocus = 0)
+
+perform focus.assign[WeaponInjury.Deadly]</eval>
+    <exprreq message="Security 4+ required."><![CDATA[#security[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EMeanRHook" name="Mean Right Hook" description="REQUIREMENTS: Security 4+\n\nYour Unarmed Strike Attack gains the Intense quality." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <eval phase="Effects" priority="1000">perform hero.childfound[wp2EUnarmed].setfocus
+
+doneif (state.isfocus = 0)
+
+perform focus.assign[GearQual.Intense]</eval>
+    <exprreq message="Security 4+ required."><![CDATA[#security[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPackTactics" name="Pack Tactics" description="REQUIREMENTS: Security 4+\n\nWhenever you Assist another character during combat, the character you assisted gains 1 bonus Momentum if they succeed." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 4+ required."><![CDATA[#security[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPiercingSalv" name="Piercing Salvo" description="REQUIREMENTS: Security 4+\n\nWhenever you Assist another character during combat, the character you assisted gains 1 bonus Momentum if they succeed." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 4+ required."><![CDATA[#security[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EPrecTarget" name="Precision Targeting" description="REQUIREMENTS: Security 3+ and Conn 3+\n\nYou can more easily pick out and target specific systems when making an Attack against an enemy vessel. When you make an Attack with starship weapons that targets a specific ship system, you may re-roll a d20." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    <exprreq message="Conn 3+ required."><![CDATA[#conn[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EQuickAction" name="Quick To Action" description="REQUIREMENTS: Security 3+\n\nDuring the first round of any combat, you and your allies may ignore the normal cost to Keep the Initiative." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ESteadyHands" name="Steady Hands" description="REQUIREMENTS: Security 3+ and Control 9+\n\nWhen you take the Aim minor action (page 288) before a Ranged Attack, you add 1 to the Attack’s Severity, in addition to the other effects of aiming." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Security"/>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    <exprreq message="Control 9+ required."><![CDATA[#control[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EAppResearch" name="Applied Research" description="REQUIREMENTS: Science 3+\n\nOnce per scene, when you attempt a task which relates to information you received earlier that scene from an Obtain Information question, the first bonus die you purchase is free.." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EBedsideMan" name="Bedside Manner" description="REQUIREMENTS: Command 3+ and Medicine 3+\n\nWhen you succeed at a Medicine task to heal an Injury, you may immediately remove a negative trait from the patient, even if that trait was unrelated to the Injury being treated. In addition, when you attempt a Reputation Check, add one additional positive influence." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EBaffBriefing" name="Baffling Briefing" description="REQUIREMENTS: Science 3+ and Presence 9+\n\nWhen you engage in a social conflict using deception, you may use Science in place of Command so long as their technical knowledge is used to mislead their opponent." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    <exprreq message="Presence 9+ required"><![CDATA[#presence[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2ECompExpert" name="Computer Expertise" description="REQUIREMENTS: Science 2+\n\nWhenever you attempt a task that involves the programming or study of a computer system, the first bonus d20 you purchase is free." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 2+ required."><![CDATA[#science[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2EDedicatedFoc" name="Dedicated Focus" description="REQUIREMENTS: Science 4+\n\nWhen this talent is taken, choose one of your focuses. When attempting a task where that focus applies, you score a critical success for any die which rolls equal to or under twice the relevant department." compset="Talent">
+    <fieldval field="usrCandid1" value="component.Focus"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 4+ required."><![CDATA[#science[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EDidTheRead" name="Did The Reading" description="REQUIREMENTS: Science 4+\n\nWhen you attempt a task, you may spend 1 Momentum (Immediate) to use Science on that task instead of the department you would normally use. In addition, you count as having an applicable focus for that task. Each time after the first in a single scene that you use this ability, the Momentum cost increases by 1: this is cumulative." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 4+ required."><![CDATA[#science[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EExpedExpert" name="Expedition Expert" description="REQUIREMENTS: Science 3+ and Fitness 9+\n\nPrior to participating in an away team mission, you may make additional preparations by spending 2 Momentum (Immediate). During the expedition, any member of the away team may re-roll a single d20 on any task to navigate the terrain or circumvent a hazard or obstacle. The away team may re-roll a total number of dice in this way equal to your Science rating." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    <exprreq message="Fitness 9+ required"><![CDATA[#fitness[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EIntenseScrut" name="Intense Scrutiny" description="REQUIREMENTS: Engineering 3+ or Science 3+\n\nWhenever you succeed at a task using Reason or Control as part of an extended task, you ignore any Resistance on that extended task." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <prereq message="Engineering 3+ or Science 3+ required">
+      <validate><![CDATA[validif (#engineering[] >= 3)
+validif (#science[] >= 3)]]></validate>
+      </prereq>
+    </thing>
+  <thing id="tal2ELabRat" name="Lab Rat" description="REQUIREMENTS: Science 3+ and Engineering 3+\n\nWhen attempting an extended task while using a laboratory, increase your Impact by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required"><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ELearnFailure" name="Learn From Failure" description="REQUIREMENTS: Science 4+\n\nWhen you fail at a Science task, you may add 3 Threat to create a trait which represents knowledge or insights gained from the failure. The cost of this is reduced by 1 for each success you scored on the failed task." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 4+ required."><![CDATA[#science[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EMentalRepos" name="Mental Repository" description="REQUIREMENTS: Science 3+ and Reason 10+\n\nUsing extensive mental conditioning, you have access to memories with unprecedented clarity and accuracy. You may treat Obtain Information as if it were an Immediate Momentum spend, but the answers to these questions can only come from information you would already know and remember." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    <exprreq message="Reason 10+ required"><![CDATA[#reason[] >= 10]]></exprreq>
+    </thing>
+  <thing id="tal2ERapidAna" name="Rapid Analysis" description="REQUIREMENTS: Science 3+ and Daring 9+\n\nWhen you succeed at a Science task, the cost of the Reduce Time Momentum option is reduced to 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    <exprreq message="Daring 9+ required"><![CDATA[#daring[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2ERapidHypo" name="Rapid Hypothesis" description="REQUIREMENTS: Science 5\n\nOnce per scene, when you ask two or more questions using Obtain Information, you may immediately create a trait representing your theoretical understanding of the subject of those questions." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 5 required.">#science[] = 5</exprreq>
+    </thing>
+  <thing id="tal2EStudentWar" name="Student of War" description="REQUIREMENTS: Science 4+ and Security 3+\n\nYou have conducted extensive research into numerous kinds of conflict and has devoted your academic career to the study of war. While this knowledge may be purely theoretical, such information, when placed into the hands of more capable combatants, can be truly devastating. When you Assist a character making an Attack or taking the Guard action in combat, they may re-roll one d20." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 4+ required."><![CDATA[#science[] >= 4]]></exprreq>
+    <exprreq message="Security 3+ required."><![CDATA[#security[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ETestingTheo" name="Testing A Theory" description="REQUIREMENTS: Science 2+\n\nWhen you attempt a task using Engineering or Science, the first bonus d20 you purchase is free, so long as you succeeded at a previous task covering the same scientific or technological field earlier in the same adventure. If you created a trait that represents a hypothesis about an unknown phenomenon, you may also re-roll one d20 on tasks related to that hypothesis." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 2+ required."><![CDATA[#science[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2ETheoryPract" name="Theory Into Practice" description="REQUIREMENTS: Science 3+ and {b}Testing a Theory{/b} talent\n\nWhen you succeed at a task using Engineering or Science where you gain the additional d20 from the Testing a Theory talent, or which benefits from a trait that represents a hypothesis you’ve made, you generate 2 bonus Momentum. Bonus Momentum may not be saved." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 3+ required."><![CDATA[#science[] >= 3]]></exprreq>
+    <exprreq message="{b}Testing A Theory{/b} talent required."><![CDATA[#hastalent[tal2ETestingTheo] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EWalkEncyclo" name="Walking Encyclopedia" description="REQUIREMENTS: Science 2+ and Reason 9+\n\nOnce per session, when you attempt a task, you may spend 2 Momentum (Immediate) to gain an additional focus for the remainder of the session, due to your breadth of knowledge. However, any task using that focus increases its complication range by 1, as you are not a true expert on that subject." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Science"/>
+    <exprreq message="Science 2+ required."><![CDATA[#science[] >= 2]]></exprreq>
+    <exprreq message="Reason 9+ required"><![CDATA[#reason[] >= 9]]></exprreq>
+    </thing>
+  <thing id="tal2EChiefStaff" name="Chief of Staff" description="REQUIREMENTS: Command 3+ and Medicine 3+\n\nWhen you Assist another character attempting a Medicine task, each assisting character may re-roll their assistance die." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Command 3+ required."><![CDATA[#command[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ECombatMedic" name="Combat Medic" description="REQUIREMENTS: Medicine 3+ and Security 2+\n\nWhen attempting a Medicine task during combat, you may pick one trait which increases the Difficulty of the task and ignore it." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Security 2+ required."><![CDATA[#security[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2ECutEdgeMed" name="Cutting Edge Medicine" description="REQUIREMENTS: Medicine 4+\n\nWhenever you attempt a Medicine task with a Difficulty of 3 or higher, you may spend up to 3 Momentum (Immediate) to reduce the Difficulty by the number of Momentum spent, to a minimum Difficulty of 1. However, as these latest advances are often experimental, the complication range of the task increases by 1 for each Momentum spent." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 4+ required"><![CDATA[#medicine[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2ECyberneticis" name="Cyberneticist" description="REQUIREMENTS: Engineering 3+ and Medicine 3+\n\nWhen you attempt a task to work on, install, or remove a cybernetic device from a patient, the first bonus d20 you purchase is free." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Engineering 3+ required."><![CDATA[#engineering[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EDiagnosticEx" name="Diagnostic Expertise" description="REQUIREMENTS: Medicine 4+\n\nWhen you succeed at a Medicine task to identify and diagnose the nature of a medical problem, you may ask one question—as per Obtain Information—for every additional d20 you bought by spending Momentum." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 4+ required"><![CDATA[#medicine[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EDocOrders" name="Doctors Orders" description="REQUIREMENTS: Medicine 4+\n\nWhen you attempt a task to coordinate others, or to coerce someone into taking or refraining from a specific course of action, you may use your Medicine department instead of Command." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 4+ required"><![CDATA[#medicine[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EDontDieOnMe" name="Don&apos;t you Die On Me!" description="REQUIREMENTS: Medicine 5\n\nWhen a character is killed, you may spend Determination to make one attempt to revive them. If they were killed instantly by an Attack, then this may only be attempted within that scene. If the character suffered an Injury and died because they didn’t receive medical treatment in time, this may be attempted before the end of the subsequent scene. This requires a Daring + Medicine task, with a Difficulty of 3. If successful, the character is brought back from the brink of death, though they will remain Defeated for the remainder of the adventure. Failure means that your efforts were unsuccessful and the character dies." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 5 required">#medicine[] = 5</exprreq>
+    </thing>
+  <thing id="tal2EFellowshipSp" name="Fellowship Specialty" description="REQUIREMENTS: Medicine 4+\n\nSelect a focus. When you succeed at a Medicine task where that focus applies, the cost of the Create Trait Momentum spend is reduced to 1." compset="Talent">
+    <fieldval field="usrCandid1" value="component.Focus"/>
+    <fieldval field="usrLabel1" value="Focus:"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 4+ required"><![CDATA[#medicine[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2EFieldMedic" name="Field Medicine" description="When attempting a Medicine task, you may ignore any increase in Difficulty or complication range for working without the proper tools or equipment." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    </thing>
+  <thing id="tal2EFirstRespon" name="First Response" description="REQUIREMENT: Medicine 3+\n\nWhen you attempt the First Aid task during combat, the first die you purchase is free. Further, you may always Succeed at Cost, with each complication you suffer adding 1 to the Difficulty of healing the patient’s Injury subsequently." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EInsightGuid" name="Insightful Guidance" description="REQUIREMENTS: Command 2+ and Medicine 3+\n\nWhenever you Assist a character in a social conflict, using your knowledge of psychology or emotional states, that character is considered to have a beneficial trait (Psychological Profile) in addition to the normal benefits provided by your Assist." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Command 2+ required."><![CDATA[#command[] >= 2]]></exprreq>
+    </thing>
+  <thing id="tal2EPosReinforce" name="Positive Reinforcement" description="REQUIREMENTS: Ship’s Counselor role, Medicine 3+ and Presence 9+\n\nOnce per mission, you may attempt a Presence + Medicine task with a Difficulty of 3, while providing emotional or mental treatment for another character. Success creates a character trait for your patient that lasts until the end of the mission: Boosted Confidence. In addition to the normal effects of the trait, that character can reroll their dice pool, as if they’d spent Determination, once before the end of the mission. If the task the character used their reroll on fails, they lose the trait created by this talent." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Command 2+ required."><![CDATA[#command[] >= 2]]></exprreq>
+    <exprreq message="Ship&apos;s Counselor role required."><![CDATA[#ischaracterrole[rol2EShipsCounsel] <> 0]]></exprreq>
+    </thing>
+  <thing id="tal2EPracticePerf" name="Practice Makes Perfect" description="REQUIREMENTS: Medicine 3+ and Reason 8+\n\nAfter you have succeeded in a Medicine task, the Difficulty of any other Medicine tasks attempted that scene to treat or heal the same kind of Injury, poison, disease, or other ailment is reduced by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    <exprreq message="Reason 8+ required."><![CDATA[#reason[] >= 8]]></exprreq>
+    </thing>
+  <thing id="tal2EPsychoana" name="Psychoanalyst" description="REQUIREMENTS: Medicine 3+ and a psychology-related focus\n\nWhen you use Medicine during a social conflict, you may increase the complication range of your task by 1, 2, or 3. For each step of complication range increased, you may ask a single question as if you’d spent Momentum on Obtain Information. Any Complications generated from this task results in the individual you are interacting with becoming offended or upset with being “analyzed.”" compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required"><![CDATA[#medicine[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EQuickStudy" name="Quick Study" description="REQUIREMENTS: Science 3+ or Medicine 3+\n\nWhen attempting a task that will involve an unfamiliar practice, technique, or medical procedure, or which is to treat an unfamiliar species, ignore any Difficulty or complication range increase stemming from your unfamiliarity." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <prereq message="Science 3+ or Medicine 3+ required">
+      <validate><![CDATA[validif (#science[] >= 3)
+validif (#medicine[] >= 3)]]></validate>
+      </prereq>
+    </thing>
+  <thing id="tal2EStimShot" name="Stimulant Shot" description="REQUIREMENT: Medicine 3+\n\nWhen you perform the First Aid task to revive a Defeated ally, you may add 1 Threat to let that ally recover Stress equal to your Medicine rating. A character may only benefit from this talent once per adventure." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required."><![CDATA[#medicine[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2ESurgerySav" name="Surgery Savant" description="REQUIREMENT: Medicine 4+\n\nWhen attempting a Medicine task during an extended task relating to surgery, your Impact is increased by 1." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 4+ required."><![CDATA[#medicine[] >= 4]]></exprreq>
+    </thing>
+  <thing id="tal2ETriage" name="Triage" description="REQUIREMENT: Medicine 3+\n\nWhen you attempt a task to identify specific Injuries or illnesses, or to determine the severity of a patient’s condition, you may spend 1 Momentum (Repeatable) to diagnose one additional patient.." compset="Talent">
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Medicine"/>
+    <exprreq message="Medicine 3+ required."><![CDATA[#medicine[] >= 3]]></exprreq>
+    </thing>
+  <thing id="tal2EAnaRecall" name="Analytical Recall" description="REQUIREMENT: Cyborg, or gamemaster’s permission.\n\nSome Cybernetically Enhanced find themselves able to recall information faster than they used to and are able to process crucial details to a greater degree. Three times per session, a Cybernetically Enhanced individual may ask the gamemaster for more information regarding data they have recorded or situations they have personally seen, as if they had spent a point of Momentum to Obtain Information." compset="Talent" summary="Three times per session, a Cybernetically Enhanced individual may ask the gamemaster for more information regarding data they have recorded or situations they have personally seen, as if they had spent a point of Momentum to Obtain Information.">
+    <usesource source="Discovery" parent="Campaigns" name="Discovery Campaign Guide"/>
+    <usesource source="2ndEdition"/>
+    <tag group="TalentCat" tag="Augment" name="Augment/Cybernetics" abbrev="Augment/Cybernetics"/>
+    <exprreq message="Cyborg required."><![CDATA[#iscyborg[] <> 0]]></exprreq>
     </thing>
   </document>

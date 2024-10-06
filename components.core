@@ -51,7 +51,17 @@
         ]]></bound>
       <!-- Final value for display shows the value and the maximum limit -->
       <finalize><![CDATA[
-        if (tagis[Helper.NoMaxBound] = 0) then
+	    var score as number
+		score = @value
+		
+	    if (tagis[Helper.TrackYesNo] <> 0) then
+		  if ( score = 0 ) then
+		    @text = "No"
+		  else
+		    @text = "Yes"
+			endif
+		
+        elseif (tagis[Helper.NoMaxBound] = 0) then
           @text &= "{size 32}{text clrgrey}/" & field[trkMax].value
           endif
         ]]></finalize>

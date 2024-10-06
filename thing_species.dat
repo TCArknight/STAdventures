@@ -245,8 +245,27 @@
     <tag group="Species" tag="spcBajor"/>
     </thing>
   <thing id="saBetaTelepathic" name="Telepathic" description=" Betazoids can sense the minds of living creatures in their vicinity and can read the thoughts and emotions of others. Each Betazoid has either Telepathy or Empathy (see page 155-page 156 for more details). Part-Betazoid characters generally have Empathy rather than Telepathy." compset="SpeciesAbility" uniqueness="unique">
+    <fieldval field="usrLabelAr" value="Empathic or Telepathic?"/>
     <usesource source="2ndEdition"/>
     <tag group="Species" tag="spcBetazoid"/>
+    <bootstrap thing="tal2EEmpathy">
+      <containerreq phase="Initialize" priority="1500">Hero.IsEmpathic</containerreq>
+      <autotag group="Helper" tag="NoCost"/>
+      </bootstrap>
+    <bootstrap thing="tal2ETelepathy">
+      <containerreq phase="Initialize" priority="1500">Hero.IsTelepathic</containerreq>
+      <autotag group="Helper" tag="NoCost"/>
+      </bootstrap>
+    <eval phase="Initialize"><![CDATA[field[usrArray].arraytext[0] = "-- Choose --"
+field[usrArray].arraytext[1] = "Empathy"
+field[usrArray].arraytext[2] = "Telepathy"]]></eval>
+    <eval phase="Initialize" priority="1000" index="2"><![CDATA[doneif (field[usrSelect].isempty <> 0)
+
+if (compare(uppercase(field[usrSelect].text), "EMPATHY") = 0) then
+  perform hero.assign[Hero.IsEmpathic]
+elseif (compare(uppercase(field[usrSelect].text), "TELEPATHY") = 0) then
+  perform hero.assign[Hero.IsTelepathic]
+  endif]]></eval>
     </thing>
   <thing id="saHealthySusp" name="Healthy Suspicions" description="You may add 1 Threat when interacting with an NPC to ask the gamemaster if that NPC is lying about something. The gamemaster must answer either Yes or No, and this answer must be accurate, but the gamemaster does not have to specify what the NPC is lying about." compset="SpeciesAbility" uniqueness="unique">
     <usesource source="2ndEdition"/>

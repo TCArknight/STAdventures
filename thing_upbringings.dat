@@ -123,7 +123,7 @@
     <eval phase="PreAbility" priority="5000"><![CDATA[
 	trustme
 	
-	  if (#issecondedition[] <> 0) then
+	  if (#is2ndedition[] <> 0) then
 	    field[usrLabel1].text &= "Department:"
 	  else
 	    field[usrLabel1].text &= "Discipline:"

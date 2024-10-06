@@ -200,6 +200,10 @@
 
     <!-- If the resource is overspent, report a validation error -->
     <evalrule index="1" phase="Validate" priority="5000" message="Resource overspent"><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we aren't overspent, we're valid
       validif (field[resLeft].value >= 0)
 
@@ -211,6 +215,10 @@
 
     <!-- If the resource is underspent, report a validation warning -->
     <evalrule index="2" phase="Validate" priority="5000" severity="warning" message="Resource unspent"><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if this resource does not require full utilization, we're valid
       validif (tagis[Helper.NoMinimum] <> 0)
 

@@ -1133,7 +1133,7 @@
       portal[image].height = height - margin * 2
 
       ~cap our height at a maximum of three inches
-      portal[image].height = minimum(portal[image].height,900)
+      portal[image].height = minimum(portal[image].height,450)
 
       ~optimally fit the image to the region available
       perform portal[image].imagefit
@@ -1450,7 +1450,6 @@
       height = autoextent
       ]]></position>
     </layout>
-
 
   <!-- oRightSide layout
         This layout is rendered down the right side of the sheet and contains the

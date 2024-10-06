@@ -7,9 +7,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="2"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talCmdShip"/>
     <tag group="MisProTal" tag="talDiploSu"/>
     <tag group="MisProTal" tag="talEWS"/>
@@ -23,9 +21,7 @@
     <fieldval field="proMed" value="1"/>
     <fieldval field="proSecur" value="2"/>
     <fieldval field="proSci" value="3"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talImpRCS"/>
     <tag group="MisProTal" tag="talImpWarp"/>
     <tag group="MisProTal" tag="talRuggDes"/>
@@ -38,9 +34,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="2"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talAdvShld"/>
     <tag group="MisProTal" tag="talBackEPS"/>
     <tag group="MisProTal" tag="talHighRes"/>
@@ -55,9 +49,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="3"/>
     <fieldval field="proSci" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talAblaAr"/>
     <tag group="MisProTal" tag="talFastTar"/>
     <tag group="MisProTal" tag="talImpDamC"/>
@@ -72,9 +64,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="1"/>
     <fieldval field="proSci" value="3"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talAdvRese"/>
     <tag group="MisProTal" tag="talAdvSenS"/>
     <tag group="MisProTal" tag="talHighRes"/>
@@ -88,9 +78,7 @@
     <fieldval field="proMed" value="3"/>
     <fieldval field="proSecur" value="2"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talAdvSick"/>
     <tag group="MisProTal" tag="talEMH"/>
     <tag group="MisProTal" tag="talExtShut"/>
@@ -104,9 +92,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="2"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talImpHull"/>
     <tag group="MisProTal" tag="talImpPowS"/>
     <tag group="MisProTal" tag="talRedSys"/>
@@ -121,7 +107,7 @@
     <fieldval field="proMed" value="1"/>
     <fieldval field="proSecur" value="3"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talCmdShip"/>
     <tag group="MisProTal" tag="talFastTar"/>
     <tag group="MisProTal" tag="talImpDamC"/>
@@ -136,7 +122,7 @@
     <fieldval field="proMed" value="3"/>
     <fieldval field="proSecur" value="1"/>
     <fieldval field="proSci" value="1"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talBackEPS"/>
     <tag group="MisProTal" tag="talExtShut"/>
     <tag group="MisProTal" tag="talImpPowS"/>
@@ -150,7 +136,7 @@
     <fieldval field="proMed" value="3"/>
     <fieldval field="proSecur" value="1"/>
     <fieldval field="proSci" value="3"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talExtShut"/>
     <tag group="MisProTal" tag="talAdvSick"/>
     <tag group="MisProTal" tag="talUPAdvTransport"/>
@@ -164,7 +150,7 @@
     <fieldval field="proMed" value="3"/>
     <fieldval field="proSecur" value="2"/>
     <fieldval field="proSci" value="1"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talAdvSick"/>
     <tag group="MisProTal" tag="talDiploSu"/>
     <tag group="ShipType" tag="typStarship"/>
@@ -176,7 +162,7 @@
     <fieldval field="proMed" value="1"/>
     <fieldval field="proSecur" value="3"/>
     <fieldval field="proSci" value="3"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talHighRes"/>
     <tag group="MisProTal" tag="talImpRCS"/>
     <tag group="MisProTal" tag="talUPSlimSensSil"/>
@@ -190,7 +176,7 @@
     <fieldval field="proMed" value="1"/>
     <fieldval field="proSecur" value="3"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talUPDedSubSpaceA"/>
     <tag group="MisProTal" tag="talDiploSu"/>
     <tag group="MisProTal" tag="talRedSys"/>
@@ -204,7 +190,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="1"/>
     <fieldval field="proSci" value="1"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talImpWarp"/>
     <tag group="MisProTal" tag="talRuggDes"/>
     <tag group="MisProTal" tag="talExtShut"/>
@@ -217,7 +203,7 @@
     <fieldval field="proMed" value="2"/>
     <fieldval field="proSecur" value="3"/>
     <fieldval field="proSci" value="2"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talHighRes"/>
     <tag group="MisProTal" tag="talImpPowS"/>
     <tag group="MisProTal" tag="talFastTar"/>
@@ -230,6 +216,7 @@
     <fieldval field="proMed" value="3"/>
     <fieldval field="proSecur" value="1"/>
     <fieldval field="proSci" value="2"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talAdvSick"/>
     <tag group="MisProTal" tag="talExtShut"/>
     <tag group="MisProTal" tag="talImpHull"/>
@@ -243,7 +230,7 @@
     <fieldval field="proMed" value="1"/>
     <fieldval field="proSecur" value="3"/>
     <fieldval field="proSci" value="1"/>
-    <usesource source="UtopiaPlanetia"/>
+    <usesource source="1stEdition"/>
     <tag group="MisProTal" tag="talUPExpMunitions"/>
     <tag group="MisProTal" tag="talFastTar"/>
     <tag group="MisProTal" tag="talImpDamC"/>

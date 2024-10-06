@@ -57,7 +57,8 @@
             (e.g. attack penalties after taking sufficient damage).
       -->
       <calculate phase="Stress" priority="1000" name="Calc acStressMin"><![CDATA[
-        @value = #abilfinal[attrsys03] + #abilfinal[discdept03] + #abilinplay[trStress]
+        @value = #abilfinal[attrsys03] + #abilinplay[trStress] 
+		@value += #abilfinal[discdept03] * #is1stedition[]
         ]]></calculate>
       </field>
 
@@ -310,7 +311,7 @@
 		
       field[acASHdrTxt].text = temp
 		
-      if (#issecondedition[] <> 0) then
+      if (#is2ndedition[] <> 0) then
         temp = "Department"
 	  else
 	    if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] <> 0) then
@@ -350,18 +351,49 @@
 		
       ~Set Expression Helper Fields
       if (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0) then
-        hero.child[ExprHelp].field[ehTraitExp].text = "TraitCat.Ship"
-		hero.child[ExprHelp].field[ehTalExp].text = "TalentCat.Ship"
+        hero.child[ExprHelp].field[ehTraitExp].text = "!Hide.Trait & TraitCat.Ship"
+		hero.child[ExprHelp].field[ehTalExp].text = "!Hide.Talent & TalentCat.Ship"
       else
-        hero.child[ExprHelp].field[ehTraitExp].text = "!TraitCat.Ship"
-        hero.child[ExprHelp].field[ehTalExp].text = "!TalentCat.Ship"
+        hero.child[ExprHelp].field[ehTraitExp].text = "!Hide.Trait & !TraitCat.Ship"
+        hero.child[ExprHelp].field[ehTalExp].text = "!Hide.Talent & !TalentCat.Ship"
         endif
 		
       ]]></eval>
+	  
+    <eval value="6" phase="Effects" priority="149" name="Prepare First Copy"><![CDATA[
+      ~This eval script is meant to foreach through all the class specials
+      ~and mark each as a FirstCopy or not. We do this with a foreach rather
+      ~than a component script so that we can proceed from the lower level
+      ~copies to the higher level copies, ensuring that Helper.FirstCopy ends
+      ~up on the lowest level copy that is not disabled or replaced.
+	  
+      foreach pick in hero from xCopyTracker where "!Helper.SpcDisable"
+        ~For things which are multiple copies, each independant, all of them are "first" copies.
+        if (eachpick.tagis[Helper.MultiCopy] <> 0) then
+          perform eachpick.assign[Helper.FirstCopy]
+        else
+          ~add the first active thing we found to our quick list - if quickadd
+          ~returns nonzero, we were the first version, so add the "first copy" tag
+          ~to ourselves.
+          ~NOTE: at this point, we'll assume that the first copy is the only copy -
+          ~the OnlyCopy tag is deleted in the "Determine First Copy" script if
+          ~there's more than one.
+          if (eachpick.quickadd <> 0) then
+            perform eachpick.assign[Helper.FirstCopy]
+            perform eachpick.assign[Helper.OnlyCopy]
+            perform eachpick.quickadd
+            endif
+          endif
+        nexteach
+
+      ~The next step is going to take place in the BaseClSpec component script.
+      ]]></eval>
+
   
     <!-- Hide inactive tabs until needed -->
-    <eval index="6" phase="Final" priority="1000"><![CDATA[
-      perform hero.assign[HideTab.advances]
+    <eval index="7" phase="Final" priority="1000"><![CDATA[
+      perform hero.assign[HideTab.talents]
+      perform hero.assign[HideTab.event]
       ]]></eval>
 
     <!-- Report a validation error if no selection has been made for a lifepath selection -->
@@ -375,17 +407,39 @@
 	  steps += hero.tagis[IsSpecies.?]
 	  steps += hero.tagis[HasEnviron.?]
 	  steps += hero.tagis[HasUpbring.?]
-	  steps += hero.tagis[HasAcademy.?]
-	  steps += hero.tagis[HasCareer.?]
 	  
+	  if (#is1stedition[] <> 0) then
+	    steps += hero.tagis[HasAcademy.?]
+	    steps += hero.tagis[HasCareer.?]
+
+	  elseif (#is2ndedition[] <> 0) then
+	    steps += hero.tagis[HasCareerPath.?]
+	    steps += hero.tagis[HasCareer.?]
+	  
+	    endif
+		
 	  validif (steps >= 5)
-	  
       ~mark lifepath tabs as invalid
       container.panelvalid[lifepath] = 0
       ]]></evalrule>
 
     <!-- Report a validation error if no selection has been made for a lifepath selection -->
-    <evalrule index="2" phase="Validate" priority="10000" message="No Ship Frame selected." summary="Select Ship Frame!"><![CDATA[
+    <evalrule index="2" phase="Validate" priority="10000" message="Not enough Career Event selections made." summary="Select career events!"><![CDATA[
+      ~if we're not using the lifepath, we're good.
+	  validif (hero.tagis[CreateMethod.Lifepath] = 0)
+	  
+	  var steps as number
+	  steps = 0
+	  
+	  steps += hero.tagcount[Event.?]
+		
+	  validif (steps >= 2)
+      ~mark lifepath tabs as invalid
+      container.panelvalid[lifepath] = 0
+      ]]></evalrule>
+
+    <!-- Report a validation error if no selection has been made for a lifepath selection -->
+    <evalrule index="3" phase="Validate" priority="10000" message="No Ship Frame selected." summary="Select Ship Frame!"><![CDATA[
       ~if we're not using the starship creation, we're good.
 	  validif (hero.tagis[ShowTab.Starship] = 0)
 	  
@@ -401,7 +455,7 @@
 	  
       ]]></evalrule>
 	  
-    <evalrule index="3" phase="Validate" priority="10000" message="No Mission Profile selected." summary="Select Mission Profile!"><![CDATA[
+    <evalrule index="4" phase="Validate" priority="10000" message="No Mission Profile selected." summary="Select Mission Profile!"><![CDATA[
       ~if we're not using the starship creation, we're good.
 	  validif (hero.tagis[ShowTab.Starship] = 0)
 	  
@@ -767,11 +821,20 @@
           endif
         ]]></finalize>
       </field>
+	  
     <field
       id="perGenUser"
       name="Gender"
       type="user"
       maxlength="100">
+      </field>
+
+    <!-- Skin color -->
+    <field
+      id="perPronoun"
+      name="Pronouns"
+      maxlength="25"
+      type="user">
       </field>
 
     <!-- Hair color -->
@@ -830,7 +893,7 @@
     id="SpecialRule"
     name="Special Rule"
 	autocompset="no"
-	panellink="traits"
+	panellink="talenttraits"
 	hasshortname="yes">
 
     <!-- Pastime -->

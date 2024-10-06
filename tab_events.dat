@@ -208,7 +208,7 @@
     marginhorz="5"
     marginvert="5"
     order="55">
-    <live>HasCareer.?</live>
+    <live>HasCareer.? &amp; !HideTab.event</live>
     <layoutref layout="events"/>
     <position><![CDATA[
       ]]></position>

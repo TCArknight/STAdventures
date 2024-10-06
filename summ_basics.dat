@@ -55,12 +55,12 @@
     style="tblInvisSm">
     <table_fixed
       component="Focus"
-      showtemplate="SimpleItem"
+      showtemplate="focShow"
       showsortset="explicit"
       scrollable="no"
 	  alwaysupdate="yes">
       <headertitle><![CDATA[
-      @text = #summtitle_decoration[] & " Focus " & #summtitle_decoration[]
+      @text = #summtitle_decoration[] & " Focuses " & #summtitle_decoration[]
       ]]></headertitle>
       </table_fixed>
     </portal>
@@ -143,6 +143,36 @@
       ]]></position>
     </template>
 
+  <!-- smTalent template
+        This template shows the names of each special ability ability, providing
+        mouse-over behavior to show the details of each ability.
+  -->
+  <template
+    id="focShow"
+    name="Summary Focus Pick"
+    compset="Focus">
+
+    <portal
+      id="name"
+      style="lblSummary">
+      <label
+        field="name">
+        </label>
+      <mouseinfo/>
+      </portal>
+
+    <position><![CDATA[
+      ~set up our height based on our tallest portal
+      height = portal[name].height
+
+      ~if this is a "sizing" calculation, we're done
+      doneif (issizing <> 0)
+
+      ~the name is the only portal to position
+      portal[name].left = 0
+      portal[name].top = 0
+      ]]></position>
+    </template>
   <!-- smBasics layout
         This layout contains the table of attributes and derived traits for the
         character.
@@ -151,14 +181,13 @@
     id="smBasics">
     <portalref portal="smAttrSys"/>
     <portalref portal="smDiscDept"/>
+    <portalref portal="smFocus"/>
 
     <position><![CDATA[
       ~position and size the tables to span the full layout
-	  portal[smAttrSys].width = width
-	  portal[smDiscDept].width = portal[smAttrSys].width
-	  
-	  portal[smAttrSys].top = 0
-      portal[smDiscDept].top = portal[smAttrSys].bottom + 10
+	  perform portal[smAttrSys].autoplace
+	  perform portal[smDiscDept].autoplace[10]
+	  perform portal[smFocus].autoplace[10]
 	  
       ]]></position>
 

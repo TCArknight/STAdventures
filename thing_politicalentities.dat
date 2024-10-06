@@ -72,6 +72,34 @@
     description="Description here.">
     </thing>
   <thing
+    id="Cardassian"
+    name="Cardassian"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Ferengi"
+    name="Ferengi"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Talaxian"
+    name="Talaxian"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
+    id="Tzenkethi"
+    name="Tzenkethi"
+    compset="Polity"
+    isunique="yes"
+    description="Description here.">
+    </thing>
+  <thing
     id="VulcanPreFed"
     name="Vulcan (Pre-Federation)"
     compset="Polity"

@@ -80,7 +80,7 @@
       style="lblNormal">
       <label>
         <labeltext><![CDATA[
-          @text = field[grCost].text
+          @text = field[grCostTags].text
           ]]></labeltext>
         </label>
       </portal>
@@ -141,6 +141,14 @@
         </edit>
       </portal>
 
+    <portal
+      id="cost"
+      style="lblLeft">
+      <label
+        field="grCostTags">
+        </label>
+      </portal>
+	  
     <portal
       id="container"
       style="imgNormal">
@@ -213,15 +221,19 @@
       perform portal[delete].centervert
       perform portal[container].centervert
       perform portal[heldby].centervert
+      perform portal[cost].centervert
 
       ~position the delete portal on the far right
       perform portal[delete].alignedge[right,0]
 
       ~position the info portal to the left of the delete button
-      perform portal[info].alignrel[rtol,delete,-8]
+      perform portal[info].alignrel[rtol,delete,-4]
 
       ~position the gear portal to the left of the info button
-      perform portal[gearmanage].alignrel[rtol,info,-8]
+      perform portal[gearmanage].alignrel[rtol,info,-4]
+
+      ~position the cost portal to the left of the manage button
+      perform portal[cost].alignrel[rtol,gearmanage,-4]
 
       ~calculate the space to reserve for the various indicators
       var reserve as number
@@ -237,7 +249,7 @@
 
       ~position the name on the left and let it use all available space
       var limit as number
-      limit = portal[gearmanage].left - 8 - reserve
+      limit = portal[cost].left - 4 - reserve
       portal[name].left = 0
       portal[name].width = minimum(portal[name].width,limit)
 

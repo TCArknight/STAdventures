@@ -154,7 +154,7 @@
       style="lblBrightLeft">
       <label>
 	    <labeltext><![CDATA[
-          @text = "Qualities: " & field[wpQualSumm].text
+          @text = "Qualities: " & field[wpShipWpnQuals].text
           ]]></labeltext>
         </label>
       </portal>
@@ -174,6 +174,8 @@
 		  
 		  if (compare(left(summ,2),"* ") = 0) then
 		    txt = mid(summ,2,lng)
+		  elseif (compare(left(summ,8),"Strength") = 0) then
+		    txt = summ
 		  else
 		    txt = "Damage: " & summ
 		    endif
@@ -188,7 +190,7 @@
       style="lblBrightLeft">
       <label>
         <labeltext><![CDATA[
-          @text = "Range: " & field[wpSRange].text
+          @text = "Range: " & field[wpShipWpnRange].text
           ]]></labeltext>
         </label>
       </portal>
@@ -259,14 +261,14 @@
       ~position the attack portal to the left of damage column; we want the
       ~attack to be centered in its own column relative to a centerpoint position
       perform portal[damage].alignedge[left,0]
-	  portal[damage].width = width/2 - 5
+	  portal[damage].width = width/4
 	  ~.centerpoint[horz,210]
 	  
-      portal[quality].width = portal[damage].width
-	  perform portal[quality].alignrel[ltor,damage,8]
+	  perform portal[quality].alignrel[ltor,damage,5]
+      portal[quality].width = width - portal[quality].left
 
       ~if this is not a energy weapon, hide the range portal
-      portal[range].visible = tagis[component.StarshipWeapon]
+      portal[range].visible = tagis[component.BaseWeaponShip]
 	  
 	  portal[wepSep].top = portal[damage].bottom + 10
 	  portal[wepSep].width = width/2

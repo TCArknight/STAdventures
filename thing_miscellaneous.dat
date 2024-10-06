@@ -85,7 +85,9 @@
   <thing
     id="resTalent"
     name="Talent Slots"
-    compset="Resource">
+    compset="Resource"
+	panellink="talenttraits"
+	>
     <fieldval field="resObject" value="Talent"/>
 
     <!-- Automatically add the resource to every actor -->
@@ -225,7 +227,7 @@
 	
   <!-- Focus slot resource to track the pool of focus slots being spent -->
   <thing
-    id="resShipRef"
+    id="resShipRefits"
     name="Ship Refits"
     compset="Resource">
     <fieldval field="resObject" value="Refit"/>
@@ -243,9 +245,9 @@
 	  var systemPoints as number
 	  
 	  field[resMax].value = 0
-	  
+	  	  
 	  ~If we're not a starship, we're good
-	  doneif (#ischaracter[] <> 0  )
+	  doneif (#isstarship[] = 0  )
 	  
 	  ~If we haven't chosen a frame, we're good
 	  doneif (hero.tagis[IsFrame.?] = 0)
@@ -256,6 +258,10 @@
 	  yearSteps = (startYear - launchYear) / 10
       adjSteps = round(yearSteps,0,-1)
 	  
+	  if (adjSteps >= 1) then
+	    perform hero.assign[ShipSelectAllow.Refit]
+	    endif
+		
       field[resMax].value += adjSteps
 	  
 	  ~ increase system points by adjsutment
@@ -381,16 +387,31 @@
     compset="Tracker"
     description="Player Characters begin each session with a single point of Determination, and no character can have more than three points of Determination at any time. Using and gaining Determination is tied to a character’s Values, and to the Directives in play during a mission.">
 
-    <!-- Automatically add the tracker to every actor -->
-    <tag group="Helper" tag="Bootstrap"/>
-
     <!-- Resetting the tracker sets the value to the maximum -->
     <tag group="Helper" tag="ResetMax"/>
 
     <!-- Use the starting power points as our initial maximum -->
     <eval index="1" phase="Final" priority="1000"><![CDATA[
-      field[trkMin].value = 1	
+      field[trkMin].value = 0	  
       field[trkMax].value = #abilfinal[trDetermination]
+      ]]></eval>
+    </thing>
+
+  <!-- Reserve Power tracker -->
+  <thing
+    id="trkReservePower"
+    name="Reserve Power?"
+    compset="Tracker"
+    description="For starships, reserve power is present of not.">
+
+    <!-- Resetting the tracker sets the value to the maximum -->
+    <tag group="Helper" tag="TrackYesNo"/>
+    <tag group="Helper" tag="ResetMax"/>
+
+    <!-- Use the starting power points as our initial maximum -->
+    <eval index="1" phase="Final" priority="1000"><![CDATA[
+      field[trkMin].value = 0	  
+      field[trkMax].value = 1
       ]]></eval>
     </thing>
 
@@ -400,6 +421,7 @@
     id="typMain"
     name="Type: Character (Main)"
     compset="CharType"> 
+    <bootstrap thing="trkDetermination"></bootstrap>
     <bootstrap thing="wpUnarmed">
 	  <containerreq phase="Initialize" priority="2000">
 		hero#source.1stEdition
@@ -421,23 +443,52 @@
     id="typSupport"
     name="Type: Character (Supporting)"
     compset="CharType">
-    <bootstrap thing="wpUnarmed"></bootstrap>
+    <bootstrap thing="trkDetermination"></bootstrap>
+    <bootstrap thing="wpUnarmed">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.1stEdition
+		</containerreq>
+	  </bootstrap>
+    <bootstrap thing="wp2EUnarmed">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
+	  </bootstrap>
     </thing>
 	
   <thing
     id="typNPC"
     name="Type: Character (NPC)"
     compset="CharType">
-    <bootstrap thing="wpUnarmed"></bootstrap>
+    <bootstrap thing="wpUnarmed">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.1stEdition
+		</containerreq>
+	  </bootstrap>
+    <bootstrap thing="wp2EUnarmed">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
+	  </bootstrap>
     </thing>
 	
   <thing
     id="typStarship"
     name="Type: Starship"
     compset="CharType">
+    <bootstrap thing="trkReservePower">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
+	  </bootstrap>
 	<!-- Use the Starship creation tab by default -->
     <eval index="1" phase="Initialize" priority="1000"><![CDATA[
 	  perform hero.assign[ShowTab.Starship]
+	  
+	  ~ Starships require Frame, Mission Profile, Optional Service Record
+	  perform hero.assign[ShipSelectAllow.Frame]
+	  perform hero.assign[ShipSelectAllow.Profile]
+	  perform hero.assign[ShipSelectAllow.Service]
       ]]></eval>
     </thing>
 	
@@ -445,9 +496,22 @@
     id="typSmallCraft"
     name="Type: Small Craft"
     compset="CharType">
+    <bootstrap thing="trkReservePower">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
+	  </bootstrap>
+    <bootstrap thing="tr2ESmallCraft">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
+	  </bootstrap>
 	<!-- Use the Starship creation tab by default -->
     <eval index="1" phase="Initialize" priority="1000"><![CDATA[
 	  perform hero.assign[ShowTab.Starship]
+	  
+	  ~ Starships require Frame, Mission Profile, Optional Service Record
+	  perform hero.assign[ShipSelectAllow.Frame]
       ]]></eval>
     </thing>
 	
@@ -455,6 +519,12 @@
     id="typStarbase"
     name="Type: Starbase"
     compset="CharType">
+    <usesource source="1stEdition"/>
+    <bootstrap thing="trkReservePower">
+	  <containerreq phase="Initialize" priority="2000">
+		hero#source.2ndEdition
+		</containerreq>
+	  </bootstrap>
 	<!-- Use the Starship creation tab by default -->
     <eval index="1" phase="Initialize" priority="1000"><![CDATA[
 	  perform hero.assign[ShowTab.Starship]

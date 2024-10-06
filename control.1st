@@ -70,9 +70,30 @@
         data files to tailor behavior based on the presence (or not) of that tag.
   -->
 
+  <!-- Supplements for 2nd Edition -->	
+  <source
+    id="Supplement2E"
+    name="Supplements (2E)"
+    selectable="no"
+	sortorder="0"
+    description="Supplements for the game.">
+    </source>
+
+  <source
+    id="GameToolkit"
+    name="Game Toolkit"
+    parent="Supplement2E"
+    default="no"
+    reportable="no"
+    selectable="yes"
+    sortorder="1"
+    description="Options from the 2E Game Toolkit">
+    </source>
+	
+  <!-- Supplements for 1st Edition -->	
   <source
     id="Supplement"
-    name="Supplements"
+    name="Supplements (1E)"
     selectable="no"
 	sortorder="0"
     description="Supplements for the game.">
@@ -159,8 +180,18 @@
     parent="Campaigns"
     default="no"
     reportable="no"
-    sortorder="2"
+    sortorder="3"
     description="Options from the Shackleton Expanse Campaign Guide">
+    </source>
+	
+  <source
+    id="Discovery"
+    name="Discovery Campaign Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    sortorder="2"
+    description="Options from the Star Trek: Discovery Campaign Guide (2256-2258)">
     </source>
 	
   <source
@@ -590,7 +621,13 @@
 	
   <!-- FrameSort - Species sortset -->
   <sortset id="FrameSort" name="Starship Frame Sort">
+    <sortkey isfield="no" id="ShipAlliance"/>
     <sortkey isfield="no" id="ShipType"/>
+    <sortkey isfield="no" id="_Name_"/>
+    </sortset>
+	
+  <!-- FrameSort - Species sortset -->
+  <sortset id="FrameByAlliance" name="Starship Frame by Alliance">
     <sortkey isfield="no" id="ShipAlliance"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
@@ -609,4 +646,5 @@
     <sortkey isfield="no" id="ShipWepCat"/>
     <sortkey isfield="no" id="_Name_"/>
     </sortset>
+	
   </document>

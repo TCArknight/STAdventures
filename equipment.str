@@ -109,7 +109,18 @@
       defvalue="0"
       type="static">
       </field>
-
+    <!-- Gear lot cost - used when you have a set of items that are priced in
+          the rulebook as $X for Y items. For example, if 30 bullets cost $10,
+          we want 3 bullets to cost $1, but setting grCost to $.33 would yield
+          a cost of $0.99. So we specify the lot cost and everything works.
+    -->
+    <field
+      id="grCostTags"
+      name="Gear Cost by Tags"
+      type="derived"
+	  maxlength="75">
+      </field>
+	  
     <!-- Initialize the gear characteristics from our transaction pick (if any) -->
     <creation><![CDATA[
       ~if we don't have a transaction pick to initialize from, bail out; this can
@@ -147,6 +158,19 @@
 
       ~accrue the net weight of this piece of gear into the character
       ~#resspent[resourceid] += field[gearNet].value
+      ]]></eval>
+
+    <!-- Accrue the weight of this item into the character, as appropriate -->
+    <eval index="2" phase="Effects" priority="10000" name="Accrue Weight"><![CDATA[
+      ~if this piece of gear is a topmost holder, ignore it - it's not on the character
+      doneif (tagis[GearCost.?] = 0)
+
+      ~ compile the text of the GearCost tags
+	  var tags as string
+	  tags = tagnames[GearCost.?,", "]
+	  
+	  field[grCostTags].text = tags
+	  
       ]]></eval>
 
     </component>
@@ -327,6 +351,7 @@
 		var noDmg as number
 		var shipWpn as number
 		var dmgTxt as string
+		var tractorbeam as number
 		
 		var shipscale as number
 		var tractStr as number
@@ -335,12 +360,14 @@
 		
 		totDmg = field[wpTotalDamage].value
 		noDmg = tagis[Weapon.NoDamage]
+		tractorbeam = tagis[ShipWepCat.TractorBeam]
+		
 	    effTags = tagnames[DmgEffect.?,", "] 
         shipscale = #shipscale[]
-		shipWpn = tagis[component.StarshipWeapon]
+		shipWpn = tagis[component.BaseWeaponShip]
 		
 		if (shipWpn <> 0) then
-		  tractStr = shipscale - 1 + field[wpSTracBonus].value
+		  tractStr = shipscale - 1 + field[wpShipTractBonus].value
 		  endif
 		
 		dmgTxt = ""
@@ -366,6 +393,7 @@
 		var noDmg as number
 		var shipWpn as number
 		var dmgTxt as string
+		var tractorbeam as number
 		
 		var shipscale as number
 		var tractStr as number
@@ -374,12 +402,13 @@
 		
 		totDmg = field[wpTotalDamage].value
 		noDmg = tagis[Weapon.NoDamage]
+		tractorbeam = tagis[ShipWepCat.TractorBeam]
 	    effTags = tagnames[DmgEffect.?,", "] 
         shipscale = #shipscale[]
-		shipWpn = tagis[component.StarshipWeapon]
+		shipWpn = tagis[component.BaseWeaponShip]
 		
 		if (shipWpn <> 0) then
-		  tractStr = shipscale - 1 + field[wpSTracBonus].value
+		  tractStr = shipscale - 1 + field[wpShipTractBonus].value
 		  endif
 		
 		dmgTxt = ""
@@ -400,76 +429,32 @@
 	  <!-- Final value for display is a blending of the various range values -->
       <finalize><![CDATA[
         var txt as string
-		var mySumm as string
-		var tags as string
-		var dmgAttr as number
-		var totD as number
-		var scale as number
+		var effTags as string
+		var totDmg as number
+		var noDmg as number
+		var shipWpn as number
+		var dmgTxt as string
+		var tractorbeam as number
+		
+		var shipscale as number
 		var tractStr as number
 		var sec as number
 		var delDmg as number
 		
-		~name of the weapon
-		mySumm = field[name].text & " ("
+		totDmg = field[wpTotalDamage].value
+		noDmg = tagis[Weapon.NoDamage]
+		tractorbeam = tagis[ShipWepCat.TractorBeam]
+	    effTags = tagnames[DmgEffect.?,", "] 
+        shipscale = #shipscale[]
+		shipWpn = tagis[component.BaseWeaponShip]
 		
-		~type of weapon
-		if (tagis[Armory.Melee] <> 0) then
-		  mySumm &= "Melee, "
-		else
-		  if (tagis[component.StarshipWeapon] <> 0) then
-		    mySumm &= field[wpSRange].text & ", "
-		  else
-		    mySumm &= "Ranged, "
-			endif
+		if (shipWpn <> 0) then
+		  tractStr = shipscale - 1 + field[wpShipTractBonus].value
 		  endif
 		
-		~damage rating
-		totD = field[wpTotalDamage].value
+        call WeaponDamageOS
 		
-		if (tagis[Weapon.NoDamage] <> 0) then
-	      txt = "*"
-		else
-		  txt = totD & "{meta bmpfull}{bmp StarTrekArrow}{revert}"
-          endif
-		
-		mySumm &= txt 
-		
-		~effects
-	    mySumm &= " "
-		
-		tags = tagnames[DmgEffect.?,", "]
-
-		foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  if (tagis[component.StarshipWeapon] <> 0) then
-		    tractStr = scale - 1 + field[wpSTracBonus].value
-			endif
-		nexteach
-		
-		tags = replace(tags, "Persistant X", "Persistant " & scale,0)
-		tags = replace(tags, "Strength X", "Strength " & tractStr,0)
-		
-		mySumm &= tags
-		
-		~ weapon size
-		if (tagis[component.StarshipWeapon] = 0) then
-		  if (tagis[Equipment.TwoHand] <> 0) then
-		    mySumm &= ", Size 2H,"
-		  else
-		    mySumm &= ", Size 1H,"
-		    endif
-		  endif
-		  
-        ~ qualities
-		txt = tagnames[GearQual.?,", "]
-		if (empty(txt) = 0) then
-		  mySumm &= "; " & txt
-          endif
-		  
-		mySumm &= ")"
-		
-	    @text = mySumm
-		
+	    @text = dmgTxt
 		
         ]]></finalize>
       </field>
@@ -574,6 +559,86 @@
       type="derived">
       </field>
 
+	  
+	<!-- Tractor Bonus Value (used for Tractor Beam Strength calculations) -->  
+    <field
+      id="wpWeaponBlock"
+      name="Summary Block for Output"
+      type="derived"
+      maxlength="150"
+	  maxfinal="150">
+	  
+	  <!-- Final value for display is a blending of the various weapon values -->
+      <finalize><![CDATA[
+	  
+	    if (tagis[component.BaswWeaponShip] = 0) then
+		  done
+		  endif
+		  
+	    ~declare variables that are used to communicate with our caller
+		var totDmg as number
+		var shipWpn as number
+		var shipscale as number
+		var effTags as string
+		var noDmg as number
+		var tractStr as number
+		var dmgTxt as string
+		var tractorbeam as number
+	
+		totDmg = field[wpTotalDamage].value
+		noDmg = tagis[Weapon.NoDamage]
+		tractorbeam = tagis[ShipWepCat.TractorBeam]
+	    effTags = tagnames[DmgEffect.?,", "] 
+        shipscale = #shipscale[]
+		shipWpn = tagis[component.BaseWeaponShip]
+		
+        var SummText as string
+		
+		var tags as string
+		
+		~ weapon name
+		SummText = "{b}" & field[name].text 
+		
+		if (#is2ndedition[] <> 0) then
+		  SummText &= ":{/b} "
+        else
+		  SummText &= "{/b} ("
+          endif		
+		
+		~ if a tractor beam, all we need is the Strength
+		tractStr = shipscale - 1 + field[wpShipTractBonus].value
+		
+		~ weapon type
+		if (tractorbeam = 0) then
+		  tags = tagnames[ShipWeaponType.?]
+	      if (shipWpn <> 0) then
+		    SummText &= tags & ", "
+		    endif
+		  endif
+		  
+		~ Damage
+		tags = tagnames[GearSize.?,"/"] 
+		
+		call WeaponDamage
+		SummText &= dmgTxt
+
+	    ~declare variables that are used to communicate with our sort procedure
+        var InputStr as string
+        var StrSep as string
+        var SortedStr as string
+
+		
+		~ weapon qualities
+		if (empty(field[wpShipWpnQuals].text) = 0) then
+		  SummText &= ","
+		  SummText &= field[wpShipWpnQuals].text
+		  endif
+		
+	    @text = SummText
+		
+        ]]></finalize>
+      </field>
+	  
     <!-- Weapons require one hand by default (unless natural) -->
     <tag group="Equipment" tag="Hand"/>
 	
@@ -585,7 +650,7 @@
 	  var tagexpr as string
 	  
 	  
-	  if (#isfirstedition[] <> 0) then
+	  if (#is1stedition[] <> 0) then
 	    attribute = #command[]
 	    discipline = #security[]
 	  
@@ -610,7 +675,7 @@
 		  
 	      endif
 	 
-	  elseif (#issecondedition[] <> 0) then 
+	  elseif (#is2ndedition[] <> 0) then 
 	    if (tagis[component.WeapMelee] <> 0) then
 	      attribute = #daring[]
 	      discipline = #security[]
@@ -619,7 +684,7 @@
 	      attribute = #control[]
 	      discipline = #security[]
 		  
-        elseif (tagis[component.StarshipWeapon] <> 0) then
+        elseif (tagis[component.BaseWeaponShip] <> 0) then
 	      attribute = #weapons[]
 	      discipline = #security[]
           
@@ -646,39 +711,31 @@
 	  var discipline as number
 	  var tagexpr as string
 	  
-	  if (#isfirstedition[] <> 0) then
-        ~ damage from attribute/discipline
-	    dmgAttr = #ability[discdept03]
+	  if (#isstarship[] + #issmallcraft[] + #isstarbase[] = 0) then
 	  
-	    ~ check for alternate attribute values to use
-	    if (tagcount[AltDamage.?] <> 0) then		
-	      ~ check for alternate discipline values to use
-	      tagexpr = tagids[AltDamage.discdept?,"|"]
-		  foreach pick in hero from DiscDept where tagexpr
-		    if (eachpick.field[abiFinal].value > dmgAttr) then
-		      dmgAttr = eachpick.field[abiFinal].value
-		      endif
-		    nexteach		
-          endif
+	    if (#is1stedition[] <> 0) then
+          ~ damage from attribute/discipline
+	      dmgAttr = #security[]
+	  
+	      ~ check for alternate attribute values to use
+	      if (tagcount[AltDamage.?] <> 0) then		
+	        ~ check for alternate discipline values to use
+	        tagexpr = tagids[AltDamage.discdept?,"|"]
+		    foreach pick in hero from DiscDept where tagexpr
+		      if (eachpick.field[abiFinal].value > dmgAttr) then
+		        dmgAttr = eachpick.field[abiFinal].value
+		        endif
+		      nexteach		
+            endif
 		
-	    totD = dmgAttr
+	      totD = dmgAttr
 	  
-	    foreach pick in hero where "component.ShipInfo"
-          scale = eachpick.field[shipScale].value
-		  nexteach
-
-        if (hero.tagis[CharType.typStarship] + hero.tagis[CharType.typSmallCraft] + hero.tagis[CharType.typStarbase] <> 0) then
-	      if (tagis[Weapon.NoScale] = 0) then
-		    totD += scale
-		    endif
-		  delDmg = tagvalue[Delivery.?]
-          totD += delDmg
-          endif
+          field[wpTotalDamage].value = totD
+		  endif
+      else
+	    field[wpTotalDamage].value = int(field[wpDamage].value)
 	    endif
 		
-	  totD += int(field[wpDamage].value)
-	  
-      field[wpTotalDamage].value = totD
 	  
       ]]></eval>
 	  
@@ -756,7 +813,7 @@
         if (tagis[Weapon.SpecRange] <> 0) then
           @text = "Special"
         else
-		  if (#issecondedition[] <> 0) then
+		  if (#is2ndedition[] <> 0) then
 		    @text = tagnames[WeaponRange.?,", "]
 		  else
             @text = field[wpShort].value & "/" & field[wpMedium].value & "/" & field[wpLong].value
@@ -767,6 +824,7 @@
 
     <!-- All ranged weapons get the same tag for sorting purposes -->
     <tag group="Armory" tag="Range"/>
+    <tag group="WeaponType" tag="Melee"/>
 
     <!-- Prepend any derived special notes to the appropriate field -->
     <eval index="2" phase="Render" priority="2000"><![CDATA[
@@ -792,11 +850,7 @@
 
     <!-- All melee weapons get the same tag for sorting purposes -->
     <tag group="Armory" tag="Melee"/>
-
-    <!-- All melee weapons get the appropriate tag -->
-    <eval index="1" phase="Setup" priority="5000"><![CDATA[
-      perform assign[Armory.Melee]
-      ]]></eval>
+    <tag group="WeaponType" tag="Melee"/>
 
     <!-- Calculate the net attack roll for the weapon -->
     <eval index="2" phase="Final" priority="7000" name="Calc wpNetAtk"><![CDATA[
@@ -1039,6 +1093,41 @@
     id="GearQuality"
     name="Gear Quality"
     autocompset="yes">
+
+    <!-- Value -->
+    <field
+      id="gqValue"
+      name="Quality Value"
+      type="derived"
+      minvalue="0"
+	  maxvalue="9">
+      </field>
+
+    <!-- Summary -->
+    <field
+      id="gqQualName"
+      name="Quality Name"
+      type="derived"
+      maxlength="50">
+      </field>
+	  
+    <!-- Assign any derived special notes to the appropriate field -->
+    <eval index="1" phase="Final" priority="1000"><![CDATA[
+      var txt as string
+	  var val as string
+
+      txt = field[name].text
+	  val = " " & field[gqValue].value
+	  
+	  if (field[gqValue].value > 0) then
+	    txt = replace(txt, " X", val, 0)
+		endif
+	
+	  ~notify txt
+	  
+	  field[gqQualName].text = txt
+      
+      ]]></eval>	
 	  
     </component>
 

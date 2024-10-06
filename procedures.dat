@@ -165,6 +165,7 @@
     var descript as string
     call Descript
     mouseinfo &= descript
+	
     ]]></procedure>
 
 
@@ -208,18 +209,6 @@
 
     ~based on the nature of the item, synthesize the appropriate details that are
     ~specific to the particular item type
-    iteminfo = ""
-    if (tagis[component.StarshipWeapon] <> 0) then
-      call InfoEnergy
-    elseif (tagis[component.WeapRange] <> 0) then
-      call InfoRange
-    elseif (tagis[component.WeapMelee] <> 0) then
-      call InfoMelee
-    elseif (tagis[component.Defense] <> 0) then
-      call InfoDef
-    elseif (tagis[component.Advance] <> 0) then
-      call InfoAdv
-      endif
 
 	var desc as string
 	if (tagis[component.AttrSys] <> 0) then
@@ -231,23 +220,24 @@
 	
     ~if this is a piece of gear, append proper info to the item-specific details
     if (tagis[component.Gear] <> 0) then
-      if (tagis[component.StarshipWeapon] = 0) then
-		~if this is a thing, append the cost
-		if (ispick = 0) then
-		  iteminfo &= "Cost: " & field[grCost].text & "{br}"
-		  endif
+	  iteminfo = ""
+	  
+	  if (tagis[component.BaseWeaponShip] <> 0) then
+        call InfoEnergy
+      elseif (tagis[component.WeapRange] <> 0) then
+        call InfoRange
+      elseif (tagis[component.WeapMelee] <> 0) then
+        call InfoMelee
+      elseif (tagis[component.Defense] <> 0) then
+        call InfoDef
+      elseif (tagis[component.Advance] <> 0) then
+        call InfoAdv
+        endif 
 
-		~append the item's weight
-		iteminfo &= "Weight: "
-		if (field[gearWeight].value > 0) then
-		  iteminfo &= field[gearWeight].text & " each"
-		else
-		  iteminfo &= chr(150)
-		  endif
-		iteminfo &= "{br}"
-		endif
       endif
-
+	  
+    debug "Iteminfo - " & iteminfo
+	
     ~append our item-specific info to the synthesized details text
     descript &= iteminfo
 
@@ -302,6 +292,9 @@
         endif
 
       endif
+	  
+    ~append any source tags
+    descript &=	"{br}{br}{b}Source: " & tagnames[usesource.?,", "]
     ]]></procedure>
 
 
@@ -317,6 +310,26 @@
 
     ~report the weapon bonus (omitting if there is none)
     iteminfo = ""
+	
+    if (#is1stedition[] <> 0) then
+	  call InfoWeaponStats
+	elseif (#is2ndedition[] <> 0) then
+	  call InfoWeaponStats2E
+	  endif
+	  
+    ]]></procedure>
+
+  <!-- Procedure InfoWeapSp
+        Generate special abilities specific to all weapons. This is separate from
+        the "InfoWeapon" procedure so that it can always be performed last. The
+        text is placed into the "iteminfo" variable for subsequent use by our caller.
+
+        Outbound parameter: iteminfo
+  -->  
+  <procedure id="InfoWeaponStats" context="info"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var iteminfo as string
+
     if (field[wpBonus].value <> 0) then
       iteminfo &= "Weapon Bonus/Penalty: "
       if (field[wpBonus].value > 0) then
@@ -333,10 +346,42 @@
 
 	~report the qualities of the weapon
     iteminfo &= "Qualities: " & field[wpQualSumm].text & "{br}"
-
+	  
     ]]></procedure>
+	
+  <procedure id="InfoWeaponStats2E" context="info"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var iteminfo as string
 
-
+    ~report any special details about the weapon (omitting if there are none)
+    var stats as string
+    stats &= "{b}Type:{/b} " & tagnames[WeaponType.?,", "] & "{br}"
+    stats &= "{b}Injury:{/b} " & tagnames[WeaponInjury.?,", "] & "{br}"
+    stats &= "{b}Severity:{/b} " & field[wpDamageSummary].text & "{br}"
+    stats &= "{b}Size:{/b} " & tagnames[GearSize.?,", "] & "{br}"
+	
+    stats &= "{b}Qualities:{/b} " 
+	if (empty(field[grCostTags].text) = 0) then
+	  stats &= field[wpQualSumm].text  
+    else
+	  stats &= chr(150) 
+	  endif
+	  
+	stats &= "{br}"  
+	
+	stats &= "{b}Cost:{/b} " 
+	if (empty(field[grCostTags].text) = 0) then
+	  stats &= field[grCostTags].text 
+    else
+	  stats &= chr(150) 
+	  endif
+	  
+	stats &= "{br}"
+	
+	iteminfo &= stats
+	  
+    ]]></procedure>
+	
   <!-- Procedure InfoWeapSp
         Generate special abilities specific to all weapons. This is separate from
         the "InfoWeapon" procedure so that it can always be performed last. The
@@ -390,7 +435,9 @@
     call InfoWeapon
 
     ~add the range details for the weapon
-    iteminfo &= "Range: " & field[wpRange].text & "{br}"
+	if (#is2ndedition[] = 0) then
+      iteminfo &= "{b}Range:{/b} " & field[wpRange].text & "{br}"
+	  endif
 
     ~finish with generic special abilities for all weapons
     call InfoWeapSp
@@ -410,7 +457,7 @@
     call InfoWeapon
 
     ~add the range details for the weapon
-    iteminfo &= "Range: " & field[wpSRange].text & "{br}"
+    iteminfo &= "Range: " & field[wpShipWpnRange].text & "{br}"
 
     ~finish with generic special abilities for all weapons
     call InfoWeapSp
@@ -781,9 +828,9 @@
       endif
     final = "Species: {b}" & info & "{/b}{br}{br}"
 
-    ~output our power point pool
+    ~output our determination point pool
     perform hero.child[trDetermination].setfocus
-    final &= "Power Points: {b}" & focus.field[abiFinal].text & " / " & focus.field[abiMaximum].text & "{/b}{br}{br}"
+    final &= "Determination: {b}" & focus.field[abiFinal].text & " / " & focus.field[abiMaximum].text & "{/b}{br}{br}"
 
     ~output our resistance traits
     foreach pick in hero where "User.Resistance"
@@ -984,6 +1031,7 @@
   -->
    <procedure id="WeaponDamage" scripttype="none"><![CDATA[
     ~declare variables that are used to communicate with our caller
+	
     var totDmg as number
     var shipWpn as number
     var shipscale as number
@@ -991,14 +1039,19 @@
     var noDmg as number
     var tractStr as number
     var dmgTxt as string
+    var tractorbeam as number
       
 	if (noDmg <> 0) then
-	  dmgTxt = "*"
-	else
-	  dmgTxt = totDmg 
+	  if (tractorbeam <> 0) then
+	    dmgTxt = "Strength " & tractStr
+	  else
+	    dmgTxt = "*"
+		endif
 	  
+	else
 	  ~ 1st Edition damage string
-	  if (#isfirstedition[] <> 0) then
+	  if (#is1stedition[] <> 0) then
+  	    dmgTxt = totDmg 
 	    dmgTxt &= " {size 40}{meta bmpfull}{bmp StarTrekArrow}{revert}"
 		
 		if (shipWpn <> 0) then
@@ -1009,8 +1062,11 @@
 		if (empty(dmgTxt) = 0) then
 		  dmgTxt &= " " & effTags
 		  endif
-		
-	    endif
+	
+	  elseif (#is2ndedition[] <> 0) then
+		~ damage of the weapon
+		dmgTxt &= "Damage " & totDmg
+        endif
 		
       endif
 
@@ -1031,14 +1087,20 @@
     var noDmg as number
     var tractStr as number
     var dmgTxt as string
+    var tractorbeam as number
       
 	if (noDmg <> 0) then
-	  dmgTxt = "*"
+	  if (tractorbeam <> 0) then
+	    dmgTxt = "Strength " & tractStr
+	  else
+	    dmgTxt = "*"
+		endif
 	else
-	  dmgTxt = totDmg 
 	  
 	  ~ 1st Edition damage string
-	  if (#isfirstedition[] <> 0) then
+	  if (#is1stedition[] <> 0) then
+	    ~ damage and Effect Dice + damage effects
+	    dmgTxt = totDmg 
 	    dmgTxt &= " [CD]"
 		
 		if (shipWpn <> 0) then
@@ -1050,12 +1112,190 @@
 		  dmgTxt &= " " & effTags
 		  endif
 		
+	  elseif (#is2ndedition[] <> 0) then
+		~ damage of the weapon
+		dmgTxt &= totDmg
+		  
+	    endif
+		
+      endif
+
+    ]]></procedure>	
+
+  <!-- Procedure WeaponDamageSB
+        Synthesize a damage entry for use in Statblocks/plain text.
+        
+		Inbound parameter: totDmg
+        Outbound parameter: dmgTxt
+  -->
+   <procedure id="WeaponDamageOS" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var totDmg as number
+    var shipWpn as number
+    var shipscale as number
+	var effTags as string
+    var noDmg as number
+    var tractStr as number
+    var dmgTxt as string
+    var tractorbeam as number
+      
+	if (noDmg <> 0) then
+	  if (tractorbeam <> 0) then
+	    dmgTxt = "Strength " & tractStr
+	  else
+	    dmgTxt = "*"
+		endif
+	else
+	  dmgTxt = totDmg 
+	  
+	  ~ 1st Edition damage string
+	  if (#is1stedition[] <> 0) then
+	    ~ damage and Effect Dice + damage effects
+	    dmgTxt = totDmg 
+	    dmgTxt &= " {size 40}{meta bmpfull}{bmp StarTrekArrow}{revert}"
+		
+		if (shipWpn <> 0) then
+		  effTags = replace(effTags, "Persistant X", "Persistant " & shipscale,0)
+		  effTags = replace(effTags, "Strength X", "Strength " & tractStr,0)
+	      endif
+		
+		if (empty(dmgTxt) = 0) then
+		  dmgTxt &= " " & effTags
+		  endif
+	  else
+		~ damage of the weapon
+		dmgTxt &= totDmg
+			  
 	    endif
 		
       endif
 
     ]]></procedure>	
 	
+  <!-- Procedure ResistStructBonus
+        
+        Outbound parameter: sysBonus
+  -->
+   <procedure id="ResistStructBonus" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var structBonus as number
+      
+	if (#structure[] <= 6) then
+	  structBonus = 0
+	elseif (#structure[] <= 8) then
+	  structBonus = 1
+	elseif (#structure[] <= 10) then
+	  structBonus = 2
+	elseif (#structure[] <= 12) then
+	  structBonus = 3
+	else 
+	  ~ 13 rating
+	  structBonus = 4
+	  endif
 
- 	
+    ]]></procedure>	
+
+  <!-- Procedure WeaponSysBonus
+        
+        Outbound parameter: sysBonus
+  -->
+   <procedure id="WeaponSysBonus" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var sysBonus as number
+      
+	if (#weapons[] <= 6) then
+	  sysBonus = 0
+	elseif (#weapons[] <= 8) then
+	  sysBonus = 1
+	elseif (#weapons[] <= 10) then
+	  sysBonus = 2
+	elseif (#weapons[] <= 12) then
+	  sysBonus = 3
+	else 
+	  ~ 13 rating
+	  sysBonus = 4
+	  endif
+
+    ]]></procedure>	
+
+  <!-- Procedure ShipWpnDamage
+        
+		Inbound parameter: comp				- 1 if a ship's Energy Weapon, 0 if a torpedo
+		Inbound parameter: fixedBase		- 1 if has the Weapon.FixedBase tag
+		Inbound parameter: baseDmg			- base damage of the weapon
+		Inbound parameter: bonusDmg			- bonuses to the base damage
+		Inbound parameter: sysBonus			- result from the WeaponSysBonus proc.
+        Outbound parameter: totDamage		- total damage for the weapon
+  -->
+   <procedure id="ShipWpnDamage" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+	var comp as number
+	var fixedBase as number
+	var baseDmg as number
+	var bonusDmg as number
+	var sysBonus as number
+    var totDamage as number
+	
+	call WeaponSysBonus
+	
+	totDamage = baseDmg
+	totDamage += bonusDmg
+	
+	if (#is1stedition[] <> 0) then
+	  ~ For 1st Edition, Starship weapon damage is:
+	  
+      if (fixedBase = 1) then
+	    totDamage = #security[]
+	    endif
+		
+	elseif (#is2ndedition[] <> 0) then
+	  ~ For 2nd Edition, Starship weapon damage is:
+	  ~ Base Damage + Bonus Damage + 
+	  ~ Damage Bonus based on Weapons system rating
+	  ~ ( Bonus Damage is Energy Weapon Delivery System and ship scale if an Energy weapon) 
+	  
+	  totDamage += ( comp * #shipscale[] )
+	  totDamage += sysBonus
+	  endif
+
+    ]]></procedure>
+
+  <!-- Procedure StringSort
+        
+        Inbound parameter: InputStr
+        Inbound parameter: StrSep 
+        Outbound parameter: OutputStr
+  -->
+   <procedure id="StringSort" scripttype="none"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var InputStr as string
+    var StrSep as string
+    var SortedStr as string
+
+    var tempStr as string
+	var loc as number
+	var i as number
+	
+	~ length of pieces
+	var sublen as number
+		
+	~ if StrSep not defined, then set it to be a comma,
+	~ otherwise use the StrSep defined
+	if (empty(StrSep) <> 0) then
+	  StrSep = ", "
+	  endif
+	  	
+	~ replace any StrSep in input with "%"
+    i = lastpos(InputStr,StrSep)
+	if (i > -1) then
+	  tempStr = replace(InputStr,StrSep, "%", 0)
+	  
+	else 
+	  tempStr = InputStr
+	  endif
+	  
+	SortedStr = tempStr
+	
+    ]]></procedure>	
+	
   </document>

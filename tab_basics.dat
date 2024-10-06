@@ -29,7 +29,7 @@
       <headertitle><![CDATA[
         @text = herofield[acASHdrTxt].text
 		
-		doneif (hero.tagis[Helper.UserUnlock] = 0)
+		doneif (state.iscreate = 0)
 		
         @text &= "  -  " & hero.child[resAttrib].field[resSummary].text
         ]]></headertitle>
@@ -52,7 +52,7 @@
       <headertitle><![CDATA[
         @text = herofield[acDDHdrTxt].text
 		
-		doneif (hero.tagis[Helper.UserUnlock] = 0)
+		doneif (state.iscreate = 0)
 		
         @text &= "  -  " & hero.child[resDiscip].field[resSummary].text
         ]]></headertitle>
@@ -313,7 +313,7 @@
         field="abiUser">
         </incrementer>
       <mouseinfo><![CDATA[
-        if (hero.tagis[mode.creation] = 0) then
+        if (state.iscreate = 0) then
           @text = "Attributes must be modified via the Advances tab once the character is locked for play."
         elseif (autonomous = 0) then
           @text = "This trait has been improved via the Advances tab and cannot be modified further from here."
@@ -348,13 +348,13 @@
 
       ~freeze our value in advancement mode or if an advancement has modified us
       ~Note: All freezing must be done *before* any positioning is performed.
-      ~if (state.iscreate = 0) then
-      ~  portal[value].freeze = 1
-      ~  portal[display].freeze = 1
-      ~elseif (autonomous = 0) then
-      ~  portal[value].freeze = 1
-      ~  portal[display].freeze = 1
-      ~  endif
+      if (state.iscreate = 0) then
+        portal[value].freeze = 1
+        portal[display].freeze = 1
+      elseif (autonomous = 0) then
+        portal[value].freeze = 1
+        portal[display].freeze = 1
+        endif
 
       ~position our tallest portal at the top
       portal[info].top = 0
@@ -521,8 +521,16 @@
       <incrementer
         field="abiUser">
         </incrementer>
+      <mouseinfo><![CDATA[
+        if (state.iscreate = 0) then
+          @text = "Departments must be modified via the Advances tab once the character is locked for play."
+        elseif (autonomous = 0) then
+          @text = "This trait has been improved via the Advances tab and cannot be modified further from here."
+        else
+          @text = "Allocate points to this department by clicking on the arrows to increase/decrease the number of points assigned."
+          endif
+        ]]></mouseinfo>
       </portal>
-
     <portal
       id="display"
       style="lblLarge">

@@ -1,0 +1,1984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <fileinfo>
+    <info_history>09/20 - Game Toolkit Spaceframes, Profiles, Special Rules</info_history>
+    <info_todo>Core Spaceframes</info_todo>
+    </fileinfo>
+  <thing id="fra2ENX" name="NX" description="Designed and developed by Zefram Cochrane’s Warp Five Project and the joint Starfleet/United Earth Space Probe Agency NX Project, the NX class was groundbreaking in nearly every way. Its large saucer-like hull was different from earlier spherical or cylindrical hulls of most UESPA vessels. The ship also had two long warp nacelles connected to trailing pylons, isolating the experimental warp coils from the rest of the ship." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2151"/>
+    <fieldval field="fraCapabilities" value="At the time of its launch, the NX class was the fastest starship in service to United Earth. The spaceframe was capable of cruising at warp 4.5 and could produce emergency speeds of warp 5.2 in short bursts. In an era before energy shielding, the spaceframe boasted an impressive amount of polarized hull-plating that helped protect the inner hull and inhabited areas. The spaceframe had the capability of launching two shuttlepods, with a third held in reserve."/>
+    <fieldval field="fraRefVar" value="NX-class vessels were used during the decade prior to the Earth-Romulan War and rarely afterward. The largest refit was conducted during the war, adding a secondary hull with an improved warp core and additional weapon systems."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Technical Testbed."/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraOverview" value="Designed and developed by Zefram Cochrane’s Warp Five Project and the joint Starfleet/United Earth Space Probe Agency NX Project, the NX class was groundbreaking in nearly every way. Its large saucer-like hull was different from earlier spherical or cylindrical hulls of most UESPA vessels. The ship also had two long warp nacelles connected to trailing pylons, isolating the experimental warp coils from the rest of the ship."/>
+    <fieldval field="fraNamConv" value="NX-class vessels utilize names from famous Earth ships—both maritime vessels and early spacecraft—often names with long legacies. NX-class vessels have registries that begin with NX, and are numbered sequentially."/>
+    <fieldval field="fraComm" value="5"/>
+    <fieldval field="fraComp" value="5"/>
+    <fieldval field="fraEngine" value="6"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="ENT"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="UnitedEarth"/>
+    <bootstrap thing="trUEStarship"></bootstrap>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    <bootstrap thing="shGrapple2"></bootstrap>
+    <bootstrap thing="ssr2EGrappleCable"></bootstrap>
+    <bootstrap thing="ssr2EPolarHullPla"></bootstrap>
+    <bootstrap thing="tr2EClsNX"></bootstrap>
+    <bootstrap thing="sh2ESpatialTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaPulCan"></bootstrap>
+    </thing>
+  <thing id="ssr2EGrappleCable" name="Grappler Cable" description="The ship utilizes a physical cable with a magnetic hook at the end, in place of the graviton-based tractor beams used by ships in later eras. This functions as a tractor beam, but if the target breaks free, roll a d20: if you roll above the ship’s Weapons system, the cable is damaged, and cannot be used until repaired. Repairing the cable is treated as repairing a breach." compset="StarshipSpecial" summary="A physical cable with magnetic hook a tthe end which functions as a tractor beam. if the target breaks free, roll a d20: if you roll above the ship’s Weapons system, the cable is damaged, and cannot be used until repaired.">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="sh2EGrappleCable"></bootstrap>
+    </thing>
+  <thing id="ssr2EPolarHullPla" name="Polarized hull Plating" description="Vessels of this spaceframe lack deflector shields common to many other ships, and instead rely upon polarization of the hull plating to resist damage. The ship’s Shields track instead represents the state of the ship’s polarized hull. The ship’s Shields are equal to its Structure, with no additional modifiers. However, these do not count as shields for the purposes of blocking transporter use." compset="StarshipSpecial" summary="The ship’s Shields track instead represents the state of the ship’s polarized hull. The ship’s Shields are equal to its Structure, with no additional modifiers.">
+    <usesource source="2ndEdition"/>
+    <eval phase="Setup" priority="5100">perform hero.delete[ShipShields.?]
+perform hero.assign[ShipShields.Structure]</eval>
+    </thing>
+  <thing id="tr2EClsNX" name="NX Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="ssr2ECompactVess" name="Compact Vessel" description="This spaceframe has a Scale of 2, but it does not count as a small craft. It has no small craft capability of its own, and cannot launch or receive shuttlepods, shuttlecraft, or any comparable craft." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2ELandingGear" name="Landing Gear" description="The vessel is equipped to land safely on a planetary surface, and can return to space afterward. To land a ship requires Reserve Power be rerouted to Structure, and then requires someone at the helm to attempt a Control + Conn task with a Difficulty equal to the ship’s Scale, assisted by the ship’s Structure + Conn. This can Succeed at Cost. Success means the ship lands on the planet’s surface. Taking off requires the same task attempt, but the Difficulty is reduced by 2." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2ESaucerSep" name="Saucer Separation" description="Vessels of this class have the capability to detach  their saucer section in an emergency. Once the saucer has detached, the two sections of the ship cannot be reconnected outside of a drydock. Ship’s systems are halved (round up) for the saucer and the secondary hull when separated, the saucer is unable to enter warp speeds or launch small craft, and each section is considered a separate vessel with Scale 1 less than the original vessel; the secondary hull is commanded from main engineering. The saucer can land on a planetary surface with emergency landing gear." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2ESaucerSepRec" name="Saucer Separation and Reconnection" description="The ship is designed so the saucer section can be separated from the engineering section to operate as two distinct ships. Each section has the same systems, talents, and weapons, but their Scale is 1 lower than that of the original vessel (recalculate anything derived from Scale). Further, if the ship suffered any breaches prior to separating, ongoing effects of those breaches apply equally to both sections. The saucer section, which usually contains the crew quarters and recreation areas, does not have the capacity to go to warp. The secondary hull is commanded from main engineering." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="pro2ECriEmerResp" name="Crisis and Emergency Response" description="These vessels are equipped to respond quickly to a crisis, whatever it may be. Normally capable of supporting expansive shuttlebays, they can deploy large quantities of personnel or cargo to, or evacuate large populations from, disaster areas. Such vessels also serve as hospital ships and troop transports during times of war.\n\nSYSTEMS: Sensors +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="MisProTal" tag="tal2EExtShuttleba" name="Extensive Shuttlebays" abbrev="Extensive Shuttlebays"/>
+    <tag group="MisProTal" tag="tal2EModularLabs" name="Modular Laboratories" abbrev="Modular Laboratories"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2EAdvMedWard" name="Advanced Sickbay" abbrev="Advanced Sickbay"/>
+    <tag group="MisProTal" tag="tal2EEMH" name="Emergency Medical Hologram" abbrev="Emergency Medical Hologram"/>
+    <eval phase="Effects" priority="1000">#bonussensors[] += 1</eval>
+    </thing>
+  <thing id="tr2EAgingRelic" name="Aging Relic" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EPrototype" name="Prototype" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ELegendary" name="Legendary" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EHopeShip" name="Hope Ship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EDepWorkhorse" name="Dependable Workhorse" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ESurvivorX" name="Survivor of X" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="srv2EAgingRelic" name="Aging Relic" description="The ship has been in service for decades, and has been home to many crews. Only the longest-serving crew are likely to remember when it was new." compset="ServiceRecord">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="tr2EAgingRelic"></bootstrap>
+    <bootstrap thing="ssr2ELargerCrew"></bootstrap>
+    </thing>
+  <thing id="srv2EHopeShip" name="Hope Ship" description="This vessel’s service has been spent responding to distress calls and disasters, warping to the rescue of those in danger or subjected to great hardship. The ship is heavily refitted for disaster relief, evacuation, and medical catastrophes, and the crew often have additional emergency medical training." compset="ServiceRecord">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="tr2EHopeShip"></bootstrap>
+    <bootstrap thing="ssr2EMissionMercy"></bootstrap>
+    </thing>
+  <thing id="srv2EPrototype" name="Prototype" description="The ship is brand new, first of her class, and laden with the newest technologies, assembled to be tested and studied. There are potentially a whole host of unknown problems and challenges to face, as novel systems clash or malfunction as they interact in unexpected ways." compset="ServiceRecord">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="tr2EPrototype"></bootstrap>
+    <bootstrap thing="ssr2EExpVessel"></bootstrap>
+    </thing>
+  <thing id="srv2EDepWorkhorse" name="Dependable Workhorse" description="The ship is dependable, with a solid record of successful missions and accomplishments. While overshadowed by more famous ships, this vessel is nevertheless a mainstay of the fleet, with a competent, dedicated crew." compset="ServiceRecord">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="tr2EDepWorkhorse"></bootstrap>
+    <bootstrap thing="ssr2EReliable"></bootstrap>
+    </thing>
+  <thing id="srv2ESurvivorX" name="Survivor of X" description="NOTE: Replace X with the name of a battle or war\n\nThis ship was involved in some of the fiercest battles, surviving the fighting, though not without scars. The crew is battle-hardened and prepared for anything." compset="ServiceRecord" summary="This ship was involved in some of the fiercest battles, surviving the fighting, though not without scars. The crew is battle-hardened and prepared for anything.">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="ssr2ERdyBattle"></bootstrap>
+    <bootstrap thing="tr2ESurvivorX"></bootstrap>
+    </thing>
+  <thing id="srv2ELegendary" name="Legendary" description="This ship is famous, having been at the center of one or more major events that shaped the history and politics of one or more civilizations. This comes with great prestige for those involved." compset="ServiceRecord">
+    <usesource source="2ndEdition"/>
+    <bootstrap thing="tr2ELegendary"></bootstrap>
+    <bootstrap thing="ssr2EPrestigiousP"></bootstrap>
+    </thing>
+  <thing id="ssr2EPrestigiousP" name="Prestigious Posting" description="When a new supporting character is first introduced, apply a single improvement to them immediately, like a milestone." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2EMissionMercy" name="Mission Of Mercy" description="The first time in a scene when an enemy makes an attack against this ship, the gamemaster must spend 1 Threat. The hope ship must add 1 Threat the first time in any scene it makes an attack." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2EReliable" name="Reliable" description="Whenever the ship rolls to assist a task attempt, the group may spend 1 Momentum to ignore any complications rolled on the ship’s die." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2ELargerCrew" name="Larger Crew" description="The ship’s Crew Support is increased by 1." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2ERdyBattle" name="Ready For Battle" description="During the first round of ship combat, the gamemaster must spend 1 additional Threat to allow an enemy ship to take the first turn." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2EExpVessel" name="Experimental Vessel" description="The first time in a scene when an enemy makes an attack against this ship, the gamemaster must spend 1 Threat. The hope ship must add 1 Threat the first time in any scene it makes an attack." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="mp2EAstroNav" name="Astrometrics and Navigation" description="This pod contains sensors specially tuned to detect, triangulate, and time distant quasar signals and map gravitational distortions. Combined with a secondary navigational deflector, this pod allows a vessel to be highly accurate in warp and quickly ascertain its position even after travel through wormholes. \n\nThe spaceframe has +1 Computers, +1 Engines, and +1 Conn. The spaceframe gains the Improved Warp Drive and Advanced Sensor Suites talents." compset="MissionPod" summary="The spaceframe has +1 Computers, +1 Engines, and +1 Conn. The spaceframe gains the Improved Warp Drive and Advanced Sensor Suites talents.">
+    <fieldval field="bonComp" value="1"/>
+    <fieldval field="bonEngines" value="1"/>
+    <fieldval field="bonConn" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    </thing>
+  <thing id="mp2ECommandCont" name="Command &amp; Control" description="This pod contains additional subspace antennae and supplementary computer cores, allowing it to serve as a command vessel for fleet actions. \n\nThe spaceframe has +1 Communications, +1 Computers, and +1 Command. The spaceframe also gains the Command Ship and Electronic Warfare Systems talents." compset="MissionPod" summary="The spaceframe has +1 Communications, +1 Computers, and +1 Command. The spaceframe also gains the Command Ship and Electronic Warfare Systems talents.">
+    <fieldval field="bonComm" value="1"/>
+    <fieldval field="bonComp" value="1"/>
+    <fieldval field="bonCmd" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2ECommandShip"></bootstrap>
+    <bootstrap thing="tal2EEWSystems"></bootstrap>
+    </thing>
+  <thing id="mp2EDefShieldEnh" name="Defensive Shield Enhancement" description="This pod contains extra shield generators, structural integrity field systems, and a network of graviton emitters capable of improving the defensive field around a starship. \n\nThe ship has +1 Engines, +1 Structure, and +1 Engineering. The ship also gains the Advanced Shields and Improved Shield Recharge talents." compset="MissionPod" summary="The ship has +1 Engines, +1 Structure, and +1 Engineering. The ship also gains the Advanced Shields and Improved Shield Recharge talents.">
+    <fieldval field="bonEngines" value="1"/>
+    <fieldval field="bonStruct" value="1"/>
+    <fieldval field="bonEng" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EAdvShields"></bootstrap>
+    <bootstrap thing="tal2EImpShieldRec"></bootstrap>
+    </thing>
+  <thing id="mp2EEmerRecovery" name="Emergency Recovery" description="The pod contains extensive and robust tractor beam emitters and graviton buffers, along with mission-adaptable cargo space to allow the vessel to act as a fleet tender, or emergency recovery starship for vessels without propulsion. \n\nThe ship has +1 Engines, +1 Structure, and +1 Conn. The ship also gains the High-Power Tractor Beam and Redundant Systems (of the players’ choice) talents." compset="MissionPod" summary="The ship has +1 Engines, +1 Structure, and +1 Conn. The ship also gains the High-Power Tractor Beam and Redundant Systems (of the players’ choice) talents.">
+    <fieldval field="bonEngines" value="1"/>
+    <fieldval field="bonStruct" value="1"/>
+    <fieldval field="bonConn" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EHighPwrTract"></bootstrap>
+    <bootstrap thing="tal2ERedundantSys"></bootstrap>
+    </thing>
+  <thing id="mp2EFieldHospital" name="Field Hospital" description="The pod has an isolated environment able to contain even the most virulent diseases known to Federation science, along with an independent life support system, holoemitters, medical replicators, and facilities able to house hundreds of patients. \n\nThe ship has +2 Computers and +1 Medical. The ship also has the Emergency Medical Hologram and Advanced Sickbay talents." compset="MissionPod" summary="The ship has +2 Computers and +1 Medical. The ship also has the Emergency Medical Hologram and Advanced Sickbay talents.">
+    <fieldval field="bonComp" value="2"/>
+    <fieldval field="bonMed" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EAdvMedWard"></bootstrap>
+    <bootstrap thing="tal2EEMH"></bootstrap>
+    </thing>
+  <thing id="mp2EFleetCarrier" name="Fleet Carrier" description="The pod contains a cavernous shuttlecraft bay along with the maintenance facilities for them. It is capable of handling craft as large as runabouts. \n\nThe ship has +1 Communications, +1 Structure, and +1 Security. The ship also has the Extensive Shuttlebays and Command Ship talents." compset="MissionPod" summary="The ship has +1 Communications, +1 Structure, and +1 Security. The ship also has the Extensive Shuttlebays and Command Ship talents.">
+    <fieldval field="bonComm" value="1"/>
+    <fieldval field="bonStruct" value="1"/>
+    <fieldval field="bonSecur" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2ECommandShip"></bootstrap>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    </thing>
+  <thing id="mp2EFleetCommand" name="Fleet Command Support" description="This is a specialized pod containing subspace communications transceivers that link into powerful sensor arrays, allowing starships in communication with the command ship to synchronize their fire systems together. \n\nThe spaceframe has +1 Communications, +1 Computers, and +1 Command. The spaceframe also gains the Command Ship and Fast Targeting Systems talents." compset="MissionPod" summary="The spaceframe has +1 Communications, +1 Computers, and +1 Command. The spaceframe also gains the Command Ship and Fast Targeting Systems talents.">
+    <fieldval field="bonComm" value="1"/>
+    <fieldval field="bonComp" value="1"/>
+    <fieldval field="bonCmd" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2ECommandShip"></bootstrap>
+    <bootstrap thing="tal2EFastTargSys"></bootstrap>
+    </thing>
+  <thing id="mp2EMobileDrydock" name="Mobile Drydock" description="This pod contains a folded dry dock that can be unfurled and deployed for assisting in repairing other starships. Inside the remaining pod there are replicator facilities capable of disassembling asteroids and comets to produce replacement parts and hull for damaged vessels, plus a large work bee bay. \n\nThe ship gains +1 Structure, +1 Computers, and +1 Engineering. The ship also has the talents Improved Damage Control and Rugged Design, which it confers to any vessel docked with the drydock pod." compset="MissionPod" summary="The ship gains +1 Structure, +1 Computers, and +1 Engineering. The ship also has the talents Improved Damage Control and Rugged Design, which it confers to any vessel docked with the drydock pod.">
+    <fieldval field="bonStruct" value="1"/>
+    <fieldval field="bonComp" value="1"/>
+    <fieldval field="bonEng" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EImpDamCont"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    </thing>
+  <thing id="mp2ESensors" name="Sensors" description="The pod contains additional sensor systems, allowing the ship to serve in a range of scientific and reconnaissance roles. \n\nThe ship has +2 Sensors and +1 Science. The ship also has the Advanced Sensor Suites and High-Resolution Sensors talents." compset="MissionPod" summary="The ship has +2 Sensors and +1 Science. The ship also has the Advanced Sensor Suites and High-Resolution Sensors talents.">
+    <fieldval field="bonSens" value="2"/>
+    <fieldval field="bonSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    </thing>
+  <thing id="mp2EWarpProp" name="Warp Propulsion Pod" description="The pod contains an advanced warp nacelle with paired coils, along with extra fusion reactors that can either assist the ship in maintaining a high warp velocity, or maintain a warp field after saucer separation. \n\nThe ship has +2 Engines and +1 Conn. The ship also gains the Improved Warp Drive and Secondary Reactors talents." compset="MissionPod">
+    <fieldval field="bonEngines" value="2"/>
+    <fieldval field="bonConn" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="tal2ESecondaryRea"></bootstrap>
+    </thing>
+  <thing id="mp2EWeapons" name="Weapons" description="The pod contains additional torpedo launchers, phaser arrays, and targeting sensors. \n\nThe ship has +1 Sensors, +1 Weapons, and +1 Security. The ship also has the Fast Targeting Systems and Rapid-Fire Torpedo Launcher talents." compset="MissionPod" summary="The ship has +1 Sensors, +1 Weapons, and +1 Security. The ship also has the Fast Targeting Systems and Rapid-Fire Torpedo Launcher talents.">
+    <fieldval field="bonSens" value="1"/>
+    <fieldval field="bonWeap" value="1"/>
+    <fieldval field="bonSecur" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <bootstrap thing="tal2EFastTargSys"></bootstrap>
+    <bootstrap thing="tal2ERapidFireTor"></bootstrap>
+    </thing>
+  <thing id="ssr2EQuantSlipPul" name="Quantum Slipstream Pulse Drive" description="In the decades since the first Quantum Slipstream Burst Drive was Introduced, several Improvements have been made to the mechanics, however still not to the level of constant operation as the Warp Drive has become. This advancement on the Quantum Slipstream Burst Drive is still experimental, but now allows the ship to enter quantum slipstream for 40 minutes at a time, moving the ship up to 200 light-years before shutting down. The improved drive requires 1 hour to reset instead of the 12 of the previous versions. However, as experimental technology, this drive may require extensive maintenance and be prone to failure. This is an independent system, so the crew may operate the warp drive in between slipstream bursts." compset="StarshipSpecial" summary="Experimental drive, allows for 200LY in 40 minutes before cooldown of 1 hour to reset.">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="pro2EMultiroleExp" name="Multirole Explorer" description="Many of Starfleet’s most renowned and revered vessels have been jack-of-all-trades ships, rather than specialized for a single type of mission. This versatility allowed the likes of Jonathan Archer, Christopher Pike, James Kirk, and Jean-Luc Picard to explore strange new worlds, seek out new life and new civilizations, and boldly go where no one has gone before.\n\nSYSTEMS: Increase any one system by 1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <fieldval field="usrLabel1" value="System:"/>
+    <fieldval field="usrCandid1" value="component.AttrSys"/>
+    <usesource source="2ndEdition"/>
+    <tag group="MisProTal" tag="tal2EImpPowerSys"/>
+    <tag group="MisProTal" tag="tal2ERedundantSys"/>
+    <tag group="MisProTal" tag="tal2ERuggedDesign"/>
+    <tag group="MisProTal" tag="tal2ESecondaryRea"/>
+    <tag group="MisProTal" tag="tal2EImpHullInt"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="User" tag="NoAutoName"/>
+    <eval phase="Effects" priority="1000"><![CDATA[if (field[usrChosen1].ischosen <> 0) then
+  field[usrChosen1].chosen.field[abiBonus].value += 1
+  endif]]></eval>
+    </thing>
+  <thing id="pro2EEspionageInt" name="Espionage / Intelligence" description="Vessels equipped for espionage are rare in active Starfleet service, but are used by member cultures within the Federation, and by other polities such as the Romulan Empire and Cardassian Union, whose intelligence agencies often employ dedicated vessels (whether or not they are legally permitted to), and in many cultures, intelligence agencies may commandeer existing vessels for their needs. These vessels are often equipped with highly sensitive monitoring devices, enhanced sensors, and stealth systems (though stopping short of actual cloaking devices for Starfleet vessels). These vessels range close to—and sometimes beyond—foreign borders. Serving on these ships is often a dangerous and thankless proposition.\n\nSYSTEMS: Sensors +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="MisProTal" tag="tal2EEWSystems"/>
+    <tag group="MisProTal" tag="tal2EHighResSens"/>
+    <tag group="MisProTal" tag="tal2EImpRCS"/>
+    <tag group="MisProTal" tag="tal2ERedSensorSil"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <eval phase="Effects" priority="1000">#bonussensors[] += 1</eval>
+    </thing>
+  <thing id="pro2EFlagship" name="Flagship" description="Flagships are a specialized form of command ship, with a dedicated flag bridge or strategic operations center within the vessel. These ships can act as a mobile fleet headquarters, with systems and personnel dedicated to ensuring the operations of whole fleets, or even serving as a vessel for the continuity of command should disaster strike.\n\nSYSTEMS: Comms +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="3"/>
+    <fieldval field="proConn" value="1"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2ERedundantSys"/>
+    <tag group="MisProTal" tag="tal2ECommandShip"/>
+    <tag group="MisProTal" tag="tal2EDedSubspTran"/>
+    <tag group="MisProTal" tag="tal2EDiplomaticSu"/>
+    <eval phase="Effects" priority="1000">#bonuscomms[] += 1</eval>
+    </thing>
+  <thing id="pro2EBattlecruise" name="Battlecruiser" description="In the mid-23rd century, the lessons of the Earth-Romulan War are still firmly in the minds of those on the core Federation worlds, and some vessels are outfitted as vessels of war in case hostilities begin with the Klingon or Romulan Empires. A similar push to develop heavy combat vessels arose during the Borg crisis and Dominion War in the 2360s and 2370s. These vessels are rare in Starfleet, and those outfitted as such rarely stray far from important starbases or the worlds they guard.\n\nSYSTEMS: Weapons +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2ECommandShip"/>
+    <tag group="MisProTal" tag="tal2EAblativeArmo"/>
+    <tag group="MisProTal" tag="tal2EFastTargSys"/>
+    <tag group="MisProTal" tag="tal2EImpDamCont"/>
+    <tag group="MisProTal" tag="tal2ERapidFireTor"/>
+    <eval phase="Effects" priority="1000">#bonusweapons[] += 1</eval>
+    </thing>
+  <thing id="pro2EPathfinder" name="Pathfinder and Reconnaissance Operations" description="Long-range missions often employ the most advanced stellar cartography and astrometric facilities, allowing them to chart and navigate unknown regions of space more effectively, especially where spatial distortions make those regions difficult to navigate. These vessels are relied upon for extended exploratory missions, intelligence-gathering military operations, and risky “pathfinder” operations into the unknown.\n\nSYSTEMS: Engines +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="3"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2EHighResSens"/>
+    <tag group="MisProTal" tag="tal2EImpRCS"/>
+    <tag group="MisProTal" tag="tal2EImpWarpDrive"/>
+    <tag group="MisProTal" tag="tal2ERuggedDesign"/>
+    <eval phase="Effects" priority="1000">#bonusengines[] += 1</eval>
+    </thing>
+  <thing id="pro2EPatrol" name="Patrol" description="Patrol vessels are dedicated to acting as peacekeepers in regions of space where hostility is not only possible, but likely. These vessels tend to operate along borders with other polities, and act as picket vessels during fleet actions. In times of peace, patrol vessels can be assigned to survey missions, or operate patrols against pirates, smugglers, and similar dangers.\n\nSYSTEMS: Sensors +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="3"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2EHighResSens"/>
+    <tag group="MisProTal" tag="tal2EFastTargSys"/>
+    <tag group="MisProTal" tag="tal2EImpPowerSys"/>
+    <eval phase="Effects" priority="1000">#bonussensors[] += 1</eval>
+    </thing>
+  <thing id="pro2ESciSurveyOps" name="Scientific and Survey Operations" description="Starfleet’s mission of exploration and discovery means that it employs many vessels for purely scientific missions, studying unknown phenomena, or supporting ongoing research. While most Federation starships are expected to have at least some capacity for scientific endeavor, some vessels are outfitted specifically for such missions.\n\nSYSTEMS: Computers +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="1"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="1"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2EHighResSens"/>
+    <tag group="MisProTal" tag="tal2EAdvResearchF"/>
+    <tag group="MisProTal" tag="tal2EAdvSensorSui"/>
+    <tag group="MisProTal" tag="tal2EModularLabs"/>
+    <eval phase="Effects" priority="1000">#bonuscomputers[] += 1</eval>
+    </thing>
+  <thing id="pro2EStrategicDip" name="Strategic and Diplomatic Operations" description="Vessels equipped for this profile are often placed under the command of flag officers and used as the heart of squadrons, battlegroups, and even whole fleets. These ships, and the prestige and standing that accompanies them, are also used for major diplomatic undertakings where they can serve as mobile embassies and represent the best of the Federation.\n\nSYSTEMS: Communications +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="1"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2ECommandShip"/>
+    <tag group="MisProTal" tag="tal2EDiplomaticSu"/>
+    <tag group="MisProTal" tag="tal2EEWSystems"/>
+    <tag group="MisProTal" tag="tal2EExtShuttleba"/>
+    <eval phase="Effects" priority="1000">#bonuscomms[] += 1</eval>
+    </thing>
+  <thing id="pro2ETacticalOps" name="Tactical Operations" description="While Starfleet is not a military, the defense of the Federation is one of Starfleet’s responsibilities, and Starfleet has been required to prepare for war on numerous occasions. Thus, many ships are equipped for peacekeeping and military actions, though the number of vessels outfitted in this manner varies depending on the politics of the day.\n\nSYSTEMS: Weapons +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="2"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship" name="Starship" abbrev="Starship"/>
+    <tag group="MisProTal" tag="tal2EAblativeArmo"/>
+    <tag group="MisProTal" tag="tal2EFastTargSys"/>
+    <tag group="MisProTal" tag="tal2EImpDamCont"/>
+    <tag group="MisProTal" tag="tal2EImpImpulse"/>
+    <eval phase="Effects" priority="1000">#bonusweapons[] += 1</eval>
+    </thing>
+  <thing id="ssr2EFourNacelle" name="Four-Nacelle Stability" description="The vessel’s configuration of four warp nacelles can be used to produce a stable and long-lasting warp field. The Difficulty of any task attempted to go to warp, or to maintain warp speed despite hazards, damage, or anomalies, is reduced by 1, to a minimum of 1." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    </thing>
+  <thing id="ssr2EMissionPod" name="Mission Pod" description="All vessels of this class are fitted with a mission pod, which provides two talents as well as adjustments to the ship’s system and department ratings. The mission pod can be changed as if it were a single talent; replacing it takes 12–24 hours at a starbase or other facility." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="Ship" tag="MissionPod"/>
+    </thing>
+  <thing id="tr2ESmallCraft" name="Small Craft" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="fra2EShuttlepod" name="Shuttlepod" description="A tiny craft, designed to move small numbers of personnel or small quantities of cargo over short distances. They are unarmed, not fitted with a transporter, and not capable of travelling at warp." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCrewSize" value="1 or 2, plus 2 passengers"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraComm" value="3"/>
+    <fieldval field="fraComp" value="2"/>
+    <fieldval field="fraEngine" value="3"/>
+    <fieldval field="fraSens" value="3"/>
+    <fieldval field="fraStruc" value="3"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2ESublight"></bootstrap>
+    <bootstrap thing="tr2EShuttlepod"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    <bootstrap thing="tr2EUnarmed"></bootstrap>
+    </thing>
+  <thing id="tr2EShuttlepod" name="Shuttlepod" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ESublight" name="Sublight" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EUnarmed" name="Unarmed" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="fra2EShuttlecraft" name="Shuttlecraft" description="A small vessel, designed to move groups of personnel or modest quantities of cargo over intrasystem and short interstellar distances. They are often fitted with a small phaser bank, and they can travel at low warp, or match the cruising speed of starships only for short periods." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCrewSize" value="1 or 2, plus up to 6 passengers depending on shittle type"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraComm" value="5"/>
+    <fieldval field="fraComp" value="5"/>
+    <fieldval field="fraEngine" value="5"/>
+    <fieldval field="fraSens" value="4"/>
+    <fieldval field="fraStruc" value="5"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2ESublight"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    <bootstrap thing="ssr2ETransporter"></bootstrap>
+    <bootstrap thing="tr2EShuttlecraft"></bootstrap>
+    <bootstrap thing="tr2EUnarmed"></bootstrap>
+    </thing>
+  <thing id="ssr2ETransporter" name="Transporter" description="Some shuttlecraft are fitted with a escape transporter. Taking this option has {b}opportunity cost 1.{/b}" compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="tr2EShuttlecraft" name="Shuttlecraft" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="ssr2ECustomModule" name="Customizable Modules" description="The runabout may be fitted with one of the following modules for additional functionality. Taking any of these options has an {b}opportunity cost 1{/b}, but these options can only be taken when preparing the runabout from a starbase, surface facility, or a starship with {b}Extensive Shuttlebays.{/b}" compset="StarshipSpecial" summary="The small craft may be fitted with a module that provides additional functionality. This has an {b}opportunity cost 1{/b}, but can only be changed out in specific conditions.">
+    <usesource source="2ndEdition"/>
+    <tag group="Ship" tag="MissionPod"/>
+    </thing>
+  <thing id="fra2ERunabout" name="Runabout" description="These larger auxiliary craft—such as the Danube-class runabouts used by Starfleet—are technically small starships, and are used for independent operations from larger starships and starbases. Runabouts are capable of a sustained warp speed (usually around warp 5), contain a small transporter pad and replicator." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCrewSize" value="1 to 4"/>
+    <fieldval field="fraScale" value="2"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraPods" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2ELightStarship"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2EMicroTorp"></bootstrap>
+    <bootstrap thing="ssrCustModulesDan"></bootstrap>
+    </thing>
+  <thing id="tr2ELightStarship" name="Light Starship" compset="Trait">
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="mp2ESCCargoTrans" name="Cargo Transport" description="The runabout’s aft module has been configured to carry bulk cargo." compset="MissionPod">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft" name="Small Craft" abbrev="Small Craft"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <bootstrap thing="ssr2EModCargoTran"></bootstrap>
+    </thing>
+  <thing id="mp2ESCCbtMission" name="Combat Mission" description="Add 1 to damage of the runabout’s weapons, and add 2 to the ship’s maximum Shields. This has an {b}escalation cost 1.{/b}" compset="MissionPod">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft" name="Small Craft" abbrev="Small Craft"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <bootstrap thing="ssr2EModCbtMiss"></bootstrap>
+    <eval phase="Effects" priority="1000">hero.childfound[mscShip].field[bonShields].value += 2
+hero.childfound[mscShip].field[bonWeaponDmg].value += 1</eval>
+    </thing>
+  <thing id="ssr2EModCbtMiss" name="Module (Combat Mission)" description="Add 1 to damage of the runabout’s weapons, and add 2 to the ship’s maximum Shields. This has an {b}escalation cost 1.{/b}" compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="sh2EMicroTorp" name="Micro-Torpedoes" compset="Torpedo">
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Weapon" tag="FixedBase"/>
+    <tag group="ShipWepCat" tag="Torpedo"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EHighYield"></bootstrap>
+      </child>
+    </thing>
+  <thing id="ssr2EModCargoTran" name="Module (Cargo Transport)" description="The runabout’s aft module has been configured to carry bulk cargo." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="mp2ESCLongDuraMis" name="Long Duration Mission" description="The runabout’s aft module has been configured to serve as a rest area and sleeping quarters for up to four personnel." compset="MissionPod">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft" name="Small Craft" abbrev="Small Craft"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <bootstrap thing="ssr2EModLongDura"></bootstrap>
+    </thing>
+  <thing id="ssr2EModLongDura" name="Module (Long Duration Mission)" description="The runabout’s aft module has been configured to serve as a rest area and sleeping quarters for up to four personnel." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="mp2ESCPassenger" name="Passenger Transport" description="The runabout may carry up to 10 passengers, or up to 40 in an emergency, for a maximum of 2 hours." compset="MissionPod">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft" name="Small Craft" abbrev="Small Craft"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <bootstrap thing="ssr2EModPassenger"></bootstrap>
+    <eval phase="Effects" priority="1000"><![CDATA[trustme
+
+hero.findchild[Frame].field[fraCrewSize].text &= ", up to 10 passengers (or 40 for 2 hours)"]]></eval>
+    </thing>
+  <thing id="ssr2EModPassenger" name="Module (Passenger Transport)" description="The runabout may carry up to 10 passengers, or up to 40 in an emergency, for a maximum of 2 hours." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="ssr2EModSensor" name="Module (Sensor Module)" description="Add 1 to the runabout’s Computers and Sensors, and add the High-Resolution Sensors talent." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="mp2ESCSensorMod" name="Sensor Module" description="Add 1 to the runabout’s Computers and Sensors, and add the High-Resolution Sensors talent." compset="MissionPod">
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft" name="Small Craft" abbrev="Small Craft"/>
+    <tag group="Ship" tag="MissionPod" name="MissionPod" abbrev="MissionPod"/>
+    <bootstrap thing="ssr2EModSensor"></bootstrap>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    <eval phase="Effects" priority="1000">#bonuscomputers[] += 1
+#bonussensors[] += 1</eval>
+    </thing>
+  <thing id="fra2EAtkFighter" name="Attack Fighter" description="At various times, different civilizations have attempted to make widespread use of small craft in combat, with armed shuttles and high-agility attack fighters developed for this purpose. The Federation has, on several occasions, developed attack fighters to supplement a fleet stretched thin during wartime, with varying degrees of success. Their small size means that their armaments draw most of the available power, and they are very rarely capable of traveling at warp. Even 24th century versions can only sustain low warp speeds for under an hour." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCrewSize" value="1 or 2"/>
+    <fieldval field="fraScale" value="1"/>
+    <fieldval field="fraComm" value="5"/>
+    <fieldval field="fraComp" value="5"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <fieldval field="fraPods" value="1"/>
+    <fieldval field="fraStruc" value="5"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="sh2EMicroTorp"></bootstrap>
+    <bootstrap thing="ssrCustModulesDan"></bootstrap>
+    <bootstrap thing="tr2EAtkFighter"></bootstrap>
+    <bootstrap thing="tr2ESCAgile"></bootstrap>
+    <bootstrap thing="tal2EImpImpulse"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    </thing>
+  <thing id="fra2ECaptainYacht" name="Captain&apos;s Yacht" description="A specialty small craft often attached to diplomatic vessels, the captain’s yacht was a large shuttlecraft designed to aid commanding officers during diplomatic missions." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCrewSize" value="1 to 2, plus up to 10 passengers"/>
+    <fieldval field="fraScale" value="2"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraCmd" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typSmallCraft"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2ELuxurious"></bootstrap>
+    <bootstrap thing="tr2ESpecShuttle"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="tal2EDiplomaticSu"></bootstrap>
+    <bootstrap thing="sh2EMicroTorp"></bootstrap>
+    </thing>
+  <thing id="tr2ELuxurious" name="Luxurious" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ESpecShuttle" name="Specialized Shuttle" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EAtkFighter" name="Attack Fighter" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ESCAgile" name="Agile" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="fra2EConstitution" name="Constitution" description="The symbol of Starfleet in the mid-to-late 23rd century, the Constitution class became legendary due to its five-year missions that expanded the Federation’s borders and its scientific knowledge. The Constitution class became the testbed of new technologies in the early 2270s developed out of the five-year missions and lessons learned from the brief war with the Klingon Empire. The spaceframe continued in service until the mid-24th century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraNamConv" value="Constitution-class vessels are often named after famous Earth navy vessels and pre-warp spacecraft. Registry numbers range between 1700 and 1799, though there are exceptions."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Strategic and Diplomatic Operations, Flagship, Scientific and Survey Operations."/>
+    <fieldval field="fraRefVar" value="Vessels produced by other founding members of the Federation tended to focus on their own fleets’ specialties. Andorian-built vessels had larger fusion reactors and Tellarite-built vessels were sought after for their powerful duotronic computer networks. Vulcan-produced vessels focused on improving sensors and communications."/>
+    <fieldval field="fraCapabilities" value="The Constitution class defined what a starship should be able to accomplish when on extended deep-space exploration assignments. The spaceframe had accommodations for over 400 crew members, enough to provide redundancy for crew positions ranging from astrocartographers to xenobiologists, allowing for crew losses typical on five-year missions. The ship had a spacious shuttlebay and cargo area at the aft of the secondary hull that allowed the class to move large amounts of supplies or personnel even without the use of transporters."/>
+    <fieldval field="fraOverview" value="The symbol of Starfleet in the mid-to-late 23rd century, the Constitution class became legendary due to its five-year missions that expanded the Federation’s borders and its scientific knowledge. The Constitution class became the testbed of new technologies in the early 2270s developed out of the five-year missions and lessons learned from the brief war with the Klingon Empire. The spaceframe continued in service until the mid-24th century."/>
+    <fieldval field="fraYearEnt" value="2243"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="DIS"/>
+    <tag group="Era" tag="SNW"/>
+    <tag group="Era" tag="TOS"/>
+    <bootstrap thing="tr2EMemberWorld"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="tal2EModularLabs"></bootstrap>
+    <bootstrap thing="ssr2ESaucerSep"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    <bootstrap thing="tr2EClsConstituti"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fra2EExcelsior" name="Excelsior" description="What was originally intended as a testbed for the highly experimental “transwarp” propulsion system, the “Great Experiment” was seen as a disaster after the complete failure of Excelsior’s propulsion systems in 2285. After a total redesign was performed on nearly all ship’s systems, the transwarp propulsion was replaced with standard warp propulsion. The versatile Excelsior spaceframe became a standard sight across the Federation and beyond, and it continued to be manufactured into the 2390s." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2285"/>
+    <fieldval field="fraOverview" value="What was originally intended as a testbed for the highly experimental “transwarp” propulsion system, the “Great Experiment” was seen as a disaster after the complete failure of Excelsior’s propulsion systems in 2285. After a total redesign was performed on nearly all ship’s systems, the transwarp propulsion was replaced with standard warp propulsion. The versatile Excelsior spaceframe became a standard sight across the Federation and beyond, and it continued to be manufactured into the 2390s."/>
+    <fieldval field="fraCapabilities" value="Originally intended for the large transwarp coils, the spaceframe’s nacelles provided ample room for extra standard coils that allowed the class to have some of the highest sustained warp speeds for a ship of its size. Stemming from the initial high-power needs for the transwarp system, the spaceframe had nearly double the amount of fusion reactors required for secondary power systems and the impulse drive. These same reactors provide extra power to the ship’s defensive shielding. The Excelsior also had two dedicated shuttlebays, the main shuttlebay and a lower bay on the underside of the secondary hull used for cargo transport and storage."/>
+    <fieldval field="fraRefVar" value="A single variant built at San Francisco Shipyards spread across the Federation. While visually similar to the standard spaceframe, the saucer section of the vessel contained double the number of fusion reactors and added two additional impulse drive units. The incredible sublight acceleration this provided meant the secondary hull had two extensions built to contain improvements to the inertial dampeners."/>
+    <fieldval field="fraSuggPro" value="Strategic and Diplomatic Operations, Multirole Explorer, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="Excelsior-class vessels take names from concepts of exploration, achievement, and great leaders from across the Federation; many are also named after famous ships from previous generations. Forrest, Archer, and Victory are all examples."/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraEng" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="TOS"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2EClsExcelsior"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2ELongServing"></bootstrap>
+    <bootstrap thing="tr2EStarfleetMain"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="tal2ESecondaryRea"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="ssr2ESaucerSep"></bootstrap>
+    </thing>
+  <thing id="fra2EAmbassador" name="Ambassador" description="Starfleet had been relying on Excelsior-class and the few Constitution-class starships still in service to continue its aims of discovery, but even with the planned refits of those spaceframes, they still required visits to logistical hubs every five years as systems wore down. Utopia Planitia Fleet Yards began to develop a new deep-space exploration cruiser that would address these concerns  The Ambassador class was developed and launched, and many of the engineering techniques, design ideas, and technologies created would be refined and become the basis for the Galaxy class." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraNamConv" value="Ambassador-class vessels are often named after important ambassadors and peacemakers, great battles and ships of the past, or hopeful ideas for the future. T’Pau, Merrimack, and Progress are all examples. The U.S.S. Ambassador had a registry of NX/NCC-10521, and subsequent vessels have higher registries."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Scientific and Survey Operations, Strategic and Diplomatic Operations."/>
+    <fieldval field="fraRefVar" value="Two separate refit programs were used. The Enterprise program improved the vessel’s subspace communication and sensor platforms. The Pollux program was dedicated to improving the vessel’s weapon systems and warp drive. "/>
+    <fieldval field="fraCapabilities" value="The Ambassador class was designed in a similar way to previous Starfleet cruisers, with a saucer-shaped primary hull and a cylindrical secondary engineering hull. The most obvious difference is the then-unique warp nacelles containing high-efficiency warp coils with directional subspace buffers. The Ambassador class was wildly successful, but also a victim of its own innovation. Research and development continued on the ground-breaking systems, improving them faster than they could be installed, and it became apparent the Ambassador class wasn’t able to keep up with technological development. Production was halted on further spaceframes, replacing newer construction with the Galaxy class beginning in the 2360s."/>
+    <fieldval field="fraOverview" value="Starfleet had been relying on Excelsior-class and the few Constitution-class starships still in service to continue its aims of discovery, but even with the planned refits of those spaceframes, they still required visits to logistical hubs every five years as systems wore down. Utopia Planitia Fleet Yards began to develop a new deep-space exploration cruiser that would address these concerns  The Ambassador class was developed and launched, and many of the engineering techniques, design ideas, and technologies created would be refined and become the basis for the Galaxy class."/>
+    <fieldval field="fraYearEnt" value="2335"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    <bootstrap thing="ssr2ESaucerSep"></bootstrap>
+    <bootstrap thing="tal2EImpImpulse"></bootstrap>
+    <bootstrap thing="tr2EClsAmbassador"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    </thing>
+  <thing id="fra2ECalifornia" name="California" description="As the Federation spread in the 2350s, Starfleet saw a lack of vessels able to respond to needs of all kinds inside the borders. Starfleet asked member worlds to design and build their own starship class to be able to respond to issues they felt were pressing to their own interests. Earth presented the California class, which would go on to influence the design of the Galaxy class. California-class vessels were seen as dependable workhorses." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2358"/>
+    <fieldval field="fraOverview" value="As the Federation spread in the 2350s, Starfleet saw a lack of vessels able to respond to needs of all kinds inside the borders. Starfleet asked member worlds to design and build their own starship class to be able to respond to issues they felt were pressing to their own interests. Earth presented the California class, which would go on to influence the design of the Galaxy class. California-class vessels were seen as dependable workhorses."/>
+    <fieldval field="fraCapabilities" value="California-class vessels included a dedicated section to provide the growing number of Cetaceans graduating from Starfleet Academy a more natural environment in which to work and live. These vessels also included multiple shuttlebays allowing Cetacean and humanoid crew access to small craft. California-class vessels contained most of their livable volume in their primary saucer-like hull. The secondary hull contained main engineering, primary antimatter storage, and the main deflector array. This entire section could be ejected in an emergency and limited warp propulsion could be maintained by the ship’s fusion reactors."/>
+    <fieldval field="fraRefVar" value="Most refits centered on improving the power output of the warp reactor or improving power output from the phaser arrays."/>
+    <fieldval field="fraSuggPro" value="Logistical/ Quartermaster, Colony Support, Reserve Fleet, Scientific and Survey Operations, Crisis and Emergency Response. {br}{br}California-class ships are support vessels, intended to perform the unglamorous but necessary work that keeps the Federation running, and their livery often reflects their mission profile."/>
+    <fieldval field="fraNamConv" value="California-class vessels are named after locations found within the North American state of California. Burbank, Fresno, and West Covina are examples."/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="Era" tag="PIC"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsCalifornia"></bootstrap>
+    <bootstrap thing="tal2EDedicatedPer"></bootstrap>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="fra2EGalaxy" name="Galaxy" description="The Galaxy class was designed to surpass any exploration and science vessel yet developed by Starfleet. This spaceframe also represented a new philosophy for crew mental well-being on long duration assignments, as Starfleet provided facilities for civilian dependents and volunteers. The concept centered on not separating families from loved ones for years at a time, and the morale on Galaxy-class vessels was correspondingly higher." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="The Galaxy class was designed to surpass any exploration and science vessel yet developed by Starfleet. This spaceframe also represented a new philosophy for crew mental well-being on long duration assignments, as Starfleet provided facilities for civilian dependents and volunteers. The concept centered on not separating families from loved ones for years at a time, and the morale on Galaxy-class vessels was correspondingly higher."/>
+    <fieldval field="fraCapabilities" value="As one of the largest spaceframes manufactured by Starfleet, the interior volume of was often not fully allocated by the time it began its first mission assignment. This modular customization meant these vessels often had civilian specialists on board for even the most obscure research paths. As the Galaxy class was meant to probe far away from Federation space, the vessel had both the most powerful warp core of its day and the most advanced warp coils, allowing even a ship of its size to maintain a cruising warp velocity of 6 and a maximum velocity of warp 9.8. Galaxy class vessels were also the first that could separate and re-dock their primary hull to the engineering hull without the assistance of a drydock or support vessels. This meant Galaxy-class vessels could split their focus efficiently, or put civilians and dependents out of harm’s way in hostile situations."/>
+    <fieldval field="fraRefVar" value="During the Dominion War, Galaxy-class vessels nearing completion were repurposed as command-and-control vessels for rear admirals to use in fleet actions."/>
+    <fieldval field="fraSuggPro" value="Strategic and Diplomatic Operations, Scientific and Survey Operations, Multirole Explorer."/>
+    <fieldval field="fraNamConv" value="Galaxy-class vessels take their names from many different cultures across the Federation. Most are associated with exploration and scientific discovery. Odyssey, Hanson, and Surok are examples. The U.S.S. Galaxy was NX/NCC-70637, and all vessels of the class have registries higher than this, barring the Enterprise, which used its own legacy number."/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2ECityInSpace"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsGalaxy"></bootstrap>
+    <bootstrap thing="tal2EModularLabs"></bootstrap>
+    <bootstrap thing="tal2ERedundantSys"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="ssr2EAbundPers"></bootstrap>
+    <bootstrap thing="ssr2ESaucerSepRec"></bootstrap>
+    </thing>
+  <thing id="fra2EIntrepid" name="Intrepid" description="Containing the best technology of the early 2370s and evolved from the Nova class’s design, the Intrepid class was a symbol of the Federation Science Council’s intent to have Starfleet return to its goals of exploration and science. The Dominion War reduced the number of hulls constructed, but the end of the war—and the return of U.S.S. Voyager in 2378—meant renewed passion for this spaceframe. Many Intrepid-class vessels remain in active service well into the 25th century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="Containing the best technology of the early 2370s and evolved from the Nova class’s design, the Intrepid class was a symbol of the Federation Science Council’s intent to have Starfleet return to its goals of exploration and science. The Dominion War reduced the number of hulls constructed, but the end of the war—and the return of U.S.S. Voyager in 2378—meant renewed passion for this spaceframe. Many Intrepid-class vessels remain in active service well into the 25th century."/>
+    <fieldval field="fraCapabilities" value="The Intrepid class was designed around being as efficient in its warp field geometry as possible, while also allowing for rapid transit of turbulent space-time. The vessel also has variable geometry warp nacelles that allow fine adjustment to the warp field, improving warp stability, allowing high sustained warp speeds, and granting an impressive maximum emergency speed of warp 9.975. Intrepid-class vessels were the first to have bioneural computer components installed to augment the advanced isolinear computer core. These bioneural systems allowed the ship to “learn” as it formed data connections in a more efficient way than standard isolinear indexing."/>
+    <fieldval field="fraRefVar" value="Refits for the Intrepid class focused on improving and expanding the sensor platforms."/>
+    <fieldval field="fraSuggPro" value="Pathfinder and Reconnaissance Operations, Scientific and Survey Operations, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="Intrepid-class vessels take names from mythology and space exploration across the Federation. Pathfinder, Odysseus, and Bellerophon are some examples."/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="11"/>
+    <fieldval field="fraEngine" value="11"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="tal2EEMH"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="tr2EAdvWarpDrive"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsIntrepid"></bootstrap>
+    <bootstrap thing="ssr2ELandingGear"></bootstrap>
+    </thing>
+  <thing id="fra2ESovereign" name="Sovereign" description="The Sovereign class began development in 2368 after Starfleet Command felt that starships probing deep space would need to be better equipped to handle hostile and more technologically advanced races such as the Borg. The first vessels were launched in the months before the conflict with the Klingon Empire began. After the Dominion War, these vessels became a part of Starfleet’s renewed push to return to exploration and research." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraOverview" value="The Sovereign class began development in 2368 after Starfleet Command felt that starships probing deep space would need to be better equipped to handle hostile and more technologically advanced races such as the Borg. The first vessels were launched in the months before the conflict with the Klingon Empire began. After the Dominion War, these vessels became a part of Starfleet’s renewed push to return to exploration and research."/>
+    <fieldval field="fraCapabilities" value="The Sovereign class utilizes variable geometry warp drive, able to replicate the same qualities of the Intrepid class’s variable pitch warp nacelles without the adjustable pylons. The Sovereign class has extensive laboratories, sensor systems, and subspace transmitters that make it an excellent deep-space explorer. The design includes significant firepower, including a dedicated quantum torpedo launcher and multiple Type-10a phaser strips."/>
+    <fieldval field="fraRefVar" value="One major variant was designed and constructed at the Andorian Imperial Ship Yards, named Sheetar, NCC-73850. The Andorian engineers who designed her wanted to show a ship of exploration could also double as a combat vessel when needed."/>
+    <fieldval field="fraSuggPro" value="Strategic and Diplomatic Operations, Scientific and Survey Operations, Multirole Explorer. {br}{br}Sovereign-class starships are cutting-edge spaceframes capable of being outfitted for almost any kind of mission Starfleet can imagine."/>
+    <fieldval field="fraNamConv" value="Sovereign-class vessels are often named after famous ships from Federation history. Farragut, Wasp, and Shran are all examples."/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsSovereign"></bootstrap>
+    <bootstrap thing="tal2ECommandShip"></bootstrap>
+    <bootstrap thing="tal2EEMH"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="ssr2ESaucerSep"></bootstrap>
+    </thing>
+  <thing id="fra2EConstIII" name="Constitution III" description="The first Constitution III-class ships entered service in 2396, after a short development period. Many of the earliest vessels of the class had their construction accelerated by repurposing many components from vessels which had suffered catastrophic damage or were otherwise being decommissioned. The overall design of the Constitution III-class, however, owes more to a different legacy. Often referred to as the Neo-Constitution, the design resembles the Constitution-class ships of the 23rd century, particularly the refit (or Constitution II) design which entered service in 2270." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2396"/>
+    <fieldval field="fraOverview" value="The first Constitution III-class ships entered service in 2396, after a short development period. Many of the earliest vessels of the class had their construction accelerated by repurposing many components from vessels which had suffered catastrophic damage or were otherwise being decommissioned. The overall design of the Constitution III-class, however, owes more to a different legacy. Often referred to as the Neo-Constitution, the design resembles the Constitution-class ships of the 23rd century, particularly the refit (or Constitution II) design which entered service in 2270."/>
+    <fieldval field="fraCapabilities" value="Constitution III-class ships are built to function as versatile exploratory craft, able to fulfill a wide range of mission objectives. The design and construction coincided with new developments in propulsion technology, which were integrated into the project development; the result is a class with the highest Impulse power-to-geometry ratio in the fleet, and a top speed of warp 9.99. This makes it ideal for rapidly responding to emergencies and changing circumstances in densely populated regions."/>
+    <fieldval field="fraRefVar" value="The class is often regarded more as a refit project than a dedicated class, blurring the line between creating a new ship and rebuilding an existing one."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Strategic and Diplomatic Operations, Crisis and Emergency Response"/>
+    <fieldval field="fraNamConv" value="Constitution III-class vessels are mostly named after previous Starfleet vessels, often the ones which contributed components to the new design, such as the Titan."/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="11"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraScale" value="5"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="PIC"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2ELegacyComp"></bootstrap>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    <bootstrap thing="tal2EImpImpulse"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="tr2EClsConstIII"></bootstrap>
+    </thing>
+  <thing id="fra2ED7" name="D7" description="The Klingon fleets of the mid-23rd century were a scattered collection of individual House fleets up until the late 2250s. After the ascension of Chancellor L’Rell of House Mo’Kai, the Klingon Empire began a concerted fleet reconstruction effort, consolidating military power with the Klingon Defense Force. Central to this was a ship design presented by the Chancellor as a new symbol of Klingon unity: this design would become known as the D7 Battlecruiser, and it would remain as the cornerstone of Klingon military might in space for decades to come." compset="Frame" uniqueness="unique">
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <fieldval field="fraYearEnt" value="2257"/>
+    <fieldval field="fraOverview" value="The Klingon fleets of the mid-23rd century were a scattered collection of individual House fleets up until the late 2250s. After the ascension of Chancellor L’Rell of House Mo’Kai, the Klingon Empire began a concerted fleet reconstruction effort, consolidating military power with the Klingon Defense Force. Central to this was a ship design presented by the Chancellor as a new symbol of Klingon unity: this design would become known as the D7 Battlecruiser, and it would remain as the cornerstone of Klingon military might in space for decades to come."/>
+    <fieldval field="fraCapabilities" value="The D7 continues the long design traditions of the KDF by having a command pod at the end of a long detachable boom that connects to the engineering hull. With the primary purpose of the D7 being war, the weapon systems on board had top priority for the use of internal volume. Two separate photon torpedo launchers provide the spaceframe’s primary destructive capabilities."/>
+    <fieldval field="fraRefVar" value="Refits for the D7, and its successor the K’t’inga-class depended greatly on if it was in service to the KDF or a Great House. One major development was the reintroduction of cloaking to the fleet in 2269."/>
+    <fieldval field="fraSuggPro" value="Battlecruiser, Strategic and Diplomatic Operations, Reserve Fleet."/>
+    <fieldval field="fraNamConv" value="Klingon vessels have little in the way of standard naming conventions. Each House has its own traditions, as does the KDF."/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipAlliance" tag="Klingon"/>
+    <tag group="Era" tag="SNW"/>
+    <tag group="Era" tag="TOS"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="tr2EClsD7"></bootstrap>
+    <bootstrap thing="tr2EShipKlingon"></bootstrap>
+    <bootstrap thing="tr2ESymbolKlingon"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    <bootstrap thing="sh2EDisruptorCan"></bootstrap>
+    </thing>
+  <thing id="fra2EBRel" name="B&apos;Rel" description="Before K’tinga discovered the Romulan treachery with trading faulty cloaking devices, the engineers in the KDF began designing a starship capable of using the faulty cloaking device as is. It was determined that a bird-of-prey design similar to the Vo’n’talk class would provide the ideal form for the new vessel, and the first B’rel launched in 2280." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2280"/>
+    <fieldval field="fraOverview" value="Before K’tinga discovered the Romulan treachery with trading faulty cloaking devices, the engineers in the KDF began designing a starship capable of using the faulty cloaking device as is. It was determined that a bird-of-prey design similar to the Vo’n’talk class would provide the ideal form for the new vessel, and the first B’rel launched in 2280."/>
+    <fieldval field="fraCapabilities" value="The forward command pod contains the bridge and large captain’s quarters that contained an area dedicated to either a targ-pit or gagh breeding tub so the commanding officer may always have fresh food. The majority of the small crew lived and worked in the engineering hull. The power generated from the multistage fusion reactors give the class an impressive sublight acceleration and a top warp velocity of 9.9 for a short duration. While the cloak is active, the drain on power is extreme, and cruising warp velocities are reduced to warp 5."/>
+    <fieldval field="fraRefVar" value="Engineers continued to improve the cloaking devices through the 23rd and early 24th centuries, allowing for greater warp speeds while cloaked. Improvements to weapons systems and targeting arrays were also prioritized."/>
+    <fieldval field="fraSuggPro" value="Crisis and Emergency Response, Patrol, Tactical Operations."/>
+    <fieldval field="fraNamConv" value="Klingon vessels have little in the way of standard naming conventions. Each House has its own traditions, as does the KDF."/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="TOS"/>
+    <tag group="ShipAlliance" tag="Klingon"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="TLY"/>
+    <bootstrap thing="tr2EClsBrel"></bootstrap>
+    <bootstrap thing="tr2EBirdofPrey"></bootstrap>
+    <bootstrap thing="tr2EShipKlingon"></bootstrap>
+    <bootstrap thing="tal2ECloakingDev"></bootstrap>
+    <bootstrap thing="sh2EDisruptorCan"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="ssr2ELandingGear"></bootstrap>
+    </thing>
+  <thing id="fra2ETLiss" name="T&apos;Liss" description="For the hundred years since the Earth-Romulan War, the Empire had continued to improve its weapon systems and ship building capabilities. Covert acquisition of duotronic technology from the Federation meant a new generation of warbirds would need to be built. The Romulan Senate gave approval to the Imperial Navy’s design that harkened back to the older birds-of-prey used against the Coalition of Worlds, with the first leaving Romulus orbit in late 2265, and first being seen by the Federation in 2266. The T’Liss class would continue to be manufactured by the Empire into the early 24th century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="For the hundred years since the Earth-Romulan War, the Empire had continued to improve its weapon systems and ship building capabilities. Covert acquisition of duotronic technology from the Federation meant a new generation of warbirds would need to be built. The Romulan Senate gave approval to the Imperial Navy’s design that harkened back to the older birds-of-prey used against the Coalition of Worlds, with the first leaving Romulus orbit in late 2265, and first being seen by the Federation i"/>
+    <fieldval field="fraYearEnt" value="2260"/>
+    <fieldval field="fraCapabilities" value="T’Liss class birds of prey are larger vessels than their older counterparts. Four decks and crewed by 170, the vessel is both compact and uses much of its habitable space efficiently through shared bunks in officer and enlisted quarters. This highly compact habitable space is needed as the powerful plasma torpedo system takes up nearly half the internal volume of the vessel, with a significant percentage of the remaining space taken by the ship’s paired matter/antimatter warp cores and dual "/>
+    <fieldval field="fraRefVar" value="Romulan engineers continually improved the power output of their matter/antimatter reactors and reduced the power needs of the plasma torpedo system to the point that only a single reactor was needed."/>
+    <fieldval field="fraSuggPro" value="Espionage/ Intelligence, Pathfinder and Reconnaissance, Tactical Operations, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="T’Liss warbirds are named after powerful senators the navy wished to gain favor with, and concepts of martial prowess."/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="TOS"/>
+    <tag group="ShipAlliance" tag="Romulan"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tr2EBirdofPrey"></bootstrap>
+    <bootstrap thing="tr2EExperimental"></bootstrap>
+    <bootstrap thing="tr2EShipRomulan"></bootstrap>
+    <bootstrap thing="tr2EClsTLiss"></bootstrap>
+    <bootstrap thing="tal2ECloakingDev"></bootstrap>
+    <bootstrap thing="sh2EDisruptorBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPlasmaTorp"></bootstrap>
+    <bootstrap thing="ssr2EPrototypeClo"></bootstrap>
+    </thing>
+  <thing id="fra2EDDeridex" name="D&apos;Deridex" description="The Romulan Empire kept to itself through the first half of the 24th century, continually expanding its borders away from the Federation. Using ideas gleaned from the Klingon Empire’s trade of D7s in the late 2260s and further native technological advances, the Empire produced the D’Deridex class warbird beginning in 2350. The D’Deridex was successful enough that the Empire continued to produce it until the shipyards capable of building them were destroyed in the Romulan supernova." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2350"/>
+    <fieldval field="fraOverview" value="The Romulan Empire kept to itself through the first half of the 24th century, continually expanding its borders away from the Federation. Using ideas gleaned from the Klingon Empire’s trade of D7s in the late 2260s and further native technological advances, the Empire produced the D’Deridex class warbird beginning in 2350. The D’Deridex was successful enough that the Empire continued to produce it until the shipyards capable of building them were destroyed in the Romulan supernova."/>
+    <fieldval field="fraCapabilities" value="The massive spaceframe utilizes two different types of warp coil design. At each side standard warp nacelles and coils produce the warp field, but monopolar subspace field generators installed across the dorsal and ventral ‘wings’ of the vessel provide stability while at high warp velocities. This class is the first vessel of its size to be powered by an artificial quantum singularity, essentially a subspace compressed mass replicating a black hole on a small scale. The immense amount of power this can produce is augmented by standard fusion reactors and allows the ship to move at speeds of warp 9.6, and warp 6 even while under cloak."/>
+    <fieldval field="fraRefVar" value="Refits leading into the Dominion War saw improvements to weapon and sensor systems. Plans for improving the quantum singularity reactor were begun in the 2380s but halted with the destruction of the Romulan star system."/>
+    <fieldval field="fraSuggPro" value="Battlecruiser, Multirole Explorer, Espionage/Intelligence, Tactical Operations, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="D’Deridex names include famous starship commanders from Romulan history and important Imperial worlds."/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="11"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="ShipAlliance" tag="Romulan"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tr2EClsDDeridex"></bootstrap>
+    <bootstrap thing="tr2EImposing"></bootstrap>
+    <bootstrap thing="tr2EShipRomulan"></bootstrap>
+    <bootstrap thing="tal2ECloakingDev"></bootstrap>
+    <bootstrap thing="ssr2EAbundPers"></bootstrap>
+    <bootstrap thing="sh2EDisruptorBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPlasmaTorp"></bootstrap>
+    </thing>
+  <thing id="fra2EGalor" name="Galor" description="Designed and built during the middle of the long Federation-Cardassian War of the mid-24th century, the Galor-class cruiser was meant to be the answer to the effective Starfleet Ambassador- and Excelsior-class vessels common along the frontier. Sacrifices in the design had to be made as the Union lacked the same shipbuilding facilities as the Federation. These cruisers were rarely seen alone, and often in small squadrons of three to five. Through two wars, the Galor and her sister classes were the backbone of the Cardassian Central Command." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="Designed and built during the middle of the long Federation-Cardassian War of the mid-24th century, the Galor-class cruiser was meant to be the answer to the effective Starfleet Ambassador- and Excelsior-class vessels common along the frontier. Sacrifices in the design had to be made as the Union lacked the same shipbuilding facilities as the Federation. These cruisers were rarely seen alone, and often in small squadrons of three to five. Through two wars, the Galor and her sister classes were t"/>
+    <fieldval field="fraCapabilities" value="Simplicity, ease of maintenance and construction, and having as small of a logistics need as possible were all important when the Galor was designed. These cruisers do not have a torpedo system installed, as Central Command felt wasting antimatter on weapons would limit the number of starships they could produce. Instead, this class utilized two separate energy weapon systems: phaser arrays spread across the outer hull and a heavy forward mounted disruptor emitter."/>
+    <fieldval field="fraRefVar" value="Central Command issued orders after the class came into service to improve the weapon systems with any captured technology. During the Dominion War, this focus changed to improvements to the outer hull and warp propulsion."/>
+    <fieldval field="fraYearEnt" value="2348"/>
+    <fieldval field="fraSuggPro" value="Espionage/ Intelligence, Pathfinder and Reconnaissance, Patrol, Reserve Fleet, Tactical Operations, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="Galor class cruisers take their names from famous war leaders of Cardassia’s past, important cities on Cardassian Prime, and war heroes."/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipAlliance" tag="Cardassian"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tr2ECardassianShp"></bootstrap>
+    <bootstrap thing="tr2EClsGalor"></bootstrap>
+    <bootstrap thing="sh2EDisruptorLan"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="fra2EDKora" name="D&apos;Kora" description="By the mid-24th century, the Ferengi Alliance had expanded across multiple sectors. The vast range of societies and species it encountered meant the Alliance, while heavily centralized in the Ferenginar system, had to maintain the ever-growing trade lanes as well as ensure the markets would stay linked to the homeworld, through free trade or by force. The Ferengi Congress of Economic Advisors levied a tax on all non-Ferengi economic activity to begin construction of the D’Kora-class marauder. Ferenginar had no active force like Starfleet, but the Congress would provide a letter of marque to any free trader willing to captain and crew a vessel for the good of the Alliance. D’Kora marauders quickly became a symbol of the Ferengi Alliance across the Alpha and Beta Quadrants, feared for their weaponry and the economic exploitation that would occur in their presence." compset="Frame" uniqueness="unique">
+    <fieldval field="fraNamConv" value="D’Kora-class maruaders take names from their commanding officers or their loved ones, or the limited liability companies they are owned by."/>
+    <fieldval field="fraSuggPro" value="Espionage/Intelligence, Pathfinder and Reconnaissance, Tactical Operations, Technical Testbed."/>
+    <fieldval field="fraRefVar" value="The Ferengi Alliance stayed out of the Dominion War except for arms sales to both sides. Trading in war zones can be hazardous to the safety of one’s ship, thus the Alliance put forth a rare regulation to improve the marauder’s shielding, structural integrity fields, and other safety equipment. "/>
+    <fieldval field="fraCapabilities" value="The D’Kora needed a large amount of its internal volume as mission adaptable space, but the vast majority of commanding officers used this space as cargo storage. The standard production vessel included a unique system tied to the vessel’s warp coils. If these warp coils were purposely put out of alignment and charged, the plasma could be discharge as a powerful electromagnetic pulse, disrupting a hostile ship’s systems and defensive shielding, and, in a best case, render the other ship powerless and available for acquisition."/>
+    <fieldval field="fraOverview" value="By the mid-24th century, the Ferengi Alliance had expanded across multiple sectors. The vast range of societies and species it encountered meant the Alliance, while heavily centralized in the Ferenginar system, had to maintain the ever-growing trade lanes as well as ensure the markets would stay linked to the homeworld, through free trade or by force. The Ferengi Congress of Economic Advisors levied a tax on all non-Ferengi economic activity to begin construction of the D’Kora-class marauder. Ferenginar had no active force like Starfleet, but the Congress would provide a letter of marque to any free trader willing to captain and crew a vessel for the good of the Alliance. D’Kora marauders quickly became a symbol of the Ferengi Alliance across the Alpha and Beta Quadrants, feared for their weaponry and the economic exploitation that would occur in their presence."/>
+    <fieldval field="fraYearEnt" value="2350"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraScale" value="6"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Ferengi"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <bootstrap thing="tr2EFerengiShip"></bootstrap>
+    <bootstrap thing="tr2EMarauder"></bootstrap>
+    <bootstrap thing="tr2EBestLatinCanB"></bootstrap>
+    <bootstrap thing="sh2EDisruptorBank"></bootstrap>
+    <bootstrap thing="sh2EElectIonCan"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="tr2EclsDKora"></bootstrap>
+    </thing>
+  <thing id="fra2EFreedom" name="Freedom" description="The Freedom-class was developed in parallel with the NX class and entered service a few years earlier due to its less resource-intensive design. The U.S.S. Franklin was the first vessel able to reach Warp 4. The Freedom class’s small size, limited crew requirements, and high speed meant these vessels were produced in greater numbers than the NX class, and many continued in service once the Federation was founded. The class was phased out by the end of the 22nd century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="The Freedom-class was developed in parallel with the NX class and entered service a few years earlier due to its less resource-intensive design. The U.S.S. Franklin was the first vessel able to reach Warp 4. The Freedom class’s small size, limited crew requirements, and high speed meant these vessels were produced in greater numbers than the NX class, and many continued in service once the Federation was founded. The class was phased out by the end of the 22nd century."/>
+    <fieldval field="fraYearEnt" value="2148"/>
+    <fieldval field="fraCapabilities" value="Freedom-class vessels were well-liked in the lead-up to the Earth-Romulan War, and they served with distinction as scouts and escorts. It relied on polarized hull plating for defense and the ship’s transporter was intended only for cargo use. The ship’s small size limited the crew complement and meant it could not support small craft. Crew embarked and disembarked by docking with another vessel."/>
+    <fieldval field="fraRefVar" value="Many Freedom-class ships were given uprated armaments during the Earth-Romulan War."/>
+    <fieldval field="fraSuggPro" value="Pathfinder and Reconnaissance Operations, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="Freedom-class vessels utilized names associated with notable individuals throughout Earth history, often revolutionaries and leaders."/>
+    <fieldval field="fraScale" value="2"/>
+    <fieldval field="fraComm" value="5"/>
+    <fieldval field="fraComp" value="5"/>
+    <fieldval field="fraEngine" value="5"/>
+    <fieldval field="fraSens" value="6"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraConn" value="2"/>
+    <fieldval field="fraEng" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="DIS"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2ECompactSize"></bootstrap>
+    <bootstrap thing="tr2EClsFreedom"></bootstrap>
+    <bootstrap thing="tr2ENoPersTrans"></bootstrap>
+    <bootstrap thing="trUEStarship"></bootstrap>
+    <bootstrap thing="sh2EGrappleCable"></bootstrap>
+    <bootstrap thing="sh2EPhaserCannon"></bootstrap>
+    <bootstrap thing="sh2ESpatialTorp"></bootstrap>
+    <bootstrap thing="ssr2ECompactVess"></bootstrap>
+    <bootstrap thing="ssr2EPolarHullPla"></bootstrap>
+    </thing>
+  <thing id="fra2EWalker" name="Walker" description="The formation of the Federation after the Earth-Romulan War and the difficulties in meshing the founding members’ navies together meant introducing standardized designs beyond those developed during the war was put off as late as possible. The Walker class was one of the first joint spaceframes to be developed as a multirole explorer." compset="Frame" uniqueness="unique">
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComm" value="6"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="6"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraNamConv" value="Walker-class vessels are named after early aviation heroes of Earth and other founding members of the Federation, and mythical ideas of flight. Valkyrie, Thunderbird, and Vimana are all examples. Registry numbers of Walker-class vessels range from 1200 to 1249."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Scientific and Survey Operations, Pathfinder and Reconnaissance Operations."/>
+    <fieldval field="fraRefVar" value="Refits focused on improving sensor platforms and subspace communications equipment."/>
+    <fieldval field="fraCapabilities" value="Walker-class vessels had a large saucer containing the crew’s quarters, weapon systems, laboratories, and sickbay. Integrated with the saucer was a secondary hull containing the vessel’s engineering section, aft-facing shuttlebay, and cargo area. Warp field enhancements allowed the class to achieve sustained warp velocities of 5.7 and brief sprints of warp 6.9."/>
+    <fieldval field="fraOverview" value="The formation of the Federation after the Earth-Romulan War and the difficulties in meshing the founding members’ navies together meant introducing standardized designs beyond those developed during the war was put off as late as possible. The Walker class was one of the first joint spaceframes to be developed as a multirole explorer."/>
+    <fieldval field="fraYearEnt" value="2196"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="DIS"/>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="tr2EClsWalker"></bootstrap>
+    <bootstrap thing="sh2EPhaserCannon"></bootstrap>
+    </thing>
+  <thing id="fra2EPioneer" name="Pioneer" description="Designed and built as one of the first implementations of the revolutionary Marvick-style warp drive, the Pioneer class was intended to be the vanguard of a new generation of Starfleet starships. Instead, only a few Pioneers were built as Starfleet decided to eschew new construction in favor of maintaining its large reserve of Magee- and Malachowski-class ships. After most of the fleet’s light units were destroyed in the Federation-Klingon War, the Admiralty revived the Pioneer program, and it eventually became Starfleet’s de-facto light cruiser until the 2270s." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2241"/>
+    <fieldval field="fraOverview" value="Designed and built as one of the first implementations of the revolutionary Marvick-style warp drive, the Pioneer class was intended to be the vanguard of a new generation of Starfleet starships. Instead, only a few Pioneers were built as Starfleet decided to eschew new construction in favor of maintaining its large reserve of Magee- and Malachowski-class ships. After most of the fleet’s light units were destroyed in the Federation-Klingon War, the Admiralty revived the Pioneer program, and it eventually became Starfleet’s de-facto light cruiser until the 2270s."/>
+    <fieldval field="fraCapabilities" value="Small and flexible, the Pioneer class centered around patrol, surveillance, and logistics. Intended to supplement and support the larger Constitution class, the Pioneer has a medium range and modular construction. While a fast and flexible light cruiser, the Pioneer did not offer much offensive capability."/>
+    <fieldval field="fraRefVar" value="Refits focused on improving the class’s computer systems and sensor pallets."/>
+    <fieldval field="fraSuggPro" value="Scientific and Survey Operations, Crisis and Emergency Response, Multirole Explorer."/>
+    <fieldval field="fraNamConv" value="ioneer-class vessels are named using synonyms for pioneers, such as Trailblazer, Wanderer, Pathfinder, and Explorer. NCC numbers range from 1500-1599."/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="7"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="Era" tag="DIS"/>
+    <tag group="Era" tag="SNW"/>
+    <tag group="Era" tag="TOS"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsPioneer"></bootstrap>
+    <bootstrap thing="tal2ERuggedDesign"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    </thing>
+  <thing id="fra2ECrossfield" name="Crossfield" description="Designed and produced in secret, the Crossfield class was produced solely to test the theoretical “displacement-activated spore hub drive” developed by Doctors Paul Stamets and Justin Straal. The launch of U.S.S. Crossfield in 2255 was a success for starship research and development, but initial tests of the spore drive were unsuccessful. With the limited number of spaceframes produced and the loss of both Glenn and Discovery, only U.S.S. Crossfield was left in service, and further spaceframes had their production cancelled. The Crossfield continued in service with the Starfleet Corps of Engineers until a collision with a sizable piece of an asteroid rendered the vessel unsalvageable. It remained in use as a testbed for new technologies until it was broken up in 2290." compset="Frame" uniqueness="unique">
+    <fieldval field="fraSci" value="2"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraNamConv" value="Three known Crossfieldclass vessels were produced, with no pattern of naming conventions among them."/>
+    <fieldval field="fraSuggPro" value="Technical Testbed"/>
+    <fieldval field="fraRefVar" value="The class was not produced in quantities to support a refit program."/>
+    <fieldval field="fraCapabilities" value="Each starship consisted of a large saucer for a primary hull that included the majority of crew quarters, the bridge, and sickbay. An angular secondary hull contained the engineering areas, including the warp core and two separate impulse reactor rooms. Crossfield had a solid saucer section, but later tests involving the spore drive indicated a large rotating subspace field was required to “activate” the drive. Glenn and Discovery were converted by removing the outermost part of the saucer section and converting it into a rotating ring housing subspace coils; adding fusion reactors to power the coils; and installing heavy shield emitters to protect the crew in the inner ring and command section from the intense subspace field generated by the spore drive."/>
+    <fieldval field="fraOverview" value="Designed and produced in secret, the Crossfield class was produced solely to test the theoretical “displacement-activated spore hub drive” developed by Doctors Paul Stamets and Justin Straal. The launch of U.S.S. Crossfield in 2255 was a success for starship research and development, but initial tests of the spore drive were unsuccessful. With the limited number of spaceframes produced and the loss of both Glenn and Discovery, only U.S.S. Crossfield was left in service, and further spaceframes had their production cancelled. The Crossfield continued in service with the Starfleet Corps of Engineers until a collision with a sizable piece of an asteroid rendered the vessel unsalvageable. It remained in use as a testbed for new technologies until it was broken up in 2290."/>
+    <fieldval field="fraYearEnt" value="2255"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="DIS"/>
+    <tag group="Era" tag="SNW"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    <bootstrap thing="tal2EModularLabs"></bootstrap>
+    <bootstrap thing="trExperimental"></bootstrap>
+    <bootstrap thing="tr2EClsCrossfield"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="ssr2EClassifiedDe"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="fra2EMiranda" name="Miranda" description="Starfleet conceived the Miranda class as a dual-purpose patrol and combat vessel to counter the most advanced Klingon D7s. Upon the signing of the Treaty of Organia, manufacturing of the Miranda was halted. A radical redesign was proposed using the systems and design philosophy going into the refit of Constitution-class vessels, and the Miranda was re-welcomed into the fleet as a multipurpose cruiser." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2264"/>
+    <fieldval field="fraOverview" value="Starfleet conceived the Miranda class as a dual-purpose patrol and combat vessel to counter the most advanced Klingon D7s. Upon the signing of the Treaty of Organia, manufacturing of the Miranda was halted. A radical redesign was proposed using the systems and design philosophy going into the refit of Constitution-class vessels, and the Miranda was re-welcomed into the fleet as a multipurpose cruiser."/>
+    <fieldval field="fraCapabilities" value="The Miranda class included a photon torpedo launcher mounted on a separate pod at the apex of a “roll-bar.” This made the launchers difficult to repair, but also allowed the addition of aft-facing launch tubes to give the vessel a wider range of fire. The class also included two large shuttle / cargo bays at the aft. This class became seen as a jack of all trades, and saw continual use through the late 24th century."/>
+    <fieldval field="fraRefVar" value="Miranda-class vessels received refit programs that followed along paths determined by their typical crew. By the outbreak of the Dominion War, most Miranda-class vessels were nearing the limits of what they could handle, but some received upgrades to quantum torpedoes and a few tested transwarp and quantum slipstream engines."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Scientific and Survey Operations, Tactical Operations."/>
+    <fieldval field="fraNamConv" value="Miranda-class vessels take names from nearly every aspect of naval traditions from across the Federation. Empress Sh’Thia XI, Repulse, and Lake Baikal are examples. Registry numbers range as low as 1850 and continue upward."/>
+    <fieldval field="fraComm" value="7"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="Era" tag="TOS"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2ELongServing"></bootstrap>
+    <bootstrap thing="tr2EClsMiranda"></bootstrap>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    </thing>
+  <thing id="fra2EOberth" name="Oberth" description="Starfleet saw a need for a more dedicated science vessel that could also be deployed on short duration missions to perform detailed biological surveys, assist rescue and recovery operations, and test new technologies. The rapid advancements in technology and engineering techniques meant the Oberth class became increasingly difficult to refit. The class was retired from active deployments in 2310 but continued to be used in a reserve role and for rescue operations well into the late 24th century." compset="Frame" uniqueness="unique">
+    <fieldval field="fraSci" value="2"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="7"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="6"/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraNamConv" value="Oberth-class vessels are often named after physicists from across the Federation. Newton, Hawking and Von Neumann are examples."/>
+    <fieldval field="fraSuggPro" value="Technical Testbed, Scientific and Survey Operations, Crisis and Emergency Response."/>
+    <fieldval field="fraRefVar" value="The primary refit program for the Oberth class involved improving or replacing the vessel’s already advanced warp coils developed from the Excelsior transwarp project. Refit programs beyond those of the 2280s and 90s saw the Oberth customized more for their specific university or test program than any fleet-wide program."/>
+    <fieldval field="fraCapabilities" value="The Oberth class utilized highly efficient warp coils, allowing the vessel to only carry small amounts of antimatter and freeing up more space to be dedicated to sensors and a small shuttlebay at the far forward of the primary hull. The secondary hull, containing planetary survey and subspace scanning equipment, was inaccessible except through access tubes during normal operation."/>
+    <fieldval field="fraOverview" value="Starfleet saw a need for a more dedicated science vessel that could also be deployed on short duration missions to perform detailed biological surveys, assist rescue and recovery operations, and test new technologies. The rapid advancements in technology and engineering techniques meant the Oberth class became increasingly difficult to refit. The class was retired from active deployments in 2310 but continued to be used in a reserve role and for rescue operations well into the late 24th century."/>
+    <fieldval field="fraYearEnt" value="2269"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="Era" tag="TOS"/>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsOberth"></bootstrap>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="fra2EColumbia" name="Columbia" description="Originally pitched as a long-range, extended endurance class, the Columbia’s initial design sported more efficient warp engines and heavier phaser armament than other classes of similar size. Though relations with the Klingons had not yet escalated to a “hot” war, there had been several skirmishes to mixed success for the Federation. The promise of the Columbia was a ship that was faster and more capable than the B’rel, without increased production requirements. Several Columbia-class starships saw deployment along the far reaches of Federation space in the Beta Quadrant." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="Originally pitched as a long-range, extended endurance class, the Columbia’s initial design sported more efficient warp engines and heavier phaser armament than other classes of similar size. Though relations with the Klingons had not yet escalated to a “hot” war, there had been several skirmishes to mixed success for the Federation. The promise of the Columbia was a ship that was faster and more capable than the B’rel, without increased production requirements. Several Columbia-class starships saw deployment along the far reaches of Federation space in the Beta Quadrant."/>
+    <fieldval field="fraYearEnt" value="2284"/>
+    <fieldval field="fraCapabilities" value="The Columbia class has more phaser banks and a slightly higher acceleration curve than other ships of her size, properties that helped the Columbia match the notorious Klingon B’rel-class bird-of-prey. Its warp engines were more efficient too, allowing for a longer uptime at higher warp factors."/>
+    <fieldval field="fraRefVar" value="As the Columbia’s development proceeded, some in the Admiralty decried the tactical focus, and demanded the Columbia be supplemented with more scientific equipment. The ship gained a small secondary hull with a large deflector dish and sensitive lateral sensor arrays."/>
+    <fieldval field="fraSuggPro" value="Pathfinder and Reconnaissance Operations, Patrol, Scientific and Survey Operations, Tactical Operations."/>
+    <fieldval field="fraNamConv" value="Columbia-class starships are often named after crewed vehicles from the history of space exploration across Federation worlds. NCC numbers range from 2200-2299."/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="7"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tr2EClsColumbia"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="ssr2EPreferTarget"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    </thing>
+  <thing id="fra2EConstellatio" name="Constellation" description="The Constellation class was developed as both a response to increasing tension with the Klingon Empire and to the difficulties in the development of the new transwarp system for Excelsior-class vessels. This class’s intended use never occurred, as the Khitomer Accords were signed soon after the class’s deployment. Instead of being taken out of service, Constellation-class vessels were given different assignments, often acting as first responders to crises across the Federation." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="The Constellation class was developed as both a response to increasing tension with the Klingon Empire and to the difficulties in the development of the new transwarp system for Excelsior-class vessels. This class’s intended use never occurred, as the Khitomer Accords were signed soon after the class’s deployment. Instead of being taken out of service, Constellation-class vessels were given different assignments, often acting as first responders to crises across the Federation."/>
+    <fieldval field="fraYearEnt" value="2285"/>
+    <fieldval field="fraCapabilities" value="The use of four warp nacelles on starships hadn’t been common in Starfleet prior to the Constellation, but third generation duotronic computer systems allowed greater response time to changes in the warp field and a higher degree of control. The Constellation class used two nacelles actively while utilizing the inactive nacelles’ warp coils to act as field repeaters, allowing the vessel to cruise at higher warp velocities for far less energy."/>
+    <fieldval field="fraRefVar" value="Refit programs focused on improving power generation and warp coils and reinforcing the vessel’s structural integrity. During the Dominion War, Constellation-class vessels also had their hulls reinforced."/>
+    <fieldval field="fraSuggPro" value="Crisis and Emergency Response, Multirole Explorer."/>
+    <fieldval field="fraNamConv" value="Constellation-class vessels are named after astronomers, terms associated with astronomy, constellations, or mythological sky deities. Cassiopeia, Nyx, and Ratri are examples."/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="7"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="7"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="TLY"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2EClsConstellat"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="ssr2EFourNacelle"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="fra2ENebula" name="Nebula" description="During the development of the Galaxy class, Starfleet felt that it could make the next evolutionary step of the Miranda class based on the design elements of the future flagship class, in the same way the Miranda had incorporated elements from the Constitution class refit. The Nebula would prove to be even more adaptable than the Miranda, but full-scale replacement of the older class became impossible with the outbreak of the Dominion War." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="During the development of the Galaxy class, Starfleet felt that it could make the next evolutionary step of the Miranda class based on the design elements of the future flagship class, in the same way the Miranda had incorporated elements from the Constitution class refit. The Nebula would prove to be even more adaptable than the Miranda, but full-scale replacement of the older class became impossible with the outbreak of the Dominion War."/>
+    <fieldval field="fraYearEnt" value="2361"/>
+    <fieldval field="fraCapabilities" value="Internally, the Nebula had less mission-adaptable volume than her sister class, but the rollbar mount was much stronger structurally and provided more EPS connections. This allowed a far wider selection of modular pods to be made available for use."/>
+    <fieldval field="fraRefVar" value="Most Nebula-class vessels went through a single refit cycle before the outbreak of the Dominion War, the standard being improvements in the sensitivity of their sensor platforms."/>
+    <fieldval field="fraSuggPro" value="Any. The Nebula-class is designed for maximum adaptability to mission requirements."/>
+    <fieldval field="fraNamConv" value="Nebula-class vessels take their names from across the Federation, based on famous ships from the past. Bennion, Beagle, and Golden Hind are examples. Most Nebula-class vessels have registry numbers over 60000; a few have much lower numbers, indicating production at smaller, less-used shipyards."/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="8"/>
+    <fieldval field="fraStruc" value="9"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraEng" value="2"/>
+    <fieldval field="fraPods" value="1"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <tag group="Era" tag="TNG"/>
+    <bootstrap thing="tr2EClsNebula"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="ssr2EMissionPod"></bootstrap>
+    <bootstrap thing="ssr2ESaucerSepRec"></bootstrap>
+    <bootstrap thing="tr2EAdaptable"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="fra2EAkira" name="Akira" description="In the aftermath of the Battle of Wolf 359, Starfleet saw the need for a heavily armed and combat-capable starship to perform patrol assignments and maintain a constant presence in a sector of space, but still contribute to exploration and discovery. When updated with the latest technologies, U.S.S. Akira was so successful in its initial patrols that Starfleet immediately ordered the class into wide production." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="In the aftermath of the Battle of Wolf 359, Starfleet saw the need for a heavily armed and combat-capable starship to perform patrol assignments and maintain a constant presence in a sector of space, but still contribute to exploration and discovery. When updated with the latest technologies, U.S.S. Akira was so successful in its initial patrols that Starfleet immediately ordered the class into wide production."/>
+    <fieldval field="fraYearEnt" value="2368"/>
+    <fieldval field="fraCapabilities" value="The vessel is designed to present the smallest sensor profile possible to augment the small surface area for its defensive shields. The sloped surfaces of the outer hull were augmented with ablative duranium armor plating, providing additional protection to key systems and power distribution nodes. The ship’s weapons pod, located between its large “pontoons” that were attached to the saucer and also mounted to the vessel’s warp nacelles, contained the same phaser arrays and forward and aft firing photon torpedo systems. The vessel was also designed with spacious flight decks and maintenance areas, allowing it to deploy runabouts and fighters."/>
+    <fieldval field="fraRefVar" value="The 2378 refit program involved installation of bioneural computer pathways to augment its isolinear core."/>
+    <fieldval field="fraSuggPro" value="Tactical Operations, Battlecruiser, Crisis and Emergency Response."/>
+    <fieldval field="fraNamConv" value="Akira-class vessels are often named after famed or fictional warriors or fighting vessels, particularly those who stood against impossible odds, or after places where such battles were fought. Thermopylae, Gawain, and Argo are some examples."/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="11"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="TNG"/>
+    <bootstrap thing="tr2EClsAkira"></bootstrap>
+    <bootstrap thing="tr2EExtTactical"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tal2EAblativeArmo"></bootstrap>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    <bootstrap thing="tal2ERapidFireTor"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="ssr2ESpecShuttleb"></bootstrap>
+    </thing>
+  <thing id="fra2ENova" name="Nova" description="Starfleet Command and the Federation Science Council formed a committee in 2363 to discuss the state of Starfleet’s aging science and exploration vessels. The conclusion was Starfleet required a new easy to maintain science and exploration vessel, equipped with the latest sensors and scientific gear. The Nova class went on to be the inspiration for the Intrepid class, and the lessons learned influenced Starfleet designers for decades to come." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2368"/>
+    <fieldval field="fraOverview" value="Starfleet Command and the Federation Science Council formed a committee in 2363 to discuss the state of Starfleet’s aging science and exploration vessels. The conclusion was Starfleet required a new easy to maintain science and exploration vessel, equipped with the latest sensors and scientific gear. The Nova class went on to be the inspiration for the Intrepid class, and the lessons learned influenced Starfleet designers for decades to come."/>
+    <fieldval field="fraCapabilities" value="Two standard isolinear computer cores were included to help maintain control over the ship’s small warp field, generated from subspace- friendly warp coils but mounted in standard nacelle housings. These computers had powerful subspace fields, allowing even faster processing time for the vessel’s integrated sensor networks. The Nova class was a superb scientific research vessel, but at the expense of creature comforts."/>
+    <fieldval field="fraRefVar" value="Starfleet’s refit plans for the Nova class included replacement of the vessel’s warp coils with smaller and more efficient systems."/>
+    <fieldval field="fraSuggPro" value="Pathfinder and Reconnaissance Operations, Scientific and Survey Operations, Crisis and Emergency Response."/>
+    <fieldval field="fraNamConv" value="Nova-class vessels take names from astronomical and astrological terms from the many languages of the Federation, and place names from the worlds that manufacture the spaceframes. Nova-class starships use registry numbers that begin in the 72300s."/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="TNG"/>
+    <bootstrap thing="tr2EEfficientAust"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsNova"></bootstrap>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    </thing>
+  <thing id="fra2EDefiant" name="Defiant" description="As Starfleet had little experience in designing a warship from the ground up, the development of the Defiant class began after the destruction of the fleet at Wolf 359 by the Borg in 2367 and wouldn’t see the construction of the first spaceframe until 2371—and only then after delays and massive redesigns, as new technology was developed to fight the Borg. Defiant-class vessels served in Starfleet into the early 25th century, often as scouts." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2371"/>
+    <fieldval field="fraOverview" value="As Starfleet had little experience in designing a warship from the ground up, the development of the Defiant class began after the destruction of the fleet at Wolf 359 by the Borg in 2367 and wouldn’t see the construction of the first spaceframe until 2371—and only then after delays and massive redesigns, as new technology was developed to fight the Borg. Defiant-class vessels served in Starfleet into the early 25th century, often as scouts."/>
+    <fieldval field="fraCapabilities" value="The Defiant-class vessel consisted of a single flattened hull to provide as small a silhouette as possible to protect against incoming fire. Developments from Starfleet Research and Development meant the phaser arrays, pulsed phaser cannons, and rapid-fire torpedo systems operated without losing maneuvering power. In order to keep the compact silhouette, the vessel’s nacelles were integrated into the vessel. These starships required just 50 crew and were cramped, not designed for long-duration assignments."/>
+    <fieldval field="fraRefVar" value="Starfleet continued to improve reactor output and structural integrity fields through the last decades of the 24th century, adding to the vessel’s survivability in fleet engagements."/>
+    <fieldval field="fraSuggPro" value="Tactical Operations, Espionage/Intelligence, Patrol, Pathfinder and Reconnaissance Operations."/>
+    <fieldval field="fraNamConv" value="Defiant-class starships are often named for adjectives in the languages of the Federation associated with honorable combat and heroism. Courageous, Dauntless, and Resolute are examples."/>
+    <fieldval field="fraScale" value="3"/>
+    <fieldval field="fraComm" value="8"/>
+    <fieldval field="fraComp" value="8"/>
+    <fieldval field="fraEngine" value="8"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="13"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Era" tag="TNG"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <bootstrap thing="tr2EClsDefiant"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EWarship"></bootstrap>
+    <bootstrap thing="tal2EAblativeArmo"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2ETorpQuantum"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPulPhaserCan"></bootstrap>
+    <bootstrap thing="ssr2ELandingGear"></bootstrap>
+    <bootstrap thing="ssr2EPulPhaserCan"></bootstrap>
+    </thing>
+  <thing id="fra2ELuna" name="Luna" description="With the design success of the Intrepid class, Starfleet began the parallel development of an explorer capable of the same exploratory and scientific assignments, but with larger research facilities, more computer processing power, and longer mission duration. The Luna class exited its design phase eight months after her sister class, and while there were engineering delays, U.S.S. Luna slipped her drydock over Mars in late 2372. Further delays occurred because of the outbreak of war between the Klingon Empire, and later, the Dominion. While the Luna class was approved for production, further vessels weren’t launched until 2375." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2375"/>
+    <fieldval field="fraOverview" value="With the design success of the Intrepid class, Starfleet began the parallel development of an explorer capable of the same exploratory and scientific assignments, but with larger research facilities, more computer processing power, and longer mission duration. The Luna class exited its design phase eight months after her sister class, and while there were engineering delays, U.S.S. Luna slipped her drydock over Mars in late 2372. Further delays occurred because of the outbreak of war between the Klingon Empire, and later, the Dominion. While the Luna class was approved for production, further vessels weren’t launched until 2375."/>
+    <fieldval field="fraCapabilities" value="The Luna class is equipped with variable geometry warp nacelles, allowing the starship to maintain warp field stability in turbulent space-time and to generate a subspace field with less power. This allows the Luna class a cruising speed of warp 7 and a maximum speed of warp 9.975. Like the Intrepid class, these vessels are designed to incorporate holo-emitters in sickbay to facilitate an Emergency Medical Hologram, but these emitters are also installed in mission-critical areas of the ship. Unlike its sister class, the Luna class has a modular equipment pod."/>
+    <fieldval field="fraRefVar" value="Refits expand the vessel’s phaser capacitors to improve fire rate and duration. One Luna, the U.S.S. Enceladus, was heavily modified to be staffed entirely by Cetacean officers and crew and became the lead ship of three vessels of the Enceladus subclass."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Technical Testbed, Pathfinder and Reconnaissance Operations."/>
+    <fieldval field="fraNamConv" value="Luna-class vessels are named after moons, with the earliest vessels in the class using the names of moons from the Sol system. Deimos, Uriel, and Oberon are examples. Registry numbers in the 80100s are commonplace."/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="8"/>
+    <fieldval field="fraWeap" value="8"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraPods" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="Ship" tag="MissionPod"/>
+    <tag group="Era" tag="TNG"/>
+    <bootstrap thing="tal2EAdvResearchF"></bootstrap>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="tal2EEMH"></bootstrap>
+    <bootstrap thing="tr2EClsLuna"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="ssr2EMissionPod"></bootstrap>
+    </thing>
+  <thing id="fra2ESagan" name="Sagan" description="The Sagan class served as a testing ground for new technologies derived from research into “the Artifact,” a derelict Borg Cube found in the Beta Quadrant in the 2380s and studied by a joint Federation and Romulan research project. Borg technology had been integrated into Starfleet vessels on a smaller scale before, but it had taken nearly two decades of study and testing before Starfleet was willing to adopt such advancements on a wider scale." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="The Sagan class served as a testing ground for new technologies derived from research into “the Artifact,” a derelict Borg Cube found in the Beta Quadrant in the 2380s and studied by a joint Federation and Romulan research project. Borg technology had been integrated into Starfleet vessels on a smaller scale before, but it had taken nearly two decades of study and testing before Starfleet was willing to adopt such advancements on a wider scale."/>
+    <fieldval field="fraCapabilities" value="The spaceframe is heavily reinforced and integrates extensive multiphasic shielding to protect the crew from radiation and other spatial phenomena. Borg technology allows the weapons to be more potent and more efficient relative to their size and power draw. The class boasts a sustained cruising speed of warp 7.8, and nearly double the endurance for long-duration warp flight than any other class. "/>
+    <fieldval field="fraRefVar" value="The technologies involved in developing the Sagan-class are new and the impact of them in the field is still being tested and analyzed. However, Starfleet committed to the production of this class, with over a dozen already in active service as of 2401 and several more under construction."/>
+    <fieldval field="fraSuggPro" value="Multirole Explorer, Pathfinder and Reconnaissance Operations, Scientific and Survey Operations."/>
+    <fieldval field="fraNamConv" value="Sagan-class vessels are commonly named after terms relating to exploration, and after notable figures in space science and exploration. The first vessel of the class was the U.S.S. Stargazer (NCC-82893). Pioneer, Hathaway, and Hubble are other examples."/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="11"/>
+    <fieldval field="fraSens" value="11"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraYearEnt" value="2401"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="PIC"/>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="tal2EAdvShields"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="ssr2EFourNacelle"></bootstrap>
+    <bootstrap thing="tr2EBorgTech"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EClsSagan"></bootstrap>
+    </thing>
+  <thing id="fra2EOdyssey" name="Odyssey" description="Following encounters with the massive starships fielded by the Borg, Dominion, and Remans, Starfleet planners were concerned Starfleet was falling behind on defensive and offensive capability. In response, the Admiralty invested in Starfleet’s own iteration of a massive star cruiser that could compete. The project yielded the U.S.S. Odyssey, the U.S.S. Verity, and eventually the Starship Enterprise, NCC-1701-F." compset="Frame" uniqueness="unique">
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="11"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="11"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraScale" value="7"/>
+    <fieldval field="fraNamConv" value="The Odyssey is named in honor of both Odysseus’s original daring voyage and other Starfleet ships. As Starfleet’s flagship class of the 25th century, other Odyssey-class ships inherit names from renowned vessels."/>
+    <fieldval field="fraSuggPro" value="Strategic and Diplomatic Operations, Crisis and Emergency Response, Multirole Explorer, Flagship."/>
+    <fieldval field="fraRefVar" value="After the Romulan supernova, Starfleet began a program to modernize and update several Odyssey hulks involved in heavy fighting along the former border with rogue elements of the Romulan Navy. Starfleet decided on three different sub-classes for the refits, each specializing in a different mission profile. The Endeavour subclass’s focus was on tactical operations. The Sojourner’s focus was on engineering and operational support. The Yorktown was focused on exploration and scientific discovery. The Enterprise-F received the Yorktown refit after taking heavy damage in the Battle at Midnight."/>
+    <fieldval field="fraCapabilities" value="The Odyssey class represents a significant evolutionary advancement in the tradition of Starfleet multi-role cruisers. Requiring a crew of 1,600 and an emergency capacity of over 10,000, the Odyssey was designed to tackle any mission. Its suite of active and passive sensor arrays is one of the most advanced in Starfleet, and it is impressively armed. Its massive Yoyodyne 46A warp core powers both a standard warp drive and an experimental quantum slipstream burst drive.{br}{br}In addition, the Odyssey has an Aquarius embedded escort. The Aquarius escort is a small ship assigned to its parent Odyssey and docked in a bay in the aft of its mothership. Its crew is part of the Odyssey’s crew, and it operates at the captain’s discretion. The Aquarius offers additional tactical flexibility, especially when deployed during a saucer separation maneuver."/>
+    <fieldval field="fraOverview" value="Following encounters with the massive starships fielded by the Borg, Dominion, and Remans, Starfleet planners were concerned Starfleet was falling behind on defensive and offensive capability. In response, the Admiralty invested in Starfleet’s own iteration of a massive star cruiser that could compete. The project yielded the U.S.S. Odyssey, the U.S.S. Verity, and eventually the Starship Enterprise, NCC-1701-F."/>
+    <fieldval field="fraYearEnt" value="2398"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="Era" tag="PIC"/>
+    <bootstrap thing="ssr2ESaucerSepRec"></bootstrap>
+    <bootstrap thing="tal2ECommandShip"></bootstrap>
+    <bootstrap thing="tal2EImpWarpDrive"></bootstrap>
+    <bootstrap thing="tal2ERedundantSys">
+      <assignval field="usrChosen1" value="attrsys03" behavior="pick"/>
+      </bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2EPhaserBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2ETorpQuantum"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="tr2EMobStarbase"></bootstrap>
+    <bootstrap thing="tr2EClsOdyssey"></bootstrap>
+    <bootstrap thing="ssrAquariusEscort"></bootstrap>
+    <bootstrap thing="ssrQuantSlipBurst"></bootstrap>
+    </thing>
+  <thing id="fra2EAquarius" name="Aquarius-Class Escort" description="The Aquarius escort is a small starship embedded in a docking slip at the aft of the Odyssey. The Aquarius is an independent starship and can travel at warp, though its endurance is limited, and it is not designed to go on extended missions. When deployed, the Aquarius can be an NPC ally starship or can be commanded by a player at the gamemaster’s discretion. Deploying the Aquarius class functions the same way as launching a small craft, though it does not take up any of the ship’s Small Craft Capacity.\n\nAs it exists as part of its parent ship, the Aquarius class does not have a separate Crew Support rating. It also does not have talents, though it can be improved with character advancement." compset="Frame" uniqueness="unique">
+    <fieldval field="fraOverview" value="The Aquarius escort is a small starship embedded in a docking slip at the aft of the Odyssey. The Aquarius is an independent starship and can travel at warp, though its endurance is limited, and it is not designed to go on extended missions. When deployed, the Aquarius can be an NPC ally starship or can be commanded by a player at the gamemaster’s discretion. Deploying the Aquarius class functions the same way as launching a small craft, though it does not take up any of the ship’s Small Craft Capacity.{br}{br}As it exists as part of its parent ship, the Aquarius class does not have a separate Crew Support rating. It also does not have talents, though it can be improved with character advancement."/>
+    <fieldval field="fraScale" value="2"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraConn" value="4"/>
+    <fieldval field="fraEng" value="2"/>
+    <fieldval field="fraSecur" value="4"/>
+    <fieldval field="fraSci" value="2"/>
+    <fieldval field="fraMed" value="1"/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="9"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="6"/>
+    <fieldval field="fraWeap" value="10"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2EPhaserCannon"></bootstrap>
+    <bootstrap thing="tr2EClsAquarius"></bootstrap>
+    <bootstrap thing="tr2EEscortVessel"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="ssr2ECompactVess"></bootstrap>
+    </thing>
+  <thing id="fra2EVorcha" name="Vor&apos;cha" description="Peace with the Federation and the static border with the Romulan Star Empire during the first half of the 24th century led the KDF to become complacent with battle cruiser design. With some stunning tactical defeats with the Gorn Hegemony, the Chancellor ordered the KDF to design a new vessel, impressive enough to be a flagship for the Empire. Rapid advancements in warp core design, computer technology, and sensor systems from the Empire’s friendship with the Federation meant the design of the Vor’cha class kept undergoing revisions." compset="Frame" uniqueness="unique">
+    <fieldval field="fraNamConv" value="Klingon vessels have little in the way of standard naming conventions. Each House has its own traditions, as does the KDF."/>
+    <fieldval field="fraSuggPro" value="Battlecruiser, Strategic and Diplomatic Operations, Strategic and Diplomatic Operations, Tactical Operations. "/>
+    <fieldval field="fraRefVar" value="The KDF debated the priority for the first refit cycle of the Vor’cha class. While some generals felt that additional subspace communication relays and boosted transmission strength was needed for properly utilizing this class against enemies as advanced as the Dominion, others felt that all problems can be solved with the installation of additional disruptor cannons."/>
+    <fieldval field="fraCapabilities" value="The Vor’cha continues the tradition of the KDF having its battle cruisers consist of a command pod at the end of a long boom and an engineering hull. The Vor’cha could separate just the command pod. The engineering hull also has a ‘flying bridge’ in a triangular section that can take over command and control functions from the forward bridge. Other weapon systems installed include disruptor cannons on the warp nacelles, two torpedo tubes in the command pod, two tubes in the engineering hull, and two tubes straddling the shuttle bay. Each Vor’cha-class vessel could accommodate nearly 2,000 warriors."/>
+    <fieldval field="fraOverview" value="Peace with the Federation and the static border with the Romulan Star Empire during the first half of the 24th century led the KDF to become complacent with battle cruiser design. With some stunning tactical defeats with the Gorn Hegemony, the Chancellor ordered the KDF to design a new vessel, impressive enough to be a flagship for the Empire. Rapid advancements in warp core design, computer technology, and sensor systems from the Empire’s friendship with the Federation meant the design of the Vor’cha class kept undergoing revisions."/>
+    <fieldval field="fraYearEnt" value="2367"/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="9"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSecur" value="2"/>
+    <usesource source="GameToolkit"/>
+    <usesource source="2ndEdition"/>
+    <tag group="ShipAlliance" tag="Klingon"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tr2EFormidableRep"></bootstrap>
+    <bootstrap thing="tr2EKlingCruiser"></bootstrap>
+    <bootstrap thing="tr2EClsVorcha"></bootstrap>
+    <bootstrap thing="tal2ECloakingDev"></bootstrap>
+    <bootstrap thing="tal2EFastTargSys"></bootstrap>
+    <bootstrap thing="ssr2EAbundPers"></bootstrap>
+    <bootstrap thing="sh2EDisruptorBank"></bootstrap>
+    <bootstrap thing="sh2EDisruptorCan"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    <bootstrap thing="sh2EPhotonTorp"></bootstrap>
+    </thing>
+  <thing id="fra2EMogai" name="Mogai" description="With the D’deridex-class warbird approaching two decades old, the Romulan Empire began prototyping a new warbird design. The success of these early vessels in the Shackleton Expanse, and then as assault ships against the Breen Confederacy during the Dominion War, led to large-scale production in 2376. Refit plans were scrapped as Praetor Shinzon took control of the Empire. After his defeat, the Imperial Navy wished to focus on rebuilding its forces but the shipyards capable of producing the new warbird were destroyed in the Romulan supernova, and it is uncertain if this class will resume production." compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2374"/>
+    <fieldval field="fraOverview" value="With the D’deridex-class warbird approaching two decades old, the Romulan Empire began prototyping a new warbird design. The success of these early vessels in the Shackleton Expanse, and then as assault ships against the Breen Confederacy during the Dominion War, led to large-scale production in 2376. Refit plans were scrapped as Praetor Shinzon took control of the Empire. After his defeat, the Imperial Navy wished to focus on rebuilding its forces but the shipyards capable of producing the new warbird were destroyed in the Romulan supernova, and it is uncertain if this class will resume production."/>
+    <fieldval field="fraCapabilities" value="The Mogai was powered by an artificial quantum singularity, providing ample power for all primary systems and allowing cruising speeds of warp 7.1, and even with the cloaking device active, warp 6.8. Enough mass was forced into the singularity to allow normal operations for up to four years, but extra mass was collected via ramscoops along the leading edges of the vessel’s wings."/>
+    <fieldval field="fraRefVar" value="The Imperial Navy had planned on improving the class’s subspace communication gear to range further from the Imperial core, but these plans were shelved."/>
+    <fieldval field="fraSuggPro" value="Battlecruiser, Espionage/Intelligence, Pathfinder and Reconnaissance, Tactical Operations, Technical Testbed."/>
+    <fieldval field="fraNamConv" value="Mogai-class vessels take their names from sea birds found across the Empire, as well as influential families who lost children during the Dominion War."/>
+    <fieldval field="fraScale" value="5"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="ShipAlliance" tag="Romulan"/>
+    <bootstrap thing="tr2EClsMogai"></bootstrap>
+    <bootstrap thing="tr2EShipRomulan"></bootstrap>
+    <bootstrap thing="tr2EWarbird"></bootstrap>
+    <bootstrap thing="tal2ECloakingDev"></bootstrap>
+    <bootstrap thing="sh2EPlasmaTorp"></bootstrap>
+    <bootstrap thing="sh2EDisruptorBank"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="pro2ECivMerchMar" name="Civilian Merchant Marine" description="Many decommissioned Starfleet vessels find their way into the Merchant Marines, an active reserve where starships and personnel go to continue service to the Federation in a less formal and less risky way. Merchant Marines may be called upon by Starfleet to serve as logistical vessels in times of need, and many of these starships act in the place of active service Starfleet vessels when no others are available. Most other spacefaring civilizations have similar services.\n\nSYSTEMS: Structure +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="MisProTal" tag="tal2EImpPowerSys"/>
+    <tag group="MisProTal" tag="tal2ERuggedDesign"/>
+    <tag group="MisProTal" tag="tal2EBackEPSCond"/>
+    <tag group="MisProTal" tag="tal2EExtShuttleba"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <eval phase="Effects" priority="1000">#bonusstructure[] += 1</eval>
+    </thing>
+  <thing id="pro2EColonySupp" name="Colony Support" description="Vessels equipped to assist colonies in their initial stages provide necessary supplies, as well as scientific and medical backup to new colony worlds, the kinds of places that deal with unknowns which may still present themselves years after initial settlement.\n\nSYSTEMS: Communications +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="2"/>
+    <fieldval field="proMed" value="3"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="MisProTal" tag="tal2EExtShuttleba"/>
+    <tag group="MisProTal" tag="tal2EAdvMedWard"/>
+    <tag group="MisProTal" tag="tal2EAdvTransport"/>
+    <tag group="MisProTal" tag="tal2EHighPwrTract"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <eval phase="Effects" priority="1000">#bonuscomms[] += 1</eval>
+    </thing>
+  <thing id="pro2ELogisticalQ" name="Logistical / Quartermaster" description="These vessels provide the backbone of any fleet, even in the era of the replicator. Whenever vital equipment or personnel need to be moved, vessels like this are often central to ensuring that those tools and people get where they’re needed most. In Starfleet in particular, these vessels also serve as a second line of operations following the important business of first contact, providing material and infrastructure support to worlds recently contacted or who seek membership in the Federation.\n\nSYSTEMS: Engines +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="3"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="1"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="MisProTal" tag="tal2EExtShuttleba"/>
+    <tag group="MisProTal" tag="tal2EImpWarpDrive"/>
+    <tag group="MisProTal" tag="tal2ERuggedDesign"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <eval phase="Effects" priority="1000">#bonusengines[] += 1</eval>
+    </thing>
+  <thing id="pro2EReserveFleet" name="Reserve Fleet" description="These starships are often older vessels that have been withdrawn from active duty and are equipped as standby vessels in case of disasters both natural and manufactured. Some new ships are also outfitted in this manner, but are classified as “fleet support,” assisting flotillas in deployments away from the supply lines of core worlds.\n\nSYSTEMS: Structure +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="3"/>
+    <fieldval field="proSci" value="1"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="MisProTal" tag="tal2EExtShuttleba"/>
+    <tag group="MisProTal" tag="tal2EAdvMedWard"/>
+    <tag group="MisProTal" tag="tal2EImpHullInt"/>
+    <tag group="MisProTal" tag="tal2ESecondaryRea"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <eval phase="Effects" priority="1000">#bonusengines[] += 1</eval>
+    </thing>
+  <thing id="pro2ETechTestbed" name="Technical Testbed" description="The ship is equipped with numerous state-of-the-art or even prototype technologies, allowing them to be tested or studied in practical conditions so that flaws can be discovered and overcome, and that systems can be refined and improved upon. These ships are often deployed on a broad range of resource-intensive missions to provide a diverse range of conditions for equipment and technology testing.\n\nSYSTEMS: Engines +1" compset="Profile" uniqueness="unique">
+    <fieldval field="proCmd" value="1"/>
+    <fieldval field="proConn" value="2"/>
+    <fieldval field="proEng" value="3"/>
+    <fieldval field="proMed" value="2"/>
+    <fieldval field="proSecur" value="2"/>
+    <fieldval field="proSci" value="2"/>
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="MisProTal" tag="tal2EImpWarpDrive"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <tag group="MisProTal" tag="tal2EAdvShields"/>
+    <tag group="MisProTal" tag="tal2EImpImpulse"/>
+    <tag group="MisProTal" tag="tal2EImpPowerSys"/>
+    <eval phase="Effects" priority="1000">#bonusengines[] += 1</eval>
+    </thing>
+  <thing id="tr2EClsMogai" name="Mogai Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EShipRomulan" name="Romulan Starship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EWarbird" name="Warbird" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EKlingCruiser" name="Klingon Cruiser" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsVorcha" name="Vor&apos;cha Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EFormidableRep" name="Formidable Reputation" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EEscortVessel" name="Escort Vessel" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsAquarius" name="Aquarius Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsOdyssey" name="Odyssey Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EMobStarbase" name="Mobile Starbase" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsSagan" name="Sagan Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EBorgTech" name="Borg Technology" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsLuna" name="Luna Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsDefiant" name="Defiant Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsNova" name="Nova Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EEfficientAust" name="Efficient but Austere" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EExtTactical" name="Extensive Tactical Systems" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsAkira" name="Akira Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsNebula" name="Nebula Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EAdaptable" name="Adaptable" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsConstellat" name="Constellation Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsColumbia" name="Columbia Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsOberth" name="Oberth Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsMiranda" name="Miranda Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ELongServing" name="Long Serving" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EExperimental" name="Experimental" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsCrossfield" name="Crossfield Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsPioneer" name="Pioneer Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsWalker" name="Walker Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsFreedom" name="Freedom Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ECompactSize" name="Compact Size" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ENoPersTrans" name="No Personnel Transporter" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="ssr2EAquariusEsc" name="Aquarius Escort" description="The Aquarius escort is a small starship embedded in a docking slip at the aft of the Odyssey. The Aquarius is an independent starship and can travel at warp, though its endurance is limited, and it is not designed to go on extended missions. When deployed, the Aquarius can be an NPC ally starship or can be commanded by a player at the gamemaster’s discretion. Deploying the Aquarius class functions the same way as launching a small craft, though it does not take up any of the ship’s Small Craft Capacity.\n\nAs it exists as part of its parent ship, the Aquarius class does not have a separate Crew Support rating. It also does not have talents, though it can be improved with character advancement." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    </thing>
+  <thing id="tr2EWarship" name="Warship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="sh2EPulPhaserCan" name="Pulse Phaser" description="Common to Starfleet and a few civilizations’ fleets, phasers are a precise and adaptable weapon.\n\nPulse Phaser Cannons function as normal Phaser Cannons with the Spread quality." compset="Energy" uniqueness="unique">
+    <usesource source="2ndEdition" parent="CoreRules" name="2nd Edition"/>
+    <tag group="ShipWepCat" tag="Beam" name="Beam" abbrev="Beam"/>
+    <child entity="gearQual">
+      <bootstrap thing="gq2EVersatileX">
+        <assignval field="gqValue" value="2"/>
+        </bootstrap>
+      <bootstrap thing="ds2ECannon"></bootstrap>
+      <bootstrap thing="gq2ESpread"></bootstrap>
+      </child>
+    </thing>
+  <thing id="ssr2EPulPhaserCan" name="Pulse Phaser Cannons" description="The armament of Defiant-class starships is designed to deliver punishing firepower at Close range, overwhelming the defenses of most enemies. These function as Phaser Cannons with the Spread quality." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    </thing>
+  <thing id="ssr2ESpecShuttleb" name="Specialized Shuttlebay" description="Akira-class vessels are built with a shuttlebay running the length of the saucer section, allowing small craft to depart from the prow and return safely via the aft. Any friendly small craft within Close range may count the ship as providing Cover (+1 Difficulty on attacks targeting them). Any small craft launching from the bay may take one additional helm minor action at no additional cost after they launch." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    </thing>
+  <thing id="ssr2EPreferTarget" name="Preferential Targeting" description="Using its sensitive scientific equipment, a Columbia can locate and exploit weaknesses in an enemy ship’s defenses. When a Columbia-class ship causes a breach to an enemy ship, the crew may spend 3 Momentum to immediately attack again with a different weapon." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    </thing>
+  <thing id="ssr2EClassifiedDe" name="Classified Design" description="As the Crossfield class is a highly experimental spaceframe, Starfleet outfitted all ships of this class with the Technical Testbed mission profile." compset="StarshipSpecial">
+    <usesource source="2ndEdition"/>
+    <usesource source="GameToolkit"/>
+    </thing>
+  <thing id="ssr2EAbundPers" name="Abundant Personnel" description="The ship’s Crew Support is doubled, after any other modifiers, and any effects or abilities which would increase Crew Support have twice the normal effect aboard a ship with this special rule. Further, when you introduce a supporting character, you may use one additional Crew Support to grant them an improvement immediately." compset="StarshipSpecial" summary="Crew Support doubled. When you introduce a supporting character, you may use one additional Crew Support to grant them an improvement immediately.">
+    <usesource source="2ndEdition"/>
+    </thing>
+  <thing id="tr2EclsDKora" name="D&apos;Kora Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EFerengiShip" name="Ferengi Starship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EMarauder" name="Marauder" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EBestLatinCanB" name="The Best Latinum Can Buy" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ECardassianShp" name="Cardassian Starship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsGalor" name="Galor Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsDDeridex" name="D&apos;Deridex Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EImposing" name="Imposing" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsTLiss" name="T&apos;Liss Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EBirdofPrey" name="Bird of Prey" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EAgileRaider" name="Agile Raider" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsBrel" name="B&apos;rel Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsD7" name="D7 Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ESymbolKlingon" name="Symbol of Klingon Unity" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsConstIII" name="Constitution III Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ELegacyComp" name="Legacy Components" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsSovereign" name="Sovereign Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsIntrepid" name="Intrepid Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EAdvWarpDrive" name="Advanced Warp Drive" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsGalaxy" name="Galaxy Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2ECityInSpace" name="A City in Space" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsCalifornia" name="California Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsAmbassador" name="Ambassador Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsExcelsior" name="Excelsior Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EStarfleetMain" name="Starfleet Mainstay" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EClsConstituti" name="Constitution Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="tr2EMemberWorld" name="Member World Starship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="ssr2EPrototypeClo" name="Prototype" description="The cloaking device employed on this vessel has some notable limitations. The vessel cannot travel at warp while cloaked, and the difficulty of the task roll to activate the cloak increases to 3." compset="StarshipSpecial"></thing>
+  <thing id="tr2EShipKlingon" name="Klingon Starship" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  </document>

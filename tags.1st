@@ -36,6 +36,7 @@
     <value id="NoReset"/>     <!-- Tracker value does not possess a reset button -->
     <value id="NoMaxBound"/>  <!-- Tracker user value is not bounded at the maximum end -->
     <value id="NoMinBound"/>  <!-- Tracker user value is not bounded at the minimum end -->
+    <value id="TrackYesNo"/>  <!-- Tracker is a yes/no value -->
     <value id="NoMinimum"/>   <!-- Resource does NOT need to be fully spent to avoid reporting a warning -->
     <value id="CustomItem"/>  <!-- Identifies a thing that has a user customizable name -->
     <value id="NoPersText"/>  <!-- User entered no background text for hero -->
@@ -45,6 +46,10 @@
     <value id="NoCost"/>      <!-- Indicates a Talent, Trait, etc. doesn't cost a slot from the resource -->
     <value id="IsHeader"/>    
     <value id="UserDesc"/>     
+    <value id="FirstCopy"/>   		<!-- This pick is the first copy of the trait -->
+    <value id="OnlyCopy"/>   		<!-- This pick is the only copy of the component -->
+    <value id="MultiCopy"/>   		<!-- This pick is one of multiple of the component -->
+    <value id="SpecUp"/>      		<!-- This pick is an additional copy of the same trait -->
     <value id="BorgImplant"/> 		<!-- Indicates a piece of gear is a Borg Implant -->  
     <value id="AddedWeapon"/> 		<!-- Indicates an additional ship weapon -->      
     <value id="FrameTalent"/> 		<!-- Indicates an ship weapon that is from a custom frame -->  
@@ -78,6 +83,8 @@
     <value id="ChooseTrait"/>    	<!-- Reset abiUser -->
     <value id="JoinedTrait"/>   	<!-- Indicates trait provided by the Joined Talent for Trills -->
     <value id="ArtificialSense"/>	<!-- Indicates trait provided by the Replacement Sense Talent for Cyborgs -->
+    <value id="IsAnIncrease"/>      <!--  -->
+    <value id="IsADecrease"/>      <!--  -->
     </group>
 
   <!-- Hero group - Helper tags assigned exclusively to the hero/actor
@@ -102,6 +109,8 @@
     <value id="MixedHeritage"/>  	<!-- Indicates that the hero is a Creature -->
     <value id="NPC"/>            	<!-- Indicates that the hero is an NPC -->  
     <value id="TrackRequired"/> 	<!-- Career Path requires selection of a Track -->
+    <value id="IsEmpathic"/> 		<!-- Indicates hero should have the Empathy talent -->
+    <value id="IsTelepathic"/> 		<!-- Indicates hero should have the Telepathy talent -->
     </group>
 	
   <!-- MaxAttribute - indicates the highest level for an Attribute/System
@@ -322,6 +331,7 @@
     <value id="Medical" order="30"/>
     <value id="Cyber" order="40"/>
     <value id="Other" order="50"/>
+    <value id="Personnel" order="60"/>
     </group>
 	
   <!-- Equipped group - used for sorting equipped weapons first
@@ -444,7 +454,8 @@
 
 
   <group
-    id="Era">					<!-- Setting time period -->
+    id="Era"
+    sequence="explicit">					<!-- Setting time period -->
     <value id="ENT" 	name="Enterprise"							order="10"/>  
     <value id="DIS" 	name="ST: Discovery"						order="20"/>  
     <value id="SNW"		name="ST: Strange New Worlds"				order="30"/> 
@@ -463,6 +474,8 @@
     <value id="Stage5"/> 
     <value id="Stage6"/> 
     <value id="Stage7"/> 
+    <value id="CareerEvent1"/>
+    <value id="CareerEvent2"/> 
     </group>
 
   <group
@@ -670,10 +683,11 @@
   <group
     id="ShipWepCat"
     sequence="explicit">
-    <value id="Beam" order="10"/>
-    <value id="Torpedo" order="20"/>
-    <value id="Mine" order="30"/>
-    <value id="Other" order="40"/>
+    <value id="Beam" 							order="10"/>
+    <value id="Torpedo" 						order="20"/>
+    <value id="Mine" 							order="30"/>
+    <value id="TractorBeam"	name="Tractor Beam"	order="40"/>
+    <value id="Other" order="50"/>
    </group>
    
   <!-- GearCost group -->
@@ -787,8 +801,28 @@
   <!-- Ship Alliance -->
   <group
     id="ShipAlliance"
-    dynamic="yes">
-    <value id="Civilian" order="99"/>
+    dynamic="yes"
+    sequence="explicit">
+    <value id="Custom" 			name="Custom"	order="10"/>
+    <value id="Civilian" 		name="Civilian"	order="12"/>
+    <value id="AndorianPreFed" 	name="Andorian (Pre-Federation)"	order="15"/>
+    <value id="Andorian" 		name="Andorian"	order="20"/>
+    <value id="Cardassian" 		name="Cardassian"	order="30"/>
+    <value id="Federation" 		name="Federation"	order="40"/>
+    <value id="Ferengi" 		name="Ferengi"	order="50"/>
+    <value id="Gorn" 			name="Gorn"	order="60"/>
+    <value id="Klingon" 		name="Klingon"	order="70"/>
+    <value id="Orion" 			name="Orion"	order="80"/>
+    <value id="RomulanEarly" 	name="Romulan (Early)"	order="85"/>
+    <value id="Romulan" 		name="Romulan"	order="90"/>
+    <value id="Talaxian" 		name="Talaxian"	order="100"/>
+    <value id="TellaritePreFed" name="Tellarite (Pre-Federation)"	order="105"/>
+    <value id="Tellarite" 		name="Tellarite"	order="110"/>
+    <value id="Tzenkethi" 		name="Tzenkethi"	order="120"/>
+    <value id="UnitedEarth" 	name="United Earth"	order="130"/>
+    <value id="UESPA" 			name="United Earth Space Probe Agency"	order="140"/>
+    <value id="VulcanPreFed" 	name="Vulcan (Pre-Federation)"	order="135"/>
+    <value id="Vulcan" 			name="Vulcan"	order="140"/>
     </group>
 	
   <!-- Ship System Point Category 
@@ -860,6 +894,24 @@
     </group>
 	
   <group
+    id="StarshipSelected"
+    dynamic="no"
+    sequence="explicit">
+    <value id="Frame"							order="1"/>
+    <value id="Profile"							order="2"/>
+    <value id="Service"	name="Service Record"	order="3"/>
+    <value id="Refit"							order="4"/>
+    <value id="Pod"		name="Mission Pod"		order="5"/>
+    </group>
+	
+  <group
+    id="ShipSelectAllow"
+    dynamic="no"
+    sequence="explicit"
+    inherit="StarshipSelected">
+    </group>
+	
+  <group
     id="Profile"
     dynamic="yes">
     <value id="Talent"/>    <!-- Indicates talent selected for Mission Profile -->
@@ -887,5 +939,39 @@
     dynamic="yes"
     inherit="Reference1">
     </group>	
+	
+  <group
+    id="WeaponType"
+    dynamic="no"
+    sequence="explicit">
+    <value id="Melee"		order="1"/>
+    <value id="Ranged"		order="2"/>
+    </group>	
+	
+  <group
+    id="ShipWeaponType"
+    dynamic="no"
+    sequence="explicit">
+    <value id="Energy"		order="1"/>
+    <value id="Torpedo"		order="2"/>
+    <value id="Mine"		order="2"/>
+    </group>
+	
+  <group
+    id="QualityCategory"
+    dynamic="yes"
+    inherit="GearCat">
+    <value id="Weapon" order="55"/>    <!-- Indicates talent selected for Mission Profile -->
+    </group>	
+	
+  <group
+    id="ShipShields"
+    dynamic="no"
+    sequence="explicit">
+    <value id="NoShields"	name="No Shields"	order="0"/>
+    <value id="Scale"							order="1"/>
+    <value id="Structure"						order="2"/>
+    <value id="Security"						order="3"/>
+    </group>
 	
    </document>

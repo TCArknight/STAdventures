@@ -194,6 +194,9 @@
       var limit as number
       limit = portal[reset].left - portal[name].left - 15
       portal[name].width = minimum(portal[name].width,limit)
+	  
+      perform portal[name].sizetofit[36]
+      perform portal[name].autoheight
 
       ~hide the reset button if we've been designated as not supporting reset
       if (tagis[Helper.NoReset] <> 0) then

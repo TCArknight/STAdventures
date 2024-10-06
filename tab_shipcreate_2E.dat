@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "talents" tab panel. This tab is where
+      the user selects the special talents for the character.
+
+      All public visual elements used with this tab panel start with the prefix "ab"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+	
+  <template
+    id="shDetails2"
+    name="Details"
+    compset="ShipInfo">
+
+    <portal
+      id="lblServiceTitle"
+      style="lblTitle">
+      <label
+        text="Service">
+        </label>
+      </portal>
+
+    <portal
+      id="lblShuttleTitle"
+      style="lblTitle">
+      <label
+        text="Shuttlecraft">
+        </label>
+      </portal>
+
+    <portal
+      id="shuttlecraft"
+      style="editNormal">
+      <edit
+        field="shipShuttleNotes">
+        </edit>
+      </portal>
+  
+    <portal
+      id="lblLaunch"
+      style="lblNormal">
+      <label
+        text="Entered Service (Launch Year):">
+        </label>
+      </portal>
+
+    <portal
+      id="launch"
+      style="editNormal">
+      <edit 
+        field="shipLaunchYear">
+        </edit>
+      </portal>
+  
+    <portal
+      id="lblCurrentYear"
+      style="lblNormal">
+      <label
+        text="Current Year:">
+        </label>
+      </portal>
+
+    <portal
+      id="currentyear"
+      style="editNormal">
+      <edit 
+        field="shipYear">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="lblSumm"
+      style="lblNormal">
+      <label
+        text="Year Class Commissioned:">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblServiceSumm"
+      style="lblNormal">
+      <label
+        field="shipSerSumm">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblinfo"
+      style="lblTitle">
+      <label
+        text="Ship Details">
+        </label>
+      </portal>
+	  
+    <portal
+      id="lblRegistry"
+      style="lblNormal">
+      <label
+        text="Registry:">
+        </label>
+      </portal>
+
+    <portal
+      id="registry"
+      style="editNormal">
+      <edit
+        field="shipRegistry">
+        </edit>
+      </portal>
+
+    <portal
+      id="overview"
+      style="editNormal">
+      <edit
+        field="shipOverview"
+        ismultiline="yes">
+        </edit>
+      </portal>
+
+    <portal
+      id="capabilities"
+      style="editNormal">
+      <edit
+        field="shipCapabilities"
+        ismultiline="yes">
+        </edit>
+      </portal>
+
+    <portal
+      id="refits"
+      style="editNormal">
+      <edit
+        field="shipRefVar"
+        ismultiline="yes">
+        </edit>
+      </portal>
+
+    <portal
+      id="profiles"
+      style="editNormal">
+      <edit
+        field="shipSuggPro"
+        ismultiline="yes">
+        </edit>
+      </portal>
+
+    <portal
+      id="naming"
+      style="editNormal">
+      <edit
+        field="shipNamConv"
+        ismultiline="yes">
+        </edit>
+      </portal>
+	  
+    <portal
+      id="lblAffil"
+      style="lblNormal">
+      <label
+        text="Affiliation:">
+        </label>
+      </portal>
+
+    <portal
+      id="affil"
+      style="editNormal">
+      <edit
+        field="shipAffil">
+        </edit>
+      </portal>
+	  
+    <position><![CDATA[
+	  ~position the lblinfo to span the full width
+      portal[lblServiceTitle].width = width
+	  portal[lblServiceTitle].left = 0
+	  
+      ~position the lblinfo to span the full width
+      portal[lblinfo].width = width
+      portal[lblShuttleTitle].width = width
+
+      ~position the personal details portals beneath the separator bar
+      
+	  perform portal[lblRegistry].alignedge[left,0]
+	  portal[lblRegistry].top = portal[lblServiceTitle].bottom + 5
+	  portal[registry].top = portal[lblRegistry].top
+	  portal[registry].left = portal[lblRegistry].right + 5
+	  portal[registry].width = width - portal[registry].left
+      
+	  perform portal[lblAffil].alignedge[left,0]
+	  portal[lblAffil].top = portal[lblRegistry].bottom + 10
+	  portal[affil].top = portal[lblAffil].top
+	  portal[affil].left = portal[lblAffil].right + 5
+	  portal[affil].width = width - portal[affil].left
+	  
+	  perform portal[lblLaunch].alignedge[left,0]
+	  portal[lblLaunch].top = portal[lblAffil].bottom + 10
+	  portal[launch].top = portal[lblLaunch].top
+	  portal[launch].left = portal[lblLaunch].right + 5
+	  portal[launch].width = width - portal[launch].left
+	  
+	  perform portal[lblCurrentYear].alignedge[left,0]
+	  portal[lblCurrentYear].top = portal[lblLaunch].bottom + 10
+	  portal[currentyear].top = portal[lblCurrentYear].top
+	  ~ portal[currentyear].left = portal[lblCurrentYear].right + 5
+	  portal[currentyear].width = portal[launch].width
+	  perform portal[currentyear].alignedge[right,0]
+	  
+	  perform portal[lblSumm].alignedge[left,0]
+	  portal[lblSumm].top = portal[lblCurrentYear].bottom + 10
+	  portal[lblServiceSumm].top = portal[lblSumm].top
+	  portal[lblServiceSumm].left = portal[lblSumm].right + 5
+	  portal[lblServiceSumm].width = width - portal[lblServiceSumm].left
+
+	  perform portal[lblShuttleTitle].alignedge[left,0]
+	  portal[lblShuttleTitle].top = portal[lblSumm].bottom + 5
+	  
+	  perform portal[shuttlecraft].alignedge[left,0]
+      perform portal[shuttlecraft].alignrel[ttob,lblShuttleTitle,5]
+      portal[shuttlecraft].width = width
+      portal[shuttlecraft].height = 75
+	  
+	  perform portal[lblinfo].alignedge[left,0]
+	  portal[lblinfo].top = portal[shuttlecraft].bottom + 5
+	  
+	  perform portal[overview].alignedge[left,0]
+      perform portal[overview].alignrel[ttob,lblinfo,5]
+      portal[overview].width = width
+      portal[overview].height = 150
+	  
+	  perform portal[capabilities].alignedge[left,0]
+      perform portal[capabilities].alignrel[ttob,overview,5]
+      portal[capabilities].width = width
+      portal[capabilities].height = 100
+	  
+	  perform portal[refits].alignedge[left,0]
+      perform portal[refits].alignrel[ttob,capabilities,5]
+      portal[refits].width = width
+      portal[refits].height = 75
+	  
+	  perform portal[profiles].alignedge[left,0]
+      perform portal[profiles].alignrel[ttob,refits,5]
+      portal[profiles].width = width
+      portal[profiles].height = 75
+	  
+	  perform portal[naming].alignedge[left,0]
+      perform portal[naming].alignrel[ttob,profiles,5]
+      portal[naming].width = width
+      portal[naming].height = 75
+      ]]></position>
+
+    </template>
+	
+  <layout
+    id="shipcreate2">
+    <portalref portal="shImages" taborder="40" />
+    <portalref portal="peAdjust" taborder="50" />
+    <templateref template="shDetails2" thing="mscShip" taborder="35" />
+
+    <!-- This script sizes and positions the layout and its child visual elements. 
+	    <portalref portal="hoFrame" taborder="10"/>
+ -->
+    <position><![CDATA[
+      ~freeze our table in advancement mode to disable adding new choices
+      ~Note: All freezing must be done *before* any positioning is performed.
+      ~if (state.iscreate = 0) then
+      ~  portal[hdrFrame].freeze = 1
+      ~  portal[shFrame].freeze = 1
+      ~  portal[hdrProfile].freeze = 1
+      ~  portal[shProfile].freeze = 1
+      ~  portal[shPod].freeze = 1
+      ~  endif
+
+      ~depending on our overall height, allow the permanent adjustments table to
+      ~grow vertically, with a minimum height allowing for at least two items
+      ~Note: We assume a standard height of 460 pixels for the overall tab and grow
+      ~relative to that. We base this height on the minimum size of the HL window.
+      var limit as number
+      limit = 2 + (height - 460) / 40
+      limit = maximum(limit,2)
+      limit = minimum(limit,6)
+      portal[peAdjust].maxrows = limit
+
+      ~position the permanent adjustments table spanning the bottom
+      portal[peAdjust].top = height - portal[peAdjust].height
+      portal[peAdjust].width = width
+	  
+	  ~reserve a width of 185 pixels for the user images table
+      portal[shImages].width = 200
+
+      ~position the images table in the upper right corner
+      portal[shImages].left = width - portal[shImages].width
+      portal[shImages].height = portal[peAdjust].top - portal[shImages].top - 10
+	  
+	  ~ Set autoplace parameters
+	  ~ allocate the remaining width
+	  autowidth = width - portal[shImages].width - 5
+	  autotop = 0
+	  autobottom = portal[peAdjust].top - 5
+	  
+	  perform template[shDetails2].autoplace
+	  
+	  ~allocate the remaining width to the personal details template
+      ~template[shDetails].width = width - portal[shImages].width - 10
+	  
+      ~position and size the table to span the full layout; it will only use the
+      ~vertical space that it actually needs
+      ~portal[hdrFrame].top = 0
+      ~portal[hdrFrame].height = 20
+      ~portal[hdrFrame].width = width - 210
+      
+      ~portal[shFrame].top = portal[hdrFrame].bottom + 5
+      ~portal[shFrame].height = 20
+      ~portal[shFrame].width = portal[hdrFrame].width
+	  
+      ~position the details template between the service template and the adjustment
+      ~portal[hdrProfile].top = portal[shFrame].bottom + 10
+      ~portal[hdrProfile].height = 20
+      ~portal[hdrProfile].width = portal[hdrFrame].width
+      
+      ~portal[shProfile].top = portal[hdrProfile].bottom + 5
+      ~portal[shProfile].height = 20
+      ~portal[shProfile].width = portal[hdrFrame].width
+	  
+	  ~if (hero.tagis[CharType.typSmallCraft] <> 0) then
+	  ~  portal[hdrProfile].visible = 0
+	  ~  portal[shProfile].visible = 0
+		
+      ~  portal[shRefit].top = portal[shFrame].bottom + 10
+	  ~else
+	  ~  portal[hdrProfile].visible = 1
+	  ~  portal[shProfile].visible = 1
+		
+      ~  portal[shRefit].top = portal[shProfile].bottom + 10
+	  ~  endif
+	  
+      ~ portal[shRefit].top = portal[shProfile].bottom + 10
+      ~ portal[shRefit].height = 20
+      ~portal[shRefit].width = portal[hdrFrame].width
+	  
+	  ~portal[shPod].visible = #framepodsallowed[]
+	  
+      ~portal[shPod].top = portal[shRefit].bottom + 10
+      ~portal[shPod].width = portal[hdrFrame].width
+	  
+      ~position the details template between the service template and the adjustment
+	  
+	  ~if (portal[shPod].visible <> 0) then
+	  ~  template[shDetails].top = portal[shPod].bottom + 10
+	  ~else
+	  ~  template[shDetails].top = portal[shRefit].bottom + 10
+	~	endif
+		
+    ~  template[shDetails].height = portal[peAdjust].top - template[shDetails].top
+	  
+      ]]></position>
+
+    </layout>
+
+  <panel
+    id="shipcreate2"
+    name="Ship Details"
+    marginhorz="5"
+    marginvert="5"
+    order="2">
+	<live>ShowTab.Starship &amp; source.2ndEdition</live>
+    <layoutref layout="shipcreate2"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+	
+  </document>

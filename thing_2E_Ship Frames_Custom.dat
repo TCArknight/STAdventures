@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="fra2EUPReliant" name="Reliant" compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2397"/>
+    <fieldval field="fraShipyard" value="San Francisco Shipyards, Earth; Antares Ship Yards, Antares"/>
+    <fieldval field="fraOverview" value="The Admiralty needed a replacement for the Miranda class that could serve as the backbone of Starfleet’s logistical and operational support corps. Unlike the Miranda, which began life as a long-range cruiser and transitioned to logistical and support duties as it became outclassed by newer constructions, the Reliant would be designed as a support ship from its inception. The Reliant was one of the first starship classes to fully embrace the “sixth generation” of Starfleet starship technology, featuring more automation, more versatile particle emitters and sensors, and a fast but limited quantum slipstream burst projector."/>
+    <fieldval field="fraCapabilities" value="The Reliant inherits from the Miranda-class starship a pair of very large shuttlebays that dominate its aft hull. These bays are equipped to support a large complement of shuttlecraft, runabouts, and work bees, or they can be used as cargo bays for moving massive quantities of essential goods and supplies across the Federation’s vast territory. Even though its primary role is fleet support and logistics, the Reliant is also capable of defending itself and can serve capably as a screening unit in large fleet actions or as an armed tender. In a pinch the Reliant can also serve as a perimeter action ship, and its massive, modular cargo bays make it well-suited for disaster relief and emergency response.The Reliant’s new burst-rated new burst-rated quantum slipstream drive gives it an impressive operational range."/>
+    <fieldval field="fraRefVar" value="While standard Reliants could defend themselves in a pinch, the Admiralty wanted a “heavy frigate” that was even more well-equipped and could serve as a command ship for remote squadrons and outposts. To that end, several Reliant-class ships were refit with additional communications, sensors, and weapons systems."/>
+    <fieldval field="fraSuggPro" value="Scientific and Survey Operations, Crisis and Emergency Response. Suitable for campaigns operating within the Federation and in support of other Starfleet ships."/>
+    <fieldval field="fraNamConv" value="Reliant-class starships are often named after previous Miranda-class vessels and Starfleet officers who gave their lives in the line of duty. NCC numbers range from 90200–90799."/>
+    <fieldval field="fraComm" value="10"/>
+    <fieldval field="fraComp" value="10"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="10"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="9"/>
+    <fieldval field="fraConn" value="1"/>
+    <fieldval field="fraEng" value="1"/>
+    <fieldval field="fraMed" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="PIC"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tal2EExtShuttleba"></bootstrap>
+    <bootstrap thing="tal2ERedundantSys"></bootstrap>
+    <bootstrap thing="ssrQuantSlipBurst"></bootstrap>
+    <bootstrap thing="shPhaArr"></bootstrap>
+    <bootstrap thing="shTorQua"></bootstrap>
+    <bootstrap thing="shTractorBeam"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    </thing>
+  <thing id="tr2EClsReliant" name="Reliant Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  <thing id="fra2ECustHoratio" name="Horatio" compset="Frame" uniqueness="unique">
+    <fieldval field="fraYearEnt" value="2406"/>
+    <fieldval field="fraOverview" value="Following the events of the Battle of Founder&apos;s Day, several members of the Federation Council approached the Advanced Starship Design Bureau with a request for an exploration vessel that could hold Its own In combat and serve the Federation In the same way the Constitution-class starships did In the latter half of the twenty-third century. After some review of the requirements and taking inspiration from one of the previous workhorses of the 24th century, the Ambassador-class, the design for the Horatio-class was the result. "/>
+    <fieldval field="fraCapabilities" value="Built with the latest advances In Impulse and warp drive technologies, the Horatio-class serves as the model for future starships. Capable of maintaining a speed of Warp 8.1 for extended periods of time and with a top speed of Warp 9.4 ships of the class could rapidly respond to any location within the Federation as needed. {br}{br}To further enhance the response time and exploration capabilities the Horatio-class was outfitted with the latest version of the Quantum Slipstream Drive which allowed for longer periods of travel within the slipstream at one time before needing a cooldown period. {br}{br}As primarily an exploration vessel, care was taken to ensure the ship was equipped with the most advanced sensor arrays for both spatial and planetary analysis as well as Improvements to the fire-control systems to allow for precision targeting of probe launches. {br}"/>
+    <fieldval field="fraRefVar" value="As a new design, there are no refits or variants in use yet. However, given the state of things in the early 25th century, it may not be long before such developments take place. "/>
+    <fieldval field="fraSuggPro" value="Crisis and Emergency Response, Multirole Explorer, Pathfinder and Reconnaissance Operations"/>
+    <fieldval field="fraNamConv" value="Horatio-class starships are named for famous (or mythological) literary figures or their weapons. (examples - USS Horatio (Hornblower), USS Sherlock Holmes, USS Excalibur, USS Mjölnir, USS Stormbringer) {br}{br}Registry tends toward the range of 97500 - 97799."/>
+    <fieldval field="fraScale" value="6"/>
+    <fieldval field="fraComm" value="9"/>
+    <fieldval field="fraComp" value="9"/>
+    <fieldval field="fraEngine" value="10"/>
+    <fieldval field="fraSens" value="12"/>
+    <fieldval field="fraStruc" value="10"/>
+    <fieldval field="fraWeap" value="10"/>
+    <fieldval field="fraCmd" value="1"/>
+    <fieldval field="fraSci" value="1"/>
+    <fieldval field="fraSecur" value="1"/>
+    <fieldval field="fraYearRet" value="2471"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Era" tag="PIC"/>
+    <tag group="ShipAlliance" tag="Federation"/>
+    <tag group="ShipType" tag="typStarship"/>
+    <bootstrap thing="tal2EHighResSens"></bootstrap>
+    <bootstrap thing="tal2EImpProbeBay"></bootstrap>
+    <bootstrap thing="ssr2EQuantSlipPul"></bootstrap>
+    <bootstrap thing="tr2EHoratio"></bootstrap>
+    <bootstrap thing="tal2EAdvSensorSui"></bootstrap>
+    <bootstrap thing="tal2EFastTargSys"></bootstrap>
+    <bootstrap thing="trShipFed"></bootstrap>
+    <bootstrap thing="sh2EPhaserArr"></bootstrap>
+    <bootstrap thing="sh2ETorpQuantum"></bootstrap>
+    <bootstrap thing="sh2ETractorBeam"></bootstrap>
+    </thing>
+  <thing id="tr2EHoratio" name="Horatio Class" compset="Trait">
+    <usesource source="2ndEdition"/>
+    <tag group="TraitCat" tag="Ship"/>
+    </thing>
+  </document>

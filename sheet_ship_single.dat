@@ -37,7 +37,7 @@
 	    @text = "Name: "
         ~@text = hero.actorname
         if (empty(hero.actorname) <> 0) then
-          @text &= "- Unnamed Hero -"
+          @text &= "- Unnamed Starship -"
 		else
 		  @text &= hero.actorname
           endif
@@ -194,6 +194,7 @@
       ]]></position>
 
     </template>
+	
   <!-- oShipDetails template
         This template presents the background and personal details for the character.
   -->

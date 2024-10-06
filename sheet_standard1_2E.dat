@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the first page of the standard character
+      sheet for output. The character sheet has been carved into a simple two-column
+      presentation that is used by many game systems, with some information on the
+      left and other material on the right. You can use whatever overall layout you
+      prefer, using this sample as a guideline.
+
+      A variety of display techniques have been used on this one character sheet to
+      provide examples of how to present information in different ways. You will
+      likely choose one or two of these methods and use them exclusively within your
+      own data files, but this gives you various styles to choose from.
+
+      The second page of the character sheet will be found in "sheet_standard2.dat".
+-->
+
+<document signature="Hero Lab Data">
+
+  <!-- Hero and Player Info
+        NOTE! These could be easily wrapped inside a template or used directly within
+              a layout, as we do here. Both methods are perfectly reasonable.
+  -->
+
+  <!-- oHeroNameSingle portal - name of the actor 
+  style="outHeroNam"> -->
+  <portal
+    id="oHeroName2"
+    style="outHeroName">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}NAME{revert}{br}"
+        if (empty(hero.actorname) <> 0) then
+          @text &= "- Unnamed Hero -"
+		else
+		  @text &= hero.actorname
+          endif
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oHeroPro2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}PRONOUNS{revert}{br}     "
+	    @text &= hero.findchild[Personal].field[perPronoun].text
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oHeroRank2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}RANK{revert}{br}     "
+	    @text &= hero.findchild[Service].field[serRank].text
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oHeroAssign2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}ASSIGNMENT{revert}{br}     "
+	    @text &= hero.findchild[Service].field[serAssign].text
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oHeroRole2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+		
+		ismore = 0
+	    foreach pick in hero from CharRole
+		  if (ismore <> 0) then
+		    txt &= ", "
+			endif
+		  txt &= eachpick.field[name].text
+		  nexteach
+		
+	    @text &= "{size 34}CHARACTER ROLE{revert}{br}     "  
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+	
+  <portal
+    id="oHeroRep2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}REPUTATION{revert}{br}     "
+	    @text &= "< Reputation >"
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <!-- oDetermination portal - Determination value of the actor -->
+  <portal
+    id="oDetermination2"
+    style="outLeftLarge">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+		var division as string
+	    var ismore as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from Focus
+		  if (ismore <> 0) then
+		    temp &= ", "
+            endif
+		  
+	      temp &= eachpick.field[name].text
+	  
+          ismore = 1
+          nexteach
+	  
+	    call GetDivisionColor
+		@text &= division
+		@text &= "{b}Determination: {/b}{text 000000} {font Wingdings}{size 48}" & chr(168) & "{horz 3}" & chr(168) & "{horz 3}" & chr(168) & "{revert}"
+		
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+	
+  <!-- oStress portal - Stress value of the actor -->
+  <portal
+    id="oStress2"
+    style="outLeftLarge">
+    <output_label>
+      <labeltext><![CDATA[
+	    var temp as string
+		var division as string
+	    var stress as number
+		var i as number
+		
+		temp = "{font Wingdings}{size 48}"
+		stress = #stressmax[]
+		
+		for i = 1 to stress
+	      temp &= "{horz 3}" & chr(168)
+          next
+	  
+	    temp &= "{revert}"
+
+        call GetDivisionColor
+		  
+		@text &= division
+		  
+		@text &= "{b}Stress: {/b}\n" & #stressmax[] & " {text 000000}" & temp 
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <!-- oResistance portal - Resistance value of the actor -->
+  <portal
+    id="oResistance2"
+    style="outRightLarge">
+    <output_label>
+      <labeltext><![CDATA[
+		var division as string
+        call GetDivisionColor
+		  
+		@text &= division
+		@text &= "{b}Resistance: {/b}{text 000000}" & #resistance[]
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+	
+  <portal
+    id="oSpeciesTraits"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+		
+		ismore = 0
+	    foreach pick in hero from Trait
+		  if (ismore <> 0) then
+		    txt &= ", "
+			endif
+		  txt &= eachpick.field[name].text
+		  ismore = 1
+		  nexteach
+		  
+	    @text &= "{size 34}SPECIES & TRAITS{revert}{br}     "
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oEnvironment2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}ENVIRONMENT{revert}{br}     "
+	    @text &= hero.findchild[Environ].field[name].text
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oUpbringing2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}UPBRINGING{revert}{br}     "
+	    @text &= hero.findchild[Upbringing].field[name].text
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oCareerPath2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}CAREER PATH{revert}{br}     "
+	    @text &= hero.findchild[CareerPath].field[name].text
+		
+		if (hero.tagis[Hero.TrackRequired] <> 0) then
+		  @text &= " - " & hero.findchild[CareerTrack].field[name].text & " Track"
+		  endif
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oCareerEvent2A"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}CAREER EVENT 1{revert}{br}     "
+	    @text &= hero.findchild[Event,"Lifepath.CareerEvent1"].field[name].text
+
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oCareerEvent2B"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}CAREER EVENT 2{revert}{br}     "
+	    @text &= hero.findchild[Event,"Lifepath.CareerEvent2"].field[name].text
+
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oExperience2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}EXPERIENCE{revert}{br}     "
+	    @text &= hero.findchild[CareerExp].field[name].text
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oAttribute2"
+    style="outNormal">
+    <output_table
+      component="AttrSys"
+      showtemplate="oAttrPick"
+      headertemplate="oAttrPick"
+      showsortset="explicit"
+	  columns="3">
+	  <headertitle>
+	    @text = "ATTRIBUTES"
+		</headertitle>
+      </output_table>
+    </portal>
+
+  <portal
+    id="oDepartment2"
+    style="outNormal">
+    <output_table
+      component="DiscDept"
+      showtemplate="oDiscPick"
+      headertemplate="oDiscPick"
+      showsortset="explicit"
+	  columns="3">
+	  <headertitle>
+	    @text = "DEPARTMENTS"
+		</headertitle>
+      </output_table>
+    </portal>
+	
+  <portal
+    id="oValues2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+		txt &= "{size 34}VALUES{revert}{br}     "
+		ismore = 0
+	    foreach pick in hero from Value
+		  if (ismore <> 0) then
+		    txt &= "{br}     "
+			endif
+		  txt &= eachpick.field[name].text
+		  ismore = 1
+		  nexteach
+		  
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oFocuses2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+
+		txt &= "{size 34}FOCUSES{revert}{br}     "
+		ismore = 0
+	    foreach pick in hero from Focus
+		  if (ismore <> 0) then
+		    txt &= ", "
+			endif
+		  txt &= eachpick.field[name].text
+		  ismore = 1
+		  nexteach
+		  
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oPastimes"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}PASTIMES{revert}{br}     " & hero.findchild[Personal].field[perPastime].text
+
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <portal
+    id="oAttackLbl"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}ATTACKS{revert}"
+        ]]></labeltext>
+      </output_label>
+    </portal>
+
+  <portal
+    id="oAttacks2"
+    style="outNormal">
+    <output_table
+      component="WeaponBase"
+      showtemplate="oWeapPick2"
+      showsortset="Armory">
+      <list><![CDATA[
+        ]]></list>
+      </output_table>
+    </portal>
+
+  <portal
+    id="oSpeciesAbility"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    @text &= "{size 34}SPECIES ABILITY{revert}{br}     " 
+		@text &= hero.findchild[SpeciesAbility].field[name].text
+
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <portal
+    id="oTalents2"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+		
+		ismore = 0
+	    foreach pick in hero from Talent
+		  if (ismore <> 0) then
+		    txt &= "{br}     "
+			endif
+		  txt &= eachpick.field[name].text
+		  ismore = 1
+		  nexteach
+		  
+	    @text &= "{size 34}TALENTS{revert}{br}     "
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>	
+
+  <portal
+    id="oSpecialRules"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+
+		txt &= "{size 34}SPECIAL RULES{revert}{br}     "
+		ismore = 0
+	    foreach pick in hero from SpecialRule
+		  if (ismore <> 0) then
+		    txt &= ", "
+			endif
+		  txt &= eachpick.field[name].text
+		  ismore = 1
+		  nexteach
+		  
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>	
+
+  <portal
+    id="oOtherEquipment"
+    style="outNameLg">
+    <output_label>
+      <labeltext><![CDATA[
+	    var ismore as number
+		var txt as string
+
+		txt &= "{size 34}OTHER EQUIPMENT{revert}{br}     "
+		ismore = 0
+	    foreach pick in hero from Gear where "!(component.WeaponBase | Print.NoPrint)"
+		  if (ismore <> 0) then
+		    txt &= ", "
+			endif
+		  txt &= eachpick.field[name].text
+		  ismore = 1
+		  nexteach
+		  
+	    @text &= txt
+        ]]></labeltext>
+      </output_label>
+    </portal>
+	
+  <template
+    id="oWeapPick2"
+    name="Output Weapon Table"
+    compset="Weapon"
+    marginvert="2">
+
+    <portal
+      id="badstr"
+      style="outNameMed">
+      <output_label>
+        <labeltext><![CDATA[
+          @text = "{font Webdings}" & chr(120)
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="name"
+      style="outNameMed">
+      <output_label
+        field="shortname">
+        </output_label>
+      </portal>
+
+    <portal
+      id="attack"
+      style="outNameMed">
+      <output_label
+        field="wpNetAtk">
+        </output_label>
+      </portal>
+
+    <portal
+      id="damage"
+      style="outNameMed">
+      <output_label
+        field="wpDamage">
+        </output_label>
+      </portal>
+
+    <portal
+      id="range"
+      style="outPlain">
+      <output_label>
+        <labeltext><![CDATA[
+          if (tagis[component.WeapRange] <> 0) then
+            @text = field[wpRange].text
+            endif
+          ]]></labeltext>
+        </output_label>
+      </portal>
+
+    <portal
+      id="dots"
+      style="outDots">
+      <output_dots>
+        </output_dots>
+      </portal>
+
+    <!-- Portals used as the header -->
+    <portal
+      id="hdrtitle"
+      style="outTitle"
+      isheader="yes">
+      <output_label
+        text="Weapons">
+        </output_label>
+      </portal>
+
+    <portal
+      id="hdrattack"
+      style="outHeader"
+      isheader="yes">
+      <output_label
+        text="Atk">
+        </output_label>
+      </portal>
+
+    <portal
+      id="hdrdamage"
+      style="outHeader"
+      isheader="yes">
+      <output_label
+        text="Sev.">
+        </output_label>
+      </portal>
+
+    <portal
+      id="hdrrange"
+      style="outHeader"
+      isheader="yes">
+      <output_label
+        text="Range">
+        </output_label>
+      </portal>
+
+    <position><![CDATA[
+      ~our height is based on the tallest portal within
+      height = portal[name].height
+      doneif (issizing <> 0)
+
+      ~if the weapon satisfies the minimum strength requirement, hide the bitmap
+      if (tagis[Helper.BadStrReq] = 0) then
+        portal[badstr].visible = 0
+        endif
+
+      ~center all portals vertically
+      perform portal[badstr].centervert
+      perform portal[name].centervert
+      perform portal[attack].centervert
+      perform portal[damage].centervert
+      perform portal[dots].centervert
+
+      ~position the range with the same baseline as the rest of the text; since it
+      ~uses a smaller font, it will have a smaller height, so centering it will have
+      ~it appear to float up relative to the other text
+      perform portal[range].alignrel[btob,name,0]
+
+      ~establish suitable fixed widths for the various columns of data
+      portal[damage].width = 120
+      portal[attack].width = 70
+      portal[range].width = 260
+
+      ~position everything horizontally, leaving a margin on both sides appropriately
+      portal[badstr].left = 5
+      perform portal[damage].alignedge[right,-5]
+      perform portal[name].alignrel[ltor,badstr,5]
+      perform portal[attack].alignrel[rtol,damage,-10]
+      perform portal[range].alignrel[rtol,attack,-10]
+
+      ~if this is a ranged weapon, limit the name to the space up to the range details;
+      ~otherwise, let the name extend over to the attack value
+      var limit as number
+      if (tagis[component.WeapRange] <> 0) then
+        limit = portal[range].left
+      else
+        limit = portal[attack].left
+        endif
+
+      ~limit the name to the extent determined above
+      if (portal[name].right > limit - 5) then
+        portal[name].width = limit - portal[name].left - 5
+        endif
+
+      ~size the name to fit the available space
+      perform portal[name].sizetofit[36]
+      perform portal[name].autoheight
+      perform portal[name].centervert
+
+      ~extend the dots from the right of the name across to the value on the right
+      if (portal[name].right > limit - 10) then
+        portal[dots].visible = 0
+      else
+        perform portal[dots].alignrel[ltor,name,5]
+        portal[dots].width = limit - 5 - portal[dots].left
+        endif
+      ]]></position>
+
+    <header><![CDATA[
+      ~our header height is the title plus a gap plus the header text
+      height = portal[hdrtitle].height + 10 + portal[hdrattack].height
+      doneif (issizing <> 0)
+
+      ~our title spans the entire width of the template
+      portal[hdrtitle].width = width
+
+      ~each of our header labels has the same width as the corresponding data beneath
+      portal[hdrattack].width = portal[attack].width
+      portal[hdrdamage].width = portal[damage].width
+      portal[hdrrange].width = portal[range].width
+
+      ~center each header label on the corresponding data beneath
+      perform portal[hdrattack].centeron[horz,attack]
+      perform portal[hdrdamage].centeron[horz,damage]
+      perform portal[hdrrange].centeron[horz,range]
+
+      ~align all header labels at the bottom of the header region
+      perform portal[hdrattack].alignedge[bottom,0]
+      perform portal[hdrdamage].alignedge[bottom,0]
+      perform portal[hdrrange].alignedge[bottom,0]
+      ]]></header>
+
+    </template>	
+	
+  <layout
+    id="oTopLeft">
+    <portalref portal="oDetermination2"/>
+    <portalref portal="oStress2"/>
+    <portalref portal="oResistance2"/>
+    <templateref template="oPortrait" thing="actor"/>
+    <position><![CDATA[
+      ~position the character portrait at the top and the various tables beneath
+      perform template[oPortrait].autoplace
+      perform portal[oDetermination2].autoplace[5]
+      perform portal[oResistance2].autoplace[5]
+      perform portal[oStress2].autoplace[5]
+
+      ~our layout height is the extent of the elements within
+      height = autoextent
+      ]]></position>
+    </layout>
+	
+  <layout
+    id="oTopRight">
+    <portalref portal="oHeroName2"/>
+    <portalref portal="oHeroPro2"/>
+    <portalref portal="oHeroRank2"/>
+    <portalref portal="oHeroAssign2"/>
+    <portalref portal="oHeroRole2"/>
+    <portalref portal="oHeroRep2"/>
+    <portalref portal="oSpeciesTraits"/>
+    <portalref portal="oEnvironment2"/>
+    <portalref portal="oUpbringing2"/>
+    <portalref portal="oCareerPath2"/>
+    <portalref portal="oExperience2"/>
+    <portalref portal="oCareerEvent2A"/>
+    <portalref portal="oCareerEvent2B"/>
+    <position><![CDATA[
+      ~position the character portrait at the top and the various tables beneath
+      portal[oHeroName2].width = width * .75  
+      portal[oHeroName2].top = 0
+	  portal[oHeroName2].left = 0
+
+      portal[oHeroPro2].width = width * .25  
+      portal[oHeroPro2].top = 0
+	  portal[oHeroPro2].left = portal[oHeroName2].right
+	  
+      portal[oHeroRank2].width = width * .5
+      portal[oHeroRank2].top = portal[oHeroName2].bottom + 10
+	  portal[oHeroRank2].left = portal[oHeroName2].left
+
+      portal[oHeroAssign2].width = width * .5  
+      portal[oHeroAssign2].top = portal[oHeroRank2].top
+	  portal[oHeroAssign2].left = portal[oHeroRank2].right
+	  
+      portal[oHeroRole2].width = portal[oHeroName2].width
+      portal[oHeroRole2].top = portal[oHeroRank2].bottom + 10
+	  portal[oHeroRole2].left = portal[oHeroName2].left
+
+      portal[oHeroRep2].width = portal[oHeroPro2].width
+      portal[oHeroRep2].top = portal[oHeroRole2].top
+	  portal[oHeroRep2].left = portal[oHeroRole2].right
+
+      portal[oSpeciesTraits].width = width
+      portal[oSpeciesTraits].top = portal[oHeroRole2].bottom + 10
+	  portal[oSpeciesTraits].left = portal[oHeroName2].left
+	  
+      portal[oEnvironment2].width = width * .5
+      portal[oEnvironment2].top = portal[oSpeciesTraits].bottom + 10
+	  portal[oEnvironment2].left = portal[oHeroName2].left
+	  portal[oEnvironment2].height = 150
+
+      portal[oUpbringing2].width = width * .5  
+      portal[oUpbringing2].top = portal[oEnvironment2].top
+	  portal[oUpbringing2].left = portal[oEnvironment2].right
+	  portal[oUpbringing2].height = 150
+	  
+      portal[oCareerPath2].width = width * .5
+      portal[oCareerPath2].top = portal[oEnvironment2].bottom + 10
+	  portal[oCareerPath2].left = portal[oHeroName2].left
+	  portal[oCareerPath2].height = 150
+
+      portal[oExperience2].width = width * .5  
+      portal[oExperience2].top = portal[oCareerPath2].top
+	  portal[oExperience2].left = portal[oCareerPath2].right
+	  portal[oExperience2].height = 150
+	  
+      portal[oCareerEvent2A].width = width * .5
+      portal[oCareerEvent2A].top = portal[oCareerPath2].bottom + 10
+	  portal[oCareerEvent2A].left = portal[oHeroName2].left
+	  portal[oCareerEvent2A].height = 150
+
+      portal[oCareerEvent2B].width = width * .5  
+      portal[oCareerEvent2B].top = portal[oCareerEvent2A].top
+	  portal[oCareerEvent2B].left = portal[oCareerEvent2A].right
+	  portal[oCareerEvent2B].height = 150
+	  
+      ~our layout height is the extent of the elements within
+      height = portal[oCareerEvent2A].bottom
+      ]]></position>
+    </layout>
+
+  <layout
+    id="oBottomLeft">
+    <portalref portal="oAttribute2"/>
+    <portalref portal="oValues2"/>
+    <portalref portal="oFocuses2"/>
+    <portalref portal="oPastimes"/>
+    <portalref portal="oAttackLbl"/>
+    <portalref portal="oAttacks2"/>
+    <position><![CDATA[
+      ~position the character portrait at the top and the various tables beneath
+      perform portal[oAttribute2].autoplace
+	  
+	  portal[oValues2].top = portal[oAttribute2].bottom + 10
+	  portal[oValues2].height = 300
+      portal[oValues2].width = portal[oAttribute2].width
+	  
+	  portal[oFocuses2].top = portal[oValues2].bottom + 10
+	  portal[oFocuses2].height = 300
+      portal[oFocuses2].width = portal[oAttribute2].width
+	  
+	  portal[oPastimes].top = portal[oFocuses2].bottom + 10
+	  portal[oPastimes].height = 150
+      portal[oPastimes].width = portal[oAttribute2].width
+	  
+	  portal[oAttackLbl].top = portal[oPastimes].bottom + 10
+	  portal[oAttackLbl].height = 50
+      portal[oAttackLbl].width = portal[oAttribute2].width
+	  
+	  portal[oAttacks2].top = portal[oAttackLbl].bottom + 10
+	  portal[oAttacks2].height = 300
+      portal[oAttacks2].width = portal[oAttribute2].width
+
+      ~our layout height is the extent of the elements within
+      height = portal[oAttacks2].bottom
+	  
+      ]]></position>
+    </layout>
+	
+  <layout
+    id="oBottomRight">
+    <portalref portal="oDepartment2"/>
+    <portalref portal="oSpeciesAbility"/>
+    <portalref portal="oTalents2"/>
+    <portalref portal="oSpecialRules"/>
+    <portalref portal="oOtherEquipment"/>
+    <position><![CDATA[
+      ~position the character portrait at the top and the various tables beneath
+      perform portal[oDepartment2].autoplace
+	  
+	  portal[oSpeciesAbility].top = portal[oDepartment2].bottom + 10
+	  portal[oSpeciesAbility].height = 150
+      portal[oSpeciesAbility].width = portal[oDepartment2].width
+	  
+	  portal[oTalents2].top = portal[oSpeciesAbility].bottom + 10
+	  portal[oTalents2].height = 500
+      portal[oTalents2].width = portal[oDepartment2].width
+	  
+	  portal[oSpecialRules].top = portal[oTalents2].bottom + 10
+	  portal[oSpecialRules].height = 150
+      portal[oSpecialRules].width = portal[oDepartment2].width
+	  
+	  portal[oOtherEquipment].top = portal[oSpecialRules].bottom + 10
+	  portal[oOtherEquipment].height = 200
+      portal[oOtherEquipment].width = portal[oDepartment2].width
+
+      ~our layout height is the extent of the elements within
+      height = portal[oOtherEquipment].bottom
+      ]]></position>
+    </layout>
+	
+  <!-- standard1 sheet
+        This is the first page of the stanard character sheet, which coordinates the
+        output of a whole bunch of layouts containing different pieces of information
+        for the character. Layouts are estimated to perform whatever calculations are
+        necessary within that layout, such as its overall dimensions. Once estimated,
+        the dimensions of the layout can be used to properly position and size any
+        subsequent layouts that depend on it. So the overall process is to process
+        layouts in an order that progressively fills the sheet with aligned material.
+  -->
+  <sheet
+    id="2Estandard1"
+    name="(2E) Standard character sheet, page #1">
+    <layoutref layout="oLogos"/>
+    <layoutref layout="oTopRight"/>
+    <layoutref layout="oTopLeft"/>
+    <layoutref layout="oBottomRight"/>
+    <layoutref layout="oBottomLeft"/>
+    <layoutref layout="oValidate"/>
+    <position><![CDATA[
+      ~set this global variable to 1 if you want the logos to be stacked; a value
+      ~of zero places them side-by-side
+      scenevalue[stacklogos] = 1
+
+      ~setup the gap to be used between the various sections of the character sheet
+      autogap = 20
+      scenevalue[sectiongap] = autogap
+
+      ~calculate the width of the two columns of the character sheet, leaving a
+      ~suitable center gap between them
+      var colwidth as number
+      var colwidth2 as number
+      colwidth = (width - 40) / 2
+      colwidth2 = (width - 40) / 4
+
+      ~if the user wants to omit the validation report, the hide it and allow the
+      ~rest of the sheet to fill that space; otherwise, output the layout and the
+      ~top of the validation report establishes the bottom for all other output
+      var extent as number
+      if (hero.tagis[source.Validation] = 0) then
+        layout[oValidate].visible = 0
+        extent = height
+      else
+        layout[oValidate].width = width
+        perform layout[oValidate].render
+        layout[oValidate].top = height - layout[oValidate].height
+        extent = layout[oValidate].top - autogap
+        endif
+	
+	  
+	  ~ Position the top left portals
+      layout[oTopLeft].width = colwidth2
+      perform layout[oTopLeft].render
+      layout[oTopLeft].top = 0
+      layout[oTopLeft].left = 0
+	  
+      ~position the logos layout in the upper right corner
+      layout[oLogos].width = colwidth
+      perform layout[oLogos].render
+      layout[oLogos].left = width - colwidth
+	  
+	  ~ Position the top right portals
+      layout[oTopRight].width = width - colwidth2 - 10
+      perform layout[oTopRight].render
+      layout[oTopRight].top = layout[oLogos].bottom + 5
+      layout[oTopRight].left = colwidth2 + 5
+	  
+	  ~ Position the bottom right portals
+      layout[oBottomRight].width = (width/2) - 5
+      perform layout[oBottomRight].render
+      layout[oBottomRight].top = layout[oTopRight].bottom + 5
+	  
+	  ~ Position the bottom right portals
+      layout[oBottomLeft].width = (width/2) - 5
+      perform layout[oBottomLeft].render
+	  layout[oBottomLeft].height = extent - layout[oBottomLeft].top 
+      layout[oBottomLeft].top = layout[oBottomRight].top
+      layout[oBottomLeft].left = layout[oTopLeft].left
+	  
+	  
+      layout[oBottomRight].left = layout[oBottomLeft].right + 10
+	  
+      ]]></position>
+    </sheet>
+
+
+  </document>

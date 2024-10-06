@@ -107,7 +107,7 @@
       style="lblBrdLeft">
       <label>
         <labeltext><![CDATA[
-		  if (#issecondedition[] <> 0) then
+		  if (#is2ndedition[] <> 0) then
             @text = "+1 to Department:"
 		  else
             @text = "+1 to Discipline:"

@@ -7,36 +7,40 @@
     </thing>
   <thing id="armBodyArm" name="Body Armor" description="Body Armor has been issued periodically to Starfleet security at various times in Starfleet’s history. In the late 23rd century, it took the form of a bulky vest and helmet, designed to absorb and disperse impacts and energy attacks. By the 24th century, ablative body armor is used mainly by personnel engaged in protracted conflict." compset="Armor">
     <fieldval field="defResist" value="2"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="GearCost" tag="Escalat1"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
   <thing id="armEnvSuit" name="Environment Suit" description="Environment Suits or EV Suits are normally used for extra vehicular activities — such as moving in hard vacuum. They provide minimal physical protection, mainly due to being made of tough materials. These suits are issued as and when a mission requires — the Opportunity Cost may be ignored if the mission takes place in an environment that would be deadly without protection. The suits contain magnetic boots, a supply of breathable atmosphere, radiation shielding, and a communications relay more powerful than a normal personal communicator." compset="Armor">
     <fieldval field="defResist" value="1"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="GearCost" tag="Opportun2"/>
     </thing>
   <thing id="armPersFor" name="Personal Force Field" description="These personal shields were sometimes issued to security and combat personnel, though the power requirements of such devices mean they have limited use in protracted fighting. A character with a personal force field gains the listed Resistance, but must roll 1 after each time they are hit by an attack; if an Effect is rolled, the force field loses power for the rest of the scene, and no longer provides Resistance." compset="Armor">
     <fieldval field="defResist" value="4"/>
+    <usesource source="1stEdition"/>
+    <usesource source="2ndEdition"/>
     <tag group="GearCost" tag="Escalat2"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
   <thing id="wpUnarmed" name="Unarmed Strike" description="While not really equipment, every character has the means to make an unarmed attack, striking with fists, feet, knees, elbows, head, or otherwise using brute force without a weapon. Countless martial arts, such as Klingon mok’bara, Vulcan suus mahna, and Human styles like boxing or aikido, exist to allow individuals to hone their ability to disable foes without weapons." compset="Melee" uniqueness="unique" holdable="no">
     <fieldval field="shortname" value="Unarmed"/>
     <fieldval field="wpDamage" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="Equipment" tag="Natural"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="NonLethal"/>
     <tag group="DmgEffect" tag="Knockdown"/>
     <tag group="GearCost" tag="Standard"/>
     <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="Equipment" tag="Natural"/>
     <child entity="gearQual"></child>
     </thing>
   <thing id="wpNervPinc" name="Nerve Pinch" description="Neuropressure Attack. You may use Science or Medicine instead of Security when attempting a nerve pinch Attack, and may increase damage by your Science or Medicine Discipline instead of Security." compset="Melee" summary="Vulcan Nerve Pinch" uniqueness="unique" holdable="no">
     <fieldval field="shortname" value="Nerve"/>
     <fieldval field="wpDamage" value="1"/>
     <fieldval field="shortname" value="NerPin"/>
-    <tag group="Equipment" tag="Natural"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="NonLethal" name="Non-Lethal" abbrev="Non-Lethal"/>
     <tag group="GearCost" tag="Standard" name="Standard Issue" abbrev="Standard Issue"/>
     <tag group="DmgEffect" tag="Intense"/>
@@ -44,225 +48,204 @@
     <tag group="AltAttack" tag="discdept06"/>
     <tag group="AltDamage" tag="discdept05"/>
     <tag group="AltDamage" tag="discdept06"/>
+    <tag group="Equipment" tag="Natural"/>
     </thing>
   <thing id="wpKnife" name="Knife/Dagger" description="Description goes here" compset="Melee" uniqueness="unique">
     <fieldval field="wpDamage" value="1"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="DmgEffect" tag="Vicious1"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="Deadly"/>
     <tag group="GearQual" tag="Hidden1"/>
     <tag group="GearCost" tag="Opportun1"/>
+    <tag group="DmgEffect" tag="Vicious1"/>
     </thing>
   <thing id="wpPhaser1" name="Phaser Type-1" description="Phaser Type-1 is the smallest design of hand phaser, a tiny device a few centimeters long, which is the most widely-used form of phaser distributed to personnel for self-defense." compset="Ranged">
     <fieldval field="wpDamage" value="2"/>
     <fieldval field="wpShort" value="1"/>
     <fieldval field="wpMedium" value="2"/>
     <fieldval field="wpLong" value="3"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="GearQual" tag="Charge"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="Hidden1"/>
     <tag group="GearCost" tag="Standard"/>
+    <tag group="GearQual" tag="Charge"/>
     </thing>
   <thing id="shPhaCan" name="Phaser Cannons" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <tag group="GearQual" tag="Versatile2"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPhaBan" name="Phaser Banks" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="GearQual" tag="Versatile2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPhaArr" name="Phaser Arrays" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy" holdable="no">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="GearQual" tag="Versatile2"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shDisrCan" name="Disruptor Cannons" compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shDisrBan" name="Disruptor Banks" compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shDisrArr" name="Disruptor Arrays" description="Used by both Klingon and Romulan vessels, disruptors are potent weapons that inflict grievous damage." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPolCan" name="Phased Polaron Beam Cannons" compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPolBan" name="Phased Polaron Beam Banks" compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shPolArr" name="Phased Polaron Beam Arrays" description="Used mostly by the starships of the Dominion, phased polaron weapons are especially effective at overwhelming deflector shields." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shTorPho" name="Photon Torpedoes" description="Commonly used by many cultures, photon torpedoes use a matter/anti-matter reaction to create a devastating explosion." compset="Torpedo">
-    <fieldval field="wpSBasDmg" value="3"/>
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="GearQual" tag="HiYield"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shTorQua" name="Quantum Torpedoes" compset="Torpedo">
-    <fieldval field="wpSBasDmg" value="4"/>
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="4"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="GearQual" tag="Calib"/>
     <tag group="GearQual" tag="HiYield"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shTorPla" name="Plasma Torpedoes" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="GearQual" tag="Calib"/>
     <tag group="DmgEffect" tag="Persist"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="wpBlade" name="Blade" description="Larger blades such as the Klingon mek’leth or various forms of sword, provide more of a symbolic use, but still are used ritually, in sports, or even in real combat, depending on the skill and inclination of the individual." compset="Melee">
     <fieldval field="wpDamage" value="2"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCost" tag="Opportun1"/>
     </thing>
   <thing id="wpHvyBlade" name="Heavy Blade" description="Heavy blades like the bat’leth, kar’takin, and the Vulcan lirpa only see use in heavily ritualized combat or in very limited situations where hand-to-hand combat is almost assured." compset="Melee">
     <fieldval field="wpDamage" value="3"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="Equipment" tag="TwoHand"/>
+    <usesource source="1stEdition"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="GearCost" tag="Escalat1"/>
     <tag group="GearCost" tag="Opportun1"/>
+    <tag group="Equipment" tag="TwoHand"/>
     </thing>
   <thing id="wpBludgeon" name="Bludgeon" compset="Melee">
     <fieldval field="wpDamage" value="2"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="DmgEffect" tag="Knockdown"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCost" tag="Opportun1"/>
+    <tag group="DmgEffect" tag="Knockdown"/>
     </thing>
   <thing id="wpPhaser2" name="Phaser Type-2" description="Phaser Type-2 refers to the larger form of hand phaser, carried by security personnel and Starfleet officers going into dangerous environments. Versions used in the 23rd century are a pistol grip attachment that can be fitted to a phaser type-1, with a secondary power cell to increase output. 24th century hand phasers are a distinct design, with a curved ergonomic grip." compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
     <fieldval field="wpShort" value="1"/>
     <fieldval field="wpMedium" value="2"/>
     <fieldval field="wpLong" value="3"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="GearQual" tag="Charge"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCost" tag="Standard"/>
+    <tag group="GearQual" tag="Charge"/>
     </thing>
   <thing id="wpPhaser3" name="Phaser Type-3 (Phaser Rifle)" description="Phaser Type-3, or phaser rifles, are higher-powered weapons designed for hazardous situations and combat. In addition to a larger power supply, they have numerous targeting and beam-focusing systems that make them more accurate. They are only issued to properly-trained personnel, and only when necessary." compset="Ranged">
     <fieldval field="shortname" value="Phaser Rifle"/>
     <fieldval field="wpDamage" value="4"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="Equipment" tag="TwoHand"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="Accurate"/>
     <tag group="GearQual" tag="Charge"/>
     <tag group="GearCost" tag="Escalat2"/>
     <tag group="GearCost" tag="Opportun1"/>
+    <tag group="Equipment" tag="TwoHand"/>
     </thing>
   <thing id="wpGrenPul" name="Grenade (Pulse)" description="Pulse Grenades work on a similar principle to hand phasers. The user selects a setting and a countdown timer. When the timer reaches zero, the grenade discharges its power cell at once in all directions. After discharge, the grenade’s components burn out, rendering them inert to prevent them being reused. Pulse grenades cover a number of similar technologies used throughout Starfleet’s history — from the stun grenades used by United Earth MACO forces, to photon grenades employed in the 24th century." compset="Ranged">
     <fieldval field="wpDamage" value="4"/>
     <fieldval field="shortname" value="Pulse Grenade"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="GearCost" tag="Opportun1"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="Charge"/>
     <tag group="GearQual" tag="Grenade"/>
     <tag group="GearCost" tag="Escalat2"/>
     <tag group="DmgEffect" tag="Area"/>
+    <tag group="GearCost" tag="Opportun1"/>
     </thing>
   <thing id="wpAndPlaRi" name="Plasma Rifle (Andorian)" description="Andorian plasma rifles use similar principles to phasers used by Starfleet with a particle beam as the primary effect. What is different is the particle beam is augmented by an encapsulated plasma discharge that always causes thermal damage to a target. This means that Andorian style plasma rifles are unable to cause a stun effect, and at best can knock a humanoid unconscious through pain." compset="Ranged">
     <fieldval field="shortname" value="Andorian Plasma Rifle"/>
     <fieldval field="wpDamage" value="4"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="Equipment" tag="TwoHand"/>
+    <usesource source="1stEdition"/>
     <tag group="DmgEffect" tag="Intense"/>
     <tag group="GearQual" tag="Accurate"/>
     <tag group="GearQual" tag="Deadly"/>
     <tag group="GearCost" tag="NotAvail"/>
+    <tag group="Equipment" tag="TwoHand"/>
     </thing>
   <thing id="wpPhasePis" name="Phase Pistol" description="Phase pistols were introduced in 2151 to replace the EM-33 plasma pistol" compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
-    <usesource source="ENT"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCost" tag="Standard"/>
     </thing>
   <thing id="wpPartRif" name="Particle Rifle" description="Particle rifles and phase pistols were early forms of directed energy weapon used before the development of phasers. The most advanced designs of particle rifle were those produced for United Earth MACO forces in the 22nd century," compset="Ranged">
     <fieldval field="wpDamage" value="4"/>
-    <usesource source="ENT"/>
-    <tag group="GearQual" tag="Accurate"/>
+    <usesource source="1stEdition"/>
     <tag group="GearCost" tag="Standard"/>
     <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearQual" tag="Accurate"/>
     </thing>
   <thing id="wpDisrPis" name="Disruptor Pistol" description="Disruptor weapons rely on extremely high energy particle discharges that will burn or boil targets at the lowest settings, and can disintegrate a target if enough energy is applied." compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="GearCost" tag="NotAvail"/>
+    <usesource source="1stEdition"/>
     <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearCost" tag="NotAvail"/>
     </thing>
   <thing id="wpDisrRif" name="Disruptor Rifle" description="Disruptor weapons rely on extremely high energy particle discharges that will burn or boil targets at the lowest settings, and can disintegrate a target if enough energy is applied." compset="Ranged">
     <fieldval field="wpDamage" value="4"/>
-    <usesource source="ENT"/>
-    <usesource source="TOS"/>
-    <usesource source="TNG"/>
-    <tag group="GearCost" tag="NotAvail"/>
+    <usesource source="1stEdition"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="GearQual" tag="Accurate"/>
     <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearCost" tag="NotAvail"/>
     </thing>
   <thing id="wpJHPlaPis" name="Plasma Pistol (Jem&apos;Hadar)" description="The plasma weapons used by the Dominion’s Jem’Hadar soldiers cause severe burns and death through thermal shock, and incorporate an anticoagulant effect that makes injuries inflicted by them far harder to treat." compset="Ranged">
     <fieldval field="wpDamage" value="3"/>
     <fieldval field="shortname" value="Jem&apos;Hadar Plasma Pistol"/>
-    <usesource source="TNG"/>
-    <tag group="GearCost" tag="NotAvail"/>
+    <usesource source="1stEdition"/>
     <tag group="GearQual" tag="Debil"/>
     <tag group="DmgEffect" tag="Vicious1"/>
+    <tag group="GearCost" tag="NotAvail"/>
     </thing>
   <thing id="wpJHPlaRif" name="Plasma Rifle (Jem&apos;Hadar)" description="The plasma weapons used by the Dominion’s Jem’Hadar soldiers cause severe burns and death through thermal shock, and incorporate an anticoagulant effect that makes injuries inflicted by them far harder to treat." compset="Ranged">
     <fieldval field="shortname" value="Jem&apos;Hadar Plasma Rifle"/>
     <fieldval field="wpDamage" value="4"/>
-    <usesource source="TNG"/>
-    <tag group="GearCost" tag="NotAvail"/>
+    <usesource source="1stEdition"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="GearQual" tag="Debil"/>
     <tag group="GearQual" tag="Accurate"/>
     <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearCost" tag="NotAvail"/>
     </thing>
   <thing id="wpUshaantor" name="Ushaan-tor" description="A razor sharp Andorian ice-miner&apos;s tool used in Ushaan duels." compset="Melee">
     <fieldval field="wpDamage" value="2"/>
@@ -280,29 +263,29 @@
     <tag group="GearSize" tag="OneHand"/>
     </thing>
   <thing id="shPulseCan" name="Phase Cannons" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Cannons2" name="Cannons" abbrev="Cannons"/>
     <tag group="GearQual" tag="Versatile2"/>
     </thing>
   <thing id="shTorSpa" name="Spatial Torpedoes" compset="Torpedo">
-    <fieldval field="wpSRange" value="Medium"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="DivCmd"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shTorPhoto" name="Photonic Torpedoes" compset="Torpedo">
-    <fieldval field="wpSBasDmg" value="2"/>
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="DivCmd"/>
     <tag group="GearQual" tag="HiYield" name="High Yield" abbrev="High Yield"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shTorNucle" name="Nuclear Warheads" description="Nuclear torpedoes use either fusion or fission to create intense heat, radiation, and explosive force to pummel their targets. Used during the Earth-Romulan War, these crude devices were highly effective at battering the enemy ships." compset="Torpedo">
-    <fieldval field="wpSRange" value="Medium"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="DivCmd"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Vicious1"/>
@@ -310,49 +293,49 @@
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shGrapple1" name="Grappler Cables" compset="Energy">
-    <fieldval field="wpSRange" value="-"/>
+    <fieldval field="wpShipWpnRange" value="-"/>
     <usesource source="DivCmd"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="DmgEffect" tag="Str1"/>
     <tag group="ShipWepCat" tag="Other"/>
     </thing>
   <thing id="shGrapple2" name="Grappler Cables" compset="Energy">
-    <fieldval field="wpSRange" value="-"/>
+    <fieldval field="wpShipWpnRange" value="-"/>
     <usesource source="DivCmd"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="DmgEffect" tag="Str2"/>
     <tag group="ShipWepCat" tag="Other"/>
     </thing>
   <thing id="shGrapple3" name="Grappler Cables" compset="Energy">
-    <fieldval field="wpSRange" value="-"/>
+    <fieldval field="wpShipWpnRange" value="-"/>
     <usesource source="DivCmd"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="DmgEffect" tag="Str3"/>
     <tag group="ShipWepCat" tag="Other"/>
     </thing>
   <thing id="shGrapple4" name="Grappler Cables" compset="Energy">
-    <fieldval field="wpSRange" value="-"/>
+    <fieldval field="wpShipWpnRange" value="-"/>
     <usesource source="DivCmd"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="DmgEffect" tag="Str4"/>
     <tag group="ShipWepCat" tag="Other"/>
     </thing>
   <thing id="shTorMicro" name="Micro-torpedoes" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="DivCmd"/>
     <tag group="GearQual" tag="HiYield"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shTorQuantSing" name="Single Quantum Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="GearQual" tag="Calib" name="Calibration" abbrev="Calibration"/>
     <tag group="GearQual" tag="HiYield" name="High Yield" abbrev="High Yield"/>
     <tag group="DmgEffect" tag="Vicious1" name="Vicious 1" abbrev="Vicious 1"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     </thing>
   <thing id="shUPAntiProArr" name="Antiproton Beam Array" description="Used by several factions in the 25th century, these pulsed beams are especially damaging to a ship’s hull, often breaching multiple systems at once." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="ShipWepCat" tag="Beam"/>
@@ -360,7 +343,7 @@
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPEMArr" name="Electro-Magnetic Array" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="ShipWepCat" tag="Beam"/>
@@ -368,7 +351,7 @@
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPIonArr" name="Ionic Array" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="ShipWepCat" tag="Beam"/>
@@ -376,14 +359,14 @@
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPFEArr" name="Free Electron Array" description="Used for both defense and mining in the early years of Human warp travel, this weapon wasn’t terribly effective should an enemy be encountered." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPGravArr" name="Graviton Beam Array" description="Firing higher-energy gravitons than the tractor beams on the ship, these weapons cause gravimetric warping of localized space, which shears a ship’s hull." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="DmgEffect" tag="Piercing1"/>
     <tag group="GearQual" tag="Devastating"/>
@@ -392,7 +375,7 @@
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPProtonArr" name="Proton Beam Array" description="Used by several factions in the 25th century, proton beams cause persistent damage over time, wearing away at their target’s shields and hull after they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="DmgEffect" tag="PersistX"/>
@@ -400,7 +383,7 @@
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPTetryArr" name="Tetryon Beam Array" description="Introduced in the 25th century, tetryon beams are effective at draining away an enemy’s shields." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="ShipWepCat" tag="Beam"/>
@@ -408,21 +391,21 @@
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPTetryCan" name="Tetryon Beam Cannons" description="Introduced in the 25th century, tetryon beams are effective at draining away an enemy’s shields." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="DmgEffect" tag="PersistX"/>
     <tag group="Delivery" tag="Cannons2"/>
     </thing>
   <thing id="shUPTetryBan" name="Tetryon Beam Banks" description="Introduced in the 25th century, tetryon beams are effective at draining away an enemy’s shields." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="DmgEffect" tag="PersistX"/>
     <tag group="Delivery" tag="Banks1"/>
     </thing>
   <thing id="shUPTetryLan" name="Tetryon Beam Lance" description="Introduced in the 25th century, tetryon beams are effective at draining away an enemy’s shields." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="DmgEffect" tag="PersistX"/>
@@ -451,101 +434,101 @@
     <tag group="ShipWepCat" tag="Other"/>
     </thing>
   <thing id="shUPAntiProBan" name="Antiproton Beam Banks" description="Used by several factions in the 25th century, these pulsed beams are especially damaging to a ship’s hull, often breaching multiple systems at once." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPAntiProCan" name="Antiproton Beam Cannons" description="Used by several factions in the 25th century, these pulsed beams are especially damaging to a ship’s hull, often breaching multiple systems at once." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPAntiProLan" name="Antiproton Beam Lance" description="Used by several factions in the 25th century, these pulsed beams are especially damaging to a ship’s hull, often breaching multiple systems at once." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPProtonBan" name="Proton Beam Banks" description="Used by several factions in the 25th century, proton beams cause persistent damage over time, wearing away at their target’s shields and hull after they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="DmgEffect" tag="PersistX"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPProtonCan" name="Proton Beam Cannons" description="Used by several factions in the 25th century, proton beams cause persistent damage over time, wearing away at their target’s shields and hull after they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="DmgEffect" tag="PersistX"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPProtonLan" name="Proton Beam Lance" description="Used by several factions in the 25th century, proton beams cause persistent damage over time, wearing away at their target’s shields and hull after they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="DmgEffect" tag="PersistX"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPPhaLan" name="Phaser Lance" description="Common to Starfleet and Cardassian vessels, phasers are a precise and adaptable weapon." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="GearQual" tag="Versatile2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPPhaseArr" name="Phase Array" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Arrays"/>
     <tag group="GearQual" tag="Versatile2"/>
     <tag group="DmgEffect" tag="AreaSpread"/>
     </thing>
   <thing id="shUPPhaseBan" name="Phase Banks" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="GearQual" tag="Versatile2"/>
     </thing>
   <thing id="shUPPhaseLan" name="Phase Lance" description="The predecessor to phasers, phase weapons were used in the 22nd century." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="GearQual" tag="Versatile2"/>
     </thing>
   <thing id="shUPPolLan" name="Phased Polaron Beam Lance" compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPIonBan" name="Ionic Banks" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPIonCan" name="Ionic Cannons" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPIonLan" name="Ionic Lance" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPGravBan" name="Graviton Beam Banks" description="Firing higher-energy gravitons than the tractor beams on the ship, these weapons cause gravimetric warping of localized space, which shears a ship’s hull." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="GearQual" tag="Devastating"/>
     <tag group="Delivery" tag="Banks1"/>
@@ -553,7 +536,7 @@
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPGravCan" name="Graviton Beam Cannons" description="Firing higher-energy gravitons than the tractor beams on the ship, these weapons cause gravimetric warping of localized space, which shears a ship’s hull." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="GearQual" tag="Devastating"/>
     <tag group="Delivery" tag="Cannons2"/>
@@ -561,7 +544,7 @@
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPGravLan" name="Graviton Beam Lance" description="Firing higher-energy gravitons than the tractor beams on the ship, these weapons cause gravimetric warping of localized space, which shears a ship’s hull." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="GearQual" tag="Devastating"/>
     <tag group="Delivery" tag="Lance3"/>
@@ -569,53 +552,53 @@
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPFEBan" name="Free Electron Banks" description="Used for both defense and mining in the early years of Human warp travel, this weapon wasn’t terribly effective should an enemy be encountered." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPFECan" name="Free Electron Banks" description="Used for both defense and mining in the early years of Human warp travel, this weapon wasn’t terribly effective should an enemy be encountered." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPFELan" name="Free Electron Lance" description="Used for both defense and mining in the early years of Human warp travel, this weapon wasn’t terribly effective should an enemy be encountered." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPEMBan" name="Electro-Magnetic Banks" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Medium"/>
+    <fieldval field="wpShipWpnRange" value="Medium"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Banks1"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPEMCan" name="Electro-Magnetic Banks" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Close"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Cannons2"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPEMLan" name="Electro-Magnetic Banks" description="Also known as ion weapons, electro-magnetic weapons pack a punch and drain power from the vessels they hit." compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Beam"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPDisrLan" name="Disruptor Lance" compset="Energy">
-    <fieldval field="wpSRange" value="Long"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
     <tag group="Delivery" tag="Lance3"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     <tag group="ShipWepCat" tag="Beam"/>
     </thing>
   <thing id="shUPTorChron" name="Chroniton Torpedo" description="These highly advanced weapons were designed based on Krenim weapons and, while not highly effective against shields, chroniton torpedoes created temporal shifts around the targets they hit. These temporal shifts slow down time for the target, causing it to move more slowly on the battlefield for a short time." compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -623,8 +606,8 @@
     <tag group="Weapon" tag="FixedBase"/>
     </thing>
   <thing id="shUPTorGrav" name="Gravimetric Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -633,8 +616,8 @@
     <tag group="Weapon" tag="FixedBase"/>
     </thing>
   <thing id="shUPTorNeutron" name="Neutronic Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="4"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="4"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -642,8 +625,8 @@
     <tag group="DmgEffect" tag="Dampening"/>
     </thing>
   <thing id="shUPTorPolaron" name="Polaron Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -651,8 +634,8 @@
     <tag group="DmgEffect" tag="Piercing2"/>
     </thing>
   <thing id="shUPTorPositron" name="Positron Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -660,8 +643,8 @@
     <tag group="DmgEffect" tag="Dampening"/>
     </thing>
   <thing id="shUPTorTetryonic" name="Tetryonic Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -670,8 +653,8 @@
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPTorTransphas" name="Transphasic Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -680,8 +663,8 @@
     <tag group="DmgEffect" tag="Piercing2"/>
     </thing>
   <thing id="shUPTorTricobalt" name="Tricobalt Torpedo" compset="Torpedo">
-    <fieldval field="wpSRange" value="Long"/>
-    <fieldval field="wpSBasDmg" value="4"/>
+    <fieldval field="wpShipWpnRange" value="Long"/>
+    <fieldval field="wpShipBaseDmg" value="4"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Torpedo"/>
     <tag group="GearQual" tag="Calib"/>
@@ -689,32 +672,32 @@
     <tag group="DmgEffect" tag="Area"/>
     </thing>
   <thing id="shUPMinBlackout" name="Blackout Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="1"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="1"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="GearQual" tag="Jamming"/>
     </thing>
   <thing id="shUPMinBlade" name="Blade Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     </thing>
   <thing id="shUPMinChroniton" name="Chroniton Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="GearQual" tag="Slowing"/>
     </thing>
   <thing id="shUPMinGravimet" name="Gravimetric Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
@@ -722,64 +705,64 @@
     <tag group="DmgEffect" tag="Piercing1"/>
     </thing>
   <thing id="shUPMinNeutron" name="Neutronic Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Dampening"/>
     </thing>
   <thing id="shUPMinNuclear" name="Nuclear Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Vicious1"/>
     </thing>
   <thing id="shUPMinPhoton" name="Photon Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPMinPhotonic" name="Photonic Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="1"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="1"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="GearQual" tag="HiYield"/>
     </thing>
   <thing id="shUPMinPlasma" name="Plasma Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Persist4"/>
     </thing>
   <thing id="shUPMinPolaron" name="Polaron Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Piercing2"/>
     </thing>
   <thing id="shUPMinPositron" name="Positron Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="2"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="2"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
     <tag group="DmgEffect" tag="Dampening"/>
     </thing>
   <thing id="shUPMinQuantum" name="Quantum Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="3"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="3"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
@@ -788,8 +771,8 @@
     <tag group="DmgEffect" tag="Vicious1"/>
     </thing>
   <thing id="shUPMinTetryon" name="Tetryonic Mine" compset="Mine">
-    <fieldval field="wpSRange" value="Close"/>
-    <fieldval field="wpSBasDmg" value="1"/>
+    <fieldval field="wpShipWpnRange" value="Close"/>
+    <fieldval field="wpShipBaseDmg" value="1"/>
     <usesource source="UtopiaPlanetia"/>
     <tag group="ShipWepCat" tag="Mine"/>
     <tag group="Weapon" tag="FixedBase"/>
@@ -797,11 +780,11 @@
     <tag group="DmgEffect" tag="Depleting"/>
     </thing>
   <thing id="shTractorBeam" name="Tractor Beam" compset="Energy">
-    <fieldval field="wpSRange" value="-"/>
+    <fieldval field="wpShipWpnRange" value="-"/>
     <tag group="Weapon" tag="NoDamage"/>
     <tag group="Weapon" tag="Tractor"/>
     <tag group="DmgEffect" tag="StrengthX"/>
-    <tag group="ShipWepCat" tag="Other"/>
+    <tag group="ShipWepCat" tag="TractorBeam"/>
     </thing>
   <thing id="wp2EUnarmed" name="Unarmed Strike" description="While not really equipment, every character has the means to make an unarmed attack, striking with fists, feet, knees, elbows, head, or otherwise using brute force without a weapon. Countless martial arts, such as Klingon mok’bara, Vulcan suus mahna, and Human styles like boxing or aikido, exist to allow individuals to hone their ability to disable foes without weapons." compset="Melee" uniqueness="unique" holdable="no">
     <fieldval field="shortname" value="Unarmed"/>
@@ -820,5 +803,225 @@
     <tag group="GearSize" tag="OneHand"/>
     <tag group="Equipment" tag="Natural"/>
     <tag group="GearQual" tag="Intense"/>
+    </thing>
+  <thing id="wp2EAnastheticHyp" name="Anesthetic Hypospray" description="Not a conventional weapon, but it’s not unknown for medics and doctors to try to defuse situations by sedating someone dangerous, using an anesthetic hypospray. Any character carrying a medkit is assumed to carry a hypospray that can be used in this way." compset="Melee">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="GearQual" tag="Cumber"/>
+    <tag group="GearQual" tag="Intense"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <child entity="gearQual"></child>
+    </thing>
+  <thing id="wp2EKnife" name="Knife/Dagger" description="Bladed weapons such as a knife or dagger are useful as tools or for close combat situations. While projectile weapons and later energy weapons have surpassed the destructive power of hand weapons, developments over the centuries in materials science have given these weapons continued use in nearly every service as backup weapons or as tools." compset="Melee" uniqueness="unique">
+    <fieldval field="wpDamage" value="2"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="GearQual" tag="Hidden1"/>
+    </thing>
+  <thing id="wp2EBlade" name="Blade" description="Larger blades such as the Klingon mek’leth, the Andorian ushaan-tor, or various forms of sword, provide more of a symbolic use, but still are used ritually, in sports, or even in real combat, depending on the skill and inclination of the individual." compset="Melee">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    </thing>
+  <thing id="wp2EHvyBlade" name="Heavy Blade" description="Heavy blades like the Klingon bat’leth, Jem’Hadar kar’takin, and the Vulcan lirpa see use in ritualized combat or in situations where hand-to-hand combat is almost assured." compset="Melee">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="TwoHand"/>
+    <tag group="GearQual" tag="Intense"/>
+    <tag group="GearCost" tag="Escalat1"/>
+    </thing>
+  <thing id="wp2EBludgeon" name="Bludgeon" description="Bludgeons, ranging from improvised blunt objects, to batons, cudgels, and maces—are a useful way of fending off aggressors or disabling enemies. This can also be used for any two-handed ranged weapon wielded as an impromptu club." compset="Melee">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    </thing>
+  <thing id="wp2EPhaser1" name="Phaser Type-1" description="Phaser Type-1 is the smallest design of hand phaser, a tiny device a few centimeters long, which is the most widely-used form of phaser distributed to personnel for self-defense." compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Standard"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearQual" tag="Hidden1"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="WeaponRange" tag="Long"/>
+    </thing>
+  <thing id="wp2EPhaser2" name="Phaser Type-2" description="Phaser Type-2 refers to the larger form of hand phaser, carried by security personnel and Starfleet officers going into dangerous environments. Versions used in the 23rd century are a pistol grip attachment that can be fitted to a phaser type-1, with a secondary power cell to increase output. 24th century hand phasers are a distinct design, with a curved ergonomic grip." compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearCost" tag="Standard"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="WeaponRange" tag="Long"/>
+    </thing>
+  <thing id="wp2EPhaser3" name="Phaser Type-3 (Phaser Rifle)" description="Phaser Type-3, or phaser rifles, are higher-powered weapons designed for hazardous situations and combat. In addition to a larger power supply, they have numerous targeting and beam-focusing systems that make them more accurate. They are only issued to properly-trained personnel, and only when necessary." compset="Ranged">
+    <fieldval field="shortname" value="Phaser Rifle"/>
+    <fieldval field="wpDamage" value="5"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearQual" tag="Charge"/>
+    <tag group="GearCost" tag="Escalat2"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="TwoHand"/>
+    <tag group="GearQual" tag="Accurate"/>
+    </thing>
+  <thing id="wp2EGrenPulse" name="Grenade (Pulse)" description="Pulse Grenades work when a user selects a setting and a countdown timer. When the timer reaches zero, the grenade discharges its power cell at once in all directions. After discharge, the grenade’s components burn out, rendering them inert to prevent them being reused. Pulse grenades cover a number of similar technologies used throughout history—from the stun grenades used by United Earth MACO forces to photon grenades employed in the 24th century." compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <fieldval field="shortname" value="Pulse Grenade"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Escalat2"/>
+    <tag group="GearCost" tag="Opportun1"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="GearQual" tag="Area"/>
+    <tag group="GearQual" tag="Grenade"/>
+    </thing>
+  <thing id="wp2EPlasmaRifAnd" name="Plasma Rifle (Andorian)" description="Andorian plasma rifles use similar principles to phasers used by Starfleet with a particle beam as the primary effect. What is different is the particle beam is augmented by an encapsulated plasma discharge that always causes thermal damage to a target. This means that Andorian style plasma rifles are unable to cause a stun effect, and at best can knock a humanoid unconscious through pain." compset="Ranged">
+    <fieldval field="shortname" value="Andorian Plasma Rifle"/>
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="TwoHand"/>
+    <tag group="GearQual" tag="Intense"/>
+    <tag group="GearQual" tag="Accurate"/>
+    </thing>
+  <thing id="wp2EPhasePistol" name="Phase Pistol" description="Phase pistols were introduced in 2151 to replace the EM-33 plasma pistol" compset="Ranged">
+    <fieldval field="wpDamage" value="3"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Standard"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="OneHand"/>
+    </thing>
+  <thing id="wp2EPartRifle" name="Particle Rifle" description="Particle rifles and phase pistols were early forms of directed energy weapon used before the development of phasers. The most advanced designs of particle rifle were those produced for United Earth MACO forces in the 22nd century," compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="2ndEdition"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="WeaponInjury" tag="Stun"/>
+    <tag group="GearSize" tag="TwoHand"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="wp2EDisrPistol" name="Disruptor Pistol" description="Disruptor weapons rely on extremely high energy particle discharges that will burn or boil targets at the lowest settings, and can disintegrate a target if enough energy is applied." compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <usesource source="1stEdition"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="OneHand"/>
+    <tag group="GearQual" tag="Intense"/>
+    </thing>
+  <thing id="wp2EDisrRifle" name="Disruptor Rifle" description="Disruptor weapons rely on extremely high energy particle discharges that will burn or boil targets at the lowest settings, and can disintegrate a target if enough energy is applied." compset="Ranged">
+    <fieldval field="wpDamage" value="5"/>
+    <usesource source="1stEdition"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="TwoHand"/>
+    <tag group="GearQual" tag="Intense"/>
+    </thing>
+  <thing id="wp2EPlasPistJH" name="Plasma Pistol (Jem&apos;Hadar)" description="The plasma weapons used by the Dominion’s Jem’Hadar soldiers cause severe burns and death through thermal shock, and incorporate an anticoagulant effect that makes injuries inflicted by them far harder to treat." compset="Ranged">
+    <fieldval field="wpDamage" value="4"/>
+    <fieldval field="shortname" value="Jem&apos;Hadar Plasma Pistol"/>
+    <usesource source="1stEdition"/>
+    <tag group="GearQual" tag="Debil"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="OneHand"/>
+    </thing>
+  <thing id="wp2EPlasRifJH" name="Plasma Rifle (Jem&apos;Hadar)" description="The plasma weapons used by the Dominion’s Jem’Hadar soldiers cause severe burns and death through thermal shock, and incorporate an anticoagulant effect that makes injuries inflicted by them far harder to treat." compset="Ranged">
+    <fieldval field="shortname" value="Jem&apos;Hadar Plasma Rifle"/>
+    <fieldval field="wpDamage" value="5"/>
+    <usesource source="1stEdition"/>
+    <tag group="GearQual" tag="Debil"/>
+    <tag group="GearQual" tag="Accurate"/>
+    <tag group="Equipment" tag="TwoHand"/>
+    <tag group="GearCost" tag="NotAvail"/>
+    <tag group="WeaponInjury" tag="Deadly"/>
+    <tag group="GearSize" tag="OneHand"/>
+    </thing>
+  <thing id="arm2EArmorVest" name="Armored Vest" description="Body armor was issued to Starfleet security in earlier eras. In the mid-23rd century, it took the form of an armored vest usually worn by landing parties expecting violence. In the late 23rd century, it took the form of a bulky vest and helmet." compset="Armor">
+    <fieldval field="defResist" value="1"/>
+    <usesource source="2ndEdition"/>
+    <tag group="GearCost" tag="Standard"/>
+    </thing>
+  <thing id="gq2EWpnArea" name="Area" description="This weapon impacts a wider area and can affect several targets at once. When you succeed at an attack, additional targets in the same zone may be hit by spending 1 Momentum for each additional target (Repeatable). This attack may Succeed at Cost" compset="GearQuality" summary="When you succeed at an attack, additional targets in the same zone may be hit by spending 1 Momentum for each additional target (Repeatable). This attack may Succeed at Cost">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EWpnCalibrate" name="Calibration" description="This weapon needs to be calibrated before firing. The weapon cannot be fired unless a Prepare minor action is performed before the Attack major action in the same turn." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2ECumbersome" name="Cumbersome" description="This weapon is difficult to bring to bear against a target, increasing the Difficulty of an attack made using it by 1. If this weapon is a torpedo, it cannot be fired as part of a salvo." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EDampening" name="Dampening" description="This attack drains the target’s reserve power, causing widespread disruption. If the target has Reserve Power available, it loses Reserve Power." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EDepleting" name="Depleting" description="This attack strips away the protective layers of deflector shields. The attack cannot cause the ship to be shaken, but the Momentum cost to increase damage is reduced to 1." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EDevastating" name="Devastating" description="Tasks to repair breaches caused by this weapon increase in Difficulty by 1." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EHiddenX" name="Hidden X" description="This weapon system is concealed from scans. When the weapon is hidden, it cannot be detected unless a specific scan is attempted; this scan is a task with a Difficulty of X." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EHighYield" name="High Yield" description="This weapon inflicts massive damage to energy vessels. If the attack inflicts one or more breaches to a system, it inflicts one additional breach (or steps up the Potency of a breach inflicted by 1—attacker’s choice)." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EIntense" name="Intense" description="When making an attack with this weapon, you may increase the damage by 1 by spending 1 Momentum, rather than 2. This is Repeatable." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EJamming" name="Jamming" description="This weapon sends out a scattering field, disrupting the target’s sensors or communications systems. Until the end of the current round, the target increases the Difficulty for all tasks assisted by Communications and Sensors by 1." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EPersistent" name="Persistent" description="When this weapon hits, you may spend 1–3 Momentum. At the end of each round, the target suffers half the weapon’s damage rating (round up) again. This effect lasts for a number of rounds equal to the Momentum spent." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EPiercing" name="Piercing" description="The weapon is effective at cutting through layers of protection. When this weapon makes an attack, any Resistance the target has is ignored." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2ESlowing" name="Slowing" description="Until the end of the current round, characters aboard the target vessel cannot use the Keep the Initiative Momentum spend." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2ESpread" name="Spread" description="Attacks with this weapon reduce the cost of the Devastating Attack Momentum spend to 1. This is Repeatable." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
+    </thing>
+  <thing id="gq2EVersatileX" name="Versatile X" description="If an attack with this weapon is successful, it gains X points of bonus Momentum. Bonus Momentum cannot be saved." compset="GearQuality">
+    <usesource source="2ndEdition"/>
+    <tag group="QualityCategory" tag="Weapon"/>
     </thing>
   </document>

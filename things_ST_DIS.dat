@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="talDISAnaRecall" name="Analytical Recall" description="REQUIREMENT: Cybernetically Enhanced, or gamemaster’s permission.\n\nSome Cybernetically Enhanced find themselves able to recall information faster than they used to and are able to process crucial details to a greater degree. Three times per session, a Cybernetically Enhanced individual may ask the gamemaster for more information regarding data they have recorded or situations they have personally seen, as if they had spent a point of Momentum to Obtain Information." compset="Talent">
+    <usesource source="Discovery"/>
+    <tag group="TalentCat" tag="Augment"/>
+    </thing>
+  </document>

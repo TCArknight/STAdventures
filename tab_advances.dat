@@ -37,7 +37,7 @@
     <table_dynamic
       component="Advance"
       showtemplate="adAdvance"
-      choosetemplate="LargeItem"
+      choosetemplate="SimpleItem"
       showsortset="_CompRev_"
       addpick="resAdvance">
       <titlebar><![CDATA[

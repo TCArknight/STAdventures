@@ -46,6 +46,10 @@
 
     <!-- Make sure that we have all special abilities selected -->
     <evalrule index="1" phase="Validate" priority="8000" severity="error" message="You may only have one attribute at maximum."><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we're not a Main or Supporting character, we're good.
 	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 	  
@@ -63,6 +67,10 @@
 	  
     <!-- Make sure that we have all attributes selected -->
     <evalrule index="2" phase="Validate" priority="8000" severity="error" message="Not enough selected"><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we're not a Main or Supporting character, we're good.
 	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 
@@ -78,6 +86,10 @@
 	  
     <!-- Make sure that we don't have too many attributes selected -->
     <evalrule index="3" phase="Validate" priority="8000" severity="error" message="Too many selected"><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we're not a Main or Supporting character, we're good.
 	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 
@@ -101,6 +113,10 @@
 
     <!-- Make sure that we have all special abilities selected -->
     <evalrule index="1" phase="Validate" priority="8000" severity="error" message="You may only have one discipline at maximum."><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we're not a Main or Supporting character, we're good.
 	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 	  
@@ -118,6 +134,10 @@
 	  
     <!-- Make sure that we have all disciplines selected -->
     <evalrule index="2" phase="Validate" priority="8000" severity="error" message="Not enough selected"><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we're not a Main or Supporting character, we're good.
 	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 
@@ -133,6 +153,10 @@
 
     <!-- Make sure that we don't have too many disciplines selected -->
     <evalrule index="3" phase="Validate" priority="8000" severity="error" message="Too many selected"><![CDATA[
+	
+	  ~if we're in Advancement mode, we're done
+	  validif (state.iscreate = 0)
+	  
       ~if we're not a Main or Supporting character, we're good.
 	  validif (hero.tagis[CharType.typMain] + hero.tagis[CharType.typSupport] = 0)
 

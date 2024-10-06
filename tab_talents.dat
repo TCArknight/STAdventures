@@ -108,6 +108,14 @@
 	    field="domDomain">
 	    </edit>
 	  </portal>
+
+    <portal
+      id="lblmenu1"
+      style="lblSecond">
+      <label
+        field="usrLabel1">
+        </label>
+      </portal>
 	  
     <portal
       id="menu1"
@@ -119,6 +127,24 @@
         usepicksfield="usrSource1"
         candidatefield="usrCandid1">
         </menu_things>
+      </portal>
+	  
+    <portal
+      id="lblmenuar"
+      style="lblSecond">
+      <label
+        field="usrLabelAr">
+        </label>
+      </portal>
+
+    <portal
+      id="menuarray"
+      style="menuNormal">
+      <menu_array
+        field="usrSelect"
+        array="usrArray"
+        maxvisible="10">
+        </menu_array>
       </portal>
 	  
     <portal
@@ -146,39 +172,96 @@
       ~if this is a "sizing" calculation, we're done
       doneif (issizing <> 0)
 
-      ~determine whether our menus are visible
-      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
-      if (field[usrCandid1].isempty <> 0) then
-        portal[menu1].visible = 0
-        endif
-		
       ~position our tallest portal at the top
       portal[info].top = 0
 
       ~center the other portals vertically
       perform portal[name].centervert
       perform portal[delete].centervert
-      perform portal[domain].centervert
+      perform portal[lblmenu1].centervert
       perform portal[menu1].centervert
-	  
-      ~position the delete portal on the far right
-      perform portal[delete].alignedge[right,0]
+      perform portal[domain].centervert
+      perform portal[lblmenuar].centervert
+      perform portal[menuarray].centervert
 
-      ~position the info portal to the left of the delete button
+      ~determine whether our portals are visible; we only show them if requested
+      ~Note: Remember that a non-empty tagexpr field indicates menu selection is used.
+      if (field[usrCandid1].isempty <> 0) then
+        portal[lblmenu1].visible = 0
+        portal[menu1].visible = 0
+      elseif (field[usrLabel1].isempty <> 0) then
+        portal[lblmenu1].visible = 0
+        endif
+		
+      if (field[usrLabel1].isempty <> 0) then
+        portal[lblmenu1].visible = 0
+        endif
+
+      if (empty(field[usrArray].arraytext[0]) <> 0) then
+        portal[lblmenuar].visible = 0
+        portal[menuarray].visible = 0
+      elseif (field[usrLabelAr].isempty <> 0) then
+        portal[lblmenuar].visible = 0
+        endif
+
+      ~position the delete portal on the far right and the info portal next to it
+      perform portal[delete].alignedge[right,0]
       perform portal[info].alignrel[rtol,delete,-8]
-      
+
+      ~determine our effective right edge, allowing for the buttons above
+      var edge as number
+      edge = portal[info].left - 10
+
+      ~setup the default portal width and gap to be used between and around portals
+      var defwidth as number
+      var gap as number
+      defwidth = 100
+      gap = 10
+
+      ~determine the minimum amount of space we need to reserve for our portals
+      var reserve as number
+      if (portal[menuarray].visible <> 0) then
+        reserve = portal[lblmenuar].width * portal[lblmenuar].visible
+        reserve += defwidth + gap
+      elseif (portal[menu1].visible <> 0) then
+        reserve = portal[lblmenu1].width * portal[lblmenu1].visible
+        reserve += defwidth + gap   
+        endif
+
+      ~setup the maximum width for our some portals, regardless of space available
+      var maxwidth as number
+	  var x as number
+      maxwidth = 150
+
+      ~position the name on the left, reserving our minimum space for any portals
+      portal[name].left = 0
+      portal[name].width = minimum(portal[name].width,edge - portal[name].left - reserve)
+      x = portal[name].right + gap
+		
+      ~if we have an array-based menu, size and position it appropriately
+      if (portal[menuarray].visible <> 0) then
+        if (portal[lblmenuar].visible <> 0) then
+          portal[lblmenuar].left = x
+          x = portal[lblmenuar].right + 4
+          endif
+        portal[menuarray].left = x
+        portal[menuarray].width = maxwidth
+
+      ~if we have one thing-based menu, size and position it appropriately
+      elseif (portal[menu1].visible = 1) then
+        if (portal[lblmenu1].visible <> 0) then
+          portal[lblmenu1].left = x
+          x = portal[lblmenu1].right + 4
+          endif
+        portal[menu1].left = x
+        portal[menu1].width = minimum(edge - portal[menu1].left,maxwidth)
+		endif
+		
 	  ~if we don't need a domain, hide the portals
 	  if (tagis[User.NeedDomain] = 0) then
 	    portal[lbldomain].visible = 0
 	    portal[domain].visible = 0
-
-        ~position the name on the left and use availble space, with a gap for menus
-        portal[name].left = 0
-        portal[name].width = minimum(portal[name].width,portal[info].left - portal[name].left - 75)
-
-	    ~position the menus to the right of the name in the available space
-        perform portal[menu1].alignrel[ltor,name,10]
-        portal[menu1].width = (portal[info].left - portal[menu1].left - 20) / 2
+		
 	  else
 	    ~position the domain portal to the left of the info
         perform portal[domain].alignrel[rtol,info,-85]
@@ -197,6 +280,12 @@
       if (portal[menu1].visible <> 0) then
         if (field[usrChosen1].ischosen = 0) then
           perform portal[menu1].setstyle[menuErrSm]
+          endif
+        endif
+		
+      if (portal[menuarray].visible <> 0) then
+        if (field[usrSelect].isempty <> 0) then
+          perform portal[menuarray].setstyle[menuError]
           endif
         endif
 		
@@ -297,6 +386,7 @@
 	  
 	  ~ if we're a character, hide the special rules portal
 	  portal[talSpecialRules].visible = 1 - #ischaracter[]
+	  
       ]]></position>
 
     </layout>
@@ -321,4 +411,5 @@
     <position><![CDATA[
       ]]></position>
     </panel>
+	
   </document>

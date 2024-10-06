@@ -51,6 +51,7 @@
       <!-- only traits that have already been added to the hero can be advanced -->
       <needtag usehero="yes" container="CanAdvance" thing="CanAdvance"/>
       <autotag group="Advance" tag="Gizmo"/>
+      <autotag group="Advance" tag="Increase"/>
       <chosen><![CDATA[
         if (@ispick = 0) then
           @text = "{text clrwarning}Select Trait to Boost"
@@ -60,6 +61,49 @@
         ]]></chosen>
       <titlebar><![CDATA[
         @text = "Choose the Existing Trait to Boost"
+        ]]></titlebar>
+      <description><![CDATA[
+        ~ If we've failed any pre-requisites, get the info here
+        var prereqs as string
+        var use_hero as number
+        use_hero = 1
+        call Prereqs
+        @text = prereqs
+
+        ~append our description
+        var descript as string
+        call Descript
+        @text &= descript
+        ]]></description>
+      </chooser_table>
+    </portal>
+
+
+  <!-- advBoost chooser -->
+  <portal
+    id="advDecrease"
+    style="chsNormal"
+    width="275">
+    <chooser_table
+      component="none"
+      choosetemplate="advBoost"
+      choosepicks="hero"
+      candidatepick="advDetails"
+      candidatefield="advTagexprDec"
+      descwidth="350">
+      <!-- only traits that have already been added to the hero can be advanced -->
+      <needtag usehero="yes" container="CanAdvance" thing="CanAdvance"/>
+      <autotag group="Advance" tag="Gizmo"/>
+      <autotag group="Advance" tag="Decrease"/>
+      <chosen><![CDATA[
+        if (@ispick = 0) then
+          @text = "{text clrwarning}Select Trait to Decrease"
+        else
+          @text = "Decrease: " & field[name].text
+          endif
+        ]]></chosen>
+      <titlebar><![CDATA[
+        @text = "Choose the Existing Trait to Decrease"
         ]]></titlebar>
       <description><![CDATA[
         ~ If we've failed any pre-requisites, get the info here
@@ -118,7 +162,7 @@
       <label>
         <labeltext><![CDATA[
           ~start with the base name; if no domain, we're done
-          @text = field[thingname].text
+          @text = field[livename].text
           doneif (tagis[User.NeedDomain] = 0)
 
           ~append any domain in a smaller, non-bold font for reference
@@ -407,6 +451,7 @@
     id="advance">
     <portalref portal="advNew" taborder="20"/>
     <portalref portal="advBoost" taborder="20"/>
+    <portalref portal="advDecrease" taborder="20"/>
     <templateref template="advTitle" thing="advDetails" taborder="10"/>
     <templateref template="advStatic" thing="advDetails" taborder="20"/>
     <templateref template="advNotate" thing="advDetails" taborder="20"/>
@@ -450,6 +495,7 @@
       template[advNotate].visible = 0
       portal[advNew].visible = 0
       portal[advBoost].visible = 0
+      portal[advDecrease].visible = 0
 
       ~if this is NOT the newest advancement, show the static template so the user
       ~can't change anything; otherwise, determine which chooser should be shown
@@ -461,11 +507,18 @@
         template[advNotate].visible = 1
       else
         portal[advBoost].visible = 1
+		if (container.parent.tagis[Advance.Adjust] <> 0) then
+          portal[advDecrease].visible = 1
+		  endif
         endif
 
       ~position the domain template
       template[advDomain].left = portal[advNew].left + 15
       template[advDomain].top = portal[advNew].bottom + 8
+	  
+      ~position the decrease chooser
+      portal[advDecrease].left = portal[advNew].left
+      portal[advDecrease].top = portal[advNew].bottom + 8
 
       ~position the notes template
       template[advNotes].left = portal[advNew].left

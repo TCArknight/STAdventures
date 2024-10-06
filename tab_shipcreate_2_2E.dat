@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains the definition of the "talents" tab panel. This tab is where
+      the user selects the special talents for the character.
+
+      All public visual elements used with this tab panel start with the prefix "ab"
+      to associate them with the tab.
+-->
+
+<document signature="Hero Lab Data">
+
+	
+
+  <portal
+    id="hdrYearDetails"
+    style="lblTitle">
+    <label
+      text="Step 1: Current Year (see Details)">
+      </label>
+    </portal>
+	  
+  <portal
+    id="sc2Frame"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="Frame"
+	  showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+	  choosesortset="FrameByAlliance"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <needtag
+        container="CharType"
+        thing="ShipType">
+        </needtag>
+	  <autotag group="StarshipSelected" tag="Frame"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Spaceframe for your ship"
+        ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 2: Frame"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Spaceframe"
+        ]]></additem>
+	  </table_dynamic>
+	<live>ShipSelectAllow.Frame</live>
+    </portal> 
+	  
+  <portal
+    id="sc2Profile"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="Profile"
+	  showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+	  choosesortset="FrameByEra"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <needtag
+        container="CharType"
+        thing="ShipType">
+        </needtag>
+	  <autotag group="StarshipSelected" tag="Profile"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Mission Profile for your ship"
+        ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 3: Mission Profile"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Mission Profile"
+        ]]></additem>
+	  </table_dynamic>
+	<live>ShipSelectAllow.Profile</live>
+    </portal> 
+	  
+  <portal
+    id="sc2ServRecord"
+    style="tblNormal"
+    width="110">
+	<table_dynamic
+      component="ServiceRecord"
+	  showtemplate="SimpleItem"
+      choosetemplate="SimpleItem"
+	  showfrozenfixed="yes"
+	  scrollable="no">
+	  <autotag group="StarshipSelected" tag="Service"/>
+      <titlebar><![CDATA[
+        @text = "Choose the Service Record for your ship"
+        ]]></titlebar>
+      <description/>
+      <headertitle>
+        @text = "Step 4: Service Record"
+        </headertitle>
+	  <additem><![CDATA[
+        @text &= "Add Service Record"
+        ]]></additem>
+	  </table_dynamic>
+	<live>ShipSelectAllow.Service</live>
+    </portal> 
+	
+  <layout
+    id="shipstruct">
+    <portalref portal="hdrYearDetails" />
+    <portalref portal="sc2Frame" taborder="10" />
+    <portalref portal="sc2Profile" taborder="20" />
+    <portalref portal="sc2ServRecord" taborder="30" />
+    <portalref portal="shPod" taborder="40" />
+    <portalref portal="shRefit" taborder="50" />
+
+    <!-- This script sizes and positions the layout and its child visual elements. 
+	    <portalref portal="hoFrame" taborder="10"/>
+ -->
+    <position><![CDATA[
+      ~freeze our table in advancement mode to disable adding new choices
+      ~Note: All freezing must be done *before* any positioning is performed.
+      if (state.iscreate = 0) then
+        portal[sc2Frame].freeze = 1
+      ~  portal[shProfile].freeze = 1
+      ~  portal[shPod].freeze = 1
+        endif
+		
+      if (hero.tagis[StarshipSelected.Frame] <> 0) then
+        portal[sc2Frame].freeze = 1
+        endif
+      if (hero.tagis[StarshipSelected.Profile] <> 0) then
+        portal[sc2Profile].freeze = 1
+        endif
+      if (hero.tagis[StarshipSelected.Service] <> 0) then
+        portal[sc2ServRecord].freeze = 1
+        endif
+		
+	  var col2 as number
+	  var colwidth as number
+	  col2 = width/2 + 3
+	  colwidth = width/2 - 3
+	  
+	  portal[hdrYearDetails].top = 0
+	  portal[hdrYearDetails].left = 0 
+	  portal[hdrYearDetails].width = width
+	  
+	  ~ Spaceframe
+	  portal[sc2Frame].top = portal[hdrYearDetails].bottom + 5
+	  portal[sc2Frame].left = 0 
+	  portal[sc2Frame].width = colwidth
+	  
+	  ~ Mission Profile
+	  portal[sc2Profile].top = portal[sc2Frame].top
+	  portal[sc2Profile].left = col2 
+	  portal[sc2Profile].width = colwidth
+	  
+	  ~ Service Record
+	  portal[sc2ServRecord].top = portal[sc2Frame].bottom + 5
+	  portal[sc2ServRecord].left = 0
+	  portal[sc2ServRecord].width = colwidth
+
+      ~ Refits
+      portal[shRefit].top = portal[sc2ServRecord].bottom + 10
+      ~ portal[shRefit].height = 20
+      portal[shRefit].width = width
+	  
+	  ~ Mission Pod
+	  portal[shPod].visible = #framepodsallowed[]
+      portal[shPod].top = portal[shRefit].bottom + 10
+      portal[shPod].width = width
+	  
+      ]]></position>
+
+    </layout>
+
+  <panel
+    id="shipstruct"
+    name="Ship Structure"
+    marginhorz="5"
+    marginvert="5"
+    order="1">
+	<live>ShowTab.Starship &amp; source.2ndEdition</live>
+    <layoutref layout="shipstruct"/>
+    <position><![CDATA[
+      ]]></position>
+    </panel>
+	
+  </document>

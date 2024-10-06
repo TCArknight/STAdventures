@@ -438,6 +438,22 @@
       </portal>
 
     <portal
+      id="lblpro"
+      style="lblNormal">
+      <label
+        text="Pronouns:">
+        </label>
+      </portal>
+
+    <portal
+      id="pronoun"
+      style="editCenter">
+      <edit
+        field="perPronoun">
+        </edit>
+      </portal>
+
+    <portal
       id="lblage"
       style="lblNormal">
       <label
@@ -586,15 +602,23 @@
       ~everything else needs to move down)
       portal[gendertext].left = portal[gender].left
       portal[gendertext].top = portal[gender].bottom + 7
-      portal[gendertext].width = 200
+      portal[gendertext].width = 120
       if (field[perGender].value <> 2) then
         portal[gendertext].visible = 0
-        perform portal[height].alignrel[ttob,age,7]
-      else
-        perform portal[height].alignrel[ttob,gendertext,7]
+        ~ perform portal[height].alignrel[ttob,age,7]
+      ~else
+      ~  perform portal[height].alignrel[ttob,gendertext,7]
         endif
-
+		
+	  ~position the pronoun portals beneath the age in the upper right
+      perform portal[lblpro].alignrel[ltor,gendertext,5]
+      perform portal[pronoun].alignrel[ttob,age,10]
+      perform portal[lblpro].centeron[vert,pronoun]
+      perform portal[pronoun].alignrel[ltor,lblpro,5]
+      portal[pronoun].width = 90
+	  
       ~position the height portals beneath the gender portals
+	  perform portal[height].alignrel[ttob,pronoun,7]
       perform portal[lblheight].centeron[vert,height]
       portal[lblheight].left = 10
       perform portal[height].alignrel[ltor,lblheight,7]

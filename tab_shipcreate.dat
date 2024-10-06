@@ -36,18 +36,20 @@
     <table_dynamic
       component="Refit"
       showtemplate="SimpleItem"
-      choosetemplate="SimpleItem">
+      choosetemplate="SimpleItem"
+	  scrollable="no">
       <titlebar><![CDATA[
-        @text = "Add a Refit - " & hero.child[resShipRef].field[resSummary].text
+        @text = "Add a Refit - " & hero.child[resShipRefits].field[resSummary].text
         ]]></titlebar>
       <description/>
       <headertitle><![CDATA[
-        @text = "Refits - " & hero.child[resShipRef].field[resSummary].text
+        @text = "Refits - " & hero.child[resShipRefits].field[resSummary].text
         ]]></headertitle>
       <additem><![CDATA[
         @text &= "Add New Refit"
         ]]></additem>
       </table_dynamic>
+	<live>ShipSelectAllow.Refit</live>
     </portal>
 	
   <portal 
@@ -585,7 +587,7 @@
     marginhorz="5"
     marginvert="5"
     order="1">
-	<live>ShowTab.Starship</live>
+	<live>ShowTab.Starship &amp; source.1stEdition</live>
     <layoutref layout="shipcreate"/>
     <position><![CDATA[
       ]]></position>

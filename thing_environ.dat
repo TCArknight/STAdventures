@@ -113,7 +113,7 @@ mySpec = replace(mySpec, "Species.", "thingid.spc", 0)
 
 field[usrCandid3].text &= "component.Species"
 
-if (#issecondedition[] = 0) then
+if (#is2ndedition[] = 0) then
   field[usrCandid3].text &= " & source.2ndEdition"
   endif
 field[usrCandid3].text &= " & !(" & mySpec & ")"]]></eval>

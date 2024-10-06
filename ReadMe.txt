@@ -7,9 +7,11 @@ TODO: Advances
 Known Issues:
 
 Fixed - 
+Talents with Hide.Talent tag showing when choosing Talents
+Traits with Hide.Trait tag showing when choosing Traits
 
 New - 
-Core rules 2.0 !!!
+!!! Core rules 2.0 !!!
 
 v1.13
 Release: 02/20/2023

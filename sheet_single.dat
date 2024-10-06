@@ -223,7 +223,7 @@
 	  
 	    call GetDivisionColor
 		@text &= division
-		@text &= "{b}Determination: {/b}{text 000000}(Start with 1) {font Wingdings}{size 46}" & chr(168) & "{horz 3}" & chr(168) & "{horz 3}" & chr(168) & "{revert}"
+		@text &= "{b}Determination: {/b}{text 000000} {font Wingdings}{size 46}" & chr(168) & "{horz 3}" & chr(168) & "{horz 3}" & chr(168) & "{revert}"
 		
         ]]></labeltext>
       </output_label>
