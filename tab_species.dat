@@ -282,7 +282,7 @@
 
     <portal
       id="addtraits"
-      style="actBig"
+      style="actDouble"
       tiptext="Click to add selected species traits.">
       <action
         action="trigger">
@@ -361,9 +361,9 @@
 	  
 	  ~position trait button to the right of the menus
 	  portal[addtraits].top = portal[menuPrimary].top
-	  portal[addtraits].height = 20
+	  portal[addtraits].width = 90
+	  portal[addtraits].height = 45
 	  portal[addtraits].left = portal[menuPrimary].right + 10
-	  portal[addtraits].width = 80
 	  
 	  if (#is2ndedition[] <> 0) then
 	    portal[addtraits].height = 50

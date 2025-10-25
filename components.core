@@ -937,6 +937,32 @@
     </component>
 
 
+  <!-- Custom component
+        Can be added to any other component to allow creation of a "custom
+        thing" with a user-definable name, for example with Custom Gear.
+  -->
+  <component
+    id="SourceInfo"
+    name="Source Info">
+
+    <!-- Manage an optional user-assigned name for custom things -->
+    <field
+      id="SourceName"
+      name="Source Name"
+      maxlength="100"
+      type="derived">
+      </field>
+
+    <!-- Manage an optional user-assigned description for custom things -->
+    <field
+      id="SourcePage"
+      name="Source Page"
+      maxlength="10"
+      type="derived">
+      </field>
+	  
+    </component>
+	
   <!-- Define various component sets associated with the components defined above.
   -->
 
@@ -945,6 +971,7 @@
   <!-- The "UserSelect" compset is auto-defined for the component -->
   <!-- The "SpecialTab" compset is auto-defined for the component -->
   <!-- The "Custom" compset is auto-defined for the component -->
+  <!-- The "SourceInfo" compset is auto-defined for the component -->
 
 
   </document>

@@ -105,27 +105,37 @@ perform hero.assign[ShipShields.Structure]</eval>
     </thing>
   <thing id="srv2EHopeShip" name="Hope Ship" description="This vessel’s service has been spent responding to distress calls and disasters, warping to the rescue of those in danger or subjected to great hardship. The ship is heavily refitted for disaster relief, evacuation, and medical catastrophes, and the crew often have additional emergency medical training." compset="ServiceRecord">
     <usesource source="2ndEdition"/>
-    <bootstrap thing="tr2EHopeShip"></bootstrap>
+    <bootstrap thing="tr2EHopeShip">
+      <autotag group="TraitCat" tag="ServiceRecord"/>
+      </bootstrap>
     <bootstrap thing="ssr2EMissionMercy"></bootstrap>
     </thing>
   <thing id="srv2EPrototype" name="Prototype" description="The ship is brand new, first of her class, and laden with the newest technologies, assembled to be tested and studied. There are potentially a whole host of unknown problems and challenges to face, as novel systems clash or malfunction as they interact in unexpected ways." compset="ServiceRecord">
     <usesource source="2ndEdition"/>
-    <bootstrap thing="tr2EPrototype"></bootstrap>
+    <bootstrap thing="tr2EPrototype">
+      <autotag group="TraitCat" tag="ServiceRecord"/>
+	  </bootstrap>
     <bootstrap thing="ssr2EExpVessel"></bootstrap>
     </thing>
   <thing id="srv2EDepWorkhorse" name="Dependable Workhorse" description="The ship is dependable, with a solid record of successful missions and accomplishments. While overshadowed by more famous ships, this vessel is nevertheless a mainstay of the fleet, with a competent, dedicated crew." compset="ServiceRecord">
     <usesource source="2ndEdition"/>
-    <bootstrap thing="tr2EDepWorkhorse"></bootstrap>
+    <bootstrap thing="tr2EDepWorkhorse">
+      <autotag group="TraitCat" tag="ServiceRecord"/>
+	  </bootstrap>
     <bootstrap thing="ssr2EReliable"></bootstrap>
     </thing>
   <thing id="srv2ESurvivorX" name="Survivor of X" description="NOTE: Replace X with the name of a battle or war\n\nThis ship was involved in some of the fiercest battles, surviving the fighting, though not without scars. The crew is battle-hardened and prepared for anything." compset="ServiceRecord" summary="This ship was involved in some of the fiercest battles, surviving the fighting, though not without scars. The crew is battle-hardened and prepared for anything.">
     <usesource source="2ndEdition"/>
     <bootstrap thing="ssr2ERdyBattle"></bootstrap>
-    <bootstrap thing="tr2ESurvivorX"></bootstrap>
+    <bootstrap thing="tr2ESurvivorX">
+      <autotag group="TraitCat" tag="ServiceRecord"/>
+	  </bootstrap>
     </thing>
   <thing id="srv2ELegendary" name="Legendary" description="This ship is famous, having been at the center of one or more major events that shaped the history and politics of one or more civilizations. This comes with great prestige for those involved." compset="ServiceRecord">
     <usesource source="2ndEdition"/>
-    <bootstrap thing="tr2ELegendary"></bootstrap>
+    <bootstrap thing="tr2ELegendary">
+      <autotag group="TraitCat" tag="ServiceRecord"/>
+	  </bootstrap>
     <bootstrap thing="ssr2EPrestigiousP"></bootstrap>
     </thing>
   <thing id="ssr2EPrestigiousP" name="Prestigious Posting" description="When a new supporting character is first introduced, apply a single improvement to them immediately, like a milestone." compset="StarshipSpecial">

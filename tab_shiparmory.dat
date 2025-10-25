@@ -176,6 +176,8 @@
 		    txt = mid(summ,2,lng)
 		  elseif (compare(left(summ,8),"Strength") = 0) then
 		    txt = summ
+		  elseif (compare(left(summ,6),"Damage") = 0) then
+		    txt = summ
 		  else
 		    txt = "Damage: " & summ
 		    endif

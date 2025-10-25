@@ -953,6 +953,16 @@
     <inputthing>
       <it_groupref id="SourceInfo"/>
       </inputthing>
+    <inputthing
+      name="Source Name"
+      helptext="This is the name of the source for the spaceframe.">
+      <it_field field="SourceName"/>
+      </inputthing>
+    <inputthing
+      name="Source Page"
+      helptext="This is the page in the source for the spaceframe.">
+      <it_field field="SourcePage"/>
+      </inputthing>
     </editthing>
 	
   <!-- Mission Profile editthing -->
@@ -1254,6 +1264,12 @@
     description="."
     summary="Defines a special rule that can be selected.">
 	
+    <inputthing>
+      <it_groupref id="DomainGrp"/>
+      </inputthing>
+    <inputthing>
+      <it_groupref id="ChooseGrp1"/>
+      </inputthing>
 	<inputthing>
       <it_groupref id="SourceInfo"/>
       </inputthing>

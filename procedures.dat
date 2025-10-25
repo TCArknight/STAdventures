@@ -294,7 +294,13 @@
       endif
 	  
     ~append any source tags
-    descript &=	"{br}{br}{b}Source: " & tagnames[usesource.?,", "]
+	if (tagis[component.ShipInfo] <> 0) then
+	  descript &= "{br}{br}{i}Source: " & field[shipSourceName].text & ", pg. " & field[shipSourcePage].text & "{/i}"
+	elseif (tagis[component.SourceInfo] <> 0) then
+	  descript &= "{br}{br}{i}Source: " & field[SourceName].text & ", pg. " & field[SourcePage].text & "{/i}"
+	else
+      descript &=	"{br}{br}{b}Source: " & tagnames[usesource.?,", "]
+	  endif
     ]]></procedure>
 
 
@@ -543,6 +549,18 @@
 
 	desc = ""
     desc = field[ddDescript].text
+    
+    ]]></procedure>
+
+  <!-- Procedure InfoSource
+        Retrieve description of AttrSys component
+  -->
+  <procedure id="InfoSourceShip" scripttype="mouseinfo"><![CDATA[
+    ~declare variables that are used to communicate with our caller
+    var iteminfo as string
+
+    ~add the defense rating
+    iteminfo &= "{i}Source: " & field[shipSourceName].text & ", pg. " & field[shipSourcePage].text & "{/i}{br}"
     
     ]]></procedure>
 

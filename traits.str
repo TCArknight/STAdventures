@@ -450,6 +450,7 @@
     <identity group="Talent"/>
     <identity group="HasTalent"/>
     <identity group="MisProTal"/>
+    <identity group="ModMission"/>
 
     <!-- Setup an identity tag group to track all activated abilities and adjustments -->
     <identity group="Activated"/>

@@ -666,6 +666,7 @@
     <value id="Custom" order="5"/>
     <value id="ShipCustom" order="5"/>
     <value id="Ship" order="10"/>
+    <value id="ServiceRecord" order="10"/>
     <value id="Race" order="10"/>
     <value id="Main" order="20"/>
     <value id="Supp" order="30"/>

@@ -290,6 +290,22 @@
       maxlength="2000">
       </field>
 	  
+
+    <!-- Source Information -->
+    <field
+      id="shipSourceName"
+      name="Source Name"
+      maxlength="100"
+      type="derived">
+      </field>
+
+    <field
+      id="shipSourcePage"
+      name="Source Page"
+      maxlength="10"
+      type="derived">
+      </field>
+	  
     <creation><![CDATA[
       ~custom items need to pick a name
       if (tagis[Helper.CustomItem] <> 0) then
@@ -323,11 +339,6 @@
 	    if (hero.tagis[CustomFrame.?] <> 0) then
           perform hero.assign[Helper.UserUnlock]
 		  endif
-        endif
-		
-	  ~ fill out the Mission Profile if one has been selected
-      if (hero.tagis[HasProfile.?] <> 0) then
-        field[shipProfile].text = hero.findchild[Profile].field[name].text
         endif
 		
       ~ Assign a tag if the user hasn't specified any background text
@@ -748,7 +759,7 @@
       if (empty(field[descript].text) = 0) then 
 		field[fraOverview].text = field[descript].text
 	    endif
-		  
+	  	  
       foreach pick in hero where "component.ShipInfo"
 		~ Power, Resistance, crew based on scale
         eachpick.#shipscale[] = scale
@@ -763,18 +774,40 @@
 		  eachpick.field[shipLaunchYear].text = field[fraYearEnt].text
 		  endif
 		
-		eachpick.field[shipShipyard].text = field[fraShipyard].text
-		eachpick.field[shipOverview].text = field[fraOverview].text
-		eachpick.field[shipCapabilities].text = field[fraCapabilities].text
-		eachpick.field[shipRefVar].text = field[fraRefVar].text
-		eachpick.field[shipSuggPro].text = field[fraSuggPro].text
-		eachpick.field[shipNamConv].text = field[fraNamConv].text
+		if (eachpick.field[shipShipyard].isempty <> 0) then
+		  eachpick.field[shipShipyard].text = field[fraShipyard].text
+		  endif
+		if (eachpick.field[shipOverview].isempty <> 0) then
+		  eachpick.field[shipOverview].text = field[fraOverview].text
+		  endif
+		if (eachpick.field[shipCapabilities].isempty <> 0) then
+		  eachpick.field[shipCapabilities].text = field[fraCapabilities].text
+		  endif
+		if (eachpick.field[shipRefVar].isempty <> 0) then
+		  eachpick.field[shipRefVar].text = field[fraRefVar].text
+		  endif
+		if (eachpick.field[shipSuggPro].isempty <> 0) then
+		  eachpick.field[shipSuggPro].text = field[fraSuggPro].text
+		  endif
+		if (eachpick.field[shipNamConv].isempty <> 0) then
+		  eachpick.field[shipNamConv].text = field[fraNamConv].text
+		  endif
 		
-		eachpick.field[shipServ].text = field[fraSerSumm].text
-		eachpick.field[shipCrewSize].text = field[fraCrewSize].text
-		eachpick.field[shipCrewRating].text = field[fraCrewRating].text
-		eachpick.field[shipSerSumm].text = field[fraSerSumm].text
-		eachpick.field[shipShuttleNotes].text = field[fraShuttleNotes].text
+		if (eachpick.field[shipServ].isempty <> 0) then
+		  eachpick.field[shipServ].text = field[fraSerSumm].text
+		  endif
+		if (eachpick.field[shipCrewSize].isempty <> 0) then
+		  eachpick.field[shipCrewSize].text = field[fraCrewSize].text
+		  endif
+		if (eachpick.field[shipCrewRating].isempty <> 0) then
+		  eachpick.field[shipCrewRating].text = field[fraCrewRating].text
+		  endif
+		if (eachpick.field[shipSerSumm].isempty <> 0) then
+		  eachpick.field[shipSerSumm].text = field[fraSerSumm].text
+		  endif
+		if (eachpick.field[shipShuttleNotes].isempty <> 0) then
+		  eachpick.field[shipShuttleNotes].text = field[fraShuttleNotes].text
+		  endif
 		
 		if (tagis[Ship.SaucerSep] <> 0) then
 		  field[fraAllowSaucer].value = tagis[Ship.SaucerSep]
@@ -790,8 +823,16 @@
 				  
 		eachpick.field[shipAllowSaucer].value = field[fraAllowSaucer].value
 		eachpick.field[shipPodsAllowed].value = field[fraPodsAllowed].value
+	  
+		if (eachpick.field[shipSourceName].isempty <> 0) then
+	      eachpick.field[shipSourceName].text = field[SourceName].text
+	      endif
+		if (eachpick.field[shipSourcePage].isempty <> 0) then
+	      eachpick.field[shipSourcePage].text = field[SourcePage].text
+	      endif
 		
 		nexteach
+		
 
 	  perform forward[Ship.?]
 		
@@ -968,7 +1009,22 @@
       id="wpShipWpnQuals"
       name="Qualities"
       type="derived"
-      maxlength="150">
+	  maxlength="75"
+	  maxfinal="75">
+
+      <finalize><![CDATA[
+        var txt as string
+		
+		var tags as string
+		tags = tagnames[GearQual.?,", "] 
+		
+		if (empty(tags) = 0) then
+		  txt &= " " & tags
+		  endif
+		  
+	    @text = txt
+		
+        ]]></finalize>
       </field>
 	
     <!-- Synthesized text Qualities for the weapon -->
@@ -977,7 +1033,7 @@
       name="Qualities"
       type="derived"
 	  style="array"
-      maxlength="150"
+      maxlength="75"
 	  arrayrows="10">
       </field>
 	  
@@ -1045,15 +1101,17 @@
     <!-- Prepend any derived special notes to the appropriate field -->
     <eval index="4" phase="Final" priority="5000"><![CDATA[
 	  ~make sure we're in a gizmo (non-zero if there is a child gizmo)
-	  doneif (isgizmo = 0)
+	  ~ doneif (isgizmo = 0)
 	
       var qualities as string
 				
       ~assign any appropriate special notes to the "special" variable here
-	  foreach pick in gizmo from GearQuality
-	    qualities = splice(qualities,eachpick.field[gqQualName].text,", ")
-	    nexteach
-		
+	  ~ foreach pick in gizmo from GearQuality
+	  ~   qualities = splice(qualities,eachpick.field[gqQualName].text,", ")
+	  ~   nexteach
+	  
+	  qualities = tagnames[GearQual.?,", "] 
+	  
 	  ~declare variables that are used to communicate with our sort procedure
       var InputStr as string
       var StrSep as string
@@ -1527,6 +1585,7 @@
     <compref component="Frame"/>
     <compref component="Custom"/>
     <compref component="UserSelect"/>
+    <compref component="SourceInfo"/>
     </compset>
 	
   <!-- Frame - all races derive from this compset -->
@@ -1537,6 +1596,7 @@
     <compref component="UserSelect"/>
     <compref component="Domain"/>
     <compref component="Custom"/>
+    <compref component="SourceInfo"/>
     </compset>
 	
   <!-- Frame - all races derive from this compset -->
@@ -1545,6 +1605,7 @@
     <compref component="MissionPod"/>
     <compref component="BonusAttrSys"/>
     <compref component="BonusDiscDept"/>
+    <compref component="SourceInfo"/>
     </compset>
 	
   <!-- Transact - all transactions utilize this compset -->

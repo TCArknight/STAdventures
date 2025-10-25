@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="ev2EEncRogueAI" name="Encountered Rogue AI" description="Ancient civilizations, cutting-edge science, and even accidental creation can all result in true artificial intelligence (AI), and encounters with these AIs are often eventful and unpredictable situations. The character encountered one such AI, perhaps discovering it ruling over a primitive society, or attempting to override the ship’s computer, or just carrying out its programming in a strange or dangerous manner.\n\n{b}ATTRIBUTE:{/b} +1 Control or +1 Reason\n{b}DEPARTMENT:{/b} + 1 Command or +1 Science\n{b}FOCUS SUGGESTIONS:{/b} Computing, Cybernetics, Holo-Programming" compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Attr."/>
+    <fieldval field="usrLabel2" value="Dept."/>
+    <fieldval field="usrCandid1" value="thingid.attrsys01 | thingid.attrsys06"/>
+    <fieldval field="usrCandid2" value="thingid.discdept01 | thingid.discdept05"/>
+    <usesource source="TechManual"/>
+    <tag group="ChooseSrc2" tag="Hero"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    <eval phase="PreAbility" priority="5000"><![CDATA[if (field[usrChosen1].ischosen <> 0) then
+  field[usrChosen1].chosen.field[abiBonus].value += 1
+  endif
+
+if (field[usrChosen2].ischosen <> 0) then
+  field[usrChosen2].chosen.field[abiBonus].value += 1
+  endif]]></eval>
+    </thing>
+  <thing id="ev2EEncSpatialAno" name="Encountered  A Spacial Anomaly" description="The term ‘spatial anomaly’ describes any unusual disruption in the normal fabric of space-time, ranging from gravitational irregularities, locations where the laws of physics are altered, or even wormholes across space.\n\n{b}ATTRIBUTE:{/b} +1 Control or +1 Daring\n{b}DEPARTMENT:{/b} + 1 Conn or +1 Science\n{b}FOCUS SUGGESTIONS:{/b} Anomalous Physics, Quantum Mechanics, Subspace Dynamics" compset="Event" uniqueness="unique">
+    <fieldval field="usrLabel1" value="Attr."/>
+    <fieldval field="usrLabel2" value="Dept."/>
+    <fieldval field="usrCandid1" value="thingid.attrsys01 | thingid.attrsys02"/>
+    <fieldval field="usrCandid2" value="thingid.discdept02 | thingid.discdept05"/>
+    <usesource source="TechManual"/>
+    <tag group="ChooseSrc2" tag="Hero"/>
+    <tag group="ChooseSrc1" tag="Hero"/>
+    <eval phase="PreAbility" priority="5000"><![CDATA[if (field[usrChosen1].ischosen <> 0) then
+  field[usrChosen1].chosen.field[abiBonus].value += 1
+  endif
+
+if (field[usrChosen2].ischosen <> 0) then
+  field[usrChosen2].chosen.field[abiBonus].value += 1
+  endif]]></eval>
+    </thing>
+  </document>

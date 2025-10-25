@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file contains all specifications pertaining to the sources available for  the data files.
+-->
+
+<document signature="Hero Lab Structure">
+
+  <!-- The "source" elements define the assortment of user-configurable options for
+        each actor and their relative hierarchical structure. Each selectable source
+        automatically defines a "source" tag when enabled by the user, allowing the
+        data files to tailor behavior based on the presence (or not) of that tag.
+  -->
+
+  <!-- Supplements for 2nd Edition -->	
+  <source
+    id="Supplement2E"
+    name="Supplements (2E)"
+    selectable="no"
+	sortorder="0"
+    description="Supplements for the game.">
+    </source>
+
+  <source
+    id="GameToolkit"
+    name="Game Toolkit"
+    parent="Supplement2E"
+    default="no"
+    reportable="no"
+    selectable="yes"
+    sortorder="1"
+    description="Options from the 2E Game Toolkit">
+    </source>
+
+  <source
+    id="TechManual"
+    name="Technical Manual"
+    parent="Supplement2E"
+    default="no"
+    reportable="no"
+    selectable="yes"
+    sortorder="1"
+    description="Options from the Technical Manual">
+    </source>
+	
+  <!-- Supplements for 1st Edition -->	
+  <source
+    id="Supplement"
+    name="Supplements (1E)"
+    selectable="no"
+	sortorder="0"
+    description="Supplements for the game.">
+    </source>
+
+  <source
+    id="UtopiaPlanetia"
+    name="Utopia Planetia Sourcebook"
+    parent="Supplement"
+    selectable="yes"
+    sortorder="0"
+    description="Starfleet Starship Sourcebook">
+    </source>
+	
+  <source
+    id="Campaigns"
+    name="Campaign Sourcebooks"
+    parent="Supplement"
+    selectable="no"
+    sortorder="1"
+    description="Campaign Sourcebooks">
+    </source>
+	
+  <source
+    id="Divisions"
+    name="Division Sourcebooks"
+    parent="Supplement"
+    selectable="no"
+    sortorder="2"
+    description="Sourcebooks for each division">
+    </source>
+
+  <source
+    id="Quadrants"
+    name="Quadrant Sourcebooks"
+    parent="Supplement"
+    selectable="no"
+    sortorder="3"
+    description="Sourcebooks for each quadrant">
+    </source>
+	
+  <source
+    id="Characters"
+    name="Character Collections"
+    parent="Supplement"
+    selectable="no"
+    sortorder="4"
+    description="Character compilations">
+    </source>
+	
+  <source
+    id="Continuing"
+    name="Continuing Missions (Unofficial)"
+    parent="Supplement"
+    selectable="yes"
+    sortorder="0"
+    description="Material from the Continuing Missions website">
+    </source>
+	
+  <source
+    id="PlayerGuide"
+    name="Player's Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    sortorder="0"
+    description="Options from the Player's Guide">
+    </source>
+	
+  <source
+    id="GMGuide"
+    name="Gamemaster's Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    selectable="no"
+    sortorder="1"
+    description="Options from the Gamemaster's Guide">
+    </source>
+	
+  <source
+    id="Shackleton"
+    name="Shackleton Expanse Campaign Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    sortorder="3"
+    description="Options from the Shackleton Expanse Campaign Guide">
+    </source>
+	
+  <source
+    id="Discovery"
+    name="Discovery Campaign Guide"
+    parent="Campaigns"
+    default="no"
+    reportable="no"
+    sortorder="2"
+    description="Options from the Star Trek: Discovery Campaign Guide (2256-2258)">
+    </source>
+	
+  <source
+    id="DivCmd"
+    name="Command Division Sourcebook"
+    parent="Divisions"
+    default="no"
+    reportable="no"
+    sortorder="1"
+    description="Options for Command and Conn">
+    </source>
+	
+  <source
+    id="DivOps"
+    name="Operations Division Sourcebook"
+    parent="Divisions"
+    default="no"
+    reportable="no"
+    sortorder="2"
+    description="Options for Engineering and Operations">
+    </source>
+	
+  <source
+    id="DivSci"
+    name="Science Division Sourcebook"
+    parent="Divisions"
+    default="no"
+    reportable="no"
+    sortorder="3"
+    description="Options for Sciences and Medicine">
+    </source>
+	
+  <source
+    id="QuadAlpha"
+    name="Alpha Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    sortorder="1"
+    description="Options from the Alpha Quadrant sourcebook.">
+    </source>
+	
+  <source
+    id="QuadBeta"
+    name="Beta Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    sortorder="2"
+    description="Options from the Beta Quadrant sourcebook.">
+    </source>
+	
+  <source
+    id="QuadGamma"
+    name="Gamma Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    sortorder="3"
+    description="Options from the Gamma Quadrant sourcebook.">
+    </source>
+	
+  <source
+    id="QuadDelta"
+    name="Delta Quadrant Sourcebook"
+    parent="Quadrants"
+    default="no"
+    reportable="no"
+    sortorder="4"
+    description="Options from the Delta Quadrant sourcebook.">
+    </source>
+
+  <source
+    id="CharacterEnt"
+    name="Enterprise Characters"
+    parent="Characters"
+    default="no"
+    selectable="no"
+    reportable="no"
+    sortorder="0"
+    description="Options from the Enterprise Characters supplement.">
+    </source>
+	
+  <source
+    id="CharacterTOS"
+    name="Original Series Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="1"
+    description="Options from the TOS Characters supplement.">
+    </source>
+
+  <source
+    id="CharacterTNG"
+    name="Next Generations Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="2"
+    description="Options from the TNG Characters supplement.">
+    </source>
+
+  <source
+    id="CharacterDS9"
+    name="Deep Space 9 Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="3"
+    description="Options from the DS9 Characters supplement.">
+    </source>
+
+  <source
+    id="CharacterVoy"
+    name="Voyager Characters"
+    parent="Characters"
+    default="no"
+    selectable="yes"
+    reportable="no"
+    sortorder="4"
+    description="Options from the Voyager Characters supplement.">
+    </source>	
+	
+  <source
+    id="Era"
+    name="Campaign Era"
+    selectable="no"
+	sortorder="10"
+    description="Various Eras for the game.">
+    </source>
+
+  <source
+    id="ENT"
+    name="Enterprise"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="1"
+    description="Archer and Crew">
+    </source>
+
+  <source
+    id="Disco"
+    name="Discovery"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="2"
+    description="Discovery and Crew">
+    </source>
+
+  <source
+    id="TOS"
+    name="The Original Series"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="3"
+    description="Kirk and Crew">
+    </source>
+
+  <source
+    id="LostYears"
+    name="The Lost Years"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="4"
+    description="Between the Movies and TNG">
+    </source>
+	
+  <source
+    id="TNG"
+    name="The Next Generation"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="5"
+    description="Picard and Crew">
+    </source>
+	
+  <source
+    id="25th"
+    name="25th Century"
+    parent="Era"
+    default="yes"
+    reportable="no"
+    sortorder="5"
+    description="ST:Picard (2400+)">
+    </source>
+
+  <source
+    id="Optional"
+    name="Optional Rules"
+    selectable="no"
+    sortorder="5"
+    description="Collection of optional rules that can be turned on and off">
+    </source>
+
+
+  <source
+    id="StarbaseUn"
+    name="Starbase Construction (Unofficial)"
+    abbrev=""
+    parent="Optional"
+    default="no"
+    reportable="no"
+	selectable="no"
+    sortorder="1"
+    description="Unofficial rules for Starbase Construction.">
+    </source>
+
+  <source
+    id="CoreRules"
+    name="Core Rules"
+    selectable="no"
+	sortorder="0"
+    description="Which edition of the ruleset in use.">
+    </source>
+
+  <source
+    id="1stEdition"
+    name="1st Edition"
+    abbrev="1stEd"
+    parent="CoreRules"
+    default="yes"
+    reportable="yes"
+	selectable="yes"
+    sortorder="1"
+    description="Character uses the 1st edition core ruleset.">
+    </source>
+
+  <source
+    id="2ndEdition"
+    name="2nd Edition"
+    abbrev="2ndEd"
+    parent="CoreRules"
+    default="no"
+    reportable="yes"
+	selectable="yes"
+    sortorder="1"
+    description="Character uses the 2nd edition core ruleset.">
+    </source>
+	
+  <source
+    id="Output"
+    name="Output Options"
+    selectable="no"
+    description="Assortment of options governing how character sheet output is generated">
+    </source>
+
+  <source
+    id="Validation"
+    name="Include Validation Report on Sheet"
+    abbrev="Show Validation Report"
+    parent="Output"
+    default="yes"
+    reportable="no"
+    sortorder="1"
+    description="Controls whether the validation report is included at the bottom of the standard character sheet">
+    </source>
+
+  <source
+    id="ShowImage"
+    name="Include Character Portrait on Sheet"
+    abbrev="Show Character Portrait"
+    parent="Output"
+    default="yes"
+    reportable="no"
+    sortorder="2"
+    description="If a character portrait is assigned, include it in the top right region of the character sheet">
+    </source>
+
+  <source
+    id="ShowDetail"
+    name="Include Personal Details on Sheet"
+    abbrev="Show Personal Details"
+    parent="Output"
+    default="yes"
+    reportable="no"
+    sortorder="3"
+    description="Controls whether the character's personal details (history) are included on the character sheet">
+    </source>
+
+  <source
+    id="ShowTrackR"
+    name="Include Tracked Resources on Statblock"
+    abbrev="Show Tracked Resources"
+    parent="Output"
+    reportable="no"
+    sortorder="4"
+    description="Controls whether any tracked resources for the character are included in the text statblock">
+    </source>
+	
+  </document>

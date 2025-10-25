@@ -233,6 +233,8 @@
 	  
       perform portal[power].alignrel[ltor,lblPower,10]
 	  portal[power].top = portal[lblPower].top
+	  portal[lblPower].visible = 1 - hero.tagis[source.2ndEdition]
+	  portal[power].visible = portal[lblPower].visible
 	  
       ~position scale at the top right
       portal[lblScale].top = portal[lblPower].top
@@ -731,7 +733,7 @@
     name="Basics"
     marginhorz="5"
     marginvert="5"
-    order="5">
+    order="10">
     <live>!HideTab.basics</live>
     <layoutref layout="basics"/>
     <position><![CDATA[

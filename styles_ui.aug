@@ -450,11 +450,11 @@
       </color>
     </resource>
 
-  <!-- color used for text on action buttons -->
+  <!-- color used for text on action buttons 000088 FFFD00 -->
   <resource
     id="clraction">
     <color
-      color="000088">
+      color="FFFF00">
       </color>
     </resource>
 
@@ -1125,6 +1125,37 @@
 
 
 <!-- ##### Styles - Action Portals/Buttons ##### -->
+
+  <!-- style used on double-sized action buttons -->
+  <style
+    id="actDouble">
+    <style_action
+      textcolorid="clraction"
+      font="fntactsml"
+      up="actdoubleup" down="actdoubledn" off="actdoubleof">
+      </style_action>
+    <resource
+      id="actdoubleup"
+      isbuiltin="no">
+      <bitmap
+        bitmap="button_dbl_up.bmp">
+        </bitmap>
+      </resource>
+    <resource
+      id="actdoubledn"
+      isbuiltin="no">
+      <bitmap
+        bitmap="button_dbl_down.bmp">
+        </bitmap>
+      </resource>
+    <resource
+      id="actdoubleof"
+      isbuiltin="no">
+      <bitmap
+        bitmap="button_dbl_off.bmp">
+        </bitmap>
+      </resource>
+    </style>
 
   <!-- style used on big action buttons -->
   <style

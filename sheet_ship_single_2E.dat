@@ -81,8 +81,31 @@
     style="outNameLg">
     <output_label>
       <labeltext><![CDATA[
+	    var temp as string
+		var division as string
+	    var ismore as number
+		var cnt as number
+		
+		temp = ""
+		ismore = 0
+		foreach pick in hero from ServiceRecord
+		  cnt += 1
+		  if (ismore <> 0) then
+		    temp &= ", "
+            endif
+		  
+	      temp &= eachpick.field[name].text
+	  
+          ismore = 1
+          nexteach
+		  
 	    @text &= "{size 34}SERVICE RECORD{revert}{br}     "
-	    @text &= ""
+	    
+		if (cnt > 1) then
+		  @text &= "{size 34}"
+		  endif
+		
+		@text &= temp
         ]]></labeltext>
       </output_label>
     </portal>
@@ -120,7 +143,7 @@
 		
 		temp = ""
 		ismore = 0
-		foreach pick in hero from Trait
+		foreach pick in hero from Trait where "!TraitCat.ServiceRecord"
 		  if (ismore <> 0) then
 		    temp &= ", "
             endif
@@ -621,8 +644,8 @@
 	  
       perform portal[oShipServiceRec].autoplace
 	  portal[oShipServiceRec].left = portal[oShipProfile].right + 10
-	  portal[oShipServiceRec].top = portal[oShipProfile].top
-	  
+	  portal[oShipServiceRec].top = portal[oShipProfile].top	  
+	  portal[oShipServiceRec].height = portal[oShipProfile].height	  
 
       ~our layout height is the extent of the elements within
       height = portal[oShipTraits].bottom

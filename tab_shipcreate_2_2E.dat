@@ -131,9 +131,9 @@
       if (hero.tagis[StarshipSelected.Profile] <> 0) then
         portal[sc2Profile].freeze = 1
         endif
-      if (hero.tagis[StarshipSelected.Service] <> 0) then
-        portal[sc2ServRecord].freeze = 1
-        endif
+      ~if (hero.tagis[StarshipSelected.Service] <> 0) then
+      ~  portal[sc2ServRecord].freeze = 1
+      ~  endif
 		
 	  var col2 as number
 	  var colwidth as number

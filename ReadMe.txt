@@ -1,17 +1,33 @@
 History:
-v1.5
+v2.1
 Release: xx/xx/xx
 
 TODO: Advances
 
 Known Issues:
+* Starships - Can select more than one Ship Talent for Mission Profile
 
 Fixed - 
-Talents with Hide.Talent tag showing when choosing Talents
-Traits with Hide.Trait tag showing when choosing Traits
+* Talents with Hide.Talent tag showing when choosing Talents
+* Traits with Hide.Trait tag showing when choosing Traits
+* Species Tab - Mixed Heritage Add Traits button resized to fit text
+* Starships - Customization of Ship Details being overwritten by Frame Details
+
+Enhancements -
+[Main] 2E Character Sheet 
+[Starships] 2E Starship Character Sheet 
+[2E] Add 2e Supplemental for:
+	- Command Division Sourcebook
+	- Operations Division Sourcebook
+	- Sciences Division Sourcebook
+	- Crew Pack (Star Trek: Picard (Season 1))
+	- Crew Pack (Star Trek: TNG Player Characters)
 
 New - 
 !!! Core rules 2.0 !!!
+[2e] GM Toolkit
+[2e] Technical Manual
+[2e] Exploration Guide
 
 v1.13
 Release: 02/20/2023
